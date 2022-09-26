@@ -338,6 +338,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   segStorageType?: string;
   storageSize?: number;
   storageType?: string;
+  tag?: CreateDBInstanceRequestTag[];
   usedTime?: string;
   VPCId?: string;
   vSwitchId?: string;
@@ -367,6 +368,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       segStorageType: 'SegStorageType',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
+      tag: 'Tag',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -399,6 +401,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       segStorageType: 'string',
       storageSize: 'number',
       storageType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -2801,6 +2804,7 @@ export class DescribeDataShareInstancesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   searchValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2808,6 +2812,7 @@ export class DescribeDataShareInstancesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       searchValue: 'SearchValue',
     };
   }
@@ -2818,6 +2823,7 @@ export class DescribeDataShareInstancesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       searchValue: 'string',
     };
   }
@@ -2887,12 +2893,14 @@ export class DescribeDataSharePerformanceRequest extends $tea.Model {
   endTime?: string;
   key?: string;
   regionId?: string;
+  resourceGroupId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       key: 'Key',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       startTime: 'StartTime',
     };
   }
@@ -2902,6 +2910,7 @@ export class DescribeDataSharePerformanceRequest extends $tea.Model {
       endTime: 'string',
       key: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       startTime: 'string',
     };
   }
@@ -4653,6 +4662,126 @@ export class DescribeSQLLogsOnSliceResponse extends $tea.Model {
   }
 }
 
+export class DescribeSQLLogsV2Request extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  executeCost?: string;
+  executeState?: string;
+  maxExecuteCost?: string;
+  minExecuteCost?: string;
+  operationClass?: string;
+  operationType?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  queryKeywords?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  sourceIP?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      executeCost: 'ExecuteCost',
+      executeState: 'ExecuteState',
+      maxExecuteCost: 'MaxExecuteCost',
+      minExecuteCost: 'MinExecuteCost',
+      operationClass: 'OperationClass',
+      operationType: 'OperationType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryKeywords: 'QueryKeywords',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sourceIP: 'SourceIP',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      executeCost: 'string',
+      executeState: 'string',
+      maxExecuteCost: 'string',
+      minExecuteCost: 'string',
+      operationClass: 'string',
+      operationType: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      queryKeywords: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sourceIP: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsV2ResponseBody extends $tea.Model {
+  items?: DescribeSQLLogsV2ResponseBodyItems[];
+  pageNumber?: number;
+  pageRecordCount?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeSQLLogsV2ResponseBodyItems },
+      pageNumber: 'number',
+      pageRecordCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSQLLogsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSQLLogsV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSampleDataRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerId?: number;
@@ -5023,6 +5152,7 @@ export class DescribeTagsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   resourceType?: string;
@@ -5031,6 +5161,7 @@ export class DescribeTagsRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
@@ -5042,6 +5173,7 @@ export class DescribeTagsRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       resourceType: 'string',
@@ -7418,6 +7550,28 @@ export class UpgradeDBVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpgradeDBVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -10099,6 +10253,61 @@ export class DescribeSQLLogsOnSliceResponseBodySliceLogItems extends $tea.Model 
   }
 }
 
+export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
+  accountName?: string;
+  DBName?: string;
+  DBRole?: string;
+  executeCost?: number;
+  executeState?: string;
+  operationClass?: string;
+  operationExecuteTime?: string;
+  operationType?: string;
+  returnRowCounts?: number;
+  SQLText?: string;
+  scanRowCounts?: number;
+  sourceIP?: string;
+  sourcePort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      DBName: 'DBName',
+      DBRole: 'DBRole',
+      executeCost: 'ExecuteCost',
+      executeState: 'ExecuteState',
+      operationClass: 'OperationClass',
+      operationExecuteTime: 'OperationExecuteTime',
+      operationType: 'OperationType',
+      returnRowCounts: 'ReturnRowCounts',
+      SQLText: 'SQLText',
+      scanRowCounts: 'ScanRowCounts',
+      sourceIP: 'SourceIP',
+      sourcePort: 'SourcePort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      DBName: 'string',
+      DBRole: 'string',
+      executeCost: 'number',
+      executeState: 'string',
+      operationClass: 'string',
+      operationExecuteTime: 'string',
+      operationType: 'string',
+      returnRowCounts: 'number',
+      SQLText: 'string',
+      scanRowCounts: 'number',
+      sourceIP: 'string',
+      sourcePort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSlowLogRecordsResponseBodyItemsSQLSlowRecord extends $tea.Model {
   DBName?: string;
   executionStartTime?: string;
@@ -10720,6 +10929,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.storageType)) {
       query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.usedTime)) {
@@ -12028,6 +12241,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.searchValue)) {
       query["SearchValue"] = request.searchValue;
     }
@@ -12067,6 +12284,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -13007,6 +13228,99 @@ export default class Client extends OpenApi {
     return await this.describeSQLLogsOnSliceWithOptions(request, runtime);
   }
 
+  async describeSQLLogsV2WithOptions(request: DescribeSQLLogsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.executeCost)) {
+      query["ExecuteCost"] = request.executeCost;
+    }
+
+    if (!Util.isUnset(request.executeState)) {
+      query["ExecuteState"] = request.executeState;
+    }
+
+    if (!Util.isUnset(request.maxExecuteCost)) {
+      query["MaxExecuteCost"] = request.maxExecuteCost;
+    }
+
+    if (!Util.isUnset(request.minExecuteCost)) {
+      query["MinExecuteCost"] = request.minExecuteCost;
+    }
+
+    if (!Util.isUnset(request.operationClass)) {
+      query["OperationClass"] = request.operationClass;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryKeywords)) {
+      query["QueryKeywords"] = request.queryKeywords;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sourceIP)) {
+      query["SourceIP"] = request.sourceIP;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLLogsV2",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLLogsV2Response>(await this.callApi(params, req, runtime), new DescribeSQLLogsV2Response({}));
+  }
+
+  async describeSQLLogsV2(request: DescribeSQLLogsV2Request): Promise<DescribeSQLLogsV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSQLLogsV2WithOptions(request, runtime);
+  }
+
   async describeSampleDataWithOptions(request: DescribeSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13232,6 +13546,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
