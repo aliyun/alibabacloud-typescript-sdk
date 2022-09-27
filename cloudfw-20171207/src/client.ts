@@ -1728,7 +1728,6 @@ export class DescribeOutgoingDestinationIPResponse extends $tea.Model {
 }
 
 export class DescribeOutgoingDomainRequest extends $tea.Model {
-  categoryId?: string;
   currentPage?: string;
   domain?: string;
   endTime?: string;
@@ -1740,7 +1739,6 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
       domain: 'Domain',
       endTime: 'EndTime',
@@ -1755,7 +1753,6 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      categoryId: 'string',
       currentPage: 'string',
       domain: 'string',
       endTime: 'string',
@@ -1983,9 +1980,11 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
   firewallType?: string;
   lang?: string;
   noLocation?: string;
+  order?: string;
   pageSize?: string;
   ruleResult?: string;
   ruleSource?: string;
+  sort?: string;
   srcIP?: string;
   srcNetworkInstanceId?: string;
   startTime?: string;
@@ -2004,9 +2003,11 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       firewallType: 'FirewallType',
       lang: 'Lang',
       noLocation: 'NoLocation',
+      order: 'Order',
       pageSize: 'PageSize',
       ruleResult: 'RuleResult',
       ruleSource: 'RuleSource',
+      sort: 'Sort',
       srcIP: 'SrcIP',
       srcNetworkInstanceId: 'SrcNetworkInstanceId',
       startTime: 'StartTime',
@@ -2028,9 +2029,11 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       firewallType: 'string',
       lang: 'string',
       noLocation: 'string',
+      order: 'string',
       pageSize: 'string',
       ruleResult: 'string',
       ruleSource: 'string',
+      sort: 'string',
       srcIP: 'string',
       srcNetworkInstanceId: 'string',
       startTime: 'string',
@@ -4663,6 +4666,28 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList extends $tea.Model {
+  addressGroupName?: string;
+  addressGroupUUID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressGroupName: 'AddressGroupName',
+      addressGroupUUID: 'AddressGroupUUID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressGroupName: 'string',
+      addressGroupUUID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList extends $tea.Model {
   applicationName?: string;
   port?: number;
@@ -4686,12 +4711,14 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortLi
 }
 
 export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $tea.Model {
+  classId?: string;
   riskLevel?: number;
   tagDescribe?: string;
   tagId?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
+      classId: 'ClassId',
       riskLevel: 'RiskLevel',
       tagDescribe: 'TagDescribe',
       tagId: 'TagId',
@@ -4701,6 +4728,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
 
   static types(): { [key: string]: any } {
     return {
+      classId: 'string',
       riskLevel: 'number',
       tagDescribe: 'string',
       tagId: 'string',
@@ -4717,43 +4745,49 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
   aclCoverage?: string;
   aclRecommendDetail?: string;
   aclStatus?: string;
-  addressGroupName?: string;
-  addressGroupUUID?: string;
+  addressGroupList?: DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList[];
   applicationPortList?: DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList[];
+  categoryClassId?: string;
   categoryId?: string;
   categoryName?: string;
   dstIP?: string;
   groupName?: string;
+  hasAcl?: string;
   hasAclRecommend?: boolean;
   inBytes?: number;
   isMarkNormal?: boolean;
   outBytes?: number;
   ruleId?: string;
   ruleName?: string;
+  securityReason?: string;
   securitySuggest?: string;
   sessionCount?: number;
   tagList?: DescribeOutgoingDestinationIPResponseBodyDstIPListTagList[];
+  totalBytes?: string;
   static names(): { [key: string]: string } {
     return {
       aclCoverage: 'AclCoverage',
       aclRecommendDetail: 'AclRecommendDetail',
       aclStatus: 'AclStatus',
-      addressGroupName: 'AddressGroupName',
-      addressGroupUUID: 'AddressGroupUUID',
+      addressGroupList: 'AddressGroupList',
       applicationPortList: 'ApplicationPortList',
+      categoryClassId: 'CategoryClassId',
       categoryId: 'CategoryId',
       categoryName: 'CategoryName',
       dstIP: 'DstIP',
       groupName: 'GroupName',
+      hasAcl: 'HasAcl',
       hasAclRecommend: 'HasAclRecommend',
       inBytes: 'InBytes',
       isMarkNormal: 'IsMarkNormal',
       outBytes: 'OutBytes',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      securityReason: 'SecurityReason',
       securitySuggest: 'SecuritySuggest',
       sessionCount: 'SessionCount',
       tagList: 'TagList',
+      totalBytes: 'TotalBytes',
     };
   }
 
@@ -4762,22 +4796,25 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
       aclCoverage: 'string',
       aclRecommendDetail: 'string',
       aclStatus: 'string',
-      addressGroupName: 'string',
-      addressGroupUUID: 'string',
+      addressGroupList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList },
       applicationPortList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList },
+      categoryClassId: 'string',
       categoryId: 'string',
       categoryName: 'string',
       dstIP: 'string',
       groupName: 'string',
+      hasAcl: 'string',
       hasAclRecommend: 'boolean',
       inBytes: 'number',
       isMarkNormal: 'boolean',
       outBytes: 'number',
       ruleId: 'string',
       ruleName: 'string',
+      securityReason: 'string',
       securitySuggest: 'string',
       sessionCount: 'number',
       tagList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListTagList },
+      totalBytes: 'string',
     };
   }
 
@@ -4787,12 +4824,14 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Mod
 }
 
 export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $tea.Model {
+  classId?: string;
   riskLevel?: number;
   tagDescribe?: string;
   tagId?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
+      classId: 'ClassId',
       riskLevel: 'RiskLevel',
       tagDescribe: 'TagDescribe',
       tagId: 'TagId',
@@ -4802,6 +4841,7 @@ export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      classId: 'string',
       riskLevel: 'number',
       tagDescribe: 'string',
       tagId: 'string',
@@ -4820,19 +4860,25 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
   aclStatus?: string;
   addressGroupName?: string;
   addressGroupUUID?: string;
+  business?: string;
+  categoryClassId?: string;
   categoryId?: string;
   categoryName?: string;
   domain?: string;
   groupName?: string;
+  hasAcl?: string;
   hasAclRecommend?: boolean;
   inBytes?: number;
   isMarkNormal?: boolean;
+  organization?: string;
   outBytes?: number;
   ruleId?: string;
   ruleName?: string;
+  securityReason?: string;
   securitySuggest?: string;
   sessionCount?: number;
   tagList?: DescribeOutgoingDomainResponseBodyDomainListTagList[];
+  totalBytes?: string;
   static names(): { [key: string]: string } {
     return {
       aclCoverage: 'AclCoverage',
@@ -4840,19 +4886,25 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       aclStatus: 'AclStatus',
       addressGroupName: 'AddressGroupName',
       addressGroupUUID: 'AddressGroupUUID',
+      business: 'Business',
+      categoryClassId: 'CategoryClassId',
       categoryId: 'CategoryId',
       categoryName: 'CategoryName',
       domain: 'Domain',
       groupName: 'GroupName',
+      hasAcl: 'HasAcl',
       hasAclRecommend: 'HasAclRecommend',
       inBytes: 'InBytes',
       isMarkNormal: 'IsMarkNormal',
+      organization: 'Organization',
       outBytes: 'OutBytes',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      securityReason: 'SecurityReason',
       securitySuggest: 'SecuritySuggest',
       sessionCount: 'SessionCount',
       tagList: 'TagList',
+      totalBytes: 'TotalBytes',
     };
   }
 
@@ -4863,19 +4915,25 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
       aclStatus: 'string',
       addressGroupName: 'string',
       addressGroupUUID: 'string',
+      business: 'string',
+      categoryClassId: 'string',
       categoryId: 'string',
       categoryName: 'string',
       domain: 'string',
       groupName: 'string',
+      hasAcl: 'string',
       hasAclRecommend: 'boolean',
       inBytes: 'number',
       isMarkNormal: 'boolean',
+      organization: 'string',
       outBytes: 'number',
       ruleId: 'string',
       ruleName: 'string',
+      securityReason: 'string',
       securitySuggest: 'string',
       sessionCount: 'number',
       tagList: { 'type': 'array', 'itemType': DescribeOutgoingDomainResponseBodyDomainListTagList },
+      totalBytes: 'string',
     };
   }
 
@@ -7060,10 +7118,6 @@ export default class Client extends OpenApi {
   async describeOutgoingDomainWithOptions(request: DescribeOutgoingDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.categoryId)) {
-      query["CategoryId"] = request.categoryId;
-    }
-
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -7255,6 +7309,10 @@ export default class Client extends OpenApi {
       query["NoLocation"] = request.noLocation;
     }
 
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -7265,6 +7323,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ruleSource)) {
       query["RuleSource"] = request.ruleSource;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
     }
 
     if (!Util.isUnset(request.srcIP)) {
