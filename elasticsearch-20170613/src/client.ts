@@ -8,6 +8,302 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ClientNodeConfiguration extends $tea.Model {
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DictInfo extends $tea.Model {
+  fileSize?: number;
+  name?: string;
+  sourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSize: 'fileSize',
+      name: 'name',
+      sourceType: 'sourceType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSize: 'number',
+      name: 'string',
+      sourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElasticDataNodeConfiguration extends $tea.Model {
+  amount?: number;
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
+  performanceLevel?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
+      performanceLevel: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Elasticsearch extends $tea.Model {
+  advancedDedicateMaster?: boolean;
+  advancedSetting?: ElasticsearchAdvancedSetting;
+  aliwsDicts?: DictInfo[];
+  clientNodeConfiguration?: ClientNodeConfiguration;
+  createdAt?: string;
+  dataNode?: boolean;
+  dedicateMaster?: boolean;
+  description?: string;
+  dictList?: DictInfo[];
+  domain?: string;
+  elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
+  enableKibanaPrivateNetwork?: boolean;
+  enableKibanaPublicNetwork?: boolean;
+  enablePublic?: boolean;
+  endTime?: number;
+  esConfig?: { [key: string]: string };
+  esIPWhitelist?: string[];
+  esVersion?: string;
+  extendConfigs?: { [key: string]: any }[];
+  haveClientNode?: boolean;
+  haveElasticDataNode?: boolean;
+  haveKibana?: boolean;
+  ikHotDicts?: DictInfo[];
+  instanceId?: string;
+  kibanaConfiguration?: KibanaNodeConfiguration;
+  kibanaDomain?: string;
+  kibanaIPWhitelist?: string[];
+  kibanaPort?: number;
+  kibanaPrivateDomain?: string;
+  kibanaPrivateIPWhitelist?: string[];
+  kibanaPrivatePort?: number;
+  kibanaProtocol?: string;
+  masterConfiguration?: MasterNodeConfiguration;
+  networkConfig?: NetworkConfig;
+  nodeAmount?: number;
+  nodeSpec?: NodeSpec;
+  paymentType?: string;
+  port?: number;
+  privateNetworkIpWhiteList?: string[];
+  productType?: string;
+  protocol?: string;
+  publicDomain?: string;
+  publicIpWhitelist?: string[];
+  publicPort?: number;
+  readWritePolicy?: ReadWritePolicy;
+  resourceGroupId?: string;
+  serviceVpc?: boolean;
+  status?: string;
+  synonymsDicts?: DictInfo[];
+  tags?: Tag[];
+  updatedAt?: string;
+  warmNode?: boolean;
+  warmNodeConfiguration?: WarmNodeConfiguration;
+  zoneCount?: number;
+  zoneInfos?: ZoneInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      advancedDedicateMaster: 'advancedDedicateMaster',
+      advancedSetting: 'advancedSetting',
+      aliwsDicts: 'aliwsDicts',
+      clientNodeConfiguration: 'clientNodeConfiguration',
+      createdAt: 'createdAt',
+      dataNode: 'dataNode',
+      dedicateMaster: 'dedicateMaster',
+      description: 'description',
+      dictList: 'dictList',
+      domain: 'domain',
+      elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
+      enableKibanaPrivateNetwork: 'enableKibanaPrivateNetwork',
+      enableKibanaPublicNetwork: 'enableKibanaPublicNetwork',
+      enablePublic: 'enablePublic',
+      endTime: 'endTime',
+      esConfig: 'esConfig',
+      esIPWhitelist: 'esIPWhitelist',
+      esVersion: 'esVersion',
+      extendConfigs: 'extendConfigs',
+      haveClientNode: 'haveClientNode',
+      haveElasticDataNode: 'haveElasticDataNode',
+      haveKibana: 'haveKibana',
+      ikHotDicts: 'ikHotDicts',
+      instanceId: 'instanceId',
+      kibanaConfiguration: 'kibanaConfiguration',
+      kibanaDomain: 'kibanaDomain',
+      kibanaIPWhitelist: 'kibanaIPWhitelist',
+      kibanaPort: 'kibanaPort',
+      kibanaPrivateDomain: 'kibanaPrivateDomain',
+      kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
+      kibanaPrivatePort: 'kibanaPrivatePort',
+      kibanaProtocol: 'kibanaProtocol',
+      masterConfiguration: 'masterConfiguration',
+      networkConfig: 'networkConfig',
+      nodeAmount: 'nodeAmount',
+      nodeSpec: 'nodeSpec',
+      paymentType: 'paymentType',
+      port: 'port',
+      privateNetworkIpWhiteList: 'privateNetworkIpWhiteList',
+      productType: 'productType',
+      protocol: 'protocol',
+      publicDomain: 'publicDomain',
+      publicIpWhitelist: 'publicIpWhitelist',
+      publicPort: 'publicPort',
+      readWritePolicy: 'readWritePolicy',
+      resourceGroupId: 'resourceGroupId',
+      serviceVpc: 'serviceVpc',
+      status: 'status',
+      synonymsDicts: 'synonymsDicts',
+      tags: 'tags',
+      updatedAt: 'updatedAt',
+      warmNode: 'warmNode',
+      warmNodeConfiguration: 'warmNodeConfiguration',
+      zoneCount: 'zoneCount',
+      zoneInfos: 'zoneInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedDedicateMaster: 'boolean',
+      advancedSetting: ElasticsearchAdvancedSetting,
+      aliwsDicts: { 'type': 'array', 'itemType': DictInfo },
+      clientNodeConfiguration: ClientNodeConfiguration,
+      createdAt: 'string',
+      dataNode: 'boolean',
+      dedicateMaster: 'boolean',
+      description: 'string',
+      dictList: { 'type': 'array', 'itemType': DictInfo },
+      domain: 'string',
+      elasticDataNodeConfiguration: ElasticDataNodeConfiguration,
+      enableKibanaPrivateNetwork: 'boolean',
+      enableKibanaPublicNetwork: 'boolean',
+      enablePublic: 'boolean',
+      endTime: 'number',
+      esConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      esVersion: 'string',
+      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      haveClientNode: 'boolean',
+      haveElasticDataNode: 'boolean',
+      haveKibana: 'boolean',
+      ikHotDicts: { 'type': 'array', 'itemType': DictInfo },
+      instanceId: 'string',
+      kibanaConfiguration: KibanaNodeConfiguration,
+      kibanaDomain: 'string',
+      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      kibanaPort: 'number',
+      kibanaPrivateDomain: 'string',
+      kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      kibanaPrivatePort: 'number',
+      kibanaProtocol: 'string',
+      masterConfiguration: MasterNodeConfiguration,
+      networkConfig: NetworkConfig,
+      nodeAmount: 'number',
+      nodeSpec: NodeSpec,
+      paymentType: 'string',
+      port: 'number',
+      privateNetworkIpWhiteList: { 'type': 'array', 'itemType': 'string' },
+      productType: 'string',
+      protocol: 'string',
+      publicDomain: 'string',
+      publicIpWhitelist: { 'type': 'array', 'itemType': 'string' },
+      publicPort: 'number',
+      readWritePolicy: ReadWritePolicy,
+      resourceGroupId: 'string',
+      serviceVpc: 'boolean',
+      status: 'string',
+      synonymsDicts: { 'type': 'array', 'itemType': DictInfo },
+      tags: { 'type': 'array', 'itemType': Tag },
+      updatedAt: 'string',
+      warmNode: 'boolean',
+      warmNodeConfiguration: WarmNodeConfiguration,
+      zoneCount: 'number',
+      zoneInfos: { 'type': 'array', 'itemType': ZoneInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KibanaNodeConfiguration extends $tea.Model {
+  amount?: number;
+  disk?: number;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Logstash extends $tea.Model {
   config?: { [key: string]: string };
   createdAt?: string;
@@ -73,6 +369,280 @@ export class Logstash extends $tea.Model {
       version: 'string',
       zoneCount: 'number',
       zoneInfos: { 'type': 'array', 'itemType': LogstashZoneInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MasterNodeConfiguration extends $tea.Model {
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NetworkConfig extends $tea.Model {
+  type?: string;
+  vpcId?: string;
+  vsArea?: string;
+  vswitchId?: string;
+  whiteIpGroupList?: WhiteIpGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
+      whiteIpGroupList: 'whiteIpGroupList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      vpcId: 'string',
+      vsArea: 'string',
+      vswitchId: 'string',
+      whiteIpGroupList: { 'type': 'array', 'itemType': WhiteIpGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeInfo extends $tea.Model {
+  host?: string;
+  hostName?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      hostName: 'hostName',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      hostName: 'string',
+      port: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeSpec extends $tea.Model {
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
+  performanceLevel?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
+      performanceLevel: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PaymentInfo extends $tea.Model {
+  autoRenewDuration?: number;
+  duration?: number;
+  isAutoRenew?: boolean;
+  pricingCycle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenewDuration: 'autoRenewDuration',
+      duration: 'duration',
+      isAutoRenew: 'isAutoRenew',
+      pricingCycle: 'pricingCycle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenewDuration: 'number',
+      duration: 'number',
+      isAutoRenew: 'boolean',
+      pricingCycle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReadWritePolicy extends $tea.Model {
+  autoGeneratePk?: boolean;
+  writeHa?: boolean;
+  writePolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoGeneratePk: 'autoGeneratePk',
+      writeHa: 'writeHa',
+      writePolicy: 'writePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoGeneratePk: 'boolean',
+      writeHa: 'boolean',
+      writePolicy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Tag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WarmNodeConfiguration extends $tea.Model {
+  amount?: number;
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
+  performanceLevel?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
+      performanceLevel: 'string',
+      spec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WhiteIpGroup extends $tea.Model {
+  whiteIpType?: string;
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      whiteIpType: 'WhiteIpType',
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whiteIpType: 'string',
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ZoneInfo extends $tea.Model {
+  status?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -286,18 +856,15 @@ export class AddSnapshotRepoResponse extends $tea.Model {
 }
 
 export class CancelDeletionRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -355,18 +922,15 @@ export class CancelDeletionResponse extends $tea.Model {
 }
 
 export class CancelLogstashDeletionRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -424,12 +988,10 @@ export class CancelLogstashDeletionResponse extends $tea.Model {
 }
 
 export class CancelTaskRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
       taskType: 'taskType',
     };
@@ -437,7 +999,6 @@ export class CancelTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
       taskType: 'string',
     };
@@ -572,12 +1133,10 @@ export class CapacityPlanResponse extends $tea.Model {
 
 export class CloseDiagnosisRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
       lang: 'lang',
     };
   }
@@ -585,7 +1144,6 @@ export class CloseDiagnosisRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
       lang: 'string',
     };
   }
@@ -643,18 +1201,15 @@ export class CloseDiagnosisResponse extends $tea.Model {
 }
 
 export class CloseHttpsRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -713,18 +1268,15 @@ export class CloseHttpsResponse extends $tea.Model {
 
 export class CloseManagedIndexRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -1568,18 +2120,15 @@ export class DeactivateZonesResponse extends $tea.Model {
 
 export class DeleteCollectorRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -1627,25 +2176,6 @@ export class DeleteCollectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCollectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteComponentIndexRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -1702,12 +2232,10 @@ export class DeleteComponentIndexResponse extends $tea.Model {
 }
 
 export class DeleteConnectedClusterRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   connectedInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
       connectedInstanceId: 'connectedInstanceId',
     };
@@ -1715,7 +2243,6 @@ export class DeleteConnectedClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
       connectedInstanceId: 'string',
     };
@@ -1775,18 +2302,15 @@ export class DeleteConnectedClusterResponse extends $tea.Model {
 
 export class DeleteDataStreamRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -1844,12 +2368,10 @@ export class DeleteDataStreamResponse extends $tea.Model {
 
 export class DeleteDataTaskRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
       taskId: 'taskId',
     };
   }
@@ -1857,7 +2379,6 @@ export class DeleteDataTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
       taskId: 'string',
     };
   }
@@ -1914,25 +2435,6 @@ export class DeleteDataTaskResponse extends $tea.Model {
   }
 }
 
-export class DeleteDeprecatedTemplateRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteDeprecatedTemplateResponseBody extends $tea.Model {
   requestId?: string;
   result?: boolean;
@@ -1980,25 +2482,6 @@ export class DeleteDeprecatedTemplateResponse extends $tea.Model {
   }
 }
 
-export class DeleteILMPolicyRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteILMPolicyResponseBody extends $tea.Model {
   requestId?: string;
   result?: boolean;
@@ -2038,25 +2521,6 @@ export class DeleteILMPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteILMPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteIndexTemplateRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -2113,12 +2577,10 @@ export class DeleteIndexTemplateResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   deleteType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
       deleteType: 'deleteType',
     };
@@ -2126,7 +2588,6 @@ export class DeleteInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
       deleteType: 'string',
     };
@@ -2182,12 +2643,10 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteLogstashRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   deleteType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
       deleteType: 'deleteType',
     };
@@ -2195,7 +2654,6 @@ export class DeleteLogstashRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
       deleteType: 'string',
     };
@@ -2252,12 +2710,10 @@ export class DeleteLogstashResponse extends $tea.Model {
 
 export class DeletePipelinesRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   pipelineIds?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
       pipelineIds: 'pipelineIds',
     };
   }
@@ -2265,7 +2721,6 @@ export class DeletePipelinesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
       pipelineIds: 'string',
     };
   }
@@ -2323,12 +2778,10 @@ export class DeletePipelinesResponse extends $tea.Model {
 }
 
 export class DeleteSnapshotRepoRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   repoPath?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
       repoPath: 'repoPath',
     };
@@ -2336,7 +2789,6 @@ export class DeleteSnapshotRepoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
       repoPath: 'string',
     };
@@ -2396,18 +2848,15 @@ export class DeleteSnapshotRepoResponse extends $tea.Model {
 
 export class DeleteVpcEndpointRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -2463,25 +2912,6 @@ export class DeleteVpcEndpointResponse extends $tea.Model {
   }
 }
 
-export class DescribeAckOperatorRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAckOperatorResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeAckOperatorResponseBodyResult;
@@ -2521,25 +2951,6 @@ export class DescribeAckOperatorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAckOperatorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApmRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -2595,25 +3006,6 @@ export class DescribeApmResponse extends $tea.Model {
   }
 }
 
-export class DescribeCollectorRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeCollectorResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeCollectorResponseBodyResult;
@@ -2653,25 +3045,6 @@ export class DescribeCollectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCollectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeComponentIndexRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -2729,18 +3102,15 @@ export class DescribeComponentIndexResponse extends $tea.Model {
 
 export class DescribeConnectableClustersRequest extends $tea.Model {
   alreadySetItems?: boolean;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       alreadySetItems: 'alreadySetItems',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       alreadySetItems: 'boolean',
-      body: 'string',
     };
   }
 
@@ -2788,25 +3158,6 @@ export class DescribeConnectableClustersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeConnectableClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeprecatedTemplateRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -2863,18 +3214,15 @@ export class DescribeDeprecatedTemplateResponse extends $tea.Model {
 }
 
 export class DescribeDiagnoseReportRequest extends $tea.Model {
-  body?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       lang: 'lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       lang: 'string',
     };
   }
@@ -2932,18 +3280,15 @@ export class DescribeDiagnoseReportResponse extends $tea.Model {
 }
 
 export class DescribeDiagnosisSettingsRequest extends $tea.Model {
-  body?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       lang: 'lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       lang: 'string',
     };
   }
@@ -3000,25 +3345,6 @@ export class DescribeDiagnosisSettingsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDynamicSettingsRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDynamicSettingsResponseBody extends $tea.Model {
   requestId?: string;
   result?: string;
@@ -3058,25 +3384,6 @@ export class DescribeDynamicSettingsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDynamicSettingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeElasticsearchHealthRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3138,25 +3445,6 @@ export class DescribeElasticsearchHealthResponse extends $tea.Model {
   }
 }
 
-export class DescribeILMPolicyRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeILMPolicyResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeILMPolicyResponseBodyResult;
@@ -3196,25 +3484,6 @@ export class DescribeILMPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeILMPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIndexTemplateRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3270,25 +3539,6 @@ export class DescribeIndexTemplateResponse extends $tea.Model {
   }
 }
 
-export class DescribeInstanceRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeInstanceResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeInstanceResponseBodyResult;
@@ -3328,25 +3578,6 @@ export class DescribeInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeKibanaSettingsRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3402,25 +3633,6 @@ export class DescribeKibanaSettingsResponse extends $tea.Model {
   }
 }
 
-export class DescribeLogstashRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLogstashResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeLogstashResponseBodyResult;
@@ -3460,25 +3672,6 @@ export class DescribeLogstashResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeLogstashResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePipelineRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3535,18 +3728,15 @@ export class DescribePipelineResponse extends $tea.Model {
 }
 
 export class DescribePipelineManagementConfigRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -3603,25 +3793,6 @@ export class DescribePipelineManagementConfigResponse extends $tea.Model {
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRegionsResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeRegionsResponseBodyResult[];
@@ -3661,25 +3832,6 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnapshotSettingRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3735,25 +3887,6 @@ export class DescribeSnapshotSettingResponse extends $tea.Model {
   }
 }
 
-export class DescribeTemplatesRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeTemplatesResponseBody extends $tea.Model {
   requestId?: string;
   result?: DescribeTemplatesResponseBodyResult[];
@@ -3793,25 +3926,6 @@ export class DescribeTemplatesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeXpackMonitorConfigRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -3869,12 +3983,16 @@ export class DescribeXpackMonitorConfigResponse extends $tea.Model {
 
 export class DiagnoseInstanceRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
+  diagnoseItems?: string[];
+  indices?: string[];
+  type?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
+      diagnoseItems: 'diagnoseItems',
+      indices: 'indices',
+      type: 'type',
       lang: 'lang',
     };
   }
@@ -3882,7 +4000,9 @@ export class DiagnoseInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
+      diagnoseItems: { 'type': 'array', 'itemType': 'string' },
+      indices: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
       lang: 'string',
     };
   }
@@ -4135,25 +4255,6 @@ export class GetClusterDataInformationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetClusterDataInformationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetElastictaskRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -4428,25 +4529,6 @@ export class GetEmonMonitorDataResponse extends $tea.Model {
   }
 }
 
-export class GetOpenStoreUsageRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetOpenStoreUsageResponseBody extends $tea.Model {
   requestId?: string;
   result?: GetOpenStoreUsageResponseBodyResult;
@@ -4495,18 +4577,15 @@ export class GetOpenStoreUsageResponse extends $tea.Model {
 }
 
 export class GetRegionConfigurationRequest extends $tea.Model {
-  body?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       zoneId: 'zoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       zoneId: 'string',
     };
   }
@@ -4564,13 +4643,11 @@ export class GetRegionConfigurationResponse extends $tea.Model {
 }
 
 export class GetSuggestShrinkableNodesRequest extends $tea.Model {
-  body?: string;
   count?: number;
   ignoreStatus?: boolean;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       count: 'count',
       ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
@@ -4579,7 +4656,6 @@ export class GetSuggestShrinkableNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       count: 'number',
       ignoreStatus: 'boolean',
       nodeType: 'string',
@@ -4639,12 +4715,10 @@ export class GetSuggestShrinkableNodesResponse extends $tea.Model {
 }
 
 export class GetTransferableNodesRequest extends $tea.Model {
-  body?: string;
   count?: number;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       count: 'count',
       nodeType: 'nodeType',
     };
@@ -4652,7 +4726,6 @@ export class GetTransferableNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       count: 'number',
       nodeType: 'string',
     };
@@ -5122,18 +5195,15 @@ export class InstallUserPluginsResponse extends $tea.Model {
 }
 
 export class InterruptElasticsearchTaskRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -5197,18 +5267,15 @@ export class InterruptElasticsearchTaskResponse extends $tea.Model {
 }
 
 export class InterruptLogstashTaskRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -5272,13 +5339,11 @@ export class InterruptLogstashTaskResponse extends $tea.Model {
 }
 
 export class ListAckClustersRequest extends $tea.Model {
-  body?: string;
   page?: number;
   size?: number;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       page: 'page',
       size: 'size',
       vpcId: 'vpcId',
@@ -5287,7 +5352,6 @@ export class ListAckClustersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       page: 'number',
       size: 'number',
       vpcId: 'string',
@@ -5347,12 +5411,10 @@ export class ListAckClustersResponse extends $tea.Model {
 }
 
 export class ListAckNamespacesRequest extends $tea.Model {
-  body?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       page: 'page',
       size: 'size',
     };
@@ -5360,7 +5422,6 @@ export class ListAckNamespacesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       page: 'number',
       size: 'number',
     };
@@ -5420,7 +5481,6 @@ export class ListAckNamespacesResponse extends $tea.Model {
 
 export class ListActionRecordsRequest extends $tea.Model {
   actionNames?: string;
-  body?: string;
   endTime?: number;
   filter?: string;
   page?: number;
@@ -5431,7 +5491,6 @@ export class ListActionRecordsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       actionNames: 'actionNames',
-      body: 'body',
       endTime: 'endTime',
       filter: 'filter',
       page: 'page',
@@ -5445,7 +5504,6 @@ export class ListActionRecordsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       actionNames: 'string',
-      body: 'string',
       endTime: 'number',
       filter: 'string',
       page: 'number',
@@ -5509,18 +5567,15 @@ export class ListActionRecordsResponse extends $tea.Model {
 }
 
 export class ListAllNodeRequest extends $tea.Model {
-  body?: string;
   extended?: boolean;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       extended: 'extended',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       extended: 'boolean',
     };
   }
@@ -5579,18 +5634,15 @@ export class ListAllNodeResponse extends $tea.Model {
 
 export class ListAlternativeSnapshotReposRequest extends $tea.Model {
   alreadySetItems?: boolean;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       alreadySetItems: 'alreadySetItems',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       alreadySetItems: 'boolean',
-      body: 'string',
     };
   }
 
@@ -5647,7 +5699,6 @@ export class ListAlternativeSnapshotReposResponse extends $tea.Model {
 }
 
 export class ListApmRequest extends $tea.Model {
-  body?: string;
   description?: string;
   instanceId?: string;
   output?: string;
@@ -5655,7 +5706,6 @@ export class ListApmRequest extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       description: 'description',
       instanceId: 'instanceId',
       output: 'output',
@@ -5666,7 +5716,6 @@ export class ListApmRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       description: 'string',
       instanceId: 'string',
       output: 'string',
@@ -5730,25 +5779,6 @@ export class ListApmResponse extends $tea.Model {
   }
 }
 
-export class ListAvailableEsInstanceIdsRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAvailableEsInstanceIdsResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListAvailableEsInstanceIdsResponseBodyResult[];
@@ -5797,7 +5827,6 @@ export class ListAvailableEsInstanceIdsResponse extends $tea.Model {
 }
 
 export class ListCollectorsRequest extends $tea.Model {
-  body?: string;
   instanceId?: string;
   name?: string;
   page?: number;
@@ -5806,7 +5835,6 @@ export class ListCollectorsRequest extends $tea.Model {
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       instanceId: 'instanceId',
       name: 'name',
       page: 'page',
@@ -5818,7 +5846,6 @@ export class ListCollectorsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       instanceId: 'string',
       name: 'string',
       page: 'number',
@@ -5884,13 +5911,11 @@ export class ListCollectorsResponse extends $tea.Model {
 }
 
 export class ListComponentIndicesRequest extends $tea.Model {
-  body?: string;
   name?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       name: 'name',
       page: 'page',
       size: 'size',
@@ -5899,7 +5924,6 @@ export class ListComponentIndicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       name: 'string',
       page: 'number',
       size: 'number',
@@ -5961,25 +5985,6 @@ export class ListComponentIndicesResponse extends $tea.Model {
   }
 }
 
-export class ListConnectedClustersRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListConnectedClustersResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListConnectedClustersResponseBodyResult;
@@ -6028,12 +6033,10 @@ export class ListConnectedClustersResponse extends $tea.Model {
 }
 
 export class ListDataStreamsRequest extends $tea.Model {
-  body?: string;
   isManaged?: boolean;
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       isManaged: 'isManaged',
       name: 'name',
     };
@@ -6041,7 +6044,6 @@ export class ListDataStreamsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       isManaged: 'boolean',
       name: 'string',
     };
@@ -6102,25 +6104,6 @@ export class ListDataStreamsResponse extends $tea.Model {
   }
 }
 
-export class ListDataTasksRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDataTasksResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListDataTasksResponseBodyResult[];
@@ -6169,13 +6152,11 @@ export class ListDataTasksResponse extends $tea.Model {
 }
 
 export class ListDefaultCollectorConfigurationsRequest extends $tea.Model {
-  body?: string;
   resType?: string;
   resVersion?: string;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       resType: 'resType',
       resVersion: 'resVersion',
       sourceType: 'sourceType',
@@ -6184,7 +6165,6 @@ export class ListDefaultCollectorConfigurationsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       resType: 'string',
       resVersion: 'string',
       sourceType: 'string',
@@ -6244,13 +6224,11 @@ export class ListDefaultCollectorConfigurationsResponse extends $tea.Model {
 }
 
 export class ListDeprecatedTemplatesRequest extends $tea.Model {
-  body?: string;
   name?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       name: 'name',
       page: 'page',
       size: 'size',
@@ -6259,7 +6237,6 @@ export class ListDeprecatedTemplatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       name: 'string',
       page: 'number',
       size: 'number',
@@ -6322,18 +6299,15 @@ export class ListDeprecatedTemplatesResponse extends $tea.Model {
 }
 
 export class ListDiagnoseIndicesRequest extends $tea.Model {
-  body?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       lang: 'lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       lang: 'string',
     };
   }
@@ -6391,7 +6365,6 @@ export class ListDiagnoseIndicesResponse extends $tea.Model {
 }
 
 export class ListDiagnoseReportRequest extends $tea.Model {
-  body?: string;
   detail?: boolean;
   endTime?: number;
   lang?: string;
@@ -6401,7 +6374,6 @@ export class ListDiagnoseReportRequest extends $tea.Model {
   trigger?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       detail: 'detail',
       endTime: 'endTime',
       lang: 'lang',
@@ -6414,7 +6386,6 @@ export class ListDiagnoseReportRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       detail: 'boolean',
       endTime: 'number',
       lang: 'string',
@@ -6481,7 +6452,6 @@ export class ListDiagnoseReportResponse extends $tea.Model {
 }
 
 export class ListDiagnoseReportIdsRequest extends $tea.Model {
-  body?: string;
   endTime?: number;
   lang?: string;
   page?: number;
@@ -6490,7 +6460,6 @@ export class ListDiagnoseReportIdsRequest extends $tea.Model {
   trigger?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       endTime: 'endTime',
       lang: 'lang',
       page: 'page',
@@ -6502,7 +6471,6 @@ export class ListDiagnoseReportIdsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       endTime: 'number',
       lang: 'string',
       page: 'number',
@@ -6569,13 +6537,11 @@ export class ListDiagnoseReportIdsResponse extends $tea.Model {
 
 export class ListDictInformationRequest extends $tea.Model {
   analyzerType?: string;
-  body?: string;
   bucketName?: string;
   key?: string;
   static names(): { [key: string]: string } {
     return {
       analyzerType: 'analyzerType',
-      body: 'body',
       bucketName: 'bucketName',
       key: 'key',
     };
@@ -6584,7 +6550,6 @@ export class ListDictInformationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       analyzerType: 'string',
-      body: 'string',
       bucketName: 'string',
       key: 'string',
     };
@@ -6644,12 +6609,10 @@ export class ListDictInformationResponse extends $tea.Model {
 
 export class ListDictsRequest extends $tea.Model {
   analyzerType?: string;
-  body?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       analyzerType: 'analyzerType',
-      body: 'body',
       name: 'name',
     };
   }
@@ -6657,7 +6620,6 @@ export class ListDictsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       analyzerType: 'string',
-      body: 'string',
       name: 'string',
     };
   }
@@ -6718,7 +6680,6 @@ export class ListDictsResponse extends $tea.Model {
 }
 
 export class ListEcsInstancesRequest extends $tea.Model {
-  body?: string;
   ecsInstanceIds?: string;
   ecsInstanceName?: string;
   page?: number;
@@ -6727,7 +6688,6 @@ export class ListEcsInstancesRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       ecsInstanceIds: 'ecsInstanceIds',
       ecsInstanceName: 'ecsInstanceName',
       page: 'page',
@@ -6739,7 +6699,6 @@ export class ListEcsInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       ecsInstanceIds: 'string',
       ecsInstanceName: 'string',
       page: 'number',
@@ -6804,25 +6763,6 @@ export class ListEcsInstancesResponse extends $tea.Model {
   }
 }
 
-export class ListExtendfilesRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListExtendfilesResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListExtendfilesResponseBodyResult[];
@@ -6871,18 +6811,15 @@ export class ListExtendfilesResponse extends $tea.Model {
 }
 
 export class ListILMPoliciesRequest extends $tea.Model {
-  body?: string;
   policyName?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       policyName: 'policyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       policyName: 'string',
     };
   }
@@ -6940,13 +6877,11 @@ export class ListILMPoliciesResponse extends $tea.Model {
 }
 
 export class ListIndexTemplatesRequest extends $tea.Model {
-  body?: string;
   indexTemplate?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       indexTemplate: 'indexTemplate',
       page: 'page',
       size: 'size',
@@ -6955,7 +6890,6 @@ export class ListIndexTemplatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       indexTemplate: 'string',
       page: 'number',
       size: 'number',
@@ -7015,7 +6949,6 @@ export class ListIndexTemplatesResponse extends $tea.Model {
 }
 
 export class ListInstanceRequest extends $tea.Model {
-  body?: string;
   description?: string;
   esVersion?: string;
   instanceCategory?: string;
@@ -7029,7 +6962,6 @@ export class ListInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       description: 'description',
       esVersion: 'esVersion',
       instanceCategory: 'instanceCategory',
@@ -7046,7 +6978,6 @@ export class ListInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       description: 'string',
       esVersion: 'string',
       instanceCategory: 'string',
@@ -7116,9 +7047,168 @@ export class ListInstanceResponse extends $tea.Model {
   }
 }
 
+export class ListInstanceHistoryEventsRequest extends $tea.Model {
+  eventCreateEndTime?: string;
+  eventCreateStartTime?: string;
+  eventCycleStatus?: string[];
+  eventExecuteEndTime?: string;
+  eventExecuteStartTime?: string;
+  eventFinashEndTime?: string;
+  eventFinashStartTime?: string;
+  eventLevel?: string[];
+  eventType?: string[];
+  instanceId?: string;
+  nodeIP?: string;
+  page?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventCreateEndTime: 'eventCreateEndTime',
+      eventCreateStartTime: 'eventCreateStartTime',
+      eventCycleStatus: 'eventCycleStatus',
+      eventExecuteEndTime: 'eventExecuteEndTime',
+      eventExecuteStartTime: 'eventExecuteStartTime',
+      eventFinashEndTime: 'eventFinashEndTime',
+      eventFinashStartTime: 'eventFinashStartTime',
+      eventLevel: 'eventLevel',
+      eventType: 'eventType',
+      instanceId: 'instanceId',
+      nodeIP: 'nodeIP',
+      page: 'page',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCreateEndTime: 'string',
+      eventCreateStartTime: 'string',
+      eventCycleStatus: { 'type': 'array', 'itemType': 'string' },
+      eventExecuteEndTime: 'string',
+      eventExecuteStartTime: 'string',
+      eventFinashEndTime: 'string',
+      eventFinashStartTime: 'string',
+      eventLevel: { 'type': 'array', 'itemType': 'string' },
+      eventType: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      nodeIP: 'string',
+      page: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsShrinkRequest extends $tea.Model {
+  eventCreateEndTime?: string;
+  eventCreateStartTime?: string;
+  eventCycleStatusShrink?: string;
+  eventExecuteEndTime?: string;
+  eventExecuteStartTime?: string;
+  eventFinashEndTime?: string;
+  eventFinashStartTime?: string;
+  eventLevelShrink?: string;
+  eventTypeShrink?: string;
+  instanceId?: string;
+  nodeIP?: string;
+  page?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventCreateEndTime: 'eventCreateEndTime',
+      eventCreateStartTime: 'eventCreateStartTime',
+      eventCycleStatusShrink: 'eventCycleStatus',
+      eventExecuteEndTime: 'eventExecuteEndTime',
+      eventExecuteStartTime: 'eventExecuteStartTime',
+      eventFinashEndTime: 'eventFinashEndTime',
+      eventFinashStartTime: 'eventFinashStartTime',
+      eventLevelShrink: 'eventLevel',
+      eventTypeShrink: 'eventType',
+      instanceId: 'instanceId',
+      nodeIP: 'nodeIP',
+      page: 'page',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCreateEndTime: 'string',
+      eventCreateStartTime: 'string',
+      eventCycleStatusShrink: 'string',
+      eventExecuteEndTime: 'string',
+      eventExecuteStartTime: 'string',
+      eventFinashEndTime: 'string',
+      eventFinashStartTime: 'string',
+      eventLevelShrink: 'string',
+      eventTypeShrink: 'string',
+      instanceId: 'string',
+      nodeIP: 'string',
+      page: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponseBody extends $tea.Model {
+  headers?: ListInstanceHistoryEventsResponseBodyHeaders;
+  requestId?: string;
+  result?: ListInstanceHistoryEventsResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: ListInstanceHistoryEventsResponseBodyHeaders,
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListInstanceHistoryEventsResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceHistoryEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceHistoryEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceIndicesRequest extends $tea.Model {
   all?: boolean;
-  body?: string;
   isManaged?: boolean;
   isOpenstore?: boolean;
   name?: string;
@@ -7127,7 +7217,6 @@ export class ListInstanceIndicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       all: 'all',
-      body: 'body',
       isManaged: 'isManaged',
       isOpenstore: 'isOpenstore',
       name: 'name',
@@ -7139,7 +7228,6 @@ export class ListInstanceIndicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       all: 'boolean',
-      body: 'string',
       isManaged: 'boolean',
       isOpenstore: 'boolean',
       name: 'string',
@@ -7204,12 +7292,10 @@ export class ListInstanceIndicesResponse extends $tea.Model {
 }
 
 export class ListKibanaPluginsRequest extends $tea.Model {
-  body?: string;
   page?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       page: 'page',
       size: 'size',
     };
@@ -7217,7 +7303,6 @@ export class ListKibanaPluginsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       page: 'string',
       size: 'number',
     };
@@ -7279,36 +7364,36 @@ export class ListKibanaPluginsResponse extends $tea.Model {
 }
 
 export class ListLogstashRequest extends $tea.Model {
-  body?: string;
   description?: string;
   instanceId?: string;
   ownerId?: string;
   page?: number;
   resourceGroupId?: string;
   size?: number;
+  tags?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       description: 'description',
       instanceId: 'instanceId',
       ownerId: 'ownerId',
       page: 'page',
       resourceGroupId: 'resourceGroupId',
       size: 'size',
+      tags: 'tags',
       version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       description: 'string',
       instanceId: 'string',
       ownerId: 'string',
       page: 'number',
       resourceGroupId: 'string',
       size: 'number',
+      tags: 'string',
       version: 'string',
     };
   }
@@ -7370,7 +7455,6 @@ export class ListLogstashResponse extends $tea.Model {
 
 export class ListLogstashLogRequest extends $tea.Model {
   beginTime?: number;
-  body?: string;
   endTime?: number;
   page?: number;
   query?: string;
@@ -7379,7 +7463,6 @@ export class ListLogstashLogRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       beginTime: 'beginTime',
-      body: 'body',
       endTime: 'endTime',
       page: 'page',
       query: 'query',
@@ -7391,7 +7474,6 @@ export class ListLogstashLogRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       beginTime: 'number',
-      body: 'string',
       endTime: 'number',
       page: 'number',
       query: 'string',
@@ -7453,14 +7535,12 @@ export class ListLogstashLogResponse extends $tea.Model {
 }
 
 export class ListLogstashPluginsRequest extends $tea.Model {
-  body?: string;
   name?: string;
   page?: number;
   size?: number;
   source?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       name: 'name',
       page: 'page',
       size: 'size',
@@ -7470,7 +7550,6 @@ export class ListLogstashPluginsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       name: 'string',
       page: 'number',
       size: 'number',
@@ -7531,7 +7610,6 @@ export class ListLogstashPluginsResponse extends $tea.Model {
 }
 
 export class ListNodesRequest extends $tea.Model {
-  body?: string;
   ecsInstanceIds?: string;
   ecsInstanceName?: string;
   page?: number;
@@ -7539,7 +7617,6 @@ export class ListNodesRequest extends $tea.Model {
   tags?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       ecsInstanceIds: 'ecsInstanceIds',
       ecsInstanceName: 'ecsInstanceName',
       page: 'page',
@@ -7550,7 +7627,6 @@ export class ListNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       ecsInstanceIds: 'string',
       ecsInstanceName: 'string',
       page: 'number',
@@ -7615,13 +7691,11 @@ export class ListNodesResponse extends $tea.Model {
 }
 
 export class ListPipelineRequest extends $tea.Model {
-  body?: string;
   page?: number;
   pipelineId?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       page: 'page',
       pipelineId: 'pipelineId',
       size: 'size',
@@ -7630,7 +7704,6 @@ export class ListPipelineRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       page: 'number',
       pipelineId: 'string',
       size: 'number',
@@ -7759,14 +7832,12 @@ export class ListPipelineIdsResponse extends $tea.Model {
 }
 
 export class ListPluginsRequest extends $tea.Model {
-  body?: string;
   name?: string;
   page?: string;
   size?: number;
   source?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       name: 'name',
       page: 'page',
       size: 'size',
@@ -7776,7 +7847,6 @@ export class ListPluginsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       name: 'string',
       page: 'string',
       size: 'number',
@@ -7841,7 +7911,6 @@ export class ListPluginsResponse extends $tea.Model {
 
 export class ListSearchLogRequest extends $tea.Model {
   beginTime?: number;
-  body?: string;
   endTime?: number;
   page?: number;
   query?: string;
@@ -7850,7 +7919,6 @@ export class ListSearchLogRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       beginTime: 'beginTime',
-      body: 'body',
       endTime: 'endTime',
       page: 'page',
       query: 'query',
@@ -7862,7 +7930,6 @@ export class ListSearchLogRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       beginTime: 'number',
-      body: 'string',
       endTime: 'number',
       page: 'number',
       query: 'string',
@@ -7928,18 +7995,15 @@ export class ListSearchLogResponse extends $tea.Model {
 
 export class ListShardRecoveriesRequest extends $tea.Model {
   activeOnly?: boolean;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       activeOnly: 'activeOnly',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       activeOnly: 'boolean',
-      body: 'string',
     };
   }
 
@@ -7987,25 +8051,6 @@ export class ListShardRecoveriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListShardRecoveriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSnapshotReposByInstanceIdRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -8068,7 +8113,6 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceType?: string;
   size?: number;
   tags?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -8077,7 +8121,6 @@ export class ListTagResourcesRequest extends $tea.Model {
       resourceType: 'ResourceType',
       size: 'Size',
       tags: 'Tags',
-      body: 'body',
     };
   }
 
@@ -8089,7 +8132,6 @@ export class ListTagResourcesRequest extends $tea.Model {
       resourceType: 'string',
       size: 'number',
       tags: 'string',
-      body: 'string',
     };
   }
 
@@ -8152,12 +8194,10 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagsRequest extends $tea.Model {
-  body?: string;
   pageSize?: number;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       pageSize: 'pageSize',
       resourceType: 'resourceType',
     };
@@ -8165,7 +8205,6 @@ export class ListTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       pageSize: 'number',
       resourceType: 'string',
     };
@@ -8224,12 +8263,10 @@ export class ListTagsResponse extends $tea.Model {
 }
 
 export class ListVpcEndpointsRequest extends $tea.Model {
-  body?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       page: 'page',
       size: 'size',
     };
@@ -8237,7 +8274,6 @@ export class ListVpcEndpointsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       page: 'number',
       size: 'number',
     };
@@ -8720,12 +8756,10 @@ export class MoveResourceGroupResponse extends $tea.Model {
 
 export class OpenDiagnosisRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
       lang: 'lang',
     };
   }
@@ -8733,7 +8767,6 @@ export class OpenDiagnosisRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
       lang: 'string',
     };
   }
@@ -8791,18 +8824,15 @@ export class OpenDiagnosisResponse extends $tea.Model {
 }
 
 export class OpenHttpsRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -8932,18 +8962,15 @@ export class PostEmonTryAlarmRuleResponse extends $tea.Model {
 }
 
 export class RecommendTemplatesRequest extends $tea.Model {
-  body?: string;
   usageScenario?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       usageScenario: 'usageScenario',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       usageScenario: 'string',
     };
   }
@@ -9061,25 +9088,6 @@ export class ReinstallCollectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReinstallCollectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveApmRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -9275,18 +9283,15 @@ export class RenewLogstashResponse extends $tea.Model {
 
 export class RestartCollectorRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -9415,12 +9420,20 @@ export class RestartInstanceResponse extends $tea.Model {
 }
 
 export class RestartLogstashRequest extends $tea.Model {
-  body?: string;
+  batchCount?: number;
+  blueGreenDep?: boolean;
+  nodeTypes?: string[];
+  nodes?: string[];
+  restartType?: string;
   clientToken?: string;
   force?: boolean;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      batchCount: 'batchCount',
+      blueGreenDep: 'blueGreenDep',
+      nodeTypes: 'nodeTypes',
+      nodes: 'nodes',
+      restartType: 'restartType',
       clientToken: 'clientToken',
       force: 'force',
     };
@@ -9428,7 +9441,11 @@ export class RestartLogstashRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      batchCount: 'number',
+      blueGreenDep: 'boolean',
+      nodeTypes: { 'type': 'array', 'itemType': 'string' },
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      restartType: 'string',
       clientToken: 'string',
       force: 'boolean',
     };
@@ -9441,15 +9458,18 @@ export class RestartLogstashRequest extends $tea.Model {
 
 export class RestartLogstashResponseBody extends $tea.Model {
   requestId?: string;
+  result?: Logstash;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: Logstash,
     };
   }
 
@@ -9484,18 +9504,15 @@ export class RestartLogstashResponse extends $tea.Model {
 }
 
 export class ResumeElasticsearchTaskRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -9553,18 +9570,15 @@ export class ResumeElasticsearchTaskResponse extends $tea.Model {
 }
 
 export class ResumeLogstashTaskRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
     };
   }
@@ -9629,18 +9643,15 @@ export class ResumeLogstashTaskResponse extends $tea.Model {
 
 export class RolloverDataStreamRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -9768,12 +9779,14 @@ export class RunPipelinesResponse extends $tea.Model {
 export class ShrinkNodeRequest extends $tea.Model {
   body?: ShrinkNodeRequestBody[];
   clientToken?: string;
+  count?: number;
   ignoreStatus?: boolean;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
       clientToken: 'clientToken',
+      count: 'count',
       ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
     };
@@ -9783,6 +9796,7 @@ export class ShrinkNodeRequest extends $tea.Model {
     return {
       body: { 'type': 'array', 'itemType': ShrinkNodeRequestBody },
       clientToken: 'string',
+      count: 'number',
       ignoreStatus: 'boolean',
       nodeType: 'string',
     };
@@ -9840,25 +9854,6 @@ export class ShrinkNodeResponse extends $tea.Model {
   }
 }
 
-export class StartApmRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartApmResponseBody extends $tea.Model {
   requestId?: string;
   result?: boolean;
@@ -9908,18 +9903,15 @@ export class StartApmResponse extends $tea.Model {
 
 export class StartCollectorRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -9967,25 +9959,6 @@ export class StartCollectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartCollectorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopApmRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
     };
   }
 
@@ -10043,18 +10016,15 @@ export class StopApmResponse extends $tea.Model {
 
 export class StopCollectorRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
     };
   }
 
@@ -10180,16 +10150,22 @@ export class StopPipelinesResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
-  body?: string;
+  resourceIds?: string[];
+  resourceType?: string;
+  tags?: TagResourcesRequestTags[];
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': TagResourcesRequestTags },
     };
   }
 
@@ -10200,15 +10176,18 @@ export class TagResourcesRequest extends $tea.Model {
 
 export class TagResourcesResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -10459,7 +10438,7 @@ export class UninstallKibanaPluginResponse extends $tea.Model {
 }
 
 export class UninstallLogstashPluginRequest extends $tea.Model {
-  body?: string;
+  body?: string[];
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10470,7 +10449,7 @@ export class UninstallLogstashPluginRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      body: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
     };
   }
@@ -10481,10 +10460,12 @@ export class UninstallLogstashPluginRequest extends $tea.Model {
 }
 
 export class UninstallLogstashPluginResponseBody extends $tea.Model {
+  headers?: { [key: string]: any };
   requestId?: string;
   result?: string[];
   static names(): { [key: string]: string } {
     return {
+      headers: 'Headers',
       requestId: 'RequestId',
       result: 'Result',
     };
@@ -10492,6 +10473,7 @@ export class UninstallLogstashPluginResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       result: { 'type': 'array', 'itemType': 'string' },
     };
@@ -10957,22 +10939,16 @@ export class UpdateApmResponse extends $tea.Model {
 }
 
 export class UpdateBlackIpsRequest extends $tea.Model {
-  body?: string;
   clientToken?: string;
-  esIPBlacklist?: string[];
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
       clientToken: 'clientToken',
-      esIPBlacklist: 'esIPBlacklist',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
       clientToken: 'string',
-      esIPBlacklist: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11863,21 +11839,45 @@ export class UpdateIndexTemplateResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
-  body?: string;
+  clientNodeConfiguration?: ClientNodeConfiguration;
+  elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
+  instanceCategory?: string;
+  kibanaConfiguration?: KibanaNodeConfiguration;
+  masterConfiguration?: MasterNodeConfiguration;
+  nodeAmount?: number;
+  nodeSpec?: NodeSpec;
+  warmNodeConfiguration?: WarmNodeConfiguration;
   clientToken?: string;
+  force?: boolean;
   orderActionType?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      clientNodeConfiguration: 'clientNodeConfiguration',
+      elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
+      instanceCategory: 'instanceCategory',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+      nodeAmount: 'nodeAmount',
+      nodeSpec: 'nodeSpec',
+      warmNodeConfiguration: 'warmNodeConfiguration',
       clientToken: 'clientToken',
+      force: 'force',
       orderActionType: 'orderActionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      clientNodeConfiguration: ClientNodeConfiguration,
+      elasticDataNodeConfiguration: ElasticDataNodeConfiguration,
+      instanceCategory: 'string',
+      kibanaConfiguration: KibanaNodeConfiguration,
+      masterConfiguration: MasterNodeConfiguration,
+      nodeAmount: 'number',
+      nodeSpec: NodeSpec,
+      warmNodeConfiguration: WarmNodeConfiguration,
       clientToken: 'string',
+      force: 'boolean',
       orderActionType: 'string',
     };
   }
@@ -12139,12 +12139,14 @@ export class UpdateKibanaSettingsResponse extends $tea.Model {
 }
 
 export class UpdateKibanaWhiteIpsRequest extends $tea.Model {
-  body?: string;
+  kibanaIPWhitelist?: string[];
+  whiteIpGroup?: UpdateKibanaWhiteIpsRequestWhiteIpGroup;
   clientToken?: string;
   modifyMode?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      kibanaIPWhitelist: 'kibanaIPWhitelist',
+      whiteIpGroup: 'whiteIpGroup',
       clientToken: 'clientToken',
       modifyMode: 'modifyMode',
     };
@@ -12152,7 +12154,8 @@ export class UpdateKibanaWhiteIpsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      whiteIpGroup: UpdateKibanaWhiteIpsRequestWhiteIpGroup,
       clientToken: 'string',
       modifyMode: 'string',
     };
@@ -12211,18 +12214,21 @@ export class UpdateKibanaWhiteIpsResponse extends $tea.Model {
 }
 
 export class UpdateLogstashRequest extends $tea.Model {
-  body?: string;
+  nodeAmount?: number;
+  nodeSpec?: UpdateLogstashRequestNodeSpec;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      nodeAmount: 'nodeAmount',
+      nodeSpec: 'nodeSpec',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      nodeAmount: 'number',
+      nodeSpec: UpdateLogstashRequestNodeSpec,
       clientToken: 'string',
     };
   }
@@ -12484,18 +12490,30 @@ export class UpdateLogstashSettingsResponse extends $tea.Model {
 }
 
 export class UpdatePipelineManagementConfigRequest extends $tea.Model {
-  body?: string;
+  endpoints?: string[];
+  password?: string;
+  pipelineIds?: string[];
+  pipelineManagementType?: string;
+  userName?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      endpoints: 'endpoints',
+      password: 'password',
+      pipelineIds: 'pipelineIds',
+      pipelineManagementType: 'pipelineManagementType',
+      userName: 'userName',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      endpoints: { 'type': 'array', 'itemType': 'string' },
+      password: 'string',
+      pipelineIds: { 'type': 'array', 'itemType': 'string' },
+      pipelineManagementType: 'string',
+      userName: 'string',
       clientToken: 'string',
     };
   }
@@ -13187,18 +13205,27 @@ export class UpdateWhiteIpsResponse extends $tea.Model {
 
 export class UpdateXpackMonitorConfigRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
+  enable?: boolean;
+  endpoints?: string[];
+  password?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
+      enable: 'enable',
+      endpoints: 'endpoints',
+      password: 'password',
+      userName: 'userName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
+      enable: 'boolean',
+      endpoints: { 'type': 'array', 'itemType': 'string' },
+      password: 'string',
+      userName: 'string',
     };
   }
 
@@ -13255,25 +13282,25 @@ export class UpdateXpackMonitorConfigResponse extends $tea.Model {
 }
 
 export class UpgradeEngineVersionRequest extends $tea.Model {
-  clientToken?: string;
-  dryRun?: boolean;
   type?: string;
   version?: string;
+  clientToken?: string;
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
-      dryRun: 'dryRun',
       type: 'type',
       version: 'version',
+      clientToken: 'clientToken',
+      dryRun: 'dryRun',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
-      dryRun: 'boolean',
       type: 'string',
       version: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
     };
   }
 
@@ -13284,7 +13311,7 @@ export class UpgradeEngineVersionRequest extends $tea.Model {
 
 export class UpgradeEngineVersionResponseBody extends $tea.Model {
   requestId?: string;
-  result?: UpgradeEngineVersionResponseBodyResult;
+  result?: UpgradeEngineVersionResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -13295,7 +13322,7 @@ export class UpgradeEngineVersionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: UpgradeEngineVersionResponseBodyResult,
+      result: { 'type': 'array', 'itemType': UpgradeEngineVersionResponseBodyResult },
     };
   }
 
@@ -13400,11 +13427,13 @@ export class ValidateConnectionResponse extends $tea.Model {
 
 export class ValidateShrinkNodesRequest extends $tea.Model {
   body?: ValidateShrinkNodesRequestBody[];
+  count?: number;
   ignoreStatus?: boolean;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
+      count: 'count',
       ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
     };
@@ -13413,6 +13442,7 @@ export class ValidateShrinkNodesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       body: { 'type': 'array', 'itemType': ValidateShrinkNodesRequestBody },
+      count: 'number',
       ignoreStatus: 'boolean',
       nodeType: 'string',
     };
@@ -13472,12 +13502,10 @@ export class ValidateShrinkNodesResponse extends $tea.Model {
 
 export class ValidateSlrPermissionRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
   rolename?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
       rolename: 'rolename',
     };
   }
@@ -13485,7 +13513,6 @@ export class ValidateSlrPermissionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
       rolename: 'string',
     };
   }
@@ -13612,18 +13639,57 @@ export class ValidateTransferableNodesResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
-  body?: string;
+  clientNodeConfiguration?: ClientNodeConfiguration;
+  elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
+  esAdminPassword?: string;
+  esVersion?: string;
+  instanceCategory?: string;
+  kibanaConfiguration?: KibanaNodeConfiguration;
+  masterConfiguration?: MasterNodeConfiguration;
+  networkConfig?: NetworkConfig;
+  nodeAmount?: number;
+  nodeSpec?: NodeSpec;
+  paymentInfo?: PaymentInfo;
+  paymentType?: string;
+  warmNodeConfiguration?: WarmNodeConfiguration;
+  zoneCount?: number;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      clientNodeConfiguration: 'clientNodeConfiguration',
+      elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
+      esAdminPassword: 'esAdminPassword',
+      esVersion: 'esVersion',
+      instanceCategory: 'instanceCategory',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+      networkConfig: 'networkConfig',
+      nodeAmount: 'nodeAmount',
+      nodeSpec: 'nodeSpec',
+      paymentInfo: 'paymentInfo',
+      paymentType: 'paymentType',
+      warmNodeConfiguration: 'warmNodeConfiguration',
+      zoneCount: 'zoneCount',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      clientNodeConfiguration: ClientNodeConfiguration,
+      elasticDataNodeConfiguration: ElasticDataNodeConfiguration,
+      esAdminPassword: 'string',
+      esVersion: 'string',
+      instanceCategory: 'string',
+      kibanaConfiguration: KibanaNodeConfiguration,
+      masterConfiguration: MasterNodeConfiguration,
+      networkConfig: NetworkConfig,
+      nodeAmount: 'number',
+      nodeSpec: NodeSpec,
+      paymentInfo: PaymentInfo,
+      paymentType: 'string',
+      warmNodeConfiguration: WarmNodeConfiguration,
+      zoneCount: 'number',
       clientToken: 'string',
     };
   }
@@ -13672,6 +13738,25 @@ export class CreateInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElasticsearchAdvancedSetting extends $tea.Model {
+  gcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gcName: 'gcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gcName: 'string',
     };
   }
 
@@ -15737,35 +15822,14 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $tea.Model {
   }
 }
 
-export class DiagnoseInstanceResponseBodyResultDiagnoseItems extends $tea.Model {
-  item?: string;
-  static names(): { [key: string]: string } {
-    return {
-      item: 'item',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      item: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DiagnoseInstanceResponseBodyResult extends $tea.Model {
   createTime?: number;
-  diagnoseItems?: DiagnoseInstanceResponseBodyResultDiagnoseItems[];
   instanceId?: string;
   reportId?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
-      diagnoseItems: 'diagnoseItems',
       instanceId: 'instanceId',
       reportId: 'reportId',
       state: 'state',
@@ -15775,7 +15839,6 @@ export class DiagnoseInstanceResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
-      diagnoseItems: { 'type': 'array', 'itemType': DiagnoseInstanceResponseBodyResultDiagnoseItems },
       instanceId: 'string',
       reportId: 'string',
       state: 'string',
@@ -18517,6 +18580,77 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListInstanceHistoryEventsResponseBodyHeaders extends $tea.Model {
+  xTotalCount?: number;
+  xTotalFailed?: number;
+  xTotalSuccess?: number;
+  static names(): { [key: string]: string } {
+    return {
+      xTotalCount: 'X-Total-Count',
+      xTotalFailed: 'X-Total-Failed',
+      xTotalSuccess: 'X-Total-Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      xTotalCount: 'number',
+      xTotalFailed: 'number',
+      xTotalSuccess: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponseBodyResult extends $tea.Model {
+  ecsId?: string;
+  eventCreateTime?: string;
+  eventCycleStatus?: string;
+  eventExecuteTime?: string;
+  eventFinashTime?: string;
+  eventLevel?: string;
+  eventType?: string;
+  instanceId?: string;
+  nodeIP?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsId: 'ecsId',
+      eventCreateTime: 'eventCreateTime',
+      eventCycleStatus: 'eventCycleStatus',
+      eventExecuteTime: 'eventExecuteTime',
+      eventFinashTime: 'eventFinashTime',
+      eventLevel: 'eventLevel',
+      eventType: 'eventType',
+      instanceId: 'instanceId',
+      nodeIP: 'nodeIP',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsId: 'string',
+      eventCreateTime: 'string',
+      eventCycleStatus: 'string',
+      eventExecuteTime: 'string',
+      eventFinashTime: 'string',
+      eventLevel: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      nodeIP: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceIndicesResponseBodyHeaders extends $tea.Model {
   xManagedCount?: number;
   xManagedStorageSize?: number;
@@ -19944,11 +20078,15 @@ export class RestartInstanceResponseBodyResult extends $tea.Model {
 
 export class ShrinkNodeRequestBody extends $tea.Model {
   host?: string;
+  hostName?: string;
+  nodeType?: string;
   port?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       host: 'host',
+      hostName: 'hostName',
+      nodeType: 'nodeType',
       port: 'port',
       zoneId: 'zoneId',
     };
@@ -19957,8 +20095,32 @@ export class ShrinkNodeRequestBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       host: 'string',
+      hostName: 'string',
+      nodeType: 'string',
       port: 'number',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -20608,13 +20770,96 @@ export class UpdateInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateKibanaWhiteIpsRequestWhiteIpGroup extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  whiteIpType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+      whiteIpType: 'whiteIpType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+      whiteIpType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  whiteIpType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+      whiteIpType: 'whiteIpType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+      whiteIpType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig extends $tea.Model {
+  type?: string;
+  vpcId?: string;
+  vsArea?: string;
+  vswitchId?: string;
+  whiteIpGroupList?: UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
+      whiteIpGroupList: 'whiteIpGroupList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      vpcId: 'string',
+      vsArea: 'string',
+      vswitchId: 'string',
+      whiteIpGroupList: { 'type': 'array', 'itemType': UpdateKibanaWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateKibanaWhiteIpsResponseBodyResult extends $tea.Model {
   kibanaIPWhitelist?: string[];
   kibanaPrivateIPWhitelist?: string[];
+  networkConfig?: UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig;
   static names(): { [key: string]: string } {
     return {
       kibanaIPWhitelist: 'kibanaIPWhitelist',
       kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
+      networkConfig: 'networkConfig',
     };
   }
 
@@ -20622,6 +20867,32 @@ export class UpdateKibanaWhiteIpsResponseBodyResult extends $tea.Model {
     return {
       kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
       kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      networkConfig: UpdateKibanaWhiteIpsResponseBodyResultNetworkConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLogstashRequestNodeSpec extends $tea.Model {
+  disk?: number;
+  diskType?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'disk',
+      diskType: 'diskType',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: 'number',
+      diskType: 'string',
+      spec: 'string',
     };
   }
 
@@ -20874,7 +21145,7 @@ export class UpgradeEngineVersionResponseBodyResultValidateResult extends $tea.M
 
 export class UpgradeEngineVersionResponseBodyResult extends $tea.Model {
   status?: string;
-  validateResult?: UpgradeEngineVersionResponseBodyResultValidateResult;
+  validateResult?: UpgradeEngineVersionResponseBodyResultValidateResult[];
   validateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20887,7 +21158,7 @@ export class UpgradeEngineVersionResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      validateResult: UpgradeEngineVersionResponseBodyResultValidateResult,
+      validateResult: { 'type': 'array', 'itemType': UpgradeEngineVersionResponseBodyResultValidateResult },
       validateType: 'string',
     };
   }
@@ -20899,11 +21170,15 @@ export class UpgradeEngineVersionResponseBodyResult extends $tea.Model {
 
 export class ValidateShrinkNodesRequestBody extends $tea.Model {
   host?: string;
+  hostName?: string;
+  nodeType?: string;
   port?: number;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       host: 'host',
+      hostName: 'hostName',
+      nodeType: 'nodeType',
       port: 'port',
       zoneId: 'zoneId',
     };
@@ -20912,6 +21187,8 @@ export class ValidateShrinkNodesRequestBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       host: 'string',
+      hostName: 'string',
+      nodeType: 'string',
       port: 'number',
       zoneId: 'string',
     };
@@ -20998,7 +21275,6 @@ export default class Client extends OpenApi {
 
   async activateZonesWithOptions(InstanceId: string, request: ActivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ActivateZonesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21013,7 +21289,7 @@ export default class Client extends OpenApi {
       action: "ActivateZones",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/recover-zones`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/recover-zones`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21031,7 +21307,6 @@ export default class Client extends OpenApi {
 
   async addConnectableClusterWithOptions(InstanceId: string, request: AddConnectableClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddConnectableClusterResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21046,7 +21321,7 @@ export default class Client extends OpenApi {
       action: "AddConnectableCluster",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/connected-clusters`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21064,7 +21339,6 @@ export default class Client extends OpenApi {
 
   async addSnapshotRepoWithOptions(InstanceId: string, request: AddSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddSnapshotRepoResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -21073,7 +21347,7 @@ export default class Client extends OpenApi {
       action: "AddSnapshotRepo",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshot-repos`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21091,7 +21365,6 @@ export default class Client extends OpenApi {
 
   async cancelDeletionWithOptions(InstanceId: string, request: CancelDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelDeletionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21100,13 +21373,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CancelDeletion",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-deletion`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/cancel-deletion`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21124,7 +21396,6 @@ export default class Client extends OpenApi {
 
   async cancelLogstashDeletionWithOptions(InstanceId: string, request: CancelLogstashDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelLogstashDeletionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21133,13 +21404,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CancelLogstashDeletion",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/cancel-deletion`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/cancel-deletion`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21157,7 +21427,6 @@ export default class Client extends OpenApi {
 
   async cancelTaskWithOptions(InstanceId: string, request: CancelTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21170,13 +21439,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CancelTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/cancel-task`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21237,7 +21505,6 @@ export default class Client extends OpenApi {
 
   async closeDiagnosisWithOptions(InstanceId: string, request: CloseDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseDiagnosisResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21250,13 +21517,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CloseDiagnosis",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/close-diagnosis`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/close-diagnosis`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21274,7 +21540,6 @@ export default class Client extends OpenApi {
 
   async closeHttpsWithOptions(InstanceId: string, request: CloseHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseHttpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21283,13 +21548,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CloseHttps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/close-https`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/close-https`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21307,8 +21571,6 @@ export default class Client extends OpenApi {
 
   async closeManagedIndexWithOptions(InstanceId: string, Index: string, request: CloseManagedIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseManagedIndexResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    Index = OpenApiUtil.getEncodeParam(Index);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21317,13 +21579,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CloseManagedIndex",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices/${Index}/close-managed`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/indices/${OpenApiUtil.getEncodeParam(Index)}/close-managed`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21373,8 +21634,6 @@ export default class Client extends OpenApi {
 
   async createComponentIndexWithOptions(InstanceId: string, name: string, request: CreateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateComponentIndexResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.meta)) {
       body["_meta"] = request.meta;
@@ -21392,7 +21651,7 @@ export default class Client extends OpenApi {
       action: "CreateComponentIndex",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/component-index/${OpenApiUtil.getEncodeParam(name)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21410,7 +21669,6 @@ export default class Client extends OpenApi {
 
   async createDataStreamWithOptions(InstanceId: string, request: CreateDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataStreamResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21425,7 +21683,7 @@ export default class Client extends OpenApi {
       action: "CreateDataStream",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-streams`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21443,7 +21701,6 @@ export default class Client extends OpenApi {
 
   async createDataTasksWithOptions(InstanceId: string, request: CreateDataTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataTasksResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21458,7 +21715,7 @@ export default class Client extends OpenApi {
       action: "CreateDataTasks",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-task`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21476,7 +21733,6 @@ export default class Client extends OpenApi {
 
   async createILMPolicyWithOptions(InstanceId: string, request: CreateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateILMPolicyResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21491,7 +21747,7 @@ export default class Client extends OpenApi {
       action: "CreateILMPolicy",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ilm-policies`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21509,7 +21765,6 @@ export default class Client extends OpenApi {
 
   async createIndexTemplateWithOptions(InstanceId: string, request: CreateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexTemplateResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21524,7 +21779,7 @@ export default class Client extends OpenApi {
       action: "CreateIndexTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/index-templates`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21603,7 +21858,6 @@ export default class Client extends OpenApi {
 
   async createPipelinesWithOptions(InstanceId: string, request: CreatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelinesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21622,7 +21876,7 @@ export default class Client extends OpenApi {
       action: "CreatePipelines",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21640,7 +21894,6 @@ export default class Client extends OpenApi {
 
   async createSnapshotWithOptions(InstanceId: string, request: CreateSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21655,7 +21908,7 @@ export default class Client extends OpenApi {
       action: "CreateSnapshot",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshots`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshots`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21673,7 +21926,6 @@ export default class Client extends OpenApi {
 
   async createVpcEndpointWithOptions(InstanceId: string, request: CreateVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21701,7 +21953,7 @@ export default class Client extends OpenApi {
       action: "CreateVpcEndpoint",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/vpc-endpoints`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21719,7 +21971,6 @@ export default class Client extends OpenApi {
 
   async deactivateZonesWithOptions(InstanceId: string, request: DeactivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeactivateZonesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21734,7 +21985,7 @@ export default class Client extends OpenApi {
       action: "DeactivateZones",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/down-zones`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/down-zones`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -21752,7 +22003,6 @@ export default class Client extends OpenApi {
 
   async deleteCollectorWithOptions(ResId: string, request: DeleteCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21761,13 +22011,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21777,25 +22026,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCollectorResponse>(await this.callApi(params, req, runtime), new DeleteCollectorResponse({}));
   }
 
-  async deleteComponentIndex(InstanceId: string, name: string, request: DeleteComponentIndexRequest): Promise<DeleteComponentIndexResponse> {
+  async deleteComponentIndex(InstanceId: string, name: string): Promise<DeleteComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
-  async deleteComponentIndexWithOptions(InstanceId: string, name: string, request: DeleteComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteComponentIndexResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
+  async deleteComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteComponentIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteComponentIndex",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/component-index/${OpenApiUtil.getEncodeParam(name)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21813,7 +22058,6 @@ export default class Client extends OpenApi {
 
   async deleteConnectedClusterWithOptions(InstanceId: string, request: DeleteConnectedClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConnectedClusterResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -21826,13 +22070,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteConnectedCluster",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/connected-clusters`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21850,8 +22093,6 @@ export default class Client extends OpenApi {
 
   async deleteDataStreamWithOptions(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataStreamResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21860,13 +22101,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataStream",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/${DataStream}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-streams/${OpenApiUtil.getEncodeParam(DataStream)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21884,7 +22124,6 @@ export default class Client extends OpenApi {
 
   async deleteDataTaskWithOptions(InstanceId: string, request: DeleteDataTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21897,13 +22136,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-task`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21913,25 +22151,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataTaskResponse({}));
   }
 
-  async deleteDeprecatedTemplate(InstanceId: string, name: string, request: DeleteDeprecatedTemplateRequest): Promise<DeleteDeprecatedTemplateResponse> {
+  async deleteDeprecatedTemplate(InstanceId: string, name: string): Promise<DeleteDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDeprecatedTemplateWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
-  async deleteDeprecatedTemplateWithOptions(InstanceId: string, name: string, request: DeleteDeprecatedTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDeprecatedTemplateResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
+  async deleteDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDeprecatedTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteDeprecatedTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/deprecated-templates/${OpenApiUtil.getEncodeParam(name)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21941,25 +22175,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDeprecatedTemplateResponse({}));
   }
 
-  async deleteILMPolicy(InstanceId: string, PolicyName: string, request: DeleteILMPolicyRequest): Promise<DeleteILMPolicyResponse> {
+  async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
+    return await this.deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
-  async deleteILMPolicyWithOptions(InstanceId: string, PolicyName: string, request: DeleteILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteILMPolicyResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    PolicyName = OpenApiUtil.getEncodeParam(PolicyName);
+  async deleteILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteILMPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteILMPolicy",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ilm-policies/${OpenApiUtil.getEncodeParam(PolicyName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -21969,25 +22199,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteILMPolicyResponse>(await this.callApi(params, req, runtime), new DeleteILMPolicyResponse({}));
   }
 
-  async deleteIndexTemplate(InstanceId: string, IndexTemplate: string, request: DeleteIndexTemplateRequest): Promise<DeleteIndexTemplateResponse> {
+  async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
+    return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
-  async deleteIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: DeleteIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
+  async deleteIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteIndexTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/index-templates/${OpenApiUtil.getEncodeParam(IndexTemplate)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22005,7 +22231,6 @@ export default class Client extends OpenApi {
 
   async deleteInstanceWithOptions(InstanceId: string, request: DeleteInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -22018,13 +22243,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22042,7 +22266,6 @@ export default class Client extends OpenApi {
 
   async deleteLogstashWithOptions(InstanceId: string, request: DeleteLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogstashResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -22055,13 +22278,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteLogstash",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22079,7 +22301,6 @@ export default class Client extends OpenApi {
 
   async deletePipelinesWithOptions(InstanceId: string, request: DeletePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelinesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -22092,13 +22313,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeletePipelines",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22116,7 +22336,6 @@ export default class Client extends OpenApi {
 
   async deleteSnapshotRepoWithOptions(InstanceId: string, request: DeleteSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotRepoResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -22129,13 +22348,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteSnapshotRepo",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshot-repos`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22153,8 +22371,6 @@ export default class Client extends OpenApi {
 
   async deleteVpcEndpointWithOptions(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    EndpointId = OpenApiUtil.getEncodeParam(EndpointId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -22163,13 +22379,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DeleteVpcEndpoint",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints/${EndpointId}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/vpc-endpoints/${OpenApiUtil.getEncodeParam(EndpointId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -22179,24 +22394,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
-  async describeAckOperator(ClusterId: string, request: DescribeAckOperatorRequest): Promise<DescribeAckOperatorResponse> {
+  async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeAckOperatorWithOptions(ClusterId, request, headers, runtime);
+    return await this.describeAckOperatorWithOptions(ClusterId, headers, runtime);
   }
 
-  async describeAckOperatorWithOptions(ClusterId: string, request: DescribeAckOperatorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAckOperatorResponse> {
-    Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+  async describeAckOperatorWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAckOperatorResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeAckOperator",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
+      pathname: `/openapi/ack-clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/operator`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22206,24 +22418,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAckOperatorResponse>(await this.callApi(params, req, runtime), new DescribeAckOperatorResponse({}));
   }
 
-  async describeApm(instanceId: string, request: DescribeApmRequest): Promise<DescribeApmResponse> {
+  async describeApm(instanceId: string): Promise<DescribeApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeApmWithOptions(instanceId, request, headers, runtime);
+    return await this.describeApmWithOptions(instanceId, headers, runtime);
   }
 
-  async describeApmWithOptions(instanceId: string, request: DescribeApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApmResponse> {
-    Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+  async describeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeApm",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
+      pathname: `/openapi/apm/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22233,24 +22442,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApmResponse>(await this.callApi(params, req, runtime), new DescribeApmResponse({}));
   }
 
-  async describeCollector(ResId: string, request: DescribeCollectorRequest): Promise<DescribeCollectorResponse> {
+  async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.describeCollectorWithOptions(ResId, headers, runtime);
   }
 
-  async describeCollectorWithOptions(ResId: string, request: DescribeCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCollectorResponse> {
-    Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
+  async describeCollectorWithOptions(ResId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCollectorResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22260,25 +22466,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCollectorResponse>(await this.callApi(params, req, runtime), new DescribeCollectorResponse({}));
   }
 
-  async describeComponentIndex(InstanceId: string, name: string, request: DescribeComponentIndexRequest): Promise<DescribeComponentIndexResponse> {
+  async describeComponentIndex(InstanceId: string, name: string): Promise<DescribeComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
-  async describeComponentIndexWithOptions(InstanceId: string, name: string, request: DescribeComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeComponentIndexResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
+  async describeComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeComponentIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeComponentIndex",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/component-index/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22296,7 +22498,6 @@ export default class Client extends OpenApi {
 
   async describeConnectableClustersWithOptions(InstanceId: string, request: DescribeConnectableClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConnectableClustersResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alreadySetItems)) {
       query["alreadySetItems"] = request.alreadySetItems;
@@ -22305,13 +22506,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeConnectableClusters",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connectable-clusters`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/connectable-clusters`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22321,25 +22521,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConnectableClustersResponse>(await this.callApi(params, req, runtime), new DescribeConnectableClustersResponse({}));
   }
 
-  async describeDeprecatedTemplate(InstanceId: string, name: string, request: DescribeDeprecatedTemplateRequest): Promise<DescribeDeprecatedTemplateResponse> {
+  async describeDeprecatedTemplate(InstanceId: string, name: string): Promise<DescribeDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDeprecatedTemplateWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
-  async describeDeprecatedTemplateWithOptions(InstanceId: string, name: string, request: DescribeDeprecatedTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDeprecatedTemplateResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
+  async describeDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDeprecatedTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeDeprecatedTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/deprecated-templates/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22357,8 +22553,6 @@ export default class Client extends OpenApi {
 
   async describeDiagnoseReportWithOptions(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnoseReportResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    ReportId = OpenApiUtil.getEncodeParam(ReportId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.lang)) {
       query["lang"] = request.lang;
@@ -22367,13 +22561,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeDiagnoseReport",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports/${ReportId}`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/reports/${OpenApiUtil.getEncodeParam(ReportId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22391,7 +22584,6 @@ export default class Client extends OpenApi {
 
   async describeDiagnosisSettingsWithOptions(InstanceId: string, request: DescribeDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.lang)) {
       query["lang"] = request.lang;
@@ -22400,13 +22592,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeDiagnosisSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/settings`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22416,24 +22607,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSettingsResponse({}));
   }
 
-  async describeDynamicSettings(InstanceId: string, request: DescribeDynamicSettingsRequest): Promise<DescribeDynamicSettingsResponse> {
+  async describeDynamicSettings(InstanceId: string): Promise<DescribeDynamicSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeDynamicSettingsWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeDynamicSettingsWithOptions(InstanceId: string, request: DescribeDynamicSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDynamicSettingsResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeDynamicSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDynamicSettingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeDynamicSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dynamic-settings`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/dynamic-settings`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22443,24 +22631,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDynamicSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDynamicSettingsResponse({}));
   }
 
-  async describeElasticsearchHealth(InstanceId: string, request: DescribeElasticsearchHealthRequest): Promise<DescribeElasticsearchHealthResponse> {
+  async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeElasticsearchHealthWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeElasticsearchHealthWithOptions(InstanceId: string, request: DescribeElasticsearchHealthRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeElasticsearchHealthResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeElasticsearchHealthWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeElasticsearchHealthResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeElasticsearchHealth",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elasticsearch-health`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/elasticsearch-health`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22470,25 +22655,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticsearchHealthResponse>(await this.callApi(params, req, runtime), new DescribeElasticsearchHealthResponse({}));
   }
 
-  async describeILMPolicy(InstanceId: string, PolicyName: string, request: DescribeILMPolicyRequest): Promise<DescribeILMPolicyResponse> {
+  async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
+    return await this.describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
-  async describeILMPolicyWithOptions(InstanceId: string, PolicyName: string, request: DescribeILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeILMPolicyResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    PolicyName = OpenApiUtil.getEncodeParam(PolicyName);
+  async describeILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeILMPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeILMPolicy",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ilm-policies/${OpenApiUtil.getEncodeParam(PolicyName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22498,25 +22679,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeILMPolicyResponse>(await this.callApi(params, req, runtime), new DescribeILMPolicyResponse({}));
   }
 
-  async describeIndexTemplate(InstanceId: string, IndexTemplate: string, request: DescribeIndexTemplateRequest): Promise<DescribeIndexTemplateResponse> {
+  async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
+    return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
-  async describeIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: DescribeIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
+  async describeIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeIndexTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/index-templates/${OpenApiUtil.getEncodeParam(IndexTemplate)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22526,24 +22703,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIndexTemplateResponse>(await this.callApi(params, req, runtime), new DescribeIndexTemplateResponse({}));
   }
 
-  async describeInstance(InstanceId: string, request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
+  async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeInstanceWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeInstanceWithOptions(InstanceId: string, request: DescribeInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22553,24 +22727,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
-  async describeKibanaSettings(InstanceId: string, request: DescribeKibanaSettingsRequest): Promise<DescribeKibanaSettingsResponse> {
+  async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeKibanaSettingsWithOptions(InstanceId: string, request: DescribeKibanaSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKibanaSettingsResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeKibanaSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKibanaSettingsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeKibanaSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-settings`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/kibana-settings`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22580,24 +22751,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKibanaSettingsResponse>(await this.callApi(params, req, runtime), new DescribeKibanaSettingsResponse({}));
   }
 
-  async describeLogstash(InstanceId: string, request: DescribeLogstashRequest): Promise<DescribeLogstashResponse> {
+  async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeLogstashWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeLogstashWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeLogstashWithOptions(InstanceId: string, request: DescribeLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeLogstashResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeLogstashWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeLogstashResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeLogstash",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22607,25 +22775,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogstashResponse>(await this.callApi(params, req, runtime), new DescribeLogstashResponse({}));
   }
 
-  async describePipeline(InstanceId: string, PipelineId: string, request: DescribePipelineRequest): Promise<DescribePipelineResponse> {
+  async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePipelineWithOptions(InstanceId, PipelineId, request, headers, runtime);
+    return await this.describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
   }
 
-  async describePipelineWithOptions(InstanceId: string, PipelineId: string, request: DescribePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    PipelineId = OpenApiUtil.getEncodeParam(PipelineId);
+  async describePipelineWithOptions(InstanceId: string, PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribePipeline",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/${PipelineId}`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines/${OpenApiUtil.getEncodeParam(PipelineId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22643,7 +22807,6 @@ export default class Client extends OpenApi {
 
   async describePipelineManagementConfigWithOptions(InstanceId: string, request: DescribePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineManagementConfigResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -22652,13 +22815,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribePipelineManagementConfig",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipeline-management-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22668,17 +22830,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new DescribePipelineManagementConfigResponse({}));
   }
 
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+  async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeRegionsWithOptions(request, headers, runtime);
+    return await this.describeRegionsWithOptions(headers, runtime);
   }
 
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
@@ -22694,24 +22854,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
-  async describeSnapshotSetting(InstanceId: string, request: DescribeSnapshotSettingRequest): Promise<DescribeSnapshotSettingResponse> {
+  async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeSnapshotSettingWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeSnapshotSettingWithOptions(InstanceId: string, request: DescribeSnapshotSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotSettingResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeSnapshotSettingWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotSettingResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeSnapshotSetting",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshot-setting`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22721,24 +22878,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotSettingResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotSettingResponse({}));
   }
 
-  async describeTemplates(InstanceId: string, request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
+  async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTemplatesWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeTemplatesWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeTemplatesWithOptions(InstanceId: string, request: DescribeTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeTemplatesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeTemplates",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/templates`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22748,24 +22902,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
-  async describeXpackMonitorConfig(InstanceId: string, request: DescribeXpackMonitorConfigRequest): Promise<DescribeXpackMonitorConfigResponse> {
+  async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeXpackMonitorConfigWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
   }
 
-  async describeXpackMonitorConfigWithOptions(InstanceId: string, request: DescribeXpackMonitorConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeXpackMonitorConfigResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async describeXpackMonitorConfigWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeXpackMonitorConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "DescribeXpackMonitorConfig",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/xpack-monitor-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22783,7 +22934,6 @@ export default class Client extends OpenApi {
 
   async diagnoseInstanceWithOptions(InstanceId: string, request: DiagnoseInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DiagnoseInstanceResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -22793,16 +22943,29 @@ export default class Client extends OpenApi {
       query["lang"] = request.lang;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.diagnoseItems)) {
+      body["diagnoseItems"] = request.diagnoseItems;
+    }
+
+    if (!Util.isUnset(request.indices)) {
+      body["indices"] = request.indices;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DiagnoseInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/diagnose`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/diagnose`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -22820,7 +22983,6 @@ export default class Client extends OpenApi {
 
   async estimatedLogstashRestartTimeWithOptions(InstanceId: string, request: EstimatedLogstashRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedLogstashRestartTimeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
@@ -22835,7 +22997,7 @@ export default class Client extends OpenApi {
       action: "EstimatedLogstashRestartTime",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/estimated-time/restart-time`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/estimated-time/restart-time`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -22853,7 +23015,6 @@ export default class Client extends OpenApi {
 
   async estimatedRestartTimeWithOptions(InstanceId: string, request: EstimatedRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedRestartTimeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
@@ -22868,7 +23029,7 @@ export default class Client extends OpenApi {
       action: "EstimatedRestartTime",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/estimated-time/restart-time`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/estimated-time/restart-time`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -22904,24 +23065,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterDataInformationResponse>(await this.callApi(params, req, runtime), new GetClusterDataInformationResponse({}));
   }
 
-  async getElastictask(InstanceId: string, request: GetElastictaskRequest): Promise<GetElastictaskResponse> {
+  async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getElastictaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.getElastictaskWithOptions(InstanceId, headers, runtime);
   }
 
-  async getElastictaskWithOptions(InstanceId: string, request: GetElastictaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElastictaskResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async getElastictaskWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElastictaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "GetElastictask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/elastic-task`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22939,7 +23097,6 @@ export default class Client extends OpenApi {
 
   async getEmonGrafanaAlertsWithOptions(ProjectId: string, request: GetEmonGrafanaAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaAlertsResponse> {
     Util.validateModel(request);
-    ProjectId = OpenApiUtil.getEncodeParam(ProjectId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -22948,7 +23105,7 @@ export default class Client extends OpenApi {
       action: "GetEmonGrafanaAlerts",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/alerts`,
+      pathname: `/openapi/emon/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/grafana/proxy/api/alerts`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22966,7 +23123,6 @@ export default class Client extends OpenApi {
 
   async getEmonGrafanaDashboardsWithOptions(ProjectId: string, request: GetEmonGrafanaDashboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaDashboardsResponse> {
     Util.validateModel(request);
-    ProjectId = OpenApiUtil.getEncodeParam(ProjectId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -22975,7 +23131,7 @@ export default class Client extends OpenApi {
       action: "GetEmonGrafanaDashboards",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/search`,
+      pathname: `/openapi/emon/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/grafana/proxy/api/search`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -22993,7 +23149,6 @@ export default class Client extends OpenApi {
 
   async getEmonMonitorDataWithOptions(ProjectId: string, request: GetEmonMonitorDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonMonitorDataResponse> {
     Util.validateModel(request);
-    ProjectId = OpenApiUtil.getEncodeParam(ProjectId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -23002,7 +23157,7 @@ export default class Client extends OpenApi {
       action: "GetEmonMonitorData",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/metrics/query`,
+      pathname: `/openapi/emon/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/metrics/query`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23012,24 +23167,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonMonitorDataResponse>(await this.callApi(params, req, runtime), new GetEmonMonitorDataResponse({}));
   }
 
-  async getOpenStoreUsage(InstanceId: string, request: GetOpenStoreUsageRequest): Promise<GetOpenStoreUsageResponse> {
+  async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getOpenStoreUsageWithOptions(InstanceId, request, headers, runtime);
+    return await this.getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
   }
 
-  async getOpenStoreUsageWithOptions(InstanceId: string, request: GetOpenStoreUsageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOpenStoreUsageResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async getOpenStoreUsageWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOpenStoreUsageResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "GetOpenStoreUsage",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/openstore/usage`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/openstore/usage`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23055,7 +23207,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "GetRegionConfiguration",
@@ -23079,7 +23230,6 @@ export default class Client extends OpenApi {
 
   async getSuggestShrinkableNodesWithOptions(InstanceId: string, request: GetSuggestShrinkableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSuggestShrinkableNodesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.count)) {
       query["count"] = request.count;
@@ -23096,13 +23246,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "GetSuggestShrinkableNodes",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/suggest-shrinkable-nodes`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/suggest-shrinkable-nodes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23120,7 +23269,6 @@ export default class Client extends OpenApi {
 
   async getTransferableNodesWithOptions(InstanceId: string, request: GetTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTransferableNodesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.count)) {
       query["count"] = request.count;
@@ -23133,13 +23281,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "GetTransferableNodes",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/transferable-nodes`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/transferable-nodes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23189,7 +23336,6 @@ export default class Client extends OpenApi {
 
   async installAckOperatorWithOptions(ClusterId: string, request: InstallAckOperatorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallAckOperatorResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -23204,7 +23350,7 @@ export default class Client extends OpenApi {
       action: "InstallAckOperator",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
+      pathname: `/openapi/ack-clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/operator`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23222,7 +23368,6 @@ export default class Client extends OpenApi {
 
   async installKibanaSystemPluginWithOptions(InstanceId: string, request: InstallKibanaSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallKibanaSystemPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -23237,7 +23382,7 @@ export default class Client extends OpenApi {
       action: "InstallKibanaSystemPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/system/actions/install`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/kibana-plugins/system/actions/install`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23255,7 +23400,6 @@ export default class Client extends OpenApi {
 
   async installLogstashSystemPluginWithOptions(InstanceId: string, request: InstallLogstashSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallLogstashSystemPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -23270,7 +23414,7 @@ export default class Client extends OpenApi {
       action: "InstallLogstashSystemPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/system/actions/install`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins/system/actions/install`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23288,7 +23432,6 @@ export default class Client extends OpenApi {
 
   async installSystemPluginWithOptions(InstanceId: string, request: InstallSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallSystemPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -23303,7 +23446,7 @@ export default class Client extends OpenApi {
       action: "InstallSystemPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/system/actions/install`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins/system/actions/install`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23321,7 +23464,6 @@ export default class Client extends OpenApi {
 
   async installUserPluginsWithOptions(InstanceId: string, request: InstallUserPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallUserPluginsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -23330,7 +23472,7 @@ export default class Client extends OpenApi {
       action: "InstallUserPlugins",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/user/actions/install`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins/user/actions/install`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23348,7 +23490,6 @@ export default class Client extends OpenApi {
 
   async interruptElasticsearchTaskWithOptions(InstanceId: string, request: InterruptElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptElasticsearchTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -23357,13 +23498,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "InterruptElasticsearchTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/interrupt`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/interrupt`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23381,7 +23521,6 @@ export default class Client extends OpenApi {
 
   async interruptLogstashTaskWithOptions(InstanceId: string, request: InterruptLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptLogstashTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -23390,13 +23529,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "InterruptLogstashTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/interrupt`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/interrupt`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -23430,7 +23568,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListAckClusters",
@@ -23454,7 +23591,6 @@ export default class Client extends OpenApi {
 
   async listAckNamespacesWithOptions(ClusterId: string, request: ListAckNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAckNamespacesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
@@ -23467,13 +23603,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListAckNamespaces",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/namespaces`,
+      pathname: `/openapi/ack-clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/namespaces`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23491,7 +23626,6 @@ export default class Client extends OpenApi {
 
   async listActionRecordsWithOptions(InstanceId: string, request: ListActionRecordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListActionRecordsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.actionNames)) {
       query["actionNames"] = request.actionNames;
@@ -23528,13 +23662,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListActionRecords",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/action-records`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/action-records`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23552,7 +23685,6 @@ export default class Client extends OpenApi {
 
   async listAllNodeWithOptions(InstanceId: string, request: ListAllNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAllNodeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.extended)) {
       query["extended"] = request.extended;
@@ -23561,13 +23693,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListAllNode",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/nodes`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/nodes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23585,7 +23716,6 @@ export default class Client extends OpenApi {
 
   async listAlternativeSnapshotReposWithOptions(InstanceId: string, request: ListAlternativeSnapshotReposRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlternativeSnapshotReposResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alreadySetItems)) {
       query["alreadySetItems"] = request.alreadySetItems;
@@ -23594,13 +23724,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListAlternativeSnapshotRepos",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/alternative-snapshot-repos`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/alternative-snapshot-repos`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23642,7 +23771,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListApm",
@@ -23658,24 +23786,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApmResponse>(await this.callApi(params, req, runtime), new ListApmResponse({}));
   }
 
-  async listAvailableEsInstanceIds(InstanceId: string, request: ListAvailableEsInstanceIdsRequest): Promise<ListAvailableEsInstanceIdsResponse> {
+  async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAvailableEsInstanceIdsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
   }
 
-  async listAvailableEsInstanceIdsWithOptions(InstanceId: string, request: ListAvailableEsInstanceIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableEsInstanceIdsResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async listAvailableEsInstanceIdsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableEsInstanceIdsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListAvailableEsInstanceIds",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/available-elasticsearch-for-centralized-management`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/available-elasticsearch-for-centralized-management`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23721,7 +23846,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListCollectors",
@@ -23745,7 +23869,6 @@ export default class Client extends OpenApi {
 
   async listComponentIndicesWithOptions(InstanceId: string, request: ListComponentIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListComponentIndicesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -23762,13 +23885,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListComponentIndices",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/component-index`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23778,24 +23900,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListComponentIndicesResponse>(await this.callApi(params, req, runtime), new ListComponentIndicesResponse({}));
   }
 
-  async listConnectedClusters(InstanceId: string, request: ListConnectedClustersRequest): Promise<ListConnectedClustersResponse> {
+  async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConnectedClustersWithOptions(InstanceId, request, headers, runtime);
+    return await this.listConnectedClustersWithOptions(InstanceId, headers, runtime);
   }
 
-  async listConnectedClustersWithOptions(InstanceId: string, request: ListConnectedClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConnectedClustersResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async listConnectedClustersWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConnectedClustersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListConnectedClusters",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/connected-clusters`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23813,7 +23932,6 @@ export default class Client extends OpenApi {
 
   async listDataStreamsWithOptions(InstanceId: string, request: ListDataStreamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataStreamsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.isManaged)) {
       query["isManaged"] = request.isManaged;
@@ -23826,13 +23944,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDataStreams",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-streams`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23842,24 +23959,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataStreamsResponse>(await this.callApi(params, req, runtime), new ListDataStreamsResponse({}));
   }
 
-  async listDataTasks(InstanceId: string, request: ListDataTasksRequest): Promise<ListDataTasksResponse> {
+  async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDataTasksWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDataTasksWithOptions(InstanceId, headers, runtime);
   }
 
-  async listDataTasksWithOptions(InstanceId: string, request: ListDataTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataTasksResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async listDataTasksWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDataTasks",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-task`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23893,7 +24007,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDefaultCollectorConfigurations",
@@ -23917,7 +24030,6 @@ export default class Client extends OpenApi {
 
   async listDeprecatedTemplatesWithOptions(InstanceId: string, request: ListDeprecatedTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeprecatedTemplatesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -23934,13 +24046,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDeprecatedTemplates",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/deprecated-templates`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23958,7 +24069,6 @@ export default class Client extends OpenApi {
 
   async listDiagnoseIndicesWithOptions(InstanceId: string, request: ListDiagnoseIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseIndicesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.lang)) {
       query["lang"] = request.lang;
@@ -23967,13 +24077,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDiagnoseIndices",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/indices`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/indices`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -23991,7 +24100,6 @@ export default class Client extends OpenApi {
 
   async listDiagnoseReportWithOptions(InstanceId: string, request: ListDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.detail)) {
       query["detail"] = request.detail;
@@ -24024,13 +24132,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDiagnoseReport",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/reports`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24048,7 +24155,6 @@ export default class Client extends OpenApi {
 
   async listDiagnoseReportIdsWithOptions(InstanceId: string, request: ListDiagnoseReportIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportIdsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["endTime"] = request.endTime;
@@ -24077,13 +24183,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDiagnoseReportIds",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/report-ids`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/report-ids`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24101,7 +24206,6 @@ export default class Client extends OpenApi {
 
   async listDictInformationWithOptions(InstanceId: string, request: ListDictInformationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictInformationResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.analyzerType)) {
       query["analyzerType"] = request.analyzerType;
@@ -24118,13 +24222,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDictInformation",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict/_info`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/dict/_info`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24142,7 +24245,6 @@ export default class Client extends OpenApi {
 
   async listDictsWithOptions(InstanceId: string, request: ListDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.analyzerType)) {
       query["analyzerType"] = request.analyzerType;
@@ -24155,13 +24257,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListDicts",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dicts`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/dicts`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24207,7 +24308,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListEcsInstances",
@@ -24223,24 +24323,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListEcsInstancesResponse({}));
   }
 
-  async listExtendfiles(InstanceId: string, request: ListExtendfilesRequest): Promise<ListExtendfilesResponse> {
+  async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listExtendfilesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listExtendfilesWithOptions(InstanceId, headers, runtime);
   }
 
-  async listExtendfilesWithOptions(InstanceId: string, request: ListExtendfilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExtendfilesResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async listExtendfilesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExtendfilesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListExtendfiles",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/extendfiles`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24258,7 +24355,6 @@ export default class Client extends OpenApi {
 
   async listILMPoliciesWithOptions(InstanceId: string, request: ListILMPoliciesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListILMPoliciesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.policyName)) {
       query["policyName"] = request.policyName;
@@ -24267,13 +24363,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListILMPolicies",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ilm-policies`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24291,7 +24386,6 @@ export default class Client extends OpenApi {
 
   async listIndexTemplatesWithOptions(InstanceId: string, request: ListIndexTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexTemplatesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.indexTemplate)) {
       query["indexTemplate"] = request.indexTemplate;
@@ -24308,13 +24402,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListIndexTemplates",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/index-templates`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24380,7 +24473,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListInstance",
@@ -24396,6 +24488,99 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
   }
 
+  async listInstanceHistoryEvents(request: ListInstanceHistoryEventsRequest): Promise<ListInstanceHistoryEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceHistoryEventsWithOptions(request, headers, runtime);
+  }
+
+  async listInstanceHistoryEventsWithOptions(tmpReq: ListInstanceHistoryEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryEventsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListInstanceHistoryEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.eventCycleStatus)) {
+      request.eventCycleStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCycleStatus, "eventCycleStatus", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.eventLevel)) {
+      request.eventLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventLevel, "eventLevel", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.eventType)) {
+      request.eventTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventType, "eventType", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.eventCreateEndTime)) {
+      query["eventCreateEndTime"] = request.eventCreateEndTime;
+    }
+
+    if (!Util.isUnset(request.eventCreateStartTime)) {
+      query["eventCreateStartTime"] = request.eventCreateStartTime;
+    }
+
+    if (!Util.isUnset(request.eventCycleStatusShrink)) {
+      query["eventCycleStatus"] = request.eventCycleStatusShrink;
+    }
+
+    if (!Util.isUnset(request.eventExecuteEndTime)) {
+      query["eventExecuteEndTime"] = request.eventExecuteEndTime;
+    }
+
+    if (!Util.isUnset(request.eventExecuteStartTime)) {
+      query["eventExecuteStartTime"] = request.eventExecuteStartTime;
+    }
+
+    if (!Util.isUnset(request.eventFinashEndTime)) {
+      query["eventFinashEndTime"] = request.eventFinashEndTime;
+    }
+
+    if (!Util.isUnset(request.eventFinashStartTime)) {
+      query["eventFinashStartTime"] = request.eventFinashStartTime;
+    }
+
+    if (!Util.isUnset(request.eventLevelShrink)) {
+      query["eventLevel"] = request.eventLevelShrink;
+    }
+
+    if (!Util.isUnset(request.eventTypeShrink)) {
+      query["eventType"] = request.eventTypeShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeIP)) {
+      query["nodeIP"] = request.nodeIP;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceHistoryEvents",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/events`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryEventsResponse({}));
+  }
+
   async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -24404,7 +24589,6 @@ export default class Client extends OpenApi {
 
   async listInstanceIndicesWithOptions(InstanceId: string, request: ListInstanceIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceIndicesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.all)) {
       query["all"] = request.all;
@@ -24433,13 +24617,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListInstanceIndices",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/indices`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24457,7 +24640,6 @@ export default class Client extends OpenApi {
 
   async listKibanaPluginsWithOptions(InstanceId: string, request: ListKibanaPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListKibanaPluginsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
@@ -24470,13 +24652,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListKibanaPlugins",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/kibana-plugins`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24519,6 +24700,10 @@ export default class Client extends OpenApi {
       query["size"] = request.size;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.version)) {
       query["version"] = request.version;
     }
@@ -24526,7 +24711,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListLogstash",
@@ -24550,7 +24734,6 @@ export default class Client extends OpenApi {
 
   async listLogstashLogWithOptions(InstanceId: string, request: ListLogstashLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashLogResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.beginTime)) {
       query["beginTime"] = request.beginTime;
@@ -24579,13 +24762,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListLogstashLog",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/search-log`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/search-log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24603,7 +24785,6 @@ export default class Client extends OpenApi {
 
   async listLogstashPluginsWithOptions(InstanceId: string, request: ListLogstashPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashPluginsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -24624,13 +24805,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListLogstashPlugins",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24648,7 +24828,6 @@ export default class Client extends OpenApi {
 
   async listNodesWithOptions(ResId: string, request: ListNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ecsInstanceIds)) {
       query["ecsInstanceIds"] = request.ecsInstanceIds;
@@ -24673,13 +24852,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListNodes",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/nodes`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/nodes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24697,7 +24875,6 @@ export default class Client extends OpenApi {
 
   async listPipelineWithOptions(InstanceId: string, request: ListPipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
@@ -24714,13 +24891,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListPipeline",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24738,7 +24914,6 @@ export default class Client extends OpenApi {
 
   async listPipelineIdsWithOptions(InstanceId: string, request: ListPipelineIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineIdsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -24747,7 +24922,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineIds",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/pipeline-ids`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/pipeline-ids`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -24765,7 +24940,6 @@ export default class Client extends OpenApi {
 
   async listPluginsWithOptions(InstanceId: string, request: ListPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPluginsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -24786,13 +24960,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListPlugins",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24810,7 +24983,6 @@ export default class Client extends OpenApi {
 
   async listSearchLogWithOptions(InstanceId: string, request: ListSearchLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSearchLogResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.beginTime)) {
       query["beginTime"] = request.beginTime;
@@ -24839,13 +25011,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListSearchLog",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/search-log`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/search-log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24863,7 +25034,6 @@ export default class Client extends OpenApi {
 
   async listShardRecoveriesWithOptions(InstanceId: string, request: ListShardRecoveriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardRecoveriesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.activeOnly)) {
       query["activeOnly"] = request.activeOnly;
@@ -24872,13 +25042,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListShardRecoveries",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/cat-recovery`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/cat-recovery`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24888,24 +25057,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShardRecoveriesResponse>(await this.callApi(params, req, runtime), new ListShardRecoveriesResponse({}));
   }
 
-  async listSnapshotReposByInstanceId(InstanceId: string, request: ListSnapshotReposByInstanceIdRequest): Promise<ListSnapshotReposByInstanceIdResponse> {
+  async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSnapshotReposByInstanceIdWithOptions(InstanceId, request, headers, runtime);
+    return await this.listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
   }
 
-  async listSnapshotReposByInstanceIdWithOptions(InstanceId: string, request: ListSnapshotReposByInstanceIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotReposByInstanceIdResponse> {
-    Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+  async listSnapshotReposByInstanceIdWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotReposByInstanceIdResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListSnapshotReposByInstanceId",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshot-repos`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -24951,7 +25117,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListTagResources",
@@ -24987,7 +25152,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListTags",
@@ -25011,7 +25175,6 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointsWithOptions(InstanceId: string, request: ListVpcEndpointsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
@@ -25024,13 +25187,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ListVpcEndpoints",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/vpc-endpoints`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -25048,7 +25210,6 @@ export default class Client extends OpenApi {
 
   async migrateToOtherZoneWithOptions(InstanceId: string, request: MigrateToOtherZoneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dryRun)) {
       query["dryRun"] = request.dryRun;
@@ -25063,7 +25224,7 @@ export default class Client extends OpenApi {
       action: "MigrateToOtherZone",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/migrate-zones`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/migrate-zones`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25081,7 +25242,6 @@ export default class Client extends OpenApi {
 
   async modifyDeployMachineWithOptions(ResId: string, request: ModifyDeployMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDeployMachineResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25096,7 +25256,7 @@ export default class Client extends OpenApi {
       action: "ModifyDeployMachine",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/modify-deploy-machines`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/modify-deploy-machines`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25114,7 +25274,6 @@ export default class Client extends OpenApi {
 
   async modifyElastictaskWithOptions(InstanceId: string, request: ModifyElastictaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyElastictaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -25123,7 +25282,7 @@ export default class Client extends OpenApi {
       action: "ModifyElastictask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/elastic-task`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25141,7 +25300,6 @@ export default class Client extends OpenApi {
 
   async modifyInstanceMaintainTimeWithOptions(InstanceId: string, request: ModifyInstanceMaintainTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25156,7 +25314,7 @@ export default class Client extends OpenApi {
       action: "ModifyInstanceMaintainTime",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-maintaintime`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/modify-maintaintime`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25174,7 +25332,6 @@ export default class Client extends OpenApi {
 
   async modifyWhiteIpsWithOptions(InstanceId: string, request: ModifyWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyWhiteIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25210,7 +25367,7 @@ export default class Client extends OpenApi {
       action: "ModifyWhiteIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-white-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/modify-white-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25228,7 +25385,6 @@ export default class Client extends OpenApi {
 
   async moveResourceGroupWithOptions(InstanceId: string, request: MoveResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25243,7 +25399,7 @@ export default class Client extends OpenApi {
       action: "MoveResourceGroup",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/resourcegroup`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/resourcegroup`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25261,7 +25417,6 @@ export default class Client extends OpenApi {
 
   async openDiagnosisWithOptions(InstanceId: string, request: OpenDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenDiagnosisResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25274,13 +25429,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "OpenDiagnosis",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/open-diagnosis`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/open-diagnosis`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25298,7 +25452,6 @@ export default class Client extends OpenApi {
 
   async openHttpsWithOptions(InstanceId: string, request: OpenHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenHttpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25307,13 +25460,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "OpenHttps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/open-https`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/open-https`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25331,8 +25483,6 @@ export default class Client extends OpenApi {
 
   async postEmonTryAlarmRuleWithOptions(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostEmonTryAlarmRuleResponse> {
     Util.validateModel(request);
-    ProjectId = OpenApiUtil.getEncodeParam(ProjectId);
-    AlarmGroupId = OpenApiUtil.getEncodeParam(AlarmGroupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -25341,7 +25491,7 @@ export default class Client extends OpenApi {
       action: "PostEmonTryAlarmRule",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/alarm-groups/${AlarmGroupId}/alarm-rules/_test`,
+      pathname: `/openapi/emon/projects/${OpenApiUtil.getEncodeParam(ProjectId)}/alarm-groups/${OpenApiUtil.getEncodeParam(AlarmGroupId)}/alarm-rules/_test`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25359,7 +25509,6 @@ export default class Client extends OpenApi {
 
   async recommendTemplatesWithOptions(InstanceId: string, request: RecommendTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecommendTemplatesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.usageScenario)) {
       query["usageScenario"] = request.usageScenario;
@@ -25368,13 +25517,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "RecommendTemplates",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/recommended-templates`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/recommended-templates`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -25392,7 +25540,6 @@ export default class Client extends OpenApi {
 
   async reinstallCollectorWithOptions(ResId: string, request: ReinstallCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReinstallCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25407,7 +25554,7 @@ export default class Client extends OpenApi {
       action: "ReinstallCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/reinstall`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/reinstall`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25417,24 +25564,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ReinstallCollectorResponse>(await this.callApi(params, req, runtime), new ReinstallCollectorResponse({}));
   }
 
-  async removeApm(instanceId: string, request: RemoveApmRequest): Promise<RemoveApmResponse> {
+  async removeApm(instanceId: string): Promise<RemoveApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeApmWithOptions(instanceId, request, headers, runtime);
+    return await this.removeApmWithOptions(instanceId, headers, runtime);
   }
 
-  async removeApmWithOptions(instanceId: string, request: RemoveApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveApmResponse> {
-    Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+  async removeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "RemoveApm",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
+      pathname: `/openapi/apm/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -25452,7 +25596,6 @@ export default class Client extends OpenApi {
 
   async renewInstanceWithOptions(InstanceId: string, request: RenewInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25467,7 +25610,7 @@ export default class Client extends OpenApi {
       action: "RenewInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/renew`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/renew`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25485,7 +25628,6 @@ export default class Client extends OpenApi {
 
   async renewLogstashWithOptions(InstanceId: string, request: RenewLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewLogstashResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25500,7 +25642,7 @@ export default class Client extends OpenApi {
       action: "RenewLogstash",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/renew`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/renew`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25518,7 +25660,6 @@ export default class Client extends OpenApi {
 
   async restartCollectorWithOptions(ResId: string, request: RestartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25527,13 +25668,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "RestartCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/restart`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/restart`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25551,7 +25691,6 @@ export default class Client extends OpenApi {
 
   async restartInstanceWithOptions(InstanceId: string, request: RestartInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25570,7 +25709,7 @@ export default class Client extends OpenApi {
       action: "RestartInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/restart`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/restart`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25588,7 +25727,6 @@ export default class Client extends OpenApi {
 
   async restartLogstashWithOptions(InstanceId: string, request: RestartLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartLogstashResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25598,16 +25736,37 @@ export default class Client extends OpenApi {
       query["force"] = request.force;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.batchCount)) {
+      body["batchCount"] = request.batchCount;
+    }
+
+    if (!Util.isUnset(request.blueGreenDep)) {
+      body["blueGreenDep"] = request.blueGreenDep;
+    }
+
+    if (!Util.isUnset(request.nodeTypes)) {
+      body["nodeTypes"] = request.nodeTypes;
+    }
+
+    if (!Util.isUnset(request.nodes)) {
+      body["nodes"] = request.nodes;
+    }
+
+    if (!Util.isUnset(request.restartType)) {
+      body["restartType"] = request.restartType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RestartLogstash",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/restart`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/restart`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25625,7 +25784,6 @@ export default class Client extends OpenApi {
 
   async resumeElasticsearchTaskWithOptions(InstanceId: string, request: ResumeElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeElasticsearchTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25634,13 +25792,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ResumeElasticsearchTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/resume`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25658,7 +25815,6 @@ export default class Client extends OpenApi {
 
   async resumeLogstashTaskWithOptions(InstanceId: string, request: ResumeLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeLogstashTaskResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25667,13 +25823,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ResumeLogstashTask",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/resume`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25691,8 +25846,6 @@ export default class Client extends OpenApi {
 
   async rolloverDataStreamWithOptions(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RolloverDataStreamResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25701,13 +25854,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "RolloverDataStream",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/${DataStream}/rollover`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-streams/${OpenApiUtil.getEncodeParam(DataStream)}/rollover`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25725,7 +25877,6 @@ export default class Client extends OpenApi {
 
   async runPipelinesWithOptions(InstanceId: string, request: RunPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunPipelinesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25740,7 +25891,7 @@ export default class Client extends OpenApi {
       action: "RunPipelines",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/run`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines/action/run`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25758,10 +25909,13 @@ export default class Client extends OpenApi {
 
   async shrinkNodeWithOptions(InstanceId: string, request: ShrinkNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ShrinkNodeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["count"] = request.count;
     }
 
     if (!Util.isUnset(request.ignoreStatus)) {
@@ -25781,7 +25935,7 @@ export default class Client extends OpenApi {
       action: "ShrinkNode",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/shrink`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/shrink`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25791,24 +25945,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ShrinkNodeResponse>(await this.callApi(params, req, runtime), new ShrinkNodeResponse({}));
   }
 
-  async startApm(instanceId: string, request: StartApmRequest): Promise<StartApmResponse> {
+  async startApm(instanceId: string): Promise<StartApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startApmWithOptions(instanceId, request, headers, runtime);
+    return await this.startApmWithOptions(instanceId, headers, runtime);
   }
 
-  async startApmWithOptions(instanceId: string, request: StartApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApmResponse> {
-    Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+  async startApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "StartApm",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/start`,
+      pathname: `/openapi/apm/${OpenApiUtil.getEncodeParam(instanceId)}/actions/start`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25826,7 +25977,6 @@ export default class Client extends OpenApi {
 
   async startCollectorWithOptions(ResId: string, request: StartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25835,13 +25985,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "StartCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/start`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/start`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25851,24 +26000,21 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCollectorResponse>(await this.callApi(params, req, runtime), new StartCollectorResponse({}));
   }
 
-  async stopApm(instanceId: string, request: StopApmRequest): Promise<StopApmResponse> {
+  async stopApm(instanceId: string): Promise<StopApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopApmWithOptions(instanceId, request, headers, runtime);
+    return await this.stopApmWithOptions(instanceId, headers, runtime);
   }
 
-  async stopApmWithOptions(instanceId: string, request: StopApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApmResponse> {
-    Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+  async stopApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApmResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "StopApm",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/stop`,
+      pathname: `/openapi/apm/${OpenApiUtil.getEncodeParam(instanceId)}/actions/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25886,7 +26032,6 @@ export default class Client extends OpenApi {
 
   async stopCollectorWithOptions(ResId: string, request: StopCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25895,13 +26040,12 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "StopCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/stop`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25919,7 +26063,6 @@ export default class Client extends OpenApi {
 
   async stopPipelinesWithOptions(InstanceId: string, request: StopPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelinesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -25934,7 +26077,7 @@ export default class Client extends OpenApi {
       action: "StopPipelines",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/stop`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines/action/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -25952,9 +26095,22 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceIds)) {
+      body["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "TagResources",
@@ -25978,7 +26134,6 @@ export default class Client extends OpenApi {
 
   async transferNodeWithOptions(InstanceId: string, request: TransferNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransferNodeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -25997,7 +26152,7 @@ export default class Client extends OpenApi {
       action: "TransferNode",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/transfer`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/transfer`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26015,7 +26170,6 @@ export default class Client extends OpenApi {
 
   async triggerNetworkWithOptions(InstanceId: string, request: TriggerNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerNetworkResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26043,7 +26197,7 @@ export default class Client extends OpenApi {
       action: "TriggerNetwork",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/network-trigger`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/network-trigger`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26061,7 +26215,6 @@ export default class Client extends OpenApi {
 
   async uninstallKibanaPluginWithOptions(InstanceId: string, request: UninstallKibanaPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallKibanaPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26076,7 +26229,7 @@ export default class Client extends OpenApi {
       action: "UninstallKibanaPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/actions/uninstall`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/kibana-plugins/actions/uninstall`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26094,7 +26247,6 @@ export default class Client extends OpenApi {
 
   async uninstallLogstashPluginWithOptions(InstanceId: string, request: UninstallLogstashPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallLogstashPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26109,7 +26261,7 @@ export default class Client extends OpenApi {
       action: "UninstallLogstashPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/actions/uninstall`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins/actions/uninstall`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26127,7 +26279,6 @@ export default class Client extends OpenApi {
 
   async uninstallPluginWithOptions(InstanceId: string, request: UninstallPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallPluginResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26142,7 +26293,7 @@ export default class Client extends OpenApi {
       action: "UninstallPlugin",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/actions/uninstall`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/plugins/actions/uninstall`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26204,7 +26355,6 @@ export default class Client extends OpenApi {
 
   async updateAdminPasswordWithOptions(InstanceId: string, request: UpdateAdminPasswordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdminPasswordResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26219,7 +26369,7 @@ export default class Client extends OpenApi {
       action: "UpdateAdminPassword",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/admin-pwd`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/admin-pwd`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26237,7 +26387,6 @@ export default class Client extends OpenApi {
 
   async updateAdvancedSettingWithOptions(InstanceId: string, request: UpdateAdvancedSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdvancedSettingResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26252,7 +26401,7 @@ export default class Client extends OpenApi {
       action: "UpdateAdvancedSetting",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-advanced-setting`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/update-advanced-setting`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26270,7 +26419,6 @@ export default class Client extends OpenApi {
 
   async updateAliwsDictWithOptions(InstanceId: string, request: UpdateAliwsDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliwsDictResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26285,7 +26433,7 @@ export default class Client extends OpenApi {
       action: "UpdateAliwsDict",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/aliws-dict`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/aliws-dict`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26303,7 +26451,6 @@ export default class Client extends OpenApi {
 
   async updateApmWithOptions(instanceId: string, request: UpdateApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApmResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -26333,7 +26480,7 @@ export default class Client extends OpenApi {
       action: "UpdateApm",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
+      pathname: `/openapi/apm/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26351,31 +26498,24 @@ export default class Client extends OpenApi {
 
   async updateBlackIpsWithOptions(InstanceId: string, request: UpdateBlackIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBlackIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.esIPBlacklist)) {
-      body["esIPBlacklist"] = request.esIPBlacklist;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateBlackIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/black-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/black-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<UpdateBlackIpsResponse>(await this.callApi(params, req, runtime), new UpdateBlackIpsResponse({}));
@@ -26389,7 +26529,6 @@ export default class Client extends OpenApi {
 
   async updateCollectorWithOptions(ResId: string, request: UpdateCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26404,7 +26543,7 @@ export default class Client extends OpenApi {
       action: "UpdateCollector",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26422,7 +26561,6 @@ export default class Client extends OpenApi {
 
   async updateCollectorNameWithOptions(ResId: string, request: UpdateCollectorNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorNameResponse> {
     Util.validateModel(request);
-    ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26437,7 +26575,7 @@ export default class Client extends OpenApi {
       action: "UpdateCollectorName",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/rename`,
+      pathname: `/openapi/collectors/${OpenApiUtil.getEncodeParam(ResId)}/actions/rename`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26455,8 +26593,6 @@ export default class Client extends OpenApi {
 
   async updateComponentIndexWithOptions(InstanceId: string, name: string, request: UpdateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateComponentIndexResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    name = OpenApiUtil.getEncodeParam(name);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.meta)) {
       body["_meta"] = request.meta;
@@ -26474,7 +26610,7 @@ export default class Client extends OpenApi {
       action: "UpdateComponentIndex",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/component-index/${OpenApiUtil.getEncodeParam(name)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26492,7 +26628,6 @@ export default class Client extends OpenApi {
 
   async updateDescriptionWithOptions(InstanceId: string, request: UpdateDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDescriptionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26512,7 +26647,7 @@ export default class Client extends OpenApi {
       action: "UpdateDescription",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/description`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/description`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26530,7 +26665,6 @@ export default class Client extends OpenApi {
 
   async updateDiagnosisSettingsWithOptions(InstanceId: string, request: UpdateDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDiagnosisSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26549,7 +26683,7 @@ export default class Client extends OpenApi {
       action: "UpdateDiagnosisSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
+      pathname: `/openapi/diagnosis/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/settings`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26567,7 +26701,6 @@ export default class Client extends OpenApi {
 
   async updateDictWithOptions(InstanceId: string, request: UpdateDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDictResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26582,7 +26715,7 @@ export default class Client extends OpenApi {
       action: "UpdateDict",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/dict`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26600,7 +26733,6 @@ export default class Client extends OpenApi {
 
   async updateDynamicSettingsWithOptions(InstanceId: string, request: UpdateDynamicSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26623,7 +26755,7 @@ export default class Client extends OpenApi {
       action: "UpdateDynamicSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dynamic-settings`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/dynamic-settings`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26641,7 +26773,6 @@ export default class Client extends OpenApi {
 
   async updateExtendConfigWithOptions(InstanceId: string, request: UpdateExtendConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendConfigResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26656,7 +26787,7 @@ export default class Client extends OpenApi {
       action: "UpdateExtendConfig",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/extend-configs/actions/update`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/extend-configs/actions/update`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26674,7 +26805,6 @@ export default class Client extends OpenApi {
 
   async updateExtendfilesWithOptions(InstanceId: string, request: UpdateExtendfilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendfilesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26689,7 +26819,7 @@ export default class Client extends OpenApi {
       action: "UpdateExtendfiles",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/extendfiles`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26707,7 +26837,6 @@ export default class Client extends OpenApi {
 
   async updateHotIkDictsWithOptions(InstanceId: string, request: UpdateHotIkDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHotIkDictsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26722,7 +26851,7 @@ export default class Client extends OpenApi {
       action: "UpdateHotIkDicts",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ik-hot-dict`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ik-hot-dict`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26740,8 +26869,6 @@ export default class Client extends OpenApi {
 
   async updateILMPolicyWithOptions(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateILMPolicyResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    PolicyName = OpenApiUtil.getEncodeParam(PolicyName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26756,7 +26883,7 @@ export default class Client extends OpenApi {
       action: "UpdateILMPolicy",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/ilm-policies/${OpenApiUtil.getEncodeParam(PolicyName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26774,8 +26901,6 @@ export default class Client extends OpenApi {
 
   async updateIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexTemplateResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -26790,7 +26915,7 @@ export default class Client extends OpenApi {
       action: "UpdateIndexTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/index-templates/${OpenApiUtil.getEncodeParam(IndexTemplate)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26808,26 +26933,62 @@ export default class Client extends OpenApi {
 
   async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["force"] = request.force;
     }
 
     if (!Util.isUnset(request.orderActionType)) {
       query["orderActionType"] = request.orderActionType;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.clientNodeConfiguration))) {
+      body["clientNodeConfiguration"] = request.clientNodeConfiguration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.elasticDataNodeConfiguration))) {
+      body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration;
+    }
+
+    if (!Util.isUnset(request.instanceCategory)) {
+      body["instanceCategory"] = request.instanceCategory;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.kibanaConfiguration))) {
+      body["kibanaConfiguration"] = request.kibanaConfiguration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.masterConfiguration))) {
+      body["masterConfiguration"] = request.masterConfiguration;
+    }
+
+    if (!Util.isUnset(request.nodeAmount)) {
+      body["nodeAmount"] = request.nodeAmount;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+      body["nodeSpec"] = request.nodeSpec;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.warmNodeConfiguration))) {
+      body["warmNodeConfiguration"] = request.warmNodeConfiguration;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateInstance",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -26845,7 +27006,6 @@ export default class Client extends OpenApi {
 
   async updateInstanceChargeTypeWithOptions(InstanceId: string, request: UpdateInstanceChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceChargeTypeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26860,7 +27020,7 @@ export default class Client extends OpenApi {
       action: "UpdateInstanceChargeType",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/convert-pay-type`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/convert-pay-type`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26878,7 +27038,6 @@ export default class Client extends OpenApi {
 
   async updateInstanceSettingsWithOptions(InstanceId: string, request: UpdateInstanceSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26893,7 +27052,7 @@ export default class Client extends OpenApi {
       action: "UpdateInstanceSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/instance-settings`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/instance-settings`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26911,7 +27070,6 @@ export default class Client extends OpenApi {
 
   async updateKibanaSettingsWithOptions(InstanceId: string, request: UpdateKibanaSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26926,7 +27084,7 @@ export default class Client extends OpenApi {
       action: "UpdateKibanaSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-kibana-settings`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/update-kibana-settings`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26944,7 +27102,6 @@ export default class Client extends OpenApi {
 
   async updateKibanaWhiteIpsWithOptions(InstanceId: string, request: UpdateKibanaWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaWhiteIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -26954,16 +27111,25 @@ export default class Client extends OpenApi {
       query["modifyMode"] = request.modifyMode;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.kibanaIPWhitelist)) {
+      body["kibanaIPWhitelist"] = request.kibanaIPWhitelist;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
+      body["whiteIpGroup"] = request.whiteIpGroup;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateKibanaWhiteIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-white-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/kibana-white-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -26981,22 +27147,30 @@ export default class Client extends OpenApi {
 
   async updateLogstashWithOptions(InstanceId: string, request: UpdateLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeAmount)) {
+      body["nodeAmount"] = request.nodeAmount;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+      body["nodeSpec"] = request.nodeSpec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateLogstash",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -27014,7 +27188,6 @@ export default class Client extends OpenApi {
 
   async updateLogstashChargeTypeWithOptions(InstanceId: string, request: UpdateLogstashChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashChargeTypeResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27029,7 +27202,7 @@ export default class Client extends OpenApi {
       action: "UpdateLogstashChargeType",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/convert-pay-type`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/convert-pay-type`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27047,7 +27220,6 @@ export default class Client extends OpenApi {
 
   async updateLogstashDescriptionWithOptions(InstanceId: string, request: UpdateLogstashDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashDescriptionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27062,7 +27234,7 @@ export default class Client extends OpenApi {
       action: "UpdateLogstashDescription",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/description`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/description`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27080,7 +27252,6 @@ export default class Client extends OpenApi {
 
   async updateLogstashSettingsWithOptions(InstanceId: string, request: UpdateLogstashSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashSettingsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27095,7 +27266,7 @@ export default class Client extends OpenApi {
       action: "UpdateLogstashSettings",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/instance-settings`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/instance-settings`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27113,22 +27284,42 @@ export default class Client extends OpenApi {
 
   async updatePipelineManagementConfigWithOptions(InstanceId: string, request: UpdatePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineManagementConfigResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endpoints)) {
+      body["endpoints"] = request.endpoints;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.pipelineIds)) {
+      body["pipelineIds"] = request.pipelineIds;
+    }
+
+    if (!Util.isUnset(request.pipelineManagementType)) {
+      body["pipelineManagementType"] = request.pipelineManagementType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["userName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdatePipelineManagementConfig",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipeline-management-config`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27146,7 +27337,6 @@ export default class Client extends OpenApi {
 
   async updatePipelinesWithOptions(InstanceId: string, request: UpdatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelinesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27165,7 +27355,7 @@ export default class Client extends OpenApi {
       action: "UpdatePipelines",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/pipelines`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -27183,7 +27373,6 @@ export default class Client extends OpenApi {
 
   async updatePrivateNetworkWhiteIpsWithOptions(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27202,7 +27391,7 @@ export default class Client extends OpenApi {
       action: "UpdatePrivateNetworkWhiteIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/private-network-white-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/private-network-white-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27220,7 +27409,6 @@ export default class Client extends OpenApi {
 
   async updatePublicNetworkWithOptions(InstanceId: string, request: UpdatePublicNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicNetworkResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27235,7 +27423,7 @@ export default class Client extends OpenApi {
       action: "UpdatePublicNetwork",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-network`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/public-network`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27253,7 +27441,6 @@ export default class Client extends OpenApi {
 
   async updatePublicWhiteIpsWithOptions(InstanceId: string, request: UpdatePublicWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicWhiteIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27272,7 +27459,7 @@ export default class Client extends OpenApi {
       action: "UpdatePublicWhiteIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-white-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/public-white-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27290,7 +27477,6 @@ export default class Client extends OpenApi {
 
   async updateReadWritePolicyWithOptions(InstanceId: string, request: UpdateReadWritePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateReadWritePolicyResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -27305,7 +27491,7 @@ export default class Client extends OpenApi {
       action: "UpdateReadWritePolicy",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-read-write-policy`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/update-read-write-policy`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27323,7 +27509,6 @@ export default class Client extends OpenApi {
 
   async updateSnapshotSettingWithOptions(InstanceId: string, request: UpdateSnapshotSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSnapshotSettingResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -27332,7 +27517,7 @@ export default class Client extends OpenApi {
       action: "UpdateSnapshotSetting",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshot-setting`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27350,7 +27535,6 @@ export default class Client extends OpenApi {
 
   async updateSynonymsDictsWithOptions(InstanceId: string, request: UpdateSynonymsDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSynonymsDictsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27365,7 +27549,7 @@ export default class Client extends OpenApi {
       action: "UpdateSynonymsDicts",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/synonymsDict`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/synonymsDict`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -27383,8 +27567,6 @@ export default class Client extends OpenApi {
 
   async updateTemplateWithOptions(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    TemplateName = OpenApiUtil.getEncodeParam(TemplateName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -27399,7 +27581,7 @@ export default class Client extends OpenApi {
       action: "UpdateTemplate",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates/${TemplateName}`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/templates/${OpenApiUtil.getEncodeParam(TemplateName)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27417,7 +27599,6 @@ export default class Client extends OpenApi {
 
   async updateWhiteIpsWithOptions(InstanceId: string, request: UpdateWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWhiteIpsResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27445,7 +27626,7 @@ export default class Client extends OpenApi {
       action: "UpdateWhiteIps",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/white-ips`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/white-ips`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27463,22 +27644,38 @@ export default class Client extends OpenApi {
 
   async updateXpackMonitorConfigWithOptions(InstanceId: string, request: UpdateXpackMonitorConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateXpackMonitorConfigResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endpoints)) {
+      body["endpoints"] = request.endpoints;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["userName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateXpackMonitorConfig",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/xpack-monitor-config`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27496,7 +27693,6 @@ export default class Client extends OpenApi {
 
   async upgradeEngineVersionWithOptions(InstanceId: string, request: UpgradeEngineVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeEngineVersionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
@@ -27524,11 +27720,11 @@ export default class Client extends OpenApi {
       action: "UpgradeEngineVersion",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/upgrade-version`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/upgrade-version`,
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<UpgradeEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeEngineVersionResponse({}));
@@ -27542,7 +27738,6 @@ export default class Client extends OpenApi {
 
   async validateConnectionWithOptions(InstanceId: string, request: ValidateConnectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateConnectionResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -27557,7 +27752,7 @@ export default class Client extends OpenApi {
       action: "ValidateConnection",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/validate-connection`,
+      pathname: `/openapi/logstashes/${OpenApiUtil.getEncodeParam(InstanceId)}/validate-connection`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27575,8 +27770,11 @@ export default class Client extends OpenApi {
 
   async validateShrinkNodesWithOptions(InstanceId: string, request: ValidateShrinkNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateShrinkNodesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.count)) {
+      query["count"] = request.count;
+    }
+
     if (!Util.isUnset(request.ignoreStatus)) {
       query["ignoreStatus"] = request.ignoreStatus;
     }
@@ -27594,7 +27792,7 @@ export default class Client extends OpenApi {
       action: "ValidateShrinkNodes",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-shrink-nodes`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/validate-shrink-nodes`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27624,7 +27822,6 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "ValidateSlrPermission",
@@ -27648,7 +27845,6 @@ export default class Client extends OpenApi {
 
   async validateTransferableNodesWithOptions(InstanceId: string, request: ValidateTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateTransferableNodesResponse> {
     Util.validateModel(request);
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.nodeType)) {
       query["nodeType"] = request.nodeType;
@@ -27663,7 +27859,7 @@ export default class Client extends OpenApi {
       action: "ValidateTransferableNodes",
       version: "2017-06-13",
       protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-transfer-nodes`,
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/validate-transfer-nodes`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -27686,10 +27882,67 @@ export default class Client extends OpenApi {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.clientNodeConfiguration))) {
+      body["clientNodeConfiguration"] = request.clientNodeConfiguration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.elasticDataNodeConfiguration))) {
+      body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration;
+    }
+
+    if (!Util.isUnset(request.esAdminPassword)) {
+      body["esAdminPassword"] = request.esAdminPassword;
+    }
+
+    if (!Util.isUnset(request.esVersion)) {
+      body["esVersion"] = request.esVersion;
+    }
+
+    if (!Util.isUnset(request.instanceCategory)) {
+      body["instanceCategory"] = request.instanceCategory;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.kibanaConfiguration))) {
+      body["kibanaConfiguration"] = request.kibanaConfiguration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.masterConfiguration))) {
+      body["masterConfiguration"] = request.masterConfiguration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.networkConfig))) {
+      body["networkConfig"] = request.networkConfig;
+    }
+
+    if (!Util.isUnset(request.nodeAmount)) {
+      body["nodeAmount"] = request.nodeAmount;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+      body["nodeSpec"] = request.nodeSpec;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.paymentInfo))) {
+      body["paymentInfo"] = request.paymentInfo;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["paymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.warmNodeConfiguration))) {
+      body["warmNodeConfiguration"] = request.warmNodeConfiguration;
+    }
+
+    if (!Util.isUnset(request.zoneCount)) {
+      body["zoneCount"] = request.zoneCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "createInstance",
