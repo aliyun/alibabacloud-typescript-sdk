@@ -589,6 +589,7 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
   level?: number;
   message?: string;
   output?: string;
+  params?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -596,6 +597,7 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
       level: 'Level',
       message: 'Message',
       output: 'Output',
+      params: 'Params',
       url: 'Url',
     };
   }
@@ -606,6 +608,7 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
       level: 'number',
       message: 'string',
       output: 'string',
+      params: 'string',
       url: 'string',
     };
   }
@@ -1644,6 +1647,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.output)) {
       body["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
     }
 
     if (!Util.isUnset(request.url)) {
