@@ -12240,12 +12240,14 @@ export class UpdateClusterRequest extends $tea.Model {
 
 export class UpdateClusterResponseBody extends $tea.Model {
   errorCode?: string;
+  httpStatusCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -12255,6 +12257,7 @@ export class UpdateClusterResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       errorCode: 'string',
+      httpStatusCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
