@@ -1802,6 +1802,7 @@ export class CreateClusterRequest extends $tea.Model {
   region?: string;
   requestPars?: string;
   resourceGroupId?: string;
+  tag?: CreateClusterRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -1823,6 +1824,7 @@ export class CreateClusterRequest extends $tea.Model {
       region: 'Region',
       requestPars: 'RequestPars',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -1847,6 +1849,7 @@ export class CreateClusterRequest extends $tea.Model {
       region: 'string',
       requestPars: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -16002,6 +16005,28 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateClusterRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEngineNamespaceResponseBodyData extends $tea.Model {
   configCount?: number;
   namespace?: string;
@@ -23330,6 +23355,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
