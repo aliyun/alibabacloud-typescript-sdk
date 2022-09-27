@@ -1056,7 +1056,6 @@ export class DescribeAddressBookRequest extends $tea.Model {
   lang?: string;
   pageSize?: string;
   query?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       containPort: 'ContainPort',
@@ -1065,7 +1064,6 @@ export class DescribeAddressBookRequest extends $tea.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       query: 'Query',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -1077,7 +1075,6 @@ export class DescribeAddressBookRequest extends $tea.Model {
       lang: 'string',
       pageSize: 'string',
       query: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -1152,7 +1149,6 @@ export class DescribeAssetListRequest extends $tea.Model {
   resourceType?: string;
   searchItem?: string;
   sgStatus?: string;
-  sourceIp?: string;
   status?: string;
   type?: string;
   userType?: string;
@@ -1167,7 +1163,6 @@ export class DescribeAssetListRequest extends $tea.Model {
       resourceType: 'ResourceType',
       searchItem: 'SearchItem',
       sgStatus: 'SgStatus',
-      sourceIp: 'SourceIp',
       status: 'Status',
       type: 'Type',
       userType: 'UserType',
@@ -1185,7 +1180,6 @@ export class DescribeAssetListRequest extends $tea.Model {
       resourceType: 'string',
       searchItem: 'string',
       sgStatus: 'string',
-      sourceIp: 'string',
       status: 'string',
       type: 'string',
       userType: 'string',
@@ -1260,7 +1254,6 @@ export class DescribeControlPolicyRequest extends $tea.Model {
   proto?: string;
   release?: string;
   source?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -1275,7 +1268,6 @@ export class DescribeControlPolicyRequest extends $tea.Model {
       proto: 'Proto',
       release: 'Release',
       source: 'Source',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -1293,7 +1285,6 @@ export class DescribeControlPolicyRequest extends $tea.Model {
       proto: 'string',
       release: 'string',
       source: 'string',
-      sourceIp: 'string',
     };
   }
 
@@ -6646,10 +6637,6 @@ export default class Client extends OpenApi {
       query["Query"] = request.query;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6709,10 +6696,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sgStatus)) {
       query["SgStatus"] = request.sgStatus;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -6802,10 +6785,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.source)) {
       query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
