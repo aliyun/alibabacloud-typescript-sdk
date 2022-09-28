@@ -9847,12 +9847,10 @@ export class DescribeStrategyTargetResponse extends $tea.Model {
 
 export class DescribeSummaryInfoRequest extends $tea.Model {
   lang?: string;
-  resourceDirectoryAccountId?: string;
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -9860,7 +9858,6 @@ export class DescribeSummaryInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      resourceDirectoryAccountId: 'string',
       sourceIp: 'string',
     };
   }
@@ -11321,10 +11318,12 @@ export class DescribeVulExportInfoResponse extends $tea.Model {
 
 export class DescribeVulFixStatisticsResponseBody extends $tea.Model {
   fixStat?: DescribeVulFixStatisticsResponseBodyFixStat[];
+  fixTotal?: DescribeVulFixStatisticsResponseBodyFixTotal;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       fixStat: 'FixStat',
+      fixTotal: 'FixTotal',
       requestId: 'RequestId',
     };
   }
@@ -11332,6 +11331,7 @@ export class DescribeVulFixStatisticsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fixStat: { 'type': 'array', 'itemType': DescribeVulFixStatisticsResponseBodyFixStat },
+      fixTotal: DescribeVulFixStatisticsResponseBodyFixTotal,
       requestId: 'string',
     };
   }
@@ -17947,7 +17947,6 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   layer?: string;
   level?: string;
   maliciousMd5?: string;
-  maliciousSource?: string;
   namespace?: string;
   pod?: string;
   repoId?: string;
@@ -17973,7 +17972,6 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       layer: 'Layer',
       level: 'Level',
       maliciousMd5: 'MaliciousMd5',
-      maliciousSource: 'MaliciousSource',
       namespace: 'Namespace',
       pod: 'Pod',
       repoId: 'RepoId',
@@ -18002,7 +18000,6 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       layer: 'string',
       level: 'string',
       maliciousMd5: 'string',
-      maliciousSource: 'string',
       namespace: 'string',
       pod: 'string',
       repoId: 'string',
@@ -20474,7 +20471,6 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $tea
 }
 
 export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $tea.Model {
-  baselineType?: string;
   clusterId?: string;
   clusterName?: string;
   containerId?: string;
@@ -20502,7 +20498,6 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
-      baselineType: 'BaselineType',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       containerId: 'ContainerId',
@@ -20533,7 +20528,6 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
 
   static types(): { [key: string]: any } {
     return {
-      baselineType: 'string',
       clusterId: 'string',
       clusterName: 'string',
       containerId: 'string',
@@ -24108,6 +24102,34 @@ export class DescribeVulFixStatisticsResponseBodyFixStat extends $tea.Model {
       fixingNum: 'number',
       needFixNum: 'number',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulFixStatisticsResponseBodyFixTotal extends $tea.Model {
+  fixedTodayNum?: number;
+  fixedTotalNum?: number;
+  fixingNum?: number;
+  needFixNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fixedTodayNum: 'FixedTodayNum',
+      fixedTotalNum: 'FixedTotalNum',
+      fixingNum: 'FixingNum',
+      needFixNum: 'NeedFixNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fixedTodayNum: 'number',
+      fixedTotalNum: 'number',
+      fixingNum: 'number',
+      needFixNum: 'number',
     };
   }
 
@@ -31081,10 +31103,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
-      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!Util.isUnset(request.sourceIp)) {
