@@ -18,6 +18,7 @@ export class AddCdnDomainRequest extends $tea.Model {
   scope?: string;
   securityToken?: string;
   sources?: string;
+  tag?: AddCdnDomainRequestTag[];
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,6 +31,7 @@ export class AddCdnDomainRequest extends $tea.Model {
       scope: 'Scope',
       securityToken: 'SecurityToken',
       sources: 'Sources',
+      tag: 'Tag',
       topLevelDomain: 'TopLevelDomain',
     };
   }
@@ -45,6 +47,7 @@ export class AddCdnDomainRequest extends $tea.Model {
       scope: 'string',
       securityToken: 'string',
       sources: 'string',
+      tag: { 'type': 'array', 'itemType': AddCdnDomainRequestTag },
       topLevelDomain: 'string',
     };
   }
@@ -12620,6 +12623,28 @@ export class VerifyDomainOwnerResponse extends $tea.Model {
   }
 }
 
+export class AddCdnDomainRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchSetCdnDomainConfigResponseBodyDomainConfigListDomainConfigModel extends $tea.Model {
   configId?: number;
   domainName?: string;
@@ -17955,6 +17980,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sources)) {
       query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.topLevelDomain)) {
