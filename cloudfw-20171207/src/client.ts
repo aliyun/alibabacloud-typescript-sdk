@@ -1629,6 +1629,7 @@ export class DescribeInvadeEventListResponse extends $tea.Model {
 }
 
 export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
+  applicationName?: string;
   currentPage?: string;
   dstIP?: string;
   endTime?: string;
@@ -1642,6 +1643,7 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
       currentPage: 'CurrentPage',
       dstIP: 'DstIP',
       endTime: 'EndTime',
@@ -1658,6 +1660,7 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
       currentPage: 'string',
       dstIP: 'string',
       endTime: 'string',
@@ -7049,6 +7052,10 @@ export default class Client extends OpenApi {
   async describeOutgoingDestinationIPWithOptions(request: DescribeOutgoingDestinationIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDestinationIPResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
