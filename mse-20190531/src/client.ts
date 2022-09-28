@@ -249,6 +249,9 @@ export class AddBlackWhiteListRequest extends $tea.Model {
   gatewayUniqueId?: string;
   isWhite?: boolean;
   mseSessionId?: string;
+  name?: string;
+  note?: string;
+  resourceIdJsonList?: string;
   resourceType?: string;
   status?: string;
   type?: string;
@@ -259,6 +262,9 @@ export class AddBlackWhiteListRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       isWhite: 'IsWhite',
       mseSessionId: 'MseSessionId',
+      name: 'Name',
+      note: 'Note',
+      resourceIdJsonList: 'ResourceIdJsonList',
       resourceType: 'ResourceType',
       status: 'Status',
       type: 'Type',
@@ -272,6 +278,9 @@ export class AddBlackWhiteListRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       isWhite: 'boolean',
       mseSessionId: 'string',
+      name: 'string',
+      note: 'string',
+      resourceIdJsonList: 'string',
       resourceType: 'string',
       status: 'string',
       type: 'string',
@@ -355,6 +364,7 @@ export class AddGatewayRequest extends $tea.Model {
   replica?: number;
   slbSpec?: string;
   spec?: string;
+  tag?: AddGatewayRequestTag[];
   vSwitchId?: string;
   vSwitchId2?: string;
   vpc?: string;
@@ -373,6 +383,7 @@ export class AddGatewayRequest extends $tea.Model {
       replica: 'Replica',
       slbSpec: 'SlbSpec',
       spec: 'Spec',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vSwitchId2: 'VSwitchId2',
       vpc: 'Vpc',
@@ -394,6 +405,7 @@ export class AddGatewayRequest extends $tea.Model {
       replica: 'number',
       slbSpec: 'string',
       spec: 'string',
+      tag: { 'type': 'array', 'itemType': AddGatewayRequestTag },
       vSwitchId: 'string',
       vSwitchId2: 'string',
       vpc: 'string',
@@ -12112,6 +12124,9 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
   id?: number;
   isWhite?: boolean;
   mseSessionId?: string;
+  name?: string;
+  note?: string;
+  resourceIdJsonList?: string;
   resourceType?: string;
   status?: string;
   type?: string;
@@ -12123,6 +12138,9 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
       id: 'Id',
       isWhite: 'IsWhite',
       mseSessionId: 'MseSessionId',
+      name: 'Name',
+      note: 'Note',
+      resourceIdJsonList: 'ResourceIdJsonList',
       resourceType: 'ResourceType',
       status: 'Status',
       type: 'Type',
@@ -12137,6 +12155,9 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
       id: 'number',
       isWhite: 'boolean',
       mseSessionId: 'string',
+      name: 'string',
+      note: 'string',
+      resourceIdJsonList: 'string',
       resourceType: 'string',
       status: 'string',
       type: 'string',
@@ -15413,6 +15434,28 @@ export class TrafficPolicyTlsSetting extends $tea.Model {
   }
 }
 
+export class AddGatewayRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayResponseBodyData extends $tea.Model {
   gatewayUniqueId?: string;
   static names(): { [key: string]: string } {
@@ -16772,6 +16815,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   id?: number;
   instanceId?: string;
   logConfigDetails?: GetGatewayResponseBodyDataLogConfigDetails;
+  mseTag?: string;
   name?: string;
   primaryUser?: string;
   region?: string;
@@ -16794,6 +16838,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       id: 'Id',
       instanceId: 'InstanceId',
       logConfigDetails: 'LogConfigDetails',
+      mseTag: 'MseTag',
       name: 'Name',
       primaryUser: 'PrimaryUser',
       region: 'Region',
@@ -16819,6 +16864,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       id: 'number',
       instanceId: 'string',
       logConfigDetails: GetGatewayResponseBodyDataLogConfigDetails,
+      mseTag: 'string',
       name: 'string',
       primaryUser: 'string',
       region: 'string',
@@ -16988,6 +17034,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $tea.
   percent?: number;
   serviceId?: number;
   serviceName?: string;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -16999,6 +17046,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $tea.
       percent: 'Percent',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -17013,6 +17061,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $tea.
       percent: 'number',
       serviceId: 'number',
       serviceName: 'string',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -17271,6 +17320,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
   percent?: number;
   serviceId?: number;
   serviceName?: string;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -17282,6 +17332,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
       percent: 'Percent',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -17296,6 +17347,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
       percent: 'number',
       serviceId: 'number',
       serviceName: 'string',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -17459,6 +17511,43 @@ export class GetGatewayServiceDetailResponseBodyDataLabelDetails extends $tea.Mo
   }
 }
 
+export class GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList extends $tea.Model {
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  serviceId?: number;
+  servicePort?: number;
+  trafficPolicy?: TrafficPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
+      trafficPolicy: 'TrafficPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      serviceId: 'number',
+      servicePort: 'number',
+      trafficPolicy: TrafficPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersionLabels extends $tea.Model {
   key?: string;
   value?: string;
@@ -17568,6 +17657,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
   metaInfo?: string;
   name?: string;
   namespace?: string;
+  portTrafficPolicyList?: GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList[];
+  ports?: number[];
   serviceNameInRegistry?: string;
   serviceProtocol?: string;
   sourceId?: number;
@@ -17590,6 +17681,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       metaInfo: 'MetaInfo',
       name: 'Name',
       namespace: 'Namespace',
+      portTrafficPolicyList: 'PortTrafficPolicyList',
+      ports: 'Ports',
       serviceNameInRegistry: 'ServiceNameInRegistry',
       serviceProtocol: 'ServiceProtocol',
       sourceId: 'SourceId',
@@ -17615,6 +17708,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       metaInfo: 'string',
       name: 'string',
       namespace: 'string',
+      portTrafficPolicyList: { 'type': 'array', 'itemType': GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList },
+      ports: { 'type': 'array', 'itemType': 'number' },
       serviceNameInRegistry: 'string',
       serviceProtocol: 'string',
       sourceId: 'number',
@@ -18836,6 +18931,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
   gatewayType?: string;
   gatewayUniqueId?: string;
   instanceId?: string;
+  mseTag?: string;
   name?: string;
   vpc?: string;
   static names(): { [key: string]: string } {
@@ -18843,6 +18939,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
       gatewayType: 'GatewayType',
       gatewayUniqueId: 'GatewayUniqueId',
       instanceId: 'InstanceId',
+      mseTag: 'MseTag',
       name: 'Name',
       vpc: 'Vpc',
     };
@@ -18853,6 +18950,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
       gatewayType: 'string',
       gatewayUniqueId: 'string',
       instanceId: 'string',
+      mseTag: 'string',
       name: 'string',
       vpc: 'string',
     };
@@ -18985,6 +19083,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
   instanceId?: string;
   internetSlb?: ListGatewayResponseBodyDataResultInternetSlb[];
   latestVersion?: string;
+  mseTag?: string;
   mustUpgrade?: boolean;
   name?: string;
   primaryUser?: string;
@@ -19017,6 +19116,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       instanceId: 'InstanceId',
       internetSlb: 'InternetSlb',
       latestVersion: 'LatestVersion',
+      mseTag: 'MseTag',
       mustUpgrade: 'MustUpgrade',
       name: 'Name',
       primaryUser: 'PrimaryUser',
@@ -19052,6 +19152,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       instanceId: 'string',
       internetSlb: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultInternetSlb },
       latestVersion: 'string',
+      mseTag: 'string',
       mustUpgrade: 'boolean',
       name: 'string',
       primaryUser: 'string',
@@ -19271,6 +19372,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $tea
   percent?: number;
   serviceId?: number;
   serviceName?: string;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -19282,6 +19384,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $tea
       percent: 'Percent',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -19296,6 +19399,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $tea
       percent: 'number',
       serviceId: 'number',
       serviceName: 'string',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -19530,6 +19634,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
   percent?: number;
   serviceId?: number;
   serviceName?: string;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -19542,6 +19647,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
       percent: 'Percent',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -19557,6 +19663,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
       percent: 'number',
       serviceId: 'number',
       serviceName: 'string',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -19935,6 +20042,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   metaInfo?: string;
   name?: string;
   namespace?: string;
+  ports?: number[];
   serviceNameInRegistry?: string;
   servicePort?: number;
   serviceProtocol?: string;
@@ -19959,6 +20067,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       metaInfo: 'MetaInfo',
       name: 'Name',
       namespace: 'Namespace',
+      ports: 'Ports',
       serviceNameInRegistry: 'ServiceNameInRegistry',
       servicePort: 'ServicePort',
       serviceProtocol: 'ServiceProtocol',
@@ -19986,6 +20095,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       metaInfo: 'string',
       name: 'string',
       namespace: 'string',
+      ports: { 'type': 'array', 'itemType': 'number' },
       serviceNameInRegistry: 'string',
       servicePort: 'number',
       serviceProtocol: 'string',
@@ -22426,6 +22536,18 @@ export default class Client extends OpenApi {
       query["MseSessionId"] = request.mseSessionId;
     }
 
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.resourceIdJsonList)) {
+      query["ResourceIdJsonList"] = request.resourceIdJsonList;
+    }
+
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -22509,6 +22631,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.spec)) {
       query["Spec"] = request.spec;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -28116,6 +28242,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mseSessionId)) {
       query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.resourceIdJsonList)) {
+      query["ResourceIdJsonList"] = request.resourceIdJsonList;
     }
 
     if (!Util.isUnset(request.resourceType)) {
