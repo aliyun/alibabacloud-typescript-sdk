@@ -302,7 +302,7 @@ export class CheckMobilesCardSupportRequest extends $tea.Model {
 
 export class CheckMobilesCardSupportResponseBody extends $tea.Model {
   code?: string;
-  data?: { [key: string]: any }[];
+  data?: CheckMobilesCardSupportResponseBodyData;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -317,7 +317,7 @@ export class CheckMobilesCardSupportResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      data: CheckMobilesCardSupportResponseBodyData,
       requestId: 'string',
       success: 'boolean',
     };
@@ -2633,6 +2633,47 @@ export class AddSmsSignRequestSignFileList extends $tea.Model {
     return {
       fileContents: 'string',
       fileSuffix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
+  mobile?: string;
+  support?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'mobile',
+      support: 'support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      support: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponseBodyData extends $tea.Model {
+  queryResult?: CheckMobilesCardSupportResponseBodyDataQueryResult[];
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'queryResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: { 'type': 'array', 'itemType': CheckMobilesCardSupportResponseBodyDataQueryResult },
     };
   }
 
