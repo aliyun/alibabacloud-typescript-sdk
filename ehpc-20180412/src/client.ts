@@ -6863,15 +6863,18 @@ export class ListPreferredEcsTypesResponse extends $tea.Model {
 }
 
 export class ListQueuesRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
     };
   }
@@ -7429,6 +7432,96 @@ export class ListUsersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersAsyncRequest extends $tea.Model {
+  asyncId?: string;
+  clusterId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asyncId: 'AsyncId',
+      clusterId: 'ClusterId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncId: 'string',
+      clusterId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersAsyncResponseBody extends $tea.Model {
+  asyncId?: string;
+  asyncStatus?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  users?: ListUsersAsyncResponseBodyUsers;
+  static names(): { [key: string]: string } {
+    return {
+      asyncId: 'AsyncId',
+      asyncStatus: 'AsyncStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncId: 'string',
+      asyncStatus: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      users: ListUsersAsyncResponseBodyUsers,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersAsyncResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUsersAsyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUsersAsyncResponseBody,
     };
   }
 
@@ -15283,6 +15376,56 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
+export class ListUsersAsyncResponseBodyUsersUserInfo extends $tea.Model {
+  addTime?: string;
+  group?: string;
+  groupId?: string;
+  name?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addTime: 'AddTime',
+      group: 'Group',
+      groupId: 'GroupId',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addTime: 'string',
+      group: 'string',
+      groupId: 'string',
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersAsyncResponseBodyUsers extends $tea.Model {
+  userInfo?: ListUsersAsyncResponseBodyUsersUserInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userInfo: { 'type': 'array', 'itemType': ListUsersAsyncResponseBodyUsersUserInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVolumesResponseBodyVolumesVolumeInfoAdditionalVolumesVolumeInfo extends $tea.Model {
   jobQueue?: string;
   localDirectory?: string;
@@ -18291,6 +18434,31 @@ export default class Client extends OpenApi {
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
+  }
+
+  async listUsersAsyncWithOptions(request: ListUsersAsyncRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersAsyncResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUsersAsync",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersAsyncResponse>(await this.callApi(params, req, runtime), new ListUsersAsyncResponse({}));
+  }
+
+  async listUsersAsync(request: ListUsersAsyncRequest): Promise<ListUsersAsyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUsersAsyncWithOptions(request, runtime);
   }
 
   async listVolumesWithOptions(request: ListVolumesRequest, runtime: $Util.RuntimeOptions): Promise<ListVolumesResponse> {
