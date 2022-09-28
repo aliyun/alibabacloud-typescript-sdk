@@ -17,6 +17,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
   scope?: string;
   securityToken?: string;
   sources?: string;
+  tag?: AddDcdnDomainRequestTag[];
   topLevelDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,6 +29,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
       scope: 'Scope',
       securityToken: 'SecurityToken',
       sources: 'Sources',
+      tag: 'Tag',
       topLevelDomain: 'TopLevelDomain',
     };
   }
@@ -42,6 +44,7 @@ export class AddDcdnDomainRequest extends $tea.Model {
       scope: 'string',
       securityToken: 'string',
       sources: 'string',
+      tag: { 'type': 'array', 'itemType': AddDcdnDomainRequestTag },
       topLevelDomain: 'string',
     };
   }
@@ -299,15 +302,18 @@ export class BatchCreateDcdnWafRulesRequest extends $tea.Model {
 
 export class BatchCreateDcdnWafRulesResponseBody extends $tea.Model {
   requestId?: string;
+  ruleIds?: BatchCreateDcdnWafRulesResponseBodyRuleIds;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      ruleIds: 'RuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      ruleIds: BatchCreateDcdnWafRulesResponseBodyRuleIds,
     };
   }
 
@@ -474,6 +480,72 @@ export class BatchDeleteDcdnWafRulesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchDeleteDcdnWafRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyDcdnWafRulesRequest extends $tea.Model {
+  policyId?: number;
+  ruleConfigs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      ruleConfigs: 'RuleConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'number',
+      ruleConfigs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyDcdnWafRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyDcdnWafRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchModifyDcdnWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchModifyDcdnWafRulesResponseBody,
     };
   }
 
@@ -3231,114 +3303,6 @@ export class DescribeDcdnCertificateListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnCertificateListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosServiceRequest extends $tea.Model {
-  ownerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosServiceResponseBody extends $tea.Model {
-  changingAffectTime?: string;
-  changingChargeType?: string;
-  changingDomianNum?: number;
-  changingEdition?: string;
-  changingProtectNum?: number;
-  chargeType?: string;
-  domianNum?: number;
-  edition?: string;
-  enabled?: string;
-  endingTime?: string;
-  instanceId?: string;
-  openingTime?: string;
-  protectNum?: number;
-  requestId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      changingAffectTime: 'ChangingAffectTime',
-      changingChargeType: 'ChangingChargeType',
-      changingDomianNum: 'ChangingDomianNum',
-      changingEdition: 'ChangingEdition',
-      changingProtectNum: 'ChangingProtectNum',
-      chargeType: 'ChargeType',
-      domianNum: 'DomianNum',
-      edition: 'Edition',
-      enabled: 'Enabled',
-      endingTime: 'EndingTime',
-      instanceId: 'InstanceId',
-      openingTime: 'OpeningTime',
-      protectNum: 'ProtectNum',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changingAffectTime: 'string',
-      changingChargeType: 'string',
-      changingDomianNum: 'number',
-      changingEdition: 'string',
-      changingProtectNum: 'number',
-      chargeType: 'string',
-      domianNum: 'number',
-      edition: 'string',
-      enabled: 'string',
-      endingTime: 'string',
-      instanceId: 'string',
-      openingTime: 'string',
-      protectNum: 'number',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDcdnDdosServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDcdnDdosServiceResponseBody,
     };
   }
 
@@ -7644,87 +7608,6 @@ export class DescribeDcdnIpaDomainDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnIpaDomainDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnIpaDomainMultiUsageDataRequest extends $tea.Model {
-  domainName?: string;
-  endTime?: string;
-  ownerId?: number;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      endTime: 'EndTime',
-      ownerId: 'OwnerId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      endTime: 'string',
-      ownerId: 'number',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnIpaDomainMultiUsageDataResponseBody extends $tea.Model {
-  endTime?: string;
-  requestId?: string;
-  startTime?: string;
-  trafficPerInterval?: DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerInterval;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-      trafficPerInterval: 'TrafficPerInterval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      requestId: 'string',
-      startTime: 'string',
-      trafficPerInterval: DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerInterval,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnIpaDomainMultiUsageDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDcdnIpaDomainMultiUsageDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDcdnIpaDomainMultiUsageDataResponseBody,
     };
   }
 
@@ -15080,6 +14963,47 @@ export class VerifyDcdnDomainOwnerResponse extends $tea.Model {
   }
 }
 
+export class AddDcdnDomainRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDcdnWafRulesResponseBodyRuleIds extends $tea.Model {
+  ruleId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckDcdnProjectExistResponseBodyContent extends $tea.Model {
   exist?: string;
   static names(): { [key: string]: string } {
@@ -18195,7 +18119,6 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
   SSLPub?: string;
   scope?: string;
   sources?: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources;
-  tenantID?: string;
   static names(): { [key: string]: string } {
     return {
       certName: 'CertName',
@@ -18210,7 +18133,6 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
       SSLPub: 'SSLPub',
       scope: 'Scope',
       sources: 'Sources',
-      tenantID: 'TenantID',
     };
   }
 
@@ -18228,54 +18150,6 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
       SSLPub: 'string',
       scope: 'string',
       sources: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources,
-      tenantID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule extends $tea.Model {
-  area?: string;
-  bps?: number;
-  domain?: string;
-  timeStamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      area: 'Area',
-      bps: 'Bps',
-      domain: 'Domain',
-      timeStamp: 'TimeStamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      area: 'string',
-      bps: 'number',
-      domain: 'string',
-      timeStamp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerInterval extends $tea.Model {
-  trafficDataModule?: DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule[];
-  static names(): { [key: string]: string } {
-    return {
-      trafficDataModule: 'TrafficDataModule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trafficDataModule: { 'type': 'array', 'itemType': DescribeDcdnIpaDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule },
     };
   }
 
@@ -18405,7 +18279,6 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
   SSLProtocol?: string;
   sandbox?: string;
   sources?: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources;
-  tenantID?: string;
   static names(): { [key: string]: string } {
     return {
       cname: 'Cname',
@@ -18418,7 +18291,6 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
       SSLProtocol: 'SSLProtocol',
       sandbox: 'Sandbox',
       sources: 'Sources',
-      tenantID: 'TenantID',
     };
   }
 
@@ -18434,7 +18306,6 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
       SSLProtocol: 'string',
       sandbox: 'string',
       sources: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources,
-      tenantID: 'string',
     };
   }
 
@@ -19975,6 +19846,7 @@ export class DescribeDcdnWafPolicyResponseBodyPolicy extends $tea.Model {
   policyName?: string;
   policyStatus?: string;
   policyType?: string;
+  ruleConfigs?: string;
   ruleCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19985,6 +19857,7 @@ export class DescribeDcdnWafPolicyResponseBodyPolicy extends $tea.Model {
       policyName: 'PolicyName',
       policyStatus: 'PolicyStatus',
       policyType: 'PolicyType',
+      ruleConfigs: 'RuleConfigs',
       ruleCount: 'RuleCount',
     };
   }
@@ -19998,6 +19871,7 @@ export class DescribeDcdnWafPolicyResponseBodyPolicy extends $tea.Model {
       policyName: 'string',
       policyStatus: 'string',
       policyType: 'string',
+      ruleConfigs: 'string',
       ruleCount: 'number',
     };
   }
@@ -20539,6 +20413,10 @@ export default class Client extends OpenApi {
       query["Sources"] = request.sources;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.topLevelDomain)) {
       query["TopLevelDomain"] = request.topLevelDomain;
     }
@@ -20808,6 +20686,39 @@ export default class Client extends OpenApi {
   async batchDeleteDcdnWafRules(request: BatchDeleteDcdnWafRulesRequest): Promise<BatchDeleteDcdnWafRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteDcdnWafRulesWithOptions(request, runtime);
+  }
+
+  async batchModifyDcdnWafRulesWithOptions(request: BatchModifyDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchModifyDcdnWafRulesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.ruleConfigs)) {
+      body["RuleConfigs"] = request.ruleConfigs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchModifyDcdnWafRules",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchModifyDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchModifyDcdnWafRulesResponse({}));
+  }
+
+  async batchModifyDcdnWafRules(request: BatchModifyDcdnWafRulesRequest): Promise<BatchModifyDcdnWafRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchModifyDcdnWafRulesWithOptions(request, runtime);
   }
 
   async batchSetDcdnDomainCertificateWithOptions(request: BatchSetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainCertificateResponse> {
@@ -22294,39 +22205,6 @@ export default class Client extends OpenApi {
   async describeDcdnCertificateList(request: DescribeDcdnCertificateListRequest): Promise<DescribeDcdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnCertificateListWithOptions(request, runtime);
-  }
-
-  async describeDcdnDdosServiceWithOptions(request: DescribeDcdnDdosServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDdosServiceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDcdnDdosService",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDcdnDdosServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDdosServiceResponse({}));
-  }
-
-  async describeDcdnDdosService(request: DescribeDcdnDdosServiceRequest): Promise<DescribeDcdnDdosServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDcdnDdosServiceWithOptions(request, runtime);
   }
 
   async describeDcdnDeletedDomainsWithOptions(request: DescribeDcdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeletedDomainsResponse> {
@@ -24493,47 +24371,6 @@ export default class Client extends OpenApi {
   async describeDcdnIpaDomainDetail(request: DescribeDcdnIpaDomainDetailRequest): Promise<DescribeDcdnIpaDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaDomainDetailWithOptions(request, runtime);
-  }
-
-  async describeDcdnIpaDomainMultiUsageDataWithOptions(request: DescribeDcdnIpaDomainMultiUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaDomainMultiUsageDataResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.domainName)) {
-      query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDcdnIpaDomainMultiUsageData",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDcdnIpaDomainMultiUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpaDomainMultiUsageDataResponse({}));
-  }
-
-  async describeDcdnIpaDomainMultiUsageData(request: DescribeDcdnIpaDomainMultiUsageDataRequest): Promise<DescribeDcdnIpaDomainMultiUsageDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDcdnIpaDomainMultiUsageDataWithOptions(request, runtime);
   }
 
   async describeDcdnIpaServiceWithOptions(request: DescribeDcdnIpaServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaServiceResponse> {
