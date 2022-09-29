@@ -8,6 +8,612 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddMessageTemplateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageTemplateRequest extends $tea.Model {
+  templateDetail?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateDetail: 'TemplateDetail',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateDetail: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageTemplateResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddMessageTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMessageTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddHotelRoomHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddHotelRoomRequest extends $tea.Model {
+  hotelId?: string;
+  roomNoList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNoList: 'RoomNoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNoList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddHotelRoomShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  roomNoListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNoListShrink: 'RoomNoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNoListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddHotelRoomResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddHotelRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchAddHotelRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchAddHotelRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteHotelRoomHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteHotelRoomRequest extends $tea.Model {
+  hotelId?: string;
+  roomNoList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNoList: 'RoomNoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNoList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteHotelRoomShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  roomNoListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNoListShrink: 'RoomNoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNoListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteHotelRoomResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteHotelRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchDeleteHotelRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteHotelRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmRequest extends $tea.Model {
+  hotelId?: string;
+  musicType?: string;
+  rooms?: string[];
+  scheduleInfo?: CreateHotelAlarmRequestScheduleInfo;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      musicType: 'MusicType',
+      rooms: 'Rooms',
+      scheduleInfo: 'ScheduleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      musicType: 'string',
+      rooms: { 'type': 'array', 'itemType': 'string' },
+      scheduleInfo: CreateHotelAlarmRequestScheduleInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  musicType?: string;
+  roomsShrink?: string;
+  scheduleInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      musicType: 'MusicType',
+      roomsShrink: 'Rooms',
+      scheduleInfoShrink: 'ScheduleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      musicType: 'string',
+      roomsShrink: 'string',
+      scheduleInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: CreateHotelAlarmResponseBodyResult[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': CreateHotelAlarmResponseBodyResult },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateHotelAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateHotelAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmRequest extends $tea.Model {
+  alarms?: DeleteHotelAlarmRequestAlarms[];
+  hotelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarms: 'Alarms',
+      hotelId: 'HotelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarms: { 'type': 'array', 'itemType': DeleteHotelAlarmRequestAlarms },
+      hotelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmShrinkRequest extends $tea.Model {
+  alarmsShrink?: string;
+  hotelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmsShrink: 'Alarms',
+      hotelId: 'HotelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmsShrink: 'string',
+      hotelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: number;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: 'number',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteHotelAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteHotelAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeviceControlHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -246,6 +852,122 @@ export class GetHotelHomeBackImageAndModesResponse extends $tea.Model {
   }
 }
 
+export class GetHotelNoticeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelNoticeRequest extends $tea.Model {
+  userInfo?: GetHotelNoticeRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userInfo: GetHotelNoticeRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelNoticeShrinkRequest extends $tea.Model {
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelNoticeResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelNoticeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetHotelNoticeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHotelNoticeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHotelOrderDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -354,6 +1076,106 @@ export class GetHotelOrderDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetHotelOrderDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelRoomDeviceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelRoomDeviceRequest extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelRoomDeviceResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: GetHotelRoomDeviceResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetHotelRoomDeviceResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelRoomDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetHotelRoomDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHotelRoomDeviceResponseBody,
     };
   }
 
@@ -594,6 +1416,262 @@ export class GetHotelScreenSaverResponse extends $tea.Model {
   }
 }
 
+export class ImportRoomControlDevicesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesRequest extends $tea.Model {
+  hotelId?: string;
+  locationDevices?: ImportRoomControlDevicesRequestLocationDevices[];
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      locationDevices: 'LocationDevices',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      locationDevices: { 'type': 'array', 'itemType': ImportRoomControlDevicesRequestLocationDevices },
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  locationDevicesShrink?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      locationDevicesShrink: 'LocationDevices',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      locationDevicesShrink: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: number;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: 'number',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportRoomControlDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportRoomControlDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmRequest extends $tea.Model {
+  hotelId?: string;
+  rooms?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      rooms: 'Rooms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      rooms: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmShrinkRequest extends $tea.Model {
+  hotelId?: string;
+  roomsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomsShrink: 'Rooms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: ListHotelAlarmResponseBodyResult[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListHotelAlarmResponseBodyResult },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListHotelAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotelAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHotelControlDeviceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -702,6 +1780,165 @@ export class ListHotelControlDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotelControlDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelInfoResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: ListHotelInfoResponseBodyResult[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListHotelInfoResponseBodyResult },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListHotelInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotelInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelMessageTemplateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelMessageTemplateResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: ListHotelMessageTemplateResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListHotelMessageTemplateResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelMessageTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListHotelMessageTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotelMessageTemplateResponseBody,
     };
   }
 
@@ -827,6 +2064,103 @@ export class ListHotelOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotelOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsRequest extends $tea.Model {
+  hotelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: ListHotelRoomsResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListHotelRoomsResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListHotelRoomsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHotelRoomsResponseBody,
     };
   }
 
@@ -1076,6 +2410,122 @@ export class ListHotelServiceCategoryResponse extends $tea.Model {
   }
 }
 
+export class PushHotelMessageHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushHotelMessageRequest extends $tea.Model {
+  pushHotelMessageReq?: PushHotelMessageRequestPushHotelMessageReq;
+  static names(): { [key: string]: string } {
+    return {
+      pushHotelMessageReq: 'PushHotelMessageReq',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pushHotelMessageReq: PushHotelMessageRequestPushHotelMessageReq,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushHotelMessageShrinkRequest extends $tea.Model {
+  pushHotelMessageReqShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pushHotelMessageReqShrink: 'PushHotelMessageReq',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pushHotelMessageReqShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushHotelMessageResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushHotelMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PushHotelMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushHotelMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceStatusHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -1306,6 +2756,106 @@ export class QueryHotelProductResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryHotelProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesRequest extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: QueryRoomControlDevicesResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryRoomControlDevicesResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryRoomControlDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRoomControlDevicesResponseBody,
     };
   }
 
@@ -1558,11 +3108,280 @@ export class SubmitHotelOrderResponse extends $tea.Model {
   }
 }
 
+export class UpdateHotelAlarmHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmRequest extends $tea.Model {
+  alarms?: UpdateHotelAlarmRequestAlarms[];
+  hotelId?: string;
+  scheduleInfo?: UpdateHotelAlarmRequestScheduleInfo;
+  static names(): { [key: string]: string } {
+    return {
+      alarms: 'Alarms',
+      hotelId: 'HotelId',
+      scheduleInfo: 'ScheduleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarms: { 'type': 'array', 'itemType': UpdateHotelAlarmRequestAlarms },
+      hotelId: 'string',
+      scheduleInfo: UpdateHotelAlarmRequestScheduleInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmShrinkRequest extends $tea.Model {
+  alarmsShrink?: string;
+  hotelId?: string;
+  scheduleInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmsShrink: 'Alarms',
+      hotelId: 'HotelId',
+      scheduleInfoShrink: 'ScheduleInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmsShrink: 'string',
+      hotelId: 'string',
+      scheduleInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmResponseBody extends $tea.Model {
+  extentions?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  result?: number;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extentions: 'Extentions',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extentions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      result: 'number',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateHotelAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateHotelAlarmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmRequestScheduleInfoOnce extends $tea.Model {
+  day?: number;
+  hour?: number;
+  minute?: number;
+  month?: number;
+  year?: number;
+  static names(): { [key: string]: string } {
+    return {
+      day: 'Day',
+      hour: 'Hour',
+      minute: 'Minute',
+      month: 'Month',
+      year: 'Year',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      day: 'number',
+      hour: 'number',
+      minute: 'number',
+      month: 'number',
+      year: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmRequestScheduleInfoWeekly extends $tea.Model {
+  daysOfWeek?: number[];
+  hour?: number;
+  minute?: number;
+  static names(): { [key: string]: string } {
+    return {
+      daysOfWeek: 'DaysOfWeek',
+      hour: 'Hour',
+      minute: 'Minute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
+      hour: 'number',
+      minute: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmRequestScheduleInfo extends $tea.Model {
+  once?: CreateHotelAlarmRequestScheduleInfoOnce;
+  type?: string;
+  weekly?: CreateHotelAlarmRequestScheduleInfoWeekly;
+  static names(): { [key: string]: string } {
+    return {
+      once: 'Once',
+      type: 'Type',
+      weekly: 'Weekly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      once: CreateHotelAlarmRequestScheduleInfoOnce,
+      type: 'string',
+      weekly: CreateHotelAlarmRequestScheduleInfoWeekly,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelAlarmResponseBodyResult extends $tea.Model {
+  alarmId?: number;
+  deviceOpenId?: string;
+  failMsg?: string;
+  roomNo?: string;
+  userOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      deviceOpenId: 'DeviceOpenId',
+      failMsg: 'FailMsg',
+      roomNo: 'RoomNo',
+      userOpenId: 'UserOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      deviceOpenId: 'string',
+      failMsg: 'string',
+      roomNo: 'string',
+      userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHotelAlarmRequestAlarms extends $tea.Model {
+  alarmId?: number;
+  deviceOpenId?: string;
+  roomNo?: string;
+  userOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      deviceOpenId: 'DeviceOpenId',
+      roomNo: 'RoomNo',
+      userOpenId: 'UserOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      deviceOpenId: 'string',
+      roomNo: 'string',
+      userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeviceControlRequestPayload extends $tea.Model {
   category?: string;
   cmd?: string;
-  current?: string;
-  device?: string;
   deviceNumber?: string;
   extendInfo?: string;
   location?: string;
@@ -1571,8 +3390,6 @@ export class DeviceControlRequestPayload extends $tea.Model {
     return {
       category: 'Category',
       cmd: 'Cmd',
-      current: 'Current',
-      device: 'Device',
       deviceNumber: 'DeviceNumber',
       extendInfo: 'ExtendInfo',
       location: 'Location',
@@ -1584,8 +3401,6 @@ export class DeviceControlRequestPayload extends $tea.Model {
     return {
       category: 'string',
       cmd: 'string',
-      current: 'string',
-      device: 'string',
       deviceNumber: 'string',
       extendInfo: 'string',
       location: 'string',
@@ -1729,6 +3544,37 @@ export class GetHotelHomeBackImageAndModesResponseBodyResult extends $tea.Model 
   }
 }
 
+export class GetHotelNoticeRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHotelOrderDetailRequestPayload extends $tea.Model {
   orderNo?: string;
   static names(): { [key: string]: string } {
@@ -1771,6 +3617,40 @@ export class GetHotelOrderDetailResponseBodyResult extends $tea.Model {
       itemUrl: 'string',
       name: 'string',
       quantity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelRoomDeviceResponseBodyResult extends $tea.Model {
+  firmwareVersion?: string;
+  hotelId?: string;
+  mac?: string;
+  onlineStatus?: number;
+  roomNo?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firmwareVersion: 'FirmwareVersion',
+      hotelId: 'HotelId',
+      mac: 'Mac',
+      onlineStatus: 'OnlineStatus',
+      roomNo: 'RoomNo',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firmwareVersion: 'string',
+      hotelId: 'string',
+      mac: 'string',
+      onlineStatus: 'number',
+      roomNo: 'string',
+      sn: 'string',
     };
   }
 
@@ -1863,6 +3743,165 @@ export class GetHotelScreenSaverResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ImportRoomControlDevicesRequestLocationDevicesDevices extends $tea.Model {
+  deviceName?: string;
+  name?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      name: 'Name',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      name: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportRoomControlDevicesRequestLocationDevices extends $tea.Model {
+  devices?: ImportRoomControlDevicesRequestLocationDevicesDevices[];
+  location?: string;
+  locationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      location: 'Location',
+      locationName: 'LocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': ImportRoomControlDevicesRequestLocationDevicesDevices },
+      location: 'string',
+      locationName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponseBodyResultScheduleInfoOnce extends $tea.Model {
+  day?: number;
+  hour?: number;
+  minute?: number;
+  month?: number;
+  year?: number;
+  static names(): { [key: string]: string } {
+    return {
+      day: 'Day',
+      hour: 'Hour',
+      minute: 'Minute',
+      month: 'Month',
+      year: 'Year',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      day: 'number',
+      hour: 'number',
+      minute: 'number',
+      month: 'number',
+      year: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponseBodyResultScheduleInfoWeekly extends $tea.Model {
+  daysOfWeek?: number[];
+  hour?: number;
+  minute?: number;
+  static names(): { [key: string]: string } {
+    return {
+      daysOfWeek: 'DaysOfWeek',
+      hour: 'Hour',
+      minute: 'Minute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
+      hour: 'number',
+      minute: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponseBodyResultScheduleInfo extends $tea.Model {
+  once?: ListHotelAlarmResponseBodyResultScheduleInfoOnce;
+  type?: string;
+  weekly?: ListHotelAlarmResponseBodyResultScheduleInfoWeekly;
+  static names(): { [key: string]: string } {
+    return {
+      once: 'Once',
+      type: 'Type',
+      weekly: 'Weekly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      once: ListHotelAlarmResponseBodyResultScheduleInfoOnce,
+      type: 'string',
+      weekly: ListHotelAlarmResponseBodyResultScheduleInfoWeekly,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelAlarmResponseBodyResult extends $tea.Model {
+  alarmId?: number;
+  deviceOpenId?: string;
+  scheduleInfo?: ListHotelAlarmResponseBodyResultScheduleInfo;
+  userOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      deviceOpenId: 'DeviceOpenId',
+      scheduleInfo: 'ScheduleInfo',
+      userOpenId: 'UserOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      deviceOpenId: 'string',
+      scheduleInfo: ListHotelAlarmResponseBodyResultScheduleInfo,
+      userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHotelControlDeviceRequestUserInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -1886,6 +3925,84 @@ export class ListHotelControlDeviceRequestUserInfo extends $tea.Model {
       id: 'string',
       idType: 'string',
       organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelInfoResponseBodyResultAuthAccount extends $tea.Model {
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelInfoResponseBodyResult extends $tea.Model {
+  authAccount?: ListHotelInfoResponseBodyResultAuthAccount[];
+  hotelAddress?: string;
+  hotelId?: string;
+  hotelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAccount: 'AuthAccount',
+      hotelAddress: 'HotelAddress',
+      hotelId: 'HotelId',
+      hotelName: 'HotelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAccount: { 'type': 'array', 'itemType': ListHotelInfoResponseBodyResultAuthAccount },
+      hotelAddress: 'string',
+      hotelId: 'string',
+      hotelName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelMessageTemplateResponseBodyResult extends $tea.Model {
+  auditMark?: string;
+  auditStatus?: string;
+  templateDetail?: string;
+  templateId?: number;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditMark: 'AuditMark',
+      auditStatus: 'AuditStatus',
+      templateDetail: 'TemplateDetail',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditMark: 'string',
+      auditStatus: 'string',
+      templateDetail: 'string',
+      templateId: 'number',
+      templateName: 'string',
     };
   }
 
@@ -2032,6 +4149,28 @@ export class ListHotelOrderResponseBodyResult extends $tea.Model {
       type: 'string',
       typeIconUrl: 'string',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotelRoomsResponseBodyResult extends $tea.Model {
+  hotelId?: string;
+  roomNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      roomNo: 'RoomNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      roomNo: 'string',
     };
   }
 
@@ -2249,6 +4388,34 @@ export class ListHotelServiceCategoryResponseBodyResult extends $tea.Model {
   }
 }
 
+export class PushHotelMessageRequestPushHotelMessageReq extends $tea.Model {
+  hotelId?: string;
+  paramMap?: { [key: string]: string };
+  roomNo?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hotelId: 'HotelId',
+      paramMap: 'ParamMap',
+      roomNo: 'RoomNo',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelId: 'string',
+      paramMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      roomNo: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceStatusRequestPayloadLocationDevices extends $tea.Model {
   deviceNumber?: string;
   deviceType?: string;
@@ -2378,6 +4545,56 @@ export class QueryHotelProductResponseBodyResult extends $tea.Model {
       hotelName: 'string',
       productKey: 'string',
       productName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesResponseBodyResultDevices extends $tea.Model {
+  deviceName?: string;
+  name?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      name: 'Name',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      name: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRoomControlDevicesResponseBodyResult extends $tea.Model {
+  devices?: QueryRoomControlDevicesResponseBodyResultDevices[];
+  location?: string;
+  locationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      location: 'Location',
+      locationName: 'LocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': QueryRoomControlDevicesResponseBodyResultDevices },
+      location: 'string',
+      locationName: 'string',
     };
   }
 
@@ -2523,6 +4740,115 @@ export class SubmitHotelOrderRequestUserInfo extends $tea.Model {
   }
 }
 
+export class UpdateHotelAlarmRequestAlarms extends $tea.Model {
+  alarmId?: number;
+  deviceOpenId?: string;
+  roomNo?: string;
+  userOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmId: 'AlarmId',
+      deviceOpenId: 'DeviceOpenId',
+      roomNo: 'RoomNo',
+      userOpenId: 'UserOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmId: 'number',
+      deviceOpenId: 'string',
+      roomNo: 'string',
+      userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmRequestScheduleInfoOnce extends $tea.Model {
+  day?: number;
+  hour?: number;
+  minute?: number;
+  month?: number;
+  year?: number;
+  static names(): { [key: string]: string } {
+    return {
+      day: 'Day',
+      hour: 'Hour',
+      minute: 'Minute',
+      month: 'Month',
+      year: 'Year',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      day: 'number',
+      hour: 'number',
+      minute: 'number',
+      month: 'number',
+      year: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmRequestScheduleInfoWeekly extends $tea.Model {
+  daysOfWeek?: number[];
+  hour?: number;
+  minute?: number;
+  static names(): { [key: string]: string } {
+    return {
+      daysOfWeek: 'DaysOfWeek',
+      hour: 'Hour',
+      minute: 'Minute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
+      hour: 'number',
+      minute: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelAlarmRequestScheduleInfo extends $tea.Model {
+  once?: UpdateHotelAlarmRequestScheduleInfoOnce;
+  type?: string;
+  weekly?: UpdateHotelAlarmRequestScheduleInfoWeekly;
+  static names(): { [key: string]: string } {
+    return {
+      once: 'Once',
+      type: 'Type',
+      weekly: 'Weekly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      once: UpdateHotelAlarmRequestScheduleInfoOnce,
+      type: 'string',
+      weekly: UpdateHotelAlarmRequestScheduleInfoWeekly,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2544,6 +4870,282 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addMessageTemplate(request: AddMessageTemplateRequest): Promise<AddMessageTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddMessageTemplateHeaders({ });
+    return await this.addMessageTemplateWithOptions(request, headers, runtime);
+  }
+
+  async addMessageTemplateWithOptions(request: AddMessageTemplateRequest, headers: AddMessageTemplateHeaders, runtime: $Util.RuntimeOptions): Promise<AddMessageTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateDetail)) {
+      body["TemplateDetail"] = request.templateDetail;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMessageTemplate",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/addMessageTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMessageTemplateResponse>(await this.callApi(params, req, runtime), new AddMessageTemplateResponse({}));
+  }
+
+  async batchAddHotelRoom(request: BatchAddHotelRoomRequest): Promise<BatchAddHotelRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new BatchAddHotelRoomHeaders({ });
+    return await this.batchAddHotelRoomWithOptions(request, headers, runtime);
+  }
+
+  async batchAddHotelRoomWithOptions(tmpReq: BatchAddHotelRoomRequest, headers: BatchAddHotelRoomHeaders, runtime: $Util.RuntimeOptions): Promise<BatchAddHotelRoomResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchAddHotelRoomShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roomNoList)) {
+      request.roomNoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomNoList, "RoomNoList", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNoListShrink)) {
+      body["RoomNoList"] = request.roomNoListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchAddHotelRoom",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/batchAddHotelRoom`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchAddHotelRoomResponse>(await this.callApi(params, req, runtime), new BatchAddHotelRoomResponse({}));
+  }
+
+  async batchDeleteHotelRoom(request: BatchDeleteHotelRoomRequest): Promise<BatchDeleteHotelRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new BatchDeleteHotelRoomHeaders({ });
+    return await this.batchDeleteHotelRoomWithOptions(request, headers, runtime);
+  }
+
+  async batchDeleteHotelRoomWithOptions(tmpReq: BatchDeleteHotelRoomRequest, headers: BatchDeleteHotelRoomHeaders, runtime: $Util.RuntimeOptions): Promise<BatchDeleteHotelRoomResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchDeleteHotelRoomShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roomNoList)) {
+      request.roomNoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomNoList, "RoomNoList", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNoListShrink)) {
+      body["RoomNoList"] = request.roomNoListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteHotelRoom",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/batchDeleteHotelRoom`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteHotelRoomResponse>(await this.callApi(params, req, runtime), new BatchDeleteHotelRoomResponse({}));
+  }
+
+  async createHotelAlarm(request: CreateHotelAlarmRequest): Promise<CreateHotelAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateHotelAlarmHeaders({ });
+    return await this.createHotelAlarmWithOptions(request, headers, runtime);
+  }
+
+  async createHotelAlarmWithOptions(tmpReq: CreateHotelAlarmRequest, headers: CreateHotelAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<CreateHotelAlarmResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateHotelAlarmShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rooms)) {
+      request.roomsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rooms, "Rooms", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.scheduleInfo))) {
+      request.scheduleInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleInfo), "ScheduleInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.musicType)) {
+      body["MusicType"] = request.musicType;
+    }
+
+    if (!Util.isUnset(request.roomsShrink)) {
+      body["Rooms"] = request.roomsShrink;
+    }
+
+    if (!Util.isUnset(request.scheduleInfoShrink)) {
+      body["ScheduleInfo"] = request.scheduleInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateHotelAlarm",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/createHotelAlarm`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateHotelAlarmResponse>(await this.callApi(params, req, runtime), new CreateHotelAlarmResponse({}));
+  }
+
+  async deleteHotelAlarm(request: DeleteHotelAlarmRequest): Promise<DeleteHotelAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteHotelAlarmHeaders({ });
+    return await this.deleteHotelAlarmWithOptions(request, headers, runtime);
+  }
+
+  async deleteHotelAlarmWithOptions(tmpReq: DeleteHotelAlarmRequest, headers: DeleteHotelAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteHotelAlarmResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteHotelAlarmShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarms)) {
+      request.alarmsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarms, "Alarms", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmsShrink)) {
+      body["Alarms"] = request.alarmsShrink;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteHotelAlarm",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/deleteHotelAlarm`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteHotelAlarmResponse>(await this.callApi(params, req, runtime), new DeleteHotelAlarmResponse({}));
   }
 
   async deviceControl(request: DeviceControlRequest): Promise<DeviceControlResponse> {
@@ -2654,6 +5256,56 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotelHomeBackImageAndModesResponse>(await this.callApi(params, req, runtime), new GetHotelHomeBackImageAndModesResponse({}));
   }
 
+  async getHotelNotice(request: GetHotelNoticeRequest): Promise<GetHotelNoticeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetHotelNoticeHeaders({ });
+    return await this.getHotelNoticeWithOptions(request, headers, runtime);
+  }
+
+  async getHotelNoticeWithOptions(tmpReq: GetHotelNoticeRequest, headers: GetHotelNoticeHeaders, runtime: $Util.RuntimeOptions): Promise<GetHotelNoticeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetHotelNoticeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userInfoShrink)) {
+      query["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHotelNotice",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/getHotelNotice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotelNoticeResponse>(await this.callApi(params, req, runtime), new GetHotelNoticeResponse({}));
+  }
+
   async getHotelOrderDetail(request: GetHotelOrderDetailRequest): Promise<GetHotelOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetHotelOrderDetailHeaders({ });
@@ -2702,6 +5354,54 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetHotelOrderDetailResponse>(await this.callApi(params, req, runtime), new GetHotelOrderDetailResponse({}));
+  }
+
+  async getHotelRoomDevice(request: GetHotelRoomDeviceRequest): Promise<GetHotelRoomDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetHotelRoomDeviceHeaders({ });
+    return await this.getHotelRoomDeviceWithOptions(request, headers, runtime);
+  }
+
+  async getHotelRoomDeviceWithOptions(request: GetHotelRoomDeviceRequest, headers: GetHotelRoomDeviceHeaders, runtime: $Util.RuntimeOptions): Promise<GetHotelRoomDeviceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      query["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      query["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHotelRoomDevice",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/getHotelRoomDevice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotelRoomDeviceResponse>(await this.callApi(params, req, runtime), new GetHotelRoomDeviceResponse({}));
   }
 
   async getHotelSampleUtterances(request: GetHotelSampleUtterancesRequest): Promise<GetHotelSampleUtterancesResponse> {
@@ -2804,6 +5504,118 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotelScreenSaverResponse>(await this.callApi(params, req, runtime), new GetHotelScreenSaverResponse({}));
   }
 
+  async importRoomControlDevices(request: ImportRoomControlDevicesRequest): Promise<ImportRoomControlDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ImportRoomControlDevicesHeaders({ });
+    return await this.importRoomControlDevicesWithOptions(request, headers, runtime);
+  }
+
+  async importRoomControlDevicesWithOptions(tmpReq: ImportRoomControlDevicesRequest, headers: ImportRoomControlDevicesHeaders, runtime: $Util.RuntimeOptions): Promise<ImportRoomControlDevicesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ImportRoomControlDevicesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.locationDevices)) {
+      request.locationDevicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationDevices, "LocationDevices", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.locationDevicesShrink)) {
+      body["LocationDevices"] = request.locationDevicesShrink;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportRoomControlDevices",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/importRoomControlDevices`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportRoomControlDevicesResponse>(await this.callApi(params, req, runtime), new ImportRoomControlDevicesResponse({}));
+  }
+
+  async listHotelAlarm(request: ListHotelAlarmRequest): Promise<ListHotelAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListHotelAlarmHeaders({ });
+    return await this.listHotelAlarmWithOptions(request, headers, runtime);
+  }
+
+  async listHotelAlarmWithOptions(tmpReq: ListHotelAlarmRequest, headers: ListHotelAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelAlarmResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListHotelAlarmShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rooms)) {
+      request.roomsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rooms, "Rooms", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomsShrink)) {
+      body["Rooms"] = request.roomsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotelAlarm",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/getHotelAlarmList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotelAlarmResponse>(await this.callApi(params, req, runtime), new ListHotelAlarmResponse({}));
+  }
+
   async listHotelControlDevice(request: ListHotelControlDeviceRequest): Promise<ListHotelControlDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListHotelControlDeviceHeaders({ });
@@ -2852,6 +5664,80 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListHotelControlDeviceResponse>(await this.callApi(params, req, runtime), new ListHotelControlDeviceResponse({}));
+  }
+
+  async listHotelInfo(): Promise<ListHotelInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListHotelInfoHeaders({ });
+    return await this.listHotelInfoWithOptions(headers, runtime);
+  }
+
+  async listHotelInfoWithOptions(headers: ListHotelInfoHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelInfoResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotelInfo",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listHotelInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotelInfoResponse>(await this.callApi(params, req, runtime), new ListHotelInfoResponse({}));
+  }
+
+  async listHotelMessageTemplate(): Promise<ListHotelMessageTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListHotelMessageTemplateHeaders({ });
+    return await this.listHotelMessageTemplateWithOptions(headers, runtime);
+  }
+
+  async listHotelMessageTemplateWithOptions(headers: ListHotelMessageTemplateHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelMessageTemplateResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotelMessageTemplate",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listHotelMessageTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotelMessageTemplateResponse>(await this.callApi(params, req, runtime), new ListHotelMessageTemplateResponse({}));
   }
 
   async listHotelOrder(request: ListHotelOrderRequest): Promise<ListHotelOrderResponse> {
@@ -2910,6 +5796,50 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListHotelOrderResponse>(await this.callApi(params, req, runtime), new ListHotelOrderResponse({}));
+  }
+
+  async listHotelRooms(request: ListHotelRoomsRequest): Promise<ListHotelRoomsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListHotelRoomsHeaders({ });
+    return await this.listHotelRoomsWithOptions(request, headers, runtime);
+  }
+
+  async listHotelRoomsWithOptions(request: ListHotelRoomsRequest, headers: ListHotelRoomsHeaders, runtime: $Util.RuntimeOptions): Promise<ListHotelRoomsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHotelRooms",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/listHotelRooms`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotelRoomsResponse>(await this.callApi(params, req, runtime), new ListHotelRoomsResponse({}));
   }
 
   async listHotelSceneItem(request: ListHotelSceneItemRequest): Promise<ListHotelSceneItemResponse> {
@@ -3020,6 +5950,56 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotelServiceCategoryResponse>(await this.callApi(params, req, runtime), new ListHotelServiceCategoryResponse({}));
   }
 
+  async pushHotelMessage(request: PushHotelMessageRequest): Promise<PushHotelMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new PushHotelMessageHeaders({ });
+    return await this.pushHotelMessageWithOptions(request, headers, runtime);
+  }
+
+  async pushHotelMessageWithOptions(tmpReq: PushHotelMessageRequest, headers: PushHotelMessageHeaders, runtime: $Util.RuntimeOptions): Promise<PushHotelMessageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PushHotelMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.pushHotelMessageReq))) {
+      request.pushHotelMessageReqShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.pushHotelMessageReq), "PushHotelMessageReq", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pushHotelMessageReqShrink)) {
+      query["PushHotelMessageReq"] = request.pushHotelMessageReqShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushHotelMessage",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/pushHotelMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PushHotelMessageResponse>(await this.callApi(params, req, runtime), new PushHotelMessageResponse({}));
+  }
+
   async queryDeviceStatus(request: QueryDeviceStatusRequest): Promise<QueryDeviceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryDeviceStatusHeaders({ });
@@ -3126,6 +6106,54 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<QueryHotelProductResponse>(await this.callApi(params, req, runtime), new QueryHotelProductResponse({}));
+  }
+
+  async queryRoomControlDevices(request: QueryRoomControlDevicesRequest): Promise<QueryRoomControlDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryRoomControlDevicesHeaders({ });
+    return await this.queryRoomControlDevicesWithOptions(request, headers, runtime);
+  }
+
+  async queryRoomControlDevicesWithOptions(request: QueryRoomControlDevicesRequest, headers: QueryRoomControlDevicesHeaders, runtime: $Util.RuntimeOptions): Promise<QueryRoomControlDevicesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      query["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      query["RoomNo"] = request.roomNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRoomControlDevices",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/queryRoomControlDevices`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRoomControlDevicesResponse>(await this.callApi(params, req, runtime), new QueryRoomControlDevicesResponse({}));
   }
 
   async roomCheckOut(request: RoomCheckOutRequest): Promise<RoomCheckOutResponse> {
@@ -3242,6 +6270,68 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<SubmitHotelOrderResponse>(await this.callApi(params, req, runtime), new SubmitHotelOrderResponse({}));
+  }
+
+  async updateHotelAlarm(request: UpdateHotelAlarmRequest): Promise<UpdateHotelAlarmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateHotelAlarmHeaders({ });
+    return await this.updateHotelAlarmWithOptions(request, headers, runtime);
+  }
+
+  async updateHotelAlarmWithOptions(tmpReq: UpdateHotelAlarmRequest, headers: UpdateHotelAlarmHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateHotelAlarmResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateHotelAlarmShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.alarms)) {
+      request.alarmsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.alarms, "Alarms", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.scheduleInfo))) {
+      request.scheduleInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleInfo), "ScheduleInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmsShrink)) {
+      body["Alarms"] = request.alarmsShrink;
+    }
+
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
+    }
+
+    if (!Util.isUnset(request.scheduleInfoShrink)) {
+      body["ScheduleInfo"] = request.scheduleInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateHotelAlarm",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/updateHotelAlarm`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateHotelAlarmResponse>(await this.callApi(params, req, runtime), new UpdateHotelAlarmResponse({}));
   }
 
 }
