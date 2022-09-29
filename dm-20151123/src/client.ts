@@ -37,15 +37,18 @@ export class AddIpfilterRequest extends $tea.Model {
 }
 
 export class AddIpfilterResponseBody extends $tea.Model {
+  ipFilterId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      ipFilterId: 'IpFilterId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ipFilterId: 'string',
       requestId: 'string',
     };
   }
@@ -3197,81 +3200,6 @@ export class UpdateIpProtectionResponse extends $tea.Model {
   }
 }
 
-export class UpdateMailAddressMsgCallBackUrlRequest extends $tea.Model {
-  mailFrom?: string;
-  notifyUrl?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      mailFrom: 'MailFrom',
-      notifyUrl: 'NotifyUrl',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mailFrom: 'string',
-      notifyUrl: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMailAddressMsgCallBackUrlResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMailAddressMsgCallBackUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMailAddressMsgCallBackUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMailAddressMsgCallBackUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetIpfilterListResponseBodyDataIpfilters extends $tea.Model {
   createTime?: string;
   id?: string;
@@ -5843,51 +5771,6 @@ export default class Client extends OpenApi {
   async updateIpProtection(request: UpdateIpProtectionRequest): Promise<UpdateIpProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpProtectionWithOptions(request, runtime);
-  }
-
-  async updateMailAddressMsgCallBackUrlWithOptions(request: UpdateMailAddressMsgCallBackUrlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMailAddressMsgCallBackUrlResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.mailFrom)) {
-      query["MailFrom"] = request.mailFrom;
-    }
-
-    if (!Util.isUnset(request.notifyUrl)) {
-      query["NotifyUrl"] = request.notifyUrl;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateMailAddressMsgCallBackUrl",
-      version: "2015-11-23",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateMailAddressMsgCallBackUrlResponse>(await this.callApi(params, req, runtime), new UpdateMailAddressMsgCallBackUrlResponse({}));
-  }
-
-  async updateMailAddressMsgCallBackUrl(request: UpdateMailAddressMsgCallBackUrlRequest): Promise<UpdateMailAddressMsgCallBackUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMailAddressMsgCallBackUrlWithOptions(request, runtime);
   }
 
 }
