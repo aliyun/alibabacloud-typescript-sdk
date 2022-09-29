@@ -2124,6 +2124,7 @@ export class SendBatchCardSmsResponse extends $tea.Model {
 }
 
 export class SendBatchSmsRequest extends $tea.Model {
+  outId?: string;
   ownerId?: number;
   phoneNumberJson?: string;
   resourceOwnerAccount?: string;
@@ -2134,6 +2135,7 @@ export class SendBatchSmsRequest extends $tea.Model {
   templateParamJson?: string;
   static names(): { [key: string]: string } {
     return {
+      outId: 'OutId',
       ownerId: 'OwnerId',
       phoneNumberJson: 'PhoneNumberJson',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -2147,6 +2149,7 @@ export class SendBatchSmsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      outId: 'string',
       ownerId: 'number',
       phoneNumberJson: 'string',
       resourceOwnerAccount: 'string',
@@ -4478,6 +4481,10 @@ export default class Client extends OpenApi {
   async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
