@@ -1787,30 +1787,36 @@ export class ListGroupsResponse extends $tea.Model {
 
 export class ListInferenceJobsRequest extends $tea.Model {
   campaignId?: string;
+  campaignName?: string;
   name?: string;
   pageNumber?: number;
   pageSize?: number;
   remark?: string;
   status?: number;
+  trainingJobName?: string;
   static names(): { [key: string]: string } {
     return {
       campaignId: 'CampaignId',
+      campaignName: 'CampaignName',
       name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       remark: 'Remark',
       status: 'Status',
+      trainingJobName: 'TrainingJobName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       campaignId: 'string',
+      campaignName: 'string',
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       remark: 'string',
       status: 'number',
+      trainingJobName: 'string',
     };
   }
 
@@ -2339,30 +2345,36 @@ export class ListTemplatesResponse extends $tea.Model {
 
 export class ListTrainingJobsRequest extends $tea.Model {
   campaignId?: string;
+  campaignName?: string;
   name?: string;
   pageNumber?: number;
   pageSize?: number;
   remark?: string;
   status?: number;
+  trainingScheduleId?: string;
   static names(): { [key: string]: string } {
     return {
       campaignId: 'CampaignId',
+      campaignName: 'CampaignName',
       name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       remark: 'Remark',
       status: 'Status',
+      trainingScheduleId: 'TrainingScheduleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       campaignId: 'string',
+      campaignName: 'string',
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       remark: 'string',
       status: 'number',
+      trainingScheduleId: 'string',
     };
   }
 
@@ -3285,9 +3297,11 @@ export class GetCampaignResponseBodyData extends $tea.Model {
 export class GetGroupResponseBodyData extends $tea.Model {
   algorithm?: string;
   amount?: number;
+  campaignId?: string;
   column?: string;
   createdTime?: string;
   filter?: string;
+  history?: string;
   id?: string;
   inferenceJobId?: string;
   name?: string;
@@ -3304,9 +3318,11 @@ export class GetGroupResponseBodyData extends $tea.Model {
     return {
       algorithm: 'Algorithm',
       amount: 'Amount',
+      campaignId: 'CampaignId',
       column: 'Column',
       createdTime: 'CreatedTime',
       filter: 'Filter',
+      history: 'History',
       id: 'Id',
       inferenceJobId: 'InferenceJobId',
       name: 'Name',
@@ -3326,9 +3342,11 @@ export class GetGroupResponseBodyData extends $tea.Model {
     return {
       algorithm: 'string',
       amount: 'number',
+      campaignId: 'string',
       column: 'string',
       createdTime: 'string',
       filter: 'string',
+      history: 'string',
       id: 'string',
       inferenceJobId: 'string',
       name: 'string',
@@ -3862,6 +3880,7 @@ export class ListInferenceJobsResponseBodyDataInferenceJobs extends $tea.Model {
   name?: string;
   remark?: string;
   status?: number;
+  targetGroupId?: string;
   targetPath?: string;
   trainingJobId?: string;
   updatedTime?: string;
@@ -3878,6 +3897,7 @@ export class ListInferenceJobsResponseBodyDataInferenceJobs extends $tea.Model {
       name: 'Name',
       remark: 'Remark',
       status: 'Status',
+      targetGroupId: 'TargetGroupId',
       targetPath: 'TargetPath',
       trainingJobId: 'TrainingJobId',
       updatedTime: 'UpdatedTime',
@@ -3897,6 +3917,7 @@ export class ListInferenceJobsResponseBodyDataInferenceJobs extends $tea.Model {
       name: 'string',
       remark: 'string',
       status: 'number',
+      targetGroupId: 'string',
       targetPath: 'string',
       trainingJobId: 'string',
       updatedTime: 'string',
@@ -4311,6 +4332,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
   name?: string;
   remark?: string;
   status?: number;
+  trainingScheduleId?: string;
   updatedTime?: string;
   userConfig?: string;
   static names(): { [key: string]: string } {
@@ -4324,6 +4346,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
       name: 'Name',
       remark: 'Remark',
       status: 'Status',
+      trainingScheduleId: 'TrainingScheduleId',
       updatedTime: 'UpdatedTime',
       userConfig: 'UserConfig',
     };
@@ -4340,6 +4363,7 @@ export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
       name: 'string',
       remark: 'string',
       status: 'number',
+      trainingScheduleId: 'string',
       updatedTime: 'string',
       userConfig: 'string',
     };
@@ -4977,7 +5001,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteCampaignWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCampaignResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4985,7 +5008,7 @@ export default class Client extends OpenApi {
       action: "DeleteCampaign",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/campaigns/${Id}`,
+      pathname: `/api/v2/campaigns/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5006,7 +5029,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5014,7 +5036,7 @@ export default class Client extends OpenApi {
       action: "DeleteGroup",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/groups/${Id}`,
+      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5034,7 +5056,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInferenceJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5042,7 +5063,7 @@ export default class Client extends OpenApi {
       action: "DeleteInferenceJob",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs/${Id}`,
+      pathname: `/api/v2/inference/jobs/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5063,7 +5084,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5071,7 +5091,7 @@ export default class Client extends OpenApi {
       action: "DeleteSchedule",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/schedules/${Id}`,
+      pathname: `/api/v2/schedules/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5092,7 +5112,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteSignatureWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSignatureResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5100,7 +5119,7 @@ export default class Client extends OpenApi {
       action: "DeleteSignature",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/signatures/${Id}`,
+      pathname: `/api/v2/signatures/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5121,7 +5140,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTemplateWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5129,7 +5147,7 @@ export default class Client extends OpenApi {
       action: "DeleteTemplate",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/templates/${Id}`,
+      pathname: `/api/v2/templates/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5149,7 +5167,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrainingJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5157,7 +5174,7 @@ export default class Client extends OpenApi {
       action: "DeleteTrainingJob",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs/${Id}`,
+      pathname: `/api/v2/training/jobs/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -5177,7 +5194,6 @@ export default class Client extends OpenApi {
   }
 
   async getAlgorithmWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAlgorithmResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5185,7 +5201,7 @@ export default class Client extends OpenApi {
       action: "GetAlgorithm",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/algorithms/${Id}`,
+      pathname: `/api/v2/algorithms/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5205,7 +5221,6 @@ export default class Client extends OpenApi {
   }
 
   async getCampaignWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCampaignResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5213,7 +5228,7 @@ export default class Client extends OpenApi {
       action: "GetCampaign",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/campaigns/${Id}`,
+      pathname: `/api/v2/campaigns/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5233,7 +5248,6 @@ export default class Client extends OpenApi {
   }
 
   async getGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5241,7 +5255,7 @@ export default class Client extends OpenApi {
       action: "GetGroup",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/groups/${Id}`,
+      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5261,7 +5275,6 @@ export default class Client extends OpenApi {
   }
 
   async getInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInferenceJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5269,7 +5282,7 @@ export default class Client extends OpenApi {
       action: "GetInferenceJob",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs/${Id}`,
+      pathname: `/api/v2/inference/jobs/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5316,7 +5329,6 @@ export default class Client extends OpenApi {
   }
 
   async getScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScheduleResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5324,7 +5336,7 @@ export default class Client extends OpenApi {
       action: "GetSchedule",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/schedules/${Id}`,
+      pathname: `/api/v2/schedules/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5344,7 +5356,6 @@ export default class Client extends OpenApi {
   }
 
   async getSignatureWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSignatureResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5352,7 +5363,7 @@ export default class Client extends OpenApi {
       action: "GetSignature",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/signatures/${Id}`,
+      pathname: `/api/v2/signatures/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5372,7 +5383,6 @@ export default class Client extends OpenApi {
   }
 
   async getTemplateWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5380,7 +5390,7 @@ export default class Client extends OpenApi {
       action: "GetTemplate",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/templates/${Id}`,
+      pathname: `/api/v2/templates/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5400,7 +5410,6 @@ export default class Client extends OpenApi {
   }
 
   async getTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrainingJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -5408,7 +5417,7 @@ export default class Client extends OpenApi {
       action: "GetTrainingJob",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs/${Id}`,
+      pathname: `/api/v2/training/jobs/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -5595,9 +5604,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
-  /**
-   * 获取预测任务列表。
-   */
   async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5609,6 +5615,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.campaignId)) {
       query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.campaignName)) {
+      query["CampaignName"] = request.campaignName;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -5629,6 +5639,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.trainingJobName)) {
+      query["TrainingJobName"] = request.trainingJobName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5961,9 +5975,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
-  /**
-   * 获取训练任务列表。
-   */
   async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5975,6 +5986,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.campaignId)) {
       query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.campaignName)) {
+      query["CampaignName"] = request.campaignName;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -5997,6 +6012,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.trainingScheduleId)) {
+      query["TrainingScheduleId"] = request.trainingScheduleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6015,9 +6034,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
   }
 
-  /**
-   * 发送短信。
-   */
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6154,7 +6170,6 @@ export default class Client extends OpenApi {
 
   async updateCampaignWithOptions(Id: string, request: UpdateCampaignRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCampaignResponse> {
     Util.validateModel(request);
-    Id = OpenApiUtil.getEncodeParam(Id);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -6172,7 +6187,7 @@ export default class Client extends OpenApi {
       action: "UpdateCampaign",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/campaigns/${Id}`,
+      pathname: `/api/v2/campaigns/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
