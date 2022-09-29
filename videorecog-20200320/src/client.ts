@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -34,10 +33,10 @@ export class DetectVideoShotRequest extends $tea.Model {
 }
 
 export class DetectVideoShotAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
+  videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
+      videoUrlObject: 'VideoUrl',
     };
   }
 
@@ -122,19 +121,19 @@ export class GenerateVideoCoverRequest extends $tea.Model {
 }
 
 export class GenerateVideoCoverAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
   isGif?: boolean;
+  videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
       isGif: 'IsGif',
+      videoUrlObject: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrlObject: 'Readable',
       isGif: 'boolean',
+      videoUrlObject: 'Readable',
     };
   }
 
@@ -282,22 +281,22 @@ export class RecognizeVideoCastCrewListRequest extends $tea.Model {
 }
 
 export class RecognizeVideoCastCrewListAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
   params?: RecognizeVideoCastCrewListAdvanceRequestParams[];
-  registerUrl?: string;
+  registerUrlObject?: Readable;
+  videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
       params: 'Params',
-      registerUrl: 'RegisterUrl',
+      registerUrlObject: 'RegisterUrl',
+      videoUrlObject: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrlObject: 'Readable',
       params: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListAdvanceRequestParams },
-      registerUrl: 'string',
+      registerUrlObject: 'Readable',
+      videoUrlObject: 'Readable',
     };
   }
 
@@ -398,10 +397,10 @@ export class SplitVideoPartsRequest extends $tea.Model {
 }
 
 export class SplitVideoPartsAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
+  videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
+      videoUrlObject: 'VideoUrl',
     };
   }
 
@@ -483,10 +482,10 @@ export class UnderstandVideoContentRequest extends $tea.Model {
 }
 
 export class UnderstandVideoContentAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
+  videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoURLObject: 'VideoURLObject',
+      videoURLObject: 'VideoURL',
     };
   }
 
@@ -1093,7 +1092,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1124,28 +1123,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectVideoShotReq);
     if (!Util.isUnset(request.videoUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.videoUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectVideoShotReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectVideoShotReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectVideoShotResp = await this.detectVideoShotWithOptions(detectVideoShotReq, runtime);
@@ -1200,7 +1199,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1231,28 +1230,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, generateVideoCoverReq);
     if (!Util.isUnset(request.videoUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.videoUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      generateVideoCoverReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      generateVideoCoverReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let generateVideoCoverResp = await this.generateVideoCoverWithOptions(generateVideoCoverReq, runtime);
@@ -1346,7 +1345,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1375,30 +1374,56 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let recognizeVideoCastCrewListReq = new RecognizeVideoCastCrewListRequest({ });
     OpenApiUtil.convert(request, recognizeVideoCastCrewListReq);
-    if (!Util.isUnset(request.videoUrlObject)) {
+    if (!Util.isUnset(request.registerUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.videoUrlObject,
+        filename: authResponse.body.objectKey,
+        content: request.registerUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVideoCastCrewListReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeVideoCastCrewListReq.registerUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeVideoCastCrewListReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let recognizeVideoCastCrewListResp = await this.recognizeVideoCastCrewListWithOptions(recognizeVideoCastCrewListReq, runtime);
@@ -1449,7 +1474,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1480,28 +1505,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, splitVideoPartsReq);
     if (!Util.isUnset(request.videoUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.videoUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      splitVideoPartsReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      splitVideoPartsReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let splitVideoPartsResp = await this.splitVideoPartsWithOptions(splitVideoPartsReq, runtime);
@@ -1552,7 +1577,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1583,28 +1608,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, understandVideoContentReq);
     if (!Util.isUnset(request.videoURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.videoURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      understandVideoContentReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      understandVideoContentReq.videoURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let understandVideoContentResp = await this.understandVideoContentWithOptions(understandVideoContentReq, runtime);
