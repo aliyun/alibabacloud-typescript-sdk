@@ -306,65 +306,6 @@ export class BatchAddDirectionalAddressResponse extends $tea.Model {
   }
 }
 
-export class CardStatisticsResponseBody extends $tea.Model {
-  code?: string;
-  data?: CardStatisticsResponseBodyData;
-  errorMessage?: string;
-  localizedMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      localizedMessage: 'LocalizedMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CardStatisticsResponseBodyData,
-      errorMessage: 'string',
-      localizedMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CardStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CardStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ForceActivationRequest extends $tea.Model {
   dateType?: string;
   iccid?: string;
@@ -709,6 +650,7 @@ export class ListCardInfoRequest extends $tea.Model {
   imsi?: string;
   isAutoRecharge?: boolean;
   maxFlow?: string;
+  maxRestFlowPercentage?: number;
   minFlow?: string;
   msisdn?: string;
   notifyId?: string;
@@ -739,6 +681,7 @@ export class ListCardInfoRequest extends $tea.Model {
       imsi: 'Imsi',
       isAutoRecharge: 'IsAutoRecharge',
       maxFlow: 'MaxFlow',
+      maxRestFlowPercentage: 'MaxRestFlowPercentage',
       minFlow: 'MinFlow',
       msisdn: 'Msisdn',
       notifyId: 'NotifyId',
@@ -772,6 +715,7 @@ export class ListCardInfoRequest extends $tea.Model {
       imsi: 'string',
       isAutoRecharge: 'boolean',
       maxFlow: 'string',
+      maxRestFlowPercentage: 'number',
       minFlow: 'string',
       msisdn: 'string',
       notifyId: 'string',
@@ -1755,298 +1699,6 @@ export class VerifyIotCardResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifyIotCardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataErrorStopStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataExhaustStopStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataExpireStopStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataFlowOutStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataManageStopStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataRiskWaringStatisticsDTO extends $tea.Model {
-  stopCount?: number;
-  waringTotalCount?: number;
-  warningCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      stopCount: 'StopCount',
-      waringTotalCount: 'WaringTotalCount',
-      warningCount: 'WarningCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stopCount: 'number',
-      waringTotalCount: 'number',
-      warningCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataUnbindResumeStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyDataWeekWarnStatisticsDTO extends $tea.Model {
-  poolCount?: number;
-  sameFlowCardCount?: number;
-  singleCardCount?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      poolCount: 'PoolCount',
-      sameFlowCardCount: 'SameFlowCardCount',
-      singleCardCount: 'SingleCardCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      poolCount: 'number',
-      sameFlowCardCount: 'number',
-      singleCardCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardStatisticsResponseBodyData extends $tea.Model {
-  errorStopStatisticsDTO?: CardStatisticsResponseBodyDataErrorStopStatisticsDTO;
-  exhaustStopStatisticsDTO?: CardStatisticsResponseBodyDataExhaustStopStatisticsDTO;
-  expireStopStatisticsDTO?: CardStatisticsResponseBodyDataExpireStopStatisticsDTO;
-  flowOutStatisticsDTO?: CardStatisticsResponseBodyDataFlowOutStatisticsDTO;
-  manageStopStatisticsDTO?: CardStatisticsResponseBodyDataManageStopStatisticsDTO;
-  riskWaringStatisticsDTO?: CardStatisticsResponseBodyDataRiskWaringStatisticsDTO;
-  unCertifiedStopStatisticsDTO?: CardStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO;
-  unbindResumeStatisticsDTO?: CardStatisticsResponseBodyDataUnbindResumeStatisticsDTO;
-  weekWarnStatisticsDTO?: CardStatisticsResponseBodyDataWeekWarnStatisticsDTO;
-  static names(): { [key: string]: string } {
-    return {
-      errorStopStatisticsDTO: 'ErrorStopStatisticsDTO',
-      exhaustStopStatisticsDTO: 'ExhaustStopStatisticsDTO',
-      expireStopStatisticsDTO: 'ExpireStopStatisticsDTO',
-      flowOutStatisticsDTO: 'FlowOutStatisticsDTO',
-      manageStopStatisticsDTO: 'ManageStopStatisticsDTO',
-      riskWaringStatisticsDTO: 'RiskWaringStatisticsDTO',
-      unCertifiedStopStatisticsDTO: 'UnCertifiedStopStatisticsDTO',
-      unbindResumeStatisticsDTO: 'UnbindResumeStatisticsDTO',
-      weekWarnStatisticsDTO: 'WeekWarnStatisticsDTO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorStopStatisticsDTO: CardStatisticsResponseBodyDataErrorStopStatisticsDTO,
-      exhaustStopStatisticsDTO: CardStatisticsResponseBodyDataExhaustStopStatisticsDTO,
-      expireStopStatisticsDTO: CardStatisticsResponseBodyDataExpireStopStatisticsDTO,
-      flowOutStatisticsDTO: CardStatisticsResponseBodyDataFlowOutStatisticsDTO,
-      manageStopStatisticsDTO: CardStatisticsResponseBodyDataManageStopStatisticsDTO,
-      riskWaringStatisticsDTO: CardStatisticsResponseBodyDataRiskWaringStatisticsDTO,
-      unCertifiedStopStatisticsDTO: CardStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO,
-      unbindResumeStatisticsDTO: CardStatisticsResponseBodyDataUnbindResumeStatisticsDTO,
-      weekWarnStatisticsDTO: CardStatisticsResponseBodyDataWeekWarnStatisticsDTO,
     };
   }
 
@@ -3125,27 +2777,6 @@ export default class Client extends OpenApi {
     return await this.batchAddDirectionalAddressWithOptions(request, runtime);
   }
 
-  async cardStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<CardStatisticsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "CardStatistics",
-      version: "2021-05-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CardStatisticsResponse>(await this.callApi(params, req, runtime), new CardStatisticsResponse({}));
-  }
-
-  async cardStatistics(): Promise<CardStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cardStatisticsWithOptions(runtime);
-  }
-
   async forceActivationWithOptions(request: ForceActivationRequest, runtime: $Util.RuntimeOptions): Promise<ForceActivationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3351,6 +2982,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxFlow)) {
       query["MaxFlow"] = request.maxFlow;
+    }
+
+    if (!Util.isUnset(request.maxRestFlowPercentage)) {
+      query["MaxRestFlowPercentage"] = request.maxRestFlowPercentage;
     }
 
     if (!Util.isUnset(request.minFlow)) {
