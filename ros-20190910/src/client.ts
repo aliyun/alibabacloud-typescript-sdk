@@ -6610,6 +6610,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
   parameters?: { [key: string]: any }[];
   requestId?: string;
   resourceTypes?: ValidateTemplateResponseBodyResourceTypes;
+  resources?: ValidateTemplateResponseBodyResources[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -6617,6 +6618,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
       parameters: 'Parameters',
       requestId: 'RequestId',
       resourceTypes: 'ResourceTypes',
+      resources: 'Resources',
     };
   }
 
@@ -6627,6 +6629,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
       parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       requestId: 'string',
       resourceTypes: ValidateTemplateResponseBodyResourceTypes,
+      resources: { 'type': 'array', 'itemType': ValidateTemplateResponseBodyResources },
     };
   }
 
@@ -8263,6 +8266,8 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   associationParameterNames?: string[];
   behavior?: string;
   behaviorReason?: string;
+  illegalValueByParameterConstraints?: any[];
+  illegalValueByRules?: any[];
   parameterKey?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -8271,6 +8276,8 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       associationParameterNames: 'AssociationParameterNames',
       behavior: 'Behavior',
       behaviorReason: 'BehaviorReason',
+      illegalValueByParameterConstraints: 'IllegalValueByParameterConstraints',
+      illegalValueByRules: 'IllegalValueByRules',
       parameterKey: 'ParameterKey',
       type: 'Type',
     };
@@ -8282,6 +8289,8 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       associationParameterNames: { 'type': 'array', 'itemType': 'string' },
       behavior: 'string',
       behaviorReason: 'string',
+      illegalValueByParameterConstraints: { 'type': 'array', 'itemType': 'any' },
+      illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
       parameterKey: 'string',
       type: 'string',
     };
@@ -10036,6 +10045,31 @@ export class ValidateTemplateResponseBodyResourceTypes extends $tea.Model {
     return {
       dataSources: { 'type': 'array', 'itemType': 'string' },
       resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyResources extends $tea.Model {
+  logicalResourceIdPattern?: string;
+  resourcePath?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceIdPattern: 'LogicalResourceIdPattern',
+      resourcePath: 'ResourcePath',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceIdPattern: 'string',
+      resourcePath: 'string',
+      resourceType: 'string',
     };
   }
 
