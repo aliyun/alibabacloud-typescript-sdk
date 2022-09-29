@@ -1653,17 +1653,17 @@ export class CarBillSettlementQueryRequest extends $tea.Model {
 
 export class CarBillSettlementQueryResponseBody extends $tea.Model {
   requestId?: string;
+  code?: number;
   message?: string;
   module?: CarBillSettlementQueryResponseBodyModule;
-  resultCode?: number;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'code',
       message: 'message',
       module: 'module',
-      resultCode: 'result_code',
       success: 'success',
       traceId: 'traceId',
     };
@@ -1672,9 +1672,9 @@ export class CarBillSettlementQueryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       message: 'string',
       module: CarBillSettlementQueryResponseBodyModule,
-      resultCode: 'number',
       success: 'boolean',
       traceId: 'string',
     };
@@ -3367,17 +3367,17 @@ export class FlightBillSettlementQueryRequest extends $tea.Model {
 
 export class FlightBillSettlementQueryResponseBody extends $tea.Model {
   requestId?: string;
+  code?: number;
   message?: string;
   module?: FlightBillSettlementQueryResponseBodyModule;
-  resultCode?: number;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'code',
       message: 'message',
       module: 'module',
-      resultCode: 'result_code',
       success: 'success',
       traceId: 'traceId',
     };
@@ -3386,9 +3386,9 @@ export class FlightBillSettlementQueryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       message: 'string',
       module: FlightBillSettlementQueryResponseBodyModule,
-      resultCode: 'number',
       success: 'boolean',
       traceId: 'string',
     };
@@ -3811,18 +3811,18 @@ export class HotelBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class HotelBillSettlementQueryResponseBody extends $tea.Model {
+  code?: number;
   message?: string;
   module?: HotelBillSettlementQueryResponseBodyModule;
   requestId?: string;
-  resultCode?: number;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
       message: 'message',
       module: 'module',
       requestId: 'requestId',
-      resultCode: 'result_code',
       success: 'success',
       traceId: 'traceId',
     };
@@ -3830,10 +3830,10 @@ export class HotelBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       message: 'string',
       module: HotelBillSettlementQueryResponseBodyModule,
       requestId: 'string',
-      resultCode: 'number',
       success: 'boolean',
       traceId: 'string',
     };
@@ -4153,20 +4153,20 @@ export class IeFlightBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class IeFlightBillSettlementQueryResponseBody extends $tea.Model {
+  code?: number;
   message?: string;
   module?: IeFlightBillSettlementQueryResponseBodyModule;
   morePage?: boolean;
   requestId?: string;
-  resultCode?: number;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
       message: 'message',
       module: 'module',
       morePage: 'more_page',
       requestId: 'requestId',
-      resultCode: 'result_code',
       success: 'success',
       traceId: 'traceId',
     };
@@ -4174,11 +4174,11 @@ export class IeFlightBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       message: 'string',
       module: IeFlightBillSettlementQueryResponseBodyModule,
       morePage: 'boolean',
       requestId: 'string',
-      resultCode: 'number',
       success: 'boolean',
       traceId: 'string',
     };
@@ -5379,17 +5379,17 @@ export class TrainBillSettlementQueryRequest extends $tea.Model {
 
 export class TrainBillSettlementQueryResponseBody extends $tea.Model {
   requestId?: string;
+  code?: number;
   message?: string;
   module?: TrainBillSettlementQueryResponseBodyModule;
-  resultCode?: number;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'code',
       message: 'message',
       module: 'module',
-      resultCode: 'result_code',
       success: 'success',
       traceId: 'traceId',
     };
@@ -5398,9 +5398,9 @@ export class TrainBillSettlementQueryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       message: 'string',
       module: TrainBillSettlementQueryResponseBodyModule,
-      resultCode: 'number',
       success: 'boolean',
       traceId: 'string',
     };
