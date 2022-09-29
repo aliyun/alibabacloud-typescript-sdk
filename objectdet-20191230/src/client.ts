@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -90,10 +89,10 @@ export class ClassifyVehicleInsuranceRequest extends $tea.Model {
 }
 
 export class ClassifyVehicleInsuranceAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -132,10 +131,12 @@ export class ClassifyVehicleInsuranceResponseBody extends $tea.Model {
 
 export class ClassifyVehicleInsuranceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClassifyVehicleInsuranceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -143,6 +144,7 @@ export class ClassifyVehicleInsuranceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClassifyVehicleInsuranceResponseBody,
     };
   }
@@ -163,6 +165,25 @@ export class DetectIPCObjectRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectIPCObjectAdvanceRequest extends $tea.Model {
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
     };
   }
 
@@ -195,10 +216,12 @@ export class DetectIPCObjectResponseBody extends $tea.Model {
 
 export class DetectIPCObjectResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectIPCObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -206,6 +229,7 @@ export class DetectIPCObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectIPCObjectResponseBody,
     };
   }
@@ -238,19 +262,19 @@ export class DetectKitchenAnimalsRequest extends $tea.Model {
 }
 
 export class DetectKitchenAnimalsAdvanceRequest extends $tea.Model {
-  imageURLAObject: Readable;
-  imageURLB?: string;
+  imageURLAObject?: Readable;
+  imageURLBObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLAObject: 'ImageURLAObject',
-      imageURLB: 'ImageURLB',
+      imageURLAObject: 'ImageURLA',
+      imageURLBObject: 'ImageURLB',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLAObject: 'Readable',
-      imageURLB: 'string',
+      imageURLBObject: 'Readable',
     };
   }
 
@@ -283,10 +307,12 @@ export class DetectKitchenAnimalsResponseBody extends $tea.Model {
 
 export class DetectKitchenAnimalsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectKitchenAnimalsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -294,6 +320,7 @@ export class DetectKitchenAnimalsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectKitchenAnimalsResponseBody,
     };
   }
@@ -323,10 +350,10 @@ export class DetectMainBodyRequest extends $tea.Model {
 }
 
 export class DetectMainBodyAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -365,10 +392,12 @@ export class DetectMainBodyResponseBody extends $tea.Model {
 
 export class DetectMainBodyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectMainBodyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -376,6 +405,7 @@ export class DetectMainBodyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectMainBodyResponseBody,
     };
   }
@@ -405,10 +435,10 @@ export class DetectObjectRequest extends $tea.Model {
 }
 
 export class DetectObjectAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -447,10 +477,12 @@ export class DetectObjectResponseBody extends $tea.Model {
 
 export class DetectObjectResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -458,6 +490,7 @@ export class DetectObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectObjectResponseBody,
     };
   }
@@ -487,10 +520,10 @@ export class DetectTransparentImageRequest extends $tea.Model {
 }
 
 export class DetectTransparentImageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -529,10 +562,12 @@ export class DetectTransparentImageResponseBody extends $tea.Model {
 
 export class DetectTransparentImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectTransparentImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -540,6 +575,7 @@ export class DetectTransparentImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectTransparentImageResponseBody,
     };
   }
@@ -569,10 +605,10 @@ export class DetectVehicleRequest extends $tea.Model {
 }
 
 export class DetectVehicleAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -611,10 +647,12 @@ export class DetectVehicleResponseBody extends $tea.Model {
 
 export class DetectVehicleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectVehicleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -622,6 +660,7 @@ export class DetectVehicleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectVehicleResponseBody,
     };
   }
@@ -648,6 +687,31 @@ export class DetectVehicleICongestionRequest extends $tea.Model {
       imageURL: 'string',
       preRegionIntersectFeatures: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestPreRegionIntersectFeatures },
       roadRegions: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestRoadRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionAdvanceRequest extends $tea.Model {
+  imageURLObject?: Readable;
+  preRegionIntersectFeatures?: DetectVehicleICongestionAdvanceRequestPreRegionIntersectFeatures[];
+  roadRegions?: DetectVehicleICongestionAdvanceRequestRoadRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURL',
+      preRegionIntersectFeatures: 'PreRegionIntersectFeatures',
+      roadRegions: 'RoadRegions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      preRegionIntersectFeatures: { 'type': 'array', 'itemType': DetectVehicleICongestionAdvanceRequestPreRegionIntersectFeatures },
+      roadRegions: { 'type': 'array', 'itemType': DetectVehicleICongestionAdvanceRequestRoadRegions },
     };
   }
 
@@ -705,10 +769,12 @@ export class DetectVehicleICongestionResponseBody extends $tea.Model {
 
 export class DetectVehicleICongestionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectVehicleICongestionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -716,6 +782,7 @@ export class DetectVehicleICongestionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectVehicleICongestionResponseBody,
     };
   }
@@ -739,6 +806,28 @@ export class DetectVehicleIllegalParkingRequest extends $tea.Model {
     return {
       imageURL: 'string',
       roadRegions: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingRequestRoadRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleIllegalParkingAdvanceRequest extends $tea.Model {
+  imageURLObject?: Readable;
+  roadRegions?: DetectVehicleIllegalParkingAdvanceRequestRoadRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURL',
+      roadRegions: 'RoadRegions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      roadRegions: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingAdvanceRequestRoadRegions },
     };
   }
 
@@ -793,10 +882,12 @@ export class DetectVehicleIllegalParkingResponseBody extends $tea.Model {
 
 export class DetectVehicleIllegalParkingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectVehicleIllegalParkingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -804,6 +895,7 @@ export class DetectVehicleIllegalParkingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectVehicleIllegalParkingResponseBody,
     };
   }
@@ -917,10 +1009,12 @@ export class DetectVideoFrameResponseBody extends $tea.Model {
 
 export class DetectVideoFrameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectVideoFrameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -928,6 +1022,7 @@ export class DetectVideoFrameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectVideoFrameResponseBody,
     };
   }
@@ -963,22 +1058,22 @@ export class DetectVideoIPCObjectRequest extends $tea.Model {
 }
 
 export class DetectVideoIPCObjectAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
   callbackOnlyHasObject?: boolean;
   startTimestamp?: number;
+  videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      videoURLObject: 'VideoURLObject',
       callbackOnlyHasObject: 'CallbackOnlyHasObject',
       startTimestamp: 'StartTimestamp',
+      videoURLObject: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURLObject: 'Readable',
       callbackOnlyHasObject: 'boolean',
       startTimestamp: 'number',
+      videoURLObject: 'Readable',
     };
   }
 
@@ -1011,10 +1106,12 @@ export class DetectVideoIPCObjectResponseBody extends $tea.Model {
 
 export class DetectVideoIPCObjectResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectVideoIPCObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1022,6 +1119,7 @@ export class DetectVideoIPCObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectVideoIPCObjectResponseBody,
     };
   }
@@ -1051,10 +1149,10 @@ export class DetectWhiteBaseImageRequest extends $tea.Model {
 }
 
 export class DetectWhiteBaseImageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -1093,10 +1191,12 @@ export class DetectWhiteBaseImageResponseBody extends $tea.Model {
 
 export class DetectWhiteBaseImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectWhiteBaseImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1104,6 +1204,7 @@ export class DetectWhiteBaseImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectWhiteBaseImageResponseBody,
     };
   }
@@ -1139,21 +1240,21 @@ export class DetectWorkwearRequest extends $tea.Model {
 }
 
 export class DetectWorkwearAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
   clothes?: DetectWorkwearAdvanceRequestClothes;
+  imageUrlObject?: Readable;
   labels?: string[];
   static names(): { [key: string]: string } {
     return {
-      imageUrlObject: 'ImageUrlObject',
       clothes: 'Clothes',
+      imageUrlObject: 'ImageUrl',
       labels: 'Labels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageUrlObject: 'Readable',
       clothes: DetectWorkwearAdvanceRequestClothes,
+      imageUrlObject: 'Readable',
       labels: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1212,10 +1313,12 @@ export class DetectWorkwearResponseBody extends $tea.Model {
 
 export class DetectWorkwearResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectWorkwearResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1223,6 +1326,7 @@ export class DetectWorkwearResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectWorkwearResponseBody,
     };
   }
@@ -1287,10 +1391,12 @@ export class GenerateVehicleRepairPlanResponseBody extends $tea.Model {
 
 export class GenerateVehicleRepairPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GenerateVehicleRepairPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1298,6 +1404,7 @@ export class GenerateVehicleRepairPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GenerateVehicleRepairPlanResponseBody,
     };
   }
@@ -1350,10 +1457,12 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
 
 export class GetAsyncJobResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAsyncJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1361,6 +1470,7 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAsyncJobResultResponseBody,
     };
   }
@@ -1387,6 +1497,31 @@ export class GetVehicleRepairPlanRequest extends $tea.Model {
       carNumberImage: 'string',
       taskId: 'string',
       vinCodeImage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanAdvanceRequest extends $tea.Model {
+  carNumberImageObject?: Readable;
+  taskId?: string;
+  vinCodeImageObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      carNumberImageObject: 'CarNumberImage',
+      taskId: 'TaskId',
+      vinCodeImageObject: 'VinCodeImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carNumberImageObject: 'Readable',
+      taskId: 'string',
+      vinCodeImageObject: 'Readable',
     };
   }
 
@@ -1431,10 +1566,12 @@ export class GetVehicleRepairPlanResponseBody extends $tea.Model {
 
 export class GetVehicleRepairPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetVehicleRepairPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1442,6 +1579,7 @@ export class GetVehicleRepairPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetVehicleRepairPlanResponseBody,
     };
   }
@@ -1471,10 +1609,10 @@ export class RecognizeVehicleDamageRequest extends $tea.Model {
 }
 
 export class RecognizeVehicleDamageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -1513,10 +1651,12 @@ export class RecognizeVehicleDamageResponseBody extends $tea.Model {
 
 export class RecognizeVehicleDamageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehicleDamageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1524,6 +1664,7 @@ export class RecognizeVehicleDamageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehicleDamageResponseBody,
     };
   }
@@ -1553,10 +1694,10 @@ export class RecognizeVehicleDashboardRequest extends $tea.Model {
 }
 
 export class RecognizeVehicleDashboardAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -1595,10 +1736,12 @@ export class RecognizeVehicleDashboardResponseBody extends $tea.Model {
 
 export class RecognizeVehicleDashboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehicleDashboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1606,6 +1749,7 @@ export class RecognizeVehicleDashboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehicleDashboardResponseBody,
     };
   }
@@ -1635,10 +1779,10 @@ export class RecognizeVehiclePartsRequest extends $tea.Model {
 }
 
 export class RecognizeVehiclePartsAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -1677,10 +1821,12 @@ export class RecognizeVehiclePartsResponseBody extends $tea.Model {
 
 export class RecognizeVehiclePartsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehiclePartsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1688,6 +1834,7 @@ export class RecognizeVehiclePartsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehiclePartsResponseBody,
     };
   }
@@ -2133,6 +2280,85 @@ export class DetectVehicleICongestionRequestRoadRegions extends $tea.Model {
   }
 }
 
+export class DetectVehicleICongestionAdvanceRequestPreRegionIntersectFeatures extends $tea.Model {
+  features?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      features: 'Features',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      features: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegionPoint extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegion extends $tea.Model {
+  point?: DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegionPoint;
+  static names(): { [key: string]: string } {
+    return {
+      point: 'Point',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      point: DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegionPoint,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionAdvanceRequestRoadRegions extends $tea.Model {
+  roadRegion?: DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      roadRegion: 'RoadRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roadRegion: { 'type': 'array', 'itemType': DetectVehicleICongestionAdvanceRequestRoadRegionsRoadRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectVehicleICongestionResponseBodyDataElementsBoxes extends $tea.Model {
   bottom?: number;
   left?: number;
@@ -2326,6 +2552,66 @@ export class DetectVehicleIllegalParkingRequestRoadRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       roadRegion: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingRequestRoadRegionsRoadRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegionPoint extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegion extends $tea.Model {
+  point?: DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegionPoint;
+  static names(): { [key: string]: string } {
+    return {
+      point: 'Point',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      point: DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegionPoint,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleIllegalParkingAdvanceRequestRoadRegions extends $tea.Model {
+  roadRegion?: DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      roadRegion: 'RoadRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roadRegion: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingAdvanceRequestRoadRegionsRoadRegion },
     };
   }
 
@@ -3050,10 +3336,26 @@ export default class Client extends OpenApi {
 
   async classifyVehicleInsuranceWithOptions(request: ClassifyVehicleInsuranceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyVehicleInsuranceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ClassifyVehicleInsuranceResponse>(await this.doRPCRequest("ClassifyVehicleInsurance", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyVehicleInsuranceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ClassifyVehicleInsurance",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClassifyVehicleInsuranceResponse>(await this.callApi(params, req, runtime), new ClassifyVehicleInsuranceResponse({}));
   }
 
   async classifyVehicleInsurance(request: ClassifyVehicleInsuranceRequest): Promise<ClassifyVehicleInsuranceResponse> {
@@ -3076,7 +3378,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3107,28 +3409,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, classifyVehicleInsuranceReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      classifyVehicleInsuranceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      classifyVehicleInsuranceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let classifyVehicleInsuranceResp = await this.classifyVehicleInsuranceWithOptions(classifyVehicleInsuranceReq, runtime);
@@ -3137,10 +3439,26 @@ export default class Client extends OpenApi {
 
   async detectIPCObjectWithOptions(request: DetectIPCObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCObjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectIPCObjectResponse>(await this.doRPCRequest("DetectIPCObject", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectIPCObjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectIPCObject",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectIPCObjectResponse>(await this.callApi(params, req, runtime), new DetectIPCObjectResponse({}));
   }
 
   async detectIPCObject(request: DetectIPCObjectRequest): Promise<DetectIPCObjectResponse> {
@@ -3148,12 +3466,106 @@ export default class Client extends OpenApi {
     return await this.detectIPCObjectWithOptions(request, runtime);
   }
 
+  async detectIPCObjectAdvance(request: DetectIPCObjectAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCObjectResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectIPCObjectReq = new DetectIPCObjectRequest({ });
+    OpenApiUtil.convert(request, detectIPCObjectReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      detectIPCObjectReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let detectIPCObjectResp = await this.detectIPCObjectWithOptions(detectIPCObjectReq, runtime);
+    return detectIPCObjectResp;
+  }
+
   async detectKitchenAnimalsWithOptions(request: DetectKitchenAnimalsRequest, runtime: $Util.RuntimeOptions): Promise<DetectKitchenAnimalsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURLA)) {
+      body["ImageURLA"] = request.imageURLA;
+    }
+
+    if (!Util.isUnset(request.imageURLB)) {
+      body["ImageURLB"] = request.imageURLB;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectKitchenAnimalsResponse>(await this.doRPCRequest("DetectKitchenAnimals", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectKitchenAnimalsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectKitchenAnimals",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectKitchenAnimalsResponse>(await this.callApi(params, req, runtime), new DetectKitchenAnimalsResponse({}));
   }
 
   async detectKitchenAnimals(request: DetectKitchenAnimalsRequest): Promise<DetectKitchenAnimalsResponse> {
@@ -3176,7 +3588,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3207,28 +3619,54 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectKitchenAnimalsReq);
     if (!Util.isUnset(request.imageURLAObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLAObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectKitchenAnimalsReq.imageURLA = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectKitchenAnimalsReq.imageURLA = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.imageURLBObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLBObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      detectKitchenAnimalsReq.imageURLB = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectKitchenAnimalsResp = await this.detectKitchenAnimalsWithOptions(detectKitchenAnimalsReq, runtime);
@@ -3237,10 +3675,26 @@ export default class Client extends OpenApi {
 
   async detectMainBodyWithOptions(request: DetectMainBodyRequest, runtime: $Util.RuntimeOptions): Promise<DetectMainBodyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageURL)) {
+      query["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetectMainBodyResponse>(await this.doRPCRequest("DetectMainBody", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectMainBodyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectMainBody",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectMainBodyResponse>(await this.callApi(params, req, runtime), new DetectMainBodyResponse({}));
   }
 
   async detectMainBody(request: DetectMainBodyRequest): Promise<DetectMainBodyResponse> {
@@ -3263,7 +3717,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3294,28 +3748,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectMainBodyReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectMainBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectMainBodyReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectMainBodyResp = await this.detectMainBodyWithOptions(detectMainBodyReq, runtime);
@@ -3324,10 +3778,26 @@ export default class Client extends OpenApi {
 
   async detectObjectWithOptions(request: DetectObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetectObjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectObjectResponse>(await this.doRPCRequest("DetectObject", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectObjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectObject",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectObjectResponse>(await this.callApi(params, req, runtime), new DetectObjectResponse({}));
   }
 
   async detectObject(request: DetectObjectRequest): Promise<DetectObjectResponse> {
@@ -3350,7 +3820,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3381,28 +3851,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectObjectReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectObjectReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectObjectReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectObjectResp = await this.detectObjectWithOptions(detectObjectReq, runtime);
@@ -3411,10 +3881,26 @@ export default class Client extends OpenApi {
 
   async detectTransparentImageWithOptions(request: DetectTransparentImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectTransparentImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectTransparentImageResponse>(await this.doRPCRequest("DetectTransparentImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectTransparentImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectTransparentImage",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectTransparentImageResponse>(await this.callApi(params, req, runtime), new DetectTransparentImageResponse({}));
   }
 
   async detectTransparentImage(request: DetectTransparentImageRequest): Promise<DetectTransparentImageResponse> {
@@ -3437,7 +3923,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3468,28 +3954,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectTransparentImageReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectTransparentImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectTransparentImageReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectTransparentImageResp = await this.detectTransparentImageWithOptions(detectTransparentImageReq, runtime);
@@ -3498,10 +3984,26 @@ export default class Client extends OpenApi {
 
   async detectVehicleWithOptions(request: DetectVehicleRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectVehicleResponse>(await this.doRPCRequest("DetectVehicle", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVehicleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectVehicle",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectVehicleResponse>(await this.callApi(params, req, runtime), new DetectVehicleResponse({}));
   }
 
   async detectVehicle(request: DetectVehicleRequest): Promise<DetectVehicleResponse> {
@@ -3524,7 +4026,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3555,28 +4057,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectVehicleReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectVehicleReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectVehicleReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectVehicleResp = await this.detectVehicleWithOptions(detectVehicleReq, runtime);
@@ -3595,15 +4097,113 @@ export default class Client extends OpenApi {
       request.roadRegionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roadRegions, "RoadRegions", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.preRegionIntersectFeaturesShrink)) {
+      body["PreRegionIntersectFeatures"] = request.preRegionIntersectFeaturesShrink;
+    }
+
+    if (!Util.isUnset(request.roadRegionsShrink)) {
+      body["RoadRegions"] = request.roadRegionsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectVehicleICongestionResponse>(await this.doRPCRequest("DetectVehicleICongestion", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVehicleICongestionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectVehicleICongestion",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectVehicleICongestionResponse>(await this.callApi(params, req, runtime), new DetectVehicleICongestionResponse({}));
   }
 
   async detectVehicleICongestion(request: DetectVehicleICongestionRequest): Promise<DetectVehicleICongestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectVehicleICongestionWithOptions(request, runtime);
+  }
+
+  async detectVehicleICongestionAdvance(request: DetectVehicleICongestionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleICongestionResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectVehicleICongestionReq = new DetectVehicleICongestionRequest({ });
+    OpenApiUtil.convert(request, detectVehicleICongestionReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      detectVehicleICongestionReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let detectVehicleICongestionResp = await this.detectVehicleICongestionWithOptions(detectVehicleICongestionReq, runtime);
+    return detectVehicleICongestionResp;
   }
 
   async detectVehicleIllegalParkingWithOptions(tmpReq: DetectVehicleIllegalParkingRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleIllegalParkingResponse> {
@@ -3614,15 +4214,109 @@ export default class Client extends OpenApi {
       request.roadRegionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roadRegions, "RoadRegions", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.roadRegionsShrink)) {
+      body["RoadRegions"] = request.roadRegionsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectVehicleIllegalParkingResponse>(await this.doRPCRequest("DetectVehicleIllegalParking", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVehicleIllegalParkingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectVehicleIllegalParking",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectVehicleIllegalParkingResponse>(await this.callApi(params, req, runtime), new DetectVehicleIllegalParkingResponse({}));
   }
 
   async detectVehicleIllegalParking(request: DetectVehicleIllegalParkingRequest): Promise<DetectVehicleIllegalParkingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectVehicleIllegalParkingWithOptions(request, runtime);
+  }
+
+  async detectVehicleIllegalParkingAdvance(request: DetectVehicleIllegalParkingAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleIllegalParkingResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectVehicleIllegalParkingReq = new DetectVehicleIllegalParkingRequest({ });
+    OpenApiUtil.convert(request, detectVehicleIllegalParkingReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      detectVehicleIllegalParkingReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let detectVehicleIllegalParkingResp = await this.detectVehicleIllegalParkingWithOptions(detectVehicleIllegalParkingReq, runtime);
+    return detectVehicleIllegalParkingResp;
   }
 
   async detectVideoFrameWithOptions(tmpReq: DetectVideoFrameRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoFrameResponse> {
@@ -3633,10 +4327,54 @@ export default class Client extends OpenApi {
       request.featuresShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.features, "Features", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createTime)) {
+      body["CreateTime"] = request.createTime;
+    }
+
+    if (!Util.isUnset(request.featureConfig)) {
+      body["FeatureConfig"] = request.featureConfig;
+    }
+
+    if (!Util.isUnset(request.featuresShrink)) {
+      body["Features"] = request.featuresShrink;
+    }
+
+    if (!Util.isUnset(request.height)) {
+      body["Height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      body["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.streamArn)) {
+      body["StreamArn"] = request.streamArn;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["Width"] = request.width;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectVideoFrameResponse>(await this.doRPCRequest("DetectVideoFrame", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVideoFrameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectVideoFrame",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectVideoFrameResponse>(await this.callApi(params, req, runtime), new DetectVideoFrameResponse({}));
   }
 
   async detectVideoFrame(request: DetectVideoFrameRequest): Promise<DetectVideoFrameResponse> {
@@ -3646,10 +4384,34 @@ export default class Client extends OpenApi {
 
   async detectVideoIPCObjectWithOptions(request: DetectVideoIPCObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoIPCObjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callbackOnlyHasObject)) {
+      body["CallbackOnlyHasObject"] = request.callbackOnlyHasObject;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      body["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!Util.isUnset(request.videoURL)) {
+      body["VideoURL"] = request.videoURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectVideoIPCObjectResponse>(await this.doRPCRequest("DetectVideoIPCObject", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVideoIPCObjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectVideoIPCObject",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectVideoIPCObjectResponse>(await this.callApi(params, req, runtime), new DetectVideoIPCObjectResponse({}));
   }
 
   async detectVideoIPCObject(request: DetectVideoIPCObjectRequest): Promise<DetectVideoIPCObjectResponse> {
@@ -3672,7 +4434,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3703,28 +4465,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectVideoIPCObjectReq);
     if (!Util.isUnset(request.videoURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.videoURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectVideoIPCObjectReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectVideoIPCObjectReq.videoURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectVideoIPCObjectResp = await this.detectVideoIPCObjectWithOptions(detectVideoIPCObjectReq, runtime);
@@ -3733,10 +4495,26 @@ export default class Client extends OpenApi {
 
   async detectWhiteBaseImageWithOptions(request: DetectWhiteBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectWhiteBaseImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectWhiteBaseImageResponse>(await this.doRPCRequest("DetectWhiteBaseImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectWhiteBaseImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectWhiteBaseImage",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectWhiteBaseImageResponse>(await this.callApi(params, req, runtime), new DetectWhiteBaseImageResponse({}));
   }
 
   async detectWhiteBaseImage(request: DetectWhiteBaseImageRequest): Promise<DetectWhiteBaseImageResponse> {
@@ -3759,7 +4537,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3790,28 +4568,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectWhiteBaseImageReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectWhiteBaseImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectWhiteBaseImageReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectWhiteBaseImageResp = await this.detectWhiteBaseImageWithOptions(detectWhiteBaseImageReq, runtime);
@@ -3826,10 +4604,34 @@ export default class Client extends OpenApi {
       request.clothesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.clothes), "Clothes", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clothesShrink)) {
+      body["Clothes"] = request.clothesShrink;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectWorkwearResponse>(await this.doRPCRequest("DetectWorkwear", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectWorkwearResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectWorkwear",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectWorkwearResponse>(await this.callApi(params, req, runtime), new DetectWorkwearResponse({}));
   }
 
   async detectWorkwear(request: DetectWorkwearRequest): Promise<DetectWorkwearResponse> {
@@ -3852,7 +4654,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -3883,28 +4685,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, detectWorkwearReq);
     if (!Util.isUnset(request.imageUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      detectWorkwearReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectWorkwearReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let detectWorkwearResp = await this.detectWorkwearWithOptions(detectWorkwearReq, runtime);
@@ -3913,10 +4715,26 @@ export default class Client extends OpenApi {
 
   async generateVehicleRepairPlanWithOptions(request: GenerateVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVehicleRepairPlanResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.damageImageList)) {
+      body["DamageImageList"] = request.damageImageList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GenerateVehicleRepairPlanResponse>(await this.doRPCRequest("GenerateVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateVehicleRepairPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateVehicleRepairPlan",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateVehicleRepairPlanResponse>(await this.callApi(params, req, runtime), new GenerateVehicleRepairPlanResponse({}));
   }
 
   async generateVehicleRepairPlan(request: GenerateVehicleRepairPlanRequest): Promise<GenerateVehicleRepairPlanResponse> {
@@ -3926,10 +4744,26 @@ export default class Client extends OpenApi {
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncJobResult",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.callApi(params, req, runtime), new GetAsyncJobResultResponse({}));
   }
 
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
@@ -3939,10 +4773,34 @@ export default class Client extends OpenApi {
 
   async getVehicleRepairPlanWithOptions(request: GetVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GetVehicleRepairPlanResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.carNumberImage)) {
+      body["CarNumberImage"] = request.carNumberImage;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.vinCodeImage)) {
+      body["VinCodeImage"] = request.vinCodeImage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetVehicleRepairPlanResponse>(await this.doRPCRequest("GetVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetVehicleRepairPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVehicleRepairPlan",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVehicleRepairPlanResponse>(await this.callApi(params, req, runtime), new GetVehicleRepairPlanResponse({}));
   }
 
   async getVehicleRepairPlan(request: GetVehicleRepairPlanRequest): Promise<GetVehicleRepairPlanResponse> {
@@ -3950,12 +4808,128 @@ export default class Client extends OpenApi {
     return await this.getVehicleRepairPlanWithOptions(request, runtime);
   }
 
+  async getVehicleRepairPlanAdvance(request: GetVehicleRepairPlanAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GetVehicleRepairPlanResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let getVehicleRepairPlanReq = new GetVehicleRepairPlanRequest({ });
+    OpenApiUtil.convert(request, getVehicleRepairPlanReq);
+    if (!Util.isUnset(request.carNumberImageObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.carNumberImageObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      getVehicleRepairPlanReq.carNumberImage = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.vinCodeImageObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.vinCodeImageObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      getVehicleRepairPlanReq.vinCodeImage = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let getVehicleRepairPlanResp = await this.getVehicleRepairPlanWithOptions(getVehicleRepairPlanReq, runtime);
+    return getVehicleRepairPlanResp;
+  }
+
   async recognizeVehicleDamageWithOptions(request: RecognizeVehicleDamageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleDamageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVehicleDamageResponse>(await this.doRPCRequest("RecognizeVehicleDamage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVehicleDamageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleDamage",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehicleDamageResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleDamageResponse({}));
   }
 
   async recognizeVehicleDamage(request: RecognizeVehicleDamageRequest): Promise<RecognizeVehicleDamageResponse> {
@@ -3978,7 +4952,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -4009,28 +4983,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, recognizeVehicleDamageReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVehicleDamageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeVehicleDamageReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let recognizeVehicleDamageResp = await this.recognizeVehicleDamageWithOptions(recognizeVehicleDamageReq, runtime);
@@ -4039,10 +5013,26 @@ export default class Client extends OpenApi {
 
   async recognizeVehicleDashboardWithOptions(request: RecognizeVehicleDashboardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleDashboardResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVehicleDashboardResponse>(await this.doRPCRequest("RecognizeVehicleDashboard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVehicleDashboardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleDashboard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehicleDashboardResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleDashboardResponse({}));
   }
 
   async recognizeVehicleDashboard(request: RecognizeVehicleDashboardRequest): Promise<RecognizeVehicleDashboardResponse> {
@@ -4065,7 +5055,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -4096,28 +5086,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, recognizeVehicleDashboardReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVehicleDashboardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeVehicleDashboardReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let recognizeVehicleDashboardResp = await this.recognizeVehicleDashboardWithOptions(recognizeVehicleDashboardReq, runtime);
@@ -4126,10 +5116,26 @@ export default class Client extends OpenApi {
 
   async recognizeVehiclePartsWithOptions(request: RecognizeVehiclePartsRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehiclePartsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVehiclePartsResponse>(await this.doRPCRequest("RecognizeVehicleParts", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVehiclePartsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleParts",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehiclePartsResponse>(await this.callApi(params, req, runtime), new RecognizeVehiclePartsResponse({}));
   }
 
   async recognizeVehicleParts(request: RecognizeVehiclePartsRequest): Promise<RecognizeVehiclePartsResponse> {
@@ -4152,7 +5158,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -4183,28 +5189,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, recognizeVehiclePartsReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageURLObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVehiclePartsReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeVehiclePartsReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let recognizeVehiclePartsResp = await this.recognizeVehiclePartsWithOptions(recognizeVehiclePartsReq, runtime);
