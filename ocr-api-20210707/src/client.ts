@@ -2898,6 +2898,84 @@ export class RecognizeIdcardResponse extends $tea.Model {
   }
 }
 
+export class RecognizeInternationalIdcardRequest extends $tea.Model {
+  country?: string;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      country: 'Country',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      country: 'string',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeInternationalIdcardResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeInternationalIdcardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeInternationalIdcardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeInternationalIdcardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeInvoiceRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -6724,6 +6802,41 @@ export default class Client extends OpenApi {
   async recognizeIdcard(request: RecognizeIdcardRequest): Promise<RecognizeIdcardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeIdcardWithOptions(request, runtime);
+  }
+
+  async recognizeInternationalIdcardWithOptions(request: RecognizeInternationalIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInternationalIdcardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeInternationalIdcard",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeInternationalIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeInternationalIdcardResponse({}));
+  }
+
+  async recognizeInternationalIdcard(request: RecognizeInternationalIdcardRequest): Promise<RecognizeInternationalIdcardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeInternationalIdcardWithOptions(request, runtime);
   }
 
   async recognizeInvoiceWithOptions(request: RecognizeInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInvoiceResponse> {
