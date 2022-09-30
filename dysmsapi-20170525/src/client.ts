@@ -2033,6 +2033,8 @@ export class SendBatchCardSmsRequest extends $tea.Model {
   smsTemplateCode?: string;
   smsTemplateParamJson?: string;
   smsUpExtendCodeJson?: string;
+  templateCode?: string;
+  templateParamJson?: string;
   static names(): { [key: string]: string } {
     return {
       cardTemplateCode: 'CardTemplateCode',
@@ -2046,6 +2048,8 @@ export class SendBatchCardSmsRequest extends $tea.Model {
       smsTemplateCode: 'SmsTemplateCode',
       smsTemplateParamJson: 'SmsTemplateParamJson',
       smsUpExtendCodeJson: 'SmsUpExtendCodeJson',
+      templateCode: 'TemplateCode',
+      templateParamJson: 'TemplateParamJson',
     };
   }
 
@@ -2062,6 +2066,8 @@ export class SendBatchCardSmsRequest extends $tea.Model {
       smsTemplateCode: 'string',
       smsTemplateParamJson: 'string',
       smsUpExtendCodeJson: 'string',
+      templateCode: 'string',
+      templateParamJson: 'string',
     };
   }
 
@@ -2230,6 +2236,8 @@ export class SendCardSmsRequest extends $tea.Model {
   smsTemplateCode?: string;
   smsTemplateParam?: string;
   smsUpExtendCode?: string;
+  templateCode?: string;
+  templateParam?: string;
   static names(): { [key: string]: string } {
     return {
       cardObjects: 'CardObjects',
@@ -2242,6 +2250,8 @@ export class SendCardSmsRequest extends $tea.Model {
       smsTemplateCode: 'SmsTemplateCode',
       smsTemplateParam: 'SmsTemplateParam',
       smsUpExtendCode: 'SmsUpExtendCode',
+      templateCode: 'TemplateCode',
+      templateParam: 'TemplateParam',
     };
   }
 
@@ -2257,6 +2267,8 @@ export class SendCardSmsRequest extends $tea.Model {
       smsTemplateCode: 'string',
       smsTemplateParam: 'string',
       smsUpExtendCode: 'string',
+      templateCode: 'string',
+      templateParam: 'string',
     };
   }
 
@@ -4456,6 +4468,14 @@ export default class Client extends OpenApi {
       query["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
     }
 
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateParamJson)) {
+      query["TemplateParamJson"] = request.templateParamJson;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4582,6 +4602,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.smsUpExtendCode)) {
       query["SmsUpExtendCode"] = request.smsUpExtendCode;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateParam)) {
+      query["TemplateParam"] = request.templateParam;
     }
 
     let req = new $OpenApi.OpenApiRequest({
