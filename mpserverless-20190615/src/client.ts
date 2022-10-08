@@ -1717,11 +1717,13 @@ export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
 
 export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
   id?: string;
+  ossCallbackUrl?: string;
   requestId?: string;
   signUrl?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
+      ossCallbackUrl: 'OssCallbackUrl',
       requestId: 'RequestId',
       signUrl: 'SignUrl',
     };
@@ -1730,6 +1732,7 @@ export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+      ossCallbackUrl: 'string',
       requestId: 'string',
       signUrl: 'string',
     };
@@ -4440,6 +4443,8 @@ export class QuerySpaceConsumptionRequest extends $tea.Model {
 
 export class QuerySpaceConsumptionResponseBody extends $tea.Model {
   csUsage?: QuerySpaceConsumptionResponseBodyCsUsage;
+  cycleEndTime?: number;
+  cycleStartTime?: number;
   dbUsage?: QuerySpaceConsumptionResponseBodyDbUsage;
   fcUsage?: QuerySpaceConsumptionResponseBodyFcUsage;
   gmtCreate?: string;
@@ -4450,6 +4455,8 @@ export class QuerySpaceConsumptionResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       csUsage: 'CsUsage',
+      cycleEndTime: 'CycleEndTime',
+      cycleStartTime: 'CycleStartTime',
       dbUsage: 'DbUsage',
       fcUsage: 'FcUsage',
       gmtCreate: 'GmtCreate',
@@ -4463,6 +4470,8 @@ export class QuerySpaceConsumptionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       csUsage: QuerySpaceConsumptionResponseBodyCsUsage,
+      cycleEndTime: 'number',
+      cycleStartTime: 'number',
       dbUsage: QuerySpaceConsumptionResponseBodyDbUsage,
       fcUsage: QuerySpaceConsumptionResponseBodyFcUsage,
       gmtCreate: 'string',
