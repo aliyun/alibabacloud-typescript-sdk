@@ -8,6 +8,272 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class BeeBotAssociateRequest extends $tea.Model {
+  chatBotInstnaceId?: string;
+  isvCode?: string;
+  perspective?: string[];
+  recommendNum?: number;
+  sessionId?: string;
+  utterance?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatBotInstnaceId: 'ChatBotInstnaceId',
+      isvCode: 'IsvCode',
+      perspective: 'Perspective',
+      recommendNum: 'RecommendNum',
+      sessionId: 'SessionId',
+      utterance: 'Utterance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatBotInstnaceId: 'string',
+      isvCode: 'string',
+      perspective: { 'type': 'array', 'itemType': 'string' },
+      recommendNum: 'number',
+      sessionId: 'string',
+      utterance: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotAssociateShrinkRequest extends $tea.Model {
+  chatBotInstnaceId?: string;
+  isvCode?: string;
+  perspectiveShrink?: string;
+  recommendNum?: number;
+  sessionId?: string;
+  utterance?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatBotInstnaceId: 'ChatBotInstnaceId',
+      isvCode: 'IsvCode',
+      perspectiveShrink: 'Perspective',
+      recommendNum: 'RecommendNum',
+      sessionId: 'SessionId',
+      utterance: 'Utterance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatBotInstnaceId: 'string',
+      isvCode: 'string',
+      perspectiveShrink: 'string',
+      recommendNum: 'number',
+      sessionId: 'string',
+      utterance: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotAssociateResponseBody extends $tea.Model {
+  code?: string;
+  data?: BeeBotAssociateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BeeBotAssociateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotAssociateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BeeBotAssociateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BeeBotAssociateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatRequest extends $tea.Model {
+  chatBotInstnaceId?: string;
+  intentName?: string;
+  isvCode?: string;
+  knowledgeId?: string;
+  perspective?: string[];
+  senderId?: string;
+  senderNick?: string;
+  sessionId?: string;
+  utterance?: string;
+  vendorParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      chatBotInstnaceId: 'ChatBotInstnaceId',
+      intentName: 'IntentName',
+      isvCode: 'IsvCode',
+      knowledgeId: 'KnowledgeId',
+      perspective: 'Perspective',
+      senderId: 'SenderId',
+      senderNick: 'SenderNick',
+      sessionId: 'SessionId',
+      utterance: 'Utterance',
+      vendorParam: 'VendorParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatBotInstnaceId: 'string',
+      intentName: 'string',
+      isvCode: 'string',
+      knowledgeId: 'string',
+      perspective: { 'type': 'array', 'itemType': 'string' },
+      senderId: 'string',
+      senderNick: 'string',
+      sessionId: 'string',
+      utterance: 'string',
+      vendorParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatShrinkRequest extends $tea.Model {
+  chatBotInstnaceId?: string;
+  intentName?: string;
+  isvCode?: string;
+  knowledgeId?: string;
+  perspectiveShrink?: string;
+  senderId?: string;
+  senderNick?: string;
+  sessionId?: string;
+  utterance?: string;
+  vendorParamShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chatBotInstnaceId: 'ChatBotInstnaceId',
+      intentName: 'IntentName',
+      isvCode: 'IsvCode',
+      knowledgeId: 'KnowledgeId',
+      perspectiveShrink: 'Perspective',
+      senderId: 'SenderId',
+      senderNick: 'SenderNick',
+      sessionId: 'SessionId',
+      utterance: 'Utterance',
+      vendorParamShrink: 'VendorParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chatBotInstnaceId: 'string',
+      intentName: 'string',
+      isvCode: 'string',
+      knowledgeId: 'string',
+      perspectiveShrink: 'string',
+      senderId: 'string',
+      senderNick: 'string',
+      sessionId: 'string',
+      utterance: 'string',
+      vendorParamShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBody extends $tea.Model {
+  code?: string;
+  data?: BeeBotChatResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BeeBotChatResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BeeBotChatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BeeBotChatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequest extends $tea.Model {
   category?: string;
   components?: CreateChatappTemplateRequestComponents[];
@@ -418,6 +684,127 @@ export class ListChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class ModifyChatappTemplateRequest extends $tea.Model {
+  components?: ModifyChatappTemplateRequestComponents[];
+  custWabaId?: string;
+  example?: { [key: string]: string };
+  isvCode?: string;
+  language?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      components: 'Components',
+      custWabaId: 'CustWabaId',
+      example: 'Example',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      components: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponents },
+      custWabaId: 'string',
+      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      isvCode: 'string',
+      language: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
+  componentsShrink?: string;
+  custWabaId?: string;
+  exampleShrink?: string;
+  isvCode?: string;
+  language?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentsShrink: 'Components',
+      custWabaId: 'CustWabaId',
+      exampleShrink: 'Example',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsShrink: 'string',
+      custWabaId: 'string',
+      exampleShrink: 'string',
+      isvCode: 'string',
+      language: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: ModifyChatappTemplateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ModifyChatappTemplateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyChatappTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyChatappTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequest extends $tea.Model {
   channelType?: string;
   custWabaId?: string;
@@ -732,6 +1119,282 @@ export class SendChatappMessageResponse extends $tea.Model {
   }
 }
 
+export class BeeBotAssociateResponseBodyDataAssociate extends $tea.Model {
+  meta?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meta: 'Meta',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meta: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotAssociateResponseBodyData extends $tea.Model {
+  associate?: BeeBotAssociateResponseBodyDataAssociate[];
+  messageId?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associate: 'Associate',
+      messageId: 'MessageId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associate: { 'type': 'array', 'itemType': BeeBotAssociateResponseBodyDataAssociate },
+      messageId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extends $tea.Model {
+  knowledgeId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
+  answerSource?: string;
+  category?: string;
+  content?: string;
+  contentType?: string;
+  hitStatement?: string;
+  id?: string;
+  relatedKnowledges?: BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges[];
+  summary?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      category: 'Category',
+      content: 'Content',
+      contentType: 'ContentType',
+      hitStatement: 'HitStatement',
+      id: 'Id',
+      relatedKnowledges: 'RelatedKnowledges',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      category: 'string',
+      content: 'string',
+      contentType: 'string',
+      hitStatement: 'string',
+      id: 'string',
+      relatedKnowledges: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
+  answerSource?: string;
+  knowledgeId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      knowledgeId: 'KnowledgeId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      knowledgeId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
+  hit?: boolean;
+  name?: string;
+  origin?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hit: 'Hit',
+      name: 'Name',
+      origin: 'Origin',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hit: 'boolean',
+      name: 'string',
+      origin: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
+  answerSource?: string;
+  content?: string;
+  contentType?: string;
+  dialogName?: string;
+  ext?: { [key: string]: any };
+  externalFlags?: { [key: string]: any };
+  hitStatement?: string;
+  intentName?: string;
+  metaData?: string;
+  nodeId?: string;
+  nodeName?: string;
+  slots?: BeeBotChatResponseBodyDataMessagesTextSlots[];
+  userDefinedChatTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      content: 'Content',
+      contentType: 'ContentType',
+      dialogName: 'DialogName',
+      ext: 'Ext',
+      externalFlags: 'ExternalFlags',
+      hitStatement: 'HitStatement',
+      intentName: 'IntentName',
+      metaData: 'MetaData',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      slots: 'Slots',
+      userDefinedChatTitle: 'UserDefinedChatTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      content: 'string',
+      contentType: 'string',
+      dialogName: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      externalFlags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      hitStatement: 'string',
+      intentName: 'string',
+      metaData: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      slots: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesTextSlots },
+      userDefinedChatTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
+  answerSource?: string;
+  answerType?: string;
+  knowledge?: BeeBotChatResponseBodyDataMessagesKnowledge;
+  recommends?: BeeBotChatResponseBodyDataMessagesRecommends[];
+  text?: BeeBotChatResponseBodyDataMessagesText;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      answerType: 'AnswerType',
+      knowledge: 'Knowledge',
+      recommends: 'Recommends',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      answerType: 'string',
+      knowledge: BeeBotChatResponseBodyDataMessagesKnowledge,
+      recommends: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesRecommends },
+      text: BeeBotChatResponseBodyDataMessagesText,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyData extends $tea.Model {
+  messageId?: string;
+  messages?: BeeBotChatResponseBodyDataMessages[];
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      messages: 'Messages',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      messages: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessages },
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   phoneNumber?: string;
   text?: string;
@@ -980,6 +1643,96 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
   }
 }
 
+export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponents extends $tea.Model {
+  buttons?: ModifyChatappTemplateRequestComponentsButtons[];
+  caption?: string;
+  fileName?: string;
+  format?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      caption: 'Caption',
+      fileName: 'FileName',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
+      caption: 'string',
+      fileName: 'string',
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateResponseBodyData extends $tea.Model {
+  templateCode?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   payload?: string[];
   templateParams?: { [key: string]: string };
@@ -1026,6 +1779,136 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async beeBotAssociateWithOptions(tmpReq: BeeBotAssociateRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotAssociateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BeeBotAssociateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.perspective)) {
+      request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.chatBotInstnaceId)) {
+      body["ChatBotInstnaceId"] = request.chatBotInstnaceId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      body["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.perspectiveShrink)) {
+      body["Perspective"] = request.perspectiveShrink;
+    }
+
+    if (!Util.isUnset(request.recommendNum)) {
+      body["RecommendNum"] = request.recommendNum;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.utterance)) {
+      body["Utterance"] = request.utterance;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BeeBotAssociate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
+  }
+
+  async beeBotAssociate(request: BeeBotAssociateRequest): Promise<BeeBotAssociateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.beeBotAssociateWithOptions(request, runtime);
+  }
+
+  async beeBotChatWithOptions(tmpReq: BeeBotChatRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotChatResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BeeBotChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.perspective)) {
+      request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.vendorParam)) {
+      request.vendorParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vendorParam, "VendorParam", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.chatBotInstnaceId)) {
+      body["ChatBotInstnaceId"] = request.chatBotInstnaceId;
+    }
+
+    if (!Util.isUnset(request.intentName)) {
+      body["IntentName"] = request.intentName;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      body["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      body["KnowledgeId"] = request.knowledgeId;
+    }
+
+    if (!Util.isUnset(request.perspectiveShrink)) {
+      body["Perspective"] = request.perspectiveShrink;
+    }
+
+    if (!Util.isUnset(request.senderId)) {
+      body["SenderId"] = request.senderId;
+    }
+
+    if (!Util.isUnset(request.senderNick)) {
+      body["SenderNick"] = request.senderNick;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.utterance)) {
+      body["Utterance"] = request.utterance;
+    }
+
+    if (!Util.isUnset(request.vendorParamShrink)) {
+      body["VendorParam"] = request.vendorParamShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BeeBotChat",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
+  }
+
+  async beeBotChat(request: BeeBotChatRequest): Promise<BeeBotChatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.beeBotChatWithOptions(request, runtime);
   }
 
   async createChatappTemplateWithOptions(tmpReq: CreateChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
@@ -1226,6 +2109,65 @@ export default class Client extends OpenApi {
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
+  }
+
+  async modifyChatappTemplateWithOptions(tmpReq: ModifyChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyChatappTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyChatappTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.components)) {
+      request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.example)) {
+      request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.componentsShrink)) {
+      body["Components"] = request.componentsShrink;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      body["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!Util.isUnset(request.exampleShrink)) {
+      body["Example"] = request.exampleShrink;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      body["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyChatappTemplate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
+  }
+
+  async modifyChatappTemplate(request: ModifyChatappTemplateRequest): Promise<ModifyChatappTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
   async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
