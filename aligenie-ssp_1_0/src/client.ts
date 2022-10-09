@@ -36,6 +36,40 @@ export class LoginStateInfo extends $tea.Model {
   }
 }
 
+export class ResultValue extends $tea.Model {
+  deviceOpenId?: string;
+  deviceUnionIds?: ResultValueDeviceUnionIds[];
+  name?: string;
+  firmwareVersion?: string;
+  mac?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceOpenId: 'DeviceOpenId',
+      deviceUnionIds: 'DeviceUnionIds',
+      name: 'Name',
+      firmwareVersion: 'FirmwareVersion',
+      mac: 'Mac',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceOpenId: 'string',
+      deviceUnionIds: { 'type': 'array', 'itemType': ResultValueDeviceUnionIds },
+      name: 'string',
+      firmwareVersion: 'string',
+      mac: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAndRemoveFavoriteContentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -8155,32 +8189,20 @@ export class UpdateAlarmResponse extends $tea.Model {
   }
 }
 
-export class ResultValue extends $tea.Model {
-  deviceOpenId?: string;
-  deviceUnionIds?: ResultValueDeviceUnionIds[];
-  name?: string;
-  firmwareVersion?: string;
-  mac?: string;
-  sn?: string;
+export class ResultValueDeviceUnionIds extends $tea.Model {
+  organizationId?: string;
+  deviceUnionId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceOpenId: 'DeviceOpenId',
-      deviceUnionIds: 'DeviceUnionIds',
-      name: 'Name',
-      firmwareVersion: 'FirmwareVersion',
-      mac: 'Mac',
-      sn: 'Sn',
+      organizationId: 'OrganizationId',
+      deviceUnionId: 'DeviceUnionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceOpenId: 'string',
-      deviceUnionIds: { 'type': 'array', 'itemType': ResultValueDeviceUnionIds },
-      name: 'string',
-      firmwareVersion: 'string',
-      mac: 'string',
-      sn: 'string',
+      organizationId: 'string',
+      deviceUnionId: 'string',
     };
   }
 
@@ -10299,6 +10321,7 @@ export class GetContentResponseBodyResult extends $tea.Model {
   id?: number;
   itemType?: string;
   lyric?: string;
+  rawId?: string;
   source?: string;
   styles?: string[];
   title?: string;
@@ -10320,6 +10343,7 @@ export class GetContentResponseBodyResult extends $tea.Model {
       id: 'Id',
       itemType: 'ItemType',
       lyric: 'Lyric',
+      rawId: 'RawId',
       source: 'Source',
       styles: 'Styles',
       title: 'Title',
@@ -10344,6 +10368,7 @@ export class GetContentResponseBodyResult extends $tea.Model {
       id: 'number',
       itemType: 'string',
       lyric: 'string',
+      rawId: 'string',
       source: 'string',
       styles: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
@@ -15474,28 +15499,6 @@ export class UpdateAlarmRequestUserInfo extends $tea.Model {
       id: 'string',
       idType: 'string',
       organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResultValueDeviceUnionIds extends $tea.Model {
-  organizationId?: string;
-  deviceUnionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      organizationId: 'OrganizationId',
-      deviceUnionId: 'DeviceUnionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      organizationId: 'string',
-      deviceUnionId: 'string',
     };
   }
 
