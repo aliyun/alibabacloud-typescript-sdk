@@ -12,6 +12,7 @@ export class CancelScheduleTasksRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   taskId?: string;
@@ -20,6 +21,7 @@ export class CancelScheduleTasksRequest extends $tea.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       taskId: 'TaskId',
@@ -31,6 +33,7 @@ export class CancelScheduleTasksRequest extends $tea.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       taskId: 'string',
@@ -202,15 +205,18 @@ export class CheckDBNameRequest extends $tea.Model {
 }
 
 export class CheckDBNameResponseBody extends $tea.Model {
+  DBName?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      DBName: 'DBName',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      DBName: 'string',
       requestId: 'string',
     };
   }
@@ -609,6 +615,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   securityIPList?: string;
   sourceResourceId?: string;
   TDEStatus?: boolean;
+  tag?: CreateDBClusterRequestTag[];
   usedTime?: string;
   VPCId?: string;
   vSwitchId?: string;
@@ -642,6 +649,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       securityIPList: 'SecurityIPList',
       sourceResourceId: 'SourceResourceId',
       TDEStatus: 'TDEStatus',
+      tag: 'Tag',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -678,6 +686,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       securityIPList: 'string',
       sourceResourceId: 'string',
       TDEStatus: 'boolean',
+      tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -930,6 +939,7 @@ export class CreateDBLinkRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   sourceDBName?: string;
@@ -948,6 +958,7 @@ export class CreateDBLinkRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sourceDBName: 'SourceDBName',
@@ -969,6 +980,7 @@ export class CreateDBLinkRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sourceDBName: 'string',
@@ -1041,6 +1053,7 @@ export class CreateDBNodesRequest extends $tea.Model {
   ownerId?: number;
   plannedEndTime?: string;
   plannedStartTime?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -1054,6 +1067,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       ownerId: 'OwnerId',
       plannedEndTime: 'PlannedEndTime',
       plannedStartTime: 'PlannedStartTime',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -1070,6 +1084,7 @@ export class CreateDBNodesRequest extends $tea.Model {
       ownerId: 'number',
       plannedEndTime: 'string',
       plannedStartTime: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -1234,6 +1249,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
   GDNDescription?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -1243,6 +1259,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNDescription: 'GDNDescription',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -1255,6 +1272,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNDescription: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -1322,6 +1340,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
   parameterGroupName?: string;
   parameters?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -1334,6 +1353,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'ParameterGroupName',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -1349,6 +1369,7 @@ export class CreateParameterGroupRequest extends $tea.Model {
       parameterGroupName: 'string',
       parameters: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -2139,6 +2160,7 @@ export class DeleteGlobalDatabaseNetworkRequest extends $tea.Model {
   GDNId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -2147,6 +2169,7 @@ export class DeleteGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -2158,6 +2181,7 @@ export class DeleteGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -2290,6 +2314,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
   ownerId?: number;
   parameterGroupId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -2298,6 +2323,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -2309,6 +2335,7 @@ export class DeleteParameterGroupRequest extends $tea.Model {
       ownerId: 'number',
       parameterGroupId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -3137,6 +3164,96 @@ export class DescribeCharacterSetNameResponse extends $tea.Model {
   }
 }
 
+export class DescribeClassListRequest extends $tea.Model {
+  commodityCode?: string;
+  orderType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      orderType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClassListResponseBody extends $tea.Model {
+  items?: DescribeClassListResponseBodyItems[];
+  regionId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeClassListResponseBodyItems },
+      regionId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClassListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeClassListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeClassListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterAccessWhitelistRequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -3282,6 +3399,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   SQLSize?: number;
+  serverlessType?: string;
   storageMax?: number;
   storagePayType?: string;
   storageSpace?: number;
@@ -3326,6 +3444,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       SQLSize: 'SQLSize',
+      serverlessType: 'ServerlessType',
       storageMax: 'StorageMax',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
@@ -3373,6 +3492,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       SQLSize: 'number',
+      serverlessType: 'string',
       storageMax: 'number',
       storagePayType: 'string',
       storageSpace: 'number',
@@ -4151,6 +4271,7 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
   encryptNewTables?: string;
   encryptionKey?: string;
   requestId?: string;
+  TDERegion?: string;
   TDEStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4158,6 +4279,7 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
       encryptNewTables: 'EncryptNewTables',
       encryptionKey: 'EncryptionKey',
       requestId: 'RequestId',
+      TDERegion: 'TDERegion',
       TDEStatus: 'TDEStatus',
     };
   }
@@ -4168,6 +4290,7 @@ export class DescribeDBClusterTDEResponseBody extends $tea.Model {
       encryptNewTables: 'string',
       encryptionKey: 'string',
       requestId: 'string',
+      TDERegion: 'string',
       TDEStatus: 'string',
     };
   }
@@ -4316,11 +4439,14 @@ export class DescribeDBClustersRequest extends $tea.Model {
   DBClusterStatus?: string;
   DBNodeIds?: string;
   DBType?: string;
+  expired?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   payType?: string;
+  recentCreationInterval?: number;
+  recentExpirationInterval?: number;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -4333,11 +4459,14 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterStatus: 'DBClusterStatus',
       DBNodeIds: 'DBNodeIds',
       DBType: 'DBType',
+      expired: 'Expired',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       payType: 'PayType',
+      recentCreationInterval: 'RecentCreationInterval',
+      recentExpirationInterval: 'RecentExpirationInterval',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -4353,11 +4482,14 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterStatus: 'string',
       DBNodeIds: 'string',
       DBType: 'string',
+      expired: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       payType: 'string',
+      recentCreationInterval: 'number',
+      recentExpirationInterval: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -4438,6 +4570,7 @@ export class DescribeDBClustersWithBackupsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -4452,6 +4585,7 @@ export class DescribeDBClustersWithBackupsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -4469,6 +4603,7 @@ export class DescribeDBClustersWithBackupsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5184,6 +5319,7 @@ export class DescribeGlobalDatabaseNetworkRequest extends $tea.Model {
   GDNId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -5192,6 +5328,7 @@ export class DescribeGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -5203,6 +5340,7 @@ export class DescribeGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -5290,6 +5428,7 @@ export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -5302,6 +5441,7 @@ export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -5317,6 +5457,7 @@ export class DescribeGlobalDatabaseNetworksRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -5665,6 +5806,7 @@ export class DescribeParameterGroupRequest extends $tea.Model {
   ownerId?: number;
   parameterGroupId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5673,6 +5815,7 @@ export class DescribeParameterGroupRequest extends $tea.Model {
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5684,6 +5827,7 @@ export class DescribeParameterGroupRequest extends $tea.Model {
       ownerId: 'number',
       parameterGroupId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5747,6 +5891,7 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5756,6 +5901,7 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5768,6 +5914,7 @@ export class DescribeParameterGroupsRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5831,6 +5978,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5840,6 +5988,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5852,6 +6001,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5928,6 +6078,7 @@ export class DescribePendingMaintenanceActionRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   region?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -5940,6 +6091,7 @@ export class DescribePendingMaintenanceActionRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -5955,6 +6107,7 @@ export class DescribePendingMaintenanceActionRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -6028,6 +6181,7 @@ export class DescribePendingMaintenanceActionsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -6037,6 +6191,7 @@ export class DescribePendingMaintenanceActionsRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -6049,6 +6204,7 @@ export class DescribePendingMaintenanceActionsRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -6274,6 +6430,7 @@ export class DescribeScheduleTasksRequest extends $tea.Model {
   plannedEndTime?: string;
   plannedStartTime?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   status?: string;
@@ -6290,6 +6447,7 @@ export class DescribeScheduleTasksRequest extends $tea.Model {
       plannedEndTime: 'PlannedEndTime',
       plannedStartTime: 'PlannedStartTime',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -6309,6 +6467,7 @@ export class DescribeScheduleTasksRequest extends $tea.Model {
       plannedEndTime: 'string',
       plannedStartTime: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
@@ -6610,6 +6769,7 @@ export class DescribeStoragePlanRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -6618,6 +6778,7 @@ export class DescribeStoragePlanRequest extends $tea.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -6629,6 +6790,7 @@ export class DescribeStoragePlanRequest extends $tea.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -6888,6 +7050,117 @@ export class EnableFirewallRulesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableFirewallRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvaluateRegionResourceRequest extends $tea.Model {
+  DBInstanceConnType?: string;
+  DBNodeClass?: string;
+  DBType?: string;
+  DBVersion?: string;
+  dispenseMode?: string;
+  needMaxScaleLink?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  subDomain?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceConnType: 'DBInstanceConnType',
+      DBNodeClass: 'DBNodeClass',
+      DBType: 'DBType',
+      DBVersion: 'DBVersion',
+      dispenseMode: 'DispenseMode',
+      needMaxScaleLink: 'NeedMaxScaleLink',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      subDomain: 'SubDomain',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceConnType: 'string',
+      DBNodeClass: 'string',
+      DBType: 'string',
+      DBVersion: 'string',
+      dispenseMode: 'string',
+      needMaxScaleLink: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      subDomain: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvaluateRegionResourceResponseBody extends $tea.Model {
+  DBInstanceAvailable?: string;
+  DBType?: string;
+  DBVersion?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceAvailable: 'DBInstanceAvailable',
+      DBType: 'DBType',
+      DBVersion: 'DBVersion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceAvailable: 'string',
+      DBType: 'string',
+      DBVersion: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EvaluateRegionResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EvaluateRegionResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EvaluateRegionResourceResponseBody,
     };
   }
 
@@ -9181,6 +9454,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
   GDNId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -9190,6 +9464,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -9202,6 +9477,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $tea.Model {
       GDNId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -9427,6 +9703,7 @@ export class ModifyPendingMaintenanceActionRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -9437,6 +9714,7 @@ export class ModifyPendingMaintenanceActionRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -9450,6 +9728,7 @@ export class ModifyPendingMaintenanceActionRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -9515,6 +9794,7 @@ export class OpenAITaskRequest extends $tea.Model {
   ownerId?: number;
   password?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   username?: string;
@@ -9525,6 +9805,7 @@ export class OpenAITaskRequest extends $tea.Model {
       ownerId: 'OwnerId',
       password: 'Password',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       username: 'Username',
@@ -9538,6 +9819,7 @@ export class OpenAITaskRequest extends $tea.Model {
       ownerId: 'number',
       password: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       username: 'string',
@@ -9628,25 +9910,16 @@ export class RefreshDBClusterStorageUsageRequest extends $tea.Model {
 }
 
 export class RefreshDBClusterStorageUsageResponseBody extends $tea.Model {
-  DBClusterId?: string;
   requestId?: string;
-  usedStorage?: string;
-  usedStorageModified?: string;
   static names(): { [key: string]: string } {
     return {
-      DBClusterId: 'DBClusterId',
       requestId: 'RequestId',
-      usedStorage: 'UsedStorage',
-      usedStorageModified: 'UsedStorageModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBClusterId: 'string',
       requestId: 'string',
-      usedStorage: 'string',
-      usedStorageModified: 'string',
     };
   }
 
@@ -10091,6 +10364,7 @@ export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -10101,6 +10375,7 @@ export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -10114,6 +10389,7 @@ export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -10721,6 +10997,28 @@ export class UpgradeDBClusterVersionResponse extends $tea.Model {
   }
 }
 
+export class CreateDBClusterRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBNodesRequestDBNode extends $tea.Model {
   targetClass?: string;
   zoneId?: string;
@@ -10788,6 +11086,7 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   accountDescription?: string;
   accountLockState?: string;
   accountName?: string;
+  accountPassword?: string;
   accountPasswordValidTime?: string;
   accountStatus?: string;
   accountType?: string;
@@ -10797,6 +11096,7 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
       accountDescription: 'AccountDescription',
       accountLockState: 'AccountLockState',
       accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
       accountPasswordValidTime: 'AccountPasswordValidTime',
       accountStatus: 'AccountStatus',
       accountType: 'AccountType',
@@ -10809,6 +11109,7 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
       accountDescription: 'string',
       accountLockState: 'string',
       accountName: 'string',
+      accountPassword: 'string',
       accountPasswordValidTime: 'string',
       accountStatus: 'string',
       accountType: 'string',
@@ -11076,6 +11377,46 @@ export class DescribeCharacterSetNameResponseBodyCharacterSetNameItems extends $
   }
 }
 
+export class DescribeClassListResponseBodyItems extends $tea.Model {
+  classCode?: string;
+  classGroup?: string;
+  classTypeLevel?: string;
+  cpu?: string;
+  maxConnections?: string;
+  maxIOPS?: string;
+  memoryClass?: string;
+  referencePrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classCode: 'ClassCode',
+      classGroup: 'ClassGroup',
+      classTypeLevel: 'ClassTypeLevel',
+      cpu: 'Cpu',
+      maxConnections: 'MaxConnections',
+      maxIOPS: 'MaxIOPS',
+      memoryClass: 'MemoryClass',
+      referencePrice: 'ReferencePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classCode: 'string',
+      classGroup: 'string',
+      classTypeLevel: 'string',
+      cpu: 'string',
+      maxConnections: 'string',
+      maxIOPS: 'string',
+      memoryClass: 'string',
+      referencePrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBClusterSecurityGroup extends $tea.Model {
   securityGroupId?: string;
   securityGroupName?: string;
@@ -11174,6 +11515,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   masterId?: string;
   maxConnections?: number;
   maxIOPS?: number;
+  sccMode?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11189,6 +11531,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       masterId: 'MasterId',
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
+      sccMode: 'SccMode',
       zoneId: 'ZoneId',
     };
   }
@@ -11207,6 +11550,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       masterId: 'string',
       maxConnections: 'number',
       maxIOPS: 'number',
+      sccMode: 'string',
       zoneId: 'string',
     };
   }
@@ -11350,6 +11694,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $te
 export class DescribeDBClusterEndpointsResponseBodyItems extends $tea.Model {
   addressItems?: DescribeDBClusterEndpointsResponseBodyItemsAddressItems[];
   autoAddNewNodes?: string;
+  DBClusterId?: string;
   DBEndpointDescription?: string;
   DBEndpointId?: string;
   endpointConfig?: string;
@@ -11361,6 +11706,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $tea.Model {
     return {
       addressItems: 'AddressItems',
       autoAddNewNodes: 'AutoAddNewNodes',
+      DBClusterId: 'DBClusterId',
       DBEndpointDescription: 'DBEndpointDescription',
       DBEndpointId: 'DBEndpointId',
       endpointConfig: 'EndpointConfig',
@@ -11375,6 +11721,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $tea.Model {
     return {
       addressItems: { 'type': 'array', 'itemType': DescribeDBClusterEndpointsResponseBodyItemsAddressItems },
       autoAddNewNodes: 'string',
+      DBClusterId: 'string',
       DBEndpointDescription: 'string',
       DBEndpointId: 'string',
       endpointConfig: 'string',
@@ -11395,6 +11742,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
   IPAddress?: string;
   netType?: string;
   port?: string;
+  SSLEnabled?: string;
   VPCId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -11403,6 +11751,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
       IPAddress: 'IPAddress',
       netType: 'NetType',
       port: 'Port',
+      SSLEnabled: 'SSLEnabled',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
     };
@@ -11414,6 +11763,7 @@ export class DescribeDBClusterMigrationResponseBodyDBClusterEndpointListAddressI
       IPAddress: 'string',
       netType: 'string',
       port: 'string',
+      SSLEnabled: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
     };
@@ -11454,6 +11804,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
   IPAddress?: string;
   netType?: string;
   port?: string;
+  SSLEnabled?: string;
   VPCId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -11462,6 +11813,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
       IPAddress: 'IPAddress',
       netType: 'NetType',
       port: 'Port',
+      SSLEnabled: 'SSLEnabled',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
     };
@@ -11473,6 +11825,7 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
       IPAddress: 'string',
       netType: 'string',
       port: 'string',
+      SSLEnabled: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
     };
@@ -11828,6 +12181,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   payType?: string;
   regionId?: string;
   resourceGroupId?: string;
+  serverlessType?: string;
   storagePayType?: string;
   storageSpace?: number;
   storageUsed?: number;
@@ -11855,6 +12209,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       payType: 'PayType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      serverlessType: 'ServerlessType',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
       storageUsed: 'StorageUsed',
@@ -11885,6 +12240,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       payType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      serverlessType: 'string',
       storagePayType: 'string',
       storageSpace: 'number',
       storageUsed: 'number',
@@ -13651,6 +14007,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -14114,6 +14474,10 @@ export default class Client extends OpenApi {
       query["TDEStatus"] = request.TDEStatus;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -14309,6 +14673,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -14408,6 +14776,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -14532,6 +14904,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -14599,6 +14975,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -15107,6 +15487,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -15191,6 +15575,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -15653,6 +16041,63 @@ export default class Client extends OpenApi {
   async describeCharacterSetName(request: DescribeCharacterSetNameRequest): Promise<DescribeCharacterSetNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharacterSetNameWithOptions(request, runtime);
+  }
+
+  async describeClassListWithOptions(request: DescribeClassListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClassListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeClassList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClassListResponse>(await this.callApi(params, req, runtime), new DescribeClassListResponse({}));
+  }
+
+  async describeClassList(request: DescribeClassListRequest): Promise<DescribeClassListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClassListWithOptions(request, runtime);
   }
 
   async describeDBClusterAccessWhitelistWithOptions(request: DescribeDBClusterAccessWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAccessWhitelistResponse> {
@@ -16238,6 +16683,10 @@ export default class Client extends OpenApi {
       query["DBType"] = request.DBType;
     }
 
+    if (!Util.isUnset(request.expired)) {
+      query["Expired"] = request.expired;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -16256,6 +16705,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.payType)) {
       query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.recentCreationInterval)) {
+      query["RecentCreationInterval"] = request.recentCreationInterval;
+    }
+
+    if (!Util.isUnset(request.recentExpirationInterval)) {
+      query["RecentExpirationInterval"] = request.recentExpirationInterval;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -16341,6 +16798,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -16751,6 +17212,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -16814,6 +17279,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -17016,6 +17485,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -17069,6 +17542,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -17120,6 +17597,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -17179,6 +17660,10 @@ export default class Client extends OpenApi {
       query["Region"] = request.region;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -17234,6 +17719,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -17377,6 +17866,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -17578,6 +18071,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -17728,6 +18225,87 @@ export default class Client extends OpenApi {
   async enableFirewallRules(request: EnableFirewallRulesRequest): Promise<EnableFirewallRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableFirewallRulesWithOptions(request, runtime);
+  }
+
+  async evaluateRegionResourceWithOptions(request: EvaluateRegionResourceRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateRegionResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceConnType)) {
+      query["DBInstanceConnType"] = request.DBInstanceConnType;
+    }
+
+    if (!Util.isUnset(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!Util.isUnset(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!Util.isUnset(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!Util.isUnset(request.dispenseMode)) {
+      query["DispenseMode"] = request.dispenseMode;
+    }
+
+    if (!Util.isUnset(request.needMaxScaleLink)) {
+      query["NeedMaxScaleLink"] = request.needMaxScaleLink;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EvaluateRegionResource",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EvaluateRegionResourceResponse>(await this.callApi(params, req, runtime), new EvaluateRegionResourceResponse({}));
+  }
+
+  async evaluateRegionResource(request: EvaluateRegionResourceRequest): Promise<EvaluateRegionResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.evaluateRegionResourceWithOptions(request, runtime);
   }
 
   async failoverDBClusterWithOptions(request: FailoverDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDBClusterResponse> {
@@ -19335,6 +19913,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -19490,6 +20072,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -19549,6 +20135,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -19916,6 +20506,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
