@@ -664,7 +664,7 @@ export class ApplyApproveResponseBody extends $tea.Model {
       module: 'module',
       requestId: 'requestId',
       success: 'success',
-      traceId: 'trace_id',
+      traceId: 'traceId',
     };
   }
 
@@ -1540,19 +1540,19 @@ export class CarApplyQueryRequest extends $tea.Model {
 }
 
 export class CarApplyQueryResponseBody extends $tea.Model {
-  requestId?: string;
   applyList?: CarApplyQueryResponseBodyApplyList[];
   code?: number;
   message?: string;
+  requestId?: string;
   success?: boolean;
   total?: number;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       applyList: 'apply_list',
       code: 'code',
       message: 'message',
+      requestId: 'requestId',
       success: 'success',
       total: 'total',
       traceId: 'traceId',
@@ -1561,10 +1561,10 @@ export class CarApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       applyList: { 'type': 'array', 'itemType': CarApplyQueryResponseBodyApplyList },
       code: 'number',
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
       total: 'number',
       traceId: 'string',
@@ -3257,18 +3257,18 @@ export class ExceedApplySyncRequest extends $tea.Model {
 }
 
 export class ExceedApplySyncResponseBody extends $tea.Model {
-  requestId?: string;
   code?: number;
   message?: string;
   module?: boolean;
+  requestId?: string;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'code',
       message: 'message',
       module: 'module',
+      requestId: 'requestId',
       success: 'success',
       traceId: 'traceId',
     };
@@ -3276,10 +3276,10 @@ export class ExceedApplySyncResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'number',
       message: 'string',
       module: 'boolean',
+      requestId: 'string',
       success: 'boolean',
       traceId: 'string',
     };
