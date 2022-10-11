@@ -1319,7 +1319,7 @@ export class QueryCardSmsTemplateReportRequest extends $tea.Model {
 
 export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
   code?: string;
-  data?: { [key: string]: any }[];
+  data?: QueryCardSmsTemplateReportResponseBodyData;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -1334,7 +1334,7 @@ export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      data: QueryCardSmsTemplateReportResponseBodyData,
       requestId: 'string',
       success: 'boolean',
     };
@@ -2911,6 +2911,25 @@ export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       templates: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateReportResponseBodyData extends $tea.Model {
+  model?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      model: 'model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 

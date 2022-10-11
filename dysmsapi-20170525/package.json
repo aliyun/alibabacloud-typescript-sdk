@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dysmsapi20170525",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
