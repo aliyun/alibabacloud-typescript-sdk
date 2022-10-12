@@ -9,7 +9,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BeeBotAssociateRequest extends $tea.Model {
-  chatBotInstnaceId?: string;
+  chatBotInstanceId?: string;
   isvCode?: string;
   perspective?: string[];
   recommendNum?: number;
@@ -17,7 +17,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
-      chatBotInstnaceId: 'ChatBotInstnaceId',
+      chatBotInstanceId: 'ChatBotInstanceId',
       isvCode: 'IsvCode',
       perspective: 'Perspective',
       recommendNum: 'RecommendNum',
@@ -28,7 +28,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      chatBotInstnaceId: 'string',
+      chatBotInstanceId: 'string',
       isvCode: 'string',
       perspective: { 'type': 'array', 'itemType': 'string' },
       recommendNum: 'number',
@@ -43,7 +43,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
 }
 
 export class BeeBotAssociateShrinkRequest extends $tea.Model {
-  chatBotInstnaceId?: string;
+  chatBotInstanceId?: string;
   isvCode?: string;
   perspectiveShrink?: string;
   recommendNum?: number;
@@ -51,7 +51,7 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
-      chatBotInstnaceId: 'ChatBotInstnaceId',
+      chatBotInstanceId: 'ChatBotInstanceId',
       isvCode: 'IsvCode',
       perspectiveShrink: 'Perspective',
       recommendNum: 'RecommendNum',
@@ -62,7 +62,7 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      chatBotInstnaceId: 'string',
+      chatBotInstanceId: 'string',
       isvCode: 'string',
       perspectiveShrink: 'string',
       recommendNum: 'number',
@@ -130,7 +130,7 @@ export class BeeBotAssociateResponse extends $tea.Model {
 }
 
 export class BeeBotChatRequest extends $tea.Model {
-  chatBotInstnaceId?: string;
+  chatBotInstanceId?: string;
   intentName?: string;
   isvCode?: string;
   knowledgeId?: string;
@@ -142,7 +142,7 @@ export class BeeBotChatRequest extends $tea.Model {
   vendorParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      chatBotInstnaceId: 'ChatBotInstnaceId',
+      chatBotInstanceId: 'ChatBotInstanceId',
       intentName: 'IntentName',
       isvCode: 'IsvCode',
       knowledgeId: 'KnowledgeId',
@@ -157,7 +157,7 @@ export class BeeBotChatRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      chatBotInstnaceId: 'string',
+      chatBotInstanceId: 'string',
       intentName: 'string',
       isvCode: 'string',
       knowledgeId: 'string',
@@ -176,7 +176,7 @@ export class BeeBotChatRequest extends $tea.Model {
 }
 
 export class BeeBotChatShrinkRequest extends $tea.Model {
-  chatBotInstnaceId?: string;
+  chatBotInstanceId?: string;
   intentName?: string;
   isvCode?: string;
   knowledgeId?: string;
@@ -188,7 +188,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   vendorParamShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      chatBotInstnaceId: 'ChatBotInstnaceId',
+      chatBotInstanceId: 'ChatBotInstanceId',
       intentName: 'IntentName',
       isvCode: 'IsvCode',
       knowledgeId: 'KnowledgeId',
@@ -203,7 +203,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      chatBotInstnaceId: 'string',
+      chatBotInstanceId: 'string',
       intentName: 'string',
       isvCode: 'string',
       knowledgeId: 'string',
@@ -1790,8 +1790,8 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chatBotInstnaceId)) {
-      body["ChatBotInstnaceId"] = request.chatBotInstnaceId;
+    if (!Util.isUnset(request.chatBotInstanceId)) {
+      body["ChatBotInstanceId"] = request.chatBotInstanceId;
     }
 
     if (!Util.isUnset(request.isvCode)) {
@@ -1849,8 +1849,8 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chatBotInstnaceId)) {
-      body["ChatBotInstnaceId"] = request.chatBotInstnaceId;
+    if (!Util.isUnset(request.chatBotInstanceId)) {
+      body["ChatBotInstanceId"] = request.chatBotInstanceId;
     }
 
     if (!Util.isUnset(request.intentName)) {
