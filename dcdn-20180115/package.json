@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dcdn20180115",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

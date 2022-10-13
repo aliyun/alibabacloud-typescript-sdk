@@ -1635,78 +1635,6 @@ export class CreateSlrAndSlsProjectResponse extends $tea.Model {
   }
 }
 
-export class CreateWasmRequest extends $tea.Model {
-  description?: string;
-  name?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      name: 'Name',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      name: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWasmResponseBody extends $tea.Model {
-  content?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWasmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateWasmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWasmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DcdnHttpRequestTestToolRequest extends $tea.Model {
   args?: string;
   body?: string;
@@ -21339,45 +21267,6 @@ export default class Client extends OpenApi {
   async createSlrAndSlsProject(request: CreateSlrAndSlsProjectRequest): Promise<CreateSlrAndSlsProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSlrAndSlsProjectWithOptions(request, runtime);
-  }
-
-  async createWasmWithOptions(request: CreateWasmRequest, runtime: $Util.RuntimeOptions): Promise<CreateWasmResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateWasm",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateWasmResponse>(await this.callApi(params, req, runtime), new CreateWasmResponse({}));
-  }
-
-  async createWasm(request: CreateWasmRequest): Promise<CreateWasmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createWasmWithOptions(request, runtime);
   }
 
   async dcdnHttpRequestTestToolWithOptions(tmpReq: DcdnHttpRequestTestToolRequest, runtime: $Util.RuntimeOptions): Promise<DcdnHttpRequestTestToolResponse> {
