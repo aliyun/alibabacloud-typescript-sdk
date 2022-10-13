@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -1849,22 +1848,22 @@ export class CreateImportMigrationRequest extends $tea.Model {
 }
 
 export class CreateImportMigrationAdvanceRequest extends $tea.Model {
-  packageFileObject: Readable;
   calculateEngineMap?: string;
   commitRule?: string;
   description?: string;
   name?: string;
+  packageFileObject?: Readable;
   packageType?: string;
   projectId?: number;
   resourceGroupMap?: string;
   workspaceMap?: string;
   static names(): { [key: string]: string } {
     return {
-      packageFileObject: 'PackageFileObject',
       calculateEngineMap: 'CalculateEngineMap',
       commitRule: 'CommitRule',
       description: 'Description',
       name: 'Name',
+      packageFileObject: 'PackageFile',
       packageType: 'PackageType',
       projectId: 'ProjectId',
       resourceGroupMap: 'ResourceGroupMap',
@@ -1874,11 +1873,11 @@ export class CreateImportMigrationAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      packageFileObject: 'Readable',
       calculateEngineMap: 'string',
       commitRule: 'string',
       description: 'string',
       name: 'string',
+      packageFileObject: 'Readable',
       packageType: 'string',
       projectId: 'number',
       resourceGroupMap: 'string',
@@ -10739,6 +10738,7 @@ export class ListAlertMessagesRequest extends $tea.Model {
   alertMethods?: string;
   alertRuleTypes?: string;
   alertUser?: string;
+  baselineId?: number;
   beginTime?: string;
   endTime?: string;
   pageNumber?: number;
@@ -10749,6 +10749,7 @@ export class ListAlertMessagesRequest extends $tea.Model {
       alertMethods: 'AlertMethods',
       alertRuleTypes: 'AlertRuleTypes',
       alertUser: 'AlertUser',
+      baselineId: 'BaselineId',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
@@ -10762,6 +10763,7 @@ export class ListAlertMessagesRequest extends $tea.Model {
       alertMethods: 'string',
       alertRuleTypes: 'string',
       alertUser: 'string',
+      baselineId: 'number',
       beginTime: 'string',
       endTime: 'string',
       pageNumber: 'number',
@@ -13278,6 +13280,7 @@ export class ListInstancesRequest extends $tea.Model {
   programType?: string;
   projectEnv?: string;
   projectId?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       beginBizdate: 'BeginBizdate',
@@ -13293,6 +13296,7 @@ export class ListInstancesRequest extends $tea.Model {
       programType: 'ProgramType',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
+      status: 'Status',
     };
   }
 
@@ -13311,6 +13315,7 @@ export class ListInstancesRequest extends $tea.Model {
       programType: 'string',
       projectEnv: 'string',
       projectId: 'number',
+      status: 'string',
     };
   }
 
@@ -15578,6 +15583,75 @@ export class ListUsageForResourceGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUsageForResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineNodeRequest extends $tea.Model {
+  nodeId?: number;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfflineNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OfflineNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OfflineNodeResponseBody,
     };
   }
 
@@ -20845,11 +20919,13 @@ export class GetDDLJobStatusResponseBodyData extends $tea.Model {
 }
 
 export class GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail extends $tea.Model {
+  info?: string;
   status?: string;
   stepId?: number;
   stepName?: string;
   static names(): { [key: string]: string } {
     return {
+      info: 'Info',
       status: 'Status',
       stepId: 'StepId',
       stepName: 'StepName',
@@ -20858,6 +20934,7 @@ export class GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail extends
 
   static types(): { [key: string]: any } {
     return {
+      info: 'string',
       status: 'string',
       stepId: 'number',
       stepName: 'string',
@@ -22217,6 +22294,31 @@ export class GetDataSourceMetaResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDeploymentResponseBodyDataDeployedItems extends $tea.Model {
+  fileId?: number;
+  fileVersion?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      fileVersion: 'FileVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      fileVersion: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeploymentResponseBodyDataDeployment extends $tea.Model {
   checkingStatus?: number;
   createTime?: number;
@@ -22264,15 +22366,18 @@ export class GetDeploymentResponseBodyDataDeployment extends $tea.Model {
 }
 
 export class GetDeploymentResponseBodyData extends $tea.Model {
+  deployedItems?: GetDeploymentResponseBodyDataDeployedItems[];
   deployment?: GetDeploymentResponseBodyDataDeployment;
   static names(): { [key: string]: string } {
     return {
+      deployedItems: 'DeployedItems',
       deployment: 'Deployment',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deployedItems: { 'type': 'array', 'itemType': GetDeploymentResponseBodyDataDeployedItems },
       deployment: GetDeploymentResponseBodyDataDeployment,
     };
   }
@@ -32688,7 +32793,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -32719,28 +32824,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, createImportMigrationReq);
     if (!Util.isUnset(request.packageFileObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.packageFileObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      createImportMigrationReq.packageFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      createImportMigrationReq.packageFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let createImportMigrationResp = await this.createImportMigrationWithOptions(createImportMigrationReq, runtime);
@@ -36849,6 +36954,10 @@ export default class Client extends OpenApi {
       body["AlertUser"] = request.alertUser;
     }
 
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
     if (!Util.isUnset(request.beginTime)) {
       body["BeginTime"] = request.beginTime;
     }
@@ -38186,6 +38295,10 @@ export default class Client extends OpenApi {
       body["ProjectId"] = request.projectId;
     }
 
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -39281,6 +39394,39 @@ export default class Client extends OpenApi {
   async listUsageForResourceGroup(request: ListUsageForResourceGroupRequest): Promise<ListUsageForResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsageForResourceGroupWithOptions(request, runtime);
+  }
+
+  async offlineNodeWithOptions(request: OfflineNodeRequest, runtime: $Util.RuntimeOptions): Promise<OfflineNodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OfflineNode",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OfflineNodeResponse>(await this.callApi(params, req, runtime), new OfflineNodeResponse({}));
+  }
+
+  async offlineNode(request: OfflineNodeRequest): Promise<OfflineNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.offlineNodeWithOptions(request, runtime);
   }
 
   async publishDataServiceApiWithOptions(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
