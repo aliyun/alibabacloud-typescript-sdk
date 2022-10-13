@@ -4419,6 +4419,81 @@ export class DeleteVSwitchResponse extends $tea.Model {
   }
 }
 
+export class DescribeAICImagesRequest extends $tea.Model {
+  imageId?: string;
+  imageUrl?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      imageUrl: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAICImagesResponseBody extends $tea.Model {
+  images?: DescribeAICImagesResponseBodyImages[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': DescribeAICImagesResponseBodyImages },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAICImagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAICImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAICImagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeARMServerInstancesRequest extends $tea.Model {
   ensRegionIds?: string[];
   pageNumber?: number;
@@ -7003,6 +7078,93 @@ export class DescribeExportImageStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeFileSystemsRequest extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  fileSystemName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      fileSystemName: 'FileSystemName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      fileSystemName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBody extends $tea.Model {
+  fileSystems?: DescribeFileSystemsResponseBodyFileSystems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystems: 'FileSystems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystems: { 'type': 'array', 'itemType': DescribeFileSystemsResponseBodyFileSystems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeFileSystemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFileSystemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeForwardTableEntriesRequest extends $tea.Model {
   externalIp?: string;
   forwardEntryId?: string;
@@ -7738,6 +7900,7 @@ export class DescribeInstancesRequest extends $tea.Model {
   instanceIds?: string;
   instanceName?: string;
   instanceResourceType?: string;
+  intranetIp?: string;
   networkId?: string;
   orderByParams?: string;
   pageNumber?: number;
@@ -7756,6 +7919,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       instanceIds: 'InstanceIds',
       instanceName: 'InstanceName',
       instanceResourceType: 'InstanceResourceType',
+      intranetIp: 'IntranetIp',
       networkId: 'NetworkId',
       orderByParams: 'OrderByParams',
       pageNumber: 'PageNumber',
@@ -7777,6 +7941,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       instanceIds: 'string',
       instanceName: 'string',
       instanceResourceType: 'string',
+      intranetIp: 'string',
       networkId: 'string',
       orderByParams: 'string',
       pageNumber: 'number',
@@ -9327,14 +9492,12 @@ export class DescribePrePaidInstanceStockRequest extends $tea.Model {
   ensRegionId?: string;
   instanceSpec?: string;
   systemDiskSize?: number;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       dataDiskSize: 'DataDiskSize',
       ensRegionId: 'EnsRegionId',
       instanceSpec: 'InstanceSpec',
       systemDiskSize: 'SystemDiskSize',
-      version: 'Version',
     };
   }
 
@@ -9344,7 +9507,6 @@ export class DescribePrePaidInstanceStockRequest extends $tea.Model {
       ensRegionId: 'string',
       instanceSpec: 'string',
       systemDiskSize: 'number',
-      version: 'string',
     };
   }
 
@@ -9361,6 +9523,7 @@ export class DescribePrePaidInstanceStockResponseBody extends $tea.Model {
   instanceSpec?: string;
   memory?: number;
   requestId?: string;
+  resourceGap?: string;
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9371,6 +9534,7 @@ export class DescribePrePaidInstanceStockResponseBody extends $tea.Model {
       instanceSpec: 'InstanceSpec',
       memory: 'Memory',
       requestId: 'RequestId',
+      resourceGap: 'ResourceGap',
       systemDiskSize: 'SystemDiskSize',
     };
   }
@@ -9384,6 +9548,7 @@ export class DescribePrePaidInstanceStockResponseBody extends $tea.Model {
       instanceSpec: 'string',
       memory: 'number',
       requestId: 'string',
+      resourceGap: 'string',
       systemDiskSize: 'number',
     };
   }
@@ -10119,7 +10284,6 @@ export class DescribeUserBandWidthDataRequest extends $tea.Model {
   isp?: string;
   period?: string;
   startTime?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
@@ -10128,7 +10292,6 @@ export class DescribeUserBandWidthDataRequest extends $tea.Model {
       isp: 'Isp',
       period: 'Period',
       startTime: 'StartTime',
-      version: 'Version',
     };
   }
 
@@ -10140,7 +10303,6 @@ export class DescribeUserBandWidthDataRequest extends $tea.Model {
       isp: 'string',
       period: 'string',
       startTime: 'string',
-      version: 'string',
     };
   }
 
@@ -15900,6 +16062,37 @@ export class CreateInstanceResponseBodyInstanceIds extends $tea.Model {
   }
 }
 
+export class DescribeAICImagesResponseBodyImages extends $tea.Model {
+  creationTime?: string;
+  imageId?: string;
+  imageUrl?: string;
+  status?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      status: 'Status',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      imageId: 'string',
+      imageUrl: 'string',
+      status: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes extends $tea.Model {
   ipAddress?: string;
   networkId?: string;
@@ -17967,6 +18160,83 @@ export class DescribeExportImageInfoResponseBodyImages extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       image: { 'type': 'array', 'itemType': DescribeExportImageInfoResponseBodyImagesImage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $tea.Model {
+  mountTargetDomain?: string;
+  mountTargetName?: string;
+  netWorkId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountTargetDomain: 'MountTargetDomain',
+      mountTargetName: 'MountTargetName',
+      netWorkId: 'NetWorkId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountTargetDomain: 'string',
+      mountTargetName: 'string',
+      netWorkId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystems extends $tea.Model {
+  capacity?: number;
+  creationTime?: string;
+  ensRegionId?: string;
+  fileSystemId?: string;
+  fileSystemName?: string;
+  meteredSize?: number;
+  mountTargets?: DescribeFileSystemsResponseBodyFileSystemsMountTargets[];
+  payType?: string;
+  protocolType?: string;
+  status?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      creationTime: 'CreationTime',
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      fileSystemName: 'FileSystemName',
+      meteredSize: 'MeteredSize',
+      mountTargets: 'MountTargets',
+      payType: 'PayType',
+      protocolType: 'ProtocolType',
+      status: 'Status',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      creationTime: 'string',
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      fileSystemName: 'string',
+      meteredSize: 'number',
+      mountTargets: { 'type': 'array', 'itemType': DescribeFileSystemsResponseBodyFileSystemsMountTargets },
+      payType: 'string',
+      protocolType: 'string',
+      status: 'string',
+      storageType: 'string',
     };
   }
 
@@ -23195,6 +23465,47 @@ export default class Client extends OpenApi {
     return await this.deleteVSwitchWithOptions(request, runtime);
   }
 
+  async describeAICImagesWithOptions(request: DescribeAICImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAICImagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAICImages",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAICImagesResponse>(await this.callApi(params, req, runtime), new DescribeAICImagesResponse({}));
+  }
+
+  async describeAICImages(request: DescribeAICImagesRequest): Promise<DescribeAICImagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAICImagesWithOptions(request, runtime);
+  }
+
   async describeARMServerInstancesWithOptions(tmpReq: DescribeARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeARMServerInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeARMServerInstancesShrinkRequest({ });
@@ -24450,6 +24761,31 @@ export default class Client extends OpenApi {
     return await this.describeExportImageStatusWithOptions(request, runtime);
   }
 
+  async describeFileSystemsWithOptions(request: DescribeFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFileSystems",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFileSystemsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemsResponse({}));
+  }
+
+  async describeFileSystems(request: DescribeFileSystemsRequest): Promise<DescribeFileSystemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFileSystemsWithOptions(request, runtime);
+  }
+
   async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24840,6 +25176,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceResourceType)) {
       query["InstanceResourceType"] = request.instanceResourceType;
+    }
+
+    if (!Util.isUnset(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
     }
 
     if (!Util.isUnset(request.networkId)) {
@@ -25422,10 +25762,6 @@ export default class Client extends OpenApi {
       query["SystemDiskSize"] = request.systemDiskSize;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25771,10 +26107,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
