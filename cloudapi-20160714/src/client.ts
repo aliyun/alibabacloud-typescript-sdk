@@ -1163,6 +1163,156 @@ export class CreateBackendModelResponse extends $tea.Model {
   }
 }
 
+export class CreateDatasetRequest extends $tea.Model {
+  datasetName?: string;
+  datasetType?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      datasetType: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetResponseBody extends $tea.Model {
+  datasetId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetItemRequest extends $tea.Model {
+  datasetId?: string;
+  description?: string;
+  expiredTime?: string;
+  securityToken?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      securityToken: 'SecurityToken',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      securityToken: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetItemResponseBody extends $tea.Model {
+  datasetItemId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetItemId: 'DatasetItemId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetItemId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDatasetItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequest extends $tea.Model {
   autoPay?: boolean;
   chargeType?: string;
@@ -2436,6 +2586,141 @@ export class DeleteBackendModelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteBackendModelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetRequest extends $tea.Model {
+  datasetId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetItemRequest extends $tea.Model {
+  datasetId?: string;
+  datasetItemId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetItemId: 'DatasetItemId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetItemId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetItemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDatasetItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetItemResponseBody,
     };
   }
 
@@ -6239,6 +6524,321 @@ export class DescribeBackendListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDatasetInfoRequest extends $tea.Model {
+  datasetId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetInfoResponseBody extends $tea.Model {
+  datasetInfo?: DescribeDatasetInfoResponseBodyDatasetInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetInfo: 'DatasetInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetInfo: DescribeDatasetInfoResponseBodyDatasetInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDatasetInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDatasetInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemInfoRequest extends $tea.Model {
+  datasetId?: string;
+  datasetItemId?: string;
+  securityToken?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetItemId: 'DatasetItemId',
+      securityToken: 'SecurityToken',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetItemId: 'string',
+      securityToken: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemInfoResponseBody extends $tea.Model {
+  datasetItemInfo?: DescribeDatasetItemInfoResponseBodyDatasetItemInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetItemInfo: 'DatasetItemInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetItemInfo: DescribeDatasetItemInfoResponseBodyDatasetItemInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDatasetItemInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDatasetItemInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemListRequest extends $tea.Model {
+  datasetId?: string;
+  datasetItemIds?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetItemIds: 'DatasetItemIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetItemIds: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemListResponseBody extends $tea.Model {
+  datasetItemInfoList?: DescribeDatasetItemListResponseBodyDatasetItemInfoList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      datasetItemInfoList: 'DatasetItemInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetItemInfoList: { 'type': 'array', 'itemType': DescribeDatasetItemListResponseBodyDatasetItemInfoList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDatasetItemListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDatasetItemListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetListRequest extends $tea.Model {
+  datasetIds?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetIds: 'DatasetIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetIds: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetListResponseBody extends $tea.Model {
+  datasetInfoList?: DescribeDatasetListResponseBodyDatasetInfoList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      datasetInfoList: 'DatasetInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetInfoList: { 'type': 'array', 'itemType': DescribeDatasetListResponseBodyDatasetInfoList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDatasetListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDatasetListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeployApiTaskRequest extends $tea.Model {
   operationUid?: string;
   securityToken?: string;
@@ -9881,6 +10481,150 @@ export class ModifyBackendModelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyBackendModelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetRequest extends $tea.Model {
+  datasetId?: string;
+  datasetName?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetName: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetItemRequest extends $tea.Model {
+  datasetId?: string;
+  datasetItemId?: string;
+  description?: string;
+  expiredTime?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetItemId: 'DatasetItemId',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetItemId: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetItemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatasetItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDatasetItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDatasetItemResponseBody,
     };
   }
 
@@ -14258,6 +15002,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
   domainWebSocketStatus?: string;
   isHttpRedirectToHttps?: boolean;
   wildcardDomainPatterns?: string;
+  wssEnable?: string;
   static names(): { [key: string]: string } {
     return {
       bindStageName: 'BindStageName',
@@ -14272,6 +15017,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainWebSocketStatus: 'DomainWebSocketStatus',
       isHttpRedirectToHttps: 'IsHttpRedirectToHttps',
       wildcardDomainPatterns: 'WildcardDomainPatterns',
+      wssEnable: 'WssEnable',
     };
   }
 
@@ -14289,6 +15035,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainWebSocketStatus: 'string',
       isHttpRedirectToHttps: 'boolean',
       wildcardDomainPatterns: 'string',
+      wssEnable: 'string',
     };
   }
 
@@ -16464,6 +17211,53 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   }
 }
 
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfigMockHeaders extends $tea.Model {
+  headerName?: string;
+  headerValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerName: 'HeaderName',
+      headerValue: 'HeaderValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerName: 'string',
+      headerValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig extends $tea.Model {
+  mockHeaders?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfigMockHeaders[];
+  mockResult?: string;
+  mockStatusCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mockHeaders: 'MockHeaders',
+      mockResult: 'MockResult',
+      mockStatusCode: 'MockStatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mockHeaders: { 'type': 'array', 'itemType': DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfigMockHeaders },
+      mockResult: 'string',
+      mockStatusCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig extends $tea.Model {
   bucketName?: string;
   ossRegionId?: string;
@@ -16526,6 +17320,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig extends $tea.Model {
   eventBridgeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig;
   functionComputeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig;
+  mockConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig;
   ossConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig;
   serviceAddress?: string;
   type?: string;
@@ -16534,6 +17329,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
     return {
       eventBridgeConfig: 'EventBridgeConfig',
       functionComputeConfig: 'FunctionComputeConfig',
+      mockConfig: 'MockConfig',
       ossConfig: 'OssConfig',
       serviceAddress: 'ServiceAddress',
       type: 'Type',
@@ -16545,6 +17341,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
     return {
       eventBridgeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig,
       functionComputeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig,
+      mockConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig,
       ossConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig,
       serviceAddress: 'string',
       type: 'string',
@@ -16656,6 +17453,142 @@ export class DescribeBackendListResponseBodyBackendInfoList extends $tea.Model {
       backendType: 'string',
       createdTime: 'string',
       description: 'string',
+      modifiedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetInfoResponseBodyDatasetInfo extends $tea.Model {
+  createdTime?: string;
+  datasetId?: string;
+  datasetName?: string;
+  datasetType?: string;
+  modifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      modifiedTime: 'ModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      datasetId: 'string',
+      datasetName: 'string',
+      datasetType: 'string',
+      modifiedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemInfoResponseBodyDatasetItemInfo extends $tea.Model {
+  createdTime?: string;
+  datasetId?: string;
+  datasetItemId?: string;
+  description?: string;
+  expiredTime?: string;
+  modifiedTime?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      datasetId: 'DatasetId',
+      datasetItemId: 'DatasetItemId',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      modifiedTime: 'ModifiedTime',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      datasetId: 'string',
+      datasetItemId: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      modifiedTime: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetItemListResponseBodyDatasetItemInfoList extends $tea.Model {
+  createdTime?: string;
+  datasetId?: string;
+  datasetItemId?: string;
+  description?: string;
+  expiredTime?: string;
+  modifiedTime?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      datasetId: 'DatasetId',
+      datasetItemId: 'DatasetItemId',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      modifiedTime: 'ModifiedTime',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      datasetId: 'string',
+      datasetItemId: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      modifiedTime: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDatasetListResponseBodyDatasetInfoList extends $tea.Model {
+  createdTime?: string;
+  datasetId?: string;
+  datasetName?: string;
+  datasetType?: string;
+  modifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      modifiedTime: 'ModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      datasetId: 'string',
+      datasetName: 'string',
+      datasetType: 'string',
       modifiedTime: 'string',
     };
   }
@@ -20316,6 +21249,88 @@ export default class Client extends OpenApi {
     return await this.createBackendModelWithOptions(request, runtime);
   }
 
+  async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.datasetType)) {
+      query["DatasetType"] = request.datasetType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataset",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
+  }
+
+  async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
+  }
+
+  async createDatasetItemWithOptions(request: CreateDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.expiredTime)) {
+      query["ExpiredTime"] = request.expiredTime;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDatasetItem",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetItemResponse>(await this.callApi(params, req, runtime), new CreateDatasetItemResponse({}));
+  }
+
+  async createDatasetItem(request: CreateDatasetItemRequest): Promise<CreateDatasetItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDatasetItemWithOptions(request, runtime);
+  }
+
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21011,6 +22026,76 @@ export default class Client extends OpenApi {
   async deleteBackendModel(request: DeleteBackendModelRequest): Promise<DeleteBackendModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackendModelWithOptions(request, runtime);
+  }
+
+  async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataset",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
+  }
+
+  async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDatasetWithOptions(request, runtime);
+  }
+
+  async deleteDatasetItemWithOptions(request: DeleteDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetItemId)) {
+      query["DatasetItemId"] = request.datasetItemId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDatasetItem",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetItemResponse>(await this.callApi(params, req, runtime), new DeleteDatasetItemResponse({}));
+  }
+
+  async deleteDatasetItem(request: DeleteDatasetItemRequest): Promise<DeleteDatasetItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDatasetItemWithOptions(request, runtime);
   }
 
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
@@ -22858,6 +23943,166 @@ export default class Client extends OpenApi {
   async describeBackendList(request: DescribeBackendListRequest): Promise<DescribeBackendListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackendListWithOptions(request, runtime);
+  }
+
+  async describeDatasetInfoWithOptions(request: DescribeDatasetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDatasetInfo",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDatasetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDatasetInfoResponse({}));
+  }
+
+  async describeDatasetInfo(request: DescribeDatasetInfoRequest): Promise<DescribeDatasetInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDatasetInfoWithOptions(request, runtime);
+  }
+
+  async describeDatasetItemInfoWithOptions(request: DescribeDatasetItemInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetItemInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetItemId)) {
+      query["DatasetItemId"] = request.datasetItemId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDatasetItemInfo",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDatasetItemInfoResponse>(await this.callApi(params, req, runtime), new DescribeDatasetItemInfoResponse({}));
+  }
+
+  async describeDatasetItemInfo(request: DescribeDatasetItemInfoRequest): Promise<DescribeDatasetItemInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDatasetItemInfoWithOptions(request, runtime);
+  }
+
+  async describeDatasetItemListWithOptions(request: DescribeDatasetItemListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetItemListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetItemIds)) {
+      query["DatasetItemIds"] = request.datasetItemIds;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDatasetItemList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDatasetItemListResponse>(await this.callApi(params, req, runtime), new DescribeDatasetItemListResponse({}));
+  }
+
+  async describeDatasetItemList(request: DescribeDatasetItemListRequest): Promise<DescribeDatasetItemListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDatasetItemListWithOptions(request, runtime);
+  }
+
+  async describeDatasetListWithOptions(request: DescribeDatasetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetIds)) {
+      query["DatasetIds"] = request.datasetIds;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDatasetList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDatasetListResponse>(await this.callApi(params, req, runtime), new DescribeDatasetListResponse({}));
+  }
+
+  async describeDatasetList(request: DescribeDatasetListRequest): Promise<DescribeDatasetListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDatasetListWithOptions(request, runtime);
   }
 
   async describeDeployApiTaskWithOptions(request: DescribeDeployApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployApiTaskResponse> {
@@ -24879,6 +26124,88 @@ export default class Client extends OpenApi {
   async modifyBackendModel(request: ModifyBackendModelRequest): Promise<ModifyBackendModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackendModelWithOptions(request, runtime);
+  }
+
+  async modifyDatasetWithOptions(request: ModifyDatasetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatasetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDataset",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDatasetResponse>(await this.callApi(params, req, runtime), new ModifyDatasetResponse({}));
+  }
+
+  async modifyDataset(request: ModifyDatasetRequest): Promise<ModifyDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDatasetWithOptions(request, runtime);
+  }
+
+  async modifyDatasetItemWithOptions(request: ModifyDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatasetItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetItemId)) {
+      query["DatasetItemId"] = request.datasetItemId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.expiredTime)) {
+      query["ExpiredTime"] = request.expiredTime;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDatasetItem",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDatasetItemResponse>(await this.callApi(params, req, runtime), new ModifyDatasetItemResponse({}));
+  }
+
+  async modifyDatasetItem(request: ModifyDatasetItemRequest): Promise<ModifyDatasetItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDatasetItemWithOptions(request, runtime);
   }
 
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
