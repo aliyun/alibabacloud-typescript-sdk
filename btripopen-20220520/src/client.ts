@@ -342,6 +342,7 @@ export class ApplyAddRequest extends $tea.Model {
   status?: number;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
+  thirdpartDepartId?: string;
   togetherBookRule?: number;
   trainBudget?: number;
   travelerList?: ApplyAddRequestTravelerList[];
@@ -374,6 +375,7 @@ export class ApplyAddRequest extends $tea.Model {
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       togetherBookRule: 'together_book_rule',
       trainBudget: 'train_budget',
       travelerList: 'traveler_list',
@@ -409,6 +411,7 @@ export class ApplyAddRequest extends $tea.Model {
       status: 'number',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
+      thirdpartDepartId: 'string',
       togetherBookRule: 'number',
       trainBudget: 'number',
       travelerList: { 'type': 'array', 'itemType': ApplyAddRequestTravelerList },
@@ -448,6 +451,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   status?: number;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
+  thirdpartDepartId?: string;
   togetherBookRule?: number;
   trainBudget?: number;
   travelerListShrink?: string;
@@ -480,6 +484,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       togetherBookRule: 'together_book_rule',
       trainBudget: 'train_budget',
       travelerListShrink: 'traveler_list',
@@ -515,6 +520,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       status: 'number',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
+      thirdpartDepartId: 'string',
       togetherBookRule: 'number',
       trainBudget: 'number',
       travelerListShrink: 'string',
@@ -879,6 +885,7 @@ export class ApplyModifyRequest extends $tea.Model {
   status?: number;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
+  thirdpartDepartId?: string;
   togetherBookRule?: number;
   trainBudget?: number;
   travelerList?: ApplyModifyRequestTravelerList[];
@@ -909,6 +916,7 @@ export class ApplyModifyRequest extends $tea.Model {
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       togetherBookRule: 'together_book_rule',
       trainBudget: 'train_budget',
       travelerList: 'traveler_list',
@@ -942,6 +950,7 @@ export class ApplyModifyRequest extends $tea.Model {
       status: 'number',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
+      thirdpartDepartId: 'string',
       togetherBookRule: 'number',
       trainBudget: 'number',
       travelerList: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerList },
@@ -979,6 +988,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
   status?: number;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
+  thirdpartDepartId?: string;
   togetherBookRule?: number;
   trainBudget?: number;
   travelerListShrink?: string;
@@ -1009,6 +1019,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       togetherBookRule: 'together_book_rule',
       trainBudget: 'train_budget',
       travelerListShrink: 'traveler_list',
@@ -1042,6 +1053,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       status: 'number',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
+      thirdpartDepartId: 'string',
       togetherBookRule: 'number',
       trainBudget: 'number',
       travelerListShrink: 'string',
@@ -11903,6 +11915,10 @@ export default class Client extends OpenApi {
       body["thirdpart_business_id"] = request.thirdpartBusinessId;
     }
 
+    if (!Util.isUnset(request.thirdpartDepartId)) {
+      body["thirdpart_depart_id"] = request.thirdpartDepartId;
+    }
+
     if (!Util.isUnset(request.togetherBookRule)) {
       body["together_book_rule"] = request.togetherBookRule;
     }
@@ -12224,6 +12240,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdpartBusinessId)) {
       body["thirdpart_business_id"] = request.thirdpartBusinessId;
+    }
+
+    if (!Util.isUnset(request.thirdpartDepartId)) {
+      body["thirdpart_depart_id"] = request.thirdpartDepartId;
     }
 
     if (!Util.isUnset(request.togetherBookRule)) {
