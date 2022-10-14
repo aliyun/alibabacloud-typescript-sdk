@@ -2597,6 +2597,7 @@ export class CreateOrUpdateSwimmingLaneResponse extends $tea.Model {
 export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   appIds?: string;
+  dbGrayEnable?: boolean;
   enable?: boolean;
   entryApp?: string;
   gmtCreate?: string;
@@ -2615,6 +2616,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       appIds: 'AppIds',
+      dbGrayEnable: 'DbGrayEnable',
       enable: 'Enable',
       entryApp: 'EntryApp',
       gmtCreate: 'GmtCreate',
@@ -2636,6 +2638,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appIds: 'string',
+      dbGrayEnable: 'boolean',
       enable: 'boolean',
       entryApp: 'string',
       gmtCreate: 'string',
@@ -23957,6 +23960,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appIds)) {
       query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.dbGrayEnable)) {
+      query["DbGrayEnable"] = request.dbGrayEnable;
     }
 
     if (!Util.isUnset(request.enable)) {
