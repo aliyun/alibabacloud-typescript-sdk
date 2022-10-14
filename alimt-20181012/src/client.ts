@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -49,17 +48,17 @@ export class CreateDocTranslateTaskRequest extends $tea.Model {
 }
 
 export class CreateDocTranslateTaskAdvanceRequest extends $tea.Model {
-  fileUrlObject: Readable;
   callbackUrl?: string;
   clientToken?: string;
+  fileUrlObject?: Readable;
   scene?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
-      fileUrlObject: 'FileUrlObject',
       callbackUrl: 'CallbackUrl',
       clientToken: 'ClientToken',
+      fileUrlObject: 'FileUrl',
       scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
@@ -68,9 +67,9 @@ export class CreateDocTranslateTaskAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      fileUrlObject: 'Readable',
       callbackUrl: 'string',
       clientToken: 'string',
+      fileUrlObject: 'Readable',
       scene: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
@@ -109,10 +108,12 @@ export class CreateDocTranslateTaskResponseBody extends $tea.Model {
 
 export class CreateDocTranslateTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDocTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -120,6 +121,7 @@ export class CreateDocTranslateTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDocTranslateTaskResponseBody,
     };
   }
@@ -190,10 +192,12 @@ export class CreateImageTranslateTaskResponseBody extends $tea.Model {
 
 export class CreateImageTranslateTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateImageTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -201,6 +205,7 @@ export class CreateImageTranslateTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateImageTranslateTaskResponseBody,
     };
   }
@@ -274,10 +279,12 @@ export class GetBatchTranslateResponseBody extends $tea.Model {
 
 export class GetBatchTranslateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetBatchTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -285,6 +292,7 @@ export class GetBatchTranslateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetBatchTranslateResponseBody,
     };
   }
@@ -337,10 +345,12 @@ export class GetDetectLanguageResponseBody extends $tea.Model {
 
 export class GetDetectLanguageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDetectLanguageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -348,6 +358,7 @@ export class GetDetectLanguageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDetectLanguageResponseBody,
     };
   }
@@ -415,10 +426,12 @@ export class GetDocTranslateTaskResponseBody extends $tea.Model {
 
 export class GetDocTranslateTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDocTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -426,6 +439,7 @@ export class GetDocTranslateTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDocTranslateTaskResponseBody,
     };
   }
@@ -487,10 +501,12 @@ export class GetImageDiagnoseResponseBody extends $tea.Model {
 
 export class GetImageDiagnoseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetImageDiagnoseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -498,6 +514,7 @@ export class GetImageDiagnoseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetImageDiagnoseResponseBody,
     };
   }
@@ -565,10 +582,12 @@ export class GetImageTranslateResponseBody extends $tea.Model {
 
 export class GetImageTranslateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetImageTranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -576,6 +595,7 @@ export class GetImageTranslateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetImageTranslateResponseBody,
     };
   }
@@ -634,10 +654,12 @@ export class GetImageTranslateTaskResponseBody extends $tea.Model {
 
 export class GetImageTranslateTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetImageTranslateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -645,6 +667,7 @@ export class GetImageTranslateTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetImageTranslateTaskResponseBody,
     };
   }
@@ -715,10 +738,12 @@ export class GetTitleDiagnoseResponseBody extends $tea.Model {
 
 export class GetTitleDiagnoseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTitleDiagnoseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -726,6 +751,7 @@ export class GetTitleDiagnoseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTitleDiagnoseResponseBody,
     };
   }
@@ -802,10 +828,12 @@ export class GetTitleGenerateResponseBody extends $tea.Model {
 
 export class GetTitleGenerateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTitleGenerateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -813,6 +841,7 @@ export class GetTitleGenerateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTitleGenerateResponseBody,
     };
   }
@@ -883,10 +912,12 @@ export class GetTitleIntelligenceResponseBody extends $tea.Model {
 
 export class GetTitleIntelligenceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTitleIntelligenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -894,6 +925,7 @@ export class GetTitleIntelligenceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTitleIntelligenceResponseBody,
     };
   }
@@ -961,10 +993,12 @@ export class GetTranslateReportResponseBody extends $tea.Model {
 
 export class GetTranslateReportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTranslateReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -972,57 +1006,8 @@ export class GetTranslateReportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTranslateReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserResponseBody,
     };
   }
 
@@ -1077,10 +1062,12 @@ export class OpenAlimtServiceResponseBody extends $tea.Model {
 
 export class OpenAlimtServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenAlimtServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1088,6 +1075,7 @@ export class OpenAlimtServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenAlimtServiceResponseBody,
     };
   }
@@ -1098,6 +1086,7 @@ export class OpenAlimtServiceResponse extends $tea.Model {
 }
 
 export class TranslateRequest extends $tea.Model {
+  context?: string;
   formatType?: string;
   scene?: string;
   sourceLanguage?: string;
@@ -1105,6 +1094,7 @@ export class TranslateRequest extends $tea.Model {
   targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
+      context: 'Context',
       formatType: 'FormatType',
       scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
@@ -1115,6 +1105,7 @@ export class TranslateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      context: 'string',
       formatType: 'string',
       scene: 'string',
       sourceLanguage: 'string',
@@ -1158,10 +1149,12 @@ export class TranslateResponseBody extends $tea.Model {
 
 export class TranslateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TranslateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1169,6 +1162,7 @@ export class TranslateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TranslateResponseBody,
     };
   }
@@ -1210,15 +1204,15 @@ export class TranslateCertificateRequest extends $tea.Model {
 }
 
 export class TranslateCertificateAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
   certificateType?: string;
+  imageUrlObject?: Readable;
   resultType?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUrlObject: 'ImageUrlObject',
       certificateType: 'CertificateType',
+      imageUrlObject: 'ImageUrl',
       resultType: 'ResultType',
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
@@ -1227,8 +1221,8 @@ export class TranslateCertificateAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageUrlObject: 'Readable',
       certificateType: 'string',
+      imageUrlObject: 'Readable',
       resultType: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
@@ -1264,10 +1258,12 @@ export class TranslateCertificateResponseBody extends $tea.Model {
 
 export class TranslateCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TranslateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1275,6 +1271,7 @@ export class TranslateCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TranslateCertificateResponseBody,
     };
   }
@@ -1285,6 +1282,7 @@ export class TranslateCertificateResponse extends $tea.Model {
 }
 
 export class TranslateECommerceRequest extends $tea.Model {
+  context?: string;
   formatType?: string;
   scene?: string;
   sourceLanguage?: string;
@@ -1292,6 +1290,7 @@ export class TranslateECommerceRequest extends $tea.Model {
   targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
+      context: 'Context',
       formatType: 'FormatType',
       scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
@@ -1302,6 +1301,7 @@ export class TranslateECommerceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      context: 'string',
       formatType: 'string',
       scene: 'string',
       sourceLanguage: 'string',
@@ -1345,10 +1345,12 @@ export class TranslateECommerceResponseBody extends $tea.Model {
 
 export class TranslateECommerceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TranslateECommerceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1356,6 +1358,7 @@ export class TranslateECommerceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TranslateECommerceResponseBody,
     };
   }
@@ -1366,6 +1369,7 @@ export class TranslateECommerceResponse extends $tea.Model {
 }
 
 export class TranslateGeneralRequest extends $tea.Model {
+  context?: string;
   formatType?: string;
   scene?: string;
   sourceLanguage?: string;
@@ -1373,6 +1377,7 @@ export class TranslateGeneralRequest extends $tea.Model {
   targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
+      context: 'Context',
       formatType: 'FormatType',
       scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
@@ -1383,6 +1388,7 @@ export class TranslateGeneralRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      context: 'string',
       formatType: 'string',
       scene: 'string',
       sourceLanguage: 'string',
@@ -1426,10 +1432,12 @@ export class TranslateGeneralResponseBody extends $tea.Model {
 
 export class TranslateGeneralResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TranslateGeneralResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1437,6 +1445,7 @@ export class TranslateGeneralResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TranslateGeneralResponseBody,
     };
   }
@@ -1510,10 +1519,12 @@ export class TranslateImageResponseBody extends $tea.Model {
 
 export class TranslateImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TranslateImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1521,6 +1532,7 @@ export class TranslateImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TranslateImageResponseBody,
     };
   }
@@ -1839,6 +1851,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "mt.cn-hangzhou.aliyuncs.com",
@@ -1915,10 +1928,46 @@ export default class Client extends OpenApi {
 
   async createDocTranslateTaskWithOptions(request: CreateDocTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocTranslateTaskResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callbackUrl)) {
+      body["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateDocTranslateTaskResponse>(await this.doRPCRequest("CreateDocTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDocTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDocTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateDocTranslateTaskResponse({}));
   }
 
   async createDocTranslateTask(request: CreateDocTranslateTaskRequest): Promise<CreateDocTranslateTaskResponse> {
@@ -1941,7 +1990,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1972,28 +2021,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, createDocTranslateTaskReq);
     if (!Util.isUnset(request.fileUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.fileUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      createDocTranslateTaskReq.fileUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      createDocTranslateTaskReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let createDocTranslateTaskResp = await this.createDocTranslateTaskWithOptions(createDocTranslateTaskReq, runtime);
@@ -2002,10 +2051,42 @@ export default class Client extends OpenApi {
 
   async createImageTranslateTaskWithOptions(request: CreateImageTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageTranslateTaskResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    if (!Util.isUnset(request.urlList)) {
+      body["UrlList"] = request.urlList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateImageTranslateTaskResponse>(await this.doRPCRequest("CreateImageTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateImageTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateImageTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateImageTranslateTaskResponse({}));
   }
 
   async createImageTranslateTask(request: CreateImageTranslateTaskRequest): Promise<CreateImageTranslateTaskResponse> {
@@ -2015,10 +2096,46 @@ export default class Client extends OpenApi {
 
   async getBatchTranslateWithOptions(request: GetBatchTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTranslateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetBatchTranslateResponse>(await this.doRPCRequest("GetBatchTranslate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetBatchTranslateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBatchTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTranslateResponse>(await this.callApi(params, req, runtime), new GetBatchTranslateResponse({}));
   }
 
   async getBatchTranslate(request: GetBatchTranslateRequest): Promise<GetBatchTranslateResponse> {
@@ -2028,10 +2145,26 @@ export default class Client extends OpenApi {
 
   async getDetectLanguageWithOptions(request: GetDetectLanguageRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectLanguageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetDetectLanguageResponse>(await this.doRPCRequest("GetDetectLanguage", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetDetectLanguageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDetectLanguage",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDetectLanguageResponse>(await this.callApi(params, req, runtime), new GetDetectLanguageResponse({}));
   }
 
   async getDetectLanguage(request: GetDetectLanguageRequest): Promise<GetDetectLanguageResponse> {
@@ -2043,9 +2176,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDocTranslateTaskResponse>(await this.doRPCRequest("GetDocTranslateTask", "2018-10-12", "HTTPS", "GET", "AK", "json", req, runtime), new GetDocTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDocTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetDocTranslateTaskResponse({}));
   }
 
   async getDocTranslateTask(request: GetDocTranslateTaskRequest): Promise<GetDocTranslateTaskResponse> {
@@ -2055,10 +2199,30 @@ export default class Client extends OpenApi {
 
   async getImageDiagnoseWithOptions(request: GetImageDiagnoseRequest, runtime: $Util.RuntimeOptions): Promise<GetImageDiagnoseResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetImageDiagnoseResponse>(await this.doRPCRequest("GetImageDiagnose", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageDiagnoseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageDiagnose",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageDiagnoseResponse>(await this.callApi(params, req, runtime), new GetImageDiagnoseResponse({}));
   }
 
   async getImageDiagnose(request: GetImageDiagnoseRequest): Promise<GetImageDiagnoseResponse> {
@@ -2068,10 +2232,38 @@ export default class Client extends OpenApi {
 
   async getImageTranslateWithOptions(request: GetImageTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetImageTranslateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetImageTranslateResponse>(await this.doRPCRequest("GetImageTranslate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageTranslateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageTranslateResponse>(await this.callApi(params, req, runtime), new GetImageTranslateResponse({}));
   }
 
   async getImageTranslate(request: GetImageTranslateRequest): Promise<GetImageTranslateResponse> {
@@ -2081,10 +2273,26 @@ export default class Client extends OpenApi {
 
   async getImageTranslateTaskWithOptions(request: GetImageTranslateTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetImageTranslateTaskResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetImageTranslateTaskResponse>(await this.doRPCRequest("GetImageTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetImageTranslateTaskResponse({}));
   }
 
   async getImageTranslateTask(request: GetImageTranslateTaskRequest): Promise<GetImageTranslateTaskResponse> {
@@ -2094,10 +2302,42 @@ export default class Client extends OpenApi {
 
   async getTitleDiagnoseWithOptions(request: GetTitleDiagnoseRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleDiagnoseResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetTitleDiagnoseResponse>(await this.doRPCRequest("GetTitleDiagnose", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleDiagnoseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleDiagnose",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleDiagnoseResponse>(await this.callApi(params, req, runtime), new GetTitleDiagnoseResponse({}));
   }
 
   async getTitleDiagnose(request: GetTitleDiagnoseRequest): Promise<GetTitleDiagnoseResponse> {
@@ -2107,10 +2347,50 @@ export default class Client extends OpenApi {
 
   async getTitleGenerateWithOptions(request: GetTitleGenerateRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleGenerateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.attributes)) {
+      body["Attributes"] = request.attributes;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.hotWords)) {
+      body["HotWords"] = request.hotWords;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetTitleGenerateResponse>(await this.doRPCRequest("GetTitleGenerate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleGenerateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleGenerate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleGenerateResponse>(await this.callApi(params, req, runtime), new GetTitleGenerateResponse({}));
   }
 
   async getTitleGenerate(request: GetTitleGenerateRequest): Promise<GetTitleGenerateResponse> {
@@ -2120,10 +2400,42 @@ export default class Client extends OpenApi {
 
   async getTitleIntelligenceWithOptions(request: GetTitleIntelligenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTitleIntelligenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.catLevelThreeId)) {
+      body["CatLevelThreeId"] = request.catLevelThreeId;
+    }
+
+    if (!Util.isUnset(request.catLevelTwoId)) {
+      body["CatLevelTwoId"] = request.catLevelTwoId;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.keywords)) {
+      body["Keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetTitleIntelligenceResponse>(await this.doRPCRequest("GetTitleIntelligence", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleIntelligenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleIntelligence",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleIntelligenceResponse>(await this.callApi(params, req, runtime), new GetTitleIntelligenceResponse({}));
   }
 
   async getTitleIntelligence(request: GetTitleIntelligenceRequest): Promise<GetTitleIntelligenceResponse> {
@@ -2133,10 +2445,38 @@ export default class Client extends OpenApi {
 
   async getTranslateReportWithOptions(request: GetTranslateReportRequest, runtime: $Util.RuntimeOptions): Promise<GetTranslateReportResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      query["Group"] = request.group;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTranslateReportResponse>(await this.doRPCRequest("GetTranslateReport", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTranslateReportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTranslateReport",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTranslateReportResponse>(await this.callApi(params, req, runtime), new GetTranslateReportResponse({}));
   }
 
   async getTranslateReport(request: GetTranslateReportRequest): Promise<GetTranslateReportResponse> {
@@ -2144,22 +2484,32 @@ export default class Client extends OpenApi {
     return await this.getTranslateReportWithOptions(request, runtime);
   }
 
-  async getUserWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetUserResponse>(await this.doRPCRequest("GetUser", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserResponse({}));
-  }
-
-  async getUser(): Promise<GetUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserWithOptions(runtime);
-  }
-
   async openAlimtServiceWithOptions(request: OpenAlimtServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenAlimtServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OpenAlimtServiceResponse>(await this.doRPCRequest("OpenAlimtService", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new OpenAlimtServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenAlimtService",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenAlimtServiceResponse>(await this.callApi(params, req, runtime), new OpenAlimtServiceResponse({}));
   }
 
   async openAlimtService(request: OpenAlimtServiceRequest): Promise<OpenAlimtServiceResponse> {
@@ -2169,10 +2519,48 @@ export default class Client extends OpenApi {
 
   async translateWithOptions(request: TranslateRequest, runtime: $Util.RuntimeOptions): Promise<TranslateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TranslateResponse>(await this.doRPCRequest("Translate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Translate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateResponse>(await this.callApi(params, req, runtime), new TranslateResponse({}));
   }
 
   async translate(request: TranslateRequest): Promise<TranslateResponse> {
@@ -2182,10 +2570,42 @@ export default class Client extends OpenApi {
 
   async translateCertificateWithOptions(request: TranslateCertificateRequest, runtime: $Util.RuntimeOptions): Promise<TranslateCertificateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certificateType)) {
+      body["CertificateType"] = request.certificateType;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.resultType)) {
+      body["ResultType"] = request.resultType;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TranslateCertificateResponse>(await this.doRPCRequest("TranslateCertificate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateCertificate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateCertificateResponse>(await this.callApi(params, req, runtime), new TranslateCertificateResponse({}));
   }
 
   async translateCertificate(request: TranslateCertificateRequest): Promise<TranslateCertificateResponse> {
@@ -2208,7 +2628,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -2239,28 +2659,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, translateCertificateReq);
     if (!Util.isUnset(request.imageUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      translateCertificateReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      translateCertificateReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let translateCertificateResp = await this.translateCertificateWithOptions(translateCertificateReq, runtime);
@@ -2269,10 +2689,48 @@ export default class Client extends OpenApi {
 
   async translateECommerceWithOptions(request: TranslateECommerceRequest, runtime: $Util.RuntimeOptions): Promise<TranslateECommerceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TranslateECommerceResponse>(await this.doRPCRequest("TranslateECommerce", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateECommerceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateECommerce",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateECommerceResponse>(await this.callApi(params, req, runtime), new TranslateECommerceResponse({}));
   }
 
   async translateECommerce(request: TranslateECommerceRequest): Promise<TranslateECommerceResponse> {
@@ -2282,10 +2740,48 @@ export default class Client extends OpenApi {
 
   async translateGeneralWithOptions(request: TranslateGeneralRequest, runtime: $Util.RuntimeOptions): Promise<TranslateGeneralResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.context)) {
+      query["Context"] = request.context;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.sourceText)) {
+      body["SourceText"] = request.sourceText;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TranslateGeneralResponse>(await this.doRPCRequest("TranslateGeneral", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateGeneralResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateGeneral",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateGeneralResponse>(await this.callApi(params, req, runtime), new TranslateGeneralResponse({}));
   }
 
   async translateGeneral(request: TranslateGeneralRequest): Promise<TranslateGeneralResponse> {
@@ -2295,10 +2791,46 @@ export default class Client extends OpenApi {
 
   async translateImageWithOptions(request: TranslateImageRequest, runtime: $Util.RuntimeOptions): Promise<TranslateImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ext)) {
+      body["Ext"] = request.ext;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      body["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.imageBase64)) {
+      body["ImageBase64"] = request.imageBase64;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TranslateImageResponse>(await this.doRPCRequest("TranslateImage", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateImage",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateImageResponse>(await this.callApi(params, req, runtime), new TranslateImageResponse({}));
   }
 
   async translateImage(request: TranslateImageRequest): Promise<TranslateImageResponse> {
