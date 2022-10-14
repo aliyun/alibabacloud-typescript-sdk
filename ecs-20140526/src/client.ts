@@ -42723,6 +42723,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   eniTrunkSupported?: boolean;
   eriQuantity?: number;
   GPUAmount?: number;
+  GPUMemorySize?: number;
   GPUSpec?: string;
   initialCredit?: number;
   instanceBandwidthRx?: number;
@@ -42760,6 +42761,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       eniTrunkSupported: 'EniTrunkSupported',
       eriQuantity: 'EriQuantity',
       GPUAmount: 'GPUAmount',
+      GPUMemorySize: 'GPUMemorySize',
       GPUSpec: 'GPUSpec',
       initialCredit: 'InitialCredit',
       instanceBandwidthRx: 'InstanceBandwidthRx',
@@ -42800,6 +42802,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       eniTrunkSupported: 'boolean',
       eriQuantity: 'number',
       GPUAmount: 'number',
+      GPUMemorySize: 'number',
       GPUSpec: 'string',
       initialCredit: 'number',
       instanceBandwidthRx: 'number',
