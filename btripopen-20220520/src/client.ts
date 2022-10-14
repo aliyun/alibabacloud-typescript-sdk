@@ -34,6 +34,7 @@ export class AccessTokenResponseBody extends $tea.Model {
   code?: string;
   data?: AccessTokenResponseBodyData;
   message?: string;
+  module?: AccessTokenResponseBodyModule;
   requestId?: string;
   traceId?: string;
   static names(): { [key: string]: string } {
@@ -41,6 +42,7 @@ export class AccessTokenResponseBody extends $tea.Model {
       code: 'code',
       data: 'data',
       message: 'message',
+      module: 'module',
       requestId: 'requestId',
       traceId: 'traceId',
     };
@@ -51,6 +53,7 @@ export class AccessTokenResponseBody extends $tea.Model {
       code: 'string',
       data: AccessTokenResponseBodyData,
       message: 'string',
+      module: AccessTokenResponseBodyModule,
       requestId: 'string',
       traceId: 'string',
     };
@@ -2224,6 +2227,7 @@ export class CorpTokenResponseBody extends $tea.Model {
   code?: string;
   data?: CorpTokenResponseBodyData;
   message?: string;
+  module?: CorpTokenResponseBodyModule;
   requestId?: string;
   traceId?: string;
   static names(): { [key: string]: string } {
@@ -2231,6 +2235,7 @@ export class CorpTokenResponseBody extends $tea.Model {
       code: 'code',
       data: 'data',
       message: 'message',
+      module: 'module',
       requestId: 'requestId',
       traceId: 'traceId',
     };
@@ -2241,6 +2246,7 @@ export class CorpTokenResponseBody extends $tea.Model {
       code: 'string',
       data: CorpTokenResponseBodyData,
       message: 'string',
+      module: CorpTokenResponseBodyModule,
       requestId: 'string',
       traceId: 'string',
     };
@@ -6015,6 +6021,31 @@ export class AccessTokenResponseBodyData extends $tea.Model {
   }
 }
 
+export class AccessTokenResponseBodyModule extends $tea.Model {
+  expire?: number;
+  start?: number;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expire: 'expire',
+      start: 'start',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expire: 'number',
+      start: 'number',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddressGetResponseBodyModule extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -8163,6 +8194,31 @@ export class CorpTokenResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       expire: 'number',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CorpTokenResponseBodyModule extends $tea.Model {
+  expire?: number;
+  start?: number;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expire: 'expire',
+      start: 'start',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expire: 'number',
+      start: 'number',
       token: 'string',
     };
   }
