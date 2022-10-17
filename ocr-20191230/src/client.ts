@@ -2819,10 +2819,12 @@ export class RecognizeVideoCharacterRequest extends $tea.Model {
 
 export class RecognizeVideoCharacterResponseBody extends $tea.Model {
   data?: RecognizeVideoCharacterResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -2830,6 +2832,7 @@ export class RecognizeVideoCharacterResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: RecognizeVideoCharacterResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -3001,10 +3004,12 @@ export class TrimDocumentAdvanceRequest extends $tea.Model {
 
 export class TrimDocumentResponseBody extends $tea.Model {
   data?: TrimDocumentResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -3012,6 +3017,7 @@ export class TrimDocumentResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: TrimDocumentResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
