@@ -1474,6 +1474,7 @@ export class CreatePersistentVolumeRequest extends $tea.Model {
   mountTargetDomain?: string;
   NFSVersion?: string;
   name?: string;
+  nasType?: string;
   reclaimPolicy?: string;
   storageClass?: string;
   static names(): { [key: string]: string } {
@@ -1485,6 +1486,7 @@ export class CreatePersistentVolumeRequest extends $tea.Model {
       mountTargetDomain: 'MountTargetDomain',
       NFSVersion: 'NFSVersion',
       name: 'Name',
+      nasType: 'NasType',
       reclaimPolicy: 'ReclaimPolicy',
       storageClass: 'StorageClass',
     };
@@ -1499,6 +1501,7 @@ export class CreatePersistentVolumeRequest extends $tea.Model {
       mountTargetDomain: 'string',
       NFSVersion: 'string',
       name: 'string',
+      nasType: 'string',
       reclaimPolicy: 'string',
       storageClass: 'string',
     };
@@ -12819,6 +12822,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nasType)) {
+      body["NasType"] = request.nasType;
     }
 
     if (!Util.isUnset(request.reclaimPolicy)) {
