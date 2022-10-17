@@ -1187,10 +1187,12 @@ export class SegmentHDCommonImageAdvanceRequest extends $tea.Model {
 
 export class SegmentHDCommonImageResponseBody extends $tea.Model {
   data?: SegmentHDCommonImageResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1198,6 +1200,7 @@ export class SegmentHDCommonImageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: SegmentHDCommonImageResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
