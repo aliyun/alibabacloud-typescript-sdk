@@ -71,10 +71,12 @@ export class AbstractEcommerceVideoAdvanceRequest extends $tea.Model {
 
 export class AbstractEcommerceVideoResponseBody extends $tea.Model {
   data?: AbstractEcommerceVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -82,6 +84,7 @@ export class AbstractEcommerceVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: AbstractEcommerceVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -162,10 +165,12 @@ export class AbstractFilmVideoAdvanceRequest extends $tea.Model {
 
 export class AbstractFilmVideoResponseBody extends $tea.Model {
   data?: AbstractFilmVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -173,6 +178,7 @@ export class AbstractFilmVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: AbstractFilmVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -253,10 +259,12 @@ export class AddFaceVideoTemplateAdvanceRequest extends $tea.Model {
 
 export class AddFaceVideoTemplateResponseBody extends $tea.Model {
   date?: AddFaceVideoTemplateResponseBodyDate;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       date: 'Date',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -264,6 +272,7 @@ export class AddFaceVideoTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       date: AddFaceVideoTemplateResponseBodyDate,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -362,10 +371,12 @@ export class AdjustVideoColorAdvanceRequest extends $tea.Model {
 
 export class AdjustVideoColorResponseBody extends $tea.Model {
   data?: AdjustVideoColorResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -373,6 +384,7 @@ export class AdjustVideoColorResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: AdjustVideoColorResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -495,10 +507,12 @@ export class ChangeVideoSizeAdvanceRequest extends $tea.Model {
 
 export class ChangeVideoSizeResponseBody extends $tea.Model {
   data?: ChangeVideoSizeResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -506,6 +520,7 @@ export class ChangeVideoSizeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ChangeVideoSizeResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -598,10 +613,12 @@ export class ConvertHdrVideoAdvanceRequest extends $tea.Model {
 
 export class ConvertHdrVideoResponseBody extends $tea.Model {
   data?: ConvertHdrVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -609,6 +626,7 @@ export class ConvertHdrVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ConvertHdrVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -785,10 +803,12 @@ export class EnhanceVideoQualityAdvanceRequest extends $tea.Model {
 
 export class EnhanceVideoQualityResponseBody extends $tea.Model {
   data?: EnhanceVideoQualityResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -796,6 +816,7 @@ export class EnhanceVideoQualityResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: EnhanceVideoQualityResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -876,10 +897,12 @@ export class EraseVideoLogoAdvanceRequest extends $tea.Model {
 
 export class EraseVideoLogoResponseBody extends $tea.Model {
   data?: EraseVideoLogoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -887,6 +910,7 @@ export class EraseVideoLogoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: EraseVideoLogoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -985,10 +1009,12 @@ export class EraseVideoSubtitlesAdvanceRequest extends $tea.Model {
 
 export class EraseVideoSubtitlesResponseBody extends $tea.Model {
   data?: EraseVideoSubtitlesResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -996,6 +1022,7 @@ export class EraseVideoSubtitlesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: EraseVideoSubtitlesResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1081,10 +1108,12 @@ export class GenerateVideoRequest extends $tea.Model {
 
 export class GenerateVideoResponseBody extends $tea.Model {
   data?: GenerateVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1092,6 +1121,7 @@ export class GenerateVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GenerateVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1244,10 +1274,12 @@ export class InterpolateVideoFrameAdvanceRequest extends $tea.Model {
 
 export class InterpolateVideoFrameResponseBody extends $tea.Model {
   data?: InterpolateVideoFrameResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1255,6 +1287,7 @@ export class InterpolateVideoFrameResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: InterpolateVideoFrameResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1341,10 +1374,12 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
 
 export class MergeVideoFaceResponseBody extends $tea.Model {
   data?: MergeVideoFaceResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1352,6 +1387,7 @@ export class MergeVideoFaceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: MergeVideoFaceResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1438,10 +1474,12 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
 
 export class MergeVideoModelFaceResponseBody extends $tea.Model {
   data?: MergeVideoModelFaceResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1449,6 +1487,7 @@ export class MergeVideoModelFaceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: MergeVideoModelFaceResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1598,10 +1637,12 @@ export class SuperResolveVideoAdvanceRequest extends $tea.Model {
 
 export class SuperResolveVideoResponseBody extends $tea.Model {
   data?: SuperResolveVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1609,6 +1650,7 @@ export class SuperResolveVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: SuperResolveVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1695,10 +1737,12 @@ export class ToneSdrVideoAdvanceRequest extends $tea.Model {
 
 export class ToneSdrVideoResponseBody extends $tea.Model {
   data?: ToneSdrVideoResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1706,6 +1750,7 @@ export class ToneSdrVideoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ToneSdrVideoResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
