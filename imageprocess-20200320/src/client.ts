@@ -46,10 +46,12 @@ export class AnalyzeChestVesselRequest extends $tea.Model {
 
 export class AnalyzeChestVesselResponseBody extends $tea.Model {
   data?: AnalyzeChestVesselResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -57,6 +59,7 @@ export class AnalyzeChestVesselResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: AnalyzeChestVesselResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -124,10 +127,12 @@ export class CalcCACSRequest extends $tea.Model {
 
 export class CalcCACSResponseBody extends $tea.Model {
   data?: CalcCACSResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -135,6 +140,7 @@ export class CalcCACSResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: CalcCACSResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -308,10 +314,12 @@ export class DetectCovid19CadRequest extends $tea.Model {
 
 export class DetectCovid19CadResponseBody extends $tea.Model {
   data?: DetectCovid19CadResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -319,6 +327,7 @@ export class DetectCovid19CadResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectCovid19CadResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -707,10 +716,12 @@ export class DetectLungNoduleRequest extends $tea.Model {
 
 export class DetectLungNoduleResponseBody extends $tea.Model {
   data?: DetectLungNoduleResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -718,6 +729,7 @@ export class DetectLungNoduleResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectLungNoduleResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -923,10 +935,12 @@ export class DetectRibFractureRequest extends $tea.Model {
 
 export class DetectRibFractureResponseBody extends $tea.Model {
   data?: DetectRibFractureResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -934,6 +948,7 @@ export class DetectRibFractureResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectRibFractureResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1308,10 +1323,12 @@ export class RunCTRegistrationRequest extends $tea.Model {
 
 export class RunCTRegistrationResponseBody extends $tea.Model {
   data?: RunCTRegistrationResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1319,6 +1336,7 @@ export class RunCTRegistrationResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: RunCTRegistrationResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1476,10 +1494,12 @@ export class ScreenChestCTRequest extends $tea.Model {
 
 export class ScreenChestCTResponseBody extends $tea.Model {
   data?: ScreenChestCTResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1487,6 +1507,7 @@ export class ScreenChestCTResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ScreenChestCTResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1545,10 +1566,12 @@ export class ScreenECRequest extends $tea.Model {
 
 export class ScreenECResponseBody extends $tea.Model {
   data?: ScreenECResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1556,6 +1579,7 @@ export class ScreenECResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ScreenECResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1629,10 +1653,12 @@ export class SegmentOARRequest extends $tea.Model {
 
 export class SegmentOARResponseBody extends $tea.Model {
   data?: SegmentOARResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1640,6 +1666,7 @@ export class SegmentOARResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: SegmentOARResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
