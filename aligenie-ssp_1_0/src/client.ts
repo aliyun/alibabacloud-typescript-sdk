@@ -14659,10 +14659,14 @@ export class ScanCodeBindRequestUserInfo extends $tea.Model {
 export class ScanCodeBindResponseBodyResult extends $tea.Model {
   bizGroup?: string;
   bizType?: string;
+  deviceOpenId?: string;
+  userOpenId?: string;
   static names(): { [key: string]: string } {
     return {
-      bizGroup: 'bizGroup',
-      bizType: 'bizType',
+      bizGroup: 'BizGroup',
+      bizType: 'BizType',
+      deviceOpenId: 'DeviceOpenId',
+      userOpenId: 'UserOpenId',
     };
   }
 
@@ -14670,6 +14674,8 @@ export class ScanCodeBindResponseBodyResult extends $tea.Model {
     return {
       bizGroup: 'string',
       bizType: 'string',
+      deviceOpenId: 'string',
+      userOpenId: 'string',
     };
   }
 
