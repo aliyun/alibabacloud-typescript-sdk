@@ -1477,10 +1477,12 @@ export class RecolorHDImageAdvanceRequest extends $tea.Model {
 
 export class RecolorHDImageResponseBody extends $tea.Model {
   data?: RecolorHDImageResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1488,6 +1490,7 @@ export class RecolorHDImageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: RecolorHDImageResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
