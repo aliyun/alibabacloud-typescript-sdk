@@ -53,10 +53,12 @@ export class DetectVideoShotAdvanceRequest extends $tea.Model {
 
 export class DetectVideoShotResponseBody extends $tea.Model {
   data?: DetectVideoShotResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -64,6 +66,7 @@ export class DetectVideoShotResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectVideoShotResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -144,10 +147,12 @@ export class GenerateVideoCoverAdvanceRequest extends $tea.Model {
 
 export class GenerateVideoCoverResponseBody extends $tea.Model {
   data?: GenerateVideoCoverResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -155,6 +160,7 @@ export class GenerateVideoCoverResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: GenerateVideoCoverResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -332,10 +338,12 @@ export class RecognizeVideoCastCrewListShrinkRequest extends $tea.Model {
 
 export class RecognizeVideoCastCrewListResponseBody extends $tea.Model {
   data?: RecognizeVideoCastCrewListResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -343,6 +351,7 @@ export class RecognizeVideoCastCrewListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: RecognizeVideoCastCrewListResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -417,10 +426,12 @@ export class SplitVideoPartsAdvanceRequest extends $tea.Model {
 
 export class SplitVideoPartsResponseBody extends $tea.Model {
   data?: SplitVideoPartsResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -428,6 +439,7 @@ export class SplitVideoPartsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: SplitVideoPartsResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -502,10 +514,12 @@ export class UnderstandVideoContentAdvanceRequest extends $tea.Model {
 
 export class UnderstandVideoContentResponseBody extends $tea.Model {
   data?: UnderstandVideoContentResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -513,6 +527,7 @@ export class UnderstandVideoContentResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: UnderstandVideoContentResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -906,12 +921,16 @@ export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults extends $
 export class RecognizeVideoCastCrewListResponseBodyData extends $tea.Model {
   castResults?: RecognizeVideoCastCrewListResponseBodyDataCastResults[];
   ocrResults?: RecognizeVideoCastCrewListResponseBodyDataOcrResults[];
+  ocrResultsUrl?: string;
+  ocrVideoResultsUrl?: string;
   subtitlesResults?: RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults[];
   videoOcrResults?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults[];
   static names(): { [key: string]: string } {
     return {
       castResults: 'CastResults',
       ocrResults: 'OcrResults',
+      ocrResultsUrl: 'OcrResultsUrl',
+      ocrVideoResultsUrl: 'OcrVideoResultsUrl',
       subtitlesResults: 'SubtitlesResults',
       videoOcrResults: 'VideoOcrResults',
     };
@@ -921,6 +940,8 @@ export class RecognizeVideoCastCrewListResponseBodyData extends $tea.Model {
     return {
       castResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataCastResults },
       ocrResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResults },
+      ocrResultsUrl: 'string',
+      ocrVideoResultsUrl: 'string',
       subtitlesResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults },
       videoOcrResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults },
     };
