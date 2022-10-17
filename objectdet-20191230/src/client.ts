@@ -1084,10 +1084,12 @@ export class DetectVideoIPCObjectAdvanceRequest extends $tea.Model {
 
 export class DetectVideoIPCObjectResponseBody extends $tea.Model {
   data?: DetectVideoIPCObjectResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1095,6 +1097,7 @@ export class DetectVideoIPCObjectResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectVideoIPCObjectResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
