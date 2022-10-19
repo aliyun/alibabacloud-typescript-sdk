@@ -10657,18 +10657,18 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateAdminPasswordRequest extends $tea.Model {
-  body?: string;
+  esAdminPassword?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      esAdminPassword: 'esAdminPassword',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      esAdminPassword: 'string',
       clientToken: 'string',
     };
   }
@@ -10680,15 +10680,18 @@ export class UpdateAdminPasswordRequest extends $tea.Model {
 
 export class UpdateAdminPasswordResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -15038,12 +15041,42 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
   }
 }
 
+export class DescribeInstanceResponseBodyResultIkHotDicts extends $tea.Model {
+  fileSize?: number;
+  name?: string;
+  sourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSize: 'fileSize',
+      name: 'name',
+      sourceType: 'sourceType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSize: 'number',
+      name: 'string',
+      sourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
   amount?: number;
+  disk?: number;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
+      disk: 'disk',
       spec: 'spec',
     };
   }
@@ -15051,6 +15084,7 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      disk: 'number',
       spec: 'string',
     };
   }
@@ -15148,12 +15182,14 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
   disk?: number;
   diskEncryption?: boolean;
   diskType?: string;
+  performanceLevel?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       disk: 'disk',
       diskEncryption: 'diskEncryption',
       diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
       spec: 'spec',
     };
   }
@@ -15163,6 +15199,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
       disk: 'number',
       diskEncryption: 'boolean',
       diskType: 'string',
+      performanceLevel: 'string',
       spec: 'string',
     };
   }
@@ -15296,6 +15333,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
   extendConfigs?: { [key: string]: any }[];
   haveClientNode?: boolean;
   haveKibana?: boolean;
+  ikHotDicts?: DescribeInstanceResponseBodyResultIkHotDicts[];
   instanceId?: string;
   isNewDeployment?: boolean;
   kibanaConfiguration?: DescribeInstanceResponseBodyResultKibanaConfiguration;
@@ -15348,6 +15386,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       extendConfigs: 'extendConfigs',
       haveClientNode: 'haveClientNode',
       haveKibana: 'haveKibana',
+      ikHotDicts: 'ikHotDicts',
       instanceId: 'instanceId',
       isNewDeployment: 'isNewDeployment',
       kibanaConfiguration: 'kibanaConfiguration',
@@ -15403,6 +15442,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       haveClientNode: 'boolean',
       haveKibana: 'boolean',
+      ikHotDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultIkHotDicts },
       instanceId: 'string',
       isNewDeployment: 'boolean',
       kibanaConfiguration: DescribeInstanceResponseBodyResultKibanaConfiguration,
@@ -18452,12 +18492,14 @@ export class ListInstanceResponseBodyResultNodeSpec extends $tea.Model {
   disk?: number;
   diskEncryption?: boolean;
   diskType?: string;
+  performanceLevel?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       disk: 'disk',
       diskEncryption: 'diskEncryption',
       diskType: 'diskType',
+      performanceLevel: 'performanceLevel',
       spec: 'spec',
     };
   }
@@ -18467,6 +18509,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $tea.Model {
       disk: 'number',
       diskEncryption: 'boolean',
       diskType: 'string',
+      performanceLevel: 'string',
       spec: 'string',
     };
   }
@@ -18521,6 +18564,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   status?: string;
   tags?: ListInstanceResponseBodyResultTags[];
   updatedAt?: string;
+  vpcInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       advancedDedicateMaster: 'advancedDedicateMaster',
@@ -18545,6 +18589,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       status: 'status',
       tags: 'tags',
       updatedAt: 'updatedAt',
+      vpcInstanceId: 'vpcInstanceId',
     };
   }
 
@@ -18572,6 +18617,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListInstanceResponseBodyResultTags },
       updatedAt: 'string',
+      vpcInstanceId: 'string',
     };
   }
 
@@ -26360,10 +26406,15 @@ export default class Client extends OpenApi {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.esAdminPassword)) {
+      body["esAdminPassword"] = request.esAdminPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAdminPassword",
