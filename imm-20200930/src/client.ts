@@ -518,6 +518,7 @@ export class FigureCluster extends $tea.Model {
   gender?: string;
   imageCount?: number;
   maxAge?: number;
+  metaLockVersion?: number;
   minAge?: number;
   name?: string;
   objectId?: string;
@@ -538,6 +539,7 @@ export class FigureCluster extends $tea.Model {
       gender: 'Gender',
       imageCount: 'ImageCount',
       maxAge: 'MaxAge',
+      metaLockVersion: 'MetaLockVersion',
       minAge: 'MinAge',
       name: 'Name',
       objectId: 'ObjectId',
@@ -561,6 +563,7 @@ export class FigureCluster extends $tea.Model {
       gender: 'string',
       imageCount: 'number',
       maxAge: 'number',
+      metaLockVersion: 'number',
       minAge: 'number',
       name: 'string',
       objectId: 'string',
@@ -581,6 +584,7 @@ export class FigureClusterForReq extends $tea.Model {
   cover?: FigureClusterForReqCover;
   customId?: string;
   customLabels?: { [key: string]: any };
+  metaLockVersion?: number;
   name?: string;
   objectId?: string;
   static names(): { [key: string]: string } {
@@ -588,6 +592,7 @@ export class FigureClusterForReq extends $tea.Model {
       cover: 'Cover',
       customId: 'CustomId',
       customLabels: 'CustomLabels',
+      metaLockVersion: 'MetaLockVersion',
       name: 'Name',
       objectId: 'ObjectId',
     };
@@ -598,6 +603,7 @@ export class FigureClusterForReq extends $tea.Model {
       cover: FigureClusterForReqCover,
       customId: 'string',
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      metaLockVersion: 'number',
       name: 'string',
       objectId: 'string',
     };
