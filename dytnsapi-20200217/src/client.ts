@@ -959,6 +959,93 @@ export class PhoneNumberStatusForAccountResponse extends $tea.Model {
   }
 }
 
+export class PhoneNumberStatusForPublicRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PhoneNumberStatusForPublicResponseBody extends $tea.Model {
+  code?: string;
+  data?: PhoneNumberStatusForPublicResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PhoneNumberStatusForPublicResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PhoneNumberStatusForPublicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PhoneNumberStatusForPublicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PhoneNumberStatusForPublicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PhoneNumberStatusForRealRequest extends $tea.Model {
   authCode?: string;
   inputNumber?: string;
@@ -1569,15 +1656,18 @@ export class DescribePhoneNumberAttributeResponseBodyPhoneNumberAttribute extend
 }
 
 export class DescribePhoneNumberOnlineTimeResponseBodyData extends $tea.Model {
+  carrierCode?: string;
   verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
+      carrierCode: 'CarrierCode',
       verifyResult: 'VerifyResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      carrierCode: 'string',
       verifyResult: 'string',
     };
   }
@@ -1744,6 +1834,28 @@ export class PhoneNumberEncryptResponseBodyData extends $tea.Model {
 }
 
 export class PhoneNumberStatusForAccountResponseBodyData extends $tea.Model {
+  carrier?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carrier: 'Carrier',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carrier: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PhoneNumberStatusForPublicResponseBodyData extends $tea.Model {
   carrier?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -2446,6 +2558,55 @@ export default class Client extends OpenApi {
   async phoneNumberStatusForAccount(request: PhoneNumberStatusForAccountRequest): Promise<PhoneNumberStatusForAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberStatusForAccountWithOptions(request, runtime);
+  }
+
+  async phoneNumberStatusForPublicWithOptions(request: PhoneNumberStatusForPublicRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForPublicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PhoneNumberStatusForPublic",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PhoneNumberStatusForPublicResponse>(await this.callApi(params, req, runtime), new PhoneNumberStatusForPublicResponse({}));
+  }
+
+  async phoneNumberStatusForPublic(request: PhoneNumberStatusForPublicRequest): Promise<PhoneNumberStatusForPublicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.phoneNumberStatusForPublicWithOptions(request, runtime);
   }
 
   async phoneNumberStatusForRealWithOptions(request: PhoneNumberStatusForRealRequest, runtime: $Util.RuntimeOptions): Promise<PhoneNumberStatusForRealResponse> {
