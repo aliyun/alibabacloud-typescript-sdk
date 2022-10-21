@@ -143,7 +143,7 @@ export class AddressGetRequest extends $tea.Model {
 }
 
 export class AddressGetResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: AddressGetResponseBodyModule;
   requestId?: string;
@@ -162,7 +162,7 @@ export class AddressGetResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: AddressGetResponseBodyModule,
       requestId: 'string',
@@ -246,7 +246,7 @@ export class AirportSearchRequest extends $tea.Model {
 }
 
 export class AirportSearchResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: AirportSearchResponseBodyModule;
   requestId?: string;
@@ -265,7 +265,7 @@ export class AirportSearchResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: AirportSearchResponseBodyModule,
       requestId: 'string',
@@ -545,7 +545,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
 }
 
 export class ApplyAddResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: ApplyAddResponseBodyModule;
   requestId?: string;
@@ -564,7 +564,7 @@ export class ApplyAddResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: ApplyAddResponseBodyModule,
       requestId: 'string',
@@ -660,7 +660,7 @@ export class ApplyApproveRequest extends $tea.Model {
 }
 
 export class ApplyApproveResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: string;
   requestId?: string;
@@ -679,7 +679,7 @@ export class ApplyApproveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'string',
       requestId: 'string',
@@ -790,7 +790,7 @@ export class ApplyListQueryRequest extends $tea.Model {
 }
 
 export class ApplyListQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   moduleList?: ApplyListQueryResponseBodyModuleList[];
   requestId?: string;
@@ -809,7 +809,7 @@ export class ApplyListQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       moduleList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleList },
       requestId: 'string',
@@ -1077,7 +1077,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
 }
 
 export class ApplyModifyResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: ApplyModifyResponseBodyModule;
   requestId?: string;
@@ -1096,7 +1096,7 @@ export class ApplyModifyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: ApplyModifyResponseBodyModule,
       requestId: 'string',
@@ -1186,7 +1186,7 @@ export class ApplyQueryRequest extends $tea.Model {
 }
 
 export class ApplyQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: ApplyQueryResponseBodyModule;
   requestId?: string;
@@ -1205,7 +1205,7 @@ export class ApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: ApplyQueryResponseBodyModule,
       requestId: 'string',
@@ -1328,7 +1328,7 @@ export class CarApplyAddRequest extends $tea.Model {
 }
 
 export class CarApplyAddResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: number;
   requestId?: string;
@@ -1347,7 +1347,7 @@ export class CarApplyAddResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'number',
       requestId: 'string',
@@ -1440,7 +1440,7 @@ export class CarApplyModifyRequest extends $tea.Model {
 }
 
 export class CarApplyModifyResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: boolean;
   requestId?: string;
@@ -1459,7 +1459,7 @@ export class CarApplyModifyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'boolean',
       requestId: 'string',
@@ -1556,7 +1556,7 @@ export class CarApplyQueryRequest extends $tea.Model {
 
 export class CarApplyQueryResponseBody extends $tea.Model {
   applyList?: CarApplyQueryResponseBodyApplyList[];
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -1577,7 +1577,7 @@ export class CarApplyQueryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applyList: { 'type': 'array', 'itemType': CarApplyQueryResponseBodyApplyList },
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -1667,7 +1667,7 @@ export class CarBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class CarBillSettlementQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CarBillSettlementQueryResponseBodyModule;
   requestId?: string;
@@ -1686,7 +1686,7 @@ export class CarBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: CarBillSettlementQueryResponseBodyModule,
       requestId: 'string',
@@ -1797,7 +1797,7 @@ export class CarOrderListQueryRequest extends $tea.Model {
 }
 
 export class CarOrderListQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CarOrderListQueryResponseBodyModule[];
   pageInfo?: CarOrderListQueryResponseBodyPageInfo;
@@ -1818,7 +1818,7 @@ export class CarOrderListQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': CarOrderListQueryResponseBodyModule },
       pageInfo: CarOrderListQueryResponseBodyPageInfo,
@@ -1900,7 +1900,7 @@ export class CitySearchRequest extends $tea.Model {
 }
 
 export class CitySearchResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CitySearchResponseBodyModule;
   requestId?: string;
@@ -1919,7 +1919,7 @@ export class CitySearchResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: CitySearchResponseBodyModule,
       requestId: 'string',
@@ -2006,7 +2006,7 @@ export class CommonApplyQueryRequest extends $tea.Model {
 }
 
 export class CommonApplyQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CommonApplyQueryResponseBodyModule;
   requestId?: string;
@@ -2025,7 +2025,7 @@ export class CommonApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: CommonApplyQueryResponseBodyModule,
       requestId: 'string',
@@ -2121,7 +2121,7 @@ export class CommonApplySyncRequest extends $tea.Model {
 }
 
 export class CommonApplySyncResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: boolean;
   requestId?: string;
@@ -2140,7 +2140,7 @@ export class CommonApplySyncResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'boolean',
       requestId: 'string',
@@ -2324,7 +2324,7 @@ export class CostCenterDeleteRequest extends $tea.Model {
 }
 
 export class CostCenterDeleteResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -2341,7 +2341,7 @@ export class CostCenterDeleteResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -2433,7 +2433,7 @@ export class CostCenterModifyRequest extends $tea.Model {
 }
 
 export class CostCenterModifyResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -2450,7 +2450,7 @@ export class CostCenterModifyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -2539,7 +2539,7 @@ export class CostCenterQueryRequest extends $tea.Model {
 }
 
 export class CostCenterQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CostCenterQueryResponseBodyModule[];
   morePage?: boolean;
@@ -2560,7 +2560,7 @@ export class CostCenterQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': CostCenterQueryResponseBodyModule },
       morePage: 'boolean',
@@ -2654,7 +2654,7 @@ export class CostCenterSaveRequest extends $tea.Model {
 }
 
 export class CostCenterSaveResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: CostCenterSaveResponseBodyModule;
   requestId?: string;
@@ -2673,7 +2673,7 @@ export class CostCenterSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: CostCenterSaveResponseBodyModule,
       requestId: 'string',
@@ -2773,7 +2773,7 @@ export class DepartmentSaveShrinkRequest extends $tea.Model {
 }
 
 export class DepartmentSaveResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: string;
   requestId?: string;
@@ -2792,7 +2792,7 @@ export class DepartmentSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'string',
       requestId: 'string',
@@ -2898,7 +2898,7 @@ export class EntityAddShrinkRequest extends $tea.Model {
 }
 
 export class EntityAddResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: EntityAddResponseBodyModule;
   requestId?: string;
@@ -2917,7 +2917,7 @@ export class EntityAddResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: EntityAddResponseBodyModule,
       requestId: 'string',
@@ -3029,7 +3029,7 @@ export class EntityDeleteShrinkRequest extends $tea.Model {
 }
 
 export class EntityDeleteResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: EntityDeleteResponseBodyModule;
   morePage?: boolean;
@@ -3050,7 +3050,7 @@ export class EntityDeleteResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: EntityDeleteResponseBodyModule,
       morePage: 'boolean',
@@ -3157,7 +3157,7 @@ export class EntitySetShrinkRequest extends $tea.Model {
 }
 
 export class EntitySetResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: EntitySetResponseBodyModule;
   morePage?: boolean;
@@ -3178,7 +3178,7 @@ export class EntitySetResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: EntitySetResponseBodyModule,
       morePage: 'boolean',
@@ -3275,7 +3275,7 @@ export class ExceedApplySyncRequest extends $tea.Model {
 }
 
 export class ExceedApplySyncResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: boolean;
   requestId?: string;
@@ -3294,7 +3294,7 @@ export class ExceedApplySyncResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'boolean',
       requestId: 'string',
@@ -3384,7 +3384,7 @@ export class FlightBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class FlightBillSettlementQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: FlightBillSettlementQueryResponseBodyModule;
   requestId?: string;
@@ -3403,7 +3403,7 @@ export class FlightBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: FlightBillSettlementQueryResponseBodyModule,
       requestId: 'string',
@@ -3484,7 +3484,7 @@ export class FlightExceedApplyQueryRequest extends $tea.Model {
 }
 
 export class FlightExceedApplyQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: FlightExceedApplyQueryResponseBodyModule;
   requestId?: string;
@@ -3503,7 +3503,7 @@ export class FlightExceedApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: FlightExceedApplyQueryResponseBodyModule,
       requestId: 'string',
@@ -3614,7 +3614,7 @@ export class FlightOrderListQueryRequest extends $tea.Model {
 }
 
 export class FlightOrderListQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: FlightOrderListQueryResponseBodyModule[];
   pageInfo?: FlightOrderListQueryResponseBodyPageInfo;
@@ -3635,7 +3635,7 @@ export class FlightOrderListQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': FlightOrderListQueryResponseBodyModule },
       pageInfo: FlightOrderListQueryResponseBodyPageInfo,
@@ -3720,7 +3720,7 @@ export class FlightOrderQueryRequest extends $tea.Model {
 }
 
 export class FlightOrderQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: FlightOrderQueryResponseBodyModule;
   requestId?: string;
@@ -3739,7 +3739,7 @@ export class FlightOrderQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: FlightOrderQueryResponseBodyModule,
       requestId: 'string',
@@ -3829,7 +3829,7 @@ export class HotelBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class HotelBillSettlementQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: HotelBillSettlementQueryResponseBodyModule;
   requestId?: string;
@@ -3848,7 +3848,7 @@ export class HotelBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: HotelBillSettlementQueryResponseBodyModule,
       requestId: 'string',
@@ -3929,7 +3929,7 @@ export class HotelExceedApplyQueryRequest extends $tea.Model {
 }
 
 export class HotelExceedApplyQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: HotelExceedApplyQueryResponseBodyModule;
   requestId?: string;
@@ -3948,7 +3948,7 @@ export class HotelExceedApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: HotelExceedApplyQueryResponseBodyModule,
       requestId: 'string',
@@ -4059,7 +4059,7 @@ export class HotelOrderListQueryRequest extends $tea.Model {
 }
 
 export class HotelOrderListQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: HotelOrderListQueryResponseBodyModule[];
   pageInfo?: HotelOrderListQueryResponseBodyPageInfo;
@@ -4080,7 +4080,7 @@ export class HotelOrderListQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': HotelOrderListQueryResponseBodyModule },
       pageInfo: HotelOrderListQueryResponseBodyPageInfo,
@@ -4171,7 +4171,7 @@ export class IeFlightBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class IeFlightBillSettlementQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: IeFlightBillSettlementQueryResponseBodyModule;
   morePage?: boolean;
@@ -4192,7 +4192,7 @@ export class IeFlightBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: IeFlightBillSettlementQueryResponseBodyModule,
       morePage: 'boolean',
@@ -4295,7 +4295,7 @@ export class InvoiceAddRequest extends $tea.Model {
 }
 
 export class InvoiceAddResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -4312,7 +4312,7 @@ export class InvoiceAddResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -4392,7 +4392,7 @@ export class InvoiceDeleteRequest extends $tea.Model {
 }
 
 export class InvoiceDeleteResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -4409,7 +4409,7 @@ export class InvoiceDeleteResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -4510,7 +4510,7 @@ export class InvoiceModifyRequest extends $tea.Model {
 }
 
 export class InvoiceModifyResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -4527,7 +4527,7 @@ export class InvoiceModifyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -4638,7 +4638,7 @@ export class InvoiceRuleSaveShrinkRequest extends $tea.Model {
 }
 
 export class InvoiceRuleSaveResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: InvoiceRuleSaveResponseBodyModule;
   requestId?: string;
@@ -4657,7 +4657,7 @@ export class InvoiceRuleSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: InvoiceRuleSaveResponseBodyModule,
       requestId: 'string',
@@ -4741,7 +4741,7 @@ export class InvoiceSearchRequest extends $tea.Model {
 }
 
 export class InvoiceSearchResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: InvoiceSearchResponseBodyModule[];
   requestId?: string;
@@ -4760,7 +4760,7 @@ export class InvoiceSearchResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': InvoiceSearchResponseBodyModule },
       requestId: 'string',
@@ -4860,7 +4860,7 @@ export class IsvUserSaveShrinkRequest extends $tea.Model {
 }
 
 export class IsvUserSaveResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: string;
   requestId?: string;
@@ -4879,7 +4879,7 @@ export class IsvUserSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'string',
       requestId: 'string',
@@ -4960,7 +4960,7 @@ export class MonthBillGetRequest extends $tea.Model {
 }
 
 export class MonthBillGetResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: MonthBillGetResponseBodyModule[];
   requestId?: string;
@@ -4979,7 +4979,7 @@ export class MonthBillGetResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': MonthBillGetResponseBodyModule },
       requestId: 'string',
@@ -5072,7 +5072,7 @@ export class ProjectAddRequest extends $tea.Model {
 }
 
 export class ProjectAddResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: number;
   morePage?: boolean;
@@ -5093,7 +5093,7 @@ export class ProjectAddResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'number',
       morePage: 'boolean',
@@ -5175,7 +5175,7 @@ export class ProjectDeleteRequest extends $tea.Model {
 }
 
 export class ProjectDeleteResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: boolean;
   requestId?: string;
@@ -5194,7 +5194,7 @@ export class ProjectDeleteResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'boolean',
       requestId: 'string',
@@ -5287,7 +5287,7 @@ export class ProjectModifyRequest extends $tea.Model {
 }
 
 export class ProjectModifyResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: boolean;
   requestId?: string;
@@ -5306,7 +5306,7 @@ export class ProjectModifyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: 'boolean',
       requestId: 'string',
@@ -5396,7 +5396,7 @@ export class TrainBillSettlementQueryRequest extends $tea.Model {
 }
 
 export class TrainBillSettlementQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: TrainBillSettlementQueryResponseBodyModule;
   requestId?: string;
@@ -5415,7 +5415,7 @@ export class TrainBillSettlementQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: TrainBillSettlementQueryResponseBodyModule,
       requestId: 'string',
@@ -5496,7 +5496,7 @@ export class TrainExceedApplyQueryRequest extends $tea.Model {
 }
 
 export class TrainExceedApplyQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: TrainExceedApplyQueryResponseBodyModule;
   requestId?: string;
@@ -5515,7 +5515,7 @@ export class TrainExceedApplyQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: TrainExceedApplyQueryResponseBodyModule,
       requestId: 'string',
@@ -5626,7 +5626,7 @@ export class TrainOrderListQueryRequest extends $tea.Model {
 }
 
 export class TrainOrderListQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: TrainOrderListQueryResponseBodyModule[];
   pageInfo?: TrainOrderListQueryResponseBodyPageInfo;
@@ -5647,7 +5647,7 @@ export class TrainOrderListQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: { 'type': 'array', 'itemType': TrainOrderListQueryResponseBodyModule },
       pageInfo: TrainOrderListQueryResponseBodyPageInfo,
@@ -5732,18 +5732,18 @@ export class TrainOrderQueryRequest extends $tea.Model {
 }
 
 export class TrainOrderQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
   module?: TrainOrderQueryResponseBodyModule;
   requestId?: string;
-  resultCode?: number;
-  resultMsg?: string;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
+      message: 'message',
       module: 'module',
       requestId: 'requestId',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
       success: 'success',
       traceId: 'traceId',
     };
@@ -5751,10 +5751,10 @@ export class TrainOrderQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       module: TrainOrderQueryResponseBodyModule,
       requestId: 'string',
-      resultCode: 'number',
-      resultMsg: 'string',
       success: 'boolean',
       traceId: 'string',
     };
@@ -5832,7 +5832,7 @@ export class TrainStationSearchRequest extends $tea.Model {
 }
 
 export class TrainStationSearchResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: TrainStationSearchResponseBodyModule;
   requestId?: string;
@@ -5851,7 +5851,7 @@ export class TrainStationSearchResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: TrainStationSearchResponseBodyModule,
       requestId: 'string',
@@ -5941,7 +5941,7 @@ export class UserQueryRequest extends $tea.Model {
 }
 
 export class UserQueryResponseBody extends $tea.Model {
-  code?: number;
+  code?: string;
   message?: string;
   module?: UserQueryResponseBodyModule;
   requestId?: string;
@@ -5960,7 +5960,7 @@ export class UserQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       module: UserQueryResponseBodyModule,
       requestId: 'string',
