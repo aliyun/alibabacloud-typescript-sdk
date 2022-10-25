@@ -542,90 +542,6 @@ export class CreateOAuthTokenResponse extends $tea.Model {
   }
 }
 
-export class CreatePipelineRequest extends $tea.Model {
-  basicInfo?: CreatePipelineRequestBasicInfo;
-  pipelineYaml?: string;
-  settings?: CreatePipelineRequestSettings;
-  triggerInfo?: CreatePipelineRequestTriggerInfo;
-  static names(): { [key: string]: string } {
-    return {
-      basicInfo: 'basicInfo',
-      pipelineYaml: 'pipelineYaml',
-      settings: 'settings',
-      triggerInfo: 'triggerInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicInfo: CreatePipelineRequestBasicInfo,
-      pipelineYaml: 'string',
-      settings: CreatePipelineRequestSettings,
-      triggerInfo: CreatePipelineRequestTriggerInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  object?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      object: 'object',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      object: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePipelineResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePipelineResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreatePipelineGroupRequest extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -2092,12 +2008,14 @@ export class GetFileLastCommitRequest extends $tea.Model {
   filepath?: string;
   organizationId?: string;
   sha?: string;
+  showSignature?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessToken: 'accessToken',
       filepath: 'filepath',
       organizationId: 'organizationId',
       sha: 'sha',
+      showSignature: 'showSignature',
     };
   }
 
@@ -2107,6 +2025,7 @@ export class GetFileLastCommitRequest extends $tea.Model {
       filepath: 'string',
       organizationId: 'string',
       sha: 'string',
+      showSignature: 'boolean',
     };
   }
 
@@ -4686,6 +4605,87 @@ export class ListRepositoriesResponse extends $tea.Model {
   }
 }
 
+export class ListRepositoryCommitDiffRequest extends $tea.Model {
+  accessToken?: string;
+  contextLine?: number;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      contextLine: 'contextLine',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      contextLine: 'number',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryCommitDiffResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoryCommitDiffResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoryCommitDiffResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryCommitDiffResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRepositoryCommitDiffResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRepositoryCommitDiffResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoryMemberWithInheritedRequest extends $tea.Model {
   accessToken?: string;
   organizationId?: string;
@@ -6780,90 +6780,6 @@ export class UpdateHostGroupResponse extends $tea.Model {
   }
 }
 
-export class UpdatePipelineRequest extends $tea.Model {
-  basicInfo?: UpdatePipelineRequestBasicInfo;
-  pipelineYaml?: string;
-  settings?: UpdatePipelineRequestSettings;
-  triggerInfo?: UpdatePipelineRequestTriggerInfo;
-  static names(): { [key: string]: string } {
-    return {
-      basicInfo: 'basicInfo',
-      pipelineYaml: 'pipelineYaml',
-      settings: 'settings',
-      triggerInfo: 'triggerInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicInfo: UpdatePipelineRequestBasicInfo,
-      pipelineYaml: 'string',
-      settings: UpdatePipelineRequestSettings,
-      triggerInfo: UpdatePipelineRequestTriggerInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  object?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      object: 'object',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      object: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePipelineResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdatePipelineResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdatePipelineBaseInfoRequest extends $tea.Model {
   envId?: number;
   pipelineName?: string;
@@ -7093,6 +7009,201 @@ export class UpdateProjectMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequest extends $tea.Model {
+  accessToken?: string;
+  allowMergeRoles?: number[];
+  allowMergeUserIds?: number[];
+  allowPushRoles?: number[];
+  allowPushUserIds?: number[];
+  branch?: string;
+  id?: number;
+  mergeRequestSetting?: UpdateProtectedBranchesRequestMergeRequestSetting;
+  testSettingDTO?: UpdateProtectedBranchesRequestTestSettingDTO;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      allowMergeRoles: 'allowMergeRoles',
+      allowMergeUserIds: 'allowMergeUserIds',
+      allowPushRoles: 'allowPushRoles',
+      allowPushUserIds: 'allowPushUserIds',
+      branch: 'branch',
+      id: 'id',
+      mergeRequestSetting: 'mergeRequestSetting',
+      testSettingDTO: 'testSettingDTO',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      allowMergeRoles: { 'type': 'array', 'itemType': 'number' },
+      allowMergeUserIds: { 'type': 'array', 'itemType': 'number' },
+      allowPushRoles: { 'type': 'array', 'itemType': 'number' },
+      allowPushUserIds: { 'type': 'array', 'itemType': 'number' },
+      branch: 'string',
+      id: 'number',
+      mergeRequestSetting: UpdateProtectedBranchesRequestMergeRequestSetting,
+      testSettingDTO: UpdateProtectedBranchesRequestTestSettingDTO,
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateProtectedBranchesResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateProtectedBranchesResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateProtectedBranchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProtectedBranchesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryMemberRequest extends $tea.Model {
+  accessToken?: string;
+  accessLevel?: number;
+  expireAt?: string;
+  memberType?: string;
+  relatedId?: string;
+  relatedInfos?: UpdateRepositoryMemberRequestRelatedInfos[];
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      accessLevel: 'accessLevel',
+      expireAt: 'expireAt',
+      memberType: 'memberType',
+      relatedId: 'relatedId',
+      relatedInfos: 'relatedInfos',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      accessLevel: 'number',
+      expireAt: 'string',
+      memberType: 'string',
+      relatedId: 'string',
+      relatedInfos: { 'type': 'array', 'itemType': UpdateRepositoryMemberRequestRelatedInfos },
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryMemberResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateRepositoryMemberResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateRepositoryMemberResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateRepositoryMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRepositoryMemberResponseBody,
     };
   }
 
@@ -7441,171 +7552,6 @@ export class CreateOAuthTokenResponseBodyResult extends $tea.Model {
       id: 'string',
       scope: 'string',
       tokenType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestBasicInfo extends $tea.Model {
-  envId?: number;
-  groupId?: number;
-  name?: string;
-  tagIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      envId: 'envId',
-      groupId: 'groupId',
-      name: 'name',
-      tagIds: 'tagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      envId: 'number',
-      groupId: 'number',
-      name: 'string',
-      tagIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestSettingsCaches extends $tea.Model {
-  desc?: string;
-  directory?: string;
-  disable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'desc',
-      directory: 'directory',
-      disable: 'disable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      directory: 'string',
-      disable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestSettingsGlobalParams extends $tea.Model {
-  key?: string;
-  mask?: boolean;
-  runningConfig?: boolean;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      mask: 'mask',
-      runningConfig: 'runningConfig',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      mask: 'boolean',
-      runningConfig: 'boolean',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestSettings extends $tea.Model {
-  caches?: CreatePipelineRequestSettingsCaches[];
-  globalParams?: CreatePipelineRequestSettingsGlobalParams[];
-  runnerCacheMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caches: 'caches',
-      globalParams: 'globalParams',
-      runnerCacheMode: 'runnerCacheMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caches: { 'type': 'array', 'itemType': CreatePipelineRequestSettingsCaches },
-      globalParams: { 'type': 'array', 'itemType': CreatePipelineRequestSettingsGlobalParams },
-      runnerCacheMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestTriggerInfoScheduled extends $tea.Model {
-  daysOfWeek?: string;
-  fixedTime?: string;
-  from?: string;
-  interval?: number;
-  onlySourceChange?: boolean;
-  to?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      daysOfWeek: 'daysOfWeek',
-      fixedTime: 'fixedTime',
-      from: 'from',
-      interval: 'interval',
-      onlySourceChange: 'onlySourceChange',
-      to: 'to',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      daysOfWeek: 'string',
-      fixedTime: 'string',
-      from: 'string',
-      interval: 'number',
-      onlySourceChange: 'boolean',
-      to: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePipelineRequestTriggerInfo extends $tea.Model {
-  scheduled?: CreatePipelineRequestTriggerInfoScheduled;
-  webhookEnable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      scheduled: 'scheduled',
-      webhookEnable: 'webhookEnable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheduled: CreatePipelineRequestTriggerInfoScheduled,
-      webhookEnable: 'boolean',
     };
   }
 
@@ -10502,6 +10448,61 @@ export class ListRepositoriesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListRepositoryCommitDiffResponseBodyResult extends $tea.Model {
+  aMode?: string;
+  bMode?: string;
+  deletedFile?: boolean;
+  diff?: string;
+  isBinary?: boolean;
+  isNewLfs?: boolean;
+  isOldLfs?: boolean;
+  newFile?: boolean;
+  newId?: string;
+  newPath?: string;
+  oldId?: string;
+  oldPath?: string;
+  renamedFile?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aMode: 'aMode',
+      bMode: 'bMode',
+      deletedFile: 'deletedFile',
+      diff: 'diff',
+      isBinary: 'isBinary',
+      isNewLfs: 'isNewLfs',
+      isOldLfs: 'isOldLfs',
+      newFile: 'newFile',
+      newId: 'newId',
+      newPath: 'newPath',
+      oldId: 'oldId',
+      oldPath: 'oldPath',
+      renamedFile: 'renamedFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aMode: 'string',
+      bMode: 'string',
+      deletedFile: 'boolean',
+      diff: 'string',
+      isBinary: 'boolean',
+      isNewLfs: 'boolean',
+      isOldLfs: 'boolean',
+      newFile: 'boolean',
+      newId: 'string',
+      newPath: 'string',
+      oldId: 'string',
+      oldPath: 'string',
+      renamedFile: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoryMemberWithInheritedResponseBodyResultInherited extends $tea.Model {
   id?: number;
   name?: string;
@@ -11247,174 +11248,6 @@ export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   }
 }
 
-export class UpdatePipelineRequestBasicInfo extends $tea.Model {
-  envId?: number;
-  groupId?: number;
-  name?: string;
-  pipelineId?: number;
-  tagIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      envId: 'envId',
-      groupId: 'groupId',
-      name: 'name',
-      pipelineId: 'pipelineId',
-      tagIds: 'tagIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      envId: 'number',
-      groupId: 'number',
-      name: 'string',
-      pipelineId: 'number',
-      tagIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineRequestSettingsCaches extends $tea.Model {
-  desc?: string;
-  directory?: string;
-  disable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'desc',
-      directory: 'directory',
-      disable: 'disable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      directory: 'string',
-      disable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineRequestSettingsGlobalParams extends $tea.Model {
-  key?: string;
-  mask?: boolean;
-  runningConfig?: boolean;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      mask: 'mask',
-      runningConfig: 'runningConfig',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      mask: 'boolean',
-      runningConfig: 'boolean',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineRequestSettings extends $tea.Model {
-  caches?: UpdatePipelineRequestSettingsCaches[];
-  globalParams?: UpdatePipelineRequestSettingsGlobalParams[];
-  runnerCacheMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caches: 'caches',
-      globalParams: 'globalParams',
-      runnerCacheMode: 'runnerCacheMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caches: { 'type': 'array', 'itemType': UpdatePipelineRequestSettingsCaches },
-      globalParams: { 'type': 'array', 'itemType': UpdatePipelineRequestSettingsGlobalParams },
-      runnerCacheMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineRequestTriggerInfoScheduled extends $tea.Model {
-  daysOfWeek?: string;
-  fixedTime?: string;
-  from?: string;
-  interval?: number;
-  onlySourceChange?: boolean;
-  to?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      daysOfWeek: 'daysOfWeek',
-      fixedTime: 'fixedTime',
-      from: 'from',
-      interval: 'interval',
-      onlySourceChange: 'onlySourceChange',
-      to: 'to',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      daysOfWeek: 'string',
-      fixedTime: 'string',
-      from: 'string',
-      interval: 'number',
-      onlySourceChange: 'boolean',
-      to: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePipelineRequestTriggerInfo extends $tea.Model {
-  scheduled?: UpdatePipelineRequestTriggerInfoScheduled;
-  webhookEnable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      scheduled: 'scheduled',
-      webhookEnable: 'webhookEnable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheduled: UpdatePipelineRequestTriggerInfoScheduled,
-      webhookEnable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -11447,6 +11280,506 @@ export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
       targetType: 'string',
       userIdentifier: 'string',
       userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestMergeRequestSetting extends $tea.Model {
+  allowMergeRequestRoles?: number[];
+  defaultAssignees?: number[];
+  isAllowSelfApproval?: boolean;
+  isRequireDiscussionProcessed?: boolean;
+  isRequired?: boolean;
+  isResetApprovalWhenNewPush?: boolean;
+  minimumApproval?: number;
+  mrMode?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowMergeRequestRoles: 'allowMergeRequestRoles',
+      defaultAssignees: 'defaultAssignees',
+      isAllowSelfApproval: 'isAllowSelfApproval',
+      isRequireDiscussionProcessed: 'isRequireDiscussionProcessed',
+      isRequired: 'isRequired',
+      isResetApprovalWhenNewPush: 'isResetApprovalWhenNewPush',
+      minimumApproval: 'minimumApproval',
+      mrMode: 'mrMode',
+      whiteList: 'whiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMergeRequestRoles: { 'type': 'array', 'itemType': 'number' },
+      defaultAssignees: { 'type': 'array', 'itemType': 'number' },
+      isAllowSelfApproval: 'boolean',
+      isRequireDiscussionProcessed: 'boolean',
+      isRequired: 'boolean',
+      isResetApprovalWhenNewPush: 'boolean',
+      minimumApproval: 'number',
+      mrMode: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTOCheckConfigCheckItems extends $tea.Model {
+  isRequired?: boolean;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isRequired: 'isRequired',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isRequired: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTOCheckConfig extends $tea.Model {
+  checkItems?: UpdateProtectedBranchesRequestTestSettingDTOCheckConfigCheckItems[];
+  static names(): { [key: string]: string } {
+    return {
+      checkItems: 'checkItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItems: { 'type': 'array', 'itemType': UpdateProtectedBranchesRequestTestSettingDTOCheckConfigCheckItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTOCheckTaskQualityConfig extends $tea.Model {
+  bizNo?: string;
+  enabled?: boolean;
+  message?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizNo: 'bizNo',
+      enabled: 'enabled',
+      message: 'message',
+      taskName: 'taskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizNo: 'string',
+      enabled: 'boolean',
+      message: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTOCodeGuidelinesDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTOSensitiveInfoDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesRequestTestSettingDTO extends $tea.Model {
+  checkConfig?: UpdateProtectedBranchesRequestTestSettingDTOCheckConfig;
+  checkTaskQualityConfig?: UpdateProtectedBranchesRequestTestSettingDTOCheckTaskQualityConfig;
+  codeGuidelinesDetection?: UpdateProtectedBranchesRequestTestSettingDTOCodeGuidelinesDetection;
+  isRequired?: boolean;
+  sensitiveInfoDetection?: UpdateProtectedBranchesRequestTestSettingDTOSensitiveInfoDetection;
+  static names(): { [key: string]: string } {
+    return {
+      checkConfig: 'checkConfig',
+      checkTaskQualityConfig: 'checkTaskQualityConfig',
+      codeGuidelinesDetection: 'codeGuidelinesDetection',
+      isRequired: 'isRequired',
+      sensitiveInfoDetection: 'sensitiveInfoDetection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkConfig: UpdateProtectedBranchesRequestTestSettingDTOCheckConfig,
+      checkTaskQualityConfig: UpdateProtectedBranchesRequestTestSettingDTOCheckTaskQualityConfig,
+      codeGuidelinesDetection: UpdateProtectedBranchesRequestTestSettingDTOCodeGuidelinesDetection,
+      isRequired: 'boolean',
+      sensitiveInfoDetection: UpdateProtectedBranchesRequestTestSettingDTOSensitiveInfoDetection,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultMergeRequestSetting extends $tea.Model {
+  allowMergeRequestRoles?: number[];
+  defaultAssignees?: number[];
+  isAllowSelfApproval?: boolean;
+  isRequireDiscussionProcessed?: boolean;
+  isRequired?: boolean;
+  isResetApprovalWhenNewPush?: boolean;
+  minimumApproval?: number;
+  mrMode?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowMergeRequestRoles: 'allowMergeRequestRoles',
+      defaultAssignees: 'defaultAssignees',
+      isAllowSelfApproval: 'isAllowSelfApproval',
+      isRequireDiscussionProcessed: 'isRequireDiscussionProcessed',
+      isRequired: 'isRequired',
+      isResetApprovalWhenNewPush: 'isResetApprovalWhenNewPush',
+      minimumApproval: 'minimumApproval',
+      mrMode: 'mrMode',
+      whiteList: 'whiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMergeRequestRoles: { 'type': 'array', 'itemType': 'number' },
+      defaultAssignees: { 'type': 'array', 'itemType': 'number' },
+      isAllowSelfApproval: 'boolean',
+      isRequireDiscussionProcessed: 'boolean',
+      isRequired: 'boolean',
+      isResetApprovalWhenNewPush: 'boolean',
+      minimumApproval: 'number',
+      mrMode: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems extends $tea.Model {
+  isRequired?: boolean;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isRequired: 'isRequired',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isRequired: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig extends $tea.Model {
+  checkItems?: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems[];
+  static names(): { [key: string]: string } {
+    return {
+      checkItems: 'checkItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItems: { 'type': 'array', 'itemType': UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig extends $tea.Model {
+  bizNo?: string;
+  enabled?: boolean;
+  message?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizNo: 'bizNo',
+      enabled: 'enabled',
+      message: 'message',
+      taskName: 'taskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizNo: 'string',
+      enabled: 'boolean',
+      message: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResultTestSettingDTO extends $tea.Model {
+  checkConfig?: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig;
+  checkTaskQualityConfig?: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig;
+  codeGuidelinesDetection?: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection;
+  isRequired?: boolean;
+  sensitiveInfoDetection?: UpdateProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection;
+  static names(): { [key: string]: string } {
+    return {
+      checkConfig: 'checkConfig',
+      checkTaskQualityConfig: 'checkTaskQualityConfig',
+      codeGuidelinesDetection: 'codeGuidelinesDetection',
+      isRequired: 'isRequired',
+      sensitiveInfoDetection: 'sensitiveInfoDetection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkConfig: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig,
+      checkTaskQualityConfig: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig,
+      codeGuidelinesDetection: UpdateProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection,
+      isRequired: 'boolean',
+      sensitiveInfoDetection: UpdateProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProtectedBranchesResponseBodyResult extends $tea.Model {
+  allowMergeRoles?: number[];
+  allowMergeUserIds?: number[];
+  allowPushRoles?: number[];
+  allowPushUserIds?: number[];
+  branch?: string;
+  id?: number;
+  mergeRequestSetting?: UpdateProtectedBranchesResponseBodyResultMergeRequestSetting;
+  testSettingDTO?: UpdateProtectedBranchesResponseBodyResultTestSettingDTO;
+  static names(): { [key: string]: string } {
+    return {
+      allowMergeRoles: 'allowMergeRoles',
+      allowMergeUserIds: 'allowMergeUserIds',
+      allowPushRoles: 'allowPushRoles',
+      allowPushUserIds: 'allowPushUserIds',
+      branch: 'branch',
+      id: 'id',
+      mergeRequestSetting: 'mergeRequestSetting',
+      testSettingDTO: 'testSettingDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMergeRoles: { 'type': 'array', 'itemType': 'number' },
+      allowMergeUserIds: { 'type': 'array', 'itemType': 'number' },
+      allowPushRoles: { 'type': 'array', 'itemType': 'number' },
+      allowPushUserIds: { 'type': 'array', 'itemType': 'number' },
+      branch: 'string',
+      id: 'number',
+      mergeRequestSetting: UpdateProtectedBranchesResponseBodyResultMergeRequestSetting,
+      testSettingDTO: UpdateProtectedBranchesResponseBodyResultTestSettingDTO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryMemberRequestRelatedInfos extends $tea.Model {
+  relatedId?: string;
+  sourceId?: number;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relatedId: 'relatedId',
+      sourceId: 'sourceId',
+      sourceType: 'sourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedId: 'string',
+      sourceId: 'number',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryMemberResponseBodyResult extends $tea.Model {
+  accessLevel?: number;
+  avatarUrl?: string;
+  email?: string;
+  expireAt?: string;
+  externUid?: string;
+  id?: number;
+  memberName?: string;
+  memberType?: string;
+  name?: string;
+  sourceId?: number;
+  sourceType?: string;
+  state?: string;
+  tbUserId?: string;
+  username?: string;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      expireAt: 'expireAt',
+      externUid: 'externUid',
+      id: 'id',
+      memberName: 'memberName',
+      memberType: 'memberType',
+      name: 'name',
+      sourceId: 'sourceId',
+      sourceType: 'sourceType',
+      state: 'state',
+      tbUserId: 'tbUserId',
+      username: 'username',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      avatarUrl: 'string',
+      email: 'string',
+      expireAt: 'string',
+      externUid: 'string',
+      id: 'number',
+      memberName: 'string',
+      memberType: 'string',
+      name: 'string',
+      sourceId: 'number',
+      sourceType: 'string',
+      state: 'string',
+      tbUserId: 'string',
+      username: 'string',
+      webUrl: 'string',
     };
   }
 
@@ -11565,7 +11898,6 @@ export default class Client extends OpenApi {
 
   async addRepositoryMemberWithOptions(repositoryId: string, request: AddRepositoryMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddRepositoryMemberResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["AccessToken"] = request.accessToken;
@@ -11593,7 +11925,7 @@ export default class Client extends OpenApi {
       action: "AddRepositoryMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/members`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/members`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11611,7 +11943,6 @@ export default class Client extends OpenApi {
 
   async addWebhookWithOptions(repositoryId: string, request: AddWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddWebhookResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["AccessToken"] = request.accessToken;
@@ -11663,7 +11994,7 @@ export default class Client extends OpenApi {
       action: "AddWebhook",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/webhooks/create`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/webhooks/create`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11681,7 +12012,6 @@ export default class Client extends OpenApi {
 
   async createFlowTagWithOptions(organizationId: string, request: CreateFlowTagRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFlowTagResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.color)) {
       query["color"] = request.color;
@@ -11703,7 +12033,7 @@ export default class Client extends OpenApi {
       action: "CreateFlowTag",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tags`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tags`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11721,7 +12051,6 @@ export default class Client extends OpenApi {
 
   async createFlowTagGroupWithOptions(organizationId: string, request: CreateFlowTagGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFlowTagGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -11735,7 +12064,7 @@ export default class Client extends OpenApi {
       action: "CreateFlowTagGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tagGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tagGroups`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11753,7 +12082,6 @@ export default class Client extends OpenApi {
 
   async createHostGroupWithOptions(organizationId: string, request: CreateHostGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateHostGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.aliyunRegion)) {
       body["aliyunRegion"] = request.aliyunRegion;
@@ -11803,7 +12131,7 @@ export default class Client extends OpenApi {
       action: "CreateHostGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/hostGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/hostGroups`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11864,50 +12192,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOAuthTokenResponse>(await this.callApi(params, req, runtime), new CreateOAuthTokenResponse({}));
   }
 
-  async createPipeline(organizationId: string, request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createPipelineWithOptions(organizationId, request, headers, runtime);
-  }
-
-  async createPipelineWithOptions(organizationId: string, request: CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
-    Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.basicInfo))) {
-      body["basicInfo"] = request.basicInfo;
-    }
-
-    if (!Util.isUnset(request.pipelineYaml)) {
-      body["pipelineYaml"] = request.pipelineYaml;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.settings))) {
-      body["settings"] = request.settings;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.triggerInfo))) {
-      body["triggerInfo"] = request.triggerInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreatePipeline",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
-  }
-
   async createPipelineGroup(organizationId: string, request: CreatePipelineGroupRequest): Promise<CreatePipelineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11916,7 +12200,6 @@ export default class Client extends OpenApi {
 
   async createPipelineGroupWithOptions(organizationId: string, request: CreatePipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -11930,7 +12213,7 @@ export default class Client extends OpenApi {
       action: "CreatePipelineGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11948,7 +12231,6 @@ export default class Client extends OpenApi {
 
   async createProjectWithOptions(organizationId: string, request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.customCode)) {
       body["customCode"] = request.customCode;
@@ -11974,7 +12256,7 @@ export default class Client extends OpenApi {
       action: "CreateProject",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/createProject`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/createProject`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12105,9 +12387,6 @@ export default class Client extends OpenApi {
 
   async createResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, request: CreateResourceMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceMemberResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    resourceType = OpenApiUtil.getEncodeParam(resourceType);
-    resourceId = OpenApiUtil.getEncodeParam(resourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accountId)) {
       body["accountId"] = request.accountId;
@@ -12125,7 +12404,7 @@ export default class Client extends OpenApi {
       action: "CreateResourceMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/${resourceType}/${resourceId}/members`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/${OpenApiUtil.getEncodeParam(resourceType)}/${OpenApiUtil.getEncodeParam(resourceId)}/members`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12143,7 +12422,6 @@ export default class Client extends OpenApi {
 
   async createSprintWithOptions(organizationId: string, request: CreateSprintRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSprintResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endDate)) {
       body["endDate"] = request.endDate;
@@ -12173,7 +12451,7 @@ export default class Client extends OpenApi {
       action: "CreateSprint",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/sprints/create`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/sprints/create`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12190,7 +12468,6 @@ export default class Client extends OpenApi {
   }
 
   async createSshKeyWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSshKeyResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12198,7 +12475,7 @@ export default class Client extends OpenApi {
       action: "CreateSshKey",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/sshKey`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/sshKey`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12216,7 +12493,6 @@ export default class Client extends OpenApi {
 
   async createVariableGroupWithOptions(organizationId: string, request: CreateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVariableGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -12238,7 +12514,7 @@ export default class Client extends OpenApi {
       action: "CreateVariableGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/variableGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/variableGroups`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12256,7 +12532,6 @@ export default class Client extends OpenApi {
 
   async createWorkitemWithOptions(organizationId: string, request: CreateWorkitemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.assignedTo)) {
       body["assignedTo"] = request.assignedTo;
@@ -12326,7 +12601,7 @@ export default class Client extends OpenApi {
       action: "CreateWorkitem",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/create`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/create`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12402,8 +12677,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteFlowTagWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFlowTagResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12411,7 +12684,7 @@ export default class Client extends OpenApi {
       action: "DeleteFlowTag",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tags/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tags/${OpenApiUtil.getEncodeParam(id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12428,8 +12701,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteFlowTagGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFlowTagGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12437,7 +12708,7 @@ export default class Client extends OpenApi {
       action: "DeleteFlowTagGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tagGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12454,8 +12725,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteHostGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteHostGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12463,7 +12732,7 @@ export default class Client extends OpenApi {
       action: "DeleteHostGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/hostGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/hostGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12480,8 +12749,6 @@ export default class Client extends OpenApi {
   }
 
   async deletePipelineWithOptions(organizationId: string, pipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12489,7 +12756,7 @@ export default class Client extends OpenApi {
       action: "DeletePipeline",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12506,8 +12773,6 @@ export default class Client extends OpenApi {
   }
 
   async deletePipelineGroupWithOptions(organizationId: string, groupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    groupId = OpenApiUtil.getEncodeParam(groupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12515,7 +12780,7 @@ export default class Client extends OpenApi {
       action: "DeletePipelineGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups/${OpenApiUtil.getEncodeParam(groupId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12533,7 +12798,6 @@ export default class Client extends OpenApi {
 
   async deleteProjectWithOptions(organizationId: string, request: DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.identifier)) {
       query["identifier"] = request.identifier;
@@ -12547,7 +12811,7 @@ export default class Client extends OpenApi {
       action: "DeleteProject",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/delete`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/delete`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12564,10 +12828,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceMemberResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    resourceType = OpenApiUtil.getEncodeParam(resourceType);
-    resourceId = OpenApiUtil.getEncodeParam(resourceId);
-    accountId = OpenApiUtil.getEncodeParam(accountId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12575,7 +12835,7 @@ export default class Client extends OpenApi {
       action: "DeleteResourceMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/${resourceType}/${resourceId}/members/${accountId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/${OpenApiUtil.getEncodeParam(resourceType)}/${OpenApiUtil.getEncodeParam(resourceId)}/members/${OpenApiUtil.getEncodeParam(accountId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12592,8 +12852,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteVariableGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVariableGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12601,7 +12859,7 @@ export default class Client extends OpenApi {
       action: "DeleteVariableGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/variableGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/variableGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12618,7 +12876,6 @@ export default class Client extends OpenApi {
   }
 
   async frozenWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FrozenWorkspaceResponse> {
-    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12626,7 +12883,7 @@ export default class Client extends OpenApi {
       action: "FrozenWorkspace",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/api/workspaces/${workspaceId}/frozen`,
+      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/frozen`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12644,7 +12901,6 @@ export default class Client extends OpenApi {
 
   async getCodeupOrganizationWithOptions(identity: string, request: GetCodeupOrganizationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCodeupOrganizationResponse> {
     Util.validateModel(request);
-    identity = OpenApiUtil.getEncodeParam(identity);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["AccessToken"] = request.accessToken;
@@ -12658,7 +12914,7 @@ export default class Client extends OpenApi {
       action: "GetCodeupOrganization",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/api/organization/${identity}`,
+      pathname: `/api/organization/${OpenApiUtil.getEncodeParam(identity)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12676,8 +12932,6 @@ export default class Client extends OpenApi {
 
   async getCustomFieldOptionWithOptions(organizationId: string, fieldId: string, request: GetCustomFieldOptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomFieldOptionResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    fieldId = OpenApiUtil.getEncodeParam(fieldId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.spaceIdentifier)) {
       query["spaceIdentifier"] = request.spaceIdentifier;
@@ -12699,7 +12953,7 @@ export default class Client extends OpenApi {
       action: "GetCustomFieldOption",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/fields/${fieldId}/getCustomOption`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/fields/${OpenApiUtil.getEncodeParam(fieldId)}/getCustomOption`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12717,7 +12971,6 @@ export default class Client extends OpenApi {
 
   async getFileLastCommitWithOptions(repositoryId: string, request: GetFileLastCommitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileLastCommitResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["accessToken"] = request.accessToken;
@@ -12735,6 +12988,10 @@ export default class Client extends OpenApi {
       query["sha"] = request.sha;
     }
 
+    if (!Util.isUnset(request.showSignature)) {
+      query["showSignature"] = request.showSignature;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -12743,7 +13000,7 @@ export default class Client extends OpenApi {
       action: "GetFileLastCommit",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/files/lastCommit`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files/lastCommit`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12760,8 +13017,6 @@ export default class Client extends OpenApi {
   }
 
   async getFlowTagGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFlowTagGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12769,7 +13024,7 @@ export default class Client extends OpenApi {
       action: "GetFlowTagGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tagGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12786,8 +13041,6 @@ export default class Client extends OpenApi {
   }
 
   async getHostGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHostGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12795,7 +13048,7 @@ export default class Client extends OpenApi {
       action: "GetHostGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/hostGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/hostGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12812,8 +13065,6 @@ export default class Client extends OpenApi {
   }
 
   async getOrganizationMemberWithOptions(organizationId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrganizationMemberResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    accountId = OpenApiUtil.getEncodeParam(accountId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12821,7 +13072,7 @@ export default class Client extends OpenApi {
       action: "GetOrganizationMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/members/${accountId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/members/${OpenApiUtil.getEncodeParam(accountId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12838,8 +13089,6 @@ export default class Client extends OpenApi {
   }
 
   async getPipelineWithOptions(organizationId: string, pipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12847,7 +13096,7 @@ export default class Client extends OpenApi {
       action: "GetPipeline",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12865,7 +13114,6 @@ export default class Client extends OpenApi {
 
   async getPipelineArtifactUrlWithOptions(organizationId: string, request: GetPipelineArtifactUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineArtifactUrlResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.fileName)) {
       query["fileName"] = request.fileName;
@@ -12883,7 +13131,7 @@ export default class Client extends OpenApi {
       action: "GetPipelineArtifactUrl",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/getArtifactDownloadUrl`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/getArtifactDownloadUrl`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12901,11 +13149,6 @@ export default class Client extends OpenApi {
 
   async getPipelineEmasArtifactUrlWithOptions(organizationId: string, emasJobInstanceId: string, md5: string, pipelineId: string, pipelineRunId: string, request: GetPipelineEmasArtifactUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineEmasArtifactUrlResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    emasJobInstanceId = OpenApiUtil.getEncodeParam(emasJobInstanceId);
-    md5 = OpenApiUtil.getEncodeParam(md5);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.serviceConnectionId)) {
       query["serviceConnectionId"] = request.serviceConnectionId;
@@ -12919,7 +13162,7 @@ export default class Client extends OpenApi {
       action: "GetPipelineEmasArtifactUrl",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/${pipelineId}/pipelineRun/${pipelineRunId}/emas/artifact/${emasJobInstanceId}/${md5}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRun/${OpenApiUtil.getEncodeParam(pipelineRunId)}/emas/artifact/${OpenApiUtil.getEncodeParam(emasJobInstanceId)}/${OpenApiUtil.getEncodeParam(md5)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12936,8 +13179,6 @@ export default class Client extends OpenApi {
   }
 
   async getPipelineGroupWithOptions(organizationId: string, groupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    groupId = OpenApiUtil.getEncodeParam(groupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12945,7 +13186,7 @@ export default class Client extends OpenApi {
       action: "GetPipelineGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups/${OpenApiUtil.getEncodeParam(groupId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12962,9 +13203,6 @@ export default class Client extends OpenApi {
   }
 
   async getPipelineRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12972,7 +13210,7 @@ export default class Client extends OpenApi {
       action: "GetPipelineRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12990,7 +13228,6 @@ export default class Client extends OpenApi {
 
   async getPipelineScanReportUrlWithOptions(organizationId: string, request: GetPipelineScanReportUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineScanReportUrlResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.reportPath)) {
       body["reportPath"] = request.reportPath;
@@ -13004,7 +13241,7 @@ export default class Client extends OpenApi {
       action: "GetPipelineScanReportUrl",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/getPipelineScanReportUrl`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/getPipelineScanReportUrl`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13021,8 +13258,6 @@ export default class Client extends OpenApi {
   }
 
   async getProjectInfoWithOptions(organizationId: string, projectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectInfoResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    projectId = OpenApiUtil.getEncodeParam(projectId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13030,7 +13265,7 @@ export default class Client extends OpenApi {
       action: "GetProjectInfo",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/project/${projectId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/project/${OpenApiUtil.getEncodeParam(projectId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13129,8 +13364,6 @@ export default class Client extends OpenApi {
   }
 
   async getSprintInfoWithOptions(organizationId: string, sprintId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSprintInfoResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    sprintId = OpenApiUtil.getEncodeParam(sprintId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13138,7 +13371,7 @@ export default class Client extends OpenApi {
       action: "GetSprintInfo",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/sprints/${sprintId}/getSprintinfo`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/sprints/${OpenApiUtil.getEncodeParam(sprintId)}/getSprintinfo`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13155,9 +13388,6 @@ export default class Client extends OpenApi {
   }
 
   async getVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVMDeployOrderResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13165,7 +13395,7 @@ export default class Client extends OpenApi {
       action: "GetVMDeployOrder",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13182,8 +13412,6 @@ export default class Client extends OpenApi {
   }
 
   async getVariableGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVariableGroupResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13191,7 +13419,7 @@ export default class Client extends OpenApi {
       action: "GetVariableGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/variableGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/variableGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13208,8 +13436,6 @@ export default class Client extends OpenApi {
   }
 
   async getWorkItemActivityWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkItemActivityResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    workitemId = OpenApiUtil.getEncodeParam(workitemId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13217,7 +13443,7 @@ export default class Client extends OpenApi {
       action: "GetWorkItemActivity",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/${workitemId}/getActivity`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/getActivity`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13234,8 +13460,6 @@ export default class Client extends OpenApi {
   }
 
   async getWorkItemInfoWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkItemInfoResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    workitemId = OpenApiUtil.getEncodeParam(workitemId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13243,7 +13467,7 @@ export default class Client extends OpenApi {
       action: "GetWorkItemInfo",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/${workitemId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13261,8 +13485,6 @@ export default class Client extends OpenApi {
 
   async getWorkItemWorkFlowInfoWithOptions(organizationId: string, workitemId: string, request: GetWorkItemWorkFlowInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkItemWorkFlowInfoResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    workitemId = OpenApiUtil.getEncodeParam(workitemId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.configurationId)) {
       query["configurationId"] = request.configurationId;
@@ -13276,7 +13498,7 @@ export default class Client extends OpenApi {
       action: "GetWorkItemWorkFlowInfo",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/${workitemId}/getWorkflowInfo`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/getWorkflowInfo`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13293,7 +13515,6 @@ export default class Client extends OpenApi {
   }
 
   async getWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
-    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13301,7 +13522,7 @@ export default class Client extends OpenApi {
       action: "GetWorkspace",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/api/workspaces/${workspaceId}`,
+      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13319,7 +13540,6 @@ export default class Client extends OpenApi {
 
   async joinPipelineGroupWithOptions(organizationId: string, request: JoinPipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<JoinPipelineGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.groupId)) {
       query["groupId"] = request.groupId;
@@ -13337,7 +13557,7 @@ export default class Client extends OpenApi {
       action: "JoinPipelineGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups/join`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups/join`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13354,7 +13574,6 @@ export default class Client extends OpenApi {
   }
 
   async listFlowTagGroupsWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFlowTagGroupsResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13362,7 +13581,7 @@ export default class Client extends OpenApi {
       action: "ListFlowTagGroups",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tagGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tagGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13380,7 +13599,6 @@ export default class Client extends OpenApi {
 
   async listHostGroupsWithOptions(organizationId: string, request: ListHostGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHostGroupsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.createEndTime)) {
       query["createEndTime"] = request.createEndTime;
@@ -13426,7 +13644,7 @@ export default class Client extends OpenApi {
       action: "ListHostGroups",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/hostGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/hostGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13444,7 +13662,6 @@ export default class Client extends OpenApi {
 
   async listOrganizationMembersWithOptions(organizationId: string, request: ListOrganizationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOrganizationMembersResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.externUid)) {
       query["externUid"] = request.externUid;
@@ -13486,7 +13703,7 @@ export default class Client extends OpenApi {
       action: "ListOrganizationMembers",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/members`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/members`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13504,8 +13721,6 @@ export default class Client extends OpenApi {
 
   async listPipelineGroupPipelinesWithOptions(organizationId: string, groupId: string, request: ListPipelineGroupPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineGroupPipelinesResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    groupId = OpenApiUtil.getEncodeParam(groupId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.createEndTime)) {
       query["createEndTime"] = request.createEndTime;
@@ -13547,7 +13762,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineGroupPipelines",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}/pipelines`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups/${OpenApiUtil.getEncodeParam(groupId)}/pipelines`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13565,7 +13780,6 @@ export default class Client extends OpenApi {
 
   async listPipelineGroupsWithOptions(organizationId: string, request: ListPipelineGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineGroupsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.maxResults)) {
       query["maxResults"] = request.maxResults;
@@ -13583,7 +13797,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineGroups",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13601,8 +13815,6 @@ export default class Client extends OpenApi {
 
   async listPipelineJobHistorysWithOptions(organizationId: string, pipelineId: string, request: ListPipelineJobHistorysRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineJobHistorysResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -13628,7 +13840,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineJobHistorys",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/${pipelineId}/job/historys`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/${OpenApiUtil.getEncodeParam(pipelineId)}/job/historys`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13646,8 +13858,6 @@ export default class Client extends OpenApi {
 
   async listPipelineJobsWithOptions(organizationId: string, pipelineId: string, request: ListPipelineJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineJobsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -13661,7 +13871,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineJobs",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/${pipelineId}/jobs`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/${OpenApiUtil.getEncodeParam(pipelineId)}/jobs`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13679,8 +13889,6 @@ export default class Client extends OpenApi {
 
   async listPipelineRunsWithOptions(organizationId: string, pipelineId: string, request: ListPipelineRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["endTime"] = request.endTime;
@@ -13714,7 +13922,7 @@ export default class Client extends OpenApi {
       action: "ListPipelineRuns",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13732,7 +13940,6 @@ export default class Client extends OpenApi {
 
   async listPipelinesWithOptions(organizationId: string, request: ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.createEndTime)) {
       query["createEndTime"] = request.createEndTime;
@@ -13782,7 +13989,7 @@ export default class Client extends OpenApi {
       action: "ListPipelines",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13800,8 +14007,6 @@ export default class Client extends OpenApi {
 
   async listProjectMembersWithOptions(organizationId: string, projectId: string, request: ListProjectMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    projectId = OpenApiUtil.getEncodeParam(projectId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.targetType)) {
       query["targetType"] = request.targetType;
@@ -13815,7 +14020,7 @@ export default class Client extends OpenApi {
       action: "ListProjectMembers",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/${projectId}/listMembers`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/${OpenApiUtil.getEncodeParam(projectId)}/listMembers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13833,7 +14038,6 @@ export default class Client extends OpenApi {
 
   async listProjectTemplatesWithOptions(organizationId: string, request: ListProjectTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectTemplatesResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -13847,7 +14051,7 @@ export default class Client extends OpenApi {
       action: "ListProjectTemplates",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/listTemplates`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/listTemplates`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13865,8 +14069,6 @@ export default class Client extends OpenApi {
 
   async listProjectWorkitemTypesWithOptions(organizationId: string, projectId: string, request: ListProjectWorkitemTypesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectWorkitemTypesResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    projectId = OpenApiUtil.getEncodeParam(projectId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -13884,7 +14086,7 @@ export default class Client extends OpenApi {
       action: "ListProjectWorkitemTypes",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/${projectId}/getWorkitemType`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/${OpenApiUtil.getEncodeParam(projectId)}/getWorkitemType`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -13902,7 +14104,6 @@ export default class Client extends OpenApi {
 
   async listProjectsWithOptions(organizationId: string, request: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -13936,7 +14137,7 @@ export default class Client extends OpenApi {
       action: "ListProjects",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/listProjects`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/listProjects`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14005,6 +14206,45 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRepositoriesResponse>(await this.callApi(params, req, runtime), new ListRepositoriesResponse({}));
   }
 
+  async listRepositoryCommitDiff(repositoryId: string, sha: string, request: ListRepositoryCommitDiffRequest): Promise<ListRepositoryCommitDiffResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoryCommitDiffWithOptions(repositoryId, sha, request, headers, runtime);
+  }
+
+  async listRepositoryCommitDiffWithOptions(repositoryId: string, sha: string, request: ListRepositoryCommitDiffRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryCommitDiffResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.contextLine)) {
+      query["contextLine"] = request.contextLine;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositoryCommitDiff",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/commits/${OpenApiUtil.getEncodeParam(sha)}/diff`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryCommitDiffResponse>(await this.callApi(params, req, runtime), new ListRepositoryCommitDiffResponse({}));
+  }
+
   async listRepositoryMemberWithInherited(repositoryId: string, request: ListRepositoryMemberWithInheritedRequest): Promise<ListRepositoryMemberWithInheritedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14013,7 +14253,6 @@ export default class Client extends OpenApi {
 
   async listRepositoryMemberWithInheritedWithOptions(repositoryId: string, request: ListRepositoryMemberWithInheritedRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryMemberWithInheritedResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["accessToken"] = request.accessToken;
@@ -14031,7 +14270,7 @@ export default class Client extends OpenApi {
       action: "ListRepositoryMemberWithInherited",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/members/list`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/members/list`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14049,7 +14288,6 @@ export default class Client extends OpenApi {
 
   async listRepositoryWebhookWithOptions(repositoryId: string, request: ListRepositoryWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryWebhookResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["accessToken"] = request.accessToken;
@@ -14075,7 +14313,7 @@ export default class Client extends OpenApi {
       action: "ListRepositoryWebhook",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/webhooks/list`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/webhooks/list`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14092,9 +14330,6 @@ export default class Client extends OpenApi {
   }
 
   async listResourceMembersWithOptions(organizationId: string, resourceType: string, resourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceMembersResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    resourceType = OpenApiUtil.getEncodeParam(resourceType);
-    resourceId = OpenApiUtil.getEncodeParam(resourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14102,7 +14337,7 @@ export default class Client extends OpenApi {
       action: "ListResourceMembers",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/${resourceType}/${resourceId}/members`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/${OpenApiUtil.getEncodeParam(resourceType)}/${OpenApiUtil.getEncodeParam(resourceId)}/members`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14120,7 +14355,6 @@ export default class Client extends OpenApi {
 
   async listServiceConnectionsWithOptions(organizationId: string, request: ListServiceConnectionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceConnectionsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.sericeConnectionType)) {
       query["sericeConnectionType"] = request.sericeConnectionType;
@@ -14134,7 +14368,7 @@ export default class Client extends OpenApi {
       action: "ListServiceConnections",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/serviceConnections`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/serviceConnections`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14152,7 +14386,6 @@ export default class Client extends OpenApi {
 
   async listSprintsWithOptions(organizationId: string, request: ListSprintsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSprintsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.maxResults)) {
       query["maxResults"] = request.maxResults;
@@ -14178,7 +14411,7 @@ export default class Client extends OpenApi {
       action: "ListSprints",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/sprints/list`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/sprints/list`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14196,7 +14429,6 @@ export default class Client extends OpenApi {
 
   async listVariableGroupsWithOptions(organizationId: string, request: ListVariableGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVariableGroupsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.maxResults)) {
       query["maxResults"] = request.maxResults;
@@ -14222,7 +14454,7 @@ export default class Client extends OpenApi {
       action: "ListVariableGroups",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/variableGroups`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/variableGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14240,7 +14472,6 @@ export default class Client extends OpenApi {
 
   async listWorkItemAllFieldsWithOptions(organizationId: string, request: ListWorkItemAllFieldsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkItemAllFieldsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.spaceIdentifier)) {
       query["spaceIdentifier"] = request.spaceIdentifier;
@@ -14262,7 +14493,7 @@ export default class Client extends OpenApi {
       action: "ListWorkItemAllFields",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/fields/listAll`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/fields/listAll`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14280,7 +14511,6 @@ export default class Client extends OpenApi {
 
   async listWorkItemWorkFlowStatusWithOptions(organizationId: string, request: ListWorkItemWorkFlowStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkItemWorkFlowStatusResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.spaceIdentifier)) {
       query["spaceIdentifier"] = request.spaceIdentifier;
@@ -14306,7 +14536,7 @@ export default class Client extends OpenApi {
       action: "ListWorkItemWorkFlowStatus",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/workflow/listWorkflowStatus`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/workflow/listWorkflowStatus`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14323,8 +14553,6 @@ export default class Client extends OpenApi {
   }
 
   async listWorkitemTimeWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemTimeResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    workitemId = OpenApiUtil.getEncodeParam(workitemId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14332,7 +14560,7 @@ export default class Client extends OpenApi {
       action: "ListWorkitemTime",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/${workitemId}/time/list`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/time/list`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14350,7 +14578,6 @@ export default class Client extends OpenApi {
 
   async listWorkitemsWithOptions(organizationId: string, request: ListWorkitemsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemsResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
@@ -14400,7 +14627,7 @@ export default class Client extends OpenApi {
       action: "ListWorkitems",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/listWorkitems`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/listWorkitems`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14470,10 +14697,6 @@ export default class Client extends OpenApi {
   }
 
   async logPipelineJobRunWithOptions(organizationId: string, pipelineId: string, jobId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LogPipelineJobRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14481,7 +14704,7 @@ export default class Client extends OpenApi {
       action: "LogPipelineJobRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipeline/${pipelineId}/pipelineRun/${pipelineRunId}/job/${jobId}/logs`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipeline/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRun/${OpenApiUtil.getEncodeParam(pipelineRunId)}/job/${OpenApiUtil.getEncodeParam(jobId)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14498,10 +14721,6 @@ export default class Client extends OpenApi {
   }
 
   async logVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LogVMDeployMachineResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
-    machineSn = OpenApiUtil.getEncodeParam(machineSn);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14509,7 +14728,7 @@ export default class Client extends OpenApi {
       action: "LogVMDeployMachine",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}/machine/${machineSn}/log`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}/machine/${OpenApiUtil.getEncodeParam(machineSn)}/log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -14526,10 +14745,6 @@ export default class Client extends OpenApi {
   }
 
   async passPipelineValidateWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PassPipelineValidateResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14537,7 +14752,7 @@ export default class Client extends OpenApi {
       action: "PassPipelineValidate",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/pass`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}/pass`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -14554,10 +14769,6 @@ export default class Client extends OpenApi {
   }
 
   async refusePipelineValidateWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RefusePipelineValidateResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14565,7 +14776,7 @@ export default class Client extends OpenApi {
       action: "RefusePipelineValidate",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/refuse`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}/refuse`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -14582,7 +14793,6 @@ export default class Client extends OpenApi {
   }
 
   async releaseWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkspaceResponse> {
-    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14590,7 +14800,7 @@ export default class Client extends OpenApi {
       action: "ReleaseWorkspace",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/api/workspaces/${workspaceId}/release`,
+      pathname: `/api/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/release`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -14607,7 +14817,6 @@ export default class Client extends OpenApi {
   }
 
   async resetSshKeyWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetSshKeyResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14615,7 +14824,7 @@ export default class Client extends OpenApi {
       action: "ResetSshKey",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/sshKey`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/sshKey`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14632,9 +14841,6 @@ export default class Client extends OpenApi {
   }
 
   async resumeVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeVMDeployOrderResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14642,7 +14848,7 @@ export default class Client extends OpenApi {
       action: "ResumeVMDeployOrder",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}/resume`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}/resume`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14659,10 +14865,6 @@ export default class Client extends OpenApi {
   }
 
   async retryPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryPipelineJobRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14670,7 +14872,7 @@ export default class Client extends OpenApi {
       action: "RetryPipelineJobRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14687,10 +14889,6 @@ export default class Client extends OpenApi {
   }
 
   async retryVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryVMDeployMachineResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
-    machineSn = OpenApiUtil.getEncodeParam(machineSn);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14698,7 +14896,7 @@ export default class Client extends OpenApi {
       action: "RetryVMDeployMachine",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}/machine/${machineSn}/retry`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}/machine/${OpenApiUtil.getEncodeParam(machineSn)}/retry`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14715,10 +14913,6 @@ export default class Client extends OpenApi {
   }
 
   async skipPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SkipPipelineJobRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14726,7 +14920,7 @@ export default class Client extends OpenApi {
       action: "SkipPipelineJobRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/skip`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}/skip`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14743,10 +14937,6 @@ export default class Client extends OpenApi {
   }
 
   async skipVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SkipVMDeployMachineResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
-    machineSn = OpenApiUtil.getEncodeParam(machineSn);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14754,7 +14944,7 @@ export default class Client extends OpenApi {
       action: "SkipVMDeployMachine",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}/machine/${machineSn}/skip`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}/machine/${OpenApiUtil.getEncodeParam(machineSn)}/skip`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14772,8 +14962,6 @@ export default class Client extends OpenApi {
 
   async startPipelineRunWithOptions(organizationId: string, pipelineId: string, request: StartPipelineRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartPipelineRunResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.params)) {
       body["params"] = request.params;
@@ -14787,7 +14975,7 @@ export default class Client extends OpenApi {
       action: "StartPipelineRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organizations/${organizationId}/pipelines/${pipelineId}/run`,
+      pathname: `/organizations/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/run`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -14804,10 +14992,6 @@ export default class Client extends OpenApi {
   }
 
   async stopPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelineJobRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
-    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14815,7 +14999,7 @@ export default class Client extends OpenApi {
       action: "StopPipelineJobRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/stop`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/jobs/${OpenApiUtil.getEncodeParam(jobId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14832,9 +15016,6 @@ export default class Client extends OpenApi {
   }
 
   async stopPipelineRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelineRunResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14842,7 +15023,7 @@ export default class Client extends OpenApi {
       action: "StopPipelineRun",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/stop`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/pipelineRuns/${OpenApiUtil.getEncodeParam(pipelineRunId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14859,9 +15040,6 @@ export default class Client extends OpenApi {
   }
 
   async stopVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopVMDeployOrderResponse> {
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
-    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -14869,7 +15047,7 @@ export default class Client extends OpenApi {
       action: "StopVMDeployOrder",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/deploy/${deployOrderId}/stop`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/deploy/${OpenApiUtil.getEncodeParam(deployOrderId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14887,7 +15065,6 @@ export default class Client extends OpenApi {
 
   async triggerRepositoryMirrorSyncWithOptions(repositoryId: string, request: TriggerRepositoryMirrorSyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerRepositoryMirrorSyncResponse> {
     Util.validateModel(request);
-    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessToken)) {
       query["accessToken"] = request.accessToken;
@@ -14913,7 +15090,7 @@ export default class Client extends OpenApi {
       action: "TriggerRepositoryMirrorSync",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/repository/${repositoryId}/mirror`,
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/mirror`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -14931,8 +15108,6 @@ export default class Client extends OpenApi {
 
   async updateFlowTagWithOptions(organizationId: string, id: string, request: UpdateFlowTagRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFlowTagResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.color)) {
       query["color"] = request.color;
@@ -14954,7 +15129,7 @@ export default class Client extends OpenApi {
       action: "UpdateFlowTag",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tags/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tags/${OpenApiUtil.getEncodeParam(id)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -14972,8 +15147,6 @@ export default class Client extends OpenApi {
 
   async updateFlowTagGroupWithOptions(organizationId: string, id: string, request: UpdateFlowTagGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFlowTagGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -14987,7 +15160,7 @@ export default class Client extends OpenApi {
       action: "UpdateFlowTagGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/flow/tagGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15005,8 +15178,6 @@ export default class Client extends OpenApi {
 
   async updateHostGroupWithOptions(organizationId: string, id: string, request: UpdateHostGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHostGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.aliyunRegion)) {
       body["aliyunRegion"] = request.aliyunRegion;
@@ -15056,7 +15227,7 @@ export default class Client extends OpenApi {
       action: "UpdateHostGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/hostGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/hostGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15064,50 +15235,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateHostGroupResponse>(await this.callApi(params, req, runtime), new UpdateHostGroupResponse({}));
-  }
-
-  async updatePipeline(organizationId: string, request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updatePipelineWithOptions(organizationId, request, headers, runtime);
-  }
-
-  async updatePipelineWithOptions(organizationId: string, request: UpdatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
-    Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.basicInfo))) {
-      body["basicInfo"] = request.basicInfo;
-    }
-
-    if (!Util.isUnset(request.pipelineYaml)) {
-      body["pipelineYaml"] = request.pipelineYaml;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.settings))) {
-      body["settings"] = request.settings;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.triggerInfo))) {
-      body["triggerInfo"] = request.triggerInfo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipeline",
-      version: "2021-06-25",
-      protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelineResponse>(await this.callApi(params, req, runtime), new UpdatePipelineResponse({}));
   }
 
   async updatePipelineBaseInfo(organizationId: string, pipelineId: string, request: UpdatePipelineBaseInfoRequest): Promise<UpdatePipelineBaseInfoResponse> {
@@ -15118,8 +15245,6 @@ export default class Client extends OpenApi {
 
   async updatePipelineBaseInfoWithOptions(organizationId: string, pipelineId: string, request: UpdatePipelineBaseInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineBaseInfoResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       query["envId"] = request.envId;
@@ -15141,7 +15266,7 @@ export default class Client extends OpenApi {
       action: "UpdatePipelineBaseInfo",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/baseInfo`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelines/${OpenApiUtil.getEncodeParam(pipelineId)}/baseInfo`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15159,8 +15284,6 @@ export default class Client extends OpenApi {
 
   async updatePipelineGroupWithOptions(organizationId: string, groupId: string, request: UpdatePipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    groupId = OpenApiUtil.getEncodeParam(groupId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
@@ -15174,7 +15297,7 @@ export default class Client extends OpenApi {
       action: "UpdatePipelineGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/pipelineGroups/${OpenApiUtil.getEncodeParam(groupId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15192,8 +15315,6 @@ export default class Client extends OpenApi {
 
   async updateProjectMemberWithOptions(organizationId: string, projectId: string, request: UpdateProjectMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectMemberResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    projectId = OpenApiUtil.getEncodeParam(projectId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.roleIdentifier)) {
       body["roleIdentifier"] = request.roleIdentifier;
@@ -15223,7 +15344,7 @@ export default class Client extends OpenApi {
       action: "UpdateProjectMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/${projectId}/updateMember`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/projects/${OpenApiUtil.getEncodeParam(projectId)}/updateMember`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -15231,6 +15352,132 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateProjectMemberResponse>(await this.callApi(params, req, runtime), new UpdateProjectMemberResponse({}));
+  }
+
+  async updateProtectedBranches(repositoryId: string, id: string, request: UpdateProtectedBranchesRequest): Promise<UpdateProtectedBranchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProtectedBranchesWithOptions(repositoryId, id, request, headers, runtime);
+  }
+
+  async updateProtectedBranchesWithOptions(repositoryId: string, id: string, request: UpdateProtectedBranchesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProtectedBranchesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.allowMergeRoles)) {
+      body["allowMergeRoles"] = request.allowMergeRoles;
+    }
+
+    if (!Util.isUnset(request.allowMergeUserIds)) {
+      body["allowMergeUserIds"] = request.allowMergeUserIds;
+    }
+
+    if (!Util.isUnset(request.allowPushRoles)) {
+      body["allowPushRoles"] = request.allowPushRoles;
+    }
+
+    if (!Util.isUnset(request.allowPushUserIds)) {
+      body["allowPushUserIds"] = request.allowPushUserIds;
+    }
+
+    if (!Util.isUnset(request.branch)) {
+      body["branch"] = request.branch;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.mergeRequestSetting))) {
+      body["mergeRequestSetting"] = request.mergeRequestSetting;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.testSettingDTO))) {
+      body["testSettingDTO"] = request.testSettingDTO;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProtectedBranches",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(repositoryId)}/protect_branches/${OpenApiUtil.getEncodeParam(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProtectedBranchesResponse>(await this.callApi(params, req, runtime), new UpdateProtectedBranchesResponse({}));
+  }
+
+  async updateRepositoryMember(repositoryId: string, userId: string, request: UpdateRepositoryMemberRequest): Promise<UpdateRepositoryMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRepositoryMemberWithOptions(repositoryId, userId, request, headers, runtime);
+  }
+
+  async updateRepositoryMemberWithOptions(repositoryId: string, userId: string, request: UpdateRepositoryMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryMemberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessLevel)) {
+      body["accessLevel"] = request.accessLevel;
+    }
+
+    if (!Util.isUnset(request.expireAt)) {
+      body["expireAt"] = request.expireAt;
+    }
+
+    if (!Util.isUnset(request.memberType)) {
+      body["memberType"] = request.memberType;
+    }
+
+    if (!Util.isUnset(request.relatedId)) {
+      body["relatedId"] = request.relatedId;
+    }
+
+    if (!Util.isUnset(request.relatedInfos)) {
+      body["relatedInfos"] = request.relatedInfos;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRepositoryMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/${OpenApiUtil.getEncodeParam(userId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepositoryMemberResponse>(await this.callApi(params, req, runtime), new UpdateRepositoryMemberResponse({}));
   }
 
   async updateResourceMember(organizationId: string, resourceType: string, resourceId: string, accountId: string, request: UpdateResourceMemberRequest): Promise<UpdateResourceMemberResponse> {
@@ -15241,10 +15488,6 @@ export default class Client extends OpenApi {
 
   async updateResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, accountId: string, request: UpdateResourceMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceMemberResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    resourceType = OpenApiUtil.getEncodeParam(resourceType);
-    resourceId = OpenApiUtil.getEncodeParam(resourceId);
-    accountId = OpenApiUtil.getEncodeParam(accountId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.roleName)) {
       body["roleName"] = request.roleName;
@@ -15258,7 +15501,7 @@ export default class Client extends OpenApi {
       action: "UpdateResourceMember",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/${resourceType}/${resourceId}/members/${accountId}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/${OpenApiUtil.getEncodeParam(resourceType)}/${OpenApiUtil.getEncodeParam(resourceId)}/members/${OpenApiUtil.getEncodeParam(accountId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15276,8 +15519,6 @@ export default class Client extends OpenApi {
 
   async updateVariableGroupWithOptions(organizationId: string, id: string, request: UpdateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVariableGroupResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    id = OpenApiUtil.getEncodeParam(id);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -15299,7 +15540,7 @@ export default class Client extends OpenApi {
       action: "UpdateVariableGroup",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/variableGroups/${id}`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/variableGroups/${OpenApiUtil.getEncodeParam(id)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -15317,7 +15558,6 @@ export default class Client extends OpenApi {
 
   async updateWorkItemWithOptions(organizationId: string, request: UpdateWorkItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkItemResponse> {
     Util.validateModel(request);
-    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.fieldType)) {
       body["fieldType"] = request.fieldType;
@@ -15343,7 +15583,7 @@ export default class Client extends OpenApi {
       action: "UpdateWorkItem",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/workitems/update`,
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/update`,
       method: "POST",
       authType: "AK",
       style: "ROA",
