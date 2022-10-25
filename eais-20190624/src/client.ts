@@ -278,6 +278,7 @@ export class CreateEaiAllResponse extends $tea.Model {
 export class CreateEaiJupyterRequest extends $tea.Model {
   clientToken?: string;
   eaisType?: string;
+  environmentVar?: CreateEaiJupyterRequestEnvironmentVar[];
   regionId?: string;
   securityGroupId?: string;
   vSwitchId?: string;
@@ -285,6 +286,7 @@ export class CreateEaiJupyterRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       eaisType: 'EaisType',
+      environmentVar: 'EnvironmentVar',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
@@ -295,6 +297,41 @@ export class CreateEaiJupyterRequest extends $tea.Model {
     return {
       clientToken: 'string',
       eaisType: 'string',
+      environmentVar: { 'type': 'array', 'itemType': CreateEaiJupyterRequestEnvironmentVar },
+      regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiJupyterShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  eaisType?: string;
+  environmentVarShrink?: string;
+  regionId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eaisType: 'EaisType',
+      environmentVarShrink: 'EnvironmentVar',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      eaisType: 'string',
+      environmentVarShrink: 'string',
       regionId: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
@@ -689,6 +726,28 @@ export class DetachEaiResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachEaiResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiJupyterRequestEnvironmentVar extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1112,8 +1171,14 @@ export default class Client extends OpenApi {
     return await this.createEaiAllWithOptions(request, runtime);
   }
 
-  async createEaiJupyterWithOptions(request: CreateEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiJupyterResponse> {
-    Util.validateModel(request);
+  async createEaiJupyterWithOptions(tmpReq: CreateEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiJupyterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEaiJupyterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.environmentVar)) {
+      request.environmentVarShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVar, "EnvironmentVar", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -1121,6 +1186,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eaisType)) {
       query["EaisType"] = request.eaisType;
+    }
+
+    if (!Util.isUnset(request.environmentVarShrink)) {
+      query["EnvironmentVar"] = request.environmentVarShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
