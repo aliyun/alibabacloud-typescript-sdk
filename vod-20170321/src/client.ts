@@ -1163,6 +1163,7 @@ export class CreateUploadImageRequest extends $tea.Model {
   description?: string;
   imageExt?: string;
   imageType?: string;
+  originalFileName?: string;
   storageLocation?: string;
   tags?: string;
   title?: string;
@@ -1174,6 +1175,7 @@ export class CreateUploadImageRequest extends $tea.Model {
       description: 'Description',
       imageExt: 'ImageExt',
       imageType: 'ImageType',
+      originalFileName: 'OriginalFileName',
       storageLocation: 'StorageLocation',
       tags: 'Tags',
       title: 'Title',
@@ -1188,6 +1190,7 @@ export class CreateUploadImageRequest extends $tea.Model {
       description: 'string',
       imageExt: 'string',
       imageType: 'string',
+      originalFileName: 'string',
       storageLocation: 'string',
       tags: 'string',
       title: 'string',
@@ -18207,6 +18210,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageType)) {
       query["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.originalFileName)) {
+      query["OriginalFileName"] = request.originalFileName;
     }
 
     if (!Util.isUnset(request.storageLocation)) {
