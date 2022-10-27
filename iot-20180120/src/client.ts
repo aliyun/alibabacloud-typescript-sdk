@@ -15138,6 +15138,84 @@ export class GisSearchDeviceTraceResponse extends $tea.Model {
   }
 }
 
+export class ImportDTDataRequest extends $tea.Model {
+  iotInstanceId?: string;
+  items?: ImportDTDataRequestItems[];
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      items: 'Items',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      items: { 'type': 'array', 'itemType': ImportDTDataRequestItems },
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDTDataResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDTDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportDTDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportDTDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportDeviceRequest extends $tea.Model {
   deviceName?: string;
   deviceSecret?: string;
@@ -36692,6 +36770,28 @@ export class GisSearchDeviceTraceResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImportDTDataRequestItems extends $tea.Model {
+  deviceName?: string;
+  params?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      params: 'Params',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      params: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportDeviceResponseBodyData extends $tea.Model {
   deviceName?: string;
   deviceSecret?: string;
@@ -52642,6 +52742,43 @@ export default class Client extends OpenApi {
   async gisSearchDeviceTrace(request: GisSearchDeviceTraceRequest): Promise<GisSearchDeviceTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.gisSearchDeviceTraceWithOptions(request, runtime);
+  }
+
+  async importDTDataWithOptions(request: ImportDTDataRequest, runtime: $Util.RuntimeOptions): Promise<ImportDTDataResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.items)) {
+      body["Items"] = request.items;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportDTData",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportDTDataResponse>(await this.callApi(params, req, runtime), new ImportDTDataResponse({}));
+  }
+
+  async importDTData(request: ImportDTDataRequest): Promise<ImportDTDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importDTDataWithOptions(request, runtime);
   }
 
   async importDeviceWithOptions(request: ImportDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ImportDeviceResponse> {
