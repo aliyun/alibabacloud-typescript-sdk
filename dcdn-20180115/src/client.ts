@@ -863,144 +863,6 @@ export class BatchSetDcdnWafDomainConfigsResponse extends $tea.Model {
   }
 }
 
-export class BatchStartDcdnDomainRequest extends $tea.Model {
-  domainNames?: string;
-  ownerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainNames: 'DomainNames',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainNames: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchStartDcdnDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchStartDcdnDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchStartDcdnDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchStartDcdnDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchStopDcdnDomainRequest extends $tea.Model {
-  domainNames?: string;
-  ownerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainNames: 'DomainNames',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainNames: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchStopDcdnDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchStopDcdnDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchStopDcdnDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchStopDcdnDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckDcdnProjectExistRequest extends $tea.Model {
   ownerId?: number;
   projectName?: string;
@@ -15605,12 +15467,14 @@ export class DescribeDcdnDomainConfigsResponseBodyDomainConfigsDomainConfig exte
   configId?: string;
   functionArgs?: DescribeDcdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
   functionName?: string;
+  parentId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
       functionArgs: 'FunctionArgs',
       functionName: 'FunctionName',
+      parentId: 'ParentId',
       status: 'Status',
     };
   }
@@ -15620,6 +15484,7 @@ export class DescribeDcdnDomainConfigsResponseBodyDomainConfigsDomainConfig exte
       configId: 'string',
       functionArgs: DescribeDcdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs,
       functionName: 'string',
+      parentId: 'string',
       status: 'string',
     };
   }
@@ -20841,80 +20706,6 @@ export default class Client extends OpenApi {
   async batchSetDcdnWafDomainConfigs(request: BatchSetDcdnWafDomainConfigsRequest): Promise<BatchSetDcdnWafDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnWafDomainConfigsWithOptions(request, runtime);
-  }
-
-  async batchStartDcdnDomainWithOptions(request: BatchStartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartDcdnDomainResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.domainNames)) {
-      query["DomainNames"] = request.domainNames;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "BatchStartDcdnDomain",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<BatchStartDcdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStartDcdnDomainResponse({}));
-  }
-
-  async batchStartDcdnDomain(request: BatchStartDcdnDomainRequest): Promise<BatchStartDcdnDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchStartDcdnDomainWithOptions(request, runtime);
-  }
-
-  async batchStopDcdnDomainWithOptions(request: BatchStopDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopDcdnDomainResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.domainNames)) {
-      query["DomainNames"] = request.domainNames;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "BatchStopDcdnDomain",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<BatchStopDcdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStopDcdnDomainResponse({}));
-  }
-
-  async batchStopDcdnDomain(request: BatchStopDcdnDomainRequest): Promise<BatchStopDcdnDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchStopDcdnDomainWithOptions(request, runtime);
   }
 
   async checkDcdnProjectExistWithOptions(request: CheckDcdnProjectExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckDcdnProjectExistResponse> {
