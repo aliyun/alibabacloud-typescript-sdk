@@ -11659,15 +11659,18 @@ export class SetCdnDomainStagingConfigRequest extends $tea.Model {
 }
 
 export class SetCdnDomainStagingConfigResponseBody extends $tea.Model {
+  domainConfigList?: SetCdnDomainStagingConfigResponseBodyDomainConfigList[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainConfigList: 'DomainConfigList',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainConfigList: { 'type': 'array', 'itemType': SetCdnDomainStagingConfigResponseBodyDomainConfigList },
       requestId: 'string',
     };
   }
@@ -17877,6 +17880,31 @@ export class ListUserCustomLogConfigResponseBodyConfigIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetCdnDomainStagingConfigResponseBodyDomainConfigList extends $tea.Model {
+  configId?: number;
+  domainName?: string;
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      domainName: 'DomainName',
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      domainName: 'string',
+      functionName: 'string',
     };
   }
 
