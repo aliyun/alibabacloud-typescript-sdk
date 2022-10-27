@@ -6407,6 +6407,7 @@ export class ListJobsResponse extends $tea.Model {
 }
 
 export class ListJobsWithFiltersRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   createTimeEnd?: string;
   createTimeStart?: string;
@@ -6423,6 +6424,7 @@ export class ListJobsWithFiltersRequest extends $tea.Model {
   users?: string[];
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       createTimeEnd: 'CreateTimeEnd',
       createTimeStart: 'CreateTimeStart',
@@ -6442,6 +6444,7 @@ export class ListJobsWithFiltersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       createTimeEnd: 'string',
       createTimeStart: 'string',
@@ -6629,12 +6632,14 @@ export class ListNodesResponse extends $tea.Model {
 }
 
 export class ListNodesByQueueRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   pageNumber?: number;
   pageSize?: number;
   queueName?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -6644,6 +6649,7 @@ export class ListNodesByQueueRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
