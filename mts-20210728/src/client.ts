@@ -489,6 +489,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
   level?: number;
   message?: string;
   output?: string;
+  params?: string;
   startTime?: number;
   totalTime?: number;
   url?: string;
@@ -502,6 +503,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       level: 'Level',
       message: 'Message',
       output: 'Output',
+      params: 'Params',
       startTime: 'StartTime',
       totalTime: 'TotalTime',
       url: 'Url',
@@ -518,6 +520,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       level: 'number',
       message: 'string',
       output: 'string',
+      params: 'string',
       startTime: 'number',
       totalTime: 'number',
       url: 'string',
@@ -585,31 +588,25 @@ export class SubmitCopyrightJobResponse extends $tea.Model {
 }
 
 export class SubmitImageCopyrightRequest extends $tea.Model {
-  input?: string;
   level?: number;
   message?: string;
   output?: string;
   params?: string;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
-      input: 'Input',
       level: 'Level',
       message: 'Message',
       output: 'Output',
       params: 'Params',
-      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      input: 'string',
       level: 'number',
       message: 'string',
       output: 'string',
       params: 'string',
-      url: 'string',
     };
   }
 
@@ -1586,6 +1583,10 @@ export default class Client extends OpenApi {
       body["Output"] = request.output;
     }
 
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
@@ -1633,10 +1634,6 @@ export default class Client extends OpenApi {
   async submitImageCopyrightWithOptions(request: SubmitImageCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitImageCopyrightResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.input)) {
-      body["Input"] = request.input;
-    }
-
     if (!Util.isUnset(request.level)) {
       body["Level"] = request.level;
     }
@@ -1651,10 +1648,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.params)) {
       body["Params"] = request.params;
-    }
-
-    if (!Util.isUnset(request.url)) {
-      body["Url"] = request.url;
     }
 
     let req = new $OpenApi.OpenApiRequest({
