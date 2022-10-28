@@ -83,6 +83,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
   parallelism?: number;
   parameters?: ContinueCreateStackRequestParameters[];
   ramRoleName?: string;
+  recreatingOptions?: string[];
   recreatingResources?: string[];
   regionId?: string;
   stackId?: string;
@@ -97,6 +98,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
       parallelism: 'Parallelism',
       parameters: 'Parameters',
       ramRoleName: 'RamRoleName',
+      recreatingOptions: 'RecreatingOptions',
       recreatingResources: 'RecreatingResources',
       regionId: 'RegionId',
       stackId: 'StackId',
@@ -114,6 +116,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
       parallelism: 'number',
       parameters: { 'type': 'array', 'itemType': ContinueCreateStackRequestParameters },
       ramRoleName: 'string',
+      recreatingOptions: { 'type': 'array', 'itemType': 'string' },
       recreatingResources: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       stackId: 'string',
@@ -454,6 +457,7 @@ export class CreateStackGroupRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   stackGroupName?: string;
+  tags?: CreateStackGroupRequestTags[];
   templateBody?: string;
   templateId?: string;
   templateURL?: string;
@@ -470,6 +474,7 @@ export class CreateStackGroupRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       stackGroupName: 'StackGroupName',
+      tags: 'Tags',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -489,6 +494,7 @@ export class CreateStackGroupRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       stackGroupName: 'string',
+      tags: { 'type': 'array', 'itemType': CreateStackGroupRequestTags },
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -512,6 +518,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   stackGroupName?: string;
+  tags?: CreateStackGroupShrinkRequestTags[];
   templateBody?: string;
   templateId?: string;
   templateURL?: string;
@@ -528,6 +535,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       stackGroupName: 'StackGroupName',
+      tags: 'Tags',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -547,6 +555,7 @@ export class CreateStackGroupShrinkRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       stackGroupName: 'string',
+      tags: { 'type': 'array', 'itemType': CreateStackGroupShrinkRequestTags },
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -754,6 +763,7 @@ export class CreateStackInstancesResponse extends $tea.Model {
 export class CreateTemplateRequest extends $tea.Model {
   description?: string;
   resourceGroupId?: string;
+  tags?: CreateTemplateRequestTags[];
   templateBody?: string;
   templateName?: string;
   templateURL?: string;
@@ -761,6 +771,7 @@ export class CreateTemplateRequest extends $tea.Model {
     return {
       description: 'Description',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       templateBody: 'TemplateBody',
       templateName: 'TemplateName',
       templateURL: 'TemplateURL',
@@ -771,6 +782,7 @@ export class CreateTemplateRequest extends $tea.Model {
     return {
       description: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateTemplateRequestTags },
       templateBody: 'string',
       templateName: 'string',
       templateURL: 'string',
@@ -4240,6 +4252,10 @@ export class ListStackOperationRisksRequest extends $tea.Model {
   retainAllResources?: boolean;
   retainResources?: string[];
   stackId?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -4249,6 +4265,10 @@ export class ListStackOperationRisksRequest extends $tea.Model {
       retainAllResources: 'RetainAllResources',
       retainResources: 'RetainResources',
       stackId: 'StackId',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
@@ -4261,6 +4281,10 @@ export class ListStackOperationRisksRequest extends $tea.Model {
       retainAllResources: 'boolean',
       retainResources: { 'type': 'array', 'itemType': 'string' },
       stackId: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -4270,10 +4294,12 @@ export class ListStackOperationRisksRequest extends $tea.Model {
 }
 
 export class ListStackOperationRisksResponseBody extends $tea.Model {
+  missingPolicyActions?: string[];
   requestId?: string;
   riskResources?: ListStackOperationRisksResponseBodyRiskResources[];
   static names(): { [key: string]: string } {
     return {
+      missingPolicyActions: 'MissingPolicyActions',
       requestId: 'RequestId',
       riskResources: 'RiskResources',
     };
@@ -4281,6 +4307,7 @@ export class ListStackOperationRisksResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      missingPolicyActions: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       riskResources: { 'type': 'array', 'itemType': ListStackOperationRisksResponseBodyRiskResources },
     };
@@ -6820,6 +6847,28 @@ export class CreateStackGroupRequestParameters extends $tea.Model {
   }
 }
 
+export class CreateStackGroupRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -6834,6 +6883,28 @@ export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupShrinkRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -6897,6 +6968,28 @@ export class CreateStackInstancesShrinkRequestParameterOverrides extends $tea.Mo
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -7460,12 +7553,42 @@ export class GetServiceProvisionsRequestServices extends $tea.Model {
   }
 }
 
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $tea.Model {
+  apiName?: string;
+  apiProductId?: string;
+  apiType?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      apiProductId: 'ApiProductId',
+      apiType: 'ApiType',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      apiProductId: 'string',
+      apiType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $tea.Model {
+  apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
   created?: boolean;
   function?: string;
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
+      apiForCreation: 'ApiForCreation',
       created: 'Created',
       function: 'Function',
       roleName: 'RoleName',
@@ -7474,6 +7597,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
 
   static types(): { [key: string]: any } {
     return {
+      apiForCreation: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation,
       created: 'boolean',
       function: 'string',
       roleName: 'string',
@@ -10161,6 +10285,10 @@ export default class Client extends OpenApi {
       query["RamRoleName"] = request.ramRoleName;
     }
 
+    if (!Util.isUnset(request.recreatingOptions)) {
+      query["RecreatingOptions"] = request.recreatingOptions;
+    }
+
     if (!Util.isUnset(request.recreatingResources)) {
       query["RecreatingResources"] = request.recreatingResources;
     }
@@ -10494,6 +10622,10 @@ export default class Client extends OpenApi {
       query["StackGroupName"] = request.stackGroupName;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
@@ -10628,6 +10760,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.templateBody)) {
@@ -12359,6 +12495,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.stackId)) {
       query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
