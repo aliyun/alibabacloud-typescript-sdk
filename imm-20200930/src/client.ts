@@ -7618,6 +7618,7 @@ export class MergeFigureClustersResponse extends $tea.Model {
 }
 
 export class QueryFigureClustersRequest extends $tea.Model {
+  createTimeRange?: TimeRange;
   customLabels?: string;
   datasetName?: string;
   maxResults?: number;
@@ -7625,8 +7626,10 @@ export class QueryFigureClustersRequest extends $tea.Model {
   order?: string;
   projectName?: string;
   sort?: string;
+  updateTimeRange?: TimeRange;
   static names(): { [key: string]: string } {
     return {
+      createTimeRange: 'CreateTimeRange',
       customLabels: 'CustomLabels',
       datasetName: 'DatasetName',
       maxResults: 'MaxResults',
@@ -7634,11 +7637,13 @@ export class QueryFigureClustersRequest extends $tea.Model {
       order: 'Order',
       projectName: 'ProjectName',
       sort: 'Sort',
+      updateTimeRange: 'UpdateTimeRange',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTimeRange: TimeRange,
       customLabels: 'string',
       datasetName: 'string',
       maxResults: 'number',
@@ -7646,6 +7651,50 @@ export class QueryFigureClustersRequest extends $tea.Model {
       order: 'string',
       projectName: 'string',
       sort: 'string',
+      updateTimeRange: TimeRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFigureClustersShrinkRequest extends $tea.Model {
+  createTimeRangeShrink?: string;
+  customLabels?: string;
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  updateTimeRangeShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeRangeShrink: 'CreateTimeRange',
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+      updateTimeRangeShrink: 'UpdateTimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeRangeShrink: 'string',
+      customLabels: 'string',
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+      updateTimeRangeShrink: 'string',
     };
   }
 
@@ -8599,15 +8648,18 @@ export class UpdateFigureClusterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateFigureClusterResponseBody extends $tea.Model {
+  figureCluster?: FigureCluster;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      figureCluster: 'FigureCluster',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      figureCluster: FigureCluster,
       requestId: 'string',
     };
   }
@@ -13534,9 +13586,23 @@ export default class Client extends OpenApi {
     return await this.mergeFigureClustersWithOptions(request, runtime);
   }
 
-  async queryFigureClustersWithOptions(request: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
-    Util.validateModel(request);
+  async queryFigureClustersWithOptions(tmpReq: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryFigureClustersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.createTimeRange))) {
+      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.createTimeRange), "CreateTimeRange", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.updateTimeRange))) {
+      request.updateTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.updateTimeRange), "UpdateTimeRange", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.createTimeRangeShrink)) {
+      query["CreateTimeRange"] = request.createTimeRangeShrink;
+    }
+
     if (!Util.isUnset(request.customLabels)) {
       query["CustomLabels"] = request.customLabels;
     }
@@ -13563,6 +13629,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sort)) {
       query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.updateTimeRangeShrink)) {
+      query["UpdateTimeRange"] = request.updateTimeRangeShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
