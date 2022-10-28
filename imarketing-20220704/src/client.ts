@@ -1104,12 +1104,14 @@ export class QueryAuditResultRequest extends $tea.Model {
 }
 
 export class QueryAuditResultResponseBody extends $tea.Model {
+  message?: string;
   records?: QueryAuditResultResponseBodyRecords[];
   requestId?: string;
   status?: number;
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       records: 'Records',
       requestId: 'RequestId',
       status: 'Status',
@@ -1119,6 +1121,7 @@ export class QueryAuditResultResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       records: { 'type': 'array', 'itemType': QueryAuditResultResponseBodyRecords },
       requestId: 'string',
       status: 'number',
