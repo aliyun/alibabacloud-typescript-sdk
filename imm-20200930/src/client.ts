@@ -3166,10 +3166,10 @@ export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
 export class CreateFileCompressionTaskRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfig?: CredentialConfig;
-  manifestURI?: string;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
+  sourceManifestURI?: string;
   sources?: CreateFileCompressionTaskRequestSources[];
   targetURI?: string;
   userData?: string;
@@ -3177,10 +3177,10 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
     return {
       compressedFormat: 'CompressedFormat',
       credentialConfig: 'CredentialConfig',
-      manifestURI: 'ManifestURI',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
+      sourceManifestURI: 'SourceManifestURI',
       sources: 'Sources',
       targetURI: 'TargetURI',
       userData: 'UserData',
@@ -3191,10 +3191,10 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
     return {
       compressedFormat: 'string',
       credentialConfig: CredentialConfig,
-      manifestURI: 'string',
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
+      sourceManifestURI: 'string',
       sources: { 'type': 'array', 'itemType': CreateFileCompressionTaskRequestSources },
       targetURI: 'string',
       userData: 'string',
@@ -3209,10 +3209,10 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
 export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfigShrink?: string;
-  manifestURI?: string;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
+  sourceManifestURI?: string;
   sourcesShrink?: string;
   targetURI?: string;
   userData?: string;
@@ -3220,10 +3220,10 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
     return {
       compressedFormat: 'CompressedFormat',
       credentialConfigShrink: 'CredentialConfig',
-      manifestURI: 'ManifestURI',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
+      sourceManifestURI: 'SourceManifestURI',
       sourcesShrink: 'Sources',
       targetURI: 'TargetURI',
       userData: 'UserData',
@@ -3234,10 +3234,10 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
     return {
       compressedFormat: 'string',
       credentialConfigShrink: 'string',
-      manifestURI: 'string',
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
+      sourceManifestURI: 'string',
       sourcesShrink: 'string',
       targetURI: 'string',
       userData: 'string',
@@ -11330,10 +11330,6 @@ export default class Client extends OpenApi {
       query["CredentialConfig"] = request.credentialConfigShrink;
     }
 
-    if (!Util.isUnset(request.manifestURI)) {
-      query["ManifestURI"] = request.manifestURI;
-    }
-
     if (!Util.isUnset(request.notifyTopicName)) {
       query["NotifyTopicName"] = request.notifyTopicName;
     }
@@ -11344,6 +11340,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceManifestURI)) {
+      query["SourceManifestURI"] = request.sourceManifestURI;
     }
 
     if (!Util.isUnset(request.sourcesShrink)) {
