@@ -649,6 +649,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewDuration?: number;
   autoUseCoupon?: string;
+  bandwidthBillingType?: string;
   clientToken?: string;
   duration?: number;
   ipSetConfig?: CreateAcceleratorRequestIpSetConfig;
@@ -662,6 +663,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewDuration: 'AutoRenewDuration',
       autoUseCoupon: 'AutoUseCoupon',
+      bandwidthBillingType: 'BandwidthBillingType',
       clientToken: 'ClientToken',
       duration: 'Duration',
       ipSetConfig: 'IpSetConfig',
@@ -678,6 +680,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewDuration: 'number',
       autoUseCoupon: 'string',
+      bandwidthBillingType: 'string',
       clientToken: 'string',
       duration: 'number',
       ipSetConfig: CreateAcceleratorRequestIpSetConfig,
@@ -1039,6 +1042,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
   autoRenew?: boolean;
   autoRenewDuration?: number;
   autoUseCoupon?: string;
+  bandwidthBillingType?: string;
   clientToken?: string;
   duration?: number;
   pricingCycle?: string;
@@ -1049,6 +1053,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewDuration: 'AutoRenewDuration',
       autoUseCoupon: 'AutoUseCoupon',
+      bandwidthBillingType: 'BandwidthBillingType',
       clientToken: 'ClientToken',
       duration: 'Duration',
       pricingCycle: 'PricingCycle',
@@ -1062,6 +1067,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewDuration: 'number',
       autoUseCoupon: 'string',
+      bandwidthBillingType: 'string',
       clientToken: 'string',
       duration: 'number',
       pricingCycle: 'string',
@@ -1130,6 +1136,7 @@ export class CreateBasicEndpointGroupRequest extends $tea.Model {
   description?: string;
   endpointAddress?: string;
   endpointGroupRegion?: string;
+  endpointSubAddress?: string;
   endpointType?: string;
   name?: string;
   regionId?: string;
@@ -1140,6 +1147,7 @@ export class CreateBasicEndpointGroupRequest extends $tea.Model {
       description: 'Description',
       endpointAddress: 'EndpointAddress',
       endpointGroupRegion: 'EndpointGroupRegion',
+      endpointSubAddress: 'EndpointSubAddress',
       endpointType: 'EndpointType',
       name: 'Name',
       regionId: 'RegionId',
@@ -1153,6 +1161,7 @@ export class CreateBasicEndpointGroupRequest extends $tea.Model {
       description: 'string',
       endpointAddress: 'string',
       endpointGroupRegion: 'string',
+      endpointSubAddress: 'string',
       endpointType: 'string',
       name: 'string',
       regionId: 'string',
@@ -1214,6 +1223,7 @@ export class CreateBasicEndpointGroupResponse extends $tea.Model {
 export class CreateBasicIpSetRequest extends $tea.Model {
   accelerateRegionId?: string;
   acceleratorId?: string;
+  bandwidth?: number;
   clientToken?: string;
   ispType?: string;
   regionId?: string;
@@ -1221,6 +1231,7 @@ export class CreateBasicIpSetRequest extends $tea.Model {
     return {
       accelerateRegionId: 'AccelerateRegionId',
       acceleratorId: 'AcceleratorId',
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       ispType: 'IspType',
       regionId: 'RegionId',
@@ -1231,6 +1242,7 @@ export class CreateBasicIpSetRequest extends $tea.Model {
     return {
       accelerateRegionId: 'string',
       acceleratorId: 'string',
+      bandwidth: 'number',
       clientToken: 'string',
       ispType: 'string',
       regionId: 'string',
@@ -1281,6 +1293,315 @@ export class CreateBasicIpSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateBasicIpSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
+  clientToken?: string;
+  destinationConfigurations?: CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations[];
+  dryRun?: boolean;
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationConfigurations: 'DestinationConfigurations',
+      dryRun: 'DryRun',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations },
+      dryRun: 'boolean',
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends $tea.Model {
+  destinationIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationIds: 'DestinationIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomRoutingEndpointGroupDestinationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomRoutingEndpointGroupDestinationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  endpointGroupConfigurations?: CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations[];
+  listenerId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      endpointGroupConfigurations: 'EndpointGroupConfigurations',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      endpointGroupConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations },
+      listenerId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
+  endpointGroupIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointGroupIds: 'EndpointGroupIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomRoutingEndpointGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomRoutingEndpointGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model {
+  clientToken?: string;
+  endpointId?: string;
+  policyConfigurations?: CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointId: 'EndpointId',
+      policyConfigurations: 'PolicyConfigurations',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointId: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea.Model {
+  policyIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomRoutingEndpointTrafficPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomRoutingEndpointTrafficPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsRequest extends $tea.Model {
+  clientToken?: string;
+  endpointConfigurations?: CreateCustomRoutingEndpointsRequestEndpointConfigurations[];
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointsRequestEndpointConfigurations },
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsResponseBody extends $tea.Model {
+  endpointIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointIds: 'EndpointIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomRoutingEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomRoutingEndpointsResponseBody,
     };
   }
 
@@ -1648,13 +1969,16 @@ export class CreateListenerRequest extends $tea.Model {
   certificates?: CreateListenerRequestCertificates[];
   clientAffinity?: string;
   clientToken?: string;
+  customRoutingEndpointGroupConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurations[];
   description?: string;
+  endpointGroupConfigurations?: CreateListenerRequestEndpointGroupConfigurations[];
   name?: string;
   portRanges?: CreateListenerRequestPortRanges[];
   protocol?: string;
   proxyProtocol?: boolean;
   regionId?: string;
   securityPolicyId?: string;
+  type?: string;
   XForwardedForConfig?: CreateListenerRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -1662,13 +1986,16 @@ export class CreateListenerRequest extends $tea.Model {
       certificates: 'Certificates',
       clientAffinity: 'ClientAffinity',
       clientToken: 'ClientToken',
+      customRoutingEndpointGroupConfigurations: 'CustomRoutingEndpointGroupConfigurations',
       description: 'Description',
+      endpointGroupConfigurations: 'EndpointGroupConfigurations',
       name: 'Name',
       portRanges: 'PortRanges',
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
       regionId: 'RegionId',
       securityPolicyId: 'SecurityPolicyId',
+      type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
     };
   }
@@ -1679,13 +2006,16 @@ export class CreateListenerRequest extends $tea.Model {
       certificates: { 'type': 'array', 'itemType': CreateListenerRequestCertificates },
       clientAffinity: 'string',
       clientToken: 'string',
+      customRoutingEndpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurations },
       description: 'string',
+      endpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestEndpointGroupConfigurations },
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': CreateListenerRequestPortRanges },
       protocol: 'string',
       proxyProtocol: 'boolean',
       regionId: 'string',
       securityPolicyId: 'string',
+      type: 'string',
       XForwardedForConfig: CreateListenerRequestXForwardedForConfig,
     };
   }
@@ -2306,6 +2636,300 @@ export class DeleteBasicIpSetResponse extends $tea.Model {
   }
 }
 
+export class DeleteCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
+  clientToken?: string;
+  destinationIds?: string[];
+  dryRun?: boolean;
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationIds: 'DestinationIds',
+      dryRun: 'DryRun',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationIds: { 'type': 'array', 'itemType': 'string' },
+      dryRun: 'boolean',
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointGroupDestinationsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCustomRoutingEndpointGroupDestinationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomRoutingEndpointGroupDestinationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointGroupsRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  endpointGroupIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      endpointGroupIds: 'EndpointGroupIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCustomRoutingEndpointGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomRoutingEndpointGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model {
+  clientToken?: string;
+  endpointId?: string;
+  policyIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointId: 'EndpointId',
+      policyIds: 'PolicyIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointId: 'string',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCustomRoutingEndpointTrafficPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomRoutingEndpointTrafficPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointsRequest extends $tea.Model {
+  clientToken?: string;
+  endpointGroupId?: string;
+  endpointIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointGroupId: 'EndpointGroupId',
+      endpointIds: 'EndpointIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointGroupId: 'string',
+      endpointIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoutingEndpointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteCustomRoutingEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomRoutingEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEndpointGroupRequest extends $tea.Model {
   acceleratorId?: string;
   clientToken?: string;
@@ -2831,10 +3455,12 @@ export class DescribeAcceleratorRequest extends $tea.Model {
 
 export class DescribeAcceleratorResponseBody extends $tea.Model {
   acceleratorId?: string;
+  bandwidthBillingType?: string;
   basicBandwidthPackage?: DescribeAcceleratorResponseBodyBasicBandwidthPackage;
   cenId?: string;
   createTime?: number;
   crossDomainBandwidthPackage?: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage;
+  crossPrivateState?: string;
   ddosId?: string;
   description?: string;
   dnsName?: string;
@@ -2850,10 +3476,12 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
+      bandwidthBillingType: 'BandwidthBillingType',
       basicBandwidthPackage: 'BasicBandwidthPackage',
       cenId: 'CenId',
       createTime: 'CreateTime',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      crossPrivateState: 'CrossPrivateState',
       ddosId: 'DdosId',
       description: 'Description',
       dnsName: 'DnsName',
@@ -2872,10 +3500,12 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorId: 'string',
+      bandwidthBillingType: 'string',
       basicBandwidthPackage: DescribeAcceleratorResponseBodyBasicBandwidthPackage,
       cenId: 'string',
       createTime: 'number',
       crossDomainBandwidthPackage: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage,
+      crossPrivateState: 'string',
       ddosId: 'string',
       description: 'string',
       dnsName: 'string',
@@ -3296,6 +3926,378 @@ export class DescribeBandwidthPackageAutoRenewAttributeResponse extends $tea.Mod
   }
 }
 
+export class DescribeCustomRoutingEndPointTrafficPolicyRequest extends $tea.Model {
+  policyId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  endpoint?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  listenerId?: string;
+  policyId?: string;
+  portRanges?: DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      endpoint: 'Endpoint',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      policyId: 'PolicyId',
+      portRanges: 'PortRanges',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      endpoint: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      policyId: 'string',
+      portRanges: { 'type': 'array', 'itemType': DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndPointTrafficPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCustomRoutingEndPointTrafficPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomRoutingEndPointTrafficPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointRequest extends $tea.Model {
+  endpointId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  endpoint?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  listenerId?: string;
+  requestId?: string;
+  trafficToEndpointPolicy?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpoint: 'Endpoint',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      requestId: 'RequestId',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpoint: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      requestId: 'string',
+      trafficToEndpointPolicy: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCustomRoutingEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomRoutingEndpointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupRequest extends $tea.Model {
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  accessLogSwitch?: string;
+  description?: string;
+  enableAccessLog?: boolean;
+  endpointGroupId?: string;
+  endpointGroupIpList?: string[];
+  endpointGroupRegion?: string;
+  endpointGroupUnconfirmedIpList?: string[];
+  listenerId?: string;
+  name?: string;
+  requestId?: string;
+  slsLogStoreName?: string;
+  slsProjectName?: string;
+  slsRegion?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      accessLogSwitch: 'AccessLogSwitch',
+      description: 'Description',
+      enableAccessLog: 'EnableAccessLog',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupIpList: 'EndpointGroupIpList',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      requestId: 'RequestId',
+      slsLogStoreName: 'SlsLogStoreName',
+      slsProjectName: 'SlsProjectName',
+      slsRegion: 'SlsRegion',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      accessLogSwitch: 'string',
+      description: 'string',
+      enableAccessLog: 'boolean',
+      endpointGroupId: 'string',
+      endpointGroupIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointGroupRegion: 'string',
+      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
+      listenerId: 'string',
+      name: 'string',
+      requestId: 'string',
+      slsLogStoreName: 'string',
+      slsProjectName: 'string',
+      slsRegion: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCustomRoutingEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomRoutingEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
+  destinationId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  destinationId?: string;
+  endpointGroupId?: string;
+  fromPort?: number;
+  listenerId?: string;
+  protocols?: string[];
+  requestId?: string;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      destinationId: 'DestinationId',
+      endpointGroupId: 'EndpointGroupId',
+      fromPort: 'FromPort',
+      listenerId: 'ListenerId',
+      protocols: 'Protocols',
+      requestId: 'RequestId',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      destinationId: 'string',
+      endpointGroupId: 'string',
+      fromPort: 'number',
+      listenerId: 'string',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCustomRoutingEndpointGroupDestinationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomRoutingEndpointGroupDestinationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndpointGroupRequest extends $tea.Model {
   endpointGroupId?: string;
   regionId?: string;
@@ -3472,6 +4474,7 @@ export class DescribeIpSetResponseBody extends $tea.Model {
   ipAddressList?: string[];
   ipSetId?: string;
   ipVersion?: string;
+  ispType?: string;
   requestId?: string;
   state?: string;
   static names(): { [key: string]: string } {
@@ -3482,6 +4485,7 @@ export class DescribeIpSetResponseBody extends $tea.Model {
       ipAddressList: 'IpAddressList',
       ipSetId: 'IpSetId',
       ipVersion: 'IpVersion',
+      ispType: 'IspType',
       requestId: 'RequestId',
       state: 'State',
     };
@@ -3495,6 +4499,7 @@ export class DescribeIpSetResponseBody extends $tea.Model {
       ipAddressList: { 'type': 'array', 'itemType': 'string' },
       ipSetId: 'string',
       ipVersion: 'string',
+      ispType: 'string',
       requestId: 'string',
       state: 'string',
     };
@@ -3569,6 +4574,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
   requestId?: string;
   securityPolicyId?: string;
   state?: string;
+  type?: string;
   XForwardedForConfig?: DescribeListenerResponseBodyXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -3588,6 +4594,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       requestId: 'RequestId',
       securityPolicyId: 'SecurityPolicyId',
       state: 'State',
+      type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
     };
   }
@@ -3610,6 +4617,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       requestId: 'string',
       securityPolicyId: 'string',
       state: 'string',
+      type: 'string',
       XForwardedForConfig: DescribeListenerResponseBodyXForwardedForConfig,
     };
   }
@@ -4325,12 +5333,14 @@ export class GetBasicAcceleratorRequest extends $tea.Model {
 
 export class GetBasicAcceleratorResponseBody extends $tea.Model {
   acceleratorId?: string;
+  bandwidthBillingType?: string;
   basicBandwidthPackage?: GetBasicAcceleratorResponseBodyBasicBandwidthPackage;
   basicEndpointGroupId?: string;
   basicIpSetId?: string;
   cenId?: string;
   createTime?: number;
   crossDomainBandwidthPackage?: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage;
+  crossPrivateState?: string;
   description?: string;
   expiredTime?: number;
   instanceChargeType?: string;
@@ -4341,12 +5351,14 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
+      bandwidthBillingType: 'BandwidthBillingType',
       basicBandwidthPackage: 'BasicBandwidthPackage',
       basicEndpointGroupId: 'BasicEndpointGroupId',
       basicIpSetId: 'BasicIpSetId',
       cenId: 'CenId',
       createTime: 'CreateTime',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      crossPrivateState: 'CrossPrivateState',
       description: 'Description',
       expiredTime: 'ExpiredTime',
       instanceChargeType: 'InstanceChargeType',
@@ -4360,12 +5372,14 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorId: 'string',
+      bandwidthBillingType: 'string',
       basicBandwidthPackage: GetBasicAcceleratorResponseBodyBasicBandwidthPackage,
       basicEndpointGroupId: 'string',
       basicIpSetId: 'string',
       cenId: 'string',
       createTime: 'number',
       crossDomainBandwidthPackage: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage,
+      crossPrivateState: 'string',
       description: 'string',
       expiredTime: 'number',
       instanceChargeType: 'string',
@@ -4437,6 +5451,7 @@ export class GetBasicEndpointGroupResponseBody extends $tea.Model {
   endpointAddress?: string;
   endpointGroupId?: string;
   endpointGroupRegion?: string;
+  endpointSubAddress?: string;
   endpointType?: string;
   name?: string;
   requestId?: string;
@@ -4448,6 +5463,7 @@ export class GetBasicEndpointGroupResponseBody extends $tea.Model {
       endpointAddress: 'EndpointAddress',
       endpointGroupId: 'EndpointGroupId',
       endpointGroupRegion: 'EndpointGroupRegion',
+      endpointSubAddress: 'EndpointSubAddress',
       endpointType: 'EndpointType',
       name: 'Name',
       requestId: 'RequestId',
@@ -4462,6 +5478,7 @@ export class GetBasicEndpointGroupResponseBody extends $tea.Model {
       endpointAddress: 'string',
       endpointGroupId: 'string',
       endpointGroupRegion: 'string',
+      endpointSubAddress: 'string',
       endpointType: 'string',
       name: 'string',
       requestId: 'string',
@@ -5625,6 +6642,558 @@ export class ListBusiRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListBusiRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  fromPort?: number;
+  listenerId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  protocols?: string[];
+  regionId?: string;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      fromPort: 'FromPort',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      protocols: 'Protocols',
+      regionId: 'RegionId',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      fromPort: 'number',
+      listenerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupDestinationsResponseBody extends $tea.Model {
+  destinations?: ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinations: 'Destinations',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinations: { 'type': 'array', 'itemType': ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingEndpointGroupDestinationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingEndpointGroupDestinationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupsRequest extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  listenerId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      listenerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
+  endpointGroups?: ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpointGroups: 'EndpointGroups',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointGroups: { 'type': 'array', 'itemType': ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingEndpointGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingEndpointGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  listenerId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  policies?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      policies: { 'type': 'array', 'itemType': ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingEndpointTrafficPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingEndpointTrafficPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointsRequest extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  listenerId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      listenerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointsResponseBody extends $tea.Model {
+  endpoints?: ListCustomRoutingEndpointsResponseBodyEndpoints[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpoints: 'Endpoints',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoints: { 'type': 'array', 'itemType': ListCustomRoutingEndpointsResponseBodyEndpoints },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsRequest extends $tea.Model {
+  acceleratorId?: string;
+  endpointGroupId?: string;
+  listenerId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpointGroupId: 'EndpointGroupId',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpointGroupId: 'string',
+      listenerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  portMappings?: ListCustomRoutingPortMappingsResponseBodyPortMappings[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      portMappings: 'PortMappings',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      portMappings: { 'type': 'array', 'itemType': ListCustomRoutingPortMappingsResponseBodyPortMappings },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingPortMappingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingPortMappingsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsByDestinationRequest extends $tea.Model {
+  destinationAddress?: string;
+  endpointId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationAddress: 'DestinationAddress',
+      endpointId: 'EndpointId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationAddress: 'string',
+      endpointId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  portMappings?: ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      portMappings: 'PortMappings',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      portMappings: { 'type': 'array', 'itemType': ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsByDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCustomRoutingPortMappingsByDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomRoutingPortMappingsByDestinationResponseBody,
     };
   }
 
@@ -7045,6 +8614,7 @@ export class UpdateBasicEndpointGroupRequest extends $tea.Model {
   description?: string;
   endpointAddress?: string;
   endpointGroupId?: string;
+  endpointSubAddress?: string;
   endpointType?: string;
   name?: string;
   regionId?: string;
@@ -7054,6 +8624,7 @@ export class UpdateBasicEndpointGroupRequest extends $tea.Model {
       description: 'Description',
       endpointAddress: 'EndpointAddress',
       endpointGroupId: 'EndpointGroupId',
+      endpointSubAddress: 'EndpointSubAddress',
       endpointType: 'EndpointType',
       name: 'Name',
       regionId: 'RegionId',
@@ -7066,6 +8637,7 @@ export class UpdateBasicEndpointGroupRequest extends $tea.Model {
       description: 'string',
       endpointAddress: 'string',
       endpointGroupId: 'string',
+      endpointSubAddress: 'string',
       endpointType: 'string',
       name: 'string',
       regionId: 'string',
@@ -7113,6 +8685,378 @@ export class UpdateBasicEndpointGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateBasicEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicIpSetRequest extends $tea.Model {
+  bandwidth?: number;
+  clientToken?: string;
+  ipSetId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      ipSetId: 'IpSetId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      ipSetId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicIpSetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicIpSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateBasicIpSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBasicIpSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  endpointGroupId?: string;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      endpointGroupId: 'EndpointGroupId',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      endpointGroupId: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCustomRoutingEndpointGroupAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomRoutingEndpointGroupAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
+  clientToken?: string;
+  destinationConfigurations?: UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations[];
+  dryRun?: boolean;
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationConfigurations: 'DestinationConfigurations',
+      dryRun: 'DryRun',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationConfigurations: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations },
+      dryRun: 'boolean',
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupDestinationsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCustomRoutingEndpointGroupDestinationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomRoutingEndpointGroupDestinationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointTrafficPoliciesRequest extends $tea.Model {
+  clientToken?: string;
+  endpointId?: string;
+  policyConfigurations?: UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointId: 'EndpointId',
+      policyConfigurations: 'PolicyConfigurations',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointId: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea.Model {
+  policyIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCustomRoutingEndpointTrafficPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomRoutingEndpointTrafficPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsRequest extends $tea.Model {
+  clientToken?: string;
+  endpointConfigurations?: UpdateCustomRoutingEndpointsRequestEndpointConfigurations[];
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointConfigurations: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointsRequestEndpointConfigurations },
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsResponseBody extends $tea.Model {
+  endpointIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointIds: 'EndpointIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCustomRoutingEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomRoutingEndpointsResponseBody,
     };
   }
 
@@ -7782,6 +9726,275 @@ export class CreateAclRequestAclEntries extends $tea.Model {
   }
 }
 
+export class CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations extends $tea.Model {
+  fromPort?: number;
+  protocols?: string[];
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      protocols: 'Protocols',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations extends $tea.Model {
+  fromPort?: number;
+  protocols?: string[];
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      protocols: 'Protocols',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations extends $tea.Model {
+  address?: string;
+  portRanges?: CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
+  policyConfigurations?: CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations[];
+  trafficToEndpointPolicy?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      policyConfigurations: 'PolicyConfigurations',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations },
+      trafficToEndpointPolicy: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurations extends $tea.Model {
+  description?: string;
+  destinationConfigurations?: CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations[];
+  endpointConfigurations?: CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
+  endpointGroupRegion?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationConfigurations: 'DestinationConfigurations',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsDestinationConfigurations },
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations },
+      endpointGroupRegion: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations extends $tea.Model {
+  address?: string;
+  portRanges?: CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations extends $tea.Model {
+  address?: string;
+  portRanges?: CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoutingEndpointsRequestEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
+  policyConfigurations?: CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations[];
+  trafficToEndpointPolicy?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      policyConfigurations: 'PolicyConfigurations',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': CreateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations },
+      trafficToEndpointPolicy: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model {
   enableClientIPPreservation?: boolean;
   endpoint?: string;
@@ -8129,11 +10342,13 @@ export class CreateIpSetsRequestAccelerateRegion extends $tea.Model {
   accelerateRegionId?: string;
   bandwidth?: number;
   ipVersion?: string;
+  ispType?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
       bandwidth: 'Bandwidth',
       ipVersion: 'IpVersion',
+      ispType: 'IspType',
     };
   }
 
@@ -8142,6 +10357,7 @@ export class CreateIpSetsRequestAccelerateRegion extends $tea.Model {
       accelerateRegionId: 'string',
       bandwidth: 'number',
       ipVersion: 'string',
+      ispType: 'string',
     };
   }
 
@@ -8154,11 +10370,13 @@ export class CreateIpSetsResponseBodyIpSets extends $tea.Model {
   accelerateRegionId?: string;
   bandwidth?: number;
   ipSetId?: string;
+  ispType?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
       bandwidth: 'Bandwidth',
       ipSetId: 'IpSetId',
+      ispType: 'IspType',
     };
   }
 
@@ -8167,6 +10385,7 @@ export class CreateIpSetsResponseBodyIpSets extends $tea.Model {
       accelerateRegionId: 'string',
       bandwidth: 'number',
       ipSetId: 'string',
+      ispType: 'string',
     };
   }
 
@@ -8186,6 +10405,245 @@ export class CreateListenerRequestCertificates extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations extends $tea.Model {
+  fromPort?: number;
+  protocols?: string[];
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      protocols: 'Protocols',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations extends $tea.Model {
+  address?: string;
+  portRanges?: CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
+  policyConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations[];
+  trafficToEndpointPolicy?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      policyConfigurations: 'PolicyConfigurations',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurationsPolicyConfigurations },
+      trafficToEndpointPolicy: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestCustomRoutingEndpointGroupConfigurations extends $tea.Model {
+  description?: string;
+  destinationConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations[];
+  endpointConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations[];
+  endpointGroupRegion?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationConfigurations: 'DestinationConfigurations',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurationsDestinationConfigurations },
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurationsEndpointConfigurations },
+      endpointGroupRegion: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestEndpointGroupConfigurationsPortOverrides extends $tea.Model {
+  endpointPort?: number;
+  listenerPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointPort: 'number',
+      listenerPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateListenerRequestEndpointGroupConfigurations extends $tea.Model {
+  enableClientIPPreservationProxyProtocol?: boolean;
+  enableClientIPPreservationToa?: boolean;
+  endpointConfigurations?: CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations[];
+  endpointGroupDescription?: string;
+  endpointGroupName?: string;
+  endpointGroupRegion?: string;
+  endpointGroupType?: string;
+  endpointRequestProtocol?: string;
+  healthCheckEnabled?: boolean;
+  healthCheckIntervalSeconds?: number;
+  healthCheckPath?: string;
+  healthCheckPort?: number;
+  healthCheckProtocol?: string;
+  portOverrides?: CreateListenerRequestEndpointGroupConfigurationsPortOverrides[];
+  thresholdCount?: number;
+  trafficPercentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableClientIPPreservationProxyProtocol: 'EnableClientIPPreservationProxyProtocol',
+      enableClientIPPreservationToa: 'EnableClientIPPreservationToa',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupDescription: 'EndpointGroupDescription',
+      endpointGroupName: 'EndpointGroupName',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointGroupType: 'EndpointGroupType',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
+      healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      portOverrides: 'PortOverrides',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableClientIPPreservationProxyProtocol: 'boolean',
+      enableClientIPPreservationToa: 'boolean',
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations },
+      endpointGroupDescription: 'string',
+      endpointGroupName: 'string',
+      endpointGroupRegion: 'string',
+      endpointGroupType: 'string',
+      endpointRequestProtocol: 'string',
+      healthCheckEnabled: 'boolean',
+      healthCheckIntervalSeconds: 'number',
+      healthCheckPath: 'string',
+      healthCheckPort: 'number',
+      healthCheckProtocol: 'string',
+      portOverrides: { 'type': 'array', 'itemType': CreateListenerRequestEndpointGroupConfigurationsPortOverrides },
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -8352,6 +10810,28 @@ export class DescribeApplicationMonitorResponseBodyIspCityList extends $tea.Mode
       cityName: 'string',
       isp: 'string',
       ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
     };
   }
 
@@ -8832,6 +11312,7 @@ export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $tea.Mo
 export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   acceleratorId?: string;
   bandwidth?: number;
+  bandwidthBillingType?: string;
   basicBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
   cenId?: string;
   createTime?: number;
@@ -8852,6 +11333,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
     return {
       acceleratorId: 'AcceleratorId',
       bandwidth: 'Bandwidth',
+      bandwidthBillingType: 'BandwidthBillingType',
       basicBandwidthPackage: 'BasicBandwidthPackage',
       cenId: 'CenId',
       createTime: 'CreateTime',
@@ -8875,6 +11357,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
     return {
       acceleratorId: 'string',
       bandwidth: 'number',
+      bandwidthBillingType: 'string',
       basicBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
       cenId: 'string',
       createTime: 'number',
@@ -9253,6 +11736,7 @@ export class ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPa
 
 export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   acceleratorId?: string;
+  bandwidthBillingType?: string;
   basicBandwidthPackage?: ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
   basicEndpointGroupId?: string;
   basicIpSetId?: string;
@@ -9268,6 +11752,7 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
+      bandwidthBillingType: 'BandwidthBillingType',
       basicBandwidthPackage: 'BasicBandwidthPackage',
       basicEndpointGroupId: 'BasicEndpointGroupId',
       basicIpSetId: 'BasicIpSetId',
@@ -9286,6 +11771,7 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorId: 'string',
+      bandwidthBillingType: 'string',
       basicBandwidthPackage: ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
       basicEndpointGroupId: 'string',
       basicIpSetId: 'string',
@@ -9320,6 +11806,318 @@ export class ListBusiRegionsResponseBodyRegions extends $tea.Model {
     return {
       localName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations extends $tea.Model {
+  acceleratorId?: string;
+  destinationId?: string;
+  endpointGroupId?: string;
+  fromPort?: number;
+  listenerId?: string;
+  protocols?: string[];
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      destinationId: 'DestinationId',
+      endpointGroupId: 'EndpointGroupId',
+      fromPort: 'FromPort',
+      listenerId: 'ListenerId',
+      protocols: 'Protocols',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      destinationId: 'string',
+      endpointGroupId: 'string',
+      fromPort: 'number',
+      listenerId: 'string',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
+  acceleratorId?: string;
+  description?: string;
+  endpointGroupId?: string;
+  endpointGroupIpList?: string[];
+  endpointGroupRegion?: string;
+  endpointGroupUnconfirmedIpList?: string[];
+  listenerId?: string;
+  name?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      description: 'Description',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupIpList: 'EndpointGroupIpList',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      description: 'string',
+      endpointGroupId: 'string',
+      endpointGroupIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointGroupRegion: 'string',
+      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
+      listenerId: 'string',
+      name: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  listenerId?: string;
+  policyId?: string;
+  portRanges?: ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      policyId: 'PolicyId',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      policyId: 'string',
+      portRanges: { 'type': 'array', 'itemType': ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingEndpointsResponseBodyEndpoints extends $tea.Model {
+  acceleratorId?: string;
+  endpoint?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  listenerId?: string;
+  trafficToEndpointPolicy?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      endpoint: 'Endpoint',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      endpoint: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      trafficToEndpointPolicy: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress extends $tea.Model {
+  ipAddress?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsResponseBodyPortMappings extends $tea.Model {
+  acceleratorId?: string;
+  acceleratorPort?: number;
+  destinationSocketAddress?: ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress;
+  destinationTrafficState?: string;
+  endpointGroupId?: string;
+  endpointGroupRegion?: string;
+  endpointId?: string;
+  listenerId?: string;
+  protocols?: string[];
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      acceleratorPort: 'AcceleratorPort',
+      destinationSocketAddress: 'DestinationSocketAddress',
+      destinationTrafficState: 'DestinationTrafficState',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      protocols: 'Protocols',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      acceleratorPort: 'number',
+      destinationSocketAddress: ListCustomRoutingPortMappingsResponseBodyPortMappingsDestinationSocketAddress,
+      destinationTrafficState: 'string',
+      endpointGroupId: 'string',
+      endpointGroupRegion: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      vswitch: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress extends $tea.Model {
+  ipAddress?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings extends $tea.Model {
+  acceleratorId?: string;
+  acceleratorPort?: number;
+  destinationSocketAddress?: ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress;
+  destinationTrafficState?: string;
+  endpointGroupId?: string;
+  endpointGroupRegion?: string;
+  endpointId?: string;
+  listenerId?: string;
+  protocols?: string[];
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      acceleratorPort: 'AcceleratorPort',
+      destinationSocketAddress: 'DestinationSocketAddress',
+      destinationTrafficState: 'DestinationTrafficState',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointId: 'EndpointId',
+      listenerId: 'ListenerId',
+      protocols: 'Protocols',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      acceleratorPort: 'number',
+      destinationSocketAddress: ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappingsDestinationSocketAddress,
+      destinationTrafficState: 'string',
+      endpointGroupId: 'string',
+      endpointGroupRegion: 'string',
+      endpointId: 'string',
+      listenerId: 'string',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      vswitch: 'string',
     };
   }
 
@@ -9644,6 +12442,7 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
   ipAddressList?: string[];
   ipSetId?: string;
   ipVersion?: string;
+  ispType?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9652,6 +12451,7 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
       ipAddressList: 'IpAddressList',
       ipSetId: 'IpSetId',
       ipVersion: 'IpVersion',
+      ispType: 'IspType',
       state: 'State',
     };
   }
@@ -9663,6 +12463,7 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
       ipAddressList: { 'type': 'array', 'itemType': 'string' },
       ipSetId: 'string',
       ipVersion: 'string',
+      ispType: 'string',
       state: 'string',
     };
   }
@@ -9808,6 +12609,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
   proxyProtocol?: boolean;
   securityPolicyId?: string;
   state?: string;
+  type?: string;
   XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
@@ -9824,6 +12626,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       proxyProtocol: 'ProxyProtocol',
       securityPolicyId: 'SecurityPolicyId',
       state: 'State',
+      type: 'Type',
       XForwardedForConfig: 'XForwardedForConfig',
     };
   }
@@ -9843,6 +12646,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       proxyProtocol: 'boolean',
       securityPolicyId: 'string',
       state: 'string',
+      type: 'string',
       XForwardedForConfig: ListListenersResponseBodyListenersXForwardedForConfig,
     };
   }
@@ -9910,6 +12714,150 @@ export class RemoveEntriesFromAclRequestAclEntries extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       entry: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations extends $tea.Model {
+  destinationId?: string;
+  fromPort?: number;
+  protocols?: string[];
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      fromPort: 'FromPort',
+      protocols: 'Protocols',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'string',
+      fromPort: 'number',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurations extends $tea.Model {
+  address?: string;
+  policyId?: string;
+  portRanges?: UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      policyId: 'PolicyId',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      policyId: 'string',
+      portRanges: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointTrafficPoliciesRequestPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges extends $tea.Model {
+  fromPort?: string;
+  toPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'string',
+      toPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations extends $tea.Model {
+  address?: string;
+  portRanges?: UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      portRanges: 'PortRanges',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      portRanges: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurationsPortRanges },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoutingEndpointsRequestEndpointConfigurations extends $tea.Model {
+  endpointId?: string;
+  policyConfigurations?: UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations[];
+  trafficToEndpointPolicy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      policyConfigurations: 'PolicyConfigurations',
+      trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      policyConfigurations: { 'type': 'array', 'itemType': UpdateCustomRoutingEndpointsRequestEndpointConfigurationsPolicyConfigurations },
+      trafficToEndpointPolicy: 'string',
     };
   }
 
@@ -10787,6 +13735,10 @@ export default class Client extends OpenApi {
       query["AutoUseCoupon"] = request.autoUseCoupon;
     }
 
+    if (!Util.isUnset(request.bandwidthBillingType)) {
+      query["BandwidthBillingType"] = request.bandwidthBillingType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -11063,6 +14015,10 @@ export default class Client extends OpenApi {
       query["AutoUseCoupon"] = request.autoUseCoupon;
     }
 
+    if (!Util.isUnset(request.bandwidthBillingType)) {
+      query["BandwidthBillingType"] = request.bandwidthBillingType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -11124,6 +14080,10 @@ export default class Client extends OpenApi {
       query["EndpointGroupRegion"] = request.endpointGroupRegion;
     }
 
+    if (!Util.isUnset(request.endpointSubAddress)) {
+      query["EndpointSubAddress"] = request.endpointSubAddress;
+    }
+
     if (!Util.isUnset(request.endpointType)) {
       query["EndpointType"] = request.endpointType;
     }
@@ -11169,6 +14129,10 @@ export default class Client extends OpenApi {
       query["AcceleratorId"] = request.acceleratorId;
     }
 
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -11201,6 +14165,182 @@ export default class Client extends OpenApi {
   async createBasicIpSet(request: CreateBasicIpSetRequest): Promise<CreateBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicIpSetWithOptions(request, runtime);
+  }
+
+  async createCustomRoutingEndpointGroupDestinationsWithOptions(request: CreateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationConfigurations)) {
+      query["DestinationConfigurations"] = request.destinationConfigurations;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomRoutingEndpointGroupDestinations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointGroupDestinationsResponse({}));
+  }
+
+  async createCustomRoutingEndpointGroupDestinations(request: CreateCustomRoutingEndpointGroupDestinationsRequest): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+  }
+
+  async createCustomRoutingEndpointGroupsWithOptions(request: CreateCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupConfigurations)) {
+      query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomRoutingEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointGroupsResponse({}));
+  }
+
+  async createCustomRoutingEndpointGroups(request: CreateCustomRoutingEndpointGroupsRequest): Promise<CreateCustomRoutingEndpointGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomRoutingEndpointGroupsWithOptions(request, runtime);
+  }
+
+  async createCustomRoutingEndpointTrafficPoliciesWithOptions(request: CreateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.policyConfigurations)) {
+      query["PolicyConfigurations"] = request.policyConfigurations;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomRoutingEndpointTrafficPolicies",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointTrafficPoliciesResponse({}));
+  }
+
+  async createCustomRoutingEndpointTrafficPolicies(request: CreateCustomRoutingEndpointTrafficPoliciesRequest): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+  }
+
+  async createCustomRoutingEndpointsWithOptions(request: CreateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointConfigurations)) {
+      query["EndpointConfigurations"] = request.endpointConfigurations;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomRoutingEndpoints",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointsResponse({}));
+  }
+
+  async createCustomRoutingEndpoints(request: CreateCustomRoutingEndpointsRequest): Promise<CreateCustomRoutingEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
   async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
@@ -11454,8 +14594,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.customRoutingEndpointGroupConfigurations)) {
+      query["CustomRoutingEndpointGroupConfigurations"] = request.customRoutingEndpointGroupConfigurations;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointGroupConfigurations)) {
+      query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -11480,6 +14628,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityPolicyId)) {
       query["SecurityPolicyId"] = request.securityPolicyId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
@@ -11802,6 +14954,178 @@ export default class Client extends OpenApi {
   async deleteBasicIpSet(request: DeleteBasicIpSetRequest): Promise<DeleteBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicIpSetWithOptions(request, runtime);
+  }
+
+  async deleteCustomRoutingEndpointGroupDestinationsWithOptions(request: DeleteCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationIds)) {
+      query["DestinationIds"] = request.destinationIds;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomRoutingEndpointGroupDestinations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointGroupDestinationsResponse({}));
+  }
+
+  async deleteCustomRoutingEndpointGroupDestinations(request: DeleteCustomRoutingEndpointGroupDestinationsRequest): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+  }
+
+  async deleteCustomRoutingEndpointGroupsWithOptions(request: DeleteCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupIds)) {
+      query["EndpointGroupIds"] = request.endpointGroupIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomRoutingEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointGroupsResponse({}));
+  }
+
+  async deleteCustomRoutingEndpointGroups(request: DeleteCustomRoutingEndpointGroupsRequest): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomRoutingEndpointGroupsWithOptions(request, runtime);
+  }
+
+  async deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.policyIds)) {
+      query["PolicyIds"] = request.policyIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomRoutingEndpointTrafficPolicies",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointTrafficPoliciesResponse({}));
+  }
+
+  async deleteCustomRoutingEndpointTrafficPolicies(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+  }
+
+  async deleteCustomRoutingEndpointsWithOptions(request: DeleteCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointIds)) {
+      query["EndpointIds"] = request.endpointIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomRoutingEndpoints",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointsResponse({}));
+  }
+
+  async deleteCustomRoutingEndpoints(request: DeleteCustomRoutingEndpointsRequest): Promise<DeleteCustomRoutingEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
   async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
@@ -12250,6 +15574,138 @@ export default class Client extends OpenApi {
   async describeBandwidthPackageAutoRenewAttribute(request: DescribeBandwidthPackageAutoRenewAttributeRequest): Promise<DescribeBandwidthPackageAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandwidthPackageAutoRenewAttributeWithOptions(request, runtime);
+  }
+
+  async describeCustomRoutingEndPointTrafficPolicyWithOptions(request: DescribeCustomRoutingEndPointTrafficPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndPointTrafficPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomRoutingEndPointTrafficPolicy",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomRoutingEndPointTrafficPolicyResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndPointTrafficPolicyResponse({}));
+  }
+
+  async describeCustomRoutingEndPointTrafficPolicy(request: DescribeCustomRoutingEndPointTrafficPolicyRequest): Promise<DescribeCustomRoutingEndPointTrafficPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomRoutingEndPointTrafficPolicyWithOptions(request, runtime);
+  }
+
+  async describeCustomRoutingEndpointWithOptions(request: DescribeCustomRoutingEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomRoutingEndpoint",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomRoutingEndpointResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointResponse({}));
+  }
+
+  async describeCustomRoutingEndpoint(request: DescribeCustomRoutingEndpointRequest): Promise<DescribeCustomRoutingEndpointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomRoutingEndpointWithOptions(request, runtime);
+  }
+
+  async describeCustomRoutingEndpointGroupWithOptions(request: DescribeCustomRoutingEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomRoutingEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomRoutingEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointGroupResponse({}));
+  }
+
+  async describeCustomRoutingEndpointGroup(request: DescribeCustomRoutingEndpointGroupRequest): Promise<DescribeCustomRoutingEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomRoutingEndpointGroupWithOptions(request, runtime);
+  }
+
+  async describeCustomRoutingEndpointGroupDestinationsWithOptions(request: DescribeCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointGroupDestinationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomRoutingEndpointGroupDestinations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointGroupDestinationsResponse({}));
+  }
+
+  async describeCustomRoutingEndpointGroupDestinations(request: DescribeCustomRoutingEndpointGroupDestinationsRequest): Promise<DescribeCustomRoutingEndpointGroupDestinationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
   async describeEndpointGroupWithOptions(request: DescribeEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointGroupResponse> {
@@ -13328,6 +16784,316 @@ export default class Client extends OpenApi {
     return await this.listBusiRegionsWithOptions(request, runtime);
   }
 
+  async listCustomRoutingEndpointGroupDestinationsWithOptions(request: ListCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupDestinationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.fromPort)) {
+      query["FromPort"] = request.fromPort;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.protocols)) {
+      query["Protocols"] = request.protocols;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.toPort)) {
+      query["ToPort"] = request.toPort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingEndpointGroupDestinations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointGroupDestinationsResponse({}));
+  }
+
+  async listCustomRoutingEndpointGroupDestinations(request: ListCustomRoutingEndpointGroupDestinationsRequest): Promise<ListCustomRoutingEndpointGroupDestinationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+  }
+
+  async listCustomRoutingEndpointGroupsWithOptions(request: ListCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointGroupsResponse({}));
+  }
+
+  async listCustomRoutingEndpointGroups(request: ListCustomRoutingEndpointGroupsRequest): Promise<ListCustomRoutingEndpointGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingEndpointGroupsWithOptions(request, runtime);
+  }
+
+  async listCustomRoutingEndpointTrafficPoliciesWithOptions(request: ListCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointTrafficPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingEndpointTrafficPolicies",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointTrafficPoliciesResponse({}));
+  }
+
+  async listCustomRoutingEndpointTrafficPolicies(request: ListCustomRoutingEndpointTrafficPoliciesRequest): Promise<ListCustomRoutingEndpointTrafficPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+  }
+
+  async listCustomRoutingEndpointsWithOptions(request: ListCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingEndpoints",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointsResponse({}));
+  }
+
+  async listCustomRoutingEndpoints(request: ListCustomRoutingEndpointsRequest): Promise<ListCustomRoutingEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingEndpointsWithOptions(request, runtime);
+  }
+
+  async listCustomRoutingPortMappingsWithOptions(request: ListCustomRoutingPortMappingsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingPortMappingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingPortMappings",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingPortMappingsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingPortMappingsResponse({}));
+  }
+
+  async listCustomRoutingPortMappings(request: ListCustomRoutingPortMappingsRequest): Promise<ListCustomRoutingPortMappingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingPortMappingsWithOptions(request, runtime);
+  }
+
+  async listCustomRoutingPortMappingsByDestinationWithOptions(request: ListCustomRoutingPortMappingsByDestinationRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingPortMappingsByDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationAddress)) {
+      query["DestinationAddress"] = request.destinationAddress;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomRoutingPortMappingsByDestination",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomRoutingPortMappingsByDestinationResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingPortMappingsByDestinationResponse({}));
+  }
+
+  async listCustomRoutingPortMappingsByDestination(request: ListCustomRoutingPortMappingsByDestinationRequest): Promise<ListCustomRoutingPortMappingsByDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomRoutingPortMappingsByDestinationWithOptions(request, runtime);
+  }
+
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14160,6 +17926,10 @@ export default class Client extends OpenApi {
       query["EndpointGroupId"] = request.endpointGroupId;
     }
 
+    if (!Util.isUnset(request.endpointSubAddress)) {
+      query["EndpointSubAddress"] = request.endpointSubAddress;
+    }
+
     if (!Util.isUnset(request.endpointType)) {
       query["EndpointType"] = request.endpointType;
     }
@@ -14192,6 +17962,219 @@ export default class Client extends OpenApi {
   async updateBasicEndpointGroup(request: UpdateBasicEndpointGroupRequest): Promise<UpdateBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicEndpointGroupWithOptions(request, runtime);
+  }
+
+  async updateBasicIpSetWithOptions(request: UpdateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicIpSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBasicIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBasicIpSetResponse>(await this.callApi(params, req, runtime), new UpdateBasicIpSetResponse({}));
+  }
+
+  async updateBasicIpSet(request: UpdateBasicIpSetRequest): Promise<UpdateBasicIpSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBasicIpSetWithOptions(request, runtime);
+  }
+
+  async updateCustomRoutingEndpointGroupAttributeWithOptions(request: UpdateCustomRoutingEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomRoutingEndpointGroupAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomRoutingEndpointGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointGroupAttributeResponse({}));
+  }
+
+  async updateCustomRoutingEndpointGroupAttribute(request: UpdateCustomRoutingEndpointGroupAttributeRequest): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomRoutingEndpointGroupAttributeWithOptions(request, runtime);
+  }
+
+  async updateCustomRoutingEndpointGroupDestinationsWithOptions(request: UpdateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationConfigurations)) {
+      query["DestinationConfigurations"] = request.destinationConfigurations;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomRoutingEndpointGroupDestinations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointGroupDestinationsResponse({}));
+  }
+
+  async updateCustomRoutingEndpointGroupDestinations(request: UpdateCustomRoutingEndpointGroupDestinationsRequest): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
+  }
+
+  async updateCustomRoutingEndpointTrafficPoliciesWithOptions(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.policyConfigurations)) {
+      query["PolicyConfigurations"] = request.policyConfigurations;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomRoutingEndpointTrafficPolicies",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointTrafficPoliciesResponse({}));
+  }
+
+  async updateCustomRoutingEndpointTrafficPolicies(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
+  }
+
+  async updateCustomRoutingEndpointsWithOptions(request: UpdateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointConfigurations)) {
+      query["EndpointConfigurations"] = request.endpointConfigurations;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomRoutingEndpoints",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointsResponse({}));
+  }
+
+  async updateCustomRoutingEndpoints(request: UpdateCustomRoutingEndpointsRequest): Promise<UpdateCustomRoutingEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
   async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
