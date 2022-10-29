@@ -194,6 +194,99 @@ export class AddWebhookResponse extends $tea.Model {
   }
 }
 
+export class CreateFileRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  commitMessage?: string;
+  content?: string;
+  encoding?: string;
+  filePath?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      commitMessage: 'commitMessage',
+      content: 'content',
+      encoding: 'encoding',
+      filePath: 'filePath',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      commitMessage: 'string',
+      content: 'string',
+      encoding: 'string',
+      filePath: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateFileResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateFileResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFlowTagRequest extends $tea.Model {
   color?: string;
   flowTagGroupId?: number;
@@ -1348,6 +1441,93 @@ export class CreateWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class DeleteFileRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  commitMessage?: string;
+  filePath?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      commitMessage: 'commitMessage',
+      filePath: 'filePath',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      commitMessage: 'string',
+      filePath: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteFileResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteFileResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFlowTagResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1688,6 +1868,87 @@ export class DeleteProjectResponse extends $tea.Model {
   }
 }
 
+export class DeleteRepositoryRequest extends $tea.Model {
+  accessToken?: string;
+  reason?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      reason: 'reason',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      reason: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteRepositoryResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteRepositoryResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteResourceMemberResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1995,6 +2256,96 @@ export class GetCustomFieldOptionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCustomFieldOptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileBlobsRequest extends $tea.Model {
+  accessToken?: string;
+  filePath?: string;
+  from?: number;
+  organizationId?: string;
+  ref?: string;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      filePath: 'filePath',
+      from: 'from',
+      organizationId: 'organizationId',
+      ref: 'ref',
+      to: 'to',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      filePath: 'string',
+      from: 'number',
+      organizationId: 'string',
+      ref: 'string',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileBlobsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetFileBlobsResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetFileBlobsResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileBlobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFileBlobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileBlobsResponseBody,
     };
   }
 
@@ -4764,6 +5115,93 @@ export class ListRepositoryMemberWithInheritedResponse extends $tea.Model {
   }
 }
 
+export class ListRepositoryTreeRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  path?: string;
+  refName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      path: 'path',
+      refName: 'refName',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      path: 'string',
+      refName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryTreeResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoryTreeResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoryTreeResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryTreeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRepositoryTreeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRepositoryTreeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoryWebhookRequest extends $tea.Model {
   accessToken?: string;
   organizationId?: string;
@@ -6531,6 +6969,102 @@ export class TriggerRepositoryMirrorSyncResponse extends $tea.Model {
   }
 }
 
+export class UpdateFileRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  commitMessage?: string;
+  content?: string;
+  encoding?: string;
+  newPath?: string;
+  oldPath?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      commitMessage: 'commitMessage',
+      content: 'content',
+      encoding: 'encoding',
+      newPath: 'newPath',
+      oldPath: 'oldPath',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      commitMessage: 'string',
+      content: 'string',
+      encoding: 'string',
+      newPath: 'string',
+      oldPath: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateFileResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateFileResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFlowTagRequest extends $tea.Model {
   color?: string;
   flowTagGroupId?: number;
@@ -7119,6 +7653,135 @@ export class UpdateProtectedBranchesResponse extends $tea.Model {
   }
 }
 
+export class UpdateRepositoryRequest extends $tea.Model {
+  accessToken?: string;
+  adminSettingLanguage?: string;
+  avatar?: string;
+  buildsEnabled?: boolean;
+  checkEmail?: boolean;
+  defaultBranch?: string;
+  description?: string;
+  id?: number;
+  issuesEnabled?: boolean;
+  mergeRequestsEnabled?: boolean;
+  name?: string;
+  openCloneDownloadControl?: boolean;
+  path?: string;
+  projectCloneDownloadMethodList?: UpdateRepositoryRequestProjectCloneDownloadMethodList[];
+  projectCloneDownloadRoleList?: UpdateRepositoryRequestProjectCloneDownloadRoleList[];
+  snippetsEnabled?: boolean;
+  visibilityLevel?: number;
+  wikiEnabled?: boolean;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      adminSettingLanguage: 'adminSettingLanguage',
+      avatar: 'avatar',
+      buildsEnabled: 'buildsEnabled',
+      checkEmail: 'checkEmail',
+      defaultBranch: 'defaultBranch',
+      description: 'description',
+      id: 'id',
+      issuesEnabled: 'issuesEnabled',
+      mergeRequestsEnabled: 'mergeRequestsEnabled',
+      name: 'name',
+      openCloneDownloadControl: 'openCloneDownloadControl',
+      path: 'path',
+      projectCloneDownloadMethodList: 'projectCloneDownloadMethodList',
+      projectCloneDownloadRoleList: 'projectCloneDownloadRoleList',
+      snippetsEnabled: 'snippetsEnabled',
+      visibilityLevel: 'visibilityLevel',
+      wikiEnabled: 'wikiEnabled',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      adminSettingLanguage: 'string',
+      avatar: 'string',
+      buildsEnabled: 'boolean',
+      checkEmail: 'boolean',
+      defaultBranch: 'string',
+      description: 'string',
+      id: 'number',
+      issuesEnabled: 'boolean',
+      mergeRequestsEnabled: 'boolean',
+      name: 'string',
+      openCloneDownloadControl: 'boolean',
+      path: 'string',
+      projectCloneDownloadMethodList: { 'type': 'array', 'itemType': UpdateRepositoryRequestProjectCloneDownloadMethodList },
+      projectCloneDownloadRoleList: { 'type': 'array', 'itemType': UpdateRepositoryRequestProjectCloneDownloadRoleList },
+      snippetsEnabled: 'boolean',
+      visibilityLevel: 'number',
+      wikiEnabled: 'boolean',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateRepositoryResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateRepositoryResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRepositoryMemberRequest extends $tea.Model {
   accessToken?: string;
   accessLevel?: number;
@@ -7524,6 +8187,28 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
       secretToken: 'string',
       tagPushEvents: 'boolean',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileResponseBodyResult extends $tea.Model {
+  branchName?: string;
+  filePath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchName: 'branchName',
+      filePath: 'filePath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchName: 'string',
+      filePath: 'string',
     };
   }
 
@@ -7977,6 +8662,47 @@ export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class DeleteFileResponseBodyResult extends $tea.Model {
+  branchName?: string;
+  filePath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchName: 'branchName',
+      filePath: 'filePath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchName: 'string',
+      filePath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCodeupOrganizationResponseBodyResult extends $tea.Model {
   createdAt?: string;
   id?: number;
@@ -8043,6 +8769,28 @@ export class GetCustomFieldOptionResponseBodyFileds extends $tea.Model {
       position: 'number',
       value: 'string',
       valueEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileBlobsResponseBodyResult extends $tea.Model {
+  content?: string;
+  totalLines?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      totalLines: 'totalLines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      totalLines: 'number',
     };
   }
 
@@ -9327,6 +10075,56 @@ export class GetVariableGroupResponseBodyVariableGroup extends $tea.Model {
   }
 }
 
+export class GetWorkItemActivityResponseBodyActivitiesNewValue extends $tea.Model {
+  displayValue?: string;
+  plainValue?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'displayValue',
+      plainValue: 'plainValue',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      plainValue: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkItemActivityResponseBodyActivitiesOldValue extends $tea.Model {
+  displayValue?: string;
+  plainValue?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'displayValue',
+      plainValue: 'plainValue',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      plainValue: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkItemActivityResponseBodyActivitiesProperty extends $tea.Model {
   displayName?: string;
   propertyIdentifier?: string;
@@ -9360,6 +10158,8 @@ export class GetWorkItemActivityResponseBodyActivities extends $tea.Model {
   eventId?: number;
   eventTime?: number;
   eventType?: string;
+  newValue?: GetWorkItemActivityResponseBodyActivitiesNewValue[];
+  oldValue?: GetWorkItemActivityResponseBodyActivitiesOldValue[];
   operator?: string;
   parentEventId?: number;
   property?: GetWorkItemActivityResponseBodyActivitiesProperty;
@@ -9370,6 +10170,8 @@ export class GetWorkItemActivityResponseBodyActivities extends $tea.Model {
       eventId: 'eventId',
       eventTime: 'eventTime',
       eventType: 'eventType',
+      newValue: 'newValue',
+      oldValue: 'oldValue',
       operator: 'operator',
       parentEventId: 'parentEventId',
       property: 'property',
@@ -9383,6 +10185,8 @@ export class GetWorkItemActivityResponseBodyActivities extends $tea.Model {
       eventId: 'number',
       eventTime: 'number',
       eventType: 'string',
+      newValue: { 'type': 'array', 'itemType': GetWorkItemActivityResponseBodyActivitiesNewValue },
+      oldValue: { 'type': 'array', 'itemType': GetWorkItemActivityResponseBodyActivitiesOldValue },
       operator: 'string',
       parentEventId: 'number',
       property: GetWorkItemActivityResponseBodyActivitiesProperty,
@@ -10583,6 +11387,40 @@ export class ListRepositoryMemberWithInheritedResponseBodyResult extends $tea.Mo
   }
 }
 
+export class ListRepositoryTreeResponseBodyResult extends $tea.Model {
+  id?: string;
+  isLFS?: boolean;
+  mode?: string;
+  name?: string;
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      isLFS: 'isLFS',
+      mode: 'mode',
+      name: 'name',
+      path: 'path',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      isLFS: 'boolean',
+      mode: 'string',
+      name: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoryWebhookResponseBodyResult extends $tea.Model {
   createdAt?: string;
   description?: string;
@@ -11248,6 +12086,28 @@ export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateFileResponseBodyResult extends $tea.Model {
+  branchName?: string;
+  filePath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchName: 'branchName',
+      filePath: 'filePath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchName: 'string',
+      filePath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -11702,6 +12562,175 @@ export class UpdateProtectedBranchesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateRepositoryRequestProjectCloneDownloadMethodList extends $tea.Model {
+  allowed?: boolean;
+  permissionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowed: 'allowed',
+      permissionCode: 'permissionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowed: 'boolean',
+      permissionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryRequestProjectCloneDownloadRoleList extends $tea.Model {
+  allowed?: boolean;
+  roleCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowed: 'allowed',
+      roleCode: 'roleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowed: 'boolean',
+      roleCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponseBodyResultNamespace extends $tea.Model {
+  avatar?: string;
+  createdAt?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  ownerId?: number;
+  path?: string;
+  updatedAt?: string;
+  visibilityLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      createdAt: 'createdAt',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      ownerId: 'ownerId',
+      path: 'path',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      createdAt: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      ownerId: 'number',
+      path: 'string',
+      updatedAt: 'string',
+      visibilityLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponseBodyResult extends $tea.Model {
+  archived?: boolean;
+  avatarUrl?: string;
+  buildsEnabled?: boolean;
+  createdAt?: string;
+  creatorId?: number;
+  defaultBranch?: string;
+  description?: string;
+  httpUrlToRepo?: string;
+  id?: number;
+  issuesEnabled?: boolean;
+  lastActivityAt?: string;
+  mergeRequestsEnabled?: boolean;
+  name?: string;
+  nameWithNamespace?: string;
+  namespace?: UpdateRepositoryResponseBodyResultNamespace;
+  path?: string;
+  pathWithNamespace?: string;
+  snippetsEnabled?: boolean;
+  sshUrlToRepo?: string;
+  visibilityLevel?: number;
+  webUrl?: string;
+  wikiEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      archived: 'archived',
+      avatarUrl: 'avatarUrl',
+      buildsEnabled: 'buildsEnabled',
+      createdAt: 'createdAt',
+      creatorId: 'creatorId',
+      defaultBranch: 'defaultBranch',
+      description: 'description',
+      httpUrlToRepo: 'httpUrlToRepo',
+      id: 'id',
+      issuesEnabled: 'issuesEnabled',
+      lastActivityAt: 'lastActivityAt',
+      mergeRequestsEnabled: 'mergeRequestsEnabled',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespace: 'namespace',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      snippetsEnabled: 'snippetsEnabled',
+      sshUrlToRepo: 'sshUrlToRepo',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+      wikiEnabled: 'wikiEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archived: 'boolean',
+      avatarUrl: 'string',
+      buildsEnabled: 'boolean',
+      createdAt: 'string',
+      creatorId: 'number',
+      defaultBranch: 'string',
+      description: 'string',
+      httpUrlToRepo: 'string',
+      id: 'number',
+      issuesEnabled: 'boolean',
+      lastActivityAt: 'string',
+      mergeRequestsEnabled: 'boolean',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespace: UpdateRepositoryResponseBodyResultNamespace,
+      path: 'string',
+      pathWithNamespace: 'string',
+      snippetsEnabled: 'boolean',
+      sshUrlToRepo: 'string',
+      visibilityLevel: 'number',
+      webUrl: 'string',
+      wikiEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRepositoryMemberRequestRelatedInfos extends $tea.Model {
   relatedId?: string;
   sourceId?: number;
@@ -12002,6 +13031,63 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<AddWebhookResponse>(await this.callApi(params, req, runtime), new AddWebhookResponse({}));
+  }
+
+  async createFile(repositoryId: string, request: CreateFileRequest): Promise<CreateFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFileWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async createFileWithOptions(repositoryId: string, request: CreateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.branchName)) {
+      body["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.commitMessage)) {
+      body["commitMessage"] = request.commitMessage;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.encoding)) {
+      body["encoding"] = request.encoding;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      body["filePath"] = request.filePath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFile",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileResponse>(await this.callApi(params, req, runtime), new CreateFileResponse({}));
   }
 
   async createFlowTag(organizationId: string, request: CreateFlowTagRequest): Promise<CreateFlowTagResponse> {
@@ -12670,6 +13756,53 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
   }
 
+  async deleteFile(repositoryId: string, request: DeleteFileRequest): Promise<DeleteFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFileWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async deleteFileWithOptions(repositoryId: string, request: DeleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.branchName)) {
+      query["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.commitMessage)) {
+      query["commitMessage"] = request.commitMessage;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      query["filePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFile",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
+  }
+
   async deleteFlowTag(organizationId: string, id: string): Promise<DeleteFlowTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12821,6 +13954,47 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  async deleteRepository(repositoryId: string, request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRepositoryWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async deleteRepositoryWithOptions(repositoryId: string, request: DeleteRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.reason)) {
+      body["reason"] = request.reason;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRepository",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/remove`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteRepositoryResponse({}));
+  }
+
   async deleteResourceMember(organizationId: string, resourceType: string, resourceId: string, accountId: string): Promise<DeleteResourceMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12961,6 +14135,57 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetCustomFieldOptionResponse>(await this.callApi(params, req, runtime), new GetCustomFieldOptionResponse({}));
+  }
+
+  async getFileBlobs(repositoryId: string, request: GetFileBlobsRequest): Promise<GetFileBlobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFileBlobsWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async getFileBlobsWithOptions(repositoryId: string, request: GetFileBlobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileBlobsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      query["filePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.ref)) {
+      query["ref"] = request.ref;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["to"] = request.to;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileBlobs",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files/blobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileBlobsResponse>(await this.callApi(params, req, runtime), new GetFileBlobsResponse({}));
   }
 
   async getFileLastCommit(repositoryId: string, request: GetFileLastCommitRequest): Promise<GetFileLastCommitResponse> {
@@ -14280,6 +15505,53 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRepositoryMemberWithInheritedResponse>(await this.callApi(params, req, runtime), new ListRepositoryMemberWithInheritedResponse({}));
   }
 
+  async listRepositoryTree(repositoryId: string, request: ListRepositoryTreeRequest): Promise<ListRepositoryTreeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoryTreeWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listRepositoryTreeWithOptions(repositoryId: string, request: ListRepositoryTreeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryTreeResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.refName)) {
+      query["refName"] = request.refName;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositoryTree",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files/tree`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryTreeResponse>(await this.callApi(params, req, runtime), new ListRepositoryTreeResponse({}));
+  }
+
   async listRepositoryWebhook(repositoryId: string, request: ListRepositoryWebhookRequest): Promise<ListRepositoryWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15100,6 +16372,67 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerRepositoryMirrorSyncResponse>(await this.callApi(params, req, runtime), new TriggerRepositoryMirrorSyncResponse({}));
   }
 
+  async updateFile(repositoryId: string, request: UpdateFileRequest): Promise<UpdateFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFileWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async updateFileWithOptions(repositoryId: string, request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.branchName)) {
+      body["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.commitMessage)) {
+      body["commitMessage"] = request.commitMessage;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.encoding)) {
+      body["encoding"] = request.encoding;
+    }
+
+    if (!Util.isUnset(request.newPath)) {
+      body["newPath"] = request.newPath;
+    }
+
+    if (!Util.isUnset(request.oldPath)) {
+      body["oldPath"] = request.oldPath;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFile",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/files/update`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFileResponse>(await this.callApi(params, req, runtime), new UpdateFileResponse({}));
+  }
+
   async updateFlowTag(organizationId: string, id: string, request: UpdateFlowTagRequest): Promise<UpdateFlowTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15421,6 +16754,111 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateProtectedBranchesResponse>(await this.callApi(params, req, runtime), new UpdateProtectedBranchesResponse({}));
+  }
+
+  async updateRepository(repositoryId: string, request: UpdateRepositoryRequest): Promise<UpdateRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRepositoryWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async updateRepositoryWithOptions(repositoryId: string, request: UpdateRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.adminSettingLanguage)) {
+      body["adminSettingLanguage"] = request.adminSettingLanguage;
+    }
+
+    if (!Util.isUnset(request.avatar)) {
+      body["avatar"] = request.avatar;
+    }
+
+    if (!Util.isUnset(request.buildsEnabled)) {
+      body["buildsEnabled"] = request.buildsEnabled;
+    }
+
+    if (!Util.isUnset(request.checkEmail)) {
+      body["checkEmail"] = request.checkEmail;
+    }
+
+    if (!Util.isUnset(request.defaultBranch)) {
+      body["defaultBranch"] = request.defaultBranch;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.issuesEnabled)) {
+      body["issuesEnabled"] = request.issuesEnabled;
+    }
+
+    if (!Util.isUnset(request.mergeRequestsEnabled)) {
+      body["mergeRequestsEnabled"] = request.mergeRequestsEnabled;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.openCloneDownloadControl)) {
+      body["openCloneDownloadControl"] = request.openCloneDownloadControl;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      body["path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.projectCloneDownloadMethodList)) {
+      body["projectCloneDownloadMethodList"] = request.projectCloneDownloadMethodList;
+    }
+
+    if (!Util.isUnset(request.projectCloneDownloadRoleList)) {
+      body["projectCloneDownloadRoleList"] = request.projectCloneDownloadRoleList;
+    }
+
+    if (!Util.isUnset(request.snippetsEnabled)) {
+      body["snippetsEnabled"] = request.snippetsEnabled;
+    }
+
+    if (!Util.isUnset(request.visibilityLevel)) {
+      body["visibilityLevel"] = request.visibilityLevel;
+    }
+
+    if (!Util.isUnset(request.wikiEnabled)) {
+      body["wikiEnabled"] = request.wikiEnabled;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRepository",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepositoryResponse>(await this.callApi(params, req, runtime), new UpdateRepositoryResponse({}));
   }
 
   async updateRepositoryMember(repositoryId: string, userId: string, request: UpdateRepositoryMemberRequest): Promise<UpdateRepositoryMemberResponse> {
