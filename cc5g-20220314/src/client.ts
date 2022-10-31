@@ -92,6 +92,165 @@ export class AddDNSAuthorizationRuleResponse extends $tea.Model {
   }
 }
 
+export class AddGroupDnsAuthorizationRuleRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  name?: string;
+  sourceDNSIp?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      name: 'Name',
+      sourceDNSIp: 'SourceDNSIp',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      sourceDNSIp: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGroupDnsAuthorizationRuleResponseBody extends $tea.Model {
+  authorizationRuleId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGroupDnsAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddGroupDnsAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddGroupDnsAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWirelessCloudConnectorToGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  wirelessCloudConnectorGroupId?: string;
+  wirelessCloudConnectorIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+      wirelessCloudConnectorIds: 'WirelessCloudConnectorIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+      wirelessCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWirelessCloudConnectorToGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWirelessCloudConnectorToGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddWirelessCloudConnectorToGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddWirelessCloudConnectorToGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachVpcToNetLinkRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -368,6 +527,102 @@ export class CreateBatchOperateCardsTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  destination?: string;
+  destinationPort?: string;
+  destinationType?: string;
+  dryRun?: boolean;
+  name?: string;
+  policy?: string;
+  protocol?: string;
+  sourceCidr?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destination: 'Destination',
+      destinationPort: 'DestinationPort',
+      destinationType: 'DestinationType',
+      dryRun: 'DryRun',
+      name: 'Name',
+      policy: 'Policy',
+      protocol: 'Protocol',
+      sourceCidr: 'SourceCidr',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      destination: 'string',
+      destinationPort: 'string',
+      destinationType: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      policy: 'string',
+      protocol: 'string',
+      sourceCidr: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupAuthorizationRuleResponseBody extends $tea.Model {
+  authorizationRuleId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGroupAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -530,6 +785,84 @@ export class CreateWirelessCloudConnectorResponse extends $tea.Model {
   }
 }
 
+export class CreateWirelessCloudConnectorGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWirelessCloudConnectorGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWirelessCloudConnectorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWirelessCloudConnectorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWirelessCloudConnectorGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAuthorizationRuleRequest extends $tea.Model {
   authorizationRuleId?: string;
   clientToken?: string;
@@ -674,6 +1007,78 @@ export class DeleteBatchOperateCardsTaskResponse extends $tea.Model {
   }
 }
 
+export class DeleteGroupAuthorizationRuleRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupAuthorizationRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGroupAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -807,6 +1212,75 @@ export class DeleteWirelessCloudConnectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteWirelessCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWirelessCloudConnectorGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWirelessCloudConnectorGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWirelessCloudConnectorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteWirelessCloudConnectorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWirelessCloudConnectorGroupResponseBody,
     };
   }
 
@@ -1362,6 +1836,7 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
   serviceType?: string;
   status?: string;
   useCase?: string;
+  wirelessCloudConnectorGroupId?: string;
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1379,6 +1854,7 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
       serviceType: 'ServiceType',
       status: 'Status',
       useCase: 'UseCase',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
       wirelessCloudConnectorId: 'WirelessCloudConnectorId',
     };
   }
@@ -1399,6 +1875,7 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
       serviceType: 'string',
       status: 'string',
       useCase: 'string',
+      wirelessCloudConnectorGroupId: 'string',
       wirelessCloudConnectorId: 'string',
     };
   }
@@ -2087,6 +2564,117 @@ export class ListDiagnoseInfoForSingleCardResponse extends $tea.Model {
   }
 }
 
+export class ListGroupAuthorizationRulesRequest extends $tea.Model {
+  authorizationRuleIds?: string[];
+  destination?: string;
+  destinationPort?: string;
+  destinationType?: string;
+  dns?: boolean;
+  maxResults?: number;
+  names?: string[];
+  nextToken?: string;
+  policy?: string;
+  protocol?: string;
+  statuses?: string[];
+  type?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleIds: 'AuthorizationRuleIds',
+      destination: 'Destination',
+      destinationPort: 'DestinationPort',
+      destinationType: 'DestinationType',
+      dns: 'Dns',
+      maxResults: 'MaxResults',
+      names: 'Names',
+      nextToken: 'NextToken',
+      policy: 'Policy',
+      protocol: 'Protocol',
+      statuses: 'Statuses',
+      type: 'Type',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleIds: { 'type': 'array', 'itemType': 'string' },
+      destination: 'string',
+      destinationPort: 'string',
+      destinationType: 'string',
+      dns: 'boolean',
+      maxResults: 'number',
+      names: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
+      policy: 'string',
+      protocol: 'string',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupAuthorizationRulesResponseBody extends $tea.Model {
+  groupAuthorizationRules?: ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules[];
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupAuthorizationRules: 'GroupAuthorizationRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupAuthorizationRules: { 'type': 'array', 'itemType': ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules },
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupAuthorizationRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGroupAuthorizationRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupAuthorizationRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
   netLinkId?: string;
   regionId?: string;
@@ -2313,6 +2901,96 @@ export class ListRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWirelessCloudConnectorGroupsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  wirelessCloudConnectorGroupIds?: string[];
+  wirelessCloudConnectorGroupNames?: string[];
+  wirelessCloudConnectorGroupStatus?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      wirelessCloudConnectorGroupIds: 'WirelessCloudConnectorGroupIds',
+      wirelessCloudConnectorGroupNames: 'WirelessCloudConnectorGroupNames',
+      wirelessCloudConnectorGroupStatus: 'WirelessCloudConnectorGroupStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      wirelessCloudConnectorGroupIds: { 'type': 'array', 'itemType': 'string' },
+      wirelessCloudConnectorGroupNames: { 'type': 'array', 'itemType': 'string' },
+      wirelessCloudConnectorGroupStatus: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWirelessCloudConnectorGroupsResponseBody extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: string;
+  wirelessCloudConnectorGroups?: ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      wirelessCloudConnectorGroups: 'WirelessCloudConnectorGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+      wirelessCloudConnectorGroups: { 'type': 'array', 'itemType': ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWirelessCloudConnectorGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListWirelessCloudConnectorGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWirelessCloudConnectorGroupsResponseBody,
     };
   }
 
@@ -2688,6 +3366,81 @@ export class OpenCc5gServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OpenCc5gServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWirelessCloudConnectorFromGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  wirelessCloudConnectorGroupId?: string;
+  wirelessCloudConnectorIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+      wirelessCloudConnectorIds: 'WirelessCloudConnectorIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+      wirelessCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWirelessCloudConnectorFromGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWirelessCloudConnectorFromGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveWirelessCloudConnectorFromGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveWirelessCloudConnectorFromGroupResponseBody,
     };
   }
 
@@ -3488,6 +4241,183 @@ export class UpdateDNSAuthorizationRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdateGroupAuthorizationRuleRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  description?: string;
+  destination?: string;
+  destinationPort?: string;
+  dryRun?: boolean;
+  name?: string;
+  policy?: string;
+  protocol?: string;
+  sourceCidr?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destination: 'Destination',
+      destinationPort: 'DestinationPort',
+      dryRun: 'DryRun',
+      name: 'Name',
+      policy: 'Policy',
+      protocol: 'Protocol',
+      sourceCidr: 'SourceCidr',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      description: 'string',
+      destination: 'string',
+      destinationPort: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      policy: 'string',
+      protocol: 'string',
+      sourceCidr: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupAuthorizationRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGroupAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDnsAuthorizationRuleRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  description?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  name?: string;
+  sourceDNSIp?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      name: 'Name',
+      sourceDNSIp: 'SourceDNSIp',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      description: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      sourceDNSIp: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDnsAuthorizationRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDnsAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGroupDnsAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGroupDnsAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWirelessCloudConnectorRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
@@ -3555,6 +4485,81 @@ export class UpdateWirelessCloudConnectorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateWirelessCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWirelessCloudConnectorGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  name?: string;
+  wirelessCloudConnectorGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      name: 'Name',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWirelessCloudConnectorGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWirelessCloudConnectorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateWirelessCloudConnectorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWirelessCloudConnectorGroupResponseBody,
     };
   }
 
@@ -4009,6 +5014,61 @@ export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.
   }
 }
 
+export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules extends $tea.Model {
+  authorizationRuleId?: string;
+  createTime?: string;
+  description?: string;
+  destination?: string;
+  destinationPort?: string;
+  destinationType?: string;
+  dns?: boolean;
+  name?: string;
+  policy?: string;
+  protocol?: string;
+  sourceCidr?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      createTime: 'CreateTime',
+      description: 'Description',
+      destination: 'Destination',
+      destinationPort: 'DestinationPort',
+      destinationType: 'DestinationType',
+      dns: 'Dns',
+      name: 'Name',
+      policy: 'Policy',
+      protocol: 'Protocol',
+      sourceCidr: 'SourceCidr',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      createTime: 'string',
+      description: 'string',
+      destination: 'string',
+      destinationPort: 'string',
+      destinationType: 'string',
+      dns: 'boolean',
+      name: 'string',
+      policy: 'string',
+      protocol: 'string',
+      sourceCidr: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorBackhaulRouteResponseBodyRoutes extends $tea.Model {
   description?: string;
   destinationCidrBlock?: string;
@@ -4124,6 +5184,95 @@ export class ListRegionsResponseBodyRegions extends $tea.Model {
       localName: 'string',
       regionEndpoint: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors extends $tea.Model {
+  businessType?: string;
+  cardCount?: string;
+  createTime?: string;
+  dataPackageId?: string;
+  dataPackageType?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  serviceType?: string;
+  status?: string;
+  useCase?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      cardCount: 'CardCount',
+      createTime: 'CreateTime',
+      dataPackageId: 'DataPackageId',
+      dataPackageType: 'DataPackageType',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      status: 'Status',
+      useCase: 'UseCase',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      cardCount: 'string',
+      createTime: 'string',
+      dataPackageId: 'string',
+      dataPackageType: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      status: 'string',
+      useCase: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroups extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  status?: string;
+  wirelessCloudConnectorGroupId?: string;
+  wirelessCloudConnectors?: ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      status: 'Status',
+      wirelessCloudConnectorGroupId: 'WirelessCloudConnectorGroupId',
+      wirelessCloudConnectors: 'WirelessCloudConnectors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      status: 'string',
+      wirelessCloudConnectorGroupId: 'string',
+      wirelessCloudConnectors: { 'type': 'array', 'itemType': ListWirelessCloudConnectorGroupsResponseBodyWirelessCloudConnectorGroupsWirelessCloudConnectors },
     };
   }
 
@@ -4283,6 +5432,104 @@ export default class Client extends OpenApi {
   async addDNSAuthorizationRule(request: AddDNSAuthorizationRuleRequest): Promise<AddDNSAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDNSAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async addGroupDnsAuthorizationRuleWithOptions(request: AddGroupDnsAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddGroupDnsAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sourceDNSIp)) {
+      query["SourceDNSIp"] = request.sourceDNSIp;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddGroupDnsAuthorizationRule",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGroupDnsAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new AddGroupDnsAuthorizationRuleResponse({}));
+  }
+
+  async addGroupDnsAuthorizationRule(request: AddGroupDnsAuthorizationRuleRequest): Promise<AddGroupDnsAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addGroupDnsAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async addWirelessCloudConnectorToGroupWithOptions(request: AddWirelessCloudConnectorToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddWirelessCloudConnectorToGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorIds)) {
+      query["WirelessCloudConnectorIds"] = request.wirelessCloudConnectorIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddWirelessCloudConnectorToGroup",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddWirelessCloudConnectorToGroupResponse>(await this.callApi(params, req, runtime), new AddWirelessCloudConnectorToGroupResponse({}));
+  }
+
+  async addWirelessCloudConnectorToGroup(request: AddWirelessCloudConnectorToGroupRequest): Promise<AddWirelessCloudConnectorToGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addWirelessCloudConnectorToGroupWithOptions(request, runtime);
   }
 
   async attachVpcToNetLinkWithOptions(request: AttachVpcToNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<AttachVpcToNetLinkResponse> {
@@ -4476,6 +5723,75 @@ export default class Client extends OpenApi {
     return await this.createBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
+  async createGroupAuthorizationRuleWithOptions(request: CreateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.sourceCidr)) {
+      query["SourceCidr"] = request.sourceCidr;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGroupAuthorizationRule",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new CreateGroupAuthorizationRuleResponse({}));
+  }
+
+  async createGroupAuthorizationRule(request: CreateGroupAuthorizationRuleRequest): Promise<CreateGroupAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
   async createIoTCloudConnectorBackhaulRouteWithOptions(request: CreateIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4578,6 +5894,51 @@ export default class Client extends OpenApi {
     return await this.createWirelessCloudConnectorWithOptions(request, runtime);
   }
 
+  async createWirelessCloudConnectorGroupWithOptions(request: CreateWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateWirelessCloudConnectorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWirelessCloudConnectorGroup",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new CreateWirelessCloudConnectorGroupResponse({}));
+  }
+
+  async createWirelessCloudConnectorGroup(request: CreateWirelessCloudConnectorGroupRequest): Promise<CreateWirelessCloudConnectorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWirelessCloudConnectorGroupWithOptions(request, runtime);
+  }
+
   async deleteAuthorizationRuleWithOptions(request: DeleteAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4660,6 +6021,47 @@ export default class Client extends OpenApi {
     return await this.deleteBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
+  async deleteGroupAuthorizationRuleWithOptions(request: DeleteGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGroupAuthorizationRule",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGroupAuthorizationRuleResponse({}));
+  }
+
+  async deleteGroupAuthorizationRule(request: DeleteGroupAuthorizationRuleRequest): Promise<DeleteGroupAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
   async deleteIoTCloudConnectorBackhaulRouteWithOptions(request: DeleteIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4736,6 +6138,43 @@ export default class Client extends OpenApi {
   async deleteWirelessCloudConnector(request: DeleteWirelessCloudConnectorRequest): Promise<DeleteWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWirelessCloudConnectorWithOptions(request, runtime);
+  }
+
+  async deleteWirelessCloudConnectorGroupWithOptions(request: DeleteWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWirelessCloudConnectorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWirelessCloudConnectorGroup",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new DeleteWirelessCloudConnectorGroupResponse({}));
+  }
+
+  async deleteWirelessCloudConnectorGroup(request: DeleteWirelessCloudConnectorGroupRequest): Promise<DeleteWirelessCloudConnectorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWirelessCloudConnectorGroupWithOptions(request, runtime);
   }
 
   async detachVpcFromNetLinkWithOptions(request: DetachVpcFromNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<DetachVpcFromNetLinkResponse> {
@@ -5176,6 +6615,31 @@ export default class Client extends OpenApi {
     return await this.listDiagnoseInfoForSingleCardWithOptions(request, runtime);
   }
 
+  async listGroupAuthorizationRulesWithOptions(request: ListGroupAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupAuthorizationRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupAuthorizationRules",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new ListGroupAuthorizationRulesResponse({}));
+  }
+
+  async listGroupAuthorizationRules(request: ListGroupAuthorizationRulesRequest): Promise<ListGroupAuthorizationRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupAuthorizationRulesWithOptions(request, runtime);
+  }
+
   async listIoTCloudConnectorBackhaulRouteWithOptions(request: ListIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5249,6 +6713,31 @@ export default class Client extends OpenApi {
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegionsWithOptions(request, runtime);
+  }
+
+  async listWirelessCloudConnectorGroupsWithOptions(request: ListWirelessCloudConnectorGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListWirelessCloudConnectorGroupsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWirelessCloudConnectorGroups",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWirelessCloudConnectorGroupsResponse>(await this.callApi(params, req, runtime), new ListWirelessCloudConnectorGroupsResponse({}));
+  }
+
+  async listWirelessCloudConnectorGroups(request: ListWirelessCloudConnectorGroupsRequest): Promise<ListWirelessCloudConnectorGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWirelessCloudConnectorGroupsWithOptions(request, runtime);
   }
 
   async listWirelessCloudConnectorsWithOptions(request: ListWirelessCloudConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListWirelessCloudConnectorsResponse> {
@@ -5414,6 +6903,51 @@ export default class Client extends OpenApi {
   async openCc5gService(request: OpenCc5gServiceRequest): Promise<OpenCc5gServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openCc5gServiceWithOptions(request, runtime);
+  }
+
+  async removeWirelessCloudConnectorFromGroupWithOptions(request: RemoveWirelessCloudConnectorFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveWirelessCloudConnectorFromGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorIds)) {
+      query["WirelessCloudConnectorIds"] = request.wirelessCloudConnectorIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveWirelessCloudConnectorFromGroup",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveWirelessCloudConnectorFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveWirelessCloudConnectorFromGroupResponse({}));
+  }
+
+  async removeWirelessCloudConnectorFromGroup(request: RemoveWirelessCloudConnectorFromGroupRequest): Promise<RemoveWirelessCloudConnectorFromGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeWirelessCloudConnectorFromGroupWithOptions(request, runtime);
   }
 
   async resumeCardsWithOptions(request: ResumeCardsRequest, runtime: $Util.RuntimeOptions): Promise<ResumeCardsResponse> {
@@ -5918,6 +7452,132 @@ export default class Client extends OpenApi {
     return await this.updateDNSAuthorizationRuleWithOptions(request, runtime);
   }
 
+  async updateGroupAuthorizationRuleWithOptions(request: UpdateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.sourceCidr)) {
+      query["SourceCidr"] = request.sourceCidr;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroupAuthorizationRule",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGroupAuthorizationRuleResponse({}));
+  }
+
+  async updateGroupAuthorizationRule(request: UpdateGroupAuthorizationRuleRequest): Promise<UpdateGroupAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async updateGroupDnsAuthorizationRuleWithOptions(request: UpdateGroupDnsAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupDnsAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sourceDNSIp)) {
+      query["SourceDNSIp"] = request.sourceDNSIp;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroupDnsAuthorizationRule",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupDnsAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGroupDnsAuthorizationRuleResponse({}));
+  }
+
+  async updateGroupDnsAuthorizationRule(request: UpdateGroupDnsAuthorizationRuleRequest): Promise<UpdateGroupDnsAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGroupDnsAuthorizationRuleWithOptions(request, runtime);
+  }
+
   async updateWirelessCloudConnectorWithOptions(request: UpdateWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5961,6 +7621,51 @@ export default class Client extends OpenApi {
   async updateWirelessCloudConnector(request: UpdateWirelessCloudConnectorRequest): Promise<UpdateWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWirelessCloudConnectorWithOptions(request, runtime);
+  }
+
+  async updateWirelessCloudConnectorGroupWithOptions(request: UpdateWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWirelessCloudConnectorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorGroupId)) {
+      query["WirelessCloudConnectorGroupId"] = request.wirelessCloudConnectorGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWirelessCloudConnectorGroup",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new UpdateWirelessCloudConnectorGroupResponse({}));
+  }
+
+  async updateWirelessCloudConnectorGroup(request: UpdateWirelessCloudConnectorGroupRequest): Promise<UpdateWirelessCloudConnectorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateWirelessCloudConnectorGroupWithOptions(request, runtime);
   }
 
 }
