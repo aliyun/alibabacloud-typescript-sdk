@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -61,24 +60,24 @@ export class AddImageRequest extends $tea.Model {
 }
 
 export class AddImageAdvanceRequest extends $tea.Model {
-  picContentObject: Readable;
   categoryId?: number;
   crop?: boolean;
   customContent?: string;
   instanceName?: string;
   intAttr?: number;
+  picContentObject?: Readable;
   picName?: string;
   productId?: string;
   region?: string;
   strAttr?: string;
   static names(): { [key: string]: string } {
     return {
-      picContentObject: 'PicContentObject',
       categoryId: 'CategoryId',
       crop: 'Crop',
       customContent: 'CustomContent',
       instanceName: 'InstanceName',
       intAttr: 'IntAttr',
+      picContentObject: 'PicContent',
       picName: 'PicName',
       productId: 'ProductId',
       region: 'Region',
@@ -88,12 +87,12 @@ export class AddImageAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      picContentObject: 'Readable',
       categoryId: 'number',
       crop: 'boolean',
       customContent: 'string',
       instanceName: 'string',
       intAttr: 'number',
+      picContentObject: 'Readable',
       picName: 'string',
       productId: 'string',
       region: 'string',
@@ -139,10 +138,12 @@ export class AddImageResponseBody extends $tea.Model {
 
 export class AddImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -150,6 +151,7 @@ export class AddImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddImageResponseBody,
     };
   }
@@ -217,10 +219,12 @@ export class DeleteImageResponseBody extends $tea.Model {
 
 export class DeleteImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -228,6 +232,7 @@ export class DeleteImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteImageResponseBody,
     };
   }
@@ -283,10 +288,12 @@ export class DetailResponseBody extends $tea.Model {
 
 export class DetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -294,6 +301,7 @@ export class DetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetailResponseBody,
     };
   }
@@ -349,10 +357,12 @@ export class DumpMetaResponseBody extends $tea.Model {
 
 export class DumpMetaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DumpMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -360,6 +370,7 @@ export class DumpMetaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DumpMetaResponseBody,
     };
   }
@@ -421,10 +432,12 @@ export class DumpMetaListResponseBody extends $tea.Model {
 
 export class DumpMetaListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DumpMetaListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -432,6 +445,7 @@ export class DumpMetaListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DumpMetaListResponseBody,
     };
   }
@@ -496,10 +510,12 @@ export class IncreaseInstanceResponseBody extends $tea.Model {
 
 export class IncreaseInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: IncreaseInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -507,6 +523,7 @@ export class IncreaseInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: IncreaseInstanceResponseBody,
     };
   }
@@ -574,10 +591,12 @@ export class IncreaseListResponseBody extends $tea.Model {
 
 export class IncreaseListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: IncreaseListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -585,6 +604,7 @@ export class IncreaseListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: IncreaseListResponseBody,
     };
   }
@@ -601,7 +621,6 @@ export class SearchImageByNameRequest extends $tea.Model {
   num?: number;
   picName?: string;
   productId?: string;
-  regionId?: string;
   start?: number;
   static names(): { [key: string]: string } {
     return {
@@ -611,7 +630,6 @@ export class SearchImageByNameRequest extends $tea.Model {
       num: 'Num',
       picName: 'PicName',
       productId: 'ProductId',
-      regionId: 'RegionId',
       start: 'Start',
     };
   }
@@ -624,7 +642,6 @@ export class SearchImageByNameRequest extends $tea.Model {
       num: 'number',
       picName: 'string',
       productId: 'string',
-      regionId: 'string',
       start: 'number',
     };
   }
@@ -673,10 +690,12 @@ export class SearchImageByNameResponseBody extends $tea.Model {
 
 export class SearchImageByNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchImageByNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -684,6 +703,7 @@ export class SearchImageByNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchImageByNameResponseBody,
     };
   }
@@ -701,7 +721,6 @@ export class SearchImageByPicRequest extends $tea.Model {
   num?: number;
   picContent?: string;
   region?: string;
-  regionId?: string;
   start?: number;
   static names(): { [key: string]: string } {
     return {
@@ -712,7 +731,6 @@ export class SearchImageByPicRequest extends $tea.Model {
       num: 'Num',
       picContent: 'PicContent',
       region: 'Region',
-      regionId: 'RegionId',
       start: 'Start',
     };
   }
@@ -726,7 +744,6 @@ export class SearchImageByPicRequest extends $tea.Model {
       num: 'number',
       picContent: 'string',
       region: 'string',
-      regionId: 'string',
       start: 'number',
     };
   }
@@ -737,39 +754,36 @@ export class SearchImageByPicRequest extends $tea.Model {
 }
 
 export class SearchImageByPicAdvanceRequest extends $tea.Model {
-  picContentObject: Readable;
   categoryId?: number;
   crop?: boolean;
   filter?: string;
   instanceName?: string;
   num?: number;
+  picContentObject?: Readable;
   region?: string;
-  regionId?: string;
   start?: number;
   static names(): { [key: string]: string } {
     return {
-      picContentObject: 'PicContentObject',
       categoryId: 'CategoryId',
       crop: 'Crop',
       filter: 'Filter',
       instanceName: 'InstanceName',
       num: 'Num',
+      picContentObject: 'PicContent',
       region: 'Region',
-      regionId: 'RegionId',
       start: 'Start',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      picContentObject: 'Readable',
       categoryId: 'number',
       crop: 'boolean',
       filter: 'string',
       instanceName: 'string',
       num: 'number',
+      picContentObject: 'Readable',
       region: 'string',
-      regionId: 'string',
       start: 'number',
     };
   }
@@ -818,10 +832,12 @@ export class SearchImageByPicResponseBody extends $tea.Model {
 
 export class SearchImageByPicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchImageByPicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -829,6 +845,7 @@ export class SearchImageByPicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchImageByPicResponseBody,
     };
   }
@@ -902,10 +919,12 @@ export class UpdateImageResponseBody extends $tea.Model {
 
 export class UpdateImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -913,6 +932,7 @@ export class UpdateImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateImageResponseBody,
     };
   }
@@ -1576,7 +1596,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1607,28 +1627,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, addImageReq);
     if (!Util.isUnset(request.picContentObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.picContentObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      addImageReq.picContent = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      addImageReq.picContent = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let addImageResp = await this.addImageWithOptions(addImageReq, runtime);
@@ -1675,7 +1695,10 @@ export default class Client extends OpenApi {
   async detailWithOptions(request: DetailRequest, runtime: $Util.RuntimeOptions): Promise<DetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceName"] = request.instanceName;
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1701,7 +1724,10 @@ export default class Client extends OpenApi {
   async dumpMetaWithOptions(request: DumpMetaRequest, runtime: $Util.RuntimeOptions): Promise<DumpMetaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceName"] = request.instanceName;
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1727,10 +1753,22 @@ export default class Client extends OpenApi {
   async dumpMetaListWithOptions(request: DumpMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DumpMetaListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["InstanceName"] = request.instanceName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1756,10 +1794,22 @@ export default class Client extends OpenApi {
   async increaseInstanceWithOptions(request: IncreaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<IncreaseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BucketName"] = request.bucketName;
-    query["CallbackAddress"] = request.callbackAddress;
-    query["InstanceName"] = request.instanceName;
-    query["Path"] = request.path;
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.callbackAddress)) {
+      query["CallbackAddress"] = request.callbackAddress;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1785,12 +1835,30 @@ export default class Client extends OpenApi {
   async increaseListWithOptions(request: IncreaseListRequest, runtime: $Util.RuntimeOptions): Promise<IncreaseListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BucketName"] = request.bucketName;
-    query["Id"] = request.id;
-    query["InstanceName"] = request.instanceName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Path"] = request.path;
+    if (!Util.isUnset(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1938,7 +2006,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1969,28 +2037,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, searchImageByPicReq);
     if (!Util.isUnset(request.picContentObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.picContentObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      searchImageByPicReq.picContent = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      searchImageByPicReq.picContent = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let searchImageByPicResp = await this.searchImageByPicWithOptions(searchImageByPicReq, runtime);
