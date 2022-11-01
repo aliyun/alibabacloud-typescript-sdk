@@ -479,10 +479,12 @@ export class EventSourceParameters extends $tea.Model {
 
 export class HTTPTriggerConfig extends $tea.Model {
   authType?: string;
+  disableURLInternet?: boolean;
   methods?: string[];
   static names(): { [key: string]: string } {
     return {
       authType: 'authType',
+      disableURLInternet: 'disableURLInternet',
       methods: 'methods',
     };
   }
@@ -490,6 +492,7 @@ export class HTTPTriggerConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      disableURLInternet: 'boolean',
       methods: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1506,6 +1509,64 @@ export class TracingConfig extends $tea.Model {
   }
 }
 
+export class Trigger extends $tea.Model {
+  createdTime?: string;
+  domainName?: string;
+  invocationRole?: string;
+  lastModifiedTime?: string;
+  qualifier?: string;
+  sourceArn?: string;
+  status?: string;
+  targetArn?: string;
+  triggerConfig?: string;
+  triggerId?: string;
+  triggerName?: string;
+  triggerType?: string;
+  urlInternet?: string;
+  urlIntranet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      domainName: 'domainName',
+      invocationRole: 'invocationRole',
+      lastModifiedTime: 'lastModifiedTime',
+      qualifier: 'qualifier',
+      sourceArn: 'sourceArn',
+      status: 'status',
+      targetArn: 'targetArn',
+      triggerConfig: 'triggerConfig',
+      triggerId: 'triggerId',
+      triggerName: 'triggerName',
+      triggerType: 'triggerType',
+      urlInternet: 'urlInternet',
+      urlIntranet: 'urlIntranet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      domainName: 'string',
+      invocationRole: 'string',
+      lastModifiedTime: 'string',
+      qualifier: 'string',
+      sourceArn: 'string',
+      status: 'string',
+      targetArn: 'string',
+      triggerConfig: 'string',
+      triggerId: 'string',
+      triggerName: 'string',
+      triggerType: 'string',
+      urlInternet: 'string',
+      urlIntranet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VPCConfig extends $tea.Model {
   role?: string;
   securityGroupId?: string;
@@ -1956,11 +2017,13 @@ export class CreateFunctionHeaders extends $tea.Model {
 export class CreateFunctionRequest extends $tea.Model {
   caPort?: number;
   code?: Code;
+  cpu?: number;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionName?: string;
   handler?: string;
@@ -1978,11 +2041,13 @@ export class CreateFunctionRequest extends $tea.Model {
     return {
       caPort: 'caPort',
       code: 'code',
+      cpu: 'cpu',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionName: 'functionName',
       handler: 'handler',
@@ -2003,11 +2068,13 @@ export class CreateFunctionRequest extends $tea.Model {
     return {
       caPort: 'number',
       code: Code,
+      cpu: 'number',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionName: 'string',
       handler: 'string',
@@ -2033,12 +2100,14 @@ export class CreateFunctionResponseBody extends $tea.Model {
   caPort?: number;
   codeChecksum?: string;
   codeSize?: number;
+  cpu?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
@@ -2059,12 +2128,14 @@ export class CreateFunctionResponseBody extends $tea.Model {
       caPort: 'caPort',
       codeChecksum: 'codeChecksum',
       codeSize: 'codeSize',
+      cpu: 'cpu',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
@@ -2088,12 +2159,14 @@ export class CreateFunctionResponseBody extends $tea.Model {
       caPort: 'number',
       codeChecksum: 'string',
       codeSize: 'number',
+      cpu: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
@@ -3565,12 +3638,14 @@ export class GetFunctionResponseBody extends $tea.Model {
   caPort?: number;
   codeChecksum?: string;
   codeSize?: number;
+  cpu?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfigInfo;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
@@ -3583,6 +3658,7 @@ export class GetFunctionResponseBody extends $tea.Model {
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
+  layersArnV2?: string[];
   memorySize?: number;
   runtime?: string;
   timeout?: number;
@@ -3591,12 +3667,14 @@ export class GetFunctionResponseBody extends $tea.Model {
       caPort: 'caPort',
       codeChecksum: 'codeChecksum',
       codeSize: 'codeSize',
+      cpu: 'cpu',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
@@ -3609,6 +3687,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
+      layersArnV2: 'layersArnV2',
       memorySize: 'memorySize',
       runtime: 'runtime',
       timeout: 'timeout',
@@ -3620,12 +3699,14 @@ export class GetFunctionResponseBody extends $tea.Model {
       caPort: 'number',
       codeChecksum: 'string',
       codeSize: 'number',
+      cpu: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfigInfo,
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
@@ -3638,6 +3719,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
+      layersArnV2: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
       runtime: 'string',
       timeout: 'number',
@@ -7607,11 +7689,13 @@ export class UpdateFunctionRequest extends $tea.Model {
   instanceConcurrency?: number;
   caPort?: number;
   code?: Code;
+  cpu?: number;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   handler?: string;
   initializationTimeout?: number;
@@ -7628,11 +7712,13 @@ export class UpdateFunctionRequest extends $tea.Model {
       instanceConcurrency: 'InstanceConcurrency',
       caPort: 'caPort',
       code: 'code',
+      cpu: 'cpu',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
@@ -7652,11 +7738,13 @@ export class UpdateFunctionRequest extends $tea.Model {
       instanceConcurrency: 'number',
       caPort: 'number',
       code: Code,
+      cpu: 'number',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       handler: 'string',
       initializationTimeout: 'number',
@@ -7680,12 +7768,14 @@ export class UpdateFunctionResponseBody extends $tea.Model {
   caPort?: number;
   codeChecksum?: string;
   codeSize?: number;
+  cpu?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
@@ -7705,12 +7795,14 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       caPort: 'caPort',
       codeChecksum: 'codeChecksum',
       codeSize: 'codeSize',
+      cpu: 'cpu',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
       customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
@@ -7733,12 +7825,14 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       caPort: 'number',
       codeChecksum: 'string',
       codeSize: 'number',
+      cpu: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
       customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
@@ -8275,10 +8369,12 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   caPort?: number;
   codeChecksum?: string;
   codeSize?: number;
+  cpu?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customHealthCheckConfig?: CustomHealthCheckConfig;
   description?: string;
+  diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
@@ -8299,10 +8395,12 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       caPort: 'caPort',
       codeChecksum: 'codeChecksum',
       codeSize: 'codeSize',
+      cpu: 'cpu',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customHealthCheckConfig: 'customHealthCheckConfig',
       description: 'description',
+      diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
@@ -8326,10 +8424,12 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       caPort: 'number',
       codeChecksum: 'string',
       codeSize: 'number',
+      cpu: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
       customHealthCheckConfig: CustomHealthCheckConfig,
       description: 'string',
+      diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
@@ -8681,7 +8781,6 @@ export default class Client extends OpenApi {
 
   async createAliasWithOptions(serviceName: string, request: CreateAliasRequest, headers: CreateAliasHeaders, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.additionalVersionWeight)) {
       body["additionalVersionWeight"] = request.additionalVersionWeight;
@@ -8732,7 +8831,7 @@ export default class Client extends OpenApi {
       action: "CreateAlias",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/aliases`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -8814,7 +8913,6 @@ export default class Client extends OpenApi {
 
   async createFunctionWithOptions(serviceName: string, request: CreateFunctionRequest, headers: CreateFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.caPort)) {
       body["caPort"] = request.caPort;
@@ -8822,6 +8920,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.code))) {
       body["code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.cpu)) {
+      body["cpu"] = request.cpu;
     }
 
     if (!Util.isUnset($tea.toMap(request.customContainerConfig))) {
@@ -8842,6 +8944,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.diskSize)) {
+      body["diskSize"] = request.diskSize;
     }
 
     if (!Util.isUnset(request.environmentVariables)) {
@@ -8925,7 +9031,7 @@ export default class Client extends OpenApi {
       action: "CreateFunction",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -8943,7 +9049,6 @@ export default class Client extends OpenApi {
 
   async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: CreateLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
     Util.validateModel(request);
-    layerName = OpenApiUtil.getEncodeParam(layerName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.code))) {
       body["Code"] = request.code;
@@ -8982,7 +9087,7 @@ export default class Client extends OpenApi {
       action: "CreateLayerVersion",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions`,
+      pathname: `/2021-04-06/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9080,8 +9185,6 @@ export default class Client extends OpenApi {
 
   async createTriggerWithOptions(serviceName: string, functionName: string, request: CreateTriggerRequest, headers: CreateTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -9136,7 +9239,7 @@ export default class Client extends OpenApi {
       action: "CreateTrigger",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9154,7 +9257,6 @@ export default class Client extends OpenApi {
 
   async createVpcBindingWithOptions(serviceName: string, request: CreateVpcBindingRequest, headers: CreateVpcBindingHeaders, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.vpcId)) {
       body["vpcId"] = request.vpcId;
@@ -9185,7 +9287,7 @@ export default class Client extends OpenApi {
       action: "CreateVpcBinding",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/bindings`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9202,8 +9304,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteAliasWithOptions(serviceName: string, aliasName: string, headers: DeleteAliasHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    aliasName = OpenApiUtil.getEncodeParam(aliasName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9232,7 +9332,7 @@ export default class Client extends OpenApi {
       action: "DeleteAlias",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9249,7 +9349,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteCustomDomainWithOptions(domainName: string, headers: DeleteCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
-    domainName = OpenApiUtil.getEncodeParam(domainName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9274,7 +9373,7 @@ export default class Client extends OpenApi {
       action: "DeleteCustomDomain",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      pathname: `/2021-04-06/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9291,8 +9390,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteFunctionWithOptions(serviceName: string, functionName: string, headers: DeleteFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9321,7 +9418,7 @@ export default class Client extends OpenApi {
       action: "DeleteFunction",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9339,8 +9436,6 @@ export default class Client extends OpenApi {
 
   async deleteFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest, headers: DeleteFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9371,7 +9466,7 @@ export default class Client extends OpenApi {
       action: "DeleteFunctionAsyncInvokeConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9389,8 +9484,6 @@ export default class Client extends OpenApi {
 
   async deleteFunctionOnDemandConfigWithOptions(serviceName: string, functionName: string, request: DeleteFunctionOnDemandConfigRequest, headers: DeleteFunctionOnDemandConfigHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionOnDemandConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9425,7 +9518,7 @@ export default class Client extends OpenApi {
       action: "DeleteFunctionOnDemandConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/on-demand-config`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9442,8 +9535,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteLayerVersionWithOptions(layerName: string, version: string, headers: DeleteLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
-    layerName = OpenApiUtil.getEncodeParam(layerName);
-    version = OpenApiUtil.getEncodeParam(version);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9468,7 +9559,7 @@ export default class Client extends OpenApi {
       action: "DeleteLayerVersion",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
+      pathname: `/2021-04-06/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9485,7 +9576,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceWithOptions(serviceName: string, headers: DeleteServiceHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9514,7 +9604,7 @@ export default class Client extends OpenApi {
       action: "DeleteService",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9531,8 +9621,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceVersionWithOptions(serviceName: string, versionId: string, headers: DeleteServiceVersionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteServiceVersionResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    versionId = OpenApiUtil.getEncodeParam(versionId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9557,7 +9645,7 @@ export default class Client extends OpenApi {
       action: "DeleteServiceVersion",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions/${versionId}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/versions/${OpenApiUtil.getEncodeParam(versionId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9574,9 +9662,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTriggerWithOptions(serviceName: string, functionName: string, triggerName: string, headers: DeleteTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    triggerName = OpenApiUtil.getEncodeParam(triggerName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9605,7 +9690,7 @@ export default class Client extends OpenApi {
       action: "DeleteTrigger",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9622,8 +9707,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteVpcBindingWithOptions(serviceName: string, vpcId: string, headers: DeleteVpcBindingHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    vpcId = OpenApiUtil.getEncodeParam(vpcId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9648,7 +9731,7 @@ export default class Client extends OpenApi {
       action: "DeleteVpcBinding",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings/${vpcId}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/bindings/${OpenApiUtil.getEncodeParam(vpcId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9666,9 +9749,6 @@ export default class Client extends OpenApi {
 
   async deregisterEventSourceWithOptions(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest, headers: DeregisterEventSourceHeaders, runtime: $Util.RuntimeOptions): Promise<DeregisterEventSourceResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    sourceArn = OpenApiUtil.getEncodeParam(sourceArn);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9699,7 +9779,7 @@ export default class Client extends OpenApi {
       action: "DeregisterEventSource",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources/${sourceArn}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/event-sources/${OpenApiUtil.getEncodeParam(sourceArn)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9757,8 +9837,6 @@ export default class Client extends OpenApi {
   }
 
   async getAliasWithOptions(serviceName: string, aliasName: string, headers: GetAliasHeaders, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    aliasName = OpenApiUtil.getEncodeParam(aliasName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9783,7 +9861,7 @@ export default class Client extends OpenApi {
       action: "GetAlias",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9800,7 +9878,6 @@ export default class Client extends OpenApi {
   }
 
   async getCustomDomainWithOptions(domainName: string, headers: GetCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
-    domainName = OpenApiUtil.getEncodeParam(domainName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9825,7 +9902,7 @@ export default class Client extends OpenApi {
       action: "GetCustomDomain",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      pathname: `/2021-04-06/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9843,8 +9920,6 @@ export default class Client extends OpenApi {
 
   async getFunctionWithOptions(serviceName: string, functionName: string, request: GetFunctionRequest, headers: GetFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9875,7 +9950,7 @@ export default class Client extends OpenApi {
       action: "GetFunction",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9893,8 +9968,6 @@ export default class Client extends OpenApi {
 
   async getFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest, headers: GetFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9925,7 +9998,7 @@ export default class Client extends OpenApi {
       action: "GetFunctionAsyncInvokeConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9943,8 +10016,6 @@ export default class Client extends OpenApi {
 
   async getFunctionCodeWithOptions(serviceName: string, functionName: string, request: GetFunctionCodeRequest, headers: GetFunctionCodeHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -9975,7 +10046,7 @@ export default class Client extends OpenApi {
       action: "GetFunctionCode",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/code`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/code`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9993,8 +10064,6 @@ export default class Client extends OpenApi {
 
   async getFunctionOnDemandConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest, headers: GetFunctionOnDemandConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionOnDemandConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10025,7 +10094,7 @@ export default class Client extends OpenApi {
       action: "GetFunctionOnDemandConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/on-demand-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10042,8 +10111,6 @@ export default class Client extends OpenApi {
   }
 
   async getLayerVersionWithOptions(layerName: string, version: string, headers: GetLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
-    layerName = OpenApiUtil.getEncodeParam(layerName);
-    version = OpenApiUtil.getEncodeParam(version);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -10068,7 +10135,7 @@ export default class Client extends OpenApi {
       action: "GetLayerVersion",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
+      pathname: `/2021-04-06/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10086,8 +10153,6 @@ export default class Client extends OpenApi {
 
   async getProvisionConfigWithOptions(serviceName: string, functionName: string, request: GetProvisionConfigRequest, headers: GetProvisionConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10118,7 +10183,7 @@ export default class Client extends OpenApi {
       action: "GetProvisionConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10184,7 +10249,6 @@ export default class Client extends OpenApi {
 
   async getServiceWithOptions(serviceName: string, request: GetServiceRequest, headers: GetServiceHeaders, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10215,7 +10279,7 @@ export default class Client extends OpenApi {
       action: "GetService",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10233,9 +10297,6 @@ export default class Client extends OpenApi {
 
   async getStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest, headers: GetStatefulAsyncInvocationHeaders, runtime: $Util.RuntimeOptions): Promise<GetStatefulAsyncInvocationResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    invocationId = OpenApiUtil.getEncodeParam(invocationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10278,7 +10339,7 @@ export default class Client extends OpenApi {
       action: "GetStatefulAsyncInvocation",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/stateful-async-invocations/${OpenApiUtil.getEncodeParam(invocationId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10295,9 +10356,6 @@ export default class Client extends OpenApi {
   }
 
   async getTriggerWithOptions(serviceName: string, functionName: string, triggerName: string, headers: GetTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    triggerName = OpenApiUtil.getEncodeParam(triggerName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -10322,7 +10380,7 @@ export default class Client extends OpenApi {
       action: "GetTrigger",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10340,8 +10398,6 @@ export default class Client extends OpenApi {
 
   async invokeFunctionWithOptions(serviceName: string, functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10390,7 +10446,7 @@ export default class Client extends OpenApi {
       action: "InvokeFunction",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/invocations`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/invocations`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10408,7 +10464,6 @@ export default class Client extends OpenApi {
 
   async listAliasesWithOptions(serviceName: string, request: ListAliasesRequest, headers: ListAliasesHeaders, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
@@ -10451,7 +10506,7 @@ export default class Client extends OpenApi {
       action: "ListAliases",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/aliases`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10529,8 +10584,6 @@ export default class Client extends OpenApi {
 
   async listEventSourcesWithOptions(serviceName: string, functionName: string, request: ListEventSourcesRequest, headers: ListEventSourcesHeaders, runtime: $Util.RuntimeOptions): Promise<ListEventSourcesResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -10561,7 +10614,7 @@ export default class Client extends OpenApi {
       action: "ListEventSources",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/event-sources`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10579,8 +10632,6 @@ export default class Client extends OpenApi {
 
   async listFunctionAsyncInvokeConfigsWithOptions(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest, headers: ListFunctionAsyncInvokeConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
@@ -10627,7 +10678,7 @@ export default class Client extends OpenApi {
       action: "ListFunctionAsyncInvokeConfigs",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-configs`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-configs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10645,7 +10696,6 @@ export default class Client extends OpenApi {
 
   async listFunctionsWithOptions(serviceName: string, request: ListFunctionsRequest, headers: ListFunctionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
@@ -10692,7 +10742,7 @@ export default class Client extends OpenApi {
       action: "ListFunctions",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10710,8 +10760,6 @@ export default class Client extends OpenApi {
 
   async listInstancesWithOptions(serviceName: string, functionName: string, request: ListInstancesRequest, headers: ListInstancesHeaders, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceIds)) {
       query["instanceIds"] = request.instanceIds;
@@ -10742,7 +10790,7 @@ export default class Client extends OpenApi {
       action: "ListInstances",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10760,7 +10808,6 @@ export default class Client extends OpenApi {
 
   async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: ListLayerVersionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
     Util.validateModel(request);
-    layerName = OpenApiUtil.getEncodeParam(layerName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
@@ -10795,7 +10842,7 @@ export default class Client extends OpenApi {
       action: "ListLayerVersions",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions`,
+      pathname: `/2021-04-06/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11053,7 +11100,6 @@ export default class Client extends OpenApi {
 
   async listServiceVersionsWithOptions(serviceName: string, request: ListServiceVersionsRequest, headers: ListServiceVersionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.direction)) {
       query["direction"] = request.direction;
@@ -11096,7 +11142,7 @@ export default class Client extends OpenApi {
       action: "ListServiceVersions",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/versions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11226,8 +11272,6 @@ export default class Client extends OpenApi {
 
   async listStatefulAsyncInvocationsWithOptions(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest, headers: ListStatefulAsyncInvocationsHeaders, runtime: $Util.RuntimeOptions): Promise<ListStatefulAsyncInvocationsResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.includePayload)) {
       query["includePayload"] = request.includePayload;
@@ -11302,7 +11346,7 @@ export default class Client extends OpenApi {
       action: "ListStatefulAsyncInvocations",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/stateful-async-invocations`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11372,8 +11416,6 @@ export default class Client extends OpenApi {
 
   async listTriggersWithOptions(serviceName: string, functionName: string, request: ListTriggersRequest, headers: ListTriggersHeaders, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
       query["limit"] = request.limit;
@@ -11416,7 +11458,7 @@ export default class Client extends OpenApi {
       action: "ListTriggers",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11433,7 +11475,6 @@ export default class Client extends OpenApi {
   }
 
   async listVpcBindingsWithOptions(serviceName: string, headers: ListVpcBindingsHeaders, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -11458,7 +11499,7 @@ export default class Client extends OpenApi {
       action: "ListVpcBindings",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/bindings`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11476,7 +11517,6 @@ export default class Client extends OpenApi {
 
   async publishServiceVersionWithOptions(serviceName: string, request: PublishServiceVersionRequest, headers: PublishServiceVersionHeaders, runtime: $Util.RuntimeOptions): Promise<PublishServiceVersionResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -11511,7 +11551,7 @@ export default class Client extends OpenApi {
       action: "PublishServiceVersion",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/versions`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11529,8 +11569,6 @@ export default class Client extends OpenApi {
 
   async putFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest, headers: PutFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<PutFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -11579,7 +11617,7 @@ export default class Client extends OpenApi {
       action: "PutFunctionAsyncInvokeConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11597,8 +11635,6 @@ export default class Client extends OpenApi {
 
   async putFunctionOnDemandConfigWithOptions(serviceName: string, functionName: string, request: PutFunctionOnDemandConfigRequest, headers: PutFunctionOnDemandConfigHeaders, runtime: $Util.RuntimeOptions): Promise<PutFunctionOnDemandConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -11639,7 +11675,7 @@ export default class Client extends OpenApi {
       action: "PutFunctionOnDemandConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/on-demand-config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11657,7 +11693,6 @@ export default class Client extends OpenApi {
 
   async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: PutLayerACLHeaders, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
     Util.validateModel(request);
-    layerName = OpenApiUtil.getEncodeParam(layerName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.public)) {
       query["public"] = request.public;
@@ -11688,7 +11723,7 @@ export default class Client extends OpenApi {
       action: "PutLayerACL",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/acl`,
+      pathname: `/2021-04-06/layers/${OpenApiUtil.getEncodeParam(layerName)}/acl`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11706,8 +11741,6 @@ export default class Client extends OpenApi {
 
   async putProvisionConfigWithOptions(serviceName: string, functionName: string, request: PutProvisionConfigRequest, headers: PutProvisionConfigHeaders, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -11756,7 +11789,7 @@ export default class Client extends OpenApi {
       action: "PutProvisionConfig",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11774,8 +11807,6 @@ export default class Client extends OpenApi {
 
   async registerEventSourceWithOptions(serviceName: string, functionName: string, request: RegisterEventSourceRequest, headers: RegisterEventSourceHeaders, runtime: $Util.RuntimeOptions): Promise<RegisterEventSourceResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -11812,7 +11843,7 @@ export default class Client extends OpenApi {
       action: "RegisterEventSource",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/event-sources`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11829,7 +11860,6 @@ export default class Client extends OpenApi {
   }
 
   async releaseGPUInstanceWithOptions(instanceId: string, headers: ReleaseGPUInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<ReleaseGPUInstanceResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -11854,7 +11884,7 @@ export default class Client extends OpenApi {
       action: "ReleaseGPUInstance",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/gpuInstances/${instanceId}`,
+      pathname: `/2021-04-06/gpuInstances/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -11872,9 +11902,6 @@ export default class Client extends OpenApi {
 
   async stopStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest, headers: StopStatefulAsyncInvocationHeaders, runtime: $Util.RuntimeOptions): Promise<StopStatefulAsyncInvocationResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    invocationId = OpenApiUtil.getEncodeParam(invocationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
@@ -11905,7 +11932,7 @@ export default class Client extends OpenApi {
       action: "StopStatefulAsyncInvocation",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/stateful-async-invocations/${OpenApiUtil.getEncodeParam(invocationId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12031,8 +12058,6 @@ export default class Client extends OpenApi {
 
   async updateAliasWithOptions(serviceName: string, aliasName: string, request: UpdateAliasRequest, headers: UpdateAliasHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    aliasName = OpenApiUtil.getEncodeParam(aliasName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.additionalVersionWeight)) {
       body["additionalVersionWeight"] = request.additionalVersionWeight;
@@ -12083,7 +12108,7 @@ export default class Client extends OpenApi {
       action: "UpdateAlias",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12101,7 +12126,6 @@ export default class Client extends OpenApi {
 
   async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: UpdateCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
     Util.validateModel(request);
-    domainName = OpenApiUtil.getEncodeParam(domainName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.certConfig))) {
       body["certConfig"] = request.certConfig;
@@ -12144,7 +12168,7 @@ export default class Client extends OpenApi {
       action: "UpdateCustomDomain",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      pathname: `/2021-04-06/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12162,8 +12186,6 @@ export default class Client extends OpenApi {
 
   async updateFunctionWithOptions(serviceName: string, functionName: string, request: UpdateFunctionRequest, headers: UpdateFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceConcurrency)) {
       body["InstanceConcurrency"] = request.instanceConcurrency;
@@ -12175,6 +12197,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.code))) {
       body["code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.cpu)) {
+      body["cpu"] = request.cpu;
     }
 
     if (!Util.isUnset($tea.toMap(request.customContainerConfig))) {
@@ -12195,6 +12221,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.diskSize)) {
+      body["diskSize"] = request.diskSize;
     }
 
     if (!Util.isUnset(request.environmentVariables)) {
@@ -12274,7 +12304,7 @@ export default class Client extends OpenApi {
       action: "UpdateFunction",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12292,7 +12322,6 @@ export default class Client extends OpenApi {
 
   async updateServiceWithOptions(serviceName: string, request: UpdateServiceRequest, headers: UpdateServiceHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -12355,7 +12384,7 @@ export default class Client extends OpenApi {
       action: "UpdateService",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12373,9 +12402,6 @@ export default class Client extends OpenApi {
 
   async updateTriggerWithOptions(serviceName: string, functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: UpdateTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    triggerName = OpenApiUtil.getEncodeParam(triggerName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -12422,7 +12448,7 @@ export default class Client extends OpenApi {
       action: "UpdateTrigger",
       version: "2021-04-06",
       protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      pathname: `/2021-04-06/services/${OpenApiUtil.getEncodeParam(serviceName)}/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
