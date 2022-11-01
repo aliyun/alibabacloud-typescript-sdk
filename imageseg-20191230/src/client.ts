@@ -438,12 +438,10 @@ export class SegmentAnimalResponse extends $tea.Model {
 }
 
 export class SegmentBodyRequest extends $tea.Model {
-  async?: boolean;
   imageURL?: string;
   returnForm?: string;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       imageURL: 'ImageURL',
       returnForm: 'ReturnForm',
     };
@@ -451,7 +449,6 @@ export class SegmentBodyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       imageURL: 'string',
       returnForm: 'string',
     };
@@ -463,12 +460,10 @@ export class SegmentBodyRequest extends $tea.Model {
 }
 
 export class SegmentBodyAdvanceRequest extends $tea.Model {
-  async?: boolean;
   imageURLObject?: Readable;
   returnForm?: string;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       imageURLObject: 'ImageURL',
       returnForm: 'ReturnForm',
     };
@@ -476,7 +471,6 @@ export class SegmentBodyAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       imageURLObject: 'Readable',
       returnForm: 'string',
     };
@@ -3061,14 +3055,8 @@ export default class Client extends OpenApi {
       query["ReturnForm"] = request.returnForm;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.async)) {
-      body["Async"] = request.async;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SegmentBody",
