@@ -1153,6 +1153,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   returnUrl?: string;
   sceneId?: number;
   userId?: string;
+  voluntaryCustomizedContent?: string;
   static names(): { [key: string]: string } {
     return {
       authId: 'AuthId',
@@ -1178,6 +1179,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
       userId: 'UserId',
+      voluntaryCustomizedContent: 'VoluntaryCustomizedContent',
     };
   }
 
@@ -1206,6 +1208,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       returnUrl: 'string',
       sceneId: 'number',
       userId: 'string',
+      voluntaryCustomizedContent: 'string',
     };
   }
 
@@ -2980,6 +2983,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.voluntaryCustomizedContent)) {
+      query["VoluntaryCustomizedContent"] = request.voluntaryCustomizedContent;
     }
 
     let body : {[key: string ]: any} = { };
