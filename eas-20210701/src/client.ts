@@ -8,6 +8,46 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class Group extends $tea.Model {
+  accessToken?: string;
+  clusterId?: string;
+  createTime?: string;
+  internetEndpoint?: string;
+  intranetEndpoint?: string;
+  name?: string;
+  queueService?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      clusterId: 'ClusterId',
+      createTime: 'CreateTime',
+      internetEndpoint: 'InternetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      name: 'Name',
+      queueService: 'QueueService',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      clusterId: 'string',
+      createTime: 'string',
+      internetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      name: 'string',
+      queueService: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Instance extends $tea.Model {
   hostIP?: string;
   hostName?: string;
@@ -119,12 +159,14 @@ export class Resource extends $tea.Model {
 }
 
 export class ResourceInstance extends $tea.Model {
+  arch?: string;
   autoRenewal?: boolean;
   chargeType?: string;
   createTime?: string;
   expiredTime?: string;
   instanceCpuCount?: number;
   instanceGpuCount?: number;
+  instanceGpuMemory?: string;
   instanceId?: string;
   instanceIp?: string;
   instanceMemory?: string;
@@ -134,14 +176,18 @@ export class ResourceInstance extends $tea.Model {
   instanceUsedCpu?: number;
   instanceUsedGpu?: number;
   instanceUsedMemory?: string;
+  region?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
+      arch: 'Arch',
       autoRenewal: 'AutoRenewal',
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       instanceCpuCount: 'InstanceCpuCount',
       instanceGpuCount: 'InstanceGpuCount',
+      instanceGpuMemory: 'InstanceGpuMemory',
       instanceId: 'InstanceId',
       instanceIp: 'InstanceIp',
       instanceMemory: 'InstanceMemory',
@@ -151,17 +197,21 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedCpu: 'InstanceUsedCpu',
       instanceUsedGpu: 'InstanceUsedGpu',
       instanceUsedMemory: 'InstanceUsedMemory',
+      region: 'Region',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arch: 'string',
       autoRenewal: 'boolean',
       chargeType: 'string',
       createTime: 'string',
       expiredTime: 'string',
       instanceCpuCount: 'number',
       instanceGpuCount: 'number',
+      instanceGpuMemory: 'string',
       instanceId: 'string',
       instanceIp: 'string',
       instanceMemory: 'string',
@@ -171,6 +221,8 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedCpu: 'number',
       instanceUsedGpu: 'number',
       instanceUsedMemory: 'string',
+      region: 'string',
+      zone: 'string',
     };
   }
 
@@ -253,6 +305,8 @@ export class Service extends $tea.Model {
   requestId?: string;
   resource?: string;
   resourceAlias?: string;
+  role?: string;
+  roleAttrs?: string;
   runningInstance?: number;
   serviceConfig?: string;
   serviceGroup?: string;
@@ -287,6 +341,8 @@ export class Service extends $tea.Model {
       requestId: 'RequestId',
       resource: 'Resource',
       resourceAlias: 'ResourceAlias',
+      role: 'Role',
+      roleAttrs: 'RoleAttrs',
       runningInstance: 'RunningInstance',
       serviceConfig: 'ServiceConfig',
       serviceGroup: 'ServiceGroup',
@@ -324,6 +380,8 @@ export class Service extends $tea.Model {
       requestId: 'string',
       resource: 'string',
       resourceAlias: 'string',
+      role: 'string',
+      roleAttrs: 'string',
       runningInstance: 'number',
       serviceConfig: 'string',
       serviceGroup: 'string',
@@ -364,24 +422,24 @@ export class CreateBenchmarkTaskRequest extends $tea.Model {
 
 export class CreateBenchmarkTaskResponseBody extends $tea.Model {
   message?: string;
-  name?: string;
   region?: string;
   requestId?: string;
+  taskName?: string;
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
-      name: 'Name',
       region: 'Region',
       requestId: 'RequestId',
+      taskName: 'TaskName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       message: 'string',
-      name: 'string',
       region: 'string',
       requestId: 'string',
+      taskName: 'string',
     };
   }
 
@@ -730,12 +788,12 @@ export class CreateServiceResponse extends $tea.Model {
 export class CreateServiceAutoScalerRequest extends $tea.Model {
   max?: number;
   min?: number;
-  strategies?: CreateServiceAutoScalerRequestStrategies;
+  scaleStrategies?: CreateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
       max: 'max',
       min: 'min',
-      strategies: 'strategies',
+      scaleStrategies: 'scaleStrategies',
     };
   }
 
@@ -743,7 +801,7 @@ export class CreateServiceAutoScalerRequest extends $tea.Model {
     return {
       max: 'number',
       min: 'number',
-      strategies: CreateServiceAutoScalerRequestStrategies,
+      scaleStrategies: { 'type': 'array', 'itemType': CreateServiceAutoScalerRequestScaleStrategies },
     };
   }
 
@@ -1452,6 +1510,7 @@ export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
   availableAgent?: number;
   callerUid?: string;
   desiredAgent?: number;
+  endpoint?: string;
   message?: string;
   parentUid?: string;
   reason?: string;
@@ -1466,6 +1525,7 @@ export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
       availableAgent: 'AvailableAgent',
       callerUid: 'CallerUid',
       desiredAgent: 'DesiredAgent',
+      endpoint: 'Endpoint',
       message: 'Message',
       parentUid: 'ParentUid',
       reason: 'Reason',
@@ -1483,6 +1543,7 @@ export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
       availableAgent: 'number',
       callerUid: 'string',
       desiredAgent: 'number',
+      endpoint: 'string',
       message: 'string',
       parentUid: 'string',
       reason: 'string',
@@ -1525,11 +1586,32 @@ export class DescribeBenchmarkTaskResponse extends $tea.Model {
   }
 }
 
+export class DescribeBenchmarkTaskReportRequest extends $tea.Model {
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBenchmarkTaskReportResponseBody extends $tea.Model {
+  data?: any;
   reportUrl?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       reportUrl: 'ReportUrl',
       requestId: 'RequestId',
     };
@@ -1537,6 +1619,7 @@ export class DescribeBenchmarkTaskReportResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      data: 'any',
       reportUrl: 'string',
       requestId: 'string',
     };
@@ -1564,6 +1647,31 @@ export class DescribeBenchmarkTaskReportResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBenchmarkTaskReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Group;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Group,
     };
   }
 
@@ -1800,33 +1908,33 @@ export class DescribeServiceResponse extends $tea.Model {
 
 export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
   behavior?: { [key: string]: any };
-  currentValues?: { [key: string]: any };
+  currentMetrics?: DescribeServiceAutoScalerResponseBodyCurrentMetrics[];
   maxReplica?: number;
   minReplica?: number;
   requestId?: string;
+  scaleStrategies?: DescribeServiceAutoScalerResponseBodyScaleStrategies[];
   serviceName?: string;
-  strategies?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       behavior: 'Behavior',
-      currentValues: 'CurrentValues',
+      currentMetrics: 'CurrentMetrics',
       maxReplica: 'MaxReplica',
       minReplica: 'MinReplica',
       requestId: 'RequestId',
+      scaleStrategies: 'ScaleStrategies',
       serviceName: 'ServiceName',
-      strategies: 'Strategies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       behavior: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      currentValues: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      currentMetrics: { 'type': 'array', 'itemType': DescribeServiceAutoScalerResponseBodyCurrentMetrics },
       maxReplica: 'number',
       minReplica: 'number',
       requestId: 'string',
+      scaleStrategies: { 'type': 'array', 'itemType': DescribeServiceAutoScalerResponseBodyScaleStrategies },
       serviceName: 'string',
-      strategies: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1905,6 +2013,90 @@ export class DescribeServiceCronScalerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeServiceCronScalerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEventRequest extends $tea.Model {
+  endTime?: string;
+  pageNum?: string;
+  pageSize?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEventResponseBody extends $tea.Model {
+  events?: DescribeServiceEventResponseBodyEvents[];
+  pageNum?: number;
+  requestId?: string;
+  totalCount?: number;
+  totalPageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'Events',
+      pageNum: 'PageNum',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPageNum: 'TotalPageNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': DescribeServiceEventResponseBodyEvents },
+      pageNum: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeServiceEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceEventResponseBody,
     };
   }
 
@@ -2056,20 +2248,57 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
   }
 }
 
-export class ListBenchmarkTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  tasks?: ListBenchmarkTaskResponseBodyTasks[];
+export class ListBenchmarkTaskRequest extends $tea.Model {
+  fileter?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      tasks: 'Tasks',
+      fileter: 'Fileter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      serviceName: 'ServiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileter: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBenchmarkTaskResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  tasks?: ListBenchmarkTaskResponseBodyTasks[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
       tasks: { 'type': 'array', 'itemType': ListBenchmarkTaskResponseBodyTasks },
+      totalCount: 'number',
     };
   }
 
@@ -2095,6 +2324,87 @@ export class ListBenchmarkTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListBenchmarkTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsRequest extends $tea.Model {
+  filter?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBody extends $tea.Model {
+  groups?: Group[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': Group },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupsResponseBody,
     };
   }
 
@@ -2496,8 +2806,87 @@ export class ListServiceInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListServiceVersionsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceVersionsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  versions?: ListServiceVersionsResponseBodyVersions[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      versions: { 'type': 'array', 'itemType': ListServiceVersionsResponseBodyVersions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceVersionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListServiceVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServicesRequest extends $tea.Model {
   filter?: string;
+  groupName?: string;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -2505,6 +2894,7 @@ export class ListServicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      groupName: 'GroupName',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -2515,6 +2905,7 @@ export class ListServicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      groupName: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -3119,12 +3510,12 @@ export class UpdateServiceResponse extends $tea.Model {
 export class UpdateServiceAutoScalerRequest extends $tea.Model {
   max?: number;
   min?: number;
-  strategies?: UpdateServiceAutoScalerRequestStrategies;
+  scaleStrategies?: UpdateServiceAutoScalerRequestScaleStrategies[];
   static names(): { [key: string]: string } {
     return {
       max: 'max',
       min: 'min',
-      strategies: 'strategies',
+      scaleStrategies: 'scaleStrategies',
     };
   }
 
@@ -3132,7 +3523,7 @@ export class UpdateServiceAutoScalerRequest extends $tea.Model {
     return {
       max: 'number',
       min: 'number',
-      strategies: UpdateServiceAutoScalerRequestStrategies,
+      scaleStrategies: { 'type': 'array', 'itemType': UpdateServiceAutoScalerRequestScaleStrategies },
     };
   }
 
@@ -3392,20 +3783,23 @@ export class UpdateServiceVersionResponse extends $tea.Model {
   }
 }
 
-export class CreateServiceAutoScalerRequestStrategies extends $tea.Model {
-  cpu?: number;
-  qps?: number;
+export class CreateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
+  metricName?: string;
+  service?: string;
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'cpu',
-      qps: 'qps',
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cpu: 'number',
-      qps: 'number',
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
     };
   }
 
@@ -3431,6 +3825,56 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
       name: 'string',
       schedule: 'string',
       targetSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $tea.Model {
+  metricName?: string;
+  service?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $tea.Model {
+  metricName?: string;
+  service?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
     };
   }
 
@@ -3468,6 +3912,34 @@ export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
       schedule: 'string',
       state: 'string',
       targetSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
+  message?: string;
+  reason?: string;
+  time?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+      time: 'Time',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+      time: 'string',
+      type: 'string',
     };
   }
 
@@ -3519,20 +3991,54 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
   }
 }
 
-export class UpdateServiceAutoScalerRequestStrategies extends $tea.Model {
-  cpu?: number;
-  qps?: number;
+export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
+  buildTime?: string;
+  imageAvailable?: string;
+  imageId?: number;
+  message?: string;
+  serviceRunnable?: string;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'cpu',
-      qps: 'qps',
+      buildTime: 'BuildTime',
+      imageAvailable: 'ImageAvailable',
+      imageId: 'ImageId',
+      message: 'Message',
+      serviceRunnable: 'ServiceRunnable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cpu: 'number',
-      qps: 'number',
+      buildTime: 'string',
+      imageAvailable: 'string',
+      imageId: 'number',
+      message: 'string',
+      serviceRunnable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
+  metricName?: string;
+  service?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
     };
   }
 
@@ -3683,8 +4189,6 @@ export default class Client extends OpenApi {
 
   async createResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.autoRenewal)) {
       body["AutoRenewal"] = request.autoRenewal;
@@ -3714,7 +4218,7 @@ export default class Client extends OpenApi {
       action: "CreateResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/instances`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3732,8 +4236,6 @@ export default class Client extends OpenApi {
 
   async createResourceLogWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceLogResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.logStore)) {
       body["LogStore"] = request.logStore;
@@ -3751,7 +4253,7 @@ export default class Client extends OpenApi {
       action: "CreateResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/log`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3795,8 +4297,6 @@ export default class Client extends OpenApi {
 
   async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.max)) {
       body["max"] = request.max;
@@ -3806,8 +4306,8 @@ export default class Client extends OpenApi {
       body["min"] = request.min;
     }
 
-    if (!Util.isUnset($tea.toMap(request.strategies))) {
-      body["strategies"] = request.strategies;
+    if (!Util.isUnset(request.scaleStrategies)) {
+      body["scaleStrategies"] = request.scaleStrategies;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3818,7 +4318,7 @@ export default class Client extends OpenApi {
       action: "CreateServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/autoscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3836,8 +4336,6 @@ export default class Client extends OpenApi {
 
   async createServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceCronScalerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.excludeDates)) {
       body["ExcludeDates"] = request.excludeDates;
@@ -3855,7 +4353,7 @@ export default class Client extends OpenApi {
       action: "CreateServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/cronscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3873,8 +4371,6 @@ export default class Client extends OpenApi {
 
   async createServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceMirrorResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ratio)) {
       body["Ratio"] = request.ratio;
@@ -3892,7 +4388,7 @@ export default class Client extends OpenApi {
       action: "CreateServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/mirror`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3909,8 +4405,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBenchmarkTaskResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3918,7 +4412,7 @@ export default class Client extends OpenApi {
       action: "DeleteBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -3935,8 +4429,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3944,7 +4436,7 @@ export default class Client extends OpenApi {
       action: "DeleteResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -3961,8 +4453,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceDLinkResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3970,7 +4460,7 @@ export default class Client extends OpenApi {
       action: "DeleteResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/dlink`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -3988,8 +4478,6 @@ export default class Client extends OpenApi {
 
   async deleteResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allFailed)) {
       query["AllFailed"] = request.allFailed;
@@ -4007,7 +4495,7 @@ export default class Client extends OpenApi {
       action: "DeleteResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/instances`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4024,8 +4512,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceLogResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4033,7 +4519,7 @@ export default class Client extends OpenApi {
       action: "DeleteResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/log`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4050,8 +4536,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4059,7 +4543,7 @@ export default class Client extends OpenApi {
       action: "DeleteService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4076,8 +4560,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceAutoScalerResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4085,7 +4567,7 @@ export default class Client extends OpenApi {
       action: "DeleteServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/autoscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4102,8 +4584,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceCronScalerResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4111,7 +4591,7 @@ export default class Client extends OpenApi {
       action: "DeleteServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/cronscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4129,8 +4609,6 @@ export default class Client extends OpenApi {
 
   async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
@@ -4144,7 +4622,7 @@ export default class Client extends OpenApi {
       action: "DeleteServiceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/instances`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4161,8 +4639,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMirrorResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4170,7 +4646,7 @@ export default class Client extends OpenApi {
       action: "DeleteServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/mirror`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -4187,8 +4663,6 @@ export default class Client extends OpenApi {
   }
 
   async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4196,7 +4670,7 @@ export default class Client extends OpenApi {
       action: "DescribeBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4206,23 +4680,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskResponse({}));
   }
 
-  async describeBenchmarkTaskReport(ClusterId: string, TaskName: string): Promise<DescribeBenchmarkTaskReportResponse> {
+  async describeBenchmarkTaskReport(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest): Promise<DescribeBenchmarkTaskReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, headers, runtime);
+    return await this.describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
-  async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
+  async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.reportType)) {
+      query["ReportType"] = request.reportType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeBenchmarkTaskReport",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}/report`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/report`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4232,6 +4711,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBenchmarkTaskReportResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskReportResponse({}));
   }
 
+  async describeGroup(ClusterId: string, GroupName: string): Promise<DescribeGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
+  }
+
+  async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroup",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GroupName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupResponse>(await this.callApi(params, req, runtime), new DescribeGroupResponse({}));
+  }
+
   async describeResource(ClusterId: string, ResourceId: string): Promise<DescribeResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4239,8 +4742,6 @@ export default class Client extends OpenApi {
   }
 
   async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4248,7 +4749,7 @@ export default class Client extends OpenApi {
       action: "DescribeResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4265,8 +4766,6 @@ export default class Client extends OpenApi {
   }
 
   async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceDLinkResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4274,7 +4773,7 @@ export default class Client extends OpenApi {
       action: "DescribeResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/dlink`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4291,8 +4790,6 @@ export default class Client extends OpenApi {
   }
 
   async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceLogResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4300,7 +4797,7 @@ export default class Client extends OpenApi {
       action: "DescribeResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/log`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4317,8 +4814,6 @@ export default class Client extends OpenApi {
   }
 
   async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4326,7 +4821,7 @@ export default class Client extends OpenApi {
       action: "DescribeService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4343,8 +4838,6 @@ export default class Client extends OpenApi {
   }
 
   async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceAutoScalerResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4352,7 +4845,7 @@ export default class Client extends OpenApi {
       action: "DescribeServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/autoscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4369,8 +4862,6 @@ export default class Client extends OpenApi {
   }
 
   async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceCronScalerResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4378,7 +4869,7 @@ export default class Client extends OpenApi {
       action: "DescribeServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/cronscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4386,6 +4877,49 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DescribeServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceCronScalerResponse({}));
+  }
+
+  async describeServiceEvent(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest): Promise<DescribeServiceEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEventResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceEvent",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceEventResponse>(await this.callApi(params, req, runtime), new DescribeServiceEventResponse({}));
   }
 
   async describeServiceLog(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest): Promise<DescribeServiceLogResponse> {
@@ -4396,8 +4930,6 @@ export default class Client extends OpenApi {
 
   async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
@@ -4431,7 +4963,7 @@ export default class Client extends OpenApi {
       action: "DescribeServiceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/logs`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4448,8 +4980,6 @@ export default class Client extends OpenApi {
   }
 
   async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceMirrorResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4457,7 +4987,7 @@ export default class Client extends OpenApi {
       action: "DescribeServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/mirror`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4467,15 +4997,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceMirrorResponse>(await this.callApi(params, req, runtime), new DescribeServiceMirrorResponse({}));
   }
 
-  async listBenchmarkTask(): Promise<ListBenchmarkTaskResponse> {
+  async listBenchmarkTask(request: ListBenchmarkTaskRequest): Promise<ListBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listBenchmarkTaskWithOptions(headers, runtime);
+    return await this.listBenchmarkTaskWithOptions(request, headers, runtime);
   }
 
-  async listBenchmarkTaskWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
+  async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileter)) {
+      query["Fileter"] = request.fileter;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ListBenchmarkTask",
@@ -4491,6 +5040,45 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new ListBenchmarkTaskResponse({}));
   }
 
+  async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGroupsWithOptions(request, headers, runtime);
+  }
+
+  async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroups",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+  }
+
   async listResourceInstanceWorker(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest): Promise<ListResourceInstanceWorkerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4499,9 +5087,6 @@ export default class Client extends OpenApi {
 
   async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstanceWorkerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
-    InstanceName = OpenApiUtil.getEncodeParam(InstanceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
@@ -4519,7 +5104,7 @@ export default class Client extends OpenApi {
       action: "ListResourceInstanceWorker",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/instance/${InstanceName}/workers`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instance/${OpenApiUtil.getEncodeParam(InstanceName)}/workers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4537,8 +5122,6 @@ export default class Client extends OpenApi {
 
   async listResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
@@ -4560,7 +5143,7 @@ export default class Client extends OpenApi {
       action: "ListResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/instances`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4578,8 +5161,6 @@ export default class Client extends OpenApi {
 
   async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceServicesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
@@ -4597,7 +5178,7 @@ export default class Client extends OpenApi {
       action: "ListResourceServices",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/services`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/services`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4650,8 +5231,6 @@ export default class Client extends OpenApi {
 
   async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
@@ -4669,7 +5248,7 @@ export default class Client extends OpenApi {
       action: "ListServiceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/instances`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -4677,6 +5256,41 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+  }
+
+  async listServiceVersions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceVersionsWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async listServiceVersionsWithOptions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceVersions",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
   }
 
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
@@ -4690,6 +5304,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
     }
 
     if (!Util.isUnset(request.order)) {
@@ -4734,8 +5352,6 @@ export default class Client extends OpenApi {
 
   async releaseServiceWithOptions(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseServiceResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.trafficState)) {
       body["TrafficState"] = request.trafficState;
@@ -4753,7 +5369,7 @@ export default class Client extends OpenApi {
       action: "ReleaseService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/release`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/release`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4770,8 +5386,6 @@ export default class Client extends OpenApi {
   }
 
   async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4779,7 +5393,7 @@ export default class Client extends OpenApi {
       action: "StartBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}/start`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4796,8 +5410,6 @@ export default class Client extends OpenApi {
   }
 
   async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartServiceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4805,7 +5417,7 @@ export default class Client extends OpenApi {
       action: "StartService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/start`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4822,8 +5434,6 @@ export default class Client extends OpenApi {
   }
 
   async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopBenchmarkTaskResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4831,7 +5441,7 @@ export default class Client extends OpenApi {
       action: "StopBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}/stop`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4848,8 +5458,6 @@ export default class Client extends OpenApi {
   }
 
   async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopServiceResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -4857,7 +5465,7 @@ export default class Client extends OpenApi {
       action: "StopService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/stop`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4875,8 +5483,6 @@ export default class Client extends OpenApi {
 
   async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    TaskName = OpenApiUtil.getEncodeParam(TaskName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -4885,7 +5491,7 @@ export default class Client extends OpenApi {
       action: "UpdateBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${ClusterId}/${TaskName}`,
+      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4903,8 +5509,6 @@ export default class Client extends OpenApi {
 
   async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.resourceName)) {
       body["ResourceName"] = request.resourceName;
@@ -4918,7 +5522,7 @@ export default class Client extends OpenApi {
       action: "UpdateResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4936,8 +5540,6 @@ export default class Client extends OpenApi {
 
   async updateResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceDLinkResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ResourceId = OpenApiUtil.getEncodeParam(ResourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.destinationCIDRs)) {
       body["DestinationCIDRs"] = request.destinationCIDRs;
@@ -4963,7 +5565,7 @@ export default class Client extends OpenApi {
       action: "UpdateResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${ClusterId}/${ResourceId}/dlink`,
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -4981,8 +5583,6 @@ export default class Client extends OpenApi {
 
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: request.body,
@@ -4991,7 +5591,7 @@ export default class Client extends OpenApi {
       action: "UpdateService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -5009,8 +5609,6 @@ export default class Client extends OpenApi {
 
   async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.max)) {
       body["max"] = request.max;
@@ -5020,8 +5618,8 @@ export default class Client extends OpenApi {
       body["min"] = request.min;
     }
 
-    if (!Util.isUnset($tea.toMap(request.strategies))) {
-      body["strategies"] = request.strategies;
+    if (!Util.isUnset(request.scaleStrategies)) {
+      body["scaleStrategies"] = request.scaleStrategies;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5032,7 +5630,7 @@ export default class Client extends OpenApi {
       action: "UpdateServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/autoscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -5050,8 +5648,6 @@ export default class Client extends OpenApi {
 
   async updateServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceCronScalerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.excludeDates)) {
       body["ExcludeDates"] = request.excludeDates;
@@ -5069,7 +5665,7 @@ export default class Client extends OpenApi {
       action: "UpdateServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/cronscaler`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -5087,8 +5683,6 @@ export default class Client extends OpenApi {
 
   async updateServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceMirrorResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ratio)) {
       body["Ratio"] = request.ratio;
@@ -5106,7 +5700,7 @@ export default class Client extends OpenApi {
       action: "UpdateServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/mirror`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -5124,8 +5718,6 @@ export default class Client extends OpenApi {
 
   async updateServiceVersionWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceVersionResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.version)) {
       body["Version"] = request.version;
@@ -5139,7 +5731,7 @@ export default class Client extends OpenApi {
       action: "UpdateServiceVersion",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${ClusterId}/${ServiceName}/version`,
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/version`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
