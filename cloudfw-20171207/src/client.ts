@@ -2994,7 +2994,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
   destinationType?: string;
   direction?: string;
   lang?: string;
-  messageType?: string;
   proto?: string;
   release?: string;
   source?: string;
@@ -3014,7 +3013,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       destinationType: 'DestinationType',
       direction: 'Direction',
       lang: 'Lang',
-      messageType: 'MessageType',
       proto: 'Proto',
       release: 'Release',
       source: 'Source',
@@ -3037,7 +3035,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       destinationType: 'string',
       direction: 'string',
       lang: 'string',
-      messageType: 'string',
       proto: 'string',
       release: 'string',
       source: 'string',
@@ -7925,10 +7922,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.messageType)) {
-      query["MessageType"] = request.messageType;
     }
 
     if (!Util.isUnset(request.proto)) {
