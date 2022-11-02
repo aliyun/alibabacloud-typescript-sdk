@@ -8,6 +8,25 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class QueryIncidentTracingSubNodesCountRequest extends $tea.Model {
+  vertexIdAndTypeList?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      vertexIdAndTypeList: 'VertexIdAndTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vertexIdAndTypeList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddInstallCodeRequest extends $tea.Model {
   expiredDate?: number;
   groupId?: number;
@@ -384,22 +403,16 @@ export class CheckSecurityEventIdResponse extends $tea.Model {
 }
 
 export class CheckUserHasEcsRequest extends $tea.Model {
-  currentPage?: number;
   lang?: string;
-  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
       lang: 'Lang',
-      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
       lang: 'string',
-      pageSize: 'number',
     };
   }
 
@@ -6911,6 +6924,7 @@ export class DescribeLogstoreStorageResponseBody extends $tea.Model {
   requestId?: string;
   ttl?: number;
   used?: number;
+  userProject?: string;
   static names(): { [key: string]: string } {
     return {
       logstore: 'Logstore',
@@ -6918,6 +6932,7 @@ export class DescribeLogstoreStorageResponseBody extends $tea.Model {
       requestId: 'RequestId',
       ttl: 'Ttl',
       used: 'Used',
+      userProject: 'UserProject',
     };
   }
 
@@ -6928,6 +6943,7 @@ export class DescribeLogstoreStorageResponseBody extends $tea.Model {
       requestId: 'string',
       ttl: 'number',
       used: 'number',
+      userProject: 'string',
     };
   }
 
@@ -10194,6 +10210,7 @@ export class DescribeSuspEventQuaraFilesResponse extends $tea.Model {
 
 export class DescribeSuspEventsRequest extends $tea.Model {
   alarmUniqueInfo?: string;
+  assetsTypeList?: string[];
   clusterId?: string;
   containerFieldName?: string;
   containerFieldValue?: string;
@@ -10224,6 +10241,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alarmUniqueInfo: 'AlarmUniqueInfo',
+      assetsTypeList: 'AssetsTypeList',
       clusterId: 'ClusterId',
       containerFieldName: 'ContainerFieldName',
       containerFieldValue: 'ContainerFieldValue',
@@ -10257,6 +10275,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmUniqueInfo: 'string',
+      assetsTypeList: { 'type': 'array', 'itemType': 'string' },
       clusterId: 'string',
       containerFieldName: 'string',
       containerFieldValue: 'string',
@@ -10878,6 +10897,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   sasLog?: number;
   sasScreen?: number;
   slsCapacity?: number;
+  threatAnalysisCapacity?: number;
   userDefinedAlarms?: number;
   version?: number;
   vmCores?: number;
@@ -10905,6 +10925,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       sasLog: 'SasLog',
       sasScreen: 'SasScreen',
       slsCapacity: 'SlsCapacity',
+      threatAnalysisCapacity: 'ThreatAnalysisCapacity',
       userDefinedAlarms: 'UserDefinedAlarms',
       version: 'Version',
       vmCores: 'VmCores',
@@ -10935,6 +10956,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       sasLog: 'number',
       sasScreen: 'number',
       slsCapacity: 'number',
+      threatAnalysisCapacity: 'number',
       userDefinedAlarms: 'number',
       version: 'number',
       vmCores: 'number',
@@ -23605,6 +23627,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   tacticItems?: DescribeSuspEventsResponseBodySuspEventsTacticItems[];
   uniqueInfo?: string;
   uuid?: string;
+  clusterId?: string;
   static names(): { [key: string]: string } {
     return {
       advanced: 'Advanced',
@@ -23657,6 +23680,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       tacticItems: 'TacticItems',
       uniqueInfo: 'UniqueInfo',
       uuid: 'Uuid',
+      clusterId: 'clusterId',
     };
   }
 
@@ -23712,6 +23736,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       tacticItems: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsTacticItems },
       uniqueInfo: 'string',
       uuid: 'string',
+      clusterId: 'string',
     };
   }
 
@@ -25960,16 +25985,8 @@ export default class Client extends OpenApi {
   async checkUserHasEcsWithOptions(request: CheckUserHasEcsRequest, runtime: $Util.RuntimeOptions): Promise<CheckUserHasEcsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -31255,6 +31272,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.alarmUniqueInfo)) {
       query["AlarmUniqueInfo"] = request.alarmUniqueInfo;
+    }
+
+    if (!Util.isUnset(request.assetsTypeList)) {
+      query["AssetsTypeList"] = request.assetsTypeList;
     }
 
     if (!Util.isUnset(request.clusterId)) {
