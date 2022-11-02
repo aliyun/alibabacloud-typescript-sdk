@@ -324,6 +324,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceMode?: string;
   engine?: string;
   engineVersion?: string;
+  idleTime?: number;
   instanceNetworkType?: string;
   instanceSpec?: string;
   masterNodeNum?: string;
@@ -336,6 +337,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
   securityIPList?: string;
   segNodeNum?: string;
   segStorageType?: string;
+  serverlessMode?: string;
+  serverlessResource?: number;
   storageSize?: number;
   storageType?: string;
   tag?: CreateDBInstanceRequestTag[];
@@ -354,6 +357,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceMode: 'DBInstanceMode',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
       instanceSpec: 'InstanceSpec',
       masterNodeNum: 'MasterNodeNum',
@@ -366,6 +370,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       securityIPList: 'SecurityIPList',
       segNodeNum: 'SegNodeNum',
       segStorageType: 'SegStorageType',
+      serverlessMode: 'ServerlessMode',
+      serverlessResource: 'ServerlessResource',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
       tag: 'Tag',
@@ -387,6 +393,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceMode: 'string',
       engine: 'string',
       engineVersion: 'string',
+      idleTime: 'number',
       instanceNetworkType: 'string',
       instanceSpec: 'string',
       masterNodeNum: 'string',
@@ -399,6 +406,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       securityIPList: 'string',
       segNodeNum: 'string',
       segStorageType: 'string',
+      serverlessMode: 'string',
+      serverlessResource: 'number',
       storageSize: 'number',
       storageType: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
@@ -5304,6 +5313,180 @@ export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
   }
 }
 
+export class DescribeWaitingSQLInfoRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  PID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      PID: 'PID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      PID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLInfoResponseBody extends $tea.Model {
+  database?: string;
+  items?: DescribeWaitingSQLInfoResponseBodyItems[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      items: { 'type': 'array', 'itemType': DescribeWaitingSQLInfoResponseBodyItems },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWaitingSQLInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWaitingSQLInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  keyword?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryCondition?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryCondition: 'QueryCondition',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      keyword: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryCondition: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLRecordsResponseBody extends $tea.Model {
+  items?: DescribeWaitingSQLRecordsResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeWaitingSQLRecordsResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWaitingSQLRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWaitingSQLRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadDiagnosisRecordsRequest extends $tea.Model {
   DBInstanceId?: string;
   database?: string;
@@ -7936,6 +8119,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   engineVersion?: string;
   expireTime?: string;
   hostType?: string;
+  idleTime?: number;
   instanceNetworkType?: string;
   lockMode?: string;
   lockReason?: string;
@@ -7956,6 +8140,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   securityIPList?: string;
   segNodeNum?: number;
   segmentCounts?: number;
+  serverlessMode?: string;
+  serverlessResource?: number;
   startTime?: string;
   storagePerNode?: number;
   storageSize?: number;
@@ -7994,6 +8180,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
       hostType: 'HostType',
+      idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
@@ -8014,6 +8201,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       securityIPList: 'SecurityIPList',
       segNodeNum: 'SegNodeNum',
       segmentCounts: 'SegmentCounts',
+      serverlessMode: 'ServerlessMode',
+      serverlessResource: 'ServerlessResource',
       startTime: 'StartTime',
       storagePerNode: 'StoragePerNode',
       storageSize: 'StorageSize',
@@ -8055,6 +8244,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       engineVersion: 'string',
       expireTime: 'string',
       hostType: 'string',
+      idleTime: 'number',
       instanceNetworkType: 'string',
       lockMode: 'string',
       lockReason: 'string',
@@ -8075,6 +8265,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       securityIPList: 'string',
       segNodeNum: 'number',
       segmentCounts: 'number',
+      serverlessMode: 'string',
+      serverlessResource: 'number',
       startTime: 'string',
       storagePerNode: 'number',
       storageSize: 'number',
@@ -8869,6 +9061,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   segNodeNum?: string;
+  serverlessMode?: string;
   storageSize?: string;
   storageType?: string;
   tags?: DescribeDBInstancesResponseBodyItemsDBInstanceTags;
@@ -8897,6 +9090,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       segNodeNum: 'SegNodeNum',
+      serverlessMode: 'ServerlessMode',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
       tags: 'Tags',
@@ -8928,6 +9122,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       segNodeNum: 'string',
+      serverlessMode: 'string',
       storageSize: 'string',
       storageType: 'string',
       tags: DescribeDBInstancesResponseBodyItemsDBInstanceTags,
@@ -10535,6 +10730,92 @@ export class DescribeUserEncryptionKeyListResponseBodyKmsKeys extends $tea.Model
   }
 }
 
+export class DescribeWaitingSQLInfoResponseBodyItems extends $tea.Model {
+  application?: string;
+  blockedByApplication?: string;
+  blockedByPID?: string;
+  blockedBySQLStmt?: string;
+  blockedByUser?: string;
+  grantLocks?: string;
+  notGrantLocks?: string;
+  PID?: string;
+  SQLStmt?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      blockedByApplication: 'BlockedByApplication',
+      blockedByPID: 'BlockedByPID',
+      blockedBySQLStmt: 'BlockedBySQLStmt',
+      blockedByUser: 'BlockedByUser',
+      grantLocks: 'GrantLocks',
+      notGrantLocks: 'NotGrantLocks',
+      PID: 'PID',
+      SQLStmt: 'SQLStmt',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: 'string',
+      blockedByApplication: 'string',
+      blockedByPID: 'string',
+      blockedBySQLStmt: 'string',
+      blockedByUser: 'string',
+      grantLocks: 'string',
+      notGrantLocks: 'string',
+      PID: 'string',
+      SQLStmt: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWaitingSQLRecordsResponseBodyItems extends $tea.Model {
+  database?: string;
+  PID?: string;
+  SQLStmt?: string;
+  sessionID?: string;
+  startTime?: number;
+  status?: string;
+  user?: string;
+  waitingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      PID: 'PID',
+      SQLStmt: 'SQLStmt',
+      sessionID: 'SessionID',
+      startTime: 'StartTime',
+      status: 'Status',
+      user: 'User',
+      waitingTime: 'WaitingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      PID: 'string',
+      SQLStmt: 'string',
+      sessionID: 'string',
+      startTime: 'number',
+      status: 'string',
+      user: 'string',
+      waitingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10875,6 +11156,10 @@ export default class Client extends OpenApi {
       query["EngineVersion"] = request.engineVersion;
     }
 
+    if (!Util.isUnset(request.idleTime)) {
+      query["IdleTime"] = request.idleTime;
+    }
+
     if (!Util.isUnset(request.instanceNetworkType)) {
       query["InstanceNetworkType"] = request.instanceNetworkType;
     }
@@ -10921,6 +11206,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.segStorageType)) {
       query["SegStorageType"] = request.segStorageType;
+    }
+
+    if (!Util.isUnset(request.serverlessMode)) {
+      query["ServerlessMode"] = request.serverlessMode;
+    }
+
+    if (!Util.isUnset(request.serverlessResource)) {
+      query["ServerlessResource"] = request.serverlessResource;
     }
 
     if (!Util.isUnset(request.storageSize)) {
@@ -13621,6 +13914,108 @@ export default class Client extends OpenApi {
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  async describeWaitingSQLInfoWithOptions(request: DescribeWaitingSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.PID)) {
+      query["PID"] = request.PID;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWaitingSQLInfo",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWaitingSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeWaitingSQLInfoResponse({}));
+  }
+
+  async describeWaitingSQLInfo(request: DescribeWaitingSQLInfoRequest): Promise<DescribeWaitingSQLInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWaitingSQLInfoWithOptions(request, runtime);
+  }
+
+  async describeWaitingSQLRecordsWithOptions(request: DescribeWaitingSQLRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWaitingSQLRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWaitingSQLRecordsResponse>(await this.callApi(params, req, runtime), new DescribeWaitingSQLRecordsResponse({}));
+  }
+
+  async describeWaitingSQLRecords(request: DescribeWaitingSQLRecordsRequest): Promise<DescribeWaitingSQLRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWaitingSQLRecordsWithOptions(request, runtime);
   }
 
   async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
