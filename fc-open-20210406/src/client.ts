@@ -155,6 +155,7 @@ export class CustomContainerConfig extends $tea.Model {
   command?: string;
   image?: string;
   instanceID?: string;
+  webServerMode?: boolean;
   static names(): { [key: string]: string } {
     return {
       accelerationType: 'accelerationType',
@@ -162,6 +163,7 @@ export class CustomContainerConfig extends $tea.Model {
       command: 'command',
       image: 'image',
       instanceID: 'instanceID',
+      webServerMode: 'webServerMode',
     };
   }
 
@@ -172,6 +174,7 @@ export class CustomContainerConfig extends $tea.Model {
       command: 'string',
       image: 'string',
       instanceID: 'string',
+      webServerMode: 'boolean',
     };
   }
 
@@ -187,6 +190,7 @@ export class CustomContainerConfigInfo extends $tea.Model {
   command?: string;
   image?: string;
   instanceID?: string;
+  webServerMode?: boolean;
   static names(): { [key: string]: string } {
     return {
       accelerationInfo: 'accelerationInfo',
@@ -195,6 +199,7 @@ export class CustomContainerConfigInfo extends $tea.Model {
       command: 'command',
       image: 'image',
       instanceID: 'instanceID',
+      webServerMode: 'webServerMode',
     };
   }
 
@@ -206,6 +211,7 @@ export class CustomContainerConfigInfo extends $tea.Model {
       command: 'string',
       image: 'string',
       instanceID: 'string',
+      webServerMode: 'boolean',
     };
   }
 
