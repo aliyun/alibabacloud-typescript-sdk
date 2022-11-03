@@ -2202,10 +2202,12 @@ export class CorpTokenHeaders extends $tea.Model {
 }
 
 export class CorpTokenRequest extends $tea.Model {
+  appSecret?: string;
   corpId?: string;
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      appSecret: 'app_secret',
       corpId: 'corp_id',
       type: 'type',
     };
@@ -2213,6 +2215,7 @@ export class CorpTokenRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appSecret: 'string',
       corpId: 'string',
       type: 'number',
     };
@@ -12926,6 +12929,10 @@ export default class Client extends OpenApi {
   async corpTokenWithOptions(request: CorpTokenRequest, headers: CorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appSecret)) {
+      query["app_secret"] = request.appSecret;
+    }
+
     if (!Util.isUnset(request.corpId)) {
       query["corp_id"] = request.corpId;
     }
