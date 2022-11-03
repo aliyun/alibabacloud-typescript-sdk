@@ -11385,6 +11385,75 @@ export class OpenApiGatewayServiceResponse extends $tea.Model {
   }
 }
 
+export class QueryRequestLogsRequest extends $tea.Model {
+  requestLogId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestLogId: 'RequestLogId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestLogId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRequestLogsResponseBody extends $tea.Model {
+  requestId?: string;
+  requestLogs?: QueryRequestLogsResponseBodyRequestLogs;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      requestLogs: 'RequestLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      requestLogs: QueryRequestLogsResponseBodyRequestLogs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRequestLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryRequestLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRequestLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReactivateDomainRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
@@ -20428,6 +20497,146 @@ export class ModifyPluginRequestTag extends $tea.Model {
   }
 }
 
+export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  clientIp?: number;
+  clientNonce?: string;
+  consumerAppId?: string;
+  consumerAppKey?: string;
+  customTraceId?: string;
+  domain?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  exception?: string;
+  groupId?: string;
+  groupName?: string;
+  httpMethod?: string;
+  httpPath?: string;
+  initialRequestId?: string;
+  instanceId?: string;
+  jwtClaims?: string;
+  region?: string;
+  requestBody?: string;
+  requestHeaders?: string;
+  requestId?: string;
+  requestProtocol?: string;
+  requestQueryString?: string;
+  requestSize?: string;
+  requestTime?: string;
+  responseBody?: string;
+  responseHeaders?: string;
+  responseSize?: string;
+  serviceLatency?: string;
+  stageId?: string;
+  stageName?: string;
+  statusCode?: string;
+  totalLatency?: string;
+  plugin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      clientIp: 'ClientIp',
+      clientNonce: 'ClientNonce',
+      consumerAppId: 'ConsumerAppId',
+      consumerAppKey: 'ConsumerAppKey',
+      customTraceId: 'CustomTraceId',
+      domain: 'Domain',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      exception: 'Exception',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      httpMethod: 'HttpMethod',
+      httpPath: 'HttpPath',
+      initialRequestId: 'InitialRequestId',
+      instanceId: 'InstanceId',
+      jwtClaims: 'JwtClaims',
+      region: 'Region',
+      requestBody: 'RequestBody',
+      requestHeaders: 'RequestHeaders',
+      requestId: 'RequestId',
+      requestProtocol: 'RequestProtocol',
+      requestQueryString: 'RequestQueryString',
+      requestSize: 'RequestSize',
+      requestTime: 'RequestTime',
+      responseBody: 'ResponseBody',
+      responseHeaders: 'ResponseHeaders',
+      responseSize: 'ResponseSize',
+      serviceLatency: 'ServiceLatency',
+      stageId: 'StageId',
+      stageName: 'StageName',
+      statusCode: 'StatusCode',
+      totalLatency: 'TotalLatency',
+      plugin: 'plugin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      clientIp: 'number',
+      clientNonce: 'string',
+      consumerAppId: 'string',
+      consumerAppKey: 'string',
+      customTraceId: 'string',
+      domain: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      exception: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      httpMethod: 'string',
+      httpPath: 'string',
+      initialRequestId: 'string',
+      instanceId: 'string',
+      jwtClaims: 'string',
+      region: 'string',
+      requestBody: 'string',
+      requestHeaders: 'string',
+      requestId: 'string',
+      requestProtocol: 'string',
+      requestQueryString: 'string',
+      requestSize: 'string',
+      requestTime: 'string',
+      responseBody: 'string',
+      responseHeaders: 'string',
+      responseSize: 'string',
+      serviceLatency: 'string',
+      stageId: 'string',
+      stageName: 'string',
+      statusCode: 'string',
+      totalLatency: 'string',
+      plugin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRequestLogsResponseBodyRequestLogs extends $tea.Model {
+  requestLog?: QueryRequestLogsResponseBodyRequestLogsRequestLog[];
+  static names(): { [key: string]: string } {
+    return {
+      requestLog: 'RequestLog',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestLog: { 'type': 'array', 'itemType': QueryRequestLogsResponseBodyRequestLogsRequestLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveVpcAccessResponseBodyApisApi extends $tea.Model {
   apiId?: string;
   groupId?: string;
@@ -26660,6 +26869,39 @@ export default class Client extends OpenApi {
   async openApiGatewayService(): Promise<OpenApiGatewayServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiGatewayServiceWithOptions(runtime);
+  }
+
+  async queryRequestLogsWithOptions(request: QueryRequestLogsRequest, runtime: $Util.RuntimeOptions): Promise<QueryRequestLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.requestLogId)) {
+      query["RequestLogId"] = request.requestLogId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRequestLogs",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRequestLogsResponse>(await this.callApi(params, req, runtime), new QueryRequestLogsResponse({}));
+  }
+
+  async queryRequestLogs(request: QueryRequestLogsRequest): Promise<QueryRequestLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryRequestLogsWithOptions(request, runtime);
   }
 
   async reactivateDomainWithOptions(request: ReactivateDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReactivateDomainResponse> {
