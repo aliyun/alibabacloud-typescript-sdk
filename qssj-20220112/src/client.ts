@@ -669,11 +669,13 @@ export class GetStoreSearchTopResponse extends $tea.Model {
 
 export class GetStyleTopRequest extends $tea.Model {
   cateIds?: string;
+  pageIndex?: number;
   sortOrder?: number;
   timeDisplay?: number;
   static names(): { [key: string]: string } {
     return {
       cateIds: 'CateIds',
+      pageIndex: 'PageIndex',
       sortOrder: 'SortOrder',
       timeDisplay: 'TimeDisplay',
     };
@@ -682,6 +684,7 @@ export class GetStyleTopRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cateIds: 'string',
+      pageIndex: 'number',
       sortOrder: 'number',
       timeDisplay: 'number',
     };
@@ -1446,6 +1449,7 @@ export class GetStoreSearchTopResponseBodyData extends $tea.Model {
 }
 
 export class GetStyleTopResponseBodyData extends $tea.Model {
+  buyerTags?: string;
   cateName?: string;
   color?: string;
   images?: string[];
@@ -1457,6 +1461,7 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      buyerTags: 'BuyerTags',
       cateName: 'CateName',
       color: 'Color',
       images: 'Images',
@@ -1471,6 +1476,7 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      buyerTags: 'string',
       cateName: 'string',
       color: 'string',
       images: { 'type': 'array', 'itemType': 'string' },
@@ -1953,6 +1959,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
     }
 
     if (!Util.isUnset(request.sortOrder)) {
