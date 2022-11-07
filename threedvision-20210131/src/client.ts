@@ -458,10 +458,12 @@ export class ReconstructThreeDMultiViewAdvanceRequest extends $tea.Model {
 
 export class ReconstructThreeDMultiViewResponseBody extends $tea.Model {
   data?: ReconstructThreeDMultiViewResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -469,6 +471,7 @@ export class ReconstructThreeDMultiViewResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: ReconstructThreeDMultiViewResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
