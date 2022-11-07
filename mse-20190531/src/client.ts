@@ -355,6 +355,7 @@ export class AddGatewayRequest extends $tea.Model {
   name?: string;
   region?: string;
   replica?: number;
+  resourceGroupId?: string;
   slbSpec?: string;
   spec?: string;
   tag?: AddGatewayRequestTag[];
@@ -373,6 +374,7 @@ export class AddGatewayRequest extends $tea.Model {
       name: 'Name',
       region: 'Region',
       replica: 'Replica',
+      resourceGroupId: 'ResourceGroupId',
       slbSpec: 'SlbSpec',
       spec: 'Spec',
       tag: 'Tag',
@@ -394,6 +396,7 @@ export class AddGatewayRequest extends $tea.Model {
       name: 'string',
       region: 'string',
       replica: 'number',
+      resourceGroupId: 'string',
       slbSpec: 'string',
       spec: 'string',
       tag: { 'type': 'array', 'itemType': AddGatewayRequestTag },
@@ -15750,6 +15753,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   primaryUser?: string;
   region?: string;
   replica?: number;
+  resourceGroupId?: string;
   securityGroup?: string;
   spec?: string;
   status?: number;
@@ -15773,6 +15777,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       primaryUser: 'PrimaryUser',
       region: 'Region',
       replica: 'Replica',
+      resourceGroupId: 'ResourceGroupId',
       securityGroup: 'SecurityGroup',
       spec: 'Spec',
       status: 'Status',
@@ -15799,6 +15804,7 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       primaryUser: 'string',
       region: 'string',
       replica: 'number',
+      resourceGroupId: 'string',
       securityGroup: 'string',
       spec: 'string',
       status: 'number',
@@ -17863,6 +17869,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
   instanceId?: string;
   mseTag?: string;
   name?: string;
+  resourceGroupId?: string;
   vpc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17871,6 +17878,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
       instanceId: 'InstanceId',
       mseTag: 'MseTag',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       vpc: 'Vpc',
     };
   }
@@ -17882,6 +17890,7 @@ export class ListGatewayRequestFilterParams extends $tea.Model {
       instanceId: 'string',
       mseTag: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       vpc: 'string',
     };
   }
@@ -18019,6 +18028,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
   primaryUser?: string;
   region?: string;
   replica?: number;
+  resourceGroupId?: string;
   rollBack?: boolean;
   slb?: ListGatewayResponseBodyDataResultSlb[];
   spec?: string;
@@ -18052,6 +18062,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       primaryUser: 'PrimaryUser',
       region: 'Region',
       replica: 'Replica',
+      resourceGroupId: 'ResourceGroupId',
       rollBack: 'RollBack',
       slb: 'Slb',
       spec: 'Spec',
@@ -18088,6 +18099,7 @@ export class ListGatewayResponseBodyDataResult extends $tea.Model {
       primaryUser: 'string',
       region: 'string',
       replica: 'number',
+      resourceGroupId: 'string',
       rollBack: 'boolean',
       slb: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultSlb },
       spec: 'string',
@@ -21292,6 +21304,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replica)) {
       query["Replica"] = request.replica;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.slbSpec)) {
