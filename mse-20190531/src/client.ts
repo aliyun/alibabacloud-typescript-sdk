@@ -2402,6 +2402,264 @@ export class CreateNacosServiceResponse extends $tea.Model {
   }
 }
 
+export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
+  acceptLanguage?: string;
+  enable?: boolean;
+  enableRules?: boolean;
+  entryRule?: string;
+  entryRules?: CreateOrUpdateSwimmingLaneRequestEntryRules[];
+  gmtCreate?: string;
+  gmtModified?: string;
+  groupId?: number;
+  id?: number;
+  licenseKey?: string;
+  name?: string;
+  regionId?: string;
+  source?: string;
+  status?: number;
+  tag?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      enable: 'Enable',
+      enableRules: 'EnableRules',
+      entryRule: 'EntryRule',
+      entryRules: 'EntryRules',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      groupId: 'GroupId',
+      id: 'Id',
+      licenseKey: 'LicenseKey',
+      name: 'Name',
+      regionId: 'RegionId',
+      source: 'Source',
+      status: 'Status',
+      tag: 'Tag',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      enable: 'boolean',
+      enableRules: 'boolean',
+      entryRule: 'string',
+      entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRules },
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      groupId: 'number',
+      id: 'number',
+      licenseKey: 'string',
+      name: 'string',
+      regionId: 'string',
+      source: 'string',
+      status: 'number',
+      tag: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneResponseBody extends $tea.Model {
+  code?: number;
+  data?: any;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOrUpdateSwimmingLaneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrUpdateSwimmingLaneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appIds?: string;
+  dbGrayEnable?: boolean;
+  enable?: boolean;
+  entryApp?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  licenseKey?: string;
+  messageQueueFilterSide?: string;
+  messageQueueGrayEnable?: boolean;
+  name?: string;
+  region?: string;
+  source?: string;
+  status?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appIds: 'AppIds',
+      dbGrayEnable: 'DbGrayEnable',
+      enable: 'Enable',
+      entryApp: 'EntryApp',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      licenseKey: 'LicenseKey',
+      messageQueueFilterSide: 'MessageQueueFilterSide',
+      messageQueueGrayEnable: 'MessageQueueGrayEnable',
+      name: 'Name',
+      region: 'Region',
+      source: 'Source',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appIds: 'string',
+      dbGrayEnable: 'boolean',
+      enable: 'boolean',
+      entryApp: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      licenseKey: 'string',
+      messageQueueFilterSide: 'string',
+      messageQueueGrayEnable: 'boolean',
+      name: 'string',
+      region: 'string',
+      source: 'string',
+      status: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $tea.Model {
+  code?: number;
+  data?: any;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOrUpdateSwimmingLaneGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrUpdateSwimmingLaneGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateZnodeRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
@@ -15175,6 +15433,86 @@ export class CreateMseServiceApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'Cond',
+      datum: 'Datum',
+      divisor: 'Divisor',
+      name: 'Name',
+      nameList: 'NameList',
+      operator: 'Operator',
+      rate: 'Rate',
+      remainder: 'Remainder',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
+  condition?: string;
+  enable?: boolean;
+  path?: string;
+  paths?: string[];
+  priority?: number;
+  restItems?: CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      enable: 'Enable',
+      path: 'Path',
+      paths: 'Paths',
+      priority: 'Priority',
+      restItems: 'RestItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      enable: 'boolean',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateZnodeResponseBodyData extends $tea.Model {
   data?: string;
   dir?: boolean;
@@ -22474,6 +22812,184 @@ export default class Client extends OpenApi {
   async createNacosService(request: CreateNacosServiceRequest): Promise<CreateNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNacosServiceWithOptions(request, runtime);
+  }
+
+  async createOrUpdateSwimmingLaneWithOptions(request: CreateOrUpdateSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.enableRules)) {
+      query["EnableRules"] = request.enableRules;
+    }
+
+    if (!Util.isUnset(request.entryRule)) {
+      query["EntryRule"] = request.entryRule;
+    }
+
+    if (!Util.isUnset(request.entryRules)) {
+      query["EntryRules"] = request.entryRules;
+    }
+
+    if (!Util.isUnset(request.gmtCreate)) {
+      query["GmtCreate"] = request.gmtCreate;
+    }
+
+    if (!Util.isUnset(request.gmtModified)) {
+      query["GmtModified"] = request.gmtModified;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.licenseKey)) {
+      query["LicenseKey"] = request.licenseKey;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrUpdateSwimmingLane",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrUpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneResponse({}));
+  }
+
+  async createOrUpdateSwimmingLane(request: CreateOrUpdateSwimmingLaneRequest): Promise<CreateOrUpdateSwimmingLaneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrUpdateSwimmingLaneWithOptions(request, runtime);
+  }
+
+  async createOrUpdateSwimmingLaneGroupWithOptions(request: CreateOrUpdateSwimmingLaneGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.dbGrayEnable)) {
+      query["DbGrayEnable"] = request.dbGrayEnable;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.entryApp)) {
+      query["EntryApp"] = request.entryApp;
+    }
+
+    if (!Util.isUnset(request.gmtCreate)) {
+      query["GmtCreate"] = request.gmtCreate;
+    }
+
+    if (!Util.isUnset(request.gmtModified)) {
+      query["GmtModified"] = request.gmtModified;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.licenseKey)) {
+      query["LicenseKey"] = request.licenseKey;
+    }
+
+    if (!Util.isUnset(request.messageQueueFilterSide)) {
+      query["MessageQueueFilterSide"] = request.messageQueueFilterSide;
+    }
+
+    if (!Util.isUnset(request.messageQueueGrayEnable)) {
+      query["MessageQueueGrayEnable"] = request.messageQueueGrayEnable;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrUpdateSwimmingLaneGroup",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrUpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSwimmingLaneGroupResponse({}));
+  }
+
+  async createOrUpdateSwimmingLaneGroup(request: CreateOrUpdateSwimmingLaneGroupRequest): Promise<CreateOrUpdateSwimmingLaneGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrUpdateSwimmingLaneGroupWithOptions(request, runtime);
   }
 
   async createZnodeWithOptions(request: CreateZnodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateZnodeResponse> {
