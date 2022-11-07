@@ -423,6 +423,163 @@ export class CreateApplicationGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateOpsItemRequest extends $tea.Model {
+  category?: string;
+  clientToken?: string;
+  dedupString?: string;
+  description?: string;
+  priority?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resources?: string;
+  severity?: string;
+  solutions?: string;
+  source?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedupString: 'DedupString',
+      description: 'Description',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      tags: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      clientToken: 'string',
+      dedupString: 'string',
+      description: 'string',
+      priority: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resources: 'string',
+      severity: 'string',
+      solutions: 'string',
+      source: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpsItemShrinkRequest extends $tea.Model {
+  category?: string;
+  clientToken?: string;
+  dedupString?: string;
+  description?: string;
+  priority?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resources?: string;
+  severity?: string;
+  solutions?: string;
+  source?: string;
+  tagsShrink?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedupString: 'DedupString',
+      description: 'Description',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      tagsShrink: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      clientToken: 'string',
+      dedupString: 'string',
+      description: 'string',
+      priority: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resources: 'string',
+      severity: 'string',
+      solutions: 'string',
+      source: 'string',
+      tagsShrink: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpsItemResponseBody extends $tea.Model {
+  opsItem?: CreateOpsItemResponseBodyOpsItem;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opsItem: 'OpsItem',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opsItem: CreateOpsItemResponseBodyOpsItem,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpsItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOpsItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOpsItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateParameterRequest extends $tea.Model {
   clientToken?: string;
   constraints?: string;
@@ -2164,6 +2321,75 @@ export class GetInventorySchemaResponse extends $tea.Model {
   }
 }
 
+export class GetOpsItemRequest extends $tea.Model {
+  opsItemId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opsItemId: 'OpsItemId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opsItemId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpsItemResponseBody extends $tea.Model {
+  opsItem?: GetOpsItemResponseBodyOpsItem;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opsItem: 'OpsItem',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opsItem: GetOpsItemResponseBodyOpsItem,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpsItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOpsItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOpsItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetParameterRequest extends $tea.Model {
   name?: string;
   parameterVersion?: number;
@@ -2937,6 +3163,7 @@ export class ListApplicationGroupsRequest extends $tea.Model {
   product?: string;
   regionId?: string;
   resourceId?: string;
+  resourceProduct?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2947,6 +3174,7 @@ export class ListApplicationGroupsRequest extends $tea.Model {
       product: 'Product',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
+      resourceProduct: 'ResourceProduct',
       resourceType: 'ResourceType',
     };
   }
@@ -2960,6 +3188,7 @@ export class ListApplicationGroupsRequest extends $tea.Model {
       product: 'string',
       regionId: 'string',
       resourceId: 'string',
+      resourceProduct: 'string',
       resourceType: 'string',
     };
   }
@@ -3783,6 +4012,130 @@ export class ListInventoryEntriesResponse extends $tea.Model {
   }
 }
 
+export class ListOpsItemsRequest extends $tea.Model {
+  filter?: ListOpsItemsRequestFilter[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceTags?: { [key: string]: any };
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceTags: 'ResourceTags',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListOpsItemsRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpsItemsShrinkRequest extends $tea.Model {
+  filter?: ListOpsItemsShrinkRequestFilter[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceTagsShrink?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceTagsShrink: 'ResourceTags',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListOpsItemsShrinkRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceTagsShrink: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpsItemsResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  opsItems?: ListOpsItemsResponseBodyOpsItems[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      opsItems: 'OpsItems',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      opsItems: { 'type': 'array', 'itemType': ListOpsItemsResponseBodyOpsItems },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpsItemsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListOpsItemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOpsItemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListParameterVersionsRequest extends $tea.Model {
   maxResults?: number;
   name?: string;
@@ -4544,10 +4897,12 @@ export class ListStateConfigurationsShrinkRequest extends $tea.Model {
 }
 
 export class ListStateConfigurationsResponseBody extends $tea.Model {
+  nextToken?: string;
   requestId?: string;
   stateConfigurations?: ListStateConfigurationsResponseBodyStateConfigurations[];
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       stateConfigurations: 'StateConfigurations',
     };
@@ -4555,6 +4910,7 @@ export class ListStateConfigurationsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       requestId: 'string',
       stateConfigurations: { 'type': 'array', 'itemType': ListStateConfigurationsResponseBodyStateConfigurations },
     };
@@ -5589,6 +5945,7 @@ export class StartExecutionRequest extends $tea.Model {
   tags?: { [key: string]: any };
   templateContent?: string;
   templateName?: string;
+  templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5604,6 +5961,7 @@ export class StartExecutionRequest extends $tea.Model {
       tags: 'Tags',
       templateContent: 'TemplateContent',
       templateName: 'TemplateName',
+      templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
     };
   }
@@ -5622,6 +5980,7 @@ export class StartExecutionRequest extends $tea.Model {
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       templateContent: 'string',
       templateName: 'string',
+      templateURL: 'string',
       templateVersion: 'string',
     };
   }
@@ -5644,6 +6003,7 @@ export class StartExecutionShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   templateContent?: string;
   templateName?: string;
+  templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5659,6 +6019,7 @@ export class StartExecutionShrinkRequest extends $tea.Model {
       tagsShrink: 'Tags',
       templateContent: 'TemplateContent',
       templateName: 'TemplateName',
+      templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
     };
   }
@@ -5677,6 +6038,7 @@ export class StartExecutionShrinkRequest extends $tea.Model {
       tagsShrink: 'string',
       templateContent: 'string',
       templateName: 'string',
+      templateURL: 'string',
       templateVersion: 'string',
     };
   }
@@ -6264,6 +6626,175 @@ export class UpdateExecutionResponse extends $tea.Model {
   }
 }
 
+export class UpdateOpsItemRequest extends $tea.Model {
+  category?: string;
+  clientToken?: string;
+  dedupString?: string;
+  description?: string;
+  opsItemId?: string;
+  priority?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resources?: string;
+  severity?: string;
+  solutions?: string;
+  source?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedupString: 'DedupString',
+      description: 'Description',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      clientToken: 'string',
+      dedupString: 'string',
+      description: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resources: 'string',
+      severity: 'string',
+      solutions: 'string',
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpsItemShrinkRequest extends $tea.Model {
+  category?: string;
+  clientToken?: string;
+  dedupString?: string;
+  description?: string;
+  opsItemId?: string;
+  priority?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resources?: string;
+  severity?: string;
+  solutions?: string;
+  source?: string;
+  status?: string;
+  tagsShrink?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedupString: 'DedupString',
+      description: 'Description',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      status: 'Status',
+      tagsShrink: 'Tags',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      clientToken: 'string',
+      dedupString: 'string',
+      description: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resources: 'string',
+      severity: 'string',
+      solutions: 'string',
+      source: 'string',
+      status: 'string',
+      tagsShrink: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpsItemResponseBody extends $tea.Model {
+  opsItem?: UpdateOpsItemResponseBodyOpsItem;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opsItem: 'OpsItem',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opsItem: UpdateOpsItemResponseBodyOpsItem,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpsItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateOpsItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOpsItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateParameterRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -6801,10 +7332,12 @@ export class UpdateTemplateResponse extends $tea.Model {
 export class ValidateTemplateContentRequest extends $tea.Model {
   content?: string;
   regionId?: string;
+  templateURL?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       regionId: 'RegionId',
+      templateURL: 'TemplateURL',
     };
   }
 
@@ -6812,6 +7345,7 @@ export class ValidateTemplateContentRequest extends $tea.Model {
     return {
       content: 'string',
       regionId: 'string',
+      templateURL: 'string',
     };
   }
 
@@ -6941,6 +7475,73 @@ export class CreateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOpsItemResponseBodyOpsItem extends $tea.Model {
+  attributes?: string;
+  category?: string;
+  createDate?: string;
+  createdBy?: string;
+  description?: string;
+  lastModifiedBy?: string;
+  opsItemId?: string;
+  priority?: number;
+  resourceGroupId?: string;
+  resources?: string;
+  severity?: string;
+  solutions?: string;
+  source?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      category: 'Category',
+      createDate: 'CreateDate',
+      createdBy: 'CreatedBy',
+      description: 'Description',
+      lastModifiedBy: 'LastModifiedBy',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'string',
+      category: 'string',
+      createDate: 'string',
+      createdBy: 'string',
+      description: 'string',
+      lastModifiedBy: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      resourceGroupId: 'string',
+      resources: 'string',
+      severity: 'string',
+      solutions: 'string',
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
       updateDate: 'string',
     };
   }
@@ -7430,6 +8031,76 @@ export class GetInventorySchemaResponseBodySchemas extends $tea.Model {
       attributes: { 'type': 'array', 'itemType': GetInventorySchemaResponseBodySchemasAttributes },
       typeName: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
+  attributes?: { [key: string]: any };
+  category?: string;
+  createBy?: string;
+  createDate?: string;
+  dedupString?: string;
+  description?: string;
+  lastModifiedBy?: string;
+  opsItemId?: string;
+  priority?: number;
+  resourceGroupId?: string;
+  resources?: string[];
+  severity?: string;
+  solutions?: { [key: string]: any }[];
+  source?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      category: 'Category',
+      createBy: 'CreateBy',
+      createDate: 'CreateDate',
+      dedupString: 'DedupString',
+      description: 'Description',
+      lastModifiedBy: 'LastModifiedBy',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      category: 'string',
+      createBy: 'string',
+      createDate: 'string',
+      dedupString: 'string',
+      description: 'string',
+      lastModifiedBy: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      resourceGroupId: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+      solutions: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -8357,6 +9028,105 @@ export class ListInventoryEntriesRequestFilter extends $tea.Model {
   }
 }
 
+export class ListOpsItemsRequestFilter extends $tea.Model {
+  name?: string;
+  operator?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operator: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpsItemsShrinkRequestFilter extends $tea.Model {
+  name?: string;
+  operator?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operator: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpsItemsResponseBodyOpsItems extends $tea.Model {
+  category?: string;
+  createDate?: string;
+  opsItemId?: string;
+  priority?: number;
+  resources?: string[];
+  severity?: string;
+  source?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createDate: 'CreateDate',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      resources: 'Resources',
+      severity: 'Severity',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createDate: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      resources: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListParameterVersionsResponseBodyParameterVersions extends $tea.Model {
   parameterVersion?: number;
   updatedBy?: string;
@@ -9171,6 +9941,73 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
   }
 }
 
+export class UpdateOpsItemResponseBodyOpsItem extends $tea.Model {
+  attributes?: string;
+  category?: string;
+  createDate?: string;
+  createdBy?: string;
+  description?: string;
+  lastModifiedBy?: string;
+  opsItemId?: string;
+  priority?: number;
+  resourceGroupId?: string;
+  resources?: string[];
+  severity?: string;
+  solutions?: string[];
+  source?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  title?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      category: 'Category',
+      createDate: 'CreateDate',
+      createdBy: 'CreatedBy',
+      description: 'Description',
+      lastModifiedBy: 'LastModifiedBy',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+      severity: 'Severity',
+      solutions: 'Solutions',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'string',
+      category: 'string',
+      createDate: 'string',
+      createdBy: 'string',
+      description: 'string',
+      lastModifiedBy: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      resourceGroupId: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+      solutions: { 'type': 'array', 'itemType': 'string' },
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateParameterResponseBodyParameter extends $tea.Model {
   constraints?: string;
   createdBy?: string;
@@ -9729,6 +10566,89 @@ export default class Client extends OpenApi {
   async createApplicationGroup(request: CreateApplicationGroupRequest): Promise<CreateApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationGroupWithOptions(request, runtime);
+  }
+
+  async createOpsItemWithOptions(tmpReq: CreateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpsItemResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateOpsItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dedupString)) {
+      query["DedupString"] = request.dedupString;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      query["Severity"] = request.severity;
+    }
+
+    if (!Util.isUnset(request.solutions)) {
+      query["Solutions"] = request.solutions;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOpsItem",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOpsItemResponse>(await this.callApi(params, req, runtime), new CreateOpsItemResponse({}));
+  }
+
+  async createOpsItem(request: CreateOpsItemRequest): Promise<CreateOpsItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOpsItemWithOptions(request, runtime);
   }
 
   async createParameterWithOptions(tmpReq: CreateParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterResponse> {
@@ -10628,6 +11548,39 @@ export default class Client extends OpenApi {
     return await this.getInventorySchemaWithOptions(request, runtime);
   }
 
+  async getOpsItemWithOptions(request: GetOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<GetOpsItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.opsItemId)) {
+      query["OpsItemId"] = request.opsItemId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOpsItem",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOpsItemResponse>(await this.callApi(params, req, runtime), new GetOpsItemResponse({}));
+  }
+
+  async getOpsItem(request: GetOpsItemRequest): Promise<GetOpsItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOpsItemWithOptions(request, runtime);
+  }
+
   async getParameterWithOptions(request: GetParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11045,6 +11998,10 @@ export default class Client extends OpenApi {
       query["ResourceId"] = request.resourceId;
     }
 
+    if (!Util.isUnset(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -11460,6 +12417,65 @@ export default class Client extends OpenApi {
   async listInventoryEntries(request: ListInventoryEntriesRequest): Promise<ListInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInventoryEntriesWithOptions(request, runtime);
+  }
+
+  async listOpsItemsWithOptions(tmpReq: ListOpsItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListOpsItemsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListOpsItemsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceTags)) {
+      request.resourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceTags, "ResourceTags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceTagsShrink)) {
+      query["ResourceTags"] = request.resourceTagsShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListOpsItems",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOpsItemsResponse>(await this.callApi(params, req, runtime), new ListOpsItemsResponse({}));
+  }
+
+  async listOpsItems(request: ListOpsItemsRequest): Promise<ListOpsItemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOpsItemsWithOptions(request, runtime);
   }
 
   async listParameterVersionsWithOptions(request: ListParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListParameterVersionsResponse> {
@@ -12478,6 +13494,10 @@ export default class Client extends OpenApi {
       query["TemplateName"] = request.templateName;
     }
 
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
     if (!Util.isUnset(request.templateVersion)) {
       query["TemplateVersion"] = request.templateVersion;
     }
@@ -12784,6 +13804,97 @@ export default class Client extends OpenApi {
     return await this.updateExecutionWithOptions(request, runtime);
   }
 
+  async updateOpsItemWithOptions(tmpReq: UpdateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpsItemResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateOpsItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dedupString)) {
+      query["DedupString"] = request.dedupString;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.opsItemId)) {
+      query["OpsItemId"] = request.opsItemId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      query["Severity"] = request.severity;
+    }
+
+    if (!Util.isUnset(request.solutions)) {
+      query["Solutions"] = request.solutions;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOpsItem",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOpsItemResponse>(await this.callApi(params, req, runtime), new UpdateOpsItemResponse({}));
+  }
+
+  async updateOpsItem(request: UpdateOpsItemRequest): Promise<UpdateOpsItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOpsItemWithOptions(request, runtime);
+  }
+
   async updateParameterWithOptions(request: UpdateParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13076,6 +14187,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
     }
 
     let req = new $OpenApi.OpenApiRequest({
