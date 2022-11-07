@@ -194,6 +194,90 @@ export class AddWebhookResponse extends $tea.Model {
   }
 }
 
+export class CreateBranchRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  ref?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      ref: 'ref',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      ref: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBranchResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateBranchResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateBranchResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBranchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBranchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBranchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFileRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -1345,6 +1429,270 @@ export class CreateWorkitemResponse extends $tea.Model {
   }
 }
 
+export class CreateWorkitemCommentRequest extends $tea.Model {
+  content?: string;
+  formatType?: string;
+  parentId?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      formatType: 'formatType',
+      parentId: 'parentId',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      formatType: 'string',
+      parentId: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemCommentResponseBody extends $tea.Model {
+  comment?: CreateWorkitemCommentResponseBodyComment;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: CreateWorkitemCommentResponseBodyComment,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWorkitemCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWorkitemCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemEstimateRequest extends $tea.Model {
+  description?: string;
+  recordUserIdentifier?: string;
+  spentTime?: string;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      recordUserIdentifier: 'recordUserIdentifier',
+      spentTime: 'spentTime',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      recordUserIdentifier: 'string',
+      spentTime: 'string',
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemEstimateResponseBody extends $tea.Model {
+  workitemTimeEstimate?: CreateWorkitemEstimateResponseBodyWorkitemTimeEstimate;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      workitemTimeEstimate: 'WorkitemTimeEstimate',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workitemTimeEstimate: CreateWorkitemEstimateResponseBodyWorkitemTimeEstimate,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemEstimateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWorkitemEstimateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWorkitemEstimateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRecordRequest extends $tea.Model {
+  actualTime?: string;
+  description?: string;
+  gmtEnd?: string;
+  gmtStart?: string;
+  recordUserIdentifier?: string;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualTime: 'actualTime',
+      description: 'description',
+      gmtEnd: 'gmtEnd',
+      gmtStart: 'gmtStart',
+      recordUserIdentifier: 'recordUserIdentifier',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualTime: 'string',
+      description: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      recordUserIdentifier: 'string',
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRecordResponseBody extends $tea.Model {
+  workitemTime?: CreateWorkitemRecordResponseBodyWorkitemTime;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      workitemTime: 'WorkitemTime',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workitemTime: CreateWorkitemRecordResponseBodyWorkitemTime,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWorkitemRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWorkitemRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceRequest extends $tea.Model {
   codeUrl?: string;
   codeVersion?: string;
@@ -1433,6 +1781,87 @@ export class CreateWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBranchRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBranchResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteBranchResponseBodyResult;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteBranchResponseBodyResult,
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBranchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBranchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBranchResponseBody,
     };
   }
 
@@ -1868,6 +2297,84 @@ export class DeleteProjectResponse extends $tea.Model {
   }
 }
 
+export class DeleteProtectedBranchRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtectedBranchResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: DeleteProtectedBranchResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: DeleteProtectedBranchResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProtectedBranchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProtectedBranchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProtectedBranchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryRequest extends $tea.Model {
   accessToken?: string;
   reason?: string;
@@ -2055,6 +2562,159 @@ export class DeleteVariableGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteWorkitemAllCommentRequest extends $tea.Model {
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemAllCommentResponseBody extends $tea.Model {
+  deleteFlag?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteFlag: 'deleteFlag',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteFlag: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemAllCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteWorkitemAllCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWorkitemAllCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemCommentRequest extends $tea.Model {
+  commentId?: number;
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commentId: 'commentId',
+      identifier: 'identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentId: 'number',
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemCommentResponseBody extends $tea.Model {
+  deleteFlag?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteFlag: 'deleteFlag',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteFlag: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteWorkitemCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWorkitemCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FrozenWorkspaceResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -2100,6 +2760,87 @@ export class FrozenWorkspaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FrozenWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoRequest extends $tea.Model {
+  accessToken?: string;
+  branchName?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      branchName: 'branchName',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      branchName: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetBranchInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetBranchInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetBranchInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBranchInfoResponseBody,
     };
   }
 
@@ -3581,6 +4322,193 @@ export class GetWorkItemWorkFlowInfoResponse extends $tea.Model {
   }
 }
 
+export class GetWorkitemCommentListResponseBody extends $tea.Model {
+  commentList?: GetWorkitemCommentListResponseBodyCommentList[];
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commentList: 'commentList',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentList: { 'type': 'array', 'itemType': GetWorkitemCommentListResponseBodyCommentList },
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemCommentListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkitemCommentListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkitemCommentListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemRelationsRequest extends $tea.Model {
+  relationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relationType: 'relationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relationType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemRelationsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  relationList?: GetWorkitemRelationsResponseBodyRelationList[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      relationList: 'relationList',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      relationList: { 'type': 'array', 'itemType': GetWorkitemRelationsResponseBodyRelationList },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemRelationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkitemRelationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkitemRelationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemTimeTypeListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  timeType?: GetWorkitemTimeTypeListResponseBodyTimeType[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      timeType: 'timeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+      timeType: { 'type': 'array', 'itemType': GetWorkitemTimeTypeListResponseBodyTimeType },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemTimeTypeListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkitemTimeTypeListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkitemTimeTypeListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -4857,6 +5785,84 @@ export class ListProjectsResponse extends $tea.Model {
   }
 }
 
+export class ListProtectedBranchesRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListProtectedBranchesResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListProtectedBranchesResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProtectedBranchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProtectedBranchesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoriesRequest extends $tea.Model {
   accessToken?: string;
   archived?: boolean;
@@ -4948,6 +5954,99 @@ export class ListRepositoriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRepositoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryBranchesRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  search?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+      search: 'search',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      search: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryBranchesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoryBranchesResponseBodyResult[];
+  success?: boolean;
+  total?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoryBranchesResponseBodyResult },
+      success: 'boolean',
+      total: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryBranchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListRepositoryBranchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRepositoryBranchesResponseBody,
     };
   }
 
@@ -8109,6 +9208,90 @@ export class UpdateWorkItemResponse extends $tea.Model {
   }
 }
 
+export class UpdateWorkitemCommentRequest extends $tea.Model {
+  commentId?: number;
+  content?: string;
+  formatType?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commentId: 'commentId',
+      content: 'content',
+      formatType: 'formatType',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentId: 'number',
+      content: 'string',
+      formatType: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemCommentResponseBody extends $tea.Model {
+  comment?: UpdateWorkitemCommentResponseBodyComment;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'comment',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: UpdateWorkitemCommentResponseBodyComment,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateWorkitemCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWorkitemCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddRepositoryMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
@@ -8187,6 +9370,83 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
       secretToken: 'string',
       tagPushEvents: 'boolean',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBranchResponseBodyResultCommit extends $tea.Model {
+  authorEmail?: string;
+  authorName?: string;
+  authoredDate?: string;
+  committedDate?: string;
+  committerEmail?: string;
+  committerName?: string;
+  createdAt?: string;
+  id?: string;
+  message?: string;
+  parentIds?: string[];
+  shortId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorEmail: 'authorEmail',
+      authorName: 'authorName',
+      authoredDate: 'authoredDate',
+      committedDate: 'committedDate',
+      committerEmail: 'committerEmail',
+      committerName: 'committerName',
+      createdAt: 'createdAt',
+      id: 'id',
+      message: 'message',
+      parentIds: 'parentIds',
+      shortId: 'shortId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorEmail: 'string',
+      authorName: 'string',
+      authoredDate: 'string',
+      committedDate: 'string',
+      committerEmail: 'string',
+      committerName: 'string',
+      createdAt: 'string',
+      id: 'string',
+      message: 'string',
+      parentIds: { 'type': 'array', 'itemType': 'string' },
+      shortId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBranchResponseBodyResult extends $tea.Model {
+  commit?: CreateBranchResponseBodyResultCommit;
+  name?: string;
+  protected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      commit: 'commit',
+      name: 'name',
+      protected: 'protected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commit: CreateBranchResponseBodyResultCommit,
+      name: 'string',
+      protected: 'boolean',
     };
   }
 
@@ -8628,6 +9888,306 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
   }
 }
 
+export class CreateWorkitemCommentResponseBodyCommentUser extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  displayName?: string;
+  identifier?: string;
+  nickName?: string;
+  realName?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      displayName: 'displayName',
+      identifier: 'identifier',
+      nickName: 'nickName',
+      realName: 'realName',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      displayName: 'string',
+      identifier: 'string',
+      nickName: 'string',
+      realName: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemCommentResponseBodyComment extends $tea.Model {
+  id?: number;
+  content?: string;
+  createTime?: number;
+  formatType?: string;
+  isTop?: boolean;
+  modifiedTime?: number;
+  parentId?: number;
+  targetIdentifier?: string;
+  targetType?: string;
+  topTime?: number;
+  user?: CreateWorkitemCommentResponseBodyCommentUser;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      content: 'content',
+      createTime: 'createTime',
+      formatType: 'formatType',
+      isTop: 'isTop',
+      modifiedTime: 'modifiedTime',
+      parentId: 'parentId',
+      targetIdentifier: 'targetIdentifier',
+      targetType: 'targetType',
+      topTime: 'topTime',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      content: 'string',
+      createTime: 'number',
+      formatType: 'string',
+      isTop: 'boolean',
+      modifiedTime: 'number',
+      parentId: 'number',
+      targetIdentifier: 'string',
+      targetType: 'string',
+      topTime: 'number',
+      user: CreateWorkitemCommentResponseBodyCommentUser,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  dingTalkId?: string;
+  displayName?: string;
+  displayNickName?: string;
+  displayRealName?: string;
+  email?: string;
+  gender?: string;
+  identifier?: string;
+  isDisabled?: boolean;
+  mobile?: string;
+  nameEn?: string;
+  nickName?: string;
+  nickNamePinyin?: string;
+  realName?: string;
+  realNamePinyin?: string;
+  stamp?: string;
+  tbRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      dingTalkId: 'dingTalkId',
+      displayName: 'displayName',
+      displayNickName: 'displayNickName',
+      displayRealName: 'displayRealName',
+      email: 'email',
+      gender: 'gender',
+      identifier: 'identifier',
+      isDisabled: 'isDisabled',
+      mobile: 'mobile',
+      nameEn: 'nameEn',
+      nickName: 'nickName',
+      nickNamePinyin: 'nickNamePinyin',
+      realName: 'realName',
+      realNamePinyin: 'realNamePinyin',
+      stamp: 'stamp',
+      tbRoleId: 'tbRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      dingTalkId: 'string',
+      displayName: 'string',
+      displayNickName: 'string',
+      displayRealName: 'string',
+      email: 'string',
+      gender: 'string',
+      identifier: 'string',
+      isDisabled: 'boolean',
+      mobile: 'string',
+      nameEn: 'string',
+      nickName: 'string',
+      nickNamePinyin: 'string',
+      realName: 'string',
+      realNamePinyin: 'string',
+      stamp: 'string',
+      tbRoleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemEstimateResponseBodyWorkitemTimeEstimate extends $tea.Model {
+  description?: string;
+  identifier?: string;
+  recordUser?: CreateWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser;
+  spentTime?: number;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      identifier: 'identifier',
+      recordUser: 'recordUser',
+      spentTime: 'spentTime',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      identifier: 'string',
+      recordUser: CreateWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser,
+      spentTime: 'number',
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRecordResponseBodyWorkitemTimeRecordUser extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  dingTalkId?: string;
+  displayName?: string;
+  displayNickName?: string;
+  displayRealName?: string;
+  email?: string;
+  gender?: string;
+  identifier?: string;
+  isDisabled?: boolean;
+  mobile?: string;
+  nameEn?: string;
+  nickName?: string;
+  nickNamePinyin?: string;
+  realName?: string;
+  realNamePinyin?: string;
+  stamp?: string;
+  tbRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      dingTalkId: 'dingTalkId',
+      displayName: 'displayName',
+      displayNickName: 'displayNickName',
+      displayRealName: 'displayRealName',
+      email: 'email',
+      gender: 'gender',
+      identifier: 'identifier',
+      isDisabled: 'isDisabled',
+      mobile: 'mobile',
+      nameEn: 'nameEn',
+      nickName: 'nickName',
+      nickNamePinyin: 'nickNamePinyin',
+      realName: 'realName',
+      realNamePinyin: 'realNamePinyin',
+      stamp: 'stamp',
+      tbRoleId: 'tbRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      dingTalkId: 'string',
+      displayName: 'string',
+      displayNickName: 'string',
+      displayRealName: 'string',
+      email: 'string',
+      gender: 'string',
+      identifier: 'string',
+      isDisabled: 'boolean',
+      mobile: 'string',
+      nameEn: 'string',
+      nickName: 'string',
+      nickNamePinyin: 'string',
+      realName: 'string',
+      realNamePinyin: 'string',
+      stamp: 'string',
+      tbRoleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRecordResponseBodyWorkitemTime extends $tea.Model {
+  actualTime?: number;
+  description?: string;
+  gmtEnd?: number;
+  gmtStart?: number;
+  identifier?: string;
+  recordUser?: CreateWorkitemRecordResponseBodyWorkitemTimeRecordUser;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualTime: 'actualTime',
+      description: 'description',
+      gmtEnd: 'gmtEnd',
+      gmtStart: 'gmtStart',
+      identifier: 'identifier',
+      recordUser: 'recordUser',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualTime: 'number',
+      description: 'string',
+      gmtEnd: 'number',
+      gmtStart: 'number',
+      identifier: 'string',
+      recordUser: CreateWorkitemRecordResponseBodyWorkitemTimeRecordUser,
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
   createTime?: string;
   creator?: string;
@@ -8662,6 +10222,25 @@ export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class DeleteBranchResponseBodyResult extends $tea.Model {
+  branchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchName: 'branchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFileResponseBodyResult extends $tea.Model {
   branchName?: string;
   filePath?: string;
@@ -8684,6 +10263,25 @@ export class DeleteFileResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DeleteProtectedBranchResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryResponseBodyResult extends $tea.Model {
   result?: boolean;
   static names(): { [key: string]: string } {
@@ -8695,6 +10293,197 @@ export class DeleteRepositoryResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBodyResultCommitAuthor extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  externUid?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  tbUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      externUid: 'externUid',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      tbUserId: 'tbUserId',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      externUid: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      tbUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBodyResultCommitCommitter extends $tea.Model {
+  avatarUrl?: string;
+  email?: string;
+  externUid?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  tbUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      externUid: 'externUid',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      tbUserId: 'tbUserId',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      email: 'string',
+      externUid: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      tbUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBodyResultCommitSignature extends $tea.Model {
+  gpgKeyId?: string;
+  verificationStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gpgKeyId: 'gpgKeyId',
+      verificationStatus: 'verificationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gpgKeyId: 'string',
+      verificationStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBodyResultCommit extends $tea.Model {
+  author?: GetBranchInfoResponseBodyResultCommitAuthor;
+  authorEmail?: string;
+  authorName?: string;
+  authoredDate?: string;
+  commentsCount?: number;
+  committedDate?: string;
+  committer?: GetBranchInfoResponseBodyResultCommitCommitter;
+  committerEmail?: string;
+  committerName?: string;
+  createdAt?: string;
+  id?: string;
+  message?: string;
+  parentIds?: string[];
+  shortId?: string;
+  signature?: GetBranchInfoResponseBodyResultCommitSignature;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      authorEmail: 'authorEmail',
+      authorName: 'authorName',
+      authoredDate: 'authoredDate',
+      commentsCount: 'commentsCount',
+      committedDate: 'committedDate',
+      committer: 'committer',
+      committerEmail: 'committerEmail',
+      committerName: 'committerName',
+      createdAt: 'createdAt',
+      id: 'id',
+      message: 'message',
+      parentIds: 'parentIds',
+      shortId: 'shortId',
+      signature: 'signature',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: GetBranchInfoResponseBodyResultCommitAuthor,
+      authorEmail: 'string',
+      authorName: 'string',
+      authoredDate: 'string',
+      commentsCount: 'number',
+      committedDate: 'string',
+      committer: GetBranchInfoResponseBodyResultCommitCommitter,
+      committerEmail: 'string',
+      committerName: 'string',
+      createdAt: 'string',
+      id: 'string',
+      message: 'string',
+      parentIds: { 'type': 'array', 'itemType': 'string' },
+      shortId: 'string',
+      signature: GetBranchInfoResponseBodyResultCommitSignature,
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBranchInfoResponseBodyResult extends $tea.Model {
+  commit?: GetBranchInfoResponseBodyResultCommit;
+  name?: string;
+  protected?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commit: 'commit',
+      name: 'name',
+      protected: 'protected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commit: GetBranchInfoResponseBodyResultCommit,
+      name: 'string',
+      protected: 'string',
     };
   }
 
@@ -10508,6 +12297,123 @@ export class GetWorkItemWorkFlowInfoResponseBodyWorkflow extends $tea.Model {
   }
 }
 
+export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
+  content?: string;
+  createTime?: number;
+  formatType?: string;
+  id?: number;
+  isTop?: boolean;
+  modifiedTime?: number;
+  parentId?: number;
+  targetIdentifier?: string;
+  targetType?: string;
+  topTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      formatType: 'formatType',
+      id: 'id',
+      isTop: 'isTop',
+      modifiedTime: 'modifiedTime',
+      parentId: 'parentId',
+      targetIdentifier: 'targetIdentifier',
+      targetType: 'targetType',
+      topTime: 'topTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'number',
+      formatType: 'string',
+      id: 'number',
+      isTop: 'boolean',
+      modifiedTime: 'number',
+      parentId: 'number',
+      targetIdentifier: 'string',
+      targetType: 'string',
+      topTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemRelationsResponseBodyRelationList extends $tea.Model {
+  assignedTo?: string;
+  categoryIdentifier?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  identifier?: string;
+  spaceIdentifier?: string;
+  subject?: string;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      spaceIdentifier: 'spaceIdentifier',
+      subject: 'subject',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      categoryIdentifier: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      identifier: 'string',
+      spaceIdentifier: 'string',
+      subject: 'string',
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkitemTimeTypeListResponseBodyTimeType extends $tea.Model {
+  description?: string;
+  displayName?: string;
+  identifier?: string;
+  name?: string;
+  position?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      displayName: 'displayName',
+      identifier: 'identifier',
+      name: 'name',
+      position: 'position',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      identifier: 'string',
+      name: 'string',
+      position: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
   codeUrl?: string;
   codeVersion?: string;
@@ -11182,6 +13088,350 @@ export class ListProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
+export class ListProtectedBranchesResponseBodyResultAllowMergeUsers extends $tea.Model {
+  avatar?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  tbUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      tbUserId: 'tbUserId',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      tbUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultAllowPushUsers extends $tea.Model {
+  avatar?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  tbUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      tbUserId: 'tbUserId',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      tbUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAssignees extends $tea.Model {
+  avatar?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  tbUserId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      tbUserId: 'tbUserId',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      tbUserId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultMergeRequestSetting extends $tea.Model {
+  allowMergeRequestRoles?: number[];
+  defaultAssignees?: ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAssignees[];
+  isAllowSelfApproval?: boolean;
+  isRequireDiscussionProcessed?: boolean;
+  isRequired?: boolean;
+  isResetApprovalWhenNewPush?: boolean;
+  minimumApproval?: number;
+  mrMode?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowMergeRequestRoles: 'allowMergeRequestRoles',
+      defaultAssignees: 'defaultAssignees',
+      isAllowSelfApproval: 'isAllowSelfApproval',
+      isRequireDiscussionProcessed: 'isRequireDiscussionProcessed',
+      isRequired: 'isRequired',
+      isResetApprovalWhenNewPush: 'isResetApprovalWhenNewPush',
+      minimumApproval: 'minimumApproval',
+      mrMode: 'mrMode',
+      whiteList: 'whiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMergeRequestRoles: { 'type': 'array', 'itemType': 'number' },
+      defaultAssignees: { 'type': 'array', 'itemType': ListProtectedBranchesResponseBodyResultMergeRequestSettingDefaultAssignees },
+      isAllowSelfApproval: 'boolean',
+      isRequireDiscussionProcessed: 'boolean',
+      isRequired: 'boolean',
+      isResetApprovalWhenNewPush: 'boolean',
+      minimumApproval: 'number',
+      mrMode: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems extends $tea.Model {
+  isRequired?: boolean;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isRequired: 'isRequired',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isRequired: 'boolean',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig extends $tea.Model {
+  checkItems?: ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems[];
+  static names(): { [key: string]: string } {
+    return {
+      checkItems: 'checkItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItems: { 'type': 'array', 'itemType': ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfigCheckItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig extends $tea.Model {
+  bizNo?: string;
+  enabled?: boolean;
+  message?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizNo: 'bizNo',
+      enabled: 'enabled',
+      message: 'message',
+      taskName: 'taskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizNo: 'string',
+      enabled: 'boolean',
+      message: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection extends $tea.Model {
+  enabled?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResultTestSettingDTO extends $tea.Model {
+  checkConfig?: ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig;
+  checkTaskQualityConfig?: ListProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig;
+  codeGuidelinesDetection?: ListProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection;
+  isRequired?: boolean;
+  sensitiveInfoDetection?: ListProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection;
+  static names(): { [key: string]: string } {
+    return {
+      checkConfig: 'checkConfig',
+      checkTaskQualityConfig: 'checkTaskQualityConfig',
+      codeGuidelinesDetection: 'codeGuidelinesDetection',
+      isRequired: 'isRequired',
+      sensitiveInfoDetection: 'sensitiveInfoDetection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkConfig: ListProtectedBranchesResponseBodyResultTestSettingDTOCheckConfig,
+      checkTaskQualityConfig: ListProtectedBranchesResponseBodyResultTestSettingDTOCheckTaskQualityConfig,
+      codeGuidelinesDetection: ListProtectedBranchesResponseBodyResultTestSettingDTOCodeGuidelinesDetection,
+      isRequired: 'boolean',
+      sensitiveInfoDetection: ListProtectedBranchesResponseBodyResultTestSettingDTOSensitiveInfoDetection,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProtectedBranchesResponseBodyResult extends $tea.Model {
+  allowMergeRoles?: number[];
+  allowMergeUserIds?: number[];
+  allowMergeUsers?: ListProtectedBranchesResponseBodyResultAllowMergeUsers[];
+  allowPushRoles?: number[];
+  allowPushUserIds?: number[];
+  allowPushUsers?: ListProtectedBranchesResponseBodyResultAllowPushUsers[];
+  branch?: string;
+  createdAt?: string;
+  id?: number;
+  matches?: string[];
+  mergeRequestSetting?: ListProtectedBranchesResponseBodyResultMergeRequestSetting;
+  testSettingDTO?: ListProtectedBranchesResponseBodyResultTestSettingDTO;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowMergeRoles: 'allowMergeRoles',
+      allowMergeUserIds: 'allowMergeUserIds',
+      allowMergeUsers: 'allowMergeUsers',
+      allowPushRoles: 'allowPushRoles',
+      allowPushUserIds: 'allowPushUserIds',
+      allowPushUsers: 'allowPushUsers',
+      branch: 'branch',
+      createdAt: 'createdAt',
+      id: 'id',
+      matches: 'matches',
+      mergeRequestSetting: 'mergeRequestSetting',
+      testSettingDTO: 'testSettingDTO',
+      updatedAt: 'updatedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowMergeRoles: { 'type': 'array', 'itemType': 'number' },
+      allowMergeUserIds: { 'type': 'array', 'itemType': 'number' },
+      allowMergeUsers: { 'type': 'array', 'itemType': ListProtectedBranchesResponseBodyResultAllowMergeUsers },
+      allowPushRoles: { 'type': 'array', 'itemType': 'number' },
+      allowPushUserIds: { 'type': 'array', 'itemType': 'number' },
+      allowPushUsers: { 'type': 'array', 'itemType': ListProtectedBranchesResponseBodyResultAllowPushUsers },
+      branch: 'string',
+      createdAt: 'string',
+      id: 'number',
+      matches: { 'type': 'array', 'itemType': 'string' },
+      mergeRequestSetting: ListProtectedBranchesResponseBodyResultMergeRequestSetting,
+      testSettingDTO: ListProtectedBranchesResponseBodyResultTestSettingDTO,
+      updatedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepositoriesResponseBodyResult extends $tea.Model {
   id?: number;
   accessLevel?: number;
@@ -11244,6 +13494,83 @@ export class ListRepositoriesResponseBodyResult extends $tea.Model {
       updatedAt: 'string',
       visibilityLevel: 'string',
       webUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryBranchesResponseBodyResultCommit extends $tea.Model {
+  authorEmail?: string;
+  authorName?: string;
+  authoredDate?: string;
+  committedDate?: string;
+  committerEmail?: string;
+  committerName?: string;
+  createdAt?: string;
+  id?: string;
+  message?: string;
+  parentIds?: string[];
+  shortId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorEmail: 'authorEmail',
+      authorName: 'authorName',
+      authoredDate: 'authoredDate',
+      committedDate: 'committedDate',
+      committerEmail: 'committerEmail',
+      committerName: 'committerName',
+      createdAt: 'createdAt',
+      id: 'id',
+      message: 'message',
+      parentIds: 'parentIds',
+      shortId: 'shortId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorEmail: 'string',
+      authorName: 'string',
+      authoredDate: 'string',
+      committedDate: 'string',
+      committerEmail: 'string',
+      committerName: 'string',
+      createdAt: 'string',
+      id: 'string',
+      message: 'string',
+      parentIds: { 'type': 'array', 'itemType': 'string' },
+      shortId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryBranchesResponseBodyResult extends $tea.Model {
+  commit?: ListRepositoryBranchesResponseBodyResultCommit;
+  name?: string;
+  protected?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commit: 'commit',
+      name: 'name',
+      protected: 'protected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commit: ListRepositoryBranchesResponseBodyResultCommit,
+      name: 'string',
+      protected: 'string',
     };
   }
 
@@ -12896,6 +15223,89 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
   }
 }
 
+export class UpdateWorkitemCommentResponseBodyCommentUser extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  displayName?: string;
+  identifier?: string;
+  nickName?: string;
+  realName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      displayName: 'displayName',
+      identifier: 'identifier',
+      nickName: 'nickName',
+      realName: 'realName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      displayName: 'string',
+      identifier: 'string',
+      nickName: 'string',
+      realName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemCommentResponseBodyComment extends $tea.Model {
+  content?: string;
+  createTime?: number;
+  formatType?: string;
+  id?: string;
+  isTop?: boolean;
+  modifiedTime?: number;
+  parentId?: number;
+  targetIdentifier?: string;
+  targetType?: string;
+  topTime?: number;
+  user?: UpdateWorkitemCommentResponseBodyCommentUser;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      formatType: 'formatType',
+      id: 'id',
+      isTop: 'isTop',
+      modifiedTime: 'modifiedTime',
+      parentId: 'parentId',
+      targetIdentifier: 'targetIdentifier',
+      targetType: 'targetType',
+      topTime: 'topTime',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'number',
+      formatType: 'string',
+      id: 'string',
+      isTop: 'boolean',
+      modifiedTime: 'number',
+      parentId: 'number',
+      targetIdentifier: 'string',
+      targetType: 'string',
+      topTime: 'number',
+      user: UpdateWorkitemCommentResponseBodyCommentUser,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -13031,6 +15441,51 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<AddWebhookResponse>(await this.callApi(params, req, runtime), new AddWebhookResponse({}));
+  }
+
+  async createBranch(repositoryId: string, request: CreateBranchRequest): Promise<CreateBranchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBranchWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async createBranchWithOptions(repositoryId: string, request: CreateBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBranchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.branchName)) {
+      body["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.ref)) {
+      body["ref"] = request.ref;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBranch",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/branches`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBranchResponse>(await this.callApi(params, req, runtime), new CreateBranchResponse({}));
   }
 
   async createFile(repositoryId: string, request: CreateFileRequest): Promise<CreateFileResponse> {
@@ -13697,6 +16152,151 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkitemResponse>(await this.callApi(params, req, runtime), new CreateWorkitemResponse({}));
   }
 
+  async createWorkitemComment(organizationId: string, request: CreateWorkitemCommentRequest): Promise<CreateWorkitemCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkitemCommentWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createWorkitemCommentWithOptions(organizationId: string, request: CreateWorkitemCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemCommentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.formatType)) {
+      body["formatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      body["parentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.workitemIdentifier)) {
+      body["workitemIdentifier"] = request.workitemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWorkitemComment",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/comment`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkitemCommentResponse>(await this.callApi(params, req, runtime), new CreateWorkitemCommentResponse({}));
+  }
+
+  async createWorkitemEstimate(organizationId: string, request: CreateWorkitemEstimateRequest): Promise<CreateWorkitemEstimateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkitemEstimateWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createWorkitemEstimateWithOptions(organizationId: string, request: CreateWorkitemEstimateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemEstimateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.recordUserIdentifier)) {
+      body["recordUserIdentifier"] = request.recordUserIdentifier;
+    }
+
+    if (!Util.isUnset(request.spentTime)) {
+      body["spentTime"] = request.spentTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.workitemIdentifier)) {
+      body["workitemIdentifier"] = request.workitemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWorkitemEstimate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/estimate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkitemEstimateResponse>(await this.callApi(params, req, runtime), new CreateWorkitemEstimateResponse({}));
+  }
+
+  async createWorkitemRecord(organizationId: string, request: CreateWorkitemRecordRequest): Promise<CreateWorkitemRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkitemRecordWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createWorkitemRecordWithOptions(organizationId: string, request: CreateWorkitemRecordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actualTime)) {
+      body["actualTime"] = request.actualTime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.gmtEnd)) {
+      body["gmtEnd"] = request.gmtEnd;
+    }
+
+    if (!Util.isUnset(request.gmtStart)) {
+      body["gmtStart"] = request.gmtStart;
+    }
+
+    if (!Util.isUnset(request.recordUserIdentifier)) {
+      body["recordUserIdentifier"] = request.recordUserIdentifier;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.workitemIdentifier)) {
+      body["workitemIdentifier"] = request.workitemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWorkitemRecord",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/record`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkitemRecordResponse>(await this.callApi(params, req, runtime), new CreateWorkitemRecordResponse({}));
+  }
+
   async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13754,6 +16354,45 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
+  }
+
+  async deleteBranch(repositoryId: string, request: DeleteBranchRequest): Promise<DeleteBranchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBranchWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async deleteBranchWithOptions(repositoryId: string, request: DeleteBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBranchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.branchName)) {
+      query["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBranch",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/branches/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBranchResponse>(await this.callApi(params, req, runtime), new DeleteBranchResponse({}));
   }
 
   async deleteFile(repositoryId: string, request: DeleteFileRequest): Promise<DeleteFileResponse> {
@@ -13954,6 +16593,41 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  async deleteProtectedBranch(repositoryId: string, protectedBranchId: string, request: DeleteProtectedBranchRequest): Promise<DeleteProtectedBranchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteProtectedBranchWithOptions(repositoryId, protectedBranchId, request, headers, runtime);
+  }
+
+  async deleteProtectedBranchWithOptions(repositoryId: string, protectedBranchId: string, request: DeleteProtectedBranchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProtectedBranchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProtectedBranch",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/protect_branches/${OpenApiUtil.getEncodeParam(protectedBranchId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProtectedBranchResponse>(await this.callApi(params, req, runtime), new DeleteProtectedBranchResponse({}));
+  }
+
   async deleteRepository(repositoryId: string, request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14043,6 +16717,72 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVariableGroupResponse>(await this.callApi(params, req, runtime), new DeleteVariableGroupResponse({}));
   }
 
+  async deleteWorkitemAllComment(organizationId: string, request: DeleteWorkitemAllCommentRequest): Promise<DeleteWorkitemAllCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkitemAllCommentWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async deleteWorkitemAllCommentWithOptions(organizationId: string, request: DeleteWorkitemAllCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkitemAllCommentResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWorkitemAllComment",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/deleteAllComment`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWorkitemAllCommentResponse>(await this.callApi(params, req, runtime), new DeleteWorkitemAllCommentResponse({}));
+  }
+
+  async deleteWorkitemComment(organizationId: string, request: DeleteWorkitemCommentRequest): Promise<DeleteWorkitemCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkitemCommentWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async deleteWorkitemCommentWithOptions(organizationId: string, request: DeleteWorkitemCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkitemCommentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commentId)) {
+      body["commentId"] = request.commentId;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      body["identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWorkitemComment",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/deleteComent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWorkitemCommentResponse>(await this.callApi(params, req, runtime), new DeleteWorkitemCommentResponse({}));
+  }
+
   async frozenWorkspace(workspaceId: string): Promise<FrozenWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14065,6 +16805,45 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<FrozenWorkspaceResponse>(await this.callApi(params, req, runtime), new FrozenWorkspaceResponse({}));
+  }
+
+  async getBranchInfo(repositoryId: string, request: GetBranchInfoRequest): Promise<GetBranchInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBranchInfoWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async getBranchInfoWithOptions(repositoryId: string, request: GetBranchInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBranchInfoResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.branchName)) {
+      query["branchName"] = request.branchName;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBranchInfo",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/branches/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBranchInfoResponse>(await this.callApi(params, req, runtime), new GetBranchInfoResponse({}));
   }
 
   async getCodeupOrganization(identity: string, request: GetCodeupOrganizationRequest): Promise<GetCodeupOrganizationResponse> {
@@ -14733,6 +17512,85 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkItemWorkFlowInfoResponse>(await this.callApi(params, req, runtime), new GetWorkItemWorkFlowInfoResponse({}));
   }
 
+  async getWorkitemCommentList(organizationId: string, workitemId: string): Promise<GetWorkitemCommentListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkitemCommentListWithOptions(organizationId, workitemId, headers, runtime);
+  }
+
+  async getWorkitemCommentListWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemCommentListResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkitemCommentList",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/commentList`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkitemCommentListResponse>(await this.callApi(params, req, runtime), new GetWorkitemCommentListResponse({}));
+  }
+
+  async getWorkitemRelations(organizationId: string, workitemId: string, request: GetWorkitemRelationsRequest): Promise<GetWorkitemRelationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkitemRelationsWithOptions(organizationId, workitemId, request, headers, runtime);
+  }
+
+  async getWorkitemRelationsWithOptions(organizationId: string, workitemId: string, request: GetWorkitemRelationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemRelationsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.relationType)) {
+      query["relationType"] = request.relationType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkitemRelations",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/${OpenApiUtil.getEncodeParam(workitemId)}/getRelations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkitemRelationsResponse>(await this.callApi(params, req, runtime), new GetWorkitemRelationsResponse({}));
+  }
+
+  async getWorkitemTimeTypeList(organizationId: string): Promise<GetWorkitemTimeTypeListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkitemTimeTypeListWithOptions(organizationId, headers, runtime);
+  }
+
+  async getWorkitemTimeTypeListWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkitemTimeTypeListResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkitemTimeTypeList",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/type/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkitemTimeTypeListResponse>(await this.callApi(params, req, runtime), new GetWorkitemTimeTypeListResponse({}));
+  }
+
   async getWorkspace(workspaceId: string): Promise<GetWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15372,6 +18230,41 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  async listProtectedBranches(repositoryId: string, request: ListProtectedBranchesRequest): Promise<ListProtectedBranchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProtectedBranchesWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listProtectedBranchesWithOptions(repositoryId: string, request: ListProtectedBranchesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProtectedBranchesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProtectedBranches",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/protect_branches`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProtectedBranchesResponse>(await this.callApi(params, req, runtime), new ListProtectedBranchesResponse({}));
+  }
+
   async listRepositories(request: ListRepositoriesRequest): Promise<ListRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15429,6 +18322,57 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListRepositoriesResponse>(await this.callApi(params, req, runtime), new ListRepositoriesResponse({}));
+  }
+
+  async listRepositoryBranches(repositoryId: string, request: ListRepositoryBranchesRequest): Promise<ListRepositoryBranchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoryBranchesWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listRepositoryBranchesWithOptions(repositoryId: string, request: ListRepositoryBranchesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryBranchesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositoryBranches",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${OpenApiUtil.getEncodeParam(repositoryId)}/branches`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryBranchesResponse>(await this.callApi(params, req, runtime), new ListRepositoryBranchesResponse({}));
   }
 
   async listRepositoryCommitDiff(repositoryId: string, sha: string, request: ListRepositoryCommitDiffRequest): Promise<ListRepositoryCommitDiffResponse> {
@@ -17029,6 +19973,49 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateWorkItemResponse>(await this.callApi(params, req, runtime), new UpdateWorkItemResponse({}));
+  }
+
+  async updateWorkitemComment(organizationId: string, request: UpdateWorkitemCommentRequest): Promise<UpdateWorkitemCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkitemCommentWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async updateWorkitemCommentWithOptions(organizationId: string, request: UpdateWorkitemCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkitemCommentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commentId)) {
+      body["commentId"] = request.commentId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.formatType)) {
+      body["formatType"] = request.formatType;
+    }
+
+    if (!Util.isUnset(request.workitemIdentifier)) {
+      body["workitemIdentifier"] = request.workitemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWorkitemComment",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/commentUpdate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWorkitemCommentResponse>(await this.callApi(params, req, runtime), new UpdateWorkitemCommentResponse({}));
   }
 
 }
