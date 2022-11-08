@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -94,6 +93,7 @@ export class CreateLabelsetRequest extends $tea.Model {
   description?: string;
   name?: string;
   objectKey?: string;
+  preLabelId?: number;
   tagSettings?: string;
   tagUserList?: string;
   type?: string;
@@ -104,6 +104,7 @@ export class CreateLabelsetRequest extends $tea.Model {
       description: 'Description',
       name: 'Name',
       objectKey: 'ObjectKey',
+      preLabelId: 'PreLabelId',
       tagSettings: 'TagSettings',
       tagUserList: 'TagUserList',
       type: 'Type',
@@ -117,6 +118,7 @@ export class CreateLabelsetRequest extends $tea.Model {
       description: 'string',
       name: 'string',
       objectKey: 'string',
+      preLabelId: 'number',
       tagSettings: 'string',
       tagUserList: 'string',
       type: 'string',
@@ -322,19 +324,21 @@ export class CreateTagTaskResponse extends $tea.Model {
 
 export class CreateTrainTaskRequest extends $tea.Model {
   advancedParameters?: string;
-  datasetId?: number;
+  datasetIds?: string;
   description?: string;
-  labelId?: number;
+  labelIds?: string;
   name?: string;
+  preTrainTaskId?: number;
   trainMode?: string;
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       advancedParameters: 'AdvancedParameters',
-      datasetId: 'DatasetId',
+      datasetIds: 'DatasetIds',
       description: 'Description',
-      labelId: 'LabelId',
+      labelIds: 'LabelIds',
       name: 'Name',
+      preTrainTaskId: 'PreTrainTaskId',
       trainMode: 'TrainMode',
       workspaceId: 'WorkspaceId',
     };
@@ -343,10 +347,11 @@ export class CreateTrainTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       advancedParameters: 'string',
-      datasetId: 'number',
+      datasetIds: 'string',
       description: 'string',
-      labelId: 'number',
+      labelIds: 'string',
       name: 'string',
+      preTrainTaskId: 'number',
       trainMode: 'string',
       workspaceId: 'number',
     };
@@ -499,11 +504,11 @@ export class CustomizeClassifyImageRequest extends $tea.Model {
 }
 
 export class CustomizeClassifyImageAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
+  imageUrlObject?: Readable;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUrlObject: 'ImageUrlObject',
+      imageUrlObject: 'ImageUrl',
       serviceId: 'ServiceId',
     };
   }
@@ -590,11 +595,11 @@ export class CustomizeDetectImageRequest extends $tea.Model {
 }
 
 export class CustomizeDetectImageAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
+  imageUrlObject?: Readable;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUrlObject: 'ImageUrlObject',
+      imageUrlObject: 'ImageUrl',
       serviceId: 'ServiceId',
     };
   }
@@ -681,11 +686,11 @@ export class CustomizeInstanceSegmentImageRequest extends $tea.Model {
 }
 
 export class CustomizeInstanceSegmentImageAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
+  imageUrlObject?: Readable;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUrlObject: 'ImageUrlObject',
+      imageUrlObject: 'ImageUrl',
       serviceId: 'ServiceId',
     };
   }
@@ -772,15 +777,18 @@ export class DebugServiceRequest extends $tea.Model {
 }
 
 export class DebugServiceResponseBody extends $tea.Model {
+  data?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: 'string',
       requestId: 'string',
     };
   }
@@ -807,6 +815,75 @@ export class DebugServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DebugServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataReflowDataRequest extends $tea.Model {
+  id?: number;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataReflowDataResponseBody extends $tea.Model {
+  data?: DeleteDataReflowDataResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DeleteDataReflowDataResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataReflowDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDataReflowDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataReflowDataResponseBody,
     };
   }
 
@@ -1214,6 +1291,72 @@ export class DeleteWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class DisableDataReflowRequest extends $tea.Model {
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDataReflowResponseBody extends $tea.Model {
+  data?: DisableDataReflowResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DisableDataReflowResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDataReflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableDataReflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableDataReflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadFileNameListRequest extends $tea.Model {
   datasetId?: number;
   identity?: string;
@@ -1341,6 +1484,159 @@ export class DownloadLabelFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DownloadLabelFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDataReflowRequest extends $tea.Model {
+  dataReflowOssPath?: string;
+  dataReflowRate?: number;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataReflowOssPath: 'DataReflowOssPath',
+      dataReflowRate: 'DataReflowRate',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataReflowOssPath: 'string',
+      dataReflowRate: 'number',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDataReflowResponseBody extends $tea.Model {
+  data?: EnableDataReflowResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: EnableDataReflowResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDataReflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableDataReflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableDataReflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataReflowDataListRequest extends $tea.Model {
+  category?: string;
+  endTime?: number;
+  fileType?: string;
+  imageName?: string;
+  serviceId?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      endTime: 'EndTime',
+      fileType: 'FileType',
+      imageName: 'ImageName',
+      serviceId: 'ServiceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      endTime: 'number',
+      fileType: 'string',
+      imageName: 'string',
+      serviceId: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataReflowDataListResponseBody extends $tea.Model {
+  data?: ExportDataReflowDataListResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExportDataReflowDataListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataReflowDataListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExportDataReflowDataListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportDataReflowDataListResponseBody,
     };
   }
 
@@ -2015,6 +2311,90 @@ export class GetWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class ListDataReflowDatasRequest extends $tea.Model {
+  category?: string;
+  currentPage?: number;
+  endTime?: number;
+  imageName?: string;
+  pageSize?: number;
+  serviceId?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      imageName: 'ImageName',
+      pageSize: 'PageSize',
+      serviceId: 'ServiceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      currentPage: 'number',
+      endTime: 'number',
+      imageName: 'string',
+      pageSize: 'number',
+      serviceId: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataReflowDatasResponseBody extends $tea.Model {
+  data?: ListDataReflowDatasResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListDataReflowDatasResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataReflowDatasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDataReflowDatasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataReflowDatasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDatasetDatasRequest extends $tea.Model {
   currentPage?: number;
   datasetId?: number;
@@ -2164,6 +2544,7 @@ export class ListDatasetsResponse extends $tea.Model {
 
 export class ListLabelsetDatasRequest extends $tea.Model {
   currentPage?: number;
+  isAbandon?: boolean;
   labelId?: number;
   name?: string;
   operation?: string;
@@ -2172,6 +2553,7 @@ export class ListLabelsetDatasRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      isAbandon: 'IsAbandon',
       labelId: 'LabelId',
       name: 'Name',
       operation: 'Operation',
@@ -2183,6 +2565,7 @@ export class ListLabelsetDatasRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      isAbandon: 'boolean',
       labelId: 'number',
       name: 'string',
       operation: 'string',
@@ -2247,11 +2630,13 @@ export class ListLabelsetsRequest extends $tea.Model {
   currentPage?: number;
   datasetId?: number;
   pageSize?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       datasetId: 'DatasetId',
       pageSize: 'PageSize',
+      status: 'Status',
     };
   }
 
@@ -2260,6 +2645,7 @@ export class ListLabelsetsRequest extends $tea.Model {
       currentPage: 'number',
       datasetId: 'number',
       pageSize: 'number',
+      status: 'string',
     };
   }
 
@@ -2396,11 +2782,13 @@ export class ListServicesResponse extends $tea.Model {
 export class ListTrainTasksRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
+  status?: string;
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
+      status: 'Status',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -2409,6 +2797,7 @@ export class ListTrainTasksRequest extends $tea.Model {
     return {
       currentPage: 'number',
       pageSize: 'number',
+      status: 'string',
       workspaceId: 'number',
     };
   }
@@ -2675,10 +3064,12 @@ export class StartServiceResponse extends $tea.Model {
 export class StartTrainTaskRequest extends $tea.Model {
   forceStartFlag?: boolean;
   id?: number;
+  relyOnTaskId?: number;
   static names(): { [key: string]: string } {
     return {
       forceStartFlag: 'ForceStartFlag',
       id: 'Id',
+      relyOnTaskId: 'RelyOnTaskId',
     };
   }
 
@@ -2686,6 +3077,7 @@ export class StartTrainTaskRequest extends $tea.Model {
     return {
       forceStartFlag: 'boolean',
       id: 'number',
+      relyOnTaskId: 'number',
     };
   }
 
@@ -2950,6 +3342,7 @@ export class UpdateLabelsetRequest extends $tea.Model {
   id?: number;
   name?: string;
   objectKey?: string;
+  tagUserList?: string;
   userOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2957,6 +3350,7 @@ export class UpdateLabelsetRequest extends $tea.Model {
       id: 'Id',
       name: 'Name',
       objectKey: 'ObjectKey',
+      tagUserList: 'TagUserList',
       userOssUrl: 'UserOssUrl',
     };
   }
@@ -2967,6 +3361,7 @@ export class UpdateLabelsetRequest extends $tea.Model {
       id: 'number',
       name: 'string',
       objectKey: 'string',
+      tagUserList: 'string',
       userOssUrl: 'string',
     };
   }
@@ -3103,24 +3498,39 @@ export class UpdateServiceResponse extends $tea.Model {
 
 export class UpdateTrainTaskRequest extends $tea.Model {
   advancedParameters?: string;
+  datasetIds?: string;
   description?: string;
   id?: number;
+  labelIds?: string;
   name?: string;
+  preTrainTaskFlag?: boolean;
+  preTrainTaskId?: number;
+  trainMode?: string;
   static names(): { [key: string]: string } {
     return {
       advancedParameters: 'AdvancedParameters',
+      datasetIds: 'DatasetIds',
       description: 'Description',
       id: 'Id',
+      labelIds: 'LabelIds',
       name: 'Name',
+      preTrainTaskFlag: 'PreTrainTaskFlag',
+      preTrainTaskId: 'PreTrainTaskId',
+      trainMode: 'TrainMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       advancedParameters: 'string',
+      datasetIds: 'string',
       description: 'string',
       id: 'number',
+      labelIds: 'string',
       name: 'string',
+      preTrainTaskFlag: 'boolean',
+      preTrainTaskId: 'number',
+      trainMode: 'string',
     };
   }
 
@@ -3392,6 +3802,8 @@ export class CreateTrainTaskResponseBodyData extends $tea.Model {
   labelName?: string;
   modelEffect?: string;
   modelId?: number;
+  relyOnTaskId?: number;
+  relyOnTaskName?: string;
   taskName?: string;
   trainMode?: string;
   trainStatus?: string;
@@ -3407,6 +3819,8 @@ export class CreateTrainTaskResponseBodyData extends $tea.Model {
       labelName: 'LabelName',
       modelEffect: 'ModelEffect',
       modelId: 'ModelId',
+      relyOnTaskId: 'RelyOnTaskId',
+      relyOnTaskName: 'RelyOnTaskName',
       taskName: 'TaskName',
       trainMode: 'TrainMode',
       trainStatus: 'TrainStatus',
@@ -3425,6 +3839,8 @@ export class CreateTrainTaskResponseBodyData extends $tea.Model {
       labelName: 'string',
       modelEffect: 'string',
       modelId: 'number',
+      relyOnTaskId: 'number',
+      relyOnTaskName: 'string',
       taskName: 'string',
       trainMode: 'string',
       trainStatus: 'string',
@@ -3683,6 +4099,34 @@ export class CustomizeInstanceSegmentImageResponseBodyData extends $tea.Model {
   }
 }
 
+export class DeleteDataReflowDataResponseBodyData extends $tea.Model {
+  gmtModified?: number;
+  id?: number;
+  serviceId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      serviceId: 'ServiceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtModified: 'number',
+      id: 'number',
+      serviceId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDatasetResponseBodyData extends $tea.Model {
   description?: string;
   gmtCreate?: number;
@@ -3884,6 +4328,28 @@ export class DeleteWorkspaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class DisableDataReflowResponseBodyData extends $tea.Model {
+  enableDataReflowFlag?: boolean;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableDataReflowFlag: 'EnableDataReflowFlag',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDataReflowFlag: 'boolean',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadFileNameListResponseBodyData extends $tea.Model {
   ossHttpUrl?: string;
   static names(): { [key: string]: string } {
@@ -3904,6 +4370,53 @@ export class DownloadFileNameListResponseBodyData extends $tea.Model {
 }
 
 export class DownloadLabelFileResponseBodyData extends $tea.Model {
+  ossHttpUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossHttpUrl: 'OssHttpUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossHttpUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDataReflowResponseBodyData extends $tea.Model {
+  dataReflowOssPath?: string;
+  dataReflowRate?: number;
+  enableDataReflowFlag?: boolean;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataReflowOssPath: 'DataReflowOssPath',
+      dataReflowRate: 'DataReflowRate',
+      enableDataReflowFlag: 'EnableDataReflowFlag',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataReflowOssPath: 'string',
+      dataReflowRate: 'number',
+      enableDataReflowFlag: 'boolean',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataReflowDataListResponseBodyData extends $tea.Model {
   ossHttpUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4004,6 +4517,9 @@ export class GetLabelsetResponseBodyData extends $tea.Model {
   labelType?: string;
   name?: string;
   status?: string;
+  subTaskPackageSize?: string;
+  tagUserList?: string;
+  tags?: string;
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4013,6 +4529,9 @@ export class GetLabelsetResponseBodyData extends $tea.Model {
       labelType: 'LabelType',
       name: 'Name',
       status: 'Status',
+      subTaskPackageSize: 'SubTaskPackageSize',
+      tagUserList: 'TagUserList',
+      tags: 'Tags',
       total: 'Total',
     };
   }
@@ -4025,6 +4544,9 @@ export class GetLabelsetResponseBodyData extends $tea.Model {
       labelType: 'string',
       name: 'string',
       status: 'string',
+      subTaskPackageSize: 'string',
+      tagUserList: 'string',
+      tags: 'string',
       total: 'number',
     };
   }
@@ -4034,7 +4556,36 @@ export class GetLabelsetResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetServiceResponseBodyDataDataReflowInfo extends $tea.Model {
+  dataReflowCount?: number;
+  dataReflowOssPath?: string;
+  dataReflowRate?: number;
+  enableDataReflowFlag?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataReflowCount: 'DataReflowCount',
+      dataReflowOssPath: 'DataReflowOssPath',
+      dataReflowRate: 'DataReflowRate',
+      enableDataReflowFlag: 'EnableDataReflowFlag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataReflowCount: 'number',
+      dataReflowOssPath: 'string',
+      dataReflowRate: 'number',
+      enableDataReflowFlag: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceResponseBodyData extends $tea.Model {
+  dataReflowInfo?: GetServiceResponseBodyDataDataReflowInfo;
   errorcodes?: string;
   gmtCreate?: number;
   id?: number;
@@ -4048,6 +4599,7 @@ export class GetServiceResponseBodyData extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      dataReflowInfo: 'DataReflowInfo',
       errorcodes: 'Errorcodes',
       gmtCreate: 'GmtCreate',
       id: 'Id',
@@ -4064,6 +4616,7 @@ export class GetServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataReflowInfo: GetServiceResponseBodyDataDataReflowInfo,
       errorcodes: 'string',
       gmtCreate: 'number',
       id: 'number',
@@ -4245,6 +4798,37 @@ export class GetWorkspaceResponseBodyData extends $tea.Model {
       id: 'number',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataReflowDatasResponseBodyData extends $tea.Model {
+  currentPage?: number;
+  elements?: { [key: string]: any }[];
+  pageSize?: number;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      elements: 'Elements',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      elements: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPage: 'number',
     };
   }
 
@@ -5008,6 +5592,10 @@ export default class Client extends OpenApi {
       body["ObjectKey"] = request.objectKey;
     }
 
+    if (!Util.isUnset(request.preLabelId)) {
+      body["PreLabelId"] = request.preLabelId;
+    }
+
     if (!Util.isUnset(request.tagSettings)) {
       body["TagSettings"] = request.tagSettings;
     }
@@ -5127,20 +5715,24 @@ export default class Client extends OpenApi {
       body["AdvancedParameters"] = request.advancedParameters;
     }
 
-    if (!Util.isUnset(request.datasetId)) {
-      body["DatasetId"] = request.datasetId;
+    if (!Util.isUnset(request.datasetIds)) {
+      body["DatasetIds"] = request.datasetIds;
     }
 
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.labelId)) {
-      body["LabelId"] = request.labelId;
+    if (!Util.isUnset(request.labelIds)) {
+      body["LabelIds"] = request.labelIds;
     }
 
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.preTrainTaskId)) {
+      body["PreTrainTaskId"] = request.preTrainTaskId;
     }
 
     if (!Util.isUnset(request.trainMode)) {
@@ -5258,7 +5850,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -5289,28 +5881,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, customizeClassifyImageReq);
     if (!Util.isUnset(request.imageUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      customizeClassifyImageReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      customizeClassifyImageReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let customizeClassifyImageResp = await this.customizeClassifyImageWithOptions(customizeClassifyImageReq, runtime);
@@ -5365,7 +5957,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -5396,28 +5988,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, customizeDetectImageReq);
     if (!Util.isUnset(request.imageUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      customizeDetectImageReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      customizeDetectImageReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let customizeDetectImageResp = await this.customizeDetectImageWithOptions(customizeDetectImageReq, runtime);
@@ -5472,7 +6064,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -5503,28 +6095,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, customizeInstanceSegmentImageReq);
     if (!Util.isUnset(request.imageUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.imageUrlObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      customizeInstanceSegmentImageReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      customizeInstanceSegmentImageReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let customizeInstanceSegmentImageResp = await this.customizeInstanceSegmentImageWithOptions(customizeInstanceSegmentImageReq, runtime);
@@ -5562,6 +6154,39 @@ export default class Client extends OpenApi {
   async debugService(request: DebugServiceRequest): Promise<DebugServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.debugServiceWithOptions(request, runtime);
+  }
+
+  async deleteDataReflowDataWithOptions(request: DeleteDataReflowDataRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataReflowDataResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataReflowData",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataReflowDataResponse>(await this.callApi(params, req, runtime), new DeleteDataReflowDataResponse({}));
+  }
+
+  async deleteDataReflowData(request: DeleteDataReflowDataRequest): Promise<DeleteDataReflowDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataReflowDataWithOptions(request, runtime);
   }
 
   async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
@@ -5742,6 +6367,35 @@ export default class Client extends OpenApi {
     return await this.deleteWorkspaceWithOptions(request, runtime);
   }
 
+  async disableDataReflowWithOptions(request: DisableDataReflowRequest, runtime: $Util.RuntimeOptions): Promise<DisableDataReflowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableDataReflow",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableDataReflowResponse>(await this.callApi(params, req, runtime), new DisableDataReflowResponse({}));
+  }
+
+  async disableDataReflow(request: DisableDataReflowRequest): Promise<DisableDataReflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableDataReflowWithOptions(request, runtime);
+  }
+
   async downloadFileNameListWithOptions(request: DownloadFileNameListRequest, runtime: $Util.RuntimeOptions): Promise<DownloadFileNameListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5802,6 +6456,92 @@ export default class Client extends OpenApi {
   async downloadLabelFile(request: DownloadLabelFileRequest): Promise<DownloadLabelFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadLabelFileWithOptions(request, runtime);
+  }
+
+  async enableDataReflowWithOptions(request: EnableDataReflowRequest, runtime: $Util.RuntimeOptions): Promise<EnableDataReflowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataReflowOssPath)) {
+      body["DataReflowOssPath"] = request.dataReflowOssPath;
+    }
+
+    if (!Util.isUnset(request.dataReflowRate)) {
+      body["DataReflowRate"] = request.dataReflowRate;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableDataReflow",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableDataReflowResponse>(await this.callApi(params, req, runtime), new EnableDataReflowResponse({}));
+  }
+
+  async enableDataReflow(request: EnableDataReflowRequest): Promise<EnableDataReflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableDataReflowWithOptions(request, runtime);
+  }
+
+  async exportDataReflowDataListWithOptions(request: ExportDataReflowDataListRequest, runtime: $Util.RuntimeOptions): Promise<ExportDataReflowDataListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportDataReflowDataList",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportDataReflowDataListResponse>(await this.callApi(params, req, runtime), new ExportDataReflowDataListResponse({}));
+  }
+
+  async exportDataReflowDataList(request: ExportDataReflowDataListRequest): Promise<ExportDataReflowDataListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportDataReflowDataListWithOptions(request, runtime);
   }
 
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
@@ -6102,6 +6842,59 @@ export default class Client extends OpenApi {
     return await this.getWorkspaceWithOptions(request, runtime);
   }
 
+  async listDataReflowDatasWithOptions(request: ListDataReflowDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListDataReflowDatasResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataReflowDatas",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataReflowDatasResponse>(await this.callApi(params, req, runtime), new ListDataReflowDatasResponse({}));
+  }
+
+  async listDataReflowDatas(request: ListDataReflowDatasRequest): Promise<ListDataReflowDatasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataReflowDatasWithOptions(request, runtime);
+  }
+
   async listDatasetDatasWithOptions(request: ListDatasetDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetDatasResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6187,6 +6980,10 @@ export default class Client extends OpenApi {
       body["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.isAbandon)) {
+      body["IsAbandon"] = request.isAbandon;
+    }
+
     if (!Util.isUnset(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
@@ -6242,6 +7039,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6320,6 +7121,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
@@ -6458,6 +7263,10 @@ export default class Client extends OpenApi {
       body["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.relyOnTaskId)) {
+      body["RelyOnTaskId"] = request.relyOnTaskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -6594,6 +7403,10 @@ export default class Client extends OpenApi {
       body["ObjectKey"] = request.objectKey;
     }
 
+    if (!Util.isUnset(request.tagUserList)) {
+      body["TagUserList"] = request.tagUserList;
+    }
+
     if (!Util.isUnset(request.userOssUrl)) {
       body["UserOssUrl"] = request.userOssUrl;
     }
@@ -6672,6 +7485,10 @@ export default class Client extends OpenApi {
       body["AdvancedParameters"] = request.advancedParameters;
     }
 
+    if (!Util.isUnset(request.datasetIds)) {
+      body["DatasetIds"] = request.datasetIds;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
@@ -6680,8 +7497,24 @@ export default class Client extends OpenApi {
       body["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.labelIds)) {
+      body["LabelIds"] = request.labelIds;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.preTrainTaskFlag)) {
+      body["PreTrainTaskFlag"] = request.preTrainTaskFlag;
+    }
+
+    if (!Util.isUnset(request.preTrainTaskId)) {
+      body["PreTrainTaskId"] = request.preTrainTaskId;
+    }
+
+    if (!Util.isUnset(request.trainMode)) {
+      body["TrainMode"] = request.trainMode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
