@@ -7,6 +7,8 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import Array from '@alicloud/darabonba-array';
+import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -1480,6 +1482,25 @@ export class RecognizeQrCodeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tasks: { 'type': 'array', 'itemType': RecognizeQrCodeRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeAdvanceRequest extends $tea.Model {
+  tasks?: RecognizeQrCodeAdvanceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': RecognizeQrCodeAdvanceRequestTasks },
     };
   }
 
@@ -6388,6 +6409,25 @@ export class RecognizeQrCodeRequestTasks extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeAdvanceRequestTasks extends $tea.Model {
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
     };
   }
 
@@ -13876,6 +13916,89 @@ export default class Client extends OpenApi {
   async recognizeQrCode(request: RecognizeQrCodeRequest): Promise<RecognizeQrCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeQrCodeWithOptions(request, runtime);
+  }
+
+  async recognizeQrCodeAdvance(request: RecognizeQrCodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQrCodeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeQrCodeReq = new RecognizeQrCodeRequest({ });
+    OpenApiUtil.convert(request, recognizeQrCodeReq);
+    if (!Util.isUnset(request.tasks)) {
+      let i : number = 0;
+
+      for (let item0 of request.tasks) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RecognizeQrCodeRequestTasks = recognizeQrCodeReq.tasks[i];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let recognizeQrCodeResp = await this.recognizeQrCodeWithOptions(recognizeQrCodeReq, runtime);
+    return recognizeQrCodeResp;
   }
 
   async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
