@@ -7,6 +7,8 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import Array from '@alicloud/darabonba-array';
+import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -2159,6 +2161,25 @@ export class DetectLivingFaceRequest extends $tea.Model {
   }
 }
 
+export class DetectLivingFaceAdvanceRequest extends $tea.Model {
+  tasks?: DetectLivingFaceAdvanceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': DetectLivingFaceAdvanceRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLivingFaceResponseBody extends $tea.Model {
   data?: DetectLivingFaceResponseBodyData;
   requestId?: string;
@@ -3636,18 +3657,15 @@ export class GetFaceEntityResponse extends $tea.Model {
 }
 
 export class GetRealPersonVerificationResultRequest extends $tea.Model {
-  materialHash?: string;
   verificationToken?: string;
   static names(): { [key: string]: string } {
     return {
-      materialHash: 'MaterialHash',
       verificationToken: 'VerificationToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      materialHash: 'string',
       verificationToken: 'string',
     };
   }
@@ -4544,6 +4562,34 @@ export class RecognizeActionRequest extends $tea.Model {
   }
 }
 
+export class RecognizeActionAdvanceRequest extends $tea.Model {
+  type?: number;
+  URLList?: RecognizeActionAdvanceRequestURLList[];
+  videoData?: Buffer;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      URLList: 'URLList',
+      videoData: 'VideoData',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'number',
+      URLList: { 'type': 'array', 'itemType': RecognizeActionAdvanceRequestURLList },
+      videoData: 'Buffer',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeActionResponseBody extends $tea.Model {
   data?: RecognizeActionResponseBodyData;
   requestId?: string;
@@ -4931,6 +4977,25 @@ export class RecognizePublicFaceRequest extends $tea.Model {
   }
 }
 
+export class RecognizePublicFaceAdvanceRequest extends $tea.Model {
+  task?: RecognizePublicFaceAdvanceRequestTask[];
+  static names(): { [key: string]: string } {
+    return {
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      task: { 'type': 'array', 'itemType': RecognizePublicFaceAdvanceRequestTask },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizePublicFaceResponseBody extends $tea.Model {
   data?: RecognizePublicFaceResponseBodyData;
   requestId?: string;
@@ -5190,6 +5255,34 @@ export class SearchBodyTraceRequest extends $tea.Model {
     return {
       dbId: 'number',
       images: { 'type': 'array', 'itemType': SearchBodyTraceRequestImages },
+      limit: 'number',
+      minScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchBodyTraceAdvanceRequest extends $tea.Model {
+  dbId?: number;
+  images?: SearchBodyTraceAdvanceRequestImages[];
+  limit?: number;
+  minScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      images: 'Images',
+      limit: 'Limit',
+      minScore: 'MinScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      images: { 'type': 'array', 'itemType': SearchBodyTraceAdvanceRequestImages },
       limit: 'number',
       minScore: 'number',
     };
@@ -6683,6 +6776,28 @@ export class DetectLivingFaceRequestTasks extends $tea.Model {
   }
 }
 
+export class DetectLivingFaceAdvanceRequestTasks extends $tea.Model {
+  imageData?: Buffer;
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageData: 'ImageData',
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageData: 'Buffer',
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLivingFaceResponseBodyDataElementsResultsFrames extends $tea.Model {
   rate?: number;
   url?: string;
@@ -7621,21 +7736,15 @@ export class GetFaceEntityResponseBodyData extends $tea.Model {
 }
 
 export class GetRealPersonVerificationResultResponseBodyData extends $tea.Model {
-  identityInfo?: string;
-  materialMatch?: string;
   passed?: boolean;
   static names(): { [key: string]: string } {
     return {
-      identityInfo: 'IdentityInfo',
-      materialMatch: 'MaterialMatch',
       passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identityInfo: 'string',
-      materialMatch: 'string',
       passed: 'boolean',
     };
   }
@@ -8663,6 +8772,28 @@ export class RecognizeActionRequestURLList extends $tea.Model {
   }
 }
 
+export class RecognizeActionAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  imageData?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+      imageData: 'imageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+      imageData: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeActionResponseBodyDataElementsBoxes extends $tea.Model {
   box?: number[];
   static names(): { [key: string]: string } {
@@ -8964,6 +9095,28 @@ export class RecognizePublicFaceRequestTask extends $tea.Model {
   }
 }
 
+export class RecognizePublicFaceAdvanceRequestTask extends $tea.Model {
+  imageData?: Buffer;
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageData: 'ImageData',
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageData: 'Buffer',
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizePublicFaceResponseBodyDataElementsResultsSubResultsFaces extends $tea.Model {
   id?: string;
   name?: string;
@@ -9144,6 +9297,28 @@ export class SearchBodyTraceRequestImages extends $tea.Model {
     return {
       imageData: 'Buffer',
       imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchBodyTraceAdvanceRequestImages extends $tea.Model {
+  imageData?: Buffer;
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageData: 'ImageData',
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageData: 'Buffer',
+      imageURLObject: 'Readable',
     };
   }
 
@@ -9761,8 +9936,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new BeautifyBodyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.ageRange))) {
-      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ageRange), "AgeRange", "json");
+    if (!Util.isUnset(tmpReq.ageRange)) {
+      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ageRange, "AgeRange", "json");
     }
 
     if (!Util.isUnset(tmpReq.bodyBoxes)) {
@@ -11233,6 +11408,89 @@ export default class Client extends OpenApi {
     return await this.detectLivingFaceWithOptions(request, runtime);
   }
 
+  async detectLivingFaceAdvance(request: DetectLivingFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLivingFaceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectLivingFaceReq = new DetectLivingFaceRequest({ });
+    OpenApiUtil.convert(request, detectLivingFaceReq);
+    if (!Util.isUnset(request.tasks)) {
+      let i : number = 0;
+
+      for (let item0 of request.tasks) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectLivingFaceRequestTasks = detectLivingFaceReq.tasks[i];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectLivingFaceResp = await this.detectLivingFaceWithOptions(detectLivingFaceReq, runtime);
+    return detectLivingFaceResp;
+  }
+
   async detectPedestrianWithOptions(request: DetectPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12678,10 +12936,6 @@ export default class Client extends OpenApi {
   async getRealPersonVerificationResultWithOptions(request: GetRealPersonVerificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetRealPersonVerificationResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.materialHash)) {
-      body["MaterialHash"] = request.materialHash;
-    }
-
     if (!Util.isUnset(request.verificationToken)) {
       body["VerificationToken"] = request.verificationToken;
     }
@@ -13441,6 +13695,89 @@ export default class Client extends OpenApi {
     return await this.recognizeActionWithOptions(request, runtime);
   }
 
+  async recognizeActionAdvance(request: RecognizeActionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeActionResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeActionReq = new RecognizeActionRequest({ });
+    OpenApiUtil.convert(request, recognizeActionReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RecognizeActionRequestURLList = recognizeActionReq.URLList[i];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let recognizeActionResp = await this.recognizeActionWithOptions(recognizeActionReq, runtime);
+    return recognizeActionResp;
+  }
+
   async recognizeExpressionWithOptions(request: RecognizeExpressionRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExpressionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13823,6 +14160,89 @@ export default class Client extends OpenApi {
     return await this.recognizePublicFaceWithOptions(request, runtime);
   }
 
+  async recognizePublicFaceAdvance(request: RecognizePublicFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePublicFaceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizePublicFaceReq = new RecognizePublicFaceRequest({ });
+    OpenApiUtil.convert(request, recognizePublicFaceReq);
+    if (!Util.isUnset(request.task)) {
+      let i : number = 0;
+
+      for (let item0 of request.task) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RecognizePublicFaceRequestTask = recognizePublicFaceReq.task[i];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let recognizePublicFaceResp = await this.recognizePublicFaceWithOptions(recognizePublicFaceReq, runtime);
+    return recognizePublicFaceResp;
+  }
+
   async retouchBodyWithOptions(request: RetouchBodyRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14090,6 +14510,89 @@ export default class Client extends OpenApi {
   async searchBodyTrace(request: SearchBodyTraceRequest): Promise<SearchBodyTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchBodyTraceWithOptions(request, runtime);
+  }
+
+  async searchBodyTraceAdvance(request: SearchBodyTraceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SearchBodyTraceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let searchBodyTraceReq = new SearchBodyTraceRequest({ });
+    OpenApiUtil.convert(request, searchBodyTraceReq);
+    if (!Util.isUnset(request.images)) {
+      let i : number = 0;
+
+      for (let item0 of request.images) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : SearchBodyTraceRequestImages = searchBodyTraceReq.images[i];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let searchBodyTraceResp = await this.searchBodyTraceWithOptions(searchBodyTraceReq, runtime);
+    return searchBodyTraceResp;
   }
 
   async searchFaceWithOptions(request: SearchFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {

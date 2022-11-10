@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/facebody20191230",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -25,8 +25,10 @@
     "@alicloud/openplatform20191219": "2.0.0",
     "@alicloud/oss-util": "0.0.1",
     "@alicloud/tea-fileform": "^1.0.0",
-    "@alicloud/openapi-client": "^0.4.1",
-    "@alicloud/openapi-util": "^0.2.9",
+    "@alicloud/darabonba-array": "^0.1.0",
+    "@darabonba/number": "^1.1.0",
+    "@alicloud/openapi-client": "^0.4.3",
+    "@alicloud/openapi-util": "^0.3.0",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
