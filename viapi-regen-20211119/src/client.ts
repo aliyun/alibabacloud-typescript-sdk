@@ -1357,6 +1357,72 @@ export class DisableDataReflowResponse extends $tea.Model {
   }
 }
 
+export class DownloadDatasetRequest extends $tea.Model {
+  datasetId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadDatasetResponseBody extends $tea.Model {
+  data?: DownloadDatasetResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DownloadDatasetResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DownloadDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DownloadDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadFileNameListRequest extends $tea.Model {
   datasetId?: number;
   identity?: string;
@@ -1967,6 +2033,212 @@ export class GetServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInvokeRequest extends $tea.Model {
+  callerParentIdList?: string[];
+  endTime?: number;
+  id?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callerParentIdList: 'CallerParentIdList',
+      endTime: 'EndTime',
+      id: 'Id',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerParentIdList: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      id: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInvokeShrinkRequest extends $tea.Model {
+  callerParentIdListShrink?: string;
+  endTime?: number;
+  id?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callerParentIdListShrink: 'CallerParentIdList',
+      endTime: 'EndTime',
+      id: 'Id',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerParentIdListShrink: 'string',
+      endTime: 'number',
+      id: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInvokeResponseBody extends $tea.Model {
+  data?: GetServiceInvokeResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetServiceInvokeResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInvokeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceInvokeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceInvokeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceQpsRequest extends $tea.Model {
+  callerParentIdList?: string[];
+  endTime?: number;
+  id?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callerParentIdList: 'CallerParentIdList',
+      endTime: 'EndTime',
+      id: 'Id',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerParentIdList: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      id: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceQpsShrinkRequest extends $tea.Model {
+  callerParentIdListShrink?: string;
+  endTime?: number;
+  id?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callerParentIdListShrink: 'CallerParentIdList',
+      endTime: 'EndTime',
+      id: 'Id',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callerParentIdListShrink: 'string',
+      endTime: 'number',
+      id: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceQpsResponseBody extends $tea.Model {
+  data?: GetServiceQpsResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetServiceQpsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceQpsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceQpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceQpsResponseBody,
     };
   }
 
@@ -4350,6 +4622,25 @@ export class DisableDataReflowResponseBodyData extends $tea.Model {
   }
 }
 
+export class DownloadDatasetResponseBodyData extends $tea.Model {
+  ossHttpUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossHttpUrl: 'OssHttpUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossHttpUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DownloadFileNameListResponseBodyData extends $tea.Model {
   ossHttpUrl?: string;
   static names(): { [key: string]: string } {
@@ -4628,6 +4919,44 @@ export class GetServiceResponseBodyData extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInvokeResponseBodyData extends $tea.Model {
+  userInvoke?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      userInvoke: 'UserInvoke',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userInvoke: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceQpsResponseBodyData extends $tea.Model {
+  userQps?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      userQps: 'UserQps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userQps: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -6396,6 +6725,35 @@ export default class Client extends OpenApi {
     return await this.disableDataReflowWithOptions(request, runtime);
   }
 
+  async downloadDatasetWithOptions(request: DownloadDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDatasetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DownloadDataset",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DownloadDatasetResponse>(await this.callApi(params, req, runtime), new DownloadDatasetResponse({}));
+  }
+
+  async downloadDataset(request: DownloadDatasetRequest): Promise<DownloadDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.downloadDatasetWithOptions(request, runtime);
+  }
+
   async downloadFileNameListWithOptions(request: DownloadFileNameListRequest, runtime: $Util.RuntimeOptions): Promise<DownloadFileNameListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6687,6 +7045,100 @@ export default class Client extends OpenApi {
   async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceWithOptions(request, runtime);
+  }
+
+  async getServiceInvokeWithOptions(tmpReq: GetServiceInvokeRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceInvokeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetServiceInvokeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.callerParentIdList)) {
+      request.callerParentIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callerParentIdList, "CallerParentIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callerParentIdListShrink)) {
+      body["CallerParentIdList"] = request.callerParentIdListShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceInvoke",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceInvokeResponse>(await this.callApi(params, req, runtime), new GetServiceInvokeResponse({}));
+  }
+
+  async getServiceInvoke(request: GetServiceInvokeRequest): Promise<GetServiceInvokeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceInvokeWithOptions(request, runtime);
+  }
+
+  async getServiceQpsWithOptions(tmpReq: GetServiceQpsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceQpsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetServiceQpsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.callerParentIdList)) {
+      request.callerParentIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callerParentIdList, "CallerParentIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callerParentIdListShrink)) {
+      body["CallerParentIdList"] = request.callerParentIdListShrink;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceQps",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceQpsResponse>(await this.callApi(params, req, runtime), new GetServiceQpsResponse({}));
+  }
+
+  async getServiceQps(request: GetServiceQpsRequest): Promise<GetServiceQpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceQpsWithOptions(request, runtime);
   }
 
   async getTrainModelWithOptions(request: GetTrainModelRequest, runtime: $Util.RuntimeOptions): Promise<GetTrainModelResponse> {
