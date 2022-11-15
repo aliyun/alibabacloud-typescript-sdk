@@ -20457,19 +20457,11 @@ export class QueryClusterDiskSpecificationResponseBodyData extends $tea.Model {
 export class QueryClusterSpecificationResponseBodyData extends $tea.Model {
   clusterSpecificationName?: string;
   cpuCapacity?: string;
-  diskCapacity?: string;
-  instanceCount?: string;
-  maxCon?: string;
-  maxTps?: string;
   memoryCapacity?: string;
   static names(): { [key: string]: string } {
     return {
       clusterSpecificationName: 'ClusterSpecificationName',
       cpuCapacity: 'CpuCapacity',
-      diskCapacity: 'DiskCapacity',
-      instanceCount: 'InstanceCount',
-      maxCon: 'MaxCon',
-      maxTps: 'MaxTps',
       memoryCapacity: 'MemoryCapacity',
     };
   }
@@ -20478,10 +20470,6 @@ export class QueryClusterSpecificationResponseBodyData extends $tea.Model {
     return {
       clusterSpecificationName: 'string',
       cpuCapacity: 'string',
-      diskCapacity: 'string',
-      instanceCount: 'string',
-      maxCon: 'string',
-      maxTps: 'string',
       memoryCapacity: 'string',
     };
   }
