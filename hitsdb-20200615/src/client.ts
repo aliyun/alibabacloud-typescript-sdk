@@ -9,7 +9,11 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateLindormInstanceRequest extends $tea.Model {
+  arbiterVSwitchId?: string;
+  arbiterZoneId?: string;
+  archVersion?: string;
   coldStorage?: number;
+  coreSingleStorage?: number;
   coreSpec?: string;
   diskCategory?: string;
   duration?: string;
@@ -19,10 +23,17 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   instanceStorage?: string;
   lindormNum?: number;
   lindormSpec?: string;
+  logDiskCategory?: string;
+  logNum?: number;
+  logSingleStorage?: number;
+  logSpec?: string;
+  multiZoneCombination?: string;
   ownerAccount?: string;
   ownerId?: number;
   payType?: string;
   pricingCycle?: string;
+  primaryVSwitchId?: string;
+  primaryZoneId?: string;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -30,6 +41,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   securityToken?: string;
   solrNum?: number;
   solrSpec?: string;
+  standbyVSwitchId?: string;
+  standbyZoneId?: string;
   tsdbNum?: number;
   tsdbSpec?: string;
   VPCId?: string;
@@ -37,7 +50,11 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      arbiterVSwitchId: 'ArbiterVSwitchId',
+      arbiterZoneId: 'ArbiterZoneId',
+      archVersion: 'ArchVersion',
       coldStorage: 'ColdStorage',
+      coreSingleStorage: 'CoreSingleStorage',
       coreSpec: 'CoreSpec',
       diskCategory: 'DiskCategory',
       duration: 'Duration',
@@ -47,10 +64,17 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       instanceStorage: 'InstanceStorage',
       lindormNum: 'LindormNum',
       lindormSpec: 'LindormSpec',
+      logDiskCategory: 'LogDiskCategory',
+      logNum: 'LogNum',
+      logSingleStorage: 'LogSingleStorage',
+      logSpec: 'LogSpec',
+      multiZoneCombination: 'MultiZoneCombination',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
+      primaryVSwitchId: 'PrimaryVSwitchId',
+      primaryZoneId: 'PrimaryZoneId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -58,6 +82,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       securityToken: 'SecurityToken',
       solrNum: 'SolrNum',
       solrSpec: 'SolrSpec',
+      standbyVSwitchId: 'StandbyVSwitchId',
+      standbyZoneId: 'StandbyZoneId',
       tsdbNum: 'TsdbNum',
       tsdbSpec: 'TsdbSpec',
       VPCId: 'VPCId',
@@ -68,7 +94,11 @@ export class CreateLindormInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      arbiterVSwitchId: 'string',
+      arbiterZoneId: 'string',
+      archVersion: 'string',
       coldStorage: 'number',
+      coreSingleStorage: 'number',
       coreSpec: 'string',
       diskCategory: 'string',
       duration: 'string',
@@ -78,10 +108,17 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       instanceStorage: 'string',
       lindormNum: 'number',
       lindormSpec: 'string',
+      logDiskCategory: 'string',
+      logNum: 'number',
+      logSingleStorage: 'number',
+      logSpec: 'string',
+      multiZoneCombination: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
       pricingCycle: 'string',
+      primaryVSwitchId: 'string',
+      primaryZoneId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -89,6 +126,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       securityToken: 'string',
       solrNum: 'number',
       solrSpec: 'string',
+      standbyVSwitchId: 'string',
+      standbyZoneId: 'string',
       tsdbNum: 'number',
       tsdbSpec: 'string',
       VPCId: 'string',
@@ -356,8 +395,14 @@ export class GetLindormInstanceRequest extends $tea.Model {
 
 export class GetLindormInstanceResponseBody extends $tea.Model {
   aliUid?: number;
+  arbiterVSwitchId?: string;
+  arbiterZoneId?: string;
   autoRenew?: boolean;
   coldStorage?: number;
+  coreDiskCategory?: string;
+  coreNum?: number;
+  coreSingleStorage?: number;
+  coreSpec?: string;
   createMilliseconds?: number;
   createTime?: string;
   deletionProtection?: string;
@@ -378,22 +423,37 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   instanceId?: string;
   instanceStatus?: string;
   instanceStorage?: string;
+  logDiskCategory?: string;
+  logNum?: number;
+  logSingleStorage?: number;
+  logSpec?: string;
   maintainEndTime?: string;
   maintainStartTime?: string;
+  multiZoneCombination?: string;
   networkType?: string;
   payType?: string;
+  primaryVSwitchId?: string;
+  primaryZoneId?: string;
   regionId?: string;
   requestId?: string;
   resourceGroupId?: string;
   serviceType?: string;
+  standbyVSwitchId?: string;
+  standbyZoneId?: string;
   vpcId?: string;
   vswitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
+      arbiterVSwitchId: 'ArbiterVSwitchId',
+      arbiterZoneId: 'ArbiterZoneId',
       autoRenew: 'AutoRenew',
       coldStorage: 'ColdStorage',
+      coreDiskCategory: 'CoreDiskCategory',
+      coreNum: 'CoreNum',
+      coreSingleStorage: 'CoreSingleStorage',
+      coreSpec: 'CoreSpec',
       createMilliseconds: 'CreateMilliseconds',
       createTime: 'CreateTime',
       deletionProtection: 'DeletionProtection',
@@ -414,14 +474,23 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       instanceStorage: 'InstanceStorage',
+      logDiskCategory: 'LogDiskCategory',
+      logNum: 'LogNum',
+      logSingleStorage: 'LogSingleStorage',
+      logSpec: 'LogSpec',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
+      multiZoneCombination: 'MultiZoneCombination',
       networkType: 'NetworkType',
       payType: 'PayType',
+      primaryVSwitchId: 'PrimaryVSwitchId',
+      primaryZoneId: 'PrimaryZoneId',
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
+      standbyVSwitchId: 'StandbyVSwitchId',
+      standbyZoneId: 'StandbyZoneId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -431,8 +500,14 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
+      arbiterVSwitchId: 'string',
+      arbiterZoneId: 'string',
       autoRenew: 'boolean',
       coldStorage: 'number',
+      coreDiskCategory: 'string',
+      coreNum: 'number',
+      coreSingleStorage: 'number',
+      coreSpec: 'string',
       createMilliseconds: 'number',
       createTime: 'string',
       deletionProtection: 'string',
@@ -453,14 +528,23 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       instanceId: 'string',
       instanceStatus: 'string',
       instanceStorage: 'string',
+      logDiskCategory: 'string',
+      logNum: 'number',
+      logSingleStorage: 'number',
+      logSpec: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
+      multiZoneCombination: 'string',
       networkType: 'string',
       payType: 'string',
+      primaryVSwitchId: 'string',
+      primaryZoneId: 'string',
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
       serviceType: 'string',
+      standbyVSwitchId: 'string',
+      standbyZoneId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
@@ -791,6 +875,99 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstancePayTypeRequest extends $tea.Model {
+  duration?: number;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  payType?: string;
+  pricingCycle?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      payType: 'PayType',
+      pricingCycle: 'PricingCycle',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      payType: 'string',
+      pricingCycle: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstancePayTypeResponseBody extends $tea.Model {
+  instanceId?: string;
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstancePayTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyInstancePayTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstancePayTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseLindormInstanceRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
@@ -861,6 +1038,99 @@ export class ReleaseLindormInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseLindormInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewLindormInstanceRequest extends $tea.Model {
+  duration?: number;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pricingCycle?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pricingCycle: 'PricingCycle',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pricingCycle: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewLindormInstanceResponseBody extends $tea.Model {
+  instanceId?: string;
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewLindormInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RenewLindormInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewLindormInstanceResponseBody,
     };
   }
 
@@ -1130,13 +1400,15 @@ export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
 export class UpgradeLindormInstanceRequest extends $tea.Model {
   clusterStorage?: number;
   coldStorage?: number;
-  coreNum?: number;
-  coreSpec?: string;
+  coreSingleStorage?: number;
   filestoreNum?: number;
   filestoreSpec?: string;
   instanceId?: string;
   lindormNum?: number;
   lindormSpec?: string;
+  logNum?: number;
+  logSingleStorage?: number;
+  logSpec?: string;
   ltsCoreNum?: number;
   ltsCoreSpec?: string;
   ownerAccount?: string;
@@ -1157,13 +1429,15 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
     return {
       clusterStorage: 'ClusterStorage',
       coldStorage: 'ColdStorage',
-      coreNum: 'CoreNum',
-      coreSpec: 'CoreSpec',
+      coreSingleStorage: 'CoreSingleStorage',
       filestoreNum: 'FilestoreNum',
       filestoreSpec: 'FilestoreSpec',
       instanceId: 'InstanceId',
       lindormNum: 'LindormNum',
       lindormSpec: 'LindormSpec',
+      logNum: 'LogNum',
+      logSingleStorage: 'LogSingleStorage',
+      logSpec: 'LogSpec',
       ltsCoreNum: 'LtsCoreNum',
       ltsCoreSpec: 'LtsCoreSpec',
       ownerAccount: 'OwnerAccount',
@@ -1187,13 +1461,15 @@ export class UpgradeLindormInstanceRequest extends $tea.Model {
     return {
       clusterStorage: 'number',
       coldStorage: 'number',
-      coreNum: 'number',
-      coreSpec: 'string',
+      coreSingleStorage: 'number',
       filestoreNum: 'number',
       filestoreSpec: 'string',
       instanceId: 'string',
       lindormNum: 'number',
       lindormSpec: 'string',
+      logNum: 'number',
+      logSingleStorage: 'number',
+      logSpec: 'string',
       ltsCoreNum: 'number',
       ltsCoreSpec: 'string',
       ownerAccount: 'string',
@@ -1644,8 +1920,24 @@ export default class Client extends OpenApi {
   async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.arbiterVSwitchId)) {
+      query["ArbiterVSwitchId"] = request.arbiterVSwitchId;
+    }
+
+    if (!Util.isUnset(request.arbiterZoneId)) {
+      query["ArbiterZoneId"] = request.arbiterZoneId;
+    }
+
+    if (!Util.isUnset(request.archVersion)) {
+      query["ArchVersion"] = request.archVersion;
+    }
+
     if (!Util.isUnset(request.coldStorage)) {
       query["ColdStorage"] = request.coldStorage;
+    }
+
+    if (!Util.isUnset(request.coreSingleStorage)) {
+      query["CoreSingleStorage"] = request.coreSingleStorage;
     }
 
     if (!Util.isUnset(request.coreSpec)) {
@@ -1684,6 +1976,26 @@ export default class Client extends OpenApi {
       query["LindormSpec"] = request.lindormSpec;
     }
 
+    if (!Util.isUnset(request.logDiskCategory)) {
+      query["LogDiskCategory"] = request.logDiskCategory;
+    }
+
+    if (!Util.isUnset(request.logNum)) {
+      query["LogNum"] = request.logNum;
+    }
+
+    if (!Util.isUnset(request.logSingleStorage)) {
+      query["LogSingleStorage"] = request.logSingleStorage;
+    }
+
+    if (!Util.isUnset(request.logSpec)) {
+      query["LogSpec"] = request.logSpec;
+    }
+
+    if (!Util.isUnset(request.multiZoneCombination)) {
+      query["MultiZoneCombination"] = request.multiZoneCombination;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -1698,6 +2010,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pricingCycle)) {
       query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.primaryVSwitchId)) {
+      query["PrimaryVSwitchId"] = request.primaryVSwitchId;
+    }
+
+    if (!Util.isUnset(request.primaryZoneId)) {
+      query["PrimaryZoneId"] = request.primaryZoneId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -1726,6 +2046,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.solrSpec)) {
       query["SolrSpec"] = request.solrSpec;
+    }
+
+    if (!Util.isUnset(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!Util.isUnset(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
     }
 
     if (!Util.isUnset(request.tsdbNum)) {
@@ -2116,6 +2444,67 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  async modifyInstancePayTypeWithOptions(request: ModifyInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstancePayTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstancePayType",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstancePayTypeResponse({}));
+  }
+
+  async modifyInstancePayType(request: ModifyInstancePayTypeRequest): Promise<ModifyInstancePayTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstancePayTypeWithOptions(request, runtime);
+  }
+
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2163,6 +2552,67 @@ export default class Client extends OpenApi {
   async releaseLindormInstance(request: ReleaseLindormInstanceRequest): Promise<ReleaseLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseLindormInstanceWithOptions(request, runtime);
+  }
+
+  async renewLindormInstanceWithOptions(request: RenewLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewLindormInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewLindormInstance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewLindormInstanceResponse>(await this.callApi(params, req, runtime), new RenewLindormInstanceResponse({}));
+  }
+
+  async renewLindormInstance(request: RenewLindormInstanceRequest): Promise<RenewLindormInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewLindormInstanceWithOptions(request, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -2355,12 +2805,8 @@ export default class Client extends OpenApi {
       query["ColdStorage"] = request.coldStorage;
     }
 
-    if (!Util.isUnset(request.coreNum)) {
-      query["CoreNum"] = request.coreNum;
-    }
-
-    if (!Util.isUnset(request.coreSpec)) {
-      query["CoreSpec"] = request.coreSpec;
+    if (!Util.isUnset(request.coreSingleStorage)) {
+      query["CoreSingleStorage"] = request.coreSingleStorage;
     }
 
     if (!Util.isUnset(request.filestoreNum)) {
@@ -2381,6 +2827,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lindormSpec)) {
       query["LindormSpec"] = request.lindormSpec;
+    }
+
+    if (!Util.isUnset(request.logNum)) {
+      query["LogNum"] = request.logNum;
+    }
+
+    if (!Util.isUnset(request.logSingleStorage)) {
+      query["LogSingleStorage"] = request.logSingleStorage;
+    }
+
+    if (!Util.isUnset(request.logSpec)) {
+      query["LogSpec"] = request.logSpec;
     }
 
     if (!Util.isUnset(request.ltsCoreNum)) {
