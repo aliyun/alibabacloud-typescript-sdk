@@ -560,6 +560,81 @@ export class BandwidthPackageRemoveAcceleratorResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  clientToken?: string;
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigEndpointProbeRequest extends $tea.Model {
   clientToken?: string;
   enable?: string;
@@ -656,6 +731,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
   name?: string;
   pricingCycle?: string;
   regionId?: string;
+  resourceGroupId?: string;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -670,6 +746,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       name: 'Name',
       pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
     };
   }
@@ -687,6 +764,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       name: 'string',
       pricingCycle: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
     };
   }
@@ -753,6 +831,7 @@ export class CreateAclRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       aclEntries: 'AclEntries',
@@ -761,6 +840,7 @@ export class CreateAclRequest extends $tea.Model {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -772,6 +852,7 @@ export class CreateAclRequest extends $tea.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -939,6 +1020,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
   pricingCycle?: string;
   ratio?: number;
   regionId?: string;
+  resourceGroupId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -957,6 +1039,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       pricingCycle: 'PricingCycle',
       ratio: 'Ratio',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       type: 'Type',
     };
   }
@@ -978,6 +1061,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       pricingCycle: 'string',
       ratio: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       type: 'string',
     };
   }
@@ -1047,6 +1131,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
   duration?: number;
   pricingCycle?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -1058,6 +1143,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       duration: 'Duration',
       pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1072,6 +1158,7 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       duration: 'number',
       pricingCycle: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3470,9 +3557,11 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   name?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   secondDnsName?: string;
   spec?: string;
   state?: string;
+  tags?: DescribeAcceleratorResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
@@ -3491,9 +3580,11 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       secondDnsName: 'SecondDnsName',
       spec: 'Spec',
       state: 'State',
+      tags: 'Tags',
     };
   }
 
@@ -3515,9 +3606,11 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       secondDnsName: 'string',
       spec: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAcceleratorResponseBodyTags },
     };
   }
 
@@ -3772,7 +3865,9 @@ export class DescribeBandwidthPackageResponseBody extends $tea.Model {
   ratio?: number;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tags?: DescribeBandwidthPackageResponseBodyTags[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3791,7 +3886,9 @@ export class DescribeBandwidthPackageResponseBody extends $tea.Model {
       ratio: 'Ratio',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       type: 'Type',
     };
   }
@@ -3813,7 +3910,9 @@ export class DescribeBandwidthPackageResponseBody extends $tea.Model {
       ratio: 'number',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeBandwidthPackageResponseBodyTags },
       type: 'string',
     };
   }
@@ -5255,6 +5354,8 @@ export class GetAclResponseBody extends $tea.Model {
   addressIPVersion?: string;
   relatedListeners?: GetAclResponseBodyRelatedListeners[];
   requestId?: string;
+  resourceGroupId?: string;
+  tags?: GetAclResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       aclEntries: 'AclEntries',
@@ -5264,6 +5365,8 @@ export class GetAclResponseBody extends $tea.Model {
       addressIPVersion: 'AddressIPVersion',
       relatedListeners: 'RelatedListeners',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -5276,6 +5379,8 @@ export class GetAclResponseBody extends $tea.Model {
       addressIPVersion: 'string',
       relatedListeners: { 'type': 'array', 'itemType': GetAclResponseBodyRelatedListeners },
       requestId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': GetAclResponseBodyTags },
     };
   }
 
@@ -5347,7 +5452,9 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
   name?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tags?: GetBasicAcceleratorResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
@@ -5365,7 +5472,9 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
     };
   }
 
@@ -5386,7 +5495,9 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': GetBasicAcceleratorResponseBodyTags },
     };
   }
 
@@ -5842,14 +5953,18 @@ export class ListAcceleratorsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tag?: ListAcceleratorsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tag: 'Tag',
     };
   }
 
@@ -5859,7 +5974,9 @@ export class ListAcceleratorsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tag: { 'type': 'array', 'itemType': ListAcceleratorsRequestTag },
     };
   }
 
@@ -5931,6 +6048,8 @@ export class ListAclsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  tag?: ListAclsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       aclIds: 'AclIds',
@@ -5939,6 +6058,8 @@ export class ListAclsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -5950,6 +6071,8 @@ export class ListAclsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListAclsRequestTag },
     };
   }
 
@@ -6331,7 +6454,9 @@ export class ListBandwidthPackagesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tag?: ListBandwidthPackagesRequestTag[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6339,7 +6464,9 @@ export class ListBandwidthPackagesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tag: 'Tag',
       type: 'Type',
     };
   }
@@ -6350,7 +6477,9 @@ export class ListBandwidthPackagesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tag: { 'type': 'array', 'itemType': ListBandwidthPackagesRequestTag },
       type: 'string',
     };
   }
@@ -6502,14 +6631,18 @@ export class ListBasicAcceleratorsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tag?: ListBasicAcceleratorsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tag: 'Tag',
     };
   }
 
@@ -6519,7 +6652,9 @@ export class ListBasicAcceleratorsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tag: { 'type': 'array', 'itemType': ListBasicAcceleratorsRequestTag },
     };
   }
 
@@ -7884,11 +8019,13 @@ export class RemoveEntriesFromAclResponse extends $tea.Model {
 }
 
 export class ReplaceBandwidthPackageRequest extends $tea.Model {
+  acceleratorId?: string;
   bandwidthPackageId?: string;
   regionId?: string;
   targetBandwidthPackageId?: string;
   static names(): { [key: string]: string } {
     return {
+      acceleratorId: 'AcceleratorId',
       bandwidthPackageId: 'BandwidthPackageId',
       regionId: 'RegionId',
       targetBandwidthPackageId: 'TargetBandwidthPackageId',
@@ -7897,6 +8034,7 @@ export class ReplaceBandwidthPackageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
       bandwidthPackageId: 'string',
       regionId: 'string',
       targetBandwidthPackageId: 'string',
@@ -10790,6 +10928,28 @@ export class DescribeAcceleratorResponseBodyIpSetConfig extends $tea.Model {
   }
 }
 
+export class DescribeAcceleratorResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationMonitorResponseBodyIspCityList extends $tea.Model {
   city?: string;
   cityName?: string;
@@ -10810,6 +10970,28 @@ export class DescribeApplicationMonitorResponseBodyIspCityList extends $tea.Mode
       cityName: 'string',
       isp: 'string',
       ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBandwidthPackageResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11084,6 +11266,28 @@ export class GetAclResponseBodyRelatedListeners extends $tea.Model {
   }
 }
 
+export class GetAclResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBasicAcceleratorResponseBodyBasicBandwidthPackage extends $tea.Model {
   bandwidth?: number;
   bandwidthType?: string;
@@ -11123,6 +11327,28 @@ export class GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage extends 
     return {
       bandwidth: 'number',
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAcceleratorResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11243,6 +11469,28 @@ export class ListAccelerateAreasResponseBodyAreas extends $tea.Model {
   }
 }
 
+export class ListAcceleratorsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage extends $tea.Model {
   bandwidth?: number;
   bandwidthType?: string;
@@ -11309,6 +11557,28 @@ export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $tea.Mo
   }
 }
 
+export class ListAcceleratorsResponseBodyAcceleratorsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   acceleratorId?: string;
   bandwidth?: number;
@@ -11325,9 +11595,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   ipSetConfig?: ListAcceleratorsResponseBodyAcceleratorsIpSetConfig;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   secondDnsName?: string;
   spec?: string;
   state?: string;
+  tags?: ListAcceleratorsResponseBodyAcceleratorsTags[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11346,9 +11618,11 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       ipSetConfig: 'IpSetConfig',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       secondDnsName: 'SecondDnsName',
       spec: 'Spec',
       state: 'State',
+      tags: 'Tags',
       type: 'Type',
     };
   }
@@ -11370,10 +11644,56 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       ipSetConfig: ListAcceleratorsResponseBodyAcceleratorsIpSetConfig,
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       secondDnsName: 'string',
       spec: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': ListAcceleratorsResponseBodyAcceleratorsTags },
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclsResponseBodyAclsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11387,12 +11707,16 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
   aclName?: string;
   aclStatus?: string;
   addressIPVersion?: string;
+  resourceGroupId?: string;
+  tags?: ListAclsResponseBodyAclsTags[];
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclName: 'AclName',
       aclStatus: 'AclStatus',
       addressIPVersion: 'AddressIPVersion',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -11402,6 +11726,8 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
       aclName: 'string',
       aclStatus: 'string',
       addressIPVersion: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListAclsResponseBodyAclsTags },
     };
   }
 
@@ -11577,6 +11903,50 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class ListBandwidthPackagesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBandwidthPackagesResponseBodyBandwidthPackagesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Model {
   accelerators?: string[];
   bandwidth?: number;
@@ -11592,7 +11962,9 @@ export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Mod
   name?: string;
   ratio?: number;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tags?: ListBandwidthPackagesResponseBodyBandwidthPackagesTags[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11610,7 +11982,9 @@ export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Mod
       name: 'Name',
       ratio: 'Ratio',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       type: 'Type',
     };
   }
@@ -11631,8 +12005,32 @@ export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Mod
       name: 'string',
       ratio: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': ListBandwidthPackagesResponseBodyBandwidthPackagesTags },
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBandwidthackagesResponseBodyBandwidthPackagesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11651,7 +12049,9 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Mode
   expiredTime?: string;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tags?: ListBandwidthackagesResponseBodyBandwidthPackagesTags[];
   static names(): { [key: string]: string } {
     return {
       accelerators: 'Accelerators',
@@ -11663,7 +12063,9 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Mode
       expiredTime: 'ExpiredTime',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
     };
   }
 
@@ -11678,7 +12080,31 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Mode
       expiredTime: 'string',
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': ListBandwidthackagesResponseBodyBandwidthPackagesTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -11734,6 +12160,28 @@ export class ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPa
   }
 }
 
+export class ListBasicAcceleratorsResponseBodyAcceleratorsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   acceleratorId?: string;
   bandwidthBillingType?: string;
@@ -11747,7 +12195,9 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   instanceChargeType?: string;
   name?: string;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
+  tags?: ListBasicAcceleratorsResponseBodyAcceleratorsTags[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11763,7 +12213,9 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
       instanceChargeType: 'InstanceChargeType',
       name: 'Name',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       type: 'Type',
     };
   }
@@ -11782,7 +12234,9 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
       instanceChargeType: 'string',
       name: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': ListBasicAcceleratorsResponseBodyAcceleratorsTags },
       type: 'string',
     };
   }
@@ -12477,11 +12931,13 @@ export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model
   certificateId?: string;
   domain?: string;
   isDefault?: boolean;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
       domain: 'Domain',
       isDefault: 'IsDefault',
+      state: 'State',
     };
   }
 
@@ -12490,6 +12946,7 @@ export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model
       certificateId: 'string',
       domain: 'string',
       isDefault: 'boolean',
+      state: 'string',
     };
   }
 
@@ -13659,6 +14116,51 @@ export default class Client extends OpenApi {
     return await this.bandwidthPackageRemoveAcceleratorWithOptions(request, runtime);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13747,7 +14249,7 @@ export default class Client extends OpenApi {
       query["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.ipSetConfig))) {
+    if (!Util.isUnset(request.ipSetConfig)) {
       query["IpSetConfig"] = request.ipSetConfig;
     }
 
@@ -13761,6 +14263,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.spec)) {
@@ -13814,6 +14320,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -13970,6 +14480,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -14033,6 +14547,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14634,7 +15152,7 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
-    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+    if (!Util.isUnset(request.XForwardedForConfig)) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
@@ -16393,8 +16911,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16444,6 +16970,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16643,8 +17177,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -16729,8 +17271,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -17461,6 +18011,10 @@ export default class Client extends OpenApi {
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
     if (!Util.isUnset(request.bandwidthPackageId)) {
       query["BandwidthPackageId"] = request.bandwidthPackageId;
     }
@@ -18526,7 +19080,7 @@ export default class Client extends OpenApi {
       query["SecurityPolicyId"] = request.securityPolicyId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+    if (!Util.isUnset(request.XForwardedForConfig)) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
