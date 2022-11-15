@@ -4601,6 +4601,102 @@ export class GetApplicationListResponse extends $tea.Model {
   }
 }
 
+export class GetApplicationListWithMetircsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  region?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListWithMetircsResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetApplicationListWithMetircsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetApplicationListWithMetircsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListWithMetircsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetApplicationListWithMetircsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApplicationListWithMetircsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBlackWhiteListRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
@@ -15981,6 +16077,163 @@ export class GetApplicationListResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetApplicationListWithMetircsResponseBodyDataResultCurMetrics extends $tea.Model {
+  blockQps?: number;
+  expQps?: number;
+  passQps?: number;
+  qps?: number;
+  rt?: number;
+  thread?: number;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockQps: 'BlockQps',
+      expQps: 'ExpQps',
+      passQps: 'PassQps',
+      qps: 'Qps',
+      rt: 'Rt',
+      thread: 'Thread',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockQps: 'number',
+      expQps: 'number',
+      passQps: 'number',
+      qps: 'number',
+      rt: 'number',
+      thread: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm extends $tea.Model {
+  blockQps?: number;
+  expQps?: number;
+  passQps?: number;
+  qps?: number;
+  rt?: number;
+  thread?: number;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockQps: 'BlockQps',
+      expQps: 'ExpQps',
+      passQps: 'PassQps',
+      qps: 'Qps',
+      rt: 'Rt',
+      thread: 'Thread',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockQps: 'number',
+      expQps: 'number',
+      passQps: 'number',
+      qps: 'number',
+      rt: 'number',
+      thread: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  curMetrics?: GetApplicationListWithMetircsResponseBodyDataResultCurMetrics[];
+  curMetricsFm?: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm;
+  extraInfo?: string;
+  instancesNumber?: number;
+  language?: string;
+  licenseKey?: string;
+  regionId?: string;
+  source?: string;
+  status?: number;
+  tags?: string[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      curMetrics: 'CurMetrics',
+      curMetricsFm: 'CurMetricsFm',
+      extraInfo: 'ExtraInfo',
+      instancesNumber: 'InstancesNumber',
+      language: 'Language',
+      licenseKey: 'LicenseKey',
+      regionId: 'RegionId',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      curMetrics: { 'type': 'array', 'itemType': GetApplicationListWithMetircsResponseBodyDataResultCurMetrics },
+      curMetricsFm: GetApplicationListWithMetircsResponseBodyDataResultCurMetricsFm,
+      extraInfo: 'string',
+      instancesNumber: 'number',
+      language: 'string',
+      licenseKey: 'string',
+      regionId: 'string',
+      source: 'string',
+      status: 'number',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListWithMetircsResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: GetApplicationListWithMetircsResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': GetApplicationListWithMetircsResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBlackWhiteListResponseBodyData extends $tea.Model {
   content?: string;
   gatewayId?: number;
@@ -21763,20 +22016,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new AddGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    if (!Util.isUnset(tmpReq.directResponseJSON)) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
+    if (!Util.isUnset(tmpReq.predicates)) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
+    if (!Util.isUnset(tmpReq.redirectJSON)) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -22135,8 +22388,8 @@ export default class Client extends OpenApi {
       request.groupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupList, "GroupList", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
+    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
@@ -23910,6 +24163,59 @@ export default class Client extends OpenApi {
     return await this.getApplicationListWithOptions(request, runtime);
   }
 
+  async getApplicationListWithMetircsWithOptions(request: GetApplicationListWithMetircsRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationListWithMetircsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApplicationListWithMetircs",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationListWithMetircsResponse>(await this.callApi(params, req, runtime), new GetApplicationListWithMetircsResponse({}));
+  }
+
+  async getApplicationListWithMetircs(request: GetApplicationListWithMetircsRequest): Promise<GetApplicationListWithMetircsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApplicationListWithMetircsWithOptions(request, runtime);
+  }
+
   async getBlackWhiteListWithOptions(request: GetBlackWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetBlackWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25203,8 +25509,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -25295,8 +25601,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -25350,8 +25656,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -27194,8 +27500,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayOptionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.gatewayOption))) {
-      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayOption), "GatewayOption", "json");
+    if (!Util.isUnset(tmpReq.gatewayOption)) {
+      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayOption, "GatewayOption", "json");
     }
 
     let query = { };
@@ -27241,20 +27547,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    if (!Util.isUnset(tmpReq.directResponseJSON)) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
+    if (!Util.isUnset(tmpReq.predicates)) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
+    if (!Util.isUnset(tmpReq.redirectJSON)) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -27348,8 +27654,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteCORSShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.corsJSON))) {
-      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.corsJSON), "CorsJSON", "json");
+    if (!Util.isUnset(tmpReq.corsJSON)) {
+      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.corsJSON, "CorsJSON", "json");
     }
 
     let query = { };
@@ -27489,8 +27795,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteRetryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.retryJSON))) {
-      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.retryJSON), "RetryJSON", "json");
+    if (!Util.isUnset(tmpReq.retryJSON)) {
+      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retryJSON, "RetryJSON", "json");
     }
 
     let query = { };
@@ -27540,8 +27846,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteTimeoutShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.timeoutJSON))) {
-      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.timeoutJSON), "TimeoutJSON", "json");
+    if (!Util.isUnset(tmpReq.timeoutJSON)) {
+      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutJSON, "TimeoutJSON", "json");
     }
 
     let query = { };
@@ -27632,8 +27938,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceTrafficPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.gatewayTrafficPolicy))) {
-      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayTrafficPolicy), "GatewayTrafficPolicy", "json");
+    if (!Util.isUnset(tmpReq.gatewayTrafficPolicy)) {
+      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayTrafficPolicy, "GatewayTrafficPolicy", "json");
     }
 
     let query = { };
@@ -28229,8 +28535,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateServiceSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
+    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
