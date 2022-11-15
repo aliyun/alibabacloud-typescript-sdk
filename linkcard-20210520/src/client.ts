@@ -1061,7 +1061,7 @@ export class ListOrderResponse extends $tea.Model {
 
 export class RebindResumeSingleCardRequest extends $tea.Model {
   iccid?: string;
-  optMsisdns?: { [key: string]: any };
+  optMsisdns?: string[];
   static names(): { [key: string]: string } {
     return {
       iccid: 'Iccid',
@@ -1072,7 +1072,7 @@ export class RebindResumeSingleCardRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       iccid: 'string',
-      optMsisdns: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      optMsisdns: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1260,7 +1260,7 @@ export class RenewResponse extends $tea.Model {
 
 export class ResumeSingleCardRequest extends $tea.Model {
   iccid?: string;
-  optMsisdns?: { [key: string]: any };
+  optMsisdns?: string[];
   static names(): { [key: string]: string } {
     return {
       iccid: 'Iccid',
@@ -1271,7 +1271,7 @@ export class ResumeSingleCardRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       iccid: 'string',
-      optMsisdns: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      optMsisdns: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1447,7 +1447,7 @@ export class SetCardStopRuleResponse extends $tea.Model {
 
 export class StopSingleCardRequest extends $tea.Model {
   iccid?: string;
-  optMsisdns?: { [key: string]: any };
+  optMsisdns?: string[];
   static names(): { [key: string]: string } {
     return {
       iccid: 'Iccid',
@@ -1458,7 +1458,7 @@ export class StopSingleCardRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       iccid: 'string',
-      optMsisdns: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      optMsisdns: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2487,6 +2487,8 @@ export class ListOrderResponseBodyDataListDeliveryInfo extends $tea.Model {
 
 export class ListOrderResponseBodyDataList extends $tea.Model {
   aliFee?: string;
+  apnName?: string;
+  apnRegion?: string;
   billingCycle?: string;
   buyNum?: number;
   cardPayCount?: number;
@@ -2507,10 +2509,13 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
   poolCapacity?: string;
   poolCapacityUnit?: string;
   poolNo?: string;
+  resourceQuantity?: number;
   vendor?: string;
   static names(): { [key: string]: string } {
     return {
       aliFee: 'AliFee',
+      apnName: 'ApnName',
+      apnRegion: 'ApnRegion',
       billingCycle: 'BillingCycle',
       buyNum: 'BuyNum',
       cardPayCount: 'CardPayCount',
@@ -2531,6 +2536,7 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
       poolCapacity: 'PoolCapacity',
       poolCapacityUnit: 'PoolCapacityUnit',
       poolNo: 'PoolNo',
+      resourceQuantity: 'ResourceQuantity',
       vendor: 'Vendor',
     };
   }
@@ -2538,6 +2544,8 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliFee: 'string',
+      apnName: 'string',
+      apnRegion: 'string',
       billingCycle: 'string',
       buyNum: 'number',
       cardPayCount: 'number',
@@ -2558,6 +2566,7 @@ export class ListOrderResponseBodyDataList extends $tea.Model {
       poolCapacity: 'string',
       poolCapacityUnit: 'string',
       poolNo: 'string',
+      resourceQuantity: 'number',
       vendor: 'string',
     };
   }
