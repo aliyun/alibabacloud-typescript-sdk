@@ -3991,6 +3991,75 @@ export class DescribeCommonOverallConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeCommonTargetResultListRequest extends $tea.Model {
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonTargetResultListResponseBody extends $tea.Model {
+  requestId?: string;
+  targetConfig?: DescribeCommonTargetResultListResponseBodyTargetConfig;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      targetConfig: 'TargetConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      targetConfig: DescribeCommonTargetResultListResponseBodyTargetConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonTargetResultListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCommonTargetResultListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCommonTargetResultListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConcernNecessityRequest extends $tea.Model {
   lang?: string;
   static names(): { [key: string]: string } {
@@ -7091,6 +7160,102 @@ export class DescribeNoticeConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeNoticeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOfflineMachinesRequest extends $tea.Model {
+  currentPage?: number;
+  os?: string;
+  pageSize?: number;
+  regionIdStr?: string;
+  regionNo?: string;
+  remark?: string;
+  sourceIp?: string;
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      os: 'Os',
+      pageSize: 'PageSize',
+      regionIdStr: 'RegionIdStr',
+      regionNo: 'RegionNo',
+      remark: 'Remark',
+      sourceIp: 'SourceIp',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      os: 'string',
+      pageSize: 'number',
+      regionIdStr: 'string',
+      regionNo: 'string',
+      remark: 'string',
+      sourceIp: 'string',
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOfflineMachinesResponseBody extends $tea.Model {
+  currentPage?: number;
+  machineList?: DescribeOfflineMachinesResponseBodyMachineList[];
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      machineList: 'MachineList',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      machineList: { 'type': 'array', 'itemType': DescribeOfflineMachinesResponseBodyMachineList },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOfflineMachinesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOfflineMachinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOfflineMachinesResponseBody,
     };
   }
 
@@ -19241,6 +19406,40 @@ export class DescribeCommonOverallConfigResponseBodyOverallConfig extends $tea.M
   }
 }
 
+export class DescribeCommonTargetResultListResponseBodyTargetConfig extends $tea.Model {
+  flag?: string;
+  targetDefault?: string;
+  targetList?: string[];
+  targetType?: string;
+  totalCount?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flag: 'Flag',
+      targetDefault: 'TargetDefault',
+      targetList: 'TargetList',
+      targetType: 'TargetType',
+      totalCount: 'TotalCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flag: 'string',
+      targetDefault: 'string',
+      targetList: { 'type': 'array', 'itemType': 'string' },
+      targetType: 'string',
+      totalCount: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerStatisticsResponseBodyData extends $tea.Model {
   remindAlarmCount?: number;
   seriousAlarmCount?: number;
@@ -21109,6 +21308,52 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $tea.Model
       project: 'string',
       route: 'number',
       timeLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOfflineMachinesResponseBodyMachineList extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  machineRegion?: string;
+  os?: string;
+  regionId?: string;
+  uuid?: string;
+  vendor?: number;
+  vendorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      machineRegion: 'MachineRegion',
+      os: 'Os',
+      regionId: 'RegionId',
+      uuid: 'Uuid',
+      vendor: 'Vendor',
+      vendorName: 'VendorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      machineRegion: 'string',
+      os: 'string',
+      regionId: 'string',
+      uuid: 'string',
+      vendor: 'number',
+      vendorName: 'string',
     };
   }
 
@@ -25240,16 +25485,12 @@ export class ListHoneypotAlarmEventsResponseBodyHoneypotAlarmEvents extends $tea
 export class ListHoneypotAlarmEventsResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
-  lastRowKey?: string;
-  nextToken?: string;
   pageSize?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       currentPage: 'CurrentPage',
-      lastRowKey: 'LastRowKey',
-      nextToken: 'NextToken',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
     };
@@ -25259,8 +25500,6 @@ export class ListHoneypotAlarmEventsResponseBodyPageInfo extends $tea.Model {
     return {
       count: 'number',
       currentPage: 'number',
-      lastRowKey: 'string',
-      nextToken: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };
@@ -27882,6 +28121,39 @@ export default class Client extends OpenApi {
     return await this.describeCommonOverallConfigWithOptions(request, runtime);
   }
 
+  async describeCommonTargetResultListWithOptions(request: DescribeCommonTargetResultListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonTargetResultListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommonTargetResultList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommonTargetResultListResponse>(await this.callApi(params, req, runtime), new DescribeCommonTargetResultListResponse({}));
+  }
+
+  async describeCommonTargetResultList(request: DescribeCommonTargetResultListRequest): Promise<DescribeCommonTargetResultListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommonTargetResultListWithOptions(request, runtime);
+  }
+
   async describeConcernNecessityWithOptions(request: DescribeConcernNecessityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConcernNecessityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29591,6 +29863,63 @@ export default class Client extends OpenApi {
   async describeNoticeConfig(request: DescribeNoticeConfigRequest): Promise<DescribeNoticeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNoticeConfigWithOptions(request, runtime);
+  }
+
+  async describeOfflineMachinesWithOptions(request: DescribeOfflineMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOfflineMachinesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.os)) {
+      query["Os"] = request.os;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionIdStr)) {
+      query["RegionIdStr"] = request.regionIdStr;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOfflineMachines",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOfflineMachinesResponse>(await this.callApi(params, req, runtime), new DescribeOfflineMachinesResponse({}));
+  }
+
+  async describeOfflineMachines(request: DescribeOfflineMachinesRequest): Promise<DescribeOfflineMachinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOfflineMachinesWithOptions(request, runtime);
   }
 
   async describeOnceTaskWithOptions(request: DescribeOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnceTaskResponse> {
