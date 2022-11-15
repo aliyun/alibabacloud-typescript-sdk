@@ -45,6 +45,37 @@ export class Address extends $tea.Model {
   }
 }
 
+export class AddressForStory extends $tea.Model {
+  city?: string;
+  country?: string;
+  district?: string;
+  province?: string;
+  township?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      country: 'Country',
+      district: 'District',
+      province: 'Province',
+      township: 'Township',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      country: 'string',
+      district: 'string',
+      province: 'string',
+      township: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeRoleChain extends $tea.Model {
   chain?: AssumeRoleChainNode[];
   policy?: string;
@@ -1066,6 +1097,52 @@ export class Label extends $tea.Model {
   }
 }
 
+export class LocationDateCluster extends $tea.Model {
+  addresses?: Address[];
+  createTime?: string;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  locationDateClusterEndTime?: string;
+  locationDateClusterLevel?: string;
+  locationDateClusterStartTime?: string;
+  objectId?: string;
+  title?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      createTime: 'CreateTime',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      locationDateClusterEndTime: 'LocationDateClusterEndTime',
+      locationDateClusterLevel: 'LocationDateClusterLevel',
+      locationDateClusterStartTime: 'LocationDateClusterStartTime',
+      objectId: 'ObjectId',
+      title: 'Title',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': Address },
+      createTime: 'string',
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      locationDateClusterEndTime: 'string',
+      locationDateClusterLevel: 'string',
+      locationDateClusterStartTime: 'string',
+      objectId: 'string',
+      title: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OCRContents extends $tea.Model {
   boundary?: Boundary;
   confidence?: number;
@@ -1281,6 +1358,7 @@ export class SimpleQuery extends $tea.Model {
 }
 
 export class Story extends $tea.Model {
+  addresses?: Address[];
   cover?: File;
   createTime?: string;
   customId?: string;
@@ -1300,6 +1378,7 @@ export class Story extends $tea.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      addresses: 'Addresses',
       cover: 'Cover',
       createTime: 'CreateTime',
       customId: 'CustomId',
@@ -1322,6 +1401,7 @@ export class Story extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addresses: { 'type': 'array', 'itemType': Address },
       cover: File,
       createTime: 'string',
       customId: 'string',
@@ -2366,6 +2446,130 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
   }
 }
 
+export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  notifyTopicName?: string;
+  password?: string;
+  projectName?: string;
+  sourceURI?: string;
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      notifyTopicName: 'string',
+      password: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  notifyTopicName?: string;
+  password?: string;
+  projectName?: string;
+  sourceURI?: string;
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      notifyTopicName: 'string',
+      password: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArchiveFileInspectionTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArchiveFileInspectionTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateArchiveFileInspectionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateArchiveFileInspectionTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBindingRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -2809,124 +3013,6 @@ export class CreateDatasetResponse extends $tea.Model {
   }
 }
 
-export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
-  credentialConfig?: CredentialConfig;
-  notifyTopicName?: string;
-  projectName?: string;
-  sourceURI?: string;
-  tags?: { [key: string]: any };
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfig: 'CredentialConfig',
-      notifyTopicName: 'NotifyTopicName',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-      tags: 'Tags',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfig: CredentialConfig,
-      notifyTopicName: 'string',
-      projectName: 'string',
-      sourceURI: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDetectVideoLabelsTaskShrinkRequest extends $tea.Model {
-  credentialConfigShrink?: string;
-  notifyTopicName?: string;
-  projectName?: string;
-  sourceURI?: string;
-  tagsShrink?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfigShrink: 'CredentialConfig',
-      notifyTopicName: 'NotifyTopicName',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-      tagsShrink: 'Tags',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfigShrink: 'string',
-      notifyTopicName: 'string',
-      projectName: 'string',
-      sourceURI: 'string',
-      tagsShrink: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDetectVideoLabelsTaskResponseBody extends $tea.Model {
-  eventId?: string;
-  requestId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventId: 'EventId',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventId: 'string',
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDetectVideoLabelsTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDetectVideoLabelsTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
   datasetName?: string;
   notifyTopicName?: string;
@@ -3291,6 +3377,136 @@ export class CreateFileCompressionTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateFileCompressionTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUncompressionTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  notifyTopicName?: string;
+  password?: string;
+  projectName?: string;
+  selectedFiles?: string[];
+  sourceURI?: string;
+  target?: CreateFileUncompressionTaskRequestTarget;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      projectName: 'ProjectName',
+      selectedFiles: 'SelectedFiles',
+      sourceURI: 'SourceURI',
+      target: 'Target',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      notifyTopicName: 'string',
+      password: 'string',
+      projectName: 'string',
+      selectedFiles: { 'type': 'array', 'itemType': 'string' },
+      sourceURI: 'string',
+      target: CreateFileUncompressionTaskRequestTarget,
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  notifyTopicName?: string;
+  password?: string;
+  projectName?: string;
+  selectedFilesShrink?: string;
+  sourceURI?: string;
+  targetShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      projectName: 'ProjectName',
+      selectedFilesShrink: 'SelectedFiles',
+      sourceURI: 'SourceURI',
+      targetShrink: 'Target',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      notifyTopicName: 'string',
+      password: 'string',
+      projectName: 'string',
+      selectedFilesShrink: 'string',
+      sourceURI: 'string',
+      targetShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUncompressionTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUncompressionTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileUncompressionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileUncompressionTaskResponseBody,
     };
   }
 
@@ -4229,6 +4445,7 @@ export class CreateProjectResponse extends $tea.Model {
 }
 
 export class CreateStoryRequest extends $tea.Model {
+  address?: AddressForStory;
   customId?: string;
   customLabels?: { [key: string]: any };
   datasetName?: string;
@@ -4246,6 +4463,7 @@ export class CreateStoryRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      address: 'Address',
       customId: 'CustomId',
       customLabels: 'CustomLabels',
       datasetName: 'DatasetName',
@@ -4266,6 +4484,7 @@ export class CreateStoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      address: AddressForStory,
       customId: 'string',
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       datasetName: 'string',
@@ -4290,6 +4509,7 @@ export class CreateStoryRequest extends $tea.Model {
 }
 
 export class CreateStoryShrinkRequest extends $tea.Model {
+  addressShrink?: string;
   customId?: string;
   customLabelsShrink?: string;
   datasetName?: string;
@@ -4307,6 +4527,7 @@ export class CreateStoryShrinkRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      addressShrink: 'Address',
       customId: 'CustomId',
       customLabelsShrink: 'CustomLabels',
       datasetName: 'DatasetName',
@@ -4327,6 +4548,7 @@ export class CreateStoryShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressShrink: 'string',
       customId: 'string',
       customLabelsShrink: 'string',
       datasetName: 'string',
@@ -4741,6 +4963,75 @@ export class DeleteFileMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocationDateClusterRequest extends $tea.Model {
+  datasetName?: string;
+  objectId?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocationDateClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocationDateClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLocationDateClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLocationDateClusterResponseBody,
     };
   }
 
@@ -7753,6 +8044,178 @@ export class QueryFigureClustersResponse extends $tea.Model {
   }
 }
 
+export class QueryLocationDateClustersRequest extends $tea.Model {
+  address?: Address;
+  createTimeRange?: TimeRange;
+  customLabels?: string;
+  datasetName?: string;
+  locationDateClusterEndTimeRange?: TimeRange;
+  locationDateClusterLevels?: string[];
+  locationDateClusterStartTimeRange?: TimeRange;
+  maxResults?: number;
+  nextToken?: string;
+  objectId?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  title?: string;
+  updateTimeRange?: TimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      createTimeRange: 'CreateTimeRange',
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      locationDateClusterEndTimeRange: 'LocationDateClusterEndTimeRange',
+      locationDateClusterLevels: 'LocationDateClusterLevels',
+      locationDateClusterStartTimeRange: 'LocationDateClusterStartTimeRange',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      objectId: 'ObjectId',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+      title: 'Title',
+      updateTimeRange: 'UpdateTimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: Address,
+      createTimeRange: TimeRange,
+      customLabels: 'string',
+      datasetName: 'string',
+      locationDateClusterEndTimeRange: TimeRange,
+      locationDateClusterLevels: { 'type': 'array', 'itemType': 'string' },
+      locationDateClusterStartTimeRange: TimeRange,
+      maxResults: 'number',
+      nextToken: 'string',
+      objectId: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+      title: 'string',
+      updateTimeRange: TimeRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLocationDateClustersShrinkRequest extends $tea.Model {
+  addressShrink?: string;
+  createTimeRangeShrink?: string;
+  customLabels?: string;
+  datasetName?: string;
+  locationDateClusterEndTimeRangeShrink?: string;
+  locationDateClusterLevelsShrink?: string;
+  locationDateClusterStartTimeRangeShrink?: string;
+  maxResults?: number;
+  nextToken?: string;
+  objectId?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  title?: string;
+  updateTimeRangeShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressShrink: 'Address',
+      createTimeRangeShrink: 'CreateTimeRange',
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      locationDateClusterEndTimeRangeShrink: 'LocationDateClusterEndTimeRange',
+      locationDateClusterLevelsShrink: 'LocationDateClusterLevels',
+      locationDateClusterStartTimeRangeShrink: 'LocationDateClusterStartTimeRange',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      objectId: 'ObjectId',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+      title: 'Title',
+      updateTimeRangeShrink: 'UpdateTimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressShrink: 'string',
+      createTimeRangeShrink: 'string',
+      customLabels: 'string',
+      datasetName: 'string',
+      locationDateClusterEndTimeRangeShrink: 'string',
+      locationDateClusterLevelsShrink: 'string',
+      locationDateClusterStartTimeRangeShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      objectId: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+      title: 'string',
+      updateTimeRangeShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLocationDateClustersResponseBody extends $tea.Model {
+  locationDateClusters?: LocationDateCluster[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      locationDateClusters: 'LocationDateClusters',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      locationDateClusters: { 'type': 'array', 'itemType': LocationDateCluster },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLocationDateClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryLocationDateClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryLocationDateClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryStoriesRequest extends $tea.Model {
   createTimeRange?: TimeRange;
   customLabels?: string;
@@ -8788,6 +9251,118 @@ export class UpdateFileMetaResponse extends $tea.Model {
   }
 }
 
+export class UpdateLocationDateClusterRequest extends $tea.Model {
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  datasetName?: string;
+  objectId?: string;
+  projectName?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocationDateClusterShrinkRequest extends $tea.Model {
+  customId?: string;
+  customLabelsShrink?: string;
+  datasetName?: string;
+  objectId?: string;
+  projectName?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customId: 'CustomId',
+      customLabelsShrink: 'CustomLabels',
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customId: 'string',
+      customLabelsShrink: 'string',
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocationDateClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLocationDateClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateLocationDateClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLocationDateClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectRequest extends $tea.Model {
   datasetMaxBindCount?: number;
   datasetMaxEntityCount?: number;
@@ -9316,6 +9891,28 @@ export class CreateFileCompressionTaskRequestSources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alias: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileUncompressionTaskRequestTarget extends $tea.Model {
+  manifestURI?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      manifestURI: 'ManifestURI',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      manifestURI: 'string',
       URI: 'string',
     };
   }
@@ -10561,8 +11158,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new AddImageMosaicShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.targets)) {
@@ -10876,6 +11473,65 @@ export default class Client extends OpenApi {
     return await this.batchUpdateFileMetaWithOptions(request, runtime);
   }
 
+  async createArchiveFileInspectionTaskWithOptions(tmpReq: CreateArchiveFileInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateArchiveFileInspectionTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateArchiveFileInspectionTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateArchiveFileInspectionTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateArchiveFileInspectionTaskResponse>(await this.callApi(params, req, runtime), new CreateArchiveFileInspectionTaskResponse({}));
+  }
+
+  async createArchiveFileInspectionTask(request: CreateArchiveFileInspectionTaskRequest): Promise<CreateArchiveFileInspectionTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createArchiveFileInspectionTaskWithOptions(request, runtime);
+  }
+
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10917,16 +11573,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateCompressPointCloudTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.kdtreeOption))) {
-      request.kdtreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.kdtreeOption), "KdtreeOption", "json");
+    if (!Util.isUnset(tmpReq.kdtreeOption)) {
+      request.kdtreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kdtreeOption, "KdtreeOption", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.octreeOption))) {
-      request.octreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.octreeOption), "OctreeOption", "json");
+    if (!Util.isUnset(tmpReq.octreeOption)) {
+      request.octreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.octreeOption, "OctreeOption", "json");
     }
 
     if (!Util.isUnset(tmpReq.pointCloudFields)) {
@@ -11012,8 +11668,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateCustomizedStoryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.cover))) {
-      request.coverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.cover), "Cover", "json");
+    if (!Util.isUnset(tmpReq.cover)) {
+      request.coverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cover, "Cover", "json");
     }
 
     if (!Util.isUnset(tmpReq.customLabels)) {
@@ -11140,65 +11796,6 @@ export default class Client extends OpenApi {
     return await this.createDatasetWithOptions(request, runtime);
   }
 
-  async createDetectVideoLabelsTaskWithOptions(tmpReq: CreateDetectVideoLabelsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDetectVideoLabelsTaskResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateDetectVideoLabelsTaskShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tags)) {
-      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.notifyTopicName)) {
-      query["NotifyTopicName"] = request.notifyTopicName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    if (!Util.isUnset(request.tagsShrink)) {
-      query["Tags"] = request.tagsShrink;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      query["UserData"] = request.userData;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDetectVideoLabelsTask",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDetectVideoLabelsTaskResponse>(await this.callApi(params, req, runtime), new CreateDetectVideoLabelsTaskResponse({}));
-  }
-
-  async createDetectVideoLabelsTask(request: CreateDetectVideoLabelsTaskRequest): Promise<CreateDetectVideoLabelsTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
-  }
-
   async createFigureClusteringTaskWithOptions(tmpReq: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClusteringTaskShrinkRequest({ });
@@ -11313,8 +11910,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateFileCompressionTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.sources)) {
@@ -11380,12 +11977,83 @@ export default class Client extends OpenApi {
     return await this.createFileCompressionTaskWithOptions(request, runtime);
   }
 
+  async createFileUncompressionTaskWithOptions(tmpReq: CreateFileUncompressionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileUncompressionTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateFileUncompressionTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.selectedFiles)) {
+      request.selectedFilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedFiles, "SelectedFiles", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.selectedFilesShrink)) {
+      query["SelectedFiles"] = request.selectedFilesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.targetShrink)) {
+      query["Target"] = request.targetShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileUncompressionTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileUncompressionTaskResponse>(await this.callApi(params, req, runtime), new CreateFileUncompressionTaskResponse({}));
+  }
+
+  async createFileUncompressionTask(request: CreateFileUncompressionTaskRequest): Promise<CreateFileUncompressionTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileUncompressionTaskWithOptions(request, runtime);
+  }
+
   async createImageModerationTaskWithOptions(tmpReq: CreateImageModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageModerationTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateImageModerationTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.scenes)) {
@@ -11463,8 +12131,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateImageSplicingTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.sources)) {
@@ -11562,8 +12230,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateImageToPDFTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.sources)) {
@@ -11629,8 +12297,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateMediaConvertTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.sources)) {
@@ -11700,16 +12368,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateOfficeConversionTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.trimPolicy))) {
-      request.trimPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.trimPolicy), "TrimPolicy", "json");
+    if (!Util.isUnset(tmpReq.trimPolicy)) {
+      request.trimPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trimPolicy, "TrimPolicy", "json");
     }
 
     let query = { };
@@ -11936,6 +12604,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateStoryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.address)) {
+      request.addressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.address, "Address", "json");
+    }
+
     if (!Util.isUnset(tmpReq.customLabels)) {
       request.customLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customLabels, "CustomLabels", "json");
     }
@@ -11954,6 +12626,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addressShrink)) {
+      body["Address"] = request.addressShrink;
+    }
+
     if (!Util.isUnset(request.customId)) {
       body["CustomId"] = request.customId;
     }
@@ -12033,8 +12709,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateVideoModerationTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.scenes)) {
@@ -12219,6 +12895,45 @@ export default class Client extends OpenApi {
     return await this.deleteFileMetaWithOptions(request, runtime);
   }
 
+  async deleteLocationDateClusterWithOptions(request: DeleteLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLocationDateClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.objectId)) {
+      body["ObjectId"] = request.objectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLocationDateCluster",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLocationDateClusterResponse>(await this.callApi(params, req, runtime), new DeleteLocationDateClusterResponse({}));
+  }
+
+  async deleteLocationDateCluster(request: DeleteLocationDateClusterRequest): Promise<DeleteLocationDateClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLocationDateClusterWithOptions(request, runtime);
+  }
+
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12318,8 +13033,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageBodiesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12365,8 +13080,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageCodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12408,8 +13123,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageCroppingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12455,8 +13170,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageFacesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12498,8 +13213,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageLabelsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12545,8 +13260,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectImageScoreShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -12851,8 +13566,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GetMediaMetaShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -13030,8 +13745,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GetVideoPlaylistShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     if (!Util.isUnset(tmpReq.sourceSubtitles)) {
@@ -13109,20 +13824,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GetWebofficeURLShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.permission))) {
-      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.permission), "Permission", "json");
+    if (!Util.isUnset(tmpReq.permission)) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.user))) {
-      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.user), "User", "json");
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.watermark))) {
-      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.watermark), "Watermark", "json");
+    if (!Util.isUnset(tmpReq.watermark)) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermark, "Watermark", "json");
     }
 
     let query = { };
@@ -13212,8 +13927,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new IndexFileMetaShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.file))) {
-      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.file), "File", "json");
+    if (!Util.isUnset(tmpReq.file)) {
+      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.file, "File", "json");
     }
 
     let query = { };
@@ -13407,12 +14122,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListTasksShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.endTimeRange))) {
-      request.endTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.endTimeRange), "EndTimeRange", "json");
+    if (!Util.isUnset(tmpReq.endTimeRange)) {
+      request.endTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endTimeRange, "EndTimeRange", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.startTimeRange))) {
-      request.startTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.startTimeRange), "StartTimeRange", "json");
+    if (!Util.isUnset(tmpReq.startTimeRange)) {
+      request.startTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startTimeRange, "StartTimeRange", "json");
     }
 
     if (!Util.isUnset(tmpReq.taskTypes)) {
@@ -13486,8 +14201,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new LiveTranscodingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -13590,12 +14305,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new QueryFigureClustersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.createTimeRange))) {
-      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.createTimeRange), "CreateTimeRange", "json");
+    if (!Util.isUnset(tmpReq.createTimeRange)) {
+      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createTimeRange, "CreateTimeRange", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.updateTimeRange))) {
-      request.updateTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.updateTimeRange), "UpdateTimeRange", "json");
+    if (!Util.isUnset(tmpReq.updateTimeRange)) {
+      request.updateTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateTimeRange, "UpdateTimeRange", "json");
     }
 
     let query = { };
@@ -13657,24 +14372,135 @@ export default class Client extends OpenApi {
     return await this.queryFigureClustersWithOptions(request, runtime);
   }
 
+  async queryLocationDateClustersWithOptions(tmpReq: QueryLocationDateClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocationDateClustersResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryLocationDateClustersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.address)) {
+      request.addressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.address, "Address", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.createTimeRange)) {
+      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createTimeRange, "CreateTimeRange", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.locationDateClusterEndTimeRange)) {
+      request.locationDateClusterEndTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationDateClusterEndTimeRange, "LocationDateClusterEndTimeRange", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.locationDateClusterLevels)) {
+      request.locationDateClusterLevelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationDateClusterLevels, "LocationDateClusterLevels", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.locationDateClusterStartTimeRange)) {
+      request.locationDateClusterStartTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationDateClusterStartTimeRange, "LocationDateClusterStartTimeRange", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.updateTimeRange)) {
+      request.updateTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateTimeRange, "UpdateTimeRange", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.addressShrink)) {
+      query["Address"] = request.addressShrink;
+    }
+
+    if (!Util.isUnset(request.createTimeRangeShrink)) {
+      query["CreateTimeRange"] = request.createTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.customLabels)) {
+      query["CustomLabels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.locationDateClusterEndTimeRangeShrink)) {
+      query["LocationDateClusterEndTimeRange"] = request.locationDateClusterEndTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.locationDateClusterLevelsShrink)) {
+      query["LocationDateClusterLevels"] = request.locationDateClusterLevelsShrink;
+    }
+
+    if (!Util.isUnset(request.locationDateClusterStartTimeRangeShrink)) {
+      query["LocationDateClusterStartTimeRange"] = request.locationDateClusterStartTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.updateTimeRangeShrink)) {
+      query["UpdateTimeRange"] = request.updateTimeRangeShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryLocationDateClusters",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryLocationDateClustersResponse>(await this.callApi(params, req, runtime), new QueryLocationDateClustersResponse({}));
+  }
+
+  async queryLocationDateClusters(request: QueryLocationDateClustersRequest): Promise<QueryLocationDateClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryLocationDateClustersWithOptions(request, runtime);
+  }
+
   async queryStoriesWithOptions(tmpReq: QueryStoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryStoriesResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryStoriesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.createTimeRange))) {
-      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.createTimeRange), "CreateTimeRange", "json");
+    if (!Util.isUnset(tmpReq.createTimeRange)) {
+      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createTimeRange, "CreateTimeRange", "json");
     }
 
     if (!Util.isUnset(tmpReq.figureClusterIds)) {
       request.figureClusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.figureClusterIds, "FigureClusterIds", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.storyEndTimeRange))) {
-      request.storyEndTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storyEndTimeRange), "StoryEndTimeRange", "json");
+    if (!Util.isUnset(tmpReq.storyEndTimeRange)) {
+      request.storyEndTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storyEndTimeRange, "StoryEndTimeRange", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.storyStartTimeRange))) {
-      request.storyStartTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storyStartTimeRange), "StoryStartTimeRange", "json");
+    if (!Util.isUnset(tmpReq.storyStartTimeRange)) {
+      request.storyStartTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storyStartTimeRange, "StoryStartTimeRange", "json");
     }
 
     let query = { };
@@ -13768,8 +14594,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new RefreshWebofficeTokenShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
     let query = { };
@@ -13948,8 +14774,8 @@ export default class Client extends OpenApi {
       request.aggregationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aggregations, "Aggregations", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.query))) {
-      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.query), "Query", "json");
+    if (!Util.isUnset(tmpReq.query)) {
+      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.query, "Query", "json");
     }
 
     if (!Util.isUnset(tmpReq.withFields)) {
@@ -14121,8 +14947,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateFigureClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.figureCluster))) {
-      request.figureClusterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.figureCluster), "FigureCluster", "json");
+    if (!Util.isUnset(tmpReq.figureCluster)) {
+      request.figureClusterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.figureCluster, "FigureCluster", "json");
     }
 
     let query = { };
@@ -14164,8 +14990,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateFileMetaShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.file))) {
-      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.file), "File", "json");
+    if (!Util.isUnset(tmpReq.file)) {
+      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.file, "File", "json");
     }
 
     let query = { };
@@ -14201,6 +15027,61 @@ export default class Client extends OpenApi {
   async updateFileMeta(request: UpdateFileMetaRequest): Promise<UpdateFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileMetaWithOptions(request, runtime);
+  }
+
+  async updateLocationDateClusterWithOptions(tmpReq: UpdateLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLocationDateClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateLocationDateClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.customLabels)) {
+      request.customLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customLabels, "CustomLabels", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.customId)) {
+      query["CustomId"] = request.customId;
+    }
+
+    if (!Util.isUnset(request.customLabelsShrink)) {
+      query["CustomLabels"] = request.customLabelsShrink;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLocationDateCluster",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLocationDateClusterResponse>(await this.callApi(params, req, runtime), new UpdateLocationDateClusterResponse({}));
+  }
+
+  async updateLocationDateCluster(request: UpdateLocationDateClusterRequest): Promise<UpdateLocationDateClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLocationDateClusterWithOptions(request, runtime);
   }
 
   async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
@@ -14280,8 +15161,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateStoryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.cover))) {
-      request.coverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.cover), "Cover", "json");
+    if (!Util.isUnset(tmpReq.cover)) {
+      request.coverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cover, "Cover", "json");
     }
 
     if (!Util.isUnset(tmpReq.customLabels)) {
