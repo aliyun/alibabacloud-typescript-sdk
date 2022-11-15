@@ -3013,6 +3013,124 @@ export class CreateDatasetResponse extends $tea.Model {
   }
 }
 
+export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDetectVideoLabelsTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDetectVideoLabelsTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDetectVideoLabelsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDetectVideoLabelsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
   datasetName?: string;
   notifyTopicName?: string;
@@ -3953,6 +4071,130 @@ export class CreateImageToPDFTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
+  datasetName?: string;
+  dateOptions?: CreateLocationDateClusteringTaskRequestDateOptions;
+  locationOptions?: CreateLocationDateClusteringTaskRequestLocationOptions;
+  notifyTopicName?: string;
+  projectName?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      dateOptions: 'DateOptions',
+      locationOptions: 'LocationOptions',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      dateOptions: CreateLocationDateClusteringTaskRequestDateOptions,
+      locationOptions: CreateLocationDateClusteringTaskRequestLocationOptions,
+      notifyTopicName: 'string',
+      projectName: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  dateOptionsShrink?: string;
+  locationOptionsShrink?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      dateOptionsShrink: 'DateOptions',
+      locationOptionsShrink: 'LocationOptions',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      dateOptionsShrink: 'string',
+      locationOptionsShrink: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLocationDateClusteringTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLocationDateClusteringTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLocationDateClusteringTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLocationDateClusteringTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyTopicName?: string;
@@ -4614,6 +4856,124 @@ export class CreateStoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoLabelClassificationTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoLabelClassificationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVideoLabelClassificationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVideoLabelClassificationTaskResponseBody,
     };
   }
 
@@ -6839,6 +7199,108 @@ export class GetTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoLabelClassificationResultRequest extends $tea.Model {
+  projectName?: string;
+  taskId?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      taskId: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoLabelClassificationResultResponseBody extends $tea.Model {
+  code?: string;
+  endTime?: string;
+  eventId?: string;
+  labels?: Label[];
+  message?: string;
+  projectName?: string;
+  requestId?: string;
+  startTime?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      labels: 'Labels',
+      message: 'Message',
+      projectName: 'ProjectName',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      endTime: 'string',
+      eventId: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      message: 'string',
+      projectName: 'string',
+      requestId: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoLabelClassificationResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVideoLabelClassificationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoLabelClassificationResultResponseBody,
     };
   }
 
@@ -9966,6 +10428,50 @@ export class CreateImageToPDFTaskRequestSources extends $tea.Model {
   }
 }
 
+export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Model {
+  gapDays?: number;
+  maxDays?: number;
+  minDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gapDays: 'GapDays',
+      maxDays: 'MaxDays',
+      minDays: 'MinDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gapDays: 'number',
+      maxDays: 'number',
+      minDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLocationDateClusteringTaskRequestLocationOptions extends $tea.Model {
+  locationDateClusterLevels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      locationDateClusterLevels: 'LocationDateClusterLevels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      locationDateClusterLevels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
   language?: string;
   timeOffset?: number;
@@ -11796,6 +12302,65 @@ export default class Client extends OpenApi {
     return await this.createDatasetWithOptions(request, runtime);
   }
 
+  async createDetectVideoLabelsTaskWithOptions(tmpReq: CreateDetectVideoLabelsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDetectVideoLabelsTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDetectVideoLabelsTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDetectVideoLabelsTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDetectVideoLabelsTaskResponse>(await this.callApi(params, req, runtime), new CreateDetectVideoLabelsTaskResponse({}));
+  }
+
+  async createDetectVideoLabelsTask(request: CreateDetectVideoLabelsTaskRequest): Promise<CreateDetectVideoLabelsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
+  }
+
   async createFigureClusteringTaskWithOptions(tmpReq: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClusteringTaskShrinkRequest({ });
@@ -12293,6 +12858,73 @@ export default class Client extends OpenApi {
     return await this.createImageToPDFTaskWithOptions(request, runtime);
   }
 
+  async createLocationDateClusteringTaskWithOptions(tmpReq: CreateLocationDateClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateLocationDateClusteringTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateLocationDateClusteringTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dateOptions)) {
+      request.dateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dateOptions, "DateOptions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.locationOptions)) {
+      request.locationOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationOptions, "LocationOptions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.dateOptionsShrink)) {
+      query["DateOptions"] = request.dateOptionsShrink;
+    }
+
+    if (!Util.isUnset(request.locationOptionsShrink)) {
+      query["LocationOptions"] = request.locationOptionsShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLocationDateClusteringTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLocationDateClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateLocationDateClusteringTaskResponse({}));
+  }
+
+  async createLocationDateClusteringTask(request: CreateLocationDateClusteringTaskRequest): Promise<CreateLocationDateClusteringTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLocationDateClusteringTaskWithOptions(request, runtime);
+  }
+
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateMediaConvertTaskShrinkRequest({ });
@@ -12703,6 +13335,65 @@ export default class Client extends OpenApi {
   async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStoryWithOptions(request, runtime);
+  }
+
+  async createVideoLabelClassificationTaskWithOptions(tmpReq: CreateVideoLabelClassificationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoLabelClassificationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateVideoLabelClassificationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVideoLabelClassificationTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVideoLabelClassificationTaskResponse>(await this.callApi(params, req, runtime), new CreateVideoLabelClassificationTaskResponse({}));
+  }
+
+  async createVideoLabelClassificationTask(request: CreateVideoLabelClassificationTaskRequest): Promise<CreateVideoLabelClassificationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVideoLabelClassificationTaskWithOptions(request, runtime);
   }
 
   async createVideoModerationTaskWithOptions(tmpReq: CreateVideoModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoModerationTaskResponse> {
@@ -13739,6 +14430,43 @@ export default class Client extends OpenApi {
   async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskWithOptions(request, runtime);
+  }
+
+  async getVideoLabelClassificationResultWithOptions(request: GetVideoLabelClassificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoLabelClassificationResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVideoLabelClassificationResult",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVideoLabelClassificationResultResponse>(await this.callApi(params, req, runtime), new GetVideoLabelClassificationResultResponse({}));
+  }
+
+  async getVideoLabelClassificationResult(request: GetVideoLabelClassificationResultRequest): Promise<GetVideoLabelClassificationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVideoLabelClassificationResultWithOptions(request, runtime);
   }
 
   async getVideoPlaylistWithOptions(tmpReq: GetVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoPlaylistResponse> {

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/imm20200930",
-  "version": "1.28.8",
+  "version": "1.28.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
