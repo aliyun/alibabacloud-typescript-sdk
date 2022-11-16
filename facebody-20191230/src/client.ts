@@ -2792,78 +2792,6 @@ export class ExtractPedestrianFeatureAttrResponse extends $tea.Model {
   }
 }
 
-export class ExtractPedestrianFeatureAttributeRequest extends $tea.Model {
-  imageURL?: string;
-  mode?: string;
-  urlList?: ExtractPedestrianFeatureAttributeRequestUrlList[];
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      mode: 'Mode',
-      urlList: 'UrlList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      mode: 'string',
-      urlList: { 'type': 'array', 'itemType': ExtractPedestrianFeatureAttributeRequestUrlList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeResponseBody extends $tea.Model {
-  data?: ExtractPedestrianFeatureAttributeResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ExtractPedestrianFeatureAttributeResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExtractPedestrianFeatureAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExtractPedestrianFeatureAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class FaceBeautyRequest extends $tea.Model {
   imageURL?: string;
   sharp?: number;
@@ -6820,16 +6748,48 @@ export class DetectLivingFaceResponseBodyDataElementsResultsFrames extends $tea.
   }
 }
 
+export class DetectLivingFaceResponseBodyDataElementsResultsRect extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLivingFaceResponseBodyDataElementsResults extends $tea.Model {
   frames?: DetectLivingFaceResponseBodyDataElementsResultsFrames[];
   label?: string;
+  messageTips?: string;
   rate?: number;
+  rect?: DetectLivingFaceResponseBodyDataElementsResultsRect;
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
       frames: 'Frames',
       label: 'Label',
+      messageTips: 'MessageTips',
       rate: 'Rate',
+      rect: 'Rect',
       suggestion: 'Suggestion',
     };
   }
@@ -6838,7 +6798,9 @@ export class DetectLivingFaceResponseBodyDataElementsResults extends $tea.Model 
     return {
       frames: { 'type': 'array', 'itemType': DetectLivingFaceResponseBodyDataElementsResultsFrames },
       label: 'string',
+      messageTips: 'string',
       rate: 'number',
+      rect: DetectLivingFaceResponseBodyDataElementsResultsRect,
       suggestion: 'string',
     };
   }
@@ -6849,11 +6811,13 @@ export class DetectLivingFaceResponseBodyDataElementsResults extends $tea.Model 
 }
 
 export class DetectLivingFaceResponseBodyDataElements extends $tea.Model {
+  faceNumber?: number;
   imageURL?: string;
   results?: DetectLivingFaceResponseBodyDataElementsResults[];
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      faceNumber: 'FaceNumber',
       imageURL: 'ImageURL',
       results: 'Results',
       taskId: 'TaskId',
@@ -6862,6 +6826,7 @@ export class DetectLivingFaceResponseBodyDataElements extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      faceNumber: 'number',
       imageURL: 'string',
       results: { 'type': 'array', 'itemType': DetectLivingFaceResponseBodyDataElementsResults },
       taskId: 'string',
@@ -7327,168 +7292,6 @@ export class ExtractPedestrianFeatureAttrResponseBodyData extends $tea.Model {
       objTypeScore: 'number',
       orientation: 'string',
       orientationScore: 'number',
-      qualityScore: 'number',
-      upperColor: 'string',
-      upperColorScore: 'number',
-      upperType: 'string',
-      upperTypeScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeRequestUrlList extends $tea.Model {
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeResponseBodyDataElements extends $tea.Model {
-  age?: string;
-  ageScore?: number;
-  feature?: string;
-  gender?: string;
-  genderScore?: number;
-  hair?: string;
-  hairScore?: number;
-  lowerColor?: string;
-  lowerColorScore?: number;
-  lowerType?: string;
-  lowerTypeScore?: number;
-  objType?: string;
-  objTypeScore?: number;
-  qualityScore?: number;
-  upperColor?: string;
-  upperColorScore?: number;
-  upperType?: string;
-  upperTypeScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      ageScore: 'AgeScore',
-      feature: 'Feature',
-      gender: 'Gender',
-      genderScore: 'GenderScore',
-      hair: 'Hair',
-      hairScore: 'HairScore',
-      lowerColor: 'LowerColor',
-      lowerColorScore: 'LowerColorScore',
-      lowerType: 'LowerType',
-      lowerTypeScore: 'LowerTypeScore',
-      objType: 'ObjType',
-      objTypeScore: 'ObjTypeScore',
-      qualityScore: 'QualityScore',
-      upperColor: 'UpperColor',
-      upperColorScore: 'UpperColorScore',
-      upperType: 'UpperType',
-      upperTypeScore: 'UpperTypeScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'string',
-      ageScore: 'number',
-      feature: 'string',
-      gender: 'string',
-      genderScore: 'number',
-      hair: 'string',
-      hairScore: 'number',
-      lowerColor: 'string',
-      lowerColorScore: 'number',
-      lowerType: 'string',
-      lowerTypeScore: 'number',
-      objType: 'string',
-      objTypeScore: 'number',
-      qualityScore: 'number',
-      upperColor: 'string',
-      upperColorScore: 'number',
-      upperType: 'string',
-      upperTypeScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeResponseBodyData extends $tea.Model {
-  age?: string;
-  ageScore?: number;
-  elements?: ExtractPedestrianFeatureAttributeResponseBodyDataElements[];
-  feature?: string;
-  gender?: string;
-  genderScore?: number;
-  hair?: string;
-  hairScore?: number;
-  lowerColor?: string;
-  lowerColorScore?: number;
-  lowerType?: string;
-  lowerTypeScore?: number;
-  objType?: string;
-  objTypeScore?: number;
-  qualityScore?: number;
-  upperColor?: string;
-  upperColorScore?: number;
-  upperType?: string;
-  upperTypeScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      ageScore: 'AgeScore',
-      elements: 'Elements',
-      feature: 'Feature',
-      gender: 'Gender',
-      genderScore: 'GenderScore',
-      hair: 'Hair',
-      hairScore: 'HairScore',
-      lowerColor: 'LowerColor',
-      lowerColorScore: 'LowerColorScore',
-      lowerType: 'LowerType',
-      lowerTypeScore: 'LowerTypeScore',
-      objType: 'ObjType',
-      objTypeScore: 'ObjTypeScore',
-      qualityScore: 'QualityScore',
-      upperColor: 'UpperColor',
-      upperColorScore: 'UpperColorScore',
-      upperType: 'UpperType',
-      upperTypeScore: 'UpperTypeScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'string',
-      ageScore: 'number',
-      elements: { 'type': 'array', 'itemType': ExtractPedestrianFeatureAttributeResponseBodyDataElements },
-      feature: 'string',
-      gender: 'string',
-      genderScore: 'number',
-      hair: 'string',
-      hairScore: 'number',
-      lowerColor: 'string',
-      lowerColorScore: 'number',
-      lowerType: 'string',
-      lowerTypeScore: 'number',
-      objType: 'string',
-      objTypeScore: 'number',
       qualityScore: 'number',
       upperColor: 'string',
       upperColorScore: 'number',
@@ -9936,8 +9739,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new BeautifyBodyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ageRange)) {
-      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ageRange, "AgeRange", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.ageRange))) {
+      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ageRange), "AgeRange", "json");
     }
 
     if (!Util.isUnset(tmpReq.bodyBoxes)) {
@@ -12133,43 +11936,6 @@ export default class Client extends OpenApi {
 
     let extractPedestrianFeatureAttrResp = await this.extractPedestrianFeatureAttrWithOptions(extractPedestrianFeatureAttrReq, runtime);
     return extractPedestrianFeatureAttrResp;
-  }
-
-  async extractPedestrianFeatureAttributeWithOptions(request: ExtractPedestrianFeatureAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttributeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.mode)) {
-      body["Mode"] = request.mode;
-    }
-
-    if (!Util.isUnset(request.urlList)) {
-      body["UrlList"] = request.urlList;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExtractPedestrianFeatureAttribute",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ExtractPedestrianFeatureAttributeResponse>(await this.callApi(params, req, runtime), new ExtractPedestrianFeatureAttributeResponse({}));
-  }
-
-  async extractPedestrianFeatureAttribute(request: ExtractPedestrianFeatureAttributeRequest): Promise<ExtractPedestrianFeatureAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.extractPedestrianFeatureAttributeWithOptions(request, runtime);
   }
 
   async faceBeautyWithOptions(request: FaceBeautyRequest, runtime: $Util.RuntimeOptions): Promise<FaceBeautyResponse> {
