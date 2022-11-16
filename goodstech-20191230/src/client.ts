@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -34,10 +33,10 @@ export class ClassifyCommodityRequest extends $tea.Model {
 }
 
 export class ClassifyCommodityAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -53,19 +52,19 @@ export class ClassifyCommodityAdvanceRequest extends $tea.Model {
 }
 
 export class ClassifyCommodityResponseBody extends $tea.Model {
-  requestId?: string;
   data?: ClassifyCommodityResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: ClassifyCommodityResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -76,10 +75,12 @@ export class ClassifyCommodityResponseBody extends $tea.Model {
 
 export class ClassifyCommodityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClassifyCommodityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -87,6 +88,7 @@ export class ClassifyCommodityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClassifyCommodityResponseBody,
     };
   }
@@ -116,10 +118,10 @@ export class RecognizeFurnitureAttributeRequest extends $tea.Model {
 }
 
 export class RecognizeFurnitureAttributeAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
     };
   }
 
@@ -135,19 +137,19 @@ export class RecognizeFurnitureAttributeAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeFurnitureAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeFurnitureAttributeResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeFurnitureAttributeResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -158,10 +160,12 @@ export class RecognizeFurnitureAttributeResponseBody extends $tea.Model {
 
 export class RecognizeFurnitureAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeFurnitureAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -169,6 +173,7 @@ export class RecognizeFurnitureAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeFurnitureAttributeResponseBody,
     };
   }
@@ -207,13 +212,13 @@ export class RecognizeFurnitureSpuRequest extends $tea.Model {
 }
 
 export class RecognizeFurnitureSpuAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+  imageURLObject?: Readable;
   XLength?: number;
   YLength?: number;
   ZLength?: number;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      imageURLObject: 'ImageURL',
       XLength: 'XLength',
       YLength: 'YLength',
       ZLength: 'ZLength',
@@ -235,19 +240,19 @@ export class RecognizeFurnitureSpuAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeFurnitureSpuResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeFurnitureSpuResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeFurnitureSpuResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -258,10 +263,12 @@ export class RecognizeFurnitureSpuResponseBody extends $tea.Model {
 
 export class RecognizeFurnitureSpuResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeFurnitureSpuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -269,6 +276,7 @@ export class RecognizeFurnitureSpuResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeFurnitureSpuResponseBody,
     };
   }
@@ -279,22 +287,22 @@ export class RecognizeFurnitureSpuResponse extends $tea.Model {
 }
 
 export class ClassifyCommodityResponseBodyDataCategories extends $tea.Model {
-  score?: number;
   categoryId?: string;
   categoryName?: string;
+  score?: number;
   static names(): { [key: string]: string } {
     return {
-      score: 'Score',
       categoryId: 'CategoryId',
       categoryName: 'CategoryName',
+      score: 'Score',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      score: 'number',
       categoryId: 'string',
       categoryName: 'string',
+      score: 'number',
     };
   }
 
@@ -323,21 +331,21 @@ export class ClassifyCommodityResponseBodyData extends $tea.Model {
 }
 
 export class RecognizeFurnitureAttributeResponseBodyData extends $tea.Model {
-  predStyle?: string;
   predProbability?: number;
+  predStyle?: string;
   predStyleId?: string;
   static names(): { [key: string]: string } {
     return {
-      predStyle: 'PredStyle',
       predProbability: 'PredProbability',
+      predStyle: 'PredStyle',
       predStyleId: 'PredStyleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      predStyle: 'string',
       predProbability: 'number',
+      predStyle: 'string',
       predStyleId: 'string',
     };
   }
@@ -348,21 +356,21 @@ export class RecognizeFurnitureAttributeResponseBodyData extends $tea.Model {
 }
 
 export class RecognizeFurnitureSpuResponseBodyData extends $tea.Model {
-  predCateId?: string;
   predCate?: string;
+  predCateId?: string;
   predProbability?: number;
   static names(): { [key: string]: string } {
     return {
-      predCateId: 'PredCateId',
       predCate: 'PredCate',
+      predCateId: 'PredCateId',
       predProbability: 'PredProbability',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      predCateId: 'string',
       predCate: 'string',
+      predCateId: 'string',
       predProbability: 'number',
     };
   }
@@ -397,10 +405,26 @@ export default class Client extends OpenApi {
 
   async classifyCommodityWithOptions(request: ClassifyCommodityRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyCommodityResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageURL)) {
+      query["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ClassifyCommodityResponse>(await this.doRPCRequest("ClassifyCommodity", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyCommodityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ClassifyCommodity",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClassifyCommodityResponse>(await this.callApi(params, req, runtime), new ClassifyCommodityResponse({}));
   }
 
   async classifyCommodity(request: ClassifyCommodityRequest): Promise<ClassifyCommodityResponse> {
@@ -412,11 +436,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -440,39 +476,58 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let classifyCommodityReq = new ClassifyCommodityRequest({ });
     OpenApiUtil.convert(request, classifyCommodityReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    classifyCommodityReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      classifyCommodityReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
     let classifyCommodityResp = await this.classifyCommodityWithOptions(classifyCommodityReq, runtime);
     return classifyCommodityResp;
   }
 
   async recognizeFurnitureAttributeWithOptions(request: RecognizeFurnitureAttributeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFurnitureAttributeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeFurnitureAttributeResponse>(await this.doRPCRequest("RecognizeFurnitureAttribute", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeFurnitureAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeFurnitureAttribute",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeFurnitureAttributeResponse>(await this.callApi(params, req, runtime), new RecognizeFurnitureAttributeResponse({}));
   }
 
   async recognizeFurnitureAttribute(request: RecognizeFurnitureAttributeRequest): Promise<RecognizeFurnitureAttributeResponse> {
@@ -484,11 +539,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -512,39 +579,70 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let recognizeFurnitureAttributeReq = new RecognizeFurnitureAttributeRequest({ });
     OpenApiUtil.convert(request, recognizeFurnitureAttributeReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    recognizeFurnitureAttributeReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeFurnitureAttributeReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
     let recognizeFurnitureAttributeResp = await this.recognizeFurnitureAttributeWithOptions(recognizeFurnitureAttributeReq, runtime);
     return recognizeFurnitureAttributeResp;
   }
 
   async recognizeFurnitureSpuWithOptions(request: RecognizeFurnitureSpuRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFurnitureSpuResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.XLength)) {
+      body["XLength"] = request.XLength;
+    }
+
+    if (!Util.isUnset(request.YLength)) {
+      body["YLength"] = request.YLength;
+    }
+
+    if (!Util.isUnset(request.ZLength)) {
+      body["ZLength"] = request.ZLength;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeFurnitureSpuResponse>(await this.doRPCRequest("RecognizeFurnitureSpu", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeFurnitureSpuResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeFurnitureSpu",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeFurnitureSpuResponse>(await this.callApi(params, req, runtime), new RecognizeFurnitureSpuResponse({}));
   }
 
   async recognizeFurnitureSpu(request: RecognizeFurnitureSpuRequest): Promise<RecognizeFurnitureSpuResponse> {
@@ -556,11 +654,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -584,29 +694,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let recognizeFurnitureSpuReq = new RecognizeFurnitureSpuRequest({ });
     OpenApiUtil.convert(request, recognizeFurnitureSpuReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    recognizeFurnitureSpuReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeFurnitureSpuReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
     let recognizeFurnitureSpuResp = await this.recognizeFurnitureSpuWithOptions(recognizeFurnitureSpuReq, runtime);
     return recognizeFurnitureSpuResp;
   }
