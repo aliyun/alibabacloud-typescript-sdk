@@ -9552,6 +9552,117 @@ export class EnableInstanceAccessControlResponse extends $tea.Model {
   }
 }
 
+export class ImportOASRequest extends $tea.Model {
+  authType?: string;
+  backendName?: string;
+  data?: string;
+  groupId?: string;
+  ignoreWarning?: boolean;
+  OASVersion?: string;
+  overwrite?: boolean;
+  requestMode?: string;
+  securityToken?: string;
+  skipDryRun?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      backendName: 'BackendName',
+      data: 'Data',
+      groupId: 'GroupId',
+      ignoreWarning: 'IgnoreWarning',
+      OASVersion: 'OASVersion',
+      overwrite: 'Overwrite',
+      requestMode: 'RequestMode',
+      securityToken: 'SecurityToken',
+      skipDryRun: 'SkipDryRun',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      backendName: 'string',
+      data: 'string',
+      groupId: 'string',
+      ignoreWarning: 'boolean',
+      OASVersion: 'string',
+      overwrite: 'boolean',
+      requestMode: 'string',
+      securityToken: 'string',
+      skipDryRun: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBody extends $tea.Model {
+  errorMessages?: ImportOASResponseBodyErrorMessages;
+  failedApis?: ImportOASResponseBodyFailedApis;
+  failedModels?: ImportOASResponseBodyFailedModels;
+  operationId?: string;
+  requestId?: string;
+  successApis?: ImportOASResponseBodySuccessApis;
+  successModels?: ImportOASResponseBodySuccessModels;
+  warningMessages?: ImportOASResponseBodyWarningMessages;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessages: 'ErrorMessages',
+      failedApis: 'FailedApis',
+      failedModels: 'FailedModels',
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+      successApis: 'SuccessApis',
+      successModels: 'SuccessModels',
+      warningMessages: 'WarningMessages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessages: ImportOASResponseBodyErrorMessages,
+      failedApis: ImportOASResponseBodyFailedApis,
+      failedModels: ImportOASResponseBodyFailedModels,
+      operationId: 'string',
+      requestId: 'string',
+      successApis: ImportOASResponseBodySuccessApis,
+      successModels: ImportOASResponseBodySuccessModels,
+      warningMessages: ImportOASResponseBodyWarningMessages,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportOASResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportOASResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportSwaggerRequest extends $tea.Model {
   data?: string;
   dataFormat?: string;
@@ -20180,6 +20291,226 @@ export class DryRunSwaggerResponseBodySuccess extends $tea.Model {
   }
 }
 
+export class ImportOASResponseBodyErrorMessages extends $tea.Model {
+  errorMessage?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodyFailedApisFailedApi extends $tea.Model {
+  errorMsg?: string;
+  httpMethod?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'ErrorMsg',
+      httpMethod: 'HttpMethod',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      httpMethod: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodyFailedApis extends $tea.Model {
+  failedApi?: ImportOASResponseBodyFailedApisFailedApi[];
+  static names(): { [key: string]: string } {
+    return {
+      failedApi: 'FailedApi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedApi: { 'type': 'array', 'itemType': ImportOASResponseBodyFailedApisFailedApi },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodyFailedModelsFailedModel extends $tea.Model {
+  errorMsg?: string;
+  groupId?: string;
+  modelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'ErrorMsg',
+      groupId: 'GroupId',
+      modelName: 'ModelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      groupId: 'string',
+      modelName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodyFailedModels extends $tea.Model {
+  failedModel?: ImportOASResponseBodyFailedModelsFailedModel[];
+  static names(): { [key: string]: string } {
+    return {
+      failedModel: 'FailedModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedModel: { 'type': 'array', 'itemType': ImportOASResponseBodyFailedModelsFailedModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodySuccessApisSuccessApi extends $tea.Model {
+  apiId?: string;
+  apiOperation?: string;
+  httpMethod?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiOperation: 'ApiOperation',
+      httpMethod: 'HttpMethod',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiOperation: 'string',
+      httpMethod: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodySuccessApis extends $tea.Model {
+  successApi?: ImportOASResponseBodySuccessApisSuccessApi[];
+  static names(): { [key: string]: string } {
+    return {
+      successApi: 'SuccessApi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      successApi: { 'type': 'array', 'itemType': ImportOASResponseBodySuccessApisSuccessApi },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodySuccessModelsSuccessModel extends $tea.Model {
+  groupId?: string;
+  modelName?: string;
+  modelOperation?: string;
+  modelUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      modelName: 'ModelName',
+      modelOperation: 'ModelOperation',
+      modelUid: 'ModelUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      modelName: 'string',
+      modelOperation: 'string',
+      modelUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodySuccessModels extends $tea.Model {
+  successModel?: ImportOASResponseBodySuccessModelsSuccessModel[];
+  static names(): { [key: string]: string } {
+    return {
+      successModel: 'SuccessModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      successModel: { 'type': 'array', 'itemType': ImportOASResponseBodySuccessModelsSuccessModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportOASResponseBodyWarningMessages extends $tea.Model {
+  warningMessage?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      warningMessage: 'WarningMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      warningMessage: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportSwaggerResponseBodyFailedApiImportSwaggerFailed extends $tea.Model {
   errorMsg?: string;
   httpMethod?: string;
@@ -25668,6 +25999,73 @@ export default class Client extends OpenApi {
   async enableInstanceAccessControl(request: EnableInstanceAccessControlRequest): Promise<EnableInstanceAccessControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableInstanceAccessControlWithOptions(request, runtime);
+  }
+
+  async importOASWithOptions(request: ImportOASRequest, runtime: $Util.RuntimeOptions): Promise<ImportOASResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.backendName)) {
+      query["BackendName"] = request.backendName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ignoreWarning)) {
+      query["IgnoreWarning"] = request.ignoreWarning;
+    }
+
+    if (!Util.isUnset(request.OASVersion)) {
+      query["OASVersion"] = request.OASVersion;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.requestMode)) {
+      query["RequestMode"] = request.requestMode;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.skipDryRun)) {
+      query["SkipDryRun"] = request.skipDryRun;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportOAS",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportOASResponse>(await this.callApi(params, req, runtime), new ImportOASResponse({}));
+  }
+
+  async importOAS(request: ImportOASRequest): Promise<ImportOASResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importOASWithOptions(request, runtime);
   }
 
   async importSwaggerWithOptions(tmpReq: ImportSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<ImportSwaggerResponse> {
