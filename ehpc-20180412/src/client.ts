@@ -1254,8 +1254,10 @@ export class CreateHybridClusterRequest extends $tea.Model {
   onPremiseVolumeMountPoint?: string;
   onPremiseVolumeProtocol?: string;
   onPremiseVolumeRemotePath?: string;
+  openldapPar?: CreateHybridClusterRequestOpenldapPar;
   osTag?: string;
   password?: string;
+  plugin?: string;
   postInstallScript?: CreateHybridClusterRequestPostInstallScript[];
   remoteDirectory?: string;
   resourceGroupId?: string;
@@ -1268,6 +1270,7 @@ export class CreateHybridClusterRequest extends $tea.Model {
   volumeProtocol?: string;
   volumeType?: string;
   vpcId?: string;
+  winAdPar?: CreateHybridClusterRequestWinAdPar;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1292,8 +1295,10 @@ export class CreateHybridClusterRequest extends $tea.Model {
       onPremiseVolumeMountPoint: 'OnPremiseVolumeMountPoint',
       onPremiseVolumeProtocol: 'OnPremiseVolumeProtocol',
       onPremiseVolumeRemotePath: 'OnPremiseVolumeRemotePath',
+      openldapPar: 'OpenldapPar',
       osTag: 'OsTag',
       password: 'Password',
+      plugin: 'Plugin',
       postInstallScript: 'PostInstallScript',
       remoteDirectory: 'RemoteDirectory',
       resourceGroupId: 'ResourceGroupId',
@@ -1306,6 +1311,7 @@ export class CreateHybridClusterRequest extends $tea.Model {
       volumeProtocol: 'VolumeProtocol',
       volumeType: 'VolumeType',
       vpcId: 'VpcId',
+      winAdPar: 'WinAdPar',
       zoneId: 'ZoneId',
     };
   }
@@ -1333,8 +1339,10 @@ export class CreateHybridClusterRequest extends $tea.Model {
       onPremiseVolumeMountPoint: 'string',
       onPremiseVolumeProtocol: 'string',
       onPremiseVolumeRemotePath: 'string',
+      openldapPar: CreateHybridClusterRequestOpenldapPar,
       osTag: 'string',
       password: 'string',
+      plugin: 'string',
       postInstallScript: { 'type': 'array', 'itemType': CreateHybridClusterRequestPostInstallScript },
       remoteDirectory: 'string',
       resourceGroupId: 'string',
@@ -1347,6 +1355,7 @@ export class CreateHybridClusterRequest extends $tea.Model {
       volumeProtocol: 'string',
       volumeType: 'string',
       vpcId: 'string',
+      winAdPar: CreateHybridClusterRequestWinAdPar,
       zoneId: 'string',
     };
   }
@@ -11024,6 +11033,28 @@ export class CreateHybridClusterRequestNodes extends $tea.Model {
   }
 }
 
+export class CreateHybridClusterRequestOpenldapPar extends $tea.Model {
+  baseDn?: string;
+  ldapServerIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseDn: 'BaseDn',
+      ldapServerIp: 'LdapServerIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseDn: 'string',
+      ldapServerIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHybridClusterRequestPostInstallScript extends $tea.Model {
   args?: string;
   url?: string;
@@ -11038,6 +11069,34 @@ export class CreateHybridClusterRequestPostInstallScript extends $tea.Model {
     return {
       args: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHybridClusterRequestWinAdPar extends $tea.Model {
+  adDc?: string;
+  adIp?: string;
+  adUser?: string;
+  adUserPasswd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adDc: 'AdDc',
+      adIp: 'AdIp',
+      adUser: 'AdUser',
+      adUserPasswd: 'AdUserPasswd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adDc: 'string',
+      adIp: 'string',
+      adUser: 'string',
+      adUserPasswd: 'string',
     };
   }
 
