@@ -11303,6 +11303,75 @@ export class DescribeDcdnsecServiceResponse extends $tea.Model {
   }
 }
 
+export class DescribeRDDomainConfigRequest extends $tea.Model {
+  domainName?: string;
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      functionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRDDomainConfigResponseBody extends $tea.Model {
+  domainConfigs?: DescribeRDDomainConfigResponseBodyDomainConfigs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainConfigs: 'DomainConfigs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainConfigs: { 'type': 'array', 'itemType': DescribeRDDomainConfigResponseBodyDomainConfigs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRDDomainConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRDDomainConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRDDomainConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRoutineRequest extends $tea.Model {
   name?: string;
   ownerId?: number;
@@ -19676,6 +19745,59 @@ export class DescribeDcdnsecServiceResponseBodyOperationLocks extends $tea.Model
   }
 }
 
+export class DescribeRDDomainConfigResponseBodyDomainConfigsFunctionArgs extends $tea.Model {
+  argName?: string;
+  argValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argName: 'ArgName',
+      argValue: 'ArgValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argName: 'string',
+      argValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRDDomainConfigResponseBodyDomainConfigs extends $tea.Model {
+  configId?: number;
+  functionArgs?: DescribeRDDomainConfigResponseBodyDomainConfigsFunctionArgs[];
+  functionName?: string;
+  parentId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      functionArgs: 'FunctionArgs',
+      functionName: 'FunctionName',
+      parentId: 'ParentId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      functionArgs: { 'type': 'array', 'itemType': DescribeRDDomainConfigResponseBodyDomainConfigsFunctionArgs },
+      functionName: 'string',
+      parentId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectResponseBodyContentProjects extends $tea.Model {
   businessType?: string;
   dataCenter?: string;
@@ -25652,6 +25774,39 @@ export default class Client extends OpenApi {
   async describeDcdnsecService(request: DescribeDcdnsecServiceRequest): Promise<DescribeDcdnsecServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnsecServiceWithOptions(request, runtime);
+  }
+
+  async describeRDDomainConfigWithOptions(request: DescribeRDDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRDDomainConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRDDomainConfig",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRDDomainConfigResponse>(await this.callApi(params, req, runtime), new DescribeRDDomainConfigResponse({}));
+  }
+
+  async describeRDDomainConfig(request: DescribeRDDomainConfigRequest): Promise<DescribeRDDomainConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRDDomainConfigWithOptions(request, runtime);
   }
 
   async describeRoutineWithOptions(request: DescribeRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineResponse> {
