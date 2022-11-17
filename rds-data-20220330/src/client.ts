@@ -123,6 +123,25 @@ export class CommitTransactionResult extends $tea.Model {
   }
 }
 
+export class DeleteResult extends $tea.Model {
+  numberOfRecordsUpdated?: number;
+  static names(): { [key: string]: string } {
+    return {
+      numberOfRecordsUpdated: 'NumberOfRecordsUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      numberOfRecordsUpdated: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecuteStatementResult extends $tea.Model {
   columnMetadata?: ColumnMetadata[];
   formattedRecords?: string;
@@ -188,6 +207,50 @@ export class Field extends $tea.Model {
   }
 }
 
+export class InsertListResult extends $tea.Model {
+  autoIncrementKeys?: number[];
+  numberOfRecordsUpdated?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoIncrementKeys: 'AutoIncrementKeys',
+      numberOfRecordsUpdated: 'NumberOfRecordsUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoIncrementKeys: { 'type': 'array', 'itemType': 'number' },
+      numberOfRecordsUpdated: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertResult extends $tea.Model {
+  autoIncrementKey?: number;
+  numberOfRecordsUpdated?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoIncrementKey: 'AutoIncrementKey',
+      numberOfRecordsUpdated: 'NumberOfRecordsUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoIncrementKey: 'number',
+      numberOfRecordsUpdated: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResultSetOptions extends $tea.Model {
   decimalReturnType?: string;
   longReturnType?: string;
@@ -229,6 +292,62 @@ export class RollbackTransactionResult extends $tea.Model {
   }
 }
 
+export class SelectResult extends $tea.Model {
+  records?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Selector extends $tea.Model {
+  eq?: string;
+  ge?: string;
+  gt?: string;
+  le?: string;
+  like?: string;
+  lt?: string;
+  ne?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eq: 'Eq',
+      ge: 'Ge',
+      gt: 'Gt',
+      le: 'Le',
+      like: 'Like',
+      lt: 'Lt',
+      ne: 'Ne',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eq: 'string',
+      ge: 'string',
+      gt: 'string',
+      le: 'string',
+      like: 'string',
+      lt: 'string',
+      ne: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SqlParameter extends $tea.Model {
   name?: string;
   typeHint?: string;
@@ -246,6 +365,25 @@ export class SqlParameter extends $tea.Model {
       name: 'string',
       typeHint: 'string',
       value: Field,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResult extends $tea.Model {
+  numberOfRecordsUpdated?: number;
+  static names(): { [key: string]: string } {
+    return {
+      numberOfRecordsUpdated: 'NumberOfRecordsUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      numberOfRecordsUpdated: 'number',
     };
   }
 
@@ -540,6 +678,130 @@ export class CommitTransactionResponse extends $tea.Model {
   }
 }
 
+export class DeleteRequest extends $tea.Model {
+  database?: string;
+  filter?: { [key: string]: Selector };
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filter: 'Filter',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': Selector },
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShrinkRequest extends $tea.Model {
+  database?: string;
+  filterShrink?: string;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filterShrink: 'Filter',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filterShrink: 'string',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteResult;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecuteStatementRequest extends $tea.Model {
   continueAfterTimeout?: boolean;
   database?: string;
@@ -688,6 +950,254 @@ export class ExecuteStatementResponse extends $tea.Model {
   }
 }
 
+export class InsertRequest extends $tea.Model {
+  database?: string;
+  record?: { [key: string]: any };
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      record: 'Record',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      record: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertShrinkRequest extends $tea.Model {
+  database?: string;
+  recordShrink?: string;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      recordShrink: 'Record',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      recordShrink: 'string',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertResponseBody extends $tea.Model {
+  code?: string;
+  data?: InsertResult;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InsertResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InsertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertListRequest extends $tea.Model {
+  database?: string;
+  records?: { [key: string]: any }[];
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      records: 'Records',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      records: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertListShrinkRequest extends $tea.Model {
+  database?: string;
+  recordsShrink?: string;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      recordsShrink: 'Records',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      recordsShrink: 'string',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertListResponseBody extends $tea.Model {
+  code?: string;
+  data?: InsertListResult;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InsertListResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InsertListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InsertListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RollbackTransactionRequest extends $tea.Model {
   resourceArn?: string;
   secretArn?: string;
@@ -761,6 +1271,272 @@ export class RollbackTransactionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RollbackTransactionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectRequest extends $tea.Model {
+  database?: string;
+  filter?: { [key: string]: Selector };
+  pageNumber?: number;
+  pageSize?: number;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filter: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': Selector },
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectShrinkRequest extends $tea.Model {
+  database?: string;
+  filterShrink?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filterShrink: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filterShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectResponseBody extends $tea.Model {
+  code?: string;
+  data?: SelectResult;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SelectResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SelectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SelectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SelectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRequest extends $tea.Model {
+  database?: string;
+  filter?: { [key: string]: Selector };
+  record?: { [key: string]: any };
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filter: 'Filter',
+      record: 'Record',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': Selector },
+      record: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateShrinkRequest extends $tea.Model {
+  database?: string;
+  filterShrink?: string;
+  recordShrink?: string;
+  resourceArn?: string;
+  secretArn?: string;
+  table?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      filterShrink: 'Filter',
+      recordShrink: 'Record',
+      resourceArn: 'ResourceArn',
+      secretArn: 'SecretArn',
+      table: 'Table',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      filterShrink: 'string',
+      recordShrink: 'string',
+      resourceArn: 'string',
+      secretArn: 'string',
+      table: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateResult;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateResult,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResponseBody,
     };
   }
 
@@ -943,6 +1719,61 @@ export default class Client extends OpenApi {
     return await this.commitTransactionWithOptions(request, runtime);
   }
 
+  async deleteWithOptions(tmpReq: DeleteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.database)) {
+      body["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.resourceArn)) {
+      body["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!Util.isUnset(request.secretArn)) {
+      body["SecretArn"] = request.secretArn;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      body["Table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      body["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Delete",
+      version: "2022-03-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResponse>(await this.callApi(params, req, runtime), new DeleteResponse({}));
+  }
+
+  async delete(request: DeleteRequest): Promise<DeleteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWithOptions(request, runtime);
+  }
+
   async executeStatementWithOptions(tmpReq: ExecuteStatementRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteStatementResponse> {
     Util.validateModel(tmpReq);
     let request = new ExecuteStatementShrinkRequest({ });
@@ -1018,6 +1849,116 @@ export default class Client extends OpenApi {
     return await this.executeStatementWithOptions(request, runtime);
   }
 
+  async insertWithOptions(tmpReq: InsertRequest, runtime: $Util.RuntimeOptions): Promise<InsertResponse> {
+    Util.validateModel(tmpReq);
+    let request = new InsertShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.record)) {
+      request.recordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.record, "Record", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.database)) {
+      body["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.recordShrink)) {
+      body["Record"] = request.recordShrink;
+    }
+
+    if (!Util.isUnset(request.resourceArn)) {
+      body["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!Util.isUnset(request.secretArn)) {
+      body["SecretArn"] = request.secretArn;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      body["Table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      body["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Insert",
+      version: "2022-03-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertResponse>(await this.callApi(params, req, runtime), new InsertResponse({}));
+  }
+
+  async insert(request: InsertRequest): Promise<InsertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertWithOptions(request, runtime);
+  }
+
+  async insertListWithOptions(tmpReq: InsertListRequest, runtime: $Util.RuntimeOptions): Promise<InsertListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new InsertListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.records)) {
+      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.records, "Records", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.database)) {
+      body["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.recordsShrink)) {
+      body["Records"] = request.recordsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceArn)) {
+      body["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!Util.isUnset(request.secretArn)) {
+      body["SecretArn"] = request.secretArn;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      body["Table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      body["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InsertList",
+      version: "2022-03-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertListResponse>(await this.callApi(params, req, runtime), new InsertListResponse({}));
+  }
+
+  async insertList(request: InsertListRequest): Promise<InsertListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.insertListWithOptions(request, runtime);
+  }
+
   async rollbackTransactionWithOptions(request: RollbackTransactionRequest, runtime: $Util.RuntimeOptions): Promise<RollbackTransactionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1053,6 +1994,132 @@ export default class Client extends OpenApi {
   async rollbackTransaction(request: RollbackTransactionRequest): Promise<RollbackTransactionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackTransactionWithOptions(request, runtime);
+  }
+
+  async selectWithOptions(tmpReq: SelectRequest, runtime: $Util.RuntimeOptions): Promise<SelectResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SelectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.database)) {
+      body["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceArn)) {
+      body["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!Util.isUnset(request.secretArn)) {
+      body["SecretArn"] = request.secretArn;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      body["Table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      body["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Select",
+      version: "2022-03-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SelectResponse>(await this.callApi(params, req, runtime), new SelectResponse({}));
+  }
+
+  async select(request: SelectRequest): Promise<SelectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.selectWithOptions(request, runtime);
+  }
+
+  async updateWithOptions(tmpReq: UpdateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.record)) {
+      request.recordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.record, "Record", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.database)) {
+      body["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.recordShrink)) {
+      body["Record"] = request.recordShrink;
+    }
+
+    if (!Util.isUnset(request.resourceArn)) {
+      body["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!Util.isUnset(request.secretArn)) {
+      body["SecretArn"] = request.secretArn;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      body["Table"] = request.table;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      body["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Update",
+      version: "2022-03-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResponse>(await this.callApi(params, req, runtime), new UpdateResponse({}));
+  }
+
+  async update(request: UpdateRequest): Promise<UpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateWithOptions(request, runtime);
   }
 
 }
