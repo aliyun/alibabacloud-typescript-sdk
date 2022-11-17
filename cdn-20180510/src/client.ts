@@ -11135,75 +11135,6 @@ export class ModifyRealtimeLogDeliveryResponse extends $tea.Model {
   }
 }
 
-export class OpenCdnServiceRequest extends $tea.Model {
-  internetChargeType?: string;
-  ownerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      internetChargeType: 'InternetChargeType',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      internetChargeType: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCdnServiceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCdnServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenCdnServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenCdnServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PublishStagingConfigToProductionRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -23457,43 +23388,6 @@ export default class Client extends OpenApi {
   async modifyRealtimeLogDelivery(request: ModifyRealtimeLogDeliveryRequest): Promise<ModifyRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRealtimeLogDeliveryWithOptions(request, runtime);
-  }
-
-  async openCdnServiceWithOptions(request: OpenCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCdnServiceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.internetChargeType)) {
-      query["InternetChargeType"] = request.internetChargeType;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenCdnService",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenCdnServiceResponse>(await this.callApi(params, req, runtime), new OpenCdnServiceResponse({}));
-  }
-
-  async openCdnService(request: OpenCdnServiceRequest): Promise<OpenCdnServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openCdnServiceWithOptions(request, runtime);
   }
 
   async publishStagingConfigToProductionWithOptions(request: PublishStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishStagingConfigToProductionResponse> {
