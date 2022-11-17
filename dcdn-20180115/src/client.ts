@@ -2564,78 +2564,6 @@ export class DeleteWasmResponse extends $tea.Model {
   }
 }
 
-export class DeleteWasmCodeRevisionRequest extends $tea.Model {
-  name?: string;
-  ownerId?: number;
-  selectCodeRevision?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      ownerId: 'OwnerId',
-      selectCodeRevision: 'SelectCodeRevision',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      ownerId: 'number',
-      selectCodeRevision: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWasmCodeRevisionResponseBody extends $tea.Model {
-  content?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWasmCodeRevisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWasmCodeRevisionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteWasmCodeRevisionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDcdnAclFieldsRequest extends $tea.Model {
   lang?: string;
   ownerId?: number;
@@ -11794,18 +11722,15 @@ export class DescribeUserDcdnIpaStatusResponse extends $tea.Model {
 
 export class DescribeUserDcdnStatusRequest extends $tea.Model {
   ownerId?: number;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      securityToken: 'string',
     };
   }
 
@@ -12026,141 +11951,6 @@ export class DescribeUserLogserviceStatusResponse extends $tea.Model {
   }
 }
 
-export class DescribeWasmRequest extends $tea.Model {
-  name?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWasmResponseBody extends $tea.Model {
-  content?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWasmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWasmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWasmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWasmUserInfoRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWasmUserInfoResponseBody extends $tea.Model {
-  content?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWasmUserInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWasmUserInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWasmUserInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EditRoutineConfRequest extends $tea.Model {
   description?: string;
   envConf?: { [key: string]: any };
@@ -12256,78 +12046,6 @@ export class EditRoutineConfResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EditRoutineConfResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditWasmConfRequest extends $tea.Model {
-  description?: string;
-  name?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      name: 'Name',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      name: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditWasmConfResponseBody extends $tea.Model {
-  content?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditWasmConfResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditWasmConfResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EditWasmConfResponseBody,
     };
   }
 
@@ -21618,45 +21336,6 @@ export default class Client extends OpenApi {
     return await this.deleteWasmWithOptions(request, runtime);
   }
 
-  async deleteWasmCodeRevisionWithOptions(request: DeleteWasmCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWasmCodeRevisionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.selectCodeRevision)) {
-      body["SelectCodeRevision"] = request.selectCodeRevision;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteWasmCodeRevision",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteWasmCodeRevisionResponse>(await this.callApi(params, req, runtime), new DeleteWasmCodeRevisionResponse({}));
-  }
-
-  async deleteWasmCodeRevision(request: DeleteWasmCodeRevisionRequest): Promise<DeleteWasmCodeRevisionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWasmCodeRevisionWithOptions(request, runtime);
-  }
-
   async describeDcdnAclFieldsWithOptions(request: DescribeDcdnAclFieldsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnAclFieldsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26176,10 +25855,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26268,70 +25943,6 @@ export default class Client extends OpenApi {
     return await this.describeUserLogserviceStatusWithOptions(request, runtime);
   }
 
-  async describeWasmWithOptions(request: DescribeWasmRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWasmResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeWasm",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeWasmResponse>(await this.callApi(params, req, runtime), new DescribeWasmResponse({}));
-  }
-
-  async describeWasm(request: DescribeWasmRequest): Promise<DescribeWasmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWasmWithOptions(request, runtime);
-  }
-
-  async describeWasmUserInfoWithOptions(request: DescribeWasmUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWasmUserInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeWasmUserInfo",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeWasmUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeWasmUserInfoResponse({}));
-  }
-
-  async describeWasmUserInfo(request: DescribeWasmUserInfoRequest): Promise<DescribeWasmUserInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWasmUserInfoWithOptions(request, runtime);
-  }
-
   async editRoutineConfWithOptions(tmpReq: EditRoutineConfRequest, runtime: $Util.RuntimeOptions): Promise<EditRoutineConfResponse> {
     Util.validateModel(tmpReq);
     let request = new EditRoutineConfShrinkRequest({ });
@@ -26379,45 +25990,6 @@ export default class Client extends OpenApi {
   async editRoutineConf(request: EditRoutineConfRequest): Promise<EditRoutineConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editRoutineConfWithOptions(request, runtime);
-  }
-
-  async editWasmConfWithOptions(request: EditWasmConfRequest, runtime: $Util.RuntimeOptions): Promise<EditWasmConfResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "EditWasmConf",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<EditWasmConfResponse>(await this.callApi(params, req, runtime), new EditWasmConfResponse({}));
-  }
-
-  async editWasmConf(request: EditWasmConfRequest): Promise<EditWasmConfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.editWasmConfWithOptions(request, runtime);
   }
 
   async listDcdnRealTimeDeliveryProjectWithOptions(request: ListDcdnRealTimeDeliveryProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnRealTimeDeliveryProjectResponse> {
