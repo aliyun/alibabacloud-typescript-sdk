@@ -1539,8 +1539,6 @@ export class CreateFileRequest extends $tea.Model {
   parentFileId?: string;
   partInfoList?: CreateFileRequestPartInfoList[];
   preHash?: string;
-  proofCode?: string;
-  proofVersion?: string;
   shareId?: string;
   size?: number;
   type?: string;
@@ -1564,8 +1562,6 @@ export class CreateFileRequest extends $tea.Model {
       parentFileId: 'parent_file_id',
       partInfoList: 'part_info_list',
       preHash: 'pre_hash',
-      proofCode: 'proof_code',
-      proofVersion: 'proof_version',
       shareId: 'share_id',
       size: 'size',
       type: 'type',
@@ -1592,8 +1588,6 @@ export class CreateFileRequest extends $tea.Model {
       parentFileId: 'string',
       partInfoList: { 'type': 'array', 'itemType': CreateFileRequestPartInfoList },
       preHash: 'string',
-      proofCode: 'string',
-      proofVersion: 'string',
       shareId: 'string',
       size: 'number',
       type: 'string',
@@ -1742,7 +1736,7 @@ export class CreateShareLinkRequest extends $tea.Model {
   downloadLimit?: number;
   driveId?: string;
   expiration?: string;
-  fileIdList?: string;
+  fileIdList?: string[];
   previewLimit?: number;
   saveLimit?: number;
   shareName?: string;
@@ -1775,7 +1769,7 @@ export class CreateShareLinkRequest extends $tea.Model {
       downloadLimit: 'number',
       driveId: 'string',
       expiration: 'string',
-      fileIdList: 'string',
+      fileIdList: { 'type': 'array', 'itemType': 'string' },
       previewLimit: 'number',
       saveLimit: 'number',
       shareName: 'string',
@@ -3472,7 +3466,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
   category?: string;
   driveId?: string;
   fileId?: string;
-  getWithoutUrl?: string;
+  getWithoutUrl?: boolean;
   shareId?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
@@ -3491,7 +3485,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
       category: 'string',
       driveId: 'string',
       fileId: 'string',
-      getWithoutUrl: 'string',
+      getWithoutUrl: 'boolean',
       shareId: 'string',
       templateId: 'string',
     };
@@ -6187,99 +6181,6 @@ export class UpdateUserResponse extends $tea.Model {
   }
 }
 
-export class WalkFileRequest extends $tea.Model {
-  category?: string;
-  driveId?: string;
-  fields?: string;
-  limit?: number;
-  marker?: string;
-  orderBy?: string;
-  orderDirection?: string;
-  parentFileId?: string;
-  status?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'category',
-      driveId: 'drive_id',
-      fields: 'fields',
-      limit: 'limit',
-      marker: 'marker',
-      orderBy: 'order_by',
-      orderDirection: 'order_direction',
-      parentFileId: 'parent_file_id',
-      status: 'status',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      driveId: 'string',
-      fields: 'string',
-      limit: 'number',
-      marker: 'string',
-      orderBy: 'string',
-      orderDirection: 'string',
-      parentFileId: 'string',
-      status: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WalkFileResponseBody extends $tea.Model {
-  items?: File[];
-  nextMarker?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'items',
-      nextMarker: 'next_marker',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': File },
-      nextMarker: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WalkFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: WalkFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: WalkFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class FaceGroupGroupCoverFaceBoundary extends $tea.Model {
   height?: number;
   left?: number;
@@ -7064,14 +6965,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.preHash)) {
       body["pre_hash"] = request.preHash;
-    }
-
-    if (!Util.isUnset(request.proofCode)) {
-      body["proof_code"] = request.proofCode;
-    }
-
-    if (!Util.isUnset(request.proofVersion)) {
-      body["proof_version"] = request.proofVersion;
     }
 
     if (!Util.isUnset(request.shareId)) {
@@ -10023,73 +9916,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateUserResponse>(await this.execute(params, req, runtime), new UpdateUserResponse({}));
-  }
-
-  async walkFile(request: WalkFileRequest): Promise<WalkFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.walkFileWithOptions(request, headers, runtime);
-  }
-
-  async walkFileWithOptions(request: WalkFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<WalkFileResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.category)) {
-      body["category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.driveId)) {
-      body["drive_id"] = request.driveId;
-    }
-
-    if (!Util.isUnset(request.fields)) {
-      body["fields"] = request.fields;
-    }
-
-    if (!Util.isUnset(request.limit)) {
-      body["limit"] = request.limit;
-    }
-
-    if (!Util.isUnset(request.marker)) {
-      body["marker"] = request.marker;
-    }
-
-    if (!Util.isUnset(request.orderBy)) {
-      body["order_by"] = request.orderBy;
-    }
-
-    if (!Util.isUnset(request.orderDirection)) {
-      body["order_direction"] = request.orderDirection;
-    }
-
-    if (!Util.isUnset(request.parentFileId)) {
-      body["parent_file_id"] = request.parentFileId;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      body["type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "WalkFile",
-      version: "2022-03-01",
-      protocol: "HTTPS",
-      pathname: `/v2/file/walk`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<WalkFileResponse>(await this.execute(params, req, runtime), new WalkFileResponse({}));
   }
 
 }
