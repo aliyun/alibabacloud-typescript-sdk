@@ -8195,16 +8195,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoPreviewPlayInfoResponse>(await this.execute(params, req, runtime), new GetVideoPreviewPlayInfoResponse({}));
   }
 
-  async getVideoPreviewPlayMeta(domainId: string, request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
+  async getVideoPreviewPlayMeta(request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getVideoPreviewPlayMetaWithOptions(domainId, request, headers, runtime);
+    return await this.getVideoPreviewPlayMetaWithOptions(request, headers, runtime);
   }
 
-  async getVideoPreviewPlayMetaWithOptions(domainId: string, request: GetVideoPreviewPlayMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayMetaResponse> {
+  async getVideoPreviewPlayMetaWithOptions(request: GetVideoPreviewPlayMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayMetaResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["domain_id"] = domainId;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       body["category"] = request.category;
@@ -8223,7 +8221,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
