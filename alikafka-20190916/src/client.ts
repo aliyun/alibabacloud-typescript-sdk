@@ -265,12 +265,14 @@ export class CreateConsumerGroupRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
   remark?: string;
+  tag?: CreateConsumerGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
       consumerId: 'ConsumerId',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       remark: 'Remark',
+      tag: 'Tag',
     };
   }
 
@@ -280,6 +282,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       remark: 'string',
+      tag: { 'type': 'array', 'itemType': CreateConsumerGroupRequestTag },
     };
   }
 
@@ -352,6 +355,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   specType?: string;
+  tag?: CreatePostPayOrderRequestTag[];
   topicQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -365,6 +369,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       specType: 'SpecType',
+      tag: 'Tag',
       topicQuota: 'TopicQuota',
     };
   }
@@ -381,6 +386,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePostPayOrderRequestTag },
       topicQuota: 'number',
     };
   }
@@ -457,6 +463,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   specType?: string;
+  tag?: CreatePrePayOrderRequestTag[];
   topicQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -470,6 +477,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       specType: 'SpecType',
+      tag: 'Tag',
       topicQuota: 'TopicQuota',
     };
   }
@@ -486,6 +494,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePrePayOrderRequestTag },
       topicQuota: 'number',
     };
   }
@@ -645,6 +654,7 @@ export class CreateTopicRequest extends $tea.Model {
   regionId?: string;
   remark?: string;
   replicationFactor?: number;
+  tag?: CreateTopicRequestTag[];
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -657,6 +667,7 @@ export class CreateTopicRequest extends $tea.Model {
       regionId: 'RegionId',
       remark: 'Remark',
       replicationFactor: 'ReplicationFactor',
+      tag: 'Tag',
       topic: 'Topic',
     };
   }
@@ -672,6 +683,7 @@ export class CreateTopicRequest extends $tea.Model {
       regionId: 'string',
       remark: 'string',
       replicationFactor: 'number',
+      tag: { 'type': 'array', 'itemType': CreateTopicRequestTag },
       topic: 'string',
     };
   }
@@ -691,6 +703,7 @@ export class CreateTopicShrinkRequest extends $tea.Model {
   regionId?: string;
   remark?: string;
   replicationFactor?: number;
+  tag?: CreateTopicShrinkRequestTag[];
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -703,6 +716,7 @@ export class CreateTopicShrinkRequest extends $tea.Model {
       regionId: 'RegionId',
       remark: 'Remark',
       replicationFactor: 'ReplicationFactor',
+      tag: 'Tag',
       topic: 'Topic',
     };
   }
@@ -718,6 +732,7 @@ export class CreateTopicShrinkRequest extends $tea.Model {
       regionId: 'string',
       remark: 'string',
       replicationFactor: 'number',
+      tag: { 'type': 'array', 'itemType': CreateTopicShrinkRequestTag },
       topic: 'string',
     };
   }
@@ -1272,84 +1287,6 @@ export class DescribeAclsResponse extends $tea.Model {
   }
 }
 
-export class DescribeNodeStatusRequest extends $tea.Model {
-  instanceId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNodeStatusResponseBody extends $tea.Model {
-  code?: number;
-  message?: string;
-  requestId?: string;
-  statusList?: DescribeNodeStatusResponseBodyStatusList;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      statusList: 'StatusList',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-      statusList: DescribeNodeStatusResponseBodyStatusList,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNodeStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNodeStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeNodeStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSaslUsersRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -1822,6 +1759,84 @@ export class GetInstanceListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTipRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTipResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  quotaData?: GetQuotaTipResponseBodyQuotaData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      quotaData: 'QuotaData',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      quotaData: GetQuotaTipResponseBodyQuotaData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTipResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetQuotaTipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQuotaTipResponseBody,
     };
   }
 
@@ -2685,6 +2700,7 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateAllowedIpRequest extends $tea.Model {
   allowedListIp?: string;
   allowedListType?: string;
+  description?: string;
   instanceId?: string;
   portRange?: string;
   regionId?: string;
@@ -2693,6 +2709,7 @@ export class UpdateAllowedIpRequest extends $tea.Model {
     return {
       allowedListIp: 'AllowedListIp',
       allowedListType: 'AllowedListType',
+      description: 'Description',
       instanceId: 'InstanceId',
       portRange: 'PortRange',
       regionId: 'RegionId',
@@ -2704,6 +2721,7 @@ export class UpdateAllowedIpRequest extends $tea.Model {
     return {
       allowedListIp: 'string',
       allowedListType: 'string',
+      description: 'string',
       instanceId: 'string',
       portRange: 'string',
       regionId: 'string',
@@ -3123,6 +3141,116 @@ export class UpgradePrePayOrderResponse extends $tea.Model {
   }
 }
 
+export class CreateConsumerGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayOrderRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrePayOrderRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAclsResponseBodyKafkaAclListKafkaAclVO extends $tea.Model {
   aclOperationType?: string;
   aclResourceName?: string;
@@ -3176,25 +3304,6 @@ export class DescribeAclsResponseBodyKafkaAclList extends $tea.Model {
   }
 }
 
-export class DescribeNodeStatusResponseBodyStatusList extends $tea.Model {
-  status?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSaslUsersResponseBodySaslUserListSaslUserVO extends $tea.Model {
   password?: string;
   type?: string;
@@ -3240,10 +3349,12 @@ export class DescribeSaslUsersResponseBodySaslUserList extends $tea.Model {
 }
 
 export class GetAllowedIpListResponseBodyAllowedListInternetList extends $tea.Model {
+  allowedIpGroup?: { [key: string]: string };
   allowedIpList?: string[];
   portRange?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedIpGroup: 'AllowedIpGroup',
       allowedIpList: 'AllowedIpList',
       portRange: 'PortRange',
     };
@@ -3251,6 +3362,7 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      allowedIpGroup: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       allowedIpList: { 'type': 'array', 'itemType': 'string' },
       portRange: 'string',
     };
@@ -3262,10 +3374,12 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $tea.Mo
 }
 
 export class GetAllowedIpListResponseBodyAllowedListVpcList extends $tea.Model {
+  allowedIpGroup?: { [key: string]: string };
   allowedIpList?: string[];
   portRange?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedIpGroup: 'AllowedIpGroup',
       allowedIpList: 'AllowedIpList',
       portRange: 'PortRange',
     };
@@ -3273,6 +3387,7 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowedIpGroup: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       allowedIpList: { 'type': 'array', 'itemType': 'string' },
       portRange: 'string',
     };
@@ -3624,6 +3739,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   specType?: string;
   sslDomainEndpoint?: string;
   sslEndPoint?: string;
+  standardZoneId?: string;
   tags?: GetInstanceListResponseBodyInstanceListInstanceVOTags;
   topicNumLimit?: number;
   upgradeServiceDetailInfo?: GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo;
@@ -3658,6 +3774,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       specType: 'SpecType',
       sslDomainEndpoint: 'SslDomainEndpoint',
       sslEndPoint: 'SslEndPoint',
+      standardZoneId: 'StandardZoneId',
       tags: 'Tags',
       topicNumLimit: 'TopicNumLimit',
       upgradeServiceDetailInfo: 'UpgradeServiceDetailInfo',
@@ -3695,6 +3812,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       specType: 'string',
       sslDomainEndpoint: 'string',
       sslEndPoint: 'string',
+      standardZoneId: 'string',
       tags: GetInstanceListResponseBodyInstanceListInstanceVOTags,
       topicNumLimit: 'number',
       upgradeServiceDetailInfo: GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo,
@@ -3723,6 +3841,55 @@ export class GetInstanceListResponseBodyInstanceList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceVO: { 'type': 'array', 'itemType': GetInstanceListResponseBodyInstanceListInstanceVO },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTipResponseBodyQuotaData extends $tea.Model {
+  groupLeft?: number;
+  groupUsed?: number;
+  isPartitionBuy?: number;
+  partitionLeft?: number;
+  partitionNumOfBuy?: number;
+  partitionQuata?: number;
+  partitionUsed?: number;
+  topicLeft?: number;
+  topicNumOfBuy?: number;
+  topicQuota?: number;
+  topicUsed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupLeft: 'GroupLeft',
+      groupUsed: 'GroupUsed',
+      isPartitionBuy: 'IsPartitionBuy',
+      partitionLeft: 'PartitionLeft',
+      partitionNumOfBuy: 'PartitionNumOfBuy',
+      partitionQuata: 'PartitionQuata',
+      partitionUsed: 'PartitionUsed',
+      topicLeft: 'TopicLeft',
+      topicNumOfBuy: 'TopicNumOfBuy',
+      topicQuota: 'TopicQuota',
+      topicUsed: 'TopicUsed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupLeft: 'number',
+      groupUsed: 'number',
+      isPartitionBuy: 'number',
+      partitionLeft: 'number',
+      partitionNumOfBuy: 'number',
+      partitionQuata: 'number',
+      partitionUsed: 'number',
+      topicLeft: 'number',
+      topicNumOfBuy: 'number',
+      topicQuota: 'number',
+      topicUsed: 'number',
     };
   }
 
@@ -4212,6 +4379,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4275,6 +4446,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.specType)) {
       query["SpecType"] = request.specType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.topicQuota)) {
@@ -4344,6 +4519,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.specType)) {
       query["SpecType"] = request.specType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.topicQuota)) {
@@ -4460,6 +4639,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replicationFactor)) {
       query["ReplicationFactor"] = request.replicationFactor;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.topic)) {
@@ -4738,39 +4921,6 @@ export default class Client extends OpenApi {
     return await this.describeAclsWithOptions(request, runtime);
   }
 
-  async describeNodeStatusWithOptions(request: DescribeNodeStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeStatusResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeNodeStatus",
-      version: "2019-09-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeNodeStatusResponse>(await this.callApi(params, req, runtime), new DescribeNodeStatusResponse({}));
-  }
-
-  async describeNodeStatus(request: DescribeNodeStatusRequest): Promise<DescribeNodeStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeNodeStatusWithOptions(request, runtime);
-  }
-
   async describeSaslUsersWithOptions(request: DescribeSaslUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSaslUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4983,6 +5133,39 @@ export default class Client extends OpenApi {
   async getInstanceList(request: GetInstanceListRequest): Promise<GetInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceListWithOptions(request, runtime);
+  }
+
+  async getQuotaTipWithOptions(request: GetQuotaTipRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaTipResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQuotaTip",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaTipResponse>(await this.callApi(params, req, runtime), new GetQuotaTipResponse({}));
+  }
+
+  async getQuotaTip(request: GetQuotaTipRequest): Promise<GetQuotaTipResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getQuotaTipWithOptions(request, runtime);
   }
 
   async getTopicListWithOptions(request: GetTopicListRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicListResponse> {
@@ -5468,6 +5651,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.allowedListType)) {
       query["AllowedListType"] = request.allowedListType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!Util.isUnset(request.instanceId)) {
