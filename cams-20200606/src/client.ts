@@ -10,6 +10,7 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class BeeBotAssociateRequest extends $tea.Model {
   chatBotInstanceId?: string;
+  custSpaceId?: string;
   isvCode?: string;
   perspective?: string[];
   recommendNum?: number;
@@ -18,6 +19,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       chatBotInstanceId: 'ChatBotInstanceId',
+      custSpaceId: 'CustSpaceId',
       isvCode: 'IsvCode',
       perspective: 'Perspective',
       recommendNum: 'RecommendNum',
@@ -29,6 +31,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chatBotInstanceId: 'string',
+      custSpaceId: 'string',
       isvCode: 'string',
       perspective: { 'type': 'array', 'itemType': 'string' },
       recommendNum: 'number',
@@ -44,6 +47,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
 
 export class BeeBotAssociateShrinkRequest extends $tea.Model {
   chatBotInstanceId?: string;
+  custSpaceId?: string;
   isvCode?: string;
   perspectiveShrink?: string;
   recommendNum?: number;
@@ -52,6 +56,7 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       chatBotInstanceId: 'ChatBotInstanceId',
+      custSpaceId: 'CustSpaceId',
       isvCode: 'IsvCode',
       perspectiveShrink: 'Perspective',
       recommendNum: 'RecommendNum',
@@ -63,6 +68,7 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chatBotInstanceId: 'string',
+      custSpaceId: 'string',
       isvCode: 'string',
       perspectiveShrink: 'string',
       recommendNum: 'number',
@@ -131,6 +137,7 @@ export class BeeBotAssociateResponse extends $tea.Model {
 
 export class BeeBotChatRequest extends $tea.Model {
   chatBotInstanceId?: string;
+  custSpaceId?: string;
   intentName?: string;
   isvCode?: string;
   knowledgeId?: string;
@@ -143,6 +150,7 @@ export class BeeBotChatRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       chatBotInstanceId: 'ChatBotInstanceId',
+      custSpaceId: 'CustSpaceId',
       intentName: 'IntentName',
       isvCode: 'IsvCode',
       knowledgeId: 'KnowledgeId',
@@ -158,6 +166,7 @@ export class BeeBotChatRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chatBotInstanceId: 'string',
+      custSpaceId: 'string',
       intentName: 'string',
       isvCode: 'string',
       knowledgeId: 'string',
@@ -177,6 +186,7 @@ export class BeeBotChatRequest extends $tea.Model {
 
 export class BeeBotChatShrinkRequest extends $tea.Model {
   chatBotInstanceId?: string;
+  custSpaceId?: string;
   intentName?: string;
   isvCode?: string;
   knowledgeId?: string;
@@ -189,6 +199,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       chatBotInstanceId: 'ChatBotInstanceId',
+      custSpaceId: 'CustSpaceId',
       intentName: 'IntentName',
       isvCode: 'IsvCode',
       knowledgeId: 'KnowledgeId',
@@ -204,6 +215,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chatBotInstanceId: 'string',
+      custSpaceId: 'string',
       intentName: 'string',
       isvCode: 'string',
       knowledgeId: 'string',
@@ -277,6 +289,7 @@ export class BeeBotChatResponse extends $tea.Model {
 export class CreateChatappTemplateRequest extends $tea.Model {
   category?: string;
   components?: CreateChatappTemplateRequestComponents[];
+  custSpaceId?: string;
   custWabaId?: string;
   example?: { [key: string]: string };
   isvCode?: string;
@@ -287,6 +300,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
     return {
       category: 'Category',
       components: 'Components',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       example: 'Example',
       isvCode: 'IsvCode',
@@ -300,6 +314,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
     return {
       category: 'string',
       components: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponents },
+      custSpaceId: 'string',
       custWabaId: 'string',
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       isvCode: 'string',
@@ -317,6 +332,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
 export class CreateChatappTemplateShrinkRequest extends $tea.Model {
   category?: string;
   componentsShrink?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   exampleShrink?: string;
   isvCode?: string;
@@ -327,6 +343,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
     return {
       category: 'Category',
       componentsShrink: 'Components',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       exampleShrink: 'Example',
       isvCode: 'IsvCode',
@@ -340,6 +357,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
     return {
       category: 'string',
       componentsShrink: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       exampleShrink: 'string',
       isvCode: 'string',
@@ -408,11 +426,13 @@ export class CreateChatappTemplateResponse extends $tea.Model {
 }
 
 export class DeleteChatappTemplateRequest extends $tea.Model {
+  custSpaceId?: string;
   custWabaId?: string;
   isvCode?: string;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       templateCode: 'TemplateCode',
@@ -421,6 +441,7 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       templateCode: 'string',
@@ -483,12 +504,14 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
 }
 
 export class GetChatappTemplateDetailRequest extends $tea.Model {
+  custSpaceId?: string;
   custWabaId?: string;
   isvCode?: string;
   language?: string;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
@@ -498,6 +521,7 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
@@ -565,6 +589,7 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
 
 export class ListChatappTemplateRequest extends $tea.Model {
   auditStatus?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   isvCode?: string;
   language?: string;
@@ -573,6 +598,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
@@ -584,6 +610,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
@@ -599,6 +626,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
 
 export class ListChatappTemplateShrinkRequest extends $tea.Model {
   auditStatus?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   isvCode?: string;
   language?: string;
@@ -607,6 +635,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
@@ -618,6 +647,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
@@ -686,6 +716,7 @@ export class ListChatappTemplateResponse extends $tea.Model {
 
 export class ModifyChatappTemplateRequest extends $tea.Model {
   components?: ModifyChatappTemplateRequestComponents[];
+  custSpaceId?: string;
   custWabaId?: string;
   example?: { [key: string]: string };
   isvCode?: string;
@@ -694,6 +725,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       components: 'Components',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       example: 'Example',
       isvCode: 'IsvCode',
@@ -705,6 +737,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       components: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponents },
+      custSpaceId: 'string',
       custWabaId: 'string',
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       isvCode: 'string',
@@ -720,6 +753,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
 
 export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   componentsShrink?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   exampleShrink?: string;
   isvCode?: string;
@@ -728,6 +762,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       componentsShrink: 'Components',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       exampleShrink: 'Example',
       isvCode: 'IsvCode',
@@ -739,6 +774,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       componentsShrink: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       exampleShrink: 'string',
       isvCode: 'string',
@@ -805,8 +841,159 @@ export class ModifyChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class QueryChatappBindWabaRequest extends $tea.Model {
+  custSpaceId?: string;
+  isvCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      isvCode: 'IsvCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      isvCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappBindWabaResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryChatappBindWabaResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryChatappBindWabaResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappBindWabaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryChatappBindWabaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryChatappBindWabaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappPhoneNumbersRequest extends $tea.Model {
+  custSpaceId?: string;
+  isvCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      isvCode: 'IsvCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      isvCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  phoneNumbers?: QueryChatappPhoneNumbersResponseBodyPhoneNumbers[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      phoneNumbers: 'PhoneNumbers',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      phoneNumbers: { 'type': 'array', 'itemType': QueryChatappPhoneNumbersResponseBodyPhoneNumbers },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappPhoneNumbersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryChatappPhoneNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryChatappPhoneNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequest extends $tea.Model {
   channelType?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
@@ -819,6 +1006,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
@@ -834,6 +1022,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       channelType: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
@@ -853,6 +1042,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
 
 export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   channelType?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
@@ -865,6 +1055,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
@@ -880,6 +1071,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       channelType: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
@@ -953,6 +1145,7 @@ export class SendChatappMassMessageResponse extends $tea.Model {
 export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
@@ -969,6 +1162,7 @@ export class SendChatappMessageRequest extends $tea.Model {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
@@ -988,6 +1182,7 @@ export class SendChatappMessageRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
@@ -1011,6 +1206,7 @@ export class SendChatappMessageRequest extends $tea.Model {
 export class SendChatappMessageShrinkRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
@@ -1027,6 +1223,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
@@ -1046,6 +1243,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
@@ -1733,6 +1931,77 @@ export class ModifyChatappTemplateResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryChatappBindWabaResponseBodyData extends $tea.Model {
+  accountReviewStatus?: string;
+  currency?: string;
+  id?: string;
+  messageTemplateNamespace?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountReviewStatus: 'AccountReviewStatus',
+      currency: 'Currency',
+      id: 'Id',
+      messageTemplateNamespace: 'MessageTemplateNamespace',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountReviewStatus: 'string',
+      currency: 'string',
+      id: 'string',
+      messageTemplateNamespace: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model {
+  phoneNumber?: string;
+  qualityRating?: string;
+  status?: string;
+  statusCallbackUrl?: string;
+  statusQueue?: string;
+  upCallbackUrl?: string;
+  upQueue?: string;
+  verifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      qualityRating: 'QualityRating',
+      status: 'Status',
+      statusCallbackUrl: 'StatusCallbackUrl',
+      statusQueue: 'StatusQueue',
+      upCallbackUrl: 'UpCallbackUrl',
+      upQueue: 'UpQueue',
+      verifiedName: 'VerifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      qualityRating: 'string',
+      status: 'string',
+      statusCallbackUrl: 'string',
+      statusQueue: 'string',
+      upCallbackUrl: 'string',
+      upQueue: 'string',
+      verifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   payload?: string[];
   templateParams?: { [key: string]: string };
@@ -1794,6 +2063,10 @@ export default class Client extends OpenApi {
       body["ChatBotInstanceId"] = request.chatBotInstanceId;
     }
 
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
     if (!Util.isUnset(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
@@ -1851,6 +2124,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.chatBotInstanceId)) {
       body["ChatBotInstanceId"] = request.chatBotInstanceId;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.intentName)) {
@@ -1923,6 +2200,11 @@ export default class Client extends OpenApi {
       request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       body["Category"] = request.category;
@@ -1957,6 +2239,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -1981,6 +2264,10 @@ export default class Client extends OpenApi {
   async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
     if (!Util.isUnset(request.custWabaId)) {
       query["CustWabaId"] = request.custWabaId;
     }
@@ -2018,6 +2305,10 @@ export default class Client extends OpenApi {
   async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
     if (!Util.isUnset(request.custWabaId)) {
       query["CustWabaId"] = request.custWabaId;
     }
@@ -2067,6 +2358,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.custWabaId)) {
@@ -2128,6 +2423,10 @@ export default class Client extends OpenApi {
       body["Components"] = request.componentsShrink;
     }
 
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
     if (!Util.isUnset(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
     }
@@ -2170,6 +2469,72 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  async queryChatappBindWabaWithOptions(request: QueryChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappBindWabaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryChatappBindWaba",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
+  }
+
+  async queryChatappBindWaba(request: QueryChatappBindWabaRequest): Promise<QueryChatappBindWabaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryChatappBindWabaWithOptions(request, runtime);
+  }
+
+  async queryChatappPhoneNumbersWithOptions(request: QueryChatappPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappPhoneNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryChatappPhoneNumbers",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
+  }
+
+  async queryChatappPhoneNumbers(request: QueryChatappPhoneNumbersRequest): Promise<QueryChatappPhoneNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
+  }
+
   async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new SendChatappMassMessageShrinkRequest({ });
@@ -2181,6 +2546,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.channelType)) {
       body["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.custWabaId)) {
@@ -2265,6 +2634,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.channelType)) {
       body["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.custWabaId)) {
