@@ -54,10 +54,12 @@ export class AbortRunResponseBody extends $tea.Model {
 
 export class AbortRunResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AbortRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +67,7 @@ export class AbortRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AbortRunResponseBody,
     };
   }
@@ -120,10 +123,12 @@ export class AbortSubmissionResponseBody extends $tea.Model {
 
 export class AbortSubmissionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AbortSubmissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -131,6 +136,7 @@ export class AbortSubmissionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AbortSubmissionResponseBody,
     };
   }
@@ -195,10 +201,12 @@ export class CopyPublicEntityResponseBody extends $tea.Model {
 
 export class CopyPublicEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CopyPublicEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -206,6 +214,7 @@ export class CopyPublicEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CopyPublicEntityResponseBody,
     };
   }
@@ -364,10 +373,12 @@ export class CreateAppResponseBody extends $tea.Model {
 
 export class CreateAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -375,6 +386,7 @@ export class CreateAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAppResponseBody,
     };
   }
@@ -470,10 +482,12 @@ export class CreateEntityResponseBody extends $tea.Model {
 
 export class CreateEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -481,6 +495,7 @@ export class CreateEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateEntityResponseBody,
     };
   }
@@ -501,6 +516,7 @@ export class CreateRunRequest extends $tea.Model {
   inputs?: string;
   labels?: string;
   outputFolder?: string;
+  role?: string;
   runName?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
@@ -515,6 +531,7 @@ export class CreateRunRequest extends $tea.Model {
       inputs: 'Inputs',
       labels: 'Labels',
       outputFolder: 'OutputFolder',
+      role: 'Role',
       runName: 'RunName',
       workspace: 'Workspace',
     };
@@ -532,6 +549,7 @@ export class CreateRunRequest extends $tea.Model {
       inputs: 'string',
       labels: 'string',
       outputFolder: 'string',
+      role: 'string',
       runName: 'string',
       workspace: 'string',
     };
@@ -553,6 +571,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
   inputs?: string;
   labels?: string;
   outputFolder?: string;
+  role?: string;
   runName?: string;
   workspace?: string;
   static names(): { [key: string]: string } {
@@ -567,6 +586,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
       inputs: 'Inputs',
       labels: 'Labels',
       outputFolder: 'OutputFolder',
+      role: 'Role',
       runName: 'RunName',
       workspace: 'Workspace',
     };
@@ -584,6 +604,7 @@ export class CreateRunShrinkRequest extends $tea.Model {
       inputs: 'string',
       labels: 'string',
       outputFolder: 'string',
+      role: 'string',
       runName: 'string',
       workspace: 'string',
     };
@@ -624,10 +645,12 @@ export class CreateRunResponseBody extends $tea.Model {
 
 export class CreateRunResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -635,6 +658,7 @@ export class CreateRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRunResponseBody,
     };
   }
@@ -778,10 +802,12 @@ export class CreateSubmissionResponseBody extends $tea.Model {
 
 export class CreateSubmissionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSubmissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -789,6 +815,7 @@ export class CreateSubmissionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSubmissionResponseBody,
     };
   }
@@ -920,10 +947,12 @@ export class CreateTemplateResponseBody extends $tea.Model {
 
 export class CreateTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -931,6 +960,7 @@ export class CreateTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTemplateResponseBody,
     };
   }
@@ -1004,10 +1034,12 @@ export class CreateWorkspaceResponseBody extends $tea.Model {
 
 export class CreateWorkspaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateWorkspaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1015,6 +1047,7 @@ export class CreateWorkspaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateWorkspaceResponseBody,
     };
   }
@@ -1073,10 +1106,12 @@ export class DeleteAppResponseBody extends $tea.Model {
 
 export class DeleteAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1084,6 +1119,7 @@ export class DeleteAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAppResponseBody,
     };
   }
@@ -1167,10 +1203,12 @@ export class DeleteEntityItemsResponseBody extends $tea.Model {
 
 export class DeleteEntityItemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteEntityItemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1178,6 +1216,7 @@ export class DeleteEntityItemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteEntityItemsResponseBody,
     };
   }
@@ -1233,10 +1272,12 @@ export class DeleteRunResponseBody extends $tea.Model {
 
 export class DeleteRunResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1244,6 +1285,7 @@ export class DeleteRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRunResponseBody,
     };
   }
@@ -1299,10 +1341,12 @@ export class DeleteSubmissionResponseBody extends $tea.Model {
 
 export class DeleteSubmissionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSubmissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1310,6 +1354,7 @@ export class DeleteSubmissionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSubmissionResponseBody,
     };
   }
@@ -1365,10 +1410,12 @@ export class DeleteTemplateResponseBody extends $tea.Model {
 
 export class DeleteTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1376,6 +1423,7 @@ export class DeleteTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTemplateResponseBody,
     };
   }
@@ -1428,10 +1476,12 @@ export class DeleteWorkspaceResponseBody extends $tea.Model {
 
 export class DeleteWorkspaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteWorkspaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1439,6 +1489,7 @@ export class DeleteWorkspaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteWorkspaceResponseBody,
     };
   }
@@ -1525,10 +1576,12 @@ export class DownloadEntityResponseBody extends $tea.Model {
 
 export class DownloadEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DownloadEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1536,6 +1589,7 @@ export class DownloadEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DownloadEntityResponseBody,
     };
   }
@@ -1663,10 +1717,12 @@ export class GetAppResponseBody extends $tea.Model {
 
 export class GetAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1674,6 +1730,7 @@ export class GetAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAppResponseBody,
     };
   }
@@ -1741,10 +1798,12 @@ export class GetEntityResponseBody extends $tea.Model {
 
 export class GetEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1752,6 +1811,7 @@ export class GetEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetEntityResponseBody,
     };
   }
@@ -1910,10 +1970,12 @@ export class GetGlobalAppResponseBody extends $tea.Model {
 
 export class GetGlobalAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetGlobalAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1921,6 +1983,7 @@ export class GetGlobalAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetGlobalAppResponseBody,
     };
   }
@@ -2025,10 +2088,12 @@ export class GetPublicDatasetResponseBody extends $tea.Model {
 
 export class GetPublicDatasetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPublicDatasetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2036,6 +2101,7 @@ export class GetPublicDatasetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPublicDatasetResponseBody,
     };
   }
@@ -2106,10 +2172,12 @@ export class GetPublicDatasetEntityResponseBody extends $tea.Model {
 
 export class GetPublicDatasetEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPublicDatasetEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2117,6 +2185,7 @@ export class GetPublicDatasetEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPublicDatasetEntityResponseBody,
     };
   }
@@ -2247,10 +2316,12 @@ export class GetRunResponseBody extends $tea.Model {
 
 export class GetRunResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetRunResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2258,6 +2329,7 @@ export class GetRunResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetRunResponseBody,
     };
   }
@@ -2316,10 +2388,12 @@ export class GetSubmissionResponseBody extends $tea.Model {
 
 export class GetSubmissionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSubmissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2327,6 +2401,7 @@ export class GetSubmissionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSubmissionResponseBody,
     };
   }
@@ -2418,10 +2493,12 @@ export class GetTemplateResponseBody extends $tea.Model {
 
 export class GetTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2429,6 +2506,7 @@ export class GetTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTemplateResponseBody,
     };
   }
@@ -2514,10 +2592,12 @@ export class GetWorkspaceResponseBody extends $tea.Model {
 
 export class GetWorkspaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetWorkspaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2525,6 +2605,7 @@ export class GetWorkspaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetWorkspaceResponseBody,
     };
   }
@@ -2592,10 +2673,12 @@ export class ImportAppResponseBody extends $tea.Model {
 
 export class ImportAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ImportAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2603,6 +2686,7 @@ export class ImportAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ImportAppResponseBody,
     };
   }
@@ -2676,10 +2760,12 @@ export class InstallGlobalAppResponseBody extends $tea.Model {
 
 export class InstallGlobalAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InstallGlobalAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2687,6 +2773,7 @@ export class InstallGlobalAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InstallGlobalAppResponseBody,
     };
   }
@@ -2778,10 +2865,12 @@ export class ListAppsResponseBody extends $tea.Model {
 
 export class ListAppsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2789,6 +2878,7 @@ export class ListAppsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAppsResponseBody,
     };
   }
@@ -2868,10 +2958,12 @@ export class ListAuthorizedSoftwareResponseBody extends $tea.Model {
 
 export class ListAuthorizedSoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAuthorizedSoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2879,6 +2971,7 @@ export class ListAuthorizedSoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAuthorizedSoftwareResponseBody,
     };
   }
@@ -2949,10 +3042,12 @@ export class ListContainerImagesResponseBody extends $tea.Model {
 
 export class ListContainerImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListContainerImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2960,6 +3055,7 @@ export class ListContainerImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListContainerImagesResponseBody,
     };
   }
@@ -3036,10 +3132,12 @@ export class ListEntitiesResponseBody extends $tea.Model {
 
 export class ListEntitiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEntitiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3047,6 +3145,7 @@ export class ListEntitiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEntitiesResponseBody,
     };
   }
@@ -3129,10 +3228,12 @@ export class ListEntityItemsResponseBody extends $tea.Model {
 
 export class ListEntityItemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEntityItemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3140,6 +3241,7 @@ export class ListEntityItemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEntityItemsResponseBody,
     };
   }
@@ -3228,10 +3330,12 @@ export class ListGlobalAppsResponseBody extends $tea.Model {
 
 export class ListGlobalAppsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGlobalAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3239,6 +3343,7 @@ export class ListGlobalAppsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGlobalAppsResponseBody,
     };
   }
@@ -3318,10 +3423,12 @@ export class ListPublicDatasetResponseBody extends $tea.Model {
 
 export class ListPublicDatasetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPublicDatasetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3329,6 +3436,7 @@ export class ListPublicDatasetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPublicDatasetResponseBody,
     };
   }
@@ -3411,10 +3519,12 @@ export class ListPublicDatasetEntitiesResponseBody extends $tea.Model {
 
 export class ListPublicDatasetEntitiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPublicDatasetEntitiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3422,6 +3532,7 @@ export class ListPublicDatasetEntitiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPublicDatasetEntitiesResponseBody,
     };
   }
@@ -3510,10 +3621,12 @@ export class ListPublicDatasetEntityItemsResponseBody extends $tea.Model {
 
 export class ListPublicDatasetEntityItemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPublicDatasetEntityItemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3521,6 +3634,7 @@ export class ListPublicDatasetEntityItemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPublicDatasetEntityItemsResponseBody,
     };
   }
@@ -3597,10 +3711,12 @@ export class ListPublicDatasetTagsResponseBody extends $tea.Model {
 
 export class ListPublicDatasetTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPublicDatasetTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3608,6 +3724,7 @@ export class ListPublicDatasetTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPublicDatasetTagsResponseBody,
     };
   }
@@ -3644,10 +3761,12 @@ export class ListRegionsResponseBody extends $tea.Model {
 
 export class ListRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3655,6 +3774,7 @@ export class ListRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRegionsResponseBody,
     };
   }
@@ -3758,10 +3878,12 @@ export class ListRunsResponseBody extends $tea.Model {
 
 export class ListRunsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRunsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3769,6 +3891,7 @@ export class ListRunsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRunsResponseBody,
     };
   }
@@ -3851,10 +3974,12 @@ export class ListSubmissionsResponseBody extends $tea.Model {
 
 export class ListSubmissionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSubmissionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3862,6 +3987,7 @@ export class ListSubmissionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSubmissionsResponseBody,
     };
   }
@@ -3944,10 +4070,12 @@ export class ListTemplatesResponseBody extends $tea.Model {
 
 export class ListTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3955,6 +4083,7 @@ export class ListTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTemplatesResponseBody,
     };
   }
@@ -4019,10 +4148,12 @@ export class ListUserActiveRunsResponseBody extends $tea.Model {
 
 export class ListUserActiveRunsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUserActiveRunsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4030,6 +4161,7 @@ export class ListUserActiveRunsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUserActiveRunsResponseBody,
     };
   }
@@ -4109,10 +4241,12 @@ export class ListWorkspacesResponseBody extends $tea.Model {
 
 export class ListWorkspacesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListWorkspacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4120,6 +4254,7 @@ export class ListWorkspacesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListWorkspacesResponseBody,
     };
   }
@@ -4175,10 +4310,12 @@ export class ResumeSubmissionResponseBody extends $tea.Model {
 
 export class ResumeSubmissionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResumeSubmissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4186,6 +4323,7 @@ export class ResumeSubmissionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResumeSubmissionResponseBody,
     };
   }
@@ -4275,10 +4413,12 @@ export class UpdateEntityResponseBody extends $tea.Model {
 
 export class UpdateEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4286,6 +4426,7 @@ export class UpdateEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateEntityResponseBody,
     };
   }
@@ -4375,10 +4516,12 @@ export class UpdateEntityItemsResponseBody extends $tea.Model {
 
 export class UpdateEntityItemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateEntityItemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4386,6 +4529,7 @@ export class UpdateEntityItemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateEntityItemsResponseBody,
     };
   }
@@ -4493,10 +4637,12 @@ export class UpdateTemplateResponseBody extends $tea.Model {
 
 export class UpdateTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4504,6 +4650,7 @@ export class UpdateTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateTemplateResponseBody,
     };
   }
@@ -4568,10 +4715,12 @@ export class UpdateWorkspaceResponseBody extends $tea.Model {
 
 export class UpdateWorkspaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateWorkspaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4579,6 +4728,7 @@ export class UpdateWorkspaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateWorkspaceResponseBody,
     };
   }
@@ -4640,10 +4790,12 @@ export class UploadEntityResponseBody extends $tea.Model {
 
 export class UploadEntityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UploadEntityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4651,6 +4803,7 @@ export class UploadEntityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadEntityResponseBody,
     };
   }
@@ -6135,11 +6288,16 @@ export default class Client extends OpenApi {
   async abortRunWithOptions(request: AbortRunRequest, runtime: $Util.RuntimeOptions): Promise<AbortRunResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RunId"] = request.runId;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AbortRun",
@@ -6149,7 +6307,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AbortRunResponse>(await this.callApi(params, req, runtime), new AbortRunResponse({}));
@@ -6163,11 +6321,16 @@ export default class Client extends OpenApi {
   async abortSubmissionWithOptions(request: AbortSubmissionRequest, runtime: $Util.RuntimeOptions): Promise<AbortSubmissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubmissionId"] = request.submissionId;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.submissionId)) {
+      query["SubmissionId"] = request.submissionId;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AbortSubmission",
@@ -6177,7 +6340,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AbortSubmissionResponse>(await this.callApi(params, req, runtime), new AbortSubmissionResponse({}));
@@ -6191,12 +6354,20 @@ export default class Client extends OpenApi {
   async copyPublicEntityWithOptions(request: CopyPublicEntityRequest, runtime: $Util.RuntimeOptions): Promise<CopyPublicEntityResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Dataset"] = request.dataset;
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.dataset)) {
+      query["Dataset"] = request.dataset;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CopyPublicEntity",
@@ -6206,7 +6377,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CopyPublicEntityResponse>(await this.callApi(params, req, runtime), new CopyPublicEntityResponse({}));
@@ -6230,19 +6401,66 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AppName"] = request.appName;
-    query["AppType"] = request.appType;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Labels"] = request.labels;
-    query["Language"] = request.language;
-    query["LanguageVersion"] = request.languageVersion;
-    query["Path"] = request.path;
-    query["RevisionComment"] = request.revisionComment;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.languageVersion)) {
+      query["LanguageVersion"] = request.languageVersion;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.revisionComment)) {
+      query["RevisionComment"] = request.revisionComment;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!Util.isUnset(request.definition)) {
+      body["Definition"] = request.definition;
+    }
+
+    if (!Util.isUnset(request.dependenciesShrink)) {
+      body["Dependencies"] = request.dependenciesShrink;
+    }
+
+    if (!Util.isUnset(request.documentation)) {
+      body["Documentation"] = request.documentation;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateApp",
@@ -6272,12 +6490,26 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityItemsShrink)) {
+      body["EntityItems"] = request.entityItemsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateEntity",
@@ -6307,21 +6539,60 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AppName"] = request.appName;
-    query["AppRevision"] = request.appRevision;
-    query["ClientToken"] = request.clientToken;
-    query["DefaultRuntime"] = request.defaultRuntime;
-    query["Description"] = request.description;
-    query["ExecuteDirectory"] = request.executeDirectory;
-    query["ExecuteOptions"] = request.executeOptionsShrink;
-    query["Inputs"] = request.inputs;
-    query["Labels"] = request.labels;
-    query["OutputFolder"] = request.outputFolder;
-    query["RunName"] = request.runName;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appRevision)) {
+      query["AppRevision"] = request.appRevision;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.defaultRuntime)) {
+      query["DefaultRuntime"] = request.defaultRuntime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executeDirectory)) {
+      query["ExecuteDirectory"] = request.executeDirectory;
+    }
+
+    if (!Util.isUnset(request.executeOptionsShrink)) {
+      query["ExecuteOptions"] = request.executeOptionsShrink;
+    }
+
+    if (!Util.isUnset(request.inputs)) {
+      query["Inputs"] = request.inputs;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.outputFolder)) {
+      query["OutputFolder"] = request.outputFolder;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!Util.isUnset(request.runName)) {
+      query["RunName"] = request.runName;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRun",
@@ -6331,7 +6602,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRunResponse>(await this.callApi(params, req, runtime), new CreateRunResponse({}));
@@ -6351,21 +6622,56 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AppName"] = request.appName;
-    query["ClientToken"] = request.clientToken;
-    query["DefaultRuntime"] = request.defaultRuntime;
-    query["EntityNames"] = request.entityNamesShrink;
-    query["EntityType"] = request.entityType;
-    query["ExecuteDirectory"] = request.executeDirectory;
-    query["ExecuteOptions"] = request.executeOptions;
-    query["Inputs"] = request.inputs;
-    query["OutputFolder"] = request.outputFolder;
-    query["Outputs"] = request.outputs;
-    query["Revision"] = request.revision;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.defaultRuntime)) {
+      query["DefaultRuntime"] = request.defaultRuntime;
+    }
+
+    if (!Util.isUnset(request.entityNamesShrink)) {
+      query["EntityNames"] = request.entityNamesShrink;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.executeDirectory)) {
+      query["ExecuteDirectory"] = request.executeDirectory;
+    }
+
+    if (!Util.isUnset(request.executeOptions)) {
+      query["ExecuteOptions"] = request.executeOptions;
+    }
+
+    if (!Util.isUnset(request.inputs)) {
+      query["Inputs"] = request.inputs;
+    }
+
+    if (!Util.isUnset(request.outputFolder)) {
+      query["OutputFolder"] = request.outputFolder;
+    }
+
+    if (!Util.isUnset(request.outputs)) {
+      query["Outputs"] = request.outputs;
+    }
+
+    if (!Util.isUnset(request.revision)) {
+      query["Revision"] = request.revision;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSubmission",
@@ -6375,7 +6681,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSubmissionResponse>(await this.callApi(params, req, runtime), new CreateSubmissionResponse({}));
@@ -6399,17 +6705,50 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AppName"] = request.appName;
-    query["AppRevision"] = request.appRevision;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Labels"] = request.labels;
-    query["RootEntity"] = request.rootEntity;
-    query["TemplateName"] = request.templateName;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appRevision)) {
+      query["AppRevision"] = request.appRevision;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.rootEntity)) {
+      query["RootEntity"] = request.rootEntity;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inputsExpressionShrink)) {
+      body["InputsExpression"] = request.inputsExpressionShrink;
+    }
+
+    if (!Util.isUnset(request.outputsExpressionShrink)) {
+      body["OutputsExpression"] = request.outputsExpressionShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTemplate",
@@ -6433,16 +6772,36 @@ export default class Client extends OpenApi {
   async createWorkspaceWithOptions(request: CreateWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["JobLifecycle"] = request.jobLifecycle;
-    query["Labels"] = request.labels;
-    query["Role"] = request.role;
-    query["Storage"] = request.storage;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.jobLifecycle)) {
+      query["JobLifecycle"] = request.jobLifecycle;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!Util.isUnset(request.storage)) {
+      query["Storage"] = request.storage;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateWorkspace",
@@ -6452,7 +6811,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
@@ -6466,12 +6825,20 @@ export default class Client extends OpenApi {
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["Revision"] = request.revision;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.revision)) {
+      query["Revision"] = request.revision;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApp",
@@ -6481,7 +6848,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
@@ -6501,12 +6868,20 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["EntityNames"] = request.entityNamesShrink;
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityNamesShrink)) {
+      query["EntityNames"] = request.entityNamesShrink;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteEntityItems",
@@ -6516,7 +6891,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteEntityItemsResponse>(await this.callApi(params, req, runtime), new DeleteEntityItemsResponse({}));
@@ -6530,11 +6905,16 @@ export default class Client extends OpenApi {
   async deleteRunWithOptions(request: DeleteRunRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRunResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RunId"] = request.runId;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRun",
@@ -6544,7 +6924,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRunResponse>(await this.callApi(params, req, runtime), new DeleteRunResponse({}));
@@ -6558,11 +6938,16 @@ export default class Client extends OpenApi {
   async deleteSubmissionWithOptions(request: DeleteSubmissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubmissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubmissionId"] = request.submissionId;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.submissionId)) {
+      query["SubmissionId"] = request.submissionId;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSubmission",
@@ -6572,7 +6957,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSubmissionResponse>(await this.callApi(params, req, runtime), new DeleteSubmissionResponse({}));
@@ -6586,11 +6971,16 @@ export default class Client extends OpenApi {
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TemplateName"] = request.templateName;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTemplate",
@@ -6600,7 +6990,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
@@ -6614,10 +7004,12 @@ export default class Client extends OpenApi {
   async deleteWorkspaceWithOptions(request: DeleteWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteWorkspace",
@@ -6627,7 +7019,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new DeleteWorkspaceResponse({}));
@@ -6647,12 +7039,20 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["EntityNames"] = request.entityNamesShrink;
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityNamesShrink)) {
+      query["EntityNames"] = request.entityNamesShrink;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DownloadEntity",
@@ -6662,7 +7062,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DownloadEntityResponse>(await this.callApi(params, req, runtime), new DownloadEntityResponse({}));
@@ -6676,12 +7076,20 @@ export default class Client extends OpenApi {
   async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["Revision"] = request.revision;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.revision)) {
+      query["Revision"] = request.revision;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetApp",
@@ -6691,7 +7099,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAppResponse>(await this.callApi(params, req, runtime), new GetAppResponse({}));
@@ -6705,11 +7113,16 @@ export default class Client extends OpenApi {
   async getEntityWithOptions(request: GetEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetEntityResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetEntity",
@@ -6719,7 +7132,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetEntityResponse>(await this.callApi(params, req, runtime), new GetEntityResponse({}));
@@ -6750,7 +7163,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetGlobalAppResponse>(await this.callApi(params, req, runtime), new GetGlobalAppResponse({}));
@@ -6781,7 +7194,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPublicDatasetResponse>(await this.callApi(params, req, runtime), new GetPublicDatasetResponse({}));
@@ -6806,7 +7219,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPublicDatasetEntityResponse>(await this.callApi(params, req, runtime), new GetPublicDatasetEntityResponse({}));
@@ -6831,7 +7244,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRunResponse>(await this.callApi(params, req, runtime), new GetRunResponse({}));
@@ -6856,7 +7269,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSubmissionResponse>(await this.callApi(params, req, runtime), new GetSubmissionResponse({}));
@@ -6870,11 +7283,16 @@ export default class Client extends OpenApi {
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TemplateName"] = request.templateName;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplate",
@@ -6884,7 +7302,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
@@ -6898,10 +7316,12 @@ export default class Client extends OpenApi {
   async getWorkspaceWithOptions(request: GetWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetWorkspace",
@@ -6911,7 +7331,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
@@ -6925,12 +7345,20 @@ export default class Client extends OpenApi {
   async importAppWithOptions(request: ImportAppRequest, runtime: $Util.RuntimeOptions): Promise<ImportAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["Source"] = request.source;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ImportApp",
@@ -6940,7 +7368,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ImportAppResponse>(await this.callApi(params, req, runtime), new ImportAppResponse({}));
@@ -6954,14 +7382,28 @@ export default class Client extends OpenApi {
   async installGlobalAppWithOptions(request: InstallGlobalAppRequest, runtime: $Util.RuntimeOptions): Promise<InstallGlobalAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["InstalledAppName"] = request.installedAppName;
-    query["NamespaceName"] = request.namespaceName;
-    query["Source"] = request.source;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.installedAppName)) {
+      query["InstalledAppName"] = request.installedAppName;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "InstallGlobalApp",
@@ -6971,7 +7413,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<InstallGlobalAppResponse>(await this.callApi(params, req, runtime), new InstallGlobalAppResponse({}));
@@ -6985,19 +7427,48 @@ export default class Client extends OpenApi {
   async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppType"] = request.appType;
-    query["IsReversed"] = request.isReversed;
-    query["LabelSelector"] = request.labelSelector;
-    query["Language"] = request.language;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OrderBy"] = request.orderBy;
-    query["Scope"] = request.scope;
-    query["Search"] = request.search;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.isReversed)) {
+      query["IsReversed"] = request.isReversed;
+    }
+
+    if (!Util.isUnset(request.labelSelector)) {
+      query["LabelSelector"] = request.labelSelector;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["Search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListApps",
@@ -7007,7 +7478,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAppsResponse>(await this.callApi(params, req, runtime), new ListAppsResponse({}));
@@ -7032,7 +7503,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAuthorizedSoftwareResponse>(await this.callApi(params, req, runtime), new ListAuthorizedSoftwareResponse({}));
@@ -7057,7 +7528,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListContainerImagesResponse>(await this.callApi(params, req, runtime), new ListContainerImagesResponse({}));
@@ -7082,7 +7553,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListEntitiesResponse>(await this.callApi(params, req, runtime), new ListEntitiesResponse({}));
@@ -7096,16 +7567,36 @@ export default class Client extends OpenApi {
   async listEntityItemsWithOptions(request: ListEntityItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListEntityItemsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityType"] = request.entityType;
-    query["IsReversed"] = request.isReversed;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OrderBy"] = request.orderBy;
-    query["Search"] = request.search;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.isReversed)) {
+      query["IsReversed"] = request.isReversed;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["Search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListEntityItems",
@@ -7115,7 +7606,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListEntityItemsResponse>(await this.callApi(params, req, runtime), new ListEntityItemsResponse({}));
@@ -7140,7 +7631,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListGlobalAppsResponse>(await this.callApi(params, req, runtime), new ListGlobalAppsResponse({}));
@@ -7165,7 +7656,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPublicDatasetResponse>(await this.callApi(params, req, runtime), new ListPublicDatasetResponse({}));
@@ -7190,7 +7681,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPublicDatasetEntitiesResponse>(await this.callApi(params, req, runtime), new ListPublicDatasetEntitiesResponse({}));
@@ -7215,7 +7706,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPublicDatasetEntityItemsResponse>(await this.callApi(params, req, runtime), new ListPublicDatasetEntityItemsResponse({}));
@@ -7240,7 +7731,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPublicDatasetTagsResponse>(await this.callApi(params, req, runtime), new ListPublicDatasetTagsResponse({}));
@@ -7261,7 +7752,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
@@ -7286,7 +7777,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRunsResponse>(await this.callApi(params, req, runtime), new ListRunsResponse({}));
@@ -7311,7 +7802,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSubmissionsResponse>(await this.callApi(params, req, runtime), new ListSubmissionsResponse({}));
@@ -7325,16 +7816,36 @@ export default class Client extends OpenApi {
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IsReversed"] = request.isReversed;
-    query["LabelSelector"] = request.labelSelector;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OrderBy"] = request.orderBy;
-    query["Search"] = request.search;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.isReversed)) {
+      query["IsReversed"] = request.isReversed;
+    }
+
+    if (!Util.isUnset(request.labelSelector)) {
+      query["LabelSelector"] = request.labelSelector;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["Search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTemplates",
@@ -7344,7 +7855,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
@@ -7369,7 +7880,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListUserActiveRunsResponse>(await this.callApi(params, req, runtime), new ListUserActiveRunsResponse({}));
@@ -7394,7 +7905,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListWorkspacesResponse>(await this.callApi(params, req, runtime), new ListWorkspacesResponse({}));
@@ -7408,11 +7919,16 @@ export default class Client extends OpenApi {
   async resumeSubmissionWithOptions(request: ResumeSubmissionRequest, runtime: $Util.RuntimeOptions): Promise<ResumeSubmissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubmissionId"] = request.submissionId;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.submissionId)) {
+      query["SubmissionId"] = request.submissionId;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResumeSubmission",
@@ -7422,7 +7938,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResumeSubmissionResponse>(await this.callApi(params, req, runtime), new ResumeSubmissionResponse({}));
@@ -7442,11 +7958,22 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityItemsShrink)) {
+      body["EntityItems"] = request.entityItemsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateEntity",
@@ -7476,11 +8003,22 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["EntityType"] = request.entityType;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityItemsShrink)) {
+      body["EntityItems"] = request.entityItemsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateEntityItems",
@@ -7514,14 +8052,38 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["Description"] = request.description;
-    query["Labels"] = request.labels;
-    query["RootEntity"] = request.rootEntity;
-    query["TemplateName"] = request.templateName;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.rootEntity)) {
+      query["RootEntity"] = request.rootEntity;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inputsExpressionShrink)) {
+      body["InputsExpression"] = request.inputsExpressionShrink;
+    }
+
+    if (!Util.isUnset(request.outputsExpressionShrink)) {
+      body["OutputsExpression"] = request.outputsExpressionShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
@@ -7545,14 +8107,28 @@ export default class Client extends OpenApi {
   async updateWorkspaceWithOptions(request: UpdateWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["JobLifecycle"] = request.jobLifecycle;
-    query["Labels"] = request.labels;
-    query["Role"] = request.role;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.jobLifecycle)) {
+      query["JobLifecycle"] = request.jobLifecycle;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateWorkspace",
@@ -7562,7 +8138,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new UpdateWorkspaceResponse({}));
@@ -7576,11 +8152,16 @@ export default class Client extends OpenApi {
   async uploadEntityWithOptions(request: UploadEntityRequest, runtime: $Util.RuntimeOptions): Promise<UploadEntityResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityCSVFile"] = request.entityCSVFile;
-    query["Workspace"] = request.workspace;
+    if (!Util.isUnset(request.entityCSVFile)) {
+      query["EntityCSVFile"] = request.entityCSVFile;
+    }
+
+    if (!Util.isUnset(request.workspace)) {
+      query["Workspace"] = request.workspace;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UploadEntity",
@@ -7590,7 +8171,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UploadEntityResponse>(await this.callApi(params, req, runtime), new UploadEntityResponse({}));
