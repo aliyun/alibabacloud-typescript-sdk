@@ -63,10 +63,12 @@ export class ActivateSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class ActivateSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ActivateSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +76,7 @@ export class ActivateSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ActivateSmartAccessGatewayResponseBody,
     };
   }
@@ -138,10 +141,12 @@ export class ActiveFlowLogResponseBody extends $tea.Model {
 
 export class ActiveFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ActiveFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -149,6 +154,7 @@ export class ActiveFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ActiveFlowLogResponseBody,
     };
   }
@@ -300,10 +306,12 @@ export class AddACLRuleResponseBody extends $tea.Model {
 
 export class AddACLRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddACLRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -311,6 +319,7 @@ export class AddACLRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddACLRuleResponseBody,
     };
   }
@@ -396,10 +405,12 @@ export class AddDnatEntryResponseBody extends $tea.Model {
 
 export class AddDnatEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDnatEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -407,7 +418,113 @@ export class AddDnatEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmartAccessGatewayDnsForwardRequest extends $tea.Model {
+  domain?: string;
+  masterIp?: string;
+  mode?: string;
+  outboundPortIndex?: string;
+  outboundPortName?: string;
+  outboundPortType?: string;
+  regionId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  slaveIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      masterIp: 'MasterIp',
+      mode: 'Mode',
+      outboundPortIndex: 'OutboundPortIndex',
+      outboundPortName: 'OutboundPortName',
+      outboundPortType: 'OutboundPortType',
+      regionId: 'RegionId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+      slaveIp: 'SlaveIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      masterIp: 'string',
+      mode: 'string',
+      outboundPortIndex: 'string',
+      outboundPortName: 'string',
+      outboundPortType: 'string',
+      regionId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+      slaveIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmartAccessGatewayDnsForwardResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddSmartAccessGatewayDnsForwardResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddSmartAccessGatewayDnsForwardResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmartAccessGatewayDnsForwardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddSmartAccessGatewayDnsForwardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSmartAccessGatewayDnsForwardResponseBody,
     };
   }
 
@@ -480,10 +597,12 @@ export class AddSnatEntryResponseBody extends $tea.Model {
 
 export class AddSnatEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddSnatEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -491,6 +610,7 @@ export class AddSnatEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddSnatEntryResponseBody,
     };
   }
@@ -558,10 +678,12 @@ export class AssociateACLResponseBody extends $tea.Model {
 
 export class AssociateACLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateACLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -569,6 +691,7 @@ export class AssociateACLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateACLResponseBody,
     };
   }
@@ -636,10 +759,12 @@ export class AssociateFlowLogResponseBody extends $tea.Model {
 
 export class AssociateFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -647,6 +772,7 @@ export class AssociateFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateFlowLogResponseBody,
     };
   }
@@ -714,10 +840,12 @@ export class AssociateQosResponseBody extends $tea.Model {
 
 export class AssociateQosResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateQosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -725,7 +853,83 @@ export class AssociateQosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateQosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $tea.Model {
+  applicationBandwidthPackageId?: string;
+  associateConfigs?: AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConfigs[];
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationBandwidthPackageId: 'ApplicationBandwidthPackageId',
+      associateConfigs: 'AssociateConfigs',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationBandwidthPackageId: 'string',
+      associateConfigs: { 'type': 'array', 'itemType': AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConfigs },
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateSmartAGWithApplicationBandwidthPackageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateSmartAGWithApplicationBandwidthPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AssociateSmartAGWithApplicationBandwidthPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateSmartAGWithApplicationBandwidthPackageResponseBody,
     };
   }
 
@@ -792,10 +996,12 @@ export class BindSerialNumberResponseBody extends $tea.Model {
 
 export class BindSerialNumberResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindSerialNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -803,6 +1009,7 @@ export class BindSerialNumberResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindSerialNumberResponseBody,
     };
   }
@@ -873,10 +1080,12 @@ export class BindSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class BindSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -884,6 +1093,7 @@ export class BindSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindSmartAccessGatewayResponseBody,
     };
   }
@@ -957,10 +1167,12 @@ export class BindVbrResponseBody extends $tea.Model {
 
 export class BindVbrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindVbrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -968,6 +1180,7 @@ export class BindVbrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindVbrResponseBody,
     };
   }
@@ -1035,10 +1248,12 @@ export class ClearSagCipherResponseBody extends $tea.Model {
 
 export class ClearSagCipherResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClearSagCipherResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1046,6 +1261,7 @@ export class ClearSagCipherResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClearSagCipherResponseBody,
     };
   }
@@ -1110,10 +1326,12 @@ export class ClearSagRouteableAddressResponseBody extends $tea.Model {
 
 export class ClearSagRouteableAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClearSagRouteableAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1121,6 +1339,7 @@ export class ClearSagRouteableAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClearSagRouteableAddressResponseBody,
     };
   }
@@ -1131,6 +1350,7 @@ export class ClearSagRouteableAddressResponse extends $tea.Model {
 }
 
 export class CreateACLRequest extends $tea.Model {
+  aclType?: string;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1139,6 +1359,7 @@ export class CreateACLRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      aclType: 'AclType',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -1150,6 +1371,7 @@ export class CreateACLRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aclType: 'string',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -1166,11 +1388,13 @@ export class CreateACLRequest extends $tea.Model {
 
 export class CreateACLResponseBody extends $tea.Model {
   aclId?: string;
+  aclType?: string;
   requestId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclType: 'AclType',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -1179,6 +1403,7 @@ export class CreateACLResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclType: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
     };
@@ -1191,10 +1416,12 @@ export class CreateACLResponseBody extends $tea.Model {
 
 export class CreateACLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateACLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1202,6 +1429,7 @@ export class CreateACLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateACLResponseBody,
     };
   }
@@ -1296,10 +1524,12 @@ export class CreateCloudConnectNetworkResponseBody extends $tea.Model {
 
 export class CreateCloudConnectNetworkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCloudConnectNetworkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1307,6 +1537,7 @@ export class CreateCloudConnectNetworkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCloudConnectNetworkResponseBody,
     };
   }
@@ -1362,10 +1593,12 @@ export class CreateEnterpriseCodeResponseBody extends $tea.Model {
 
 export class CreateEnterpriseCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateEnterpriseCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1373,6 +1606,7 @@ export class CreateEnterpriseCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateEnterpriseCodeResponseBody,
     };
   }
@@ -1473,10 +1707,12 @@ export class CreateFlowLogResponseBody extends $tea.Model {
 
 export class CreateFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1484,6 +1720,7 @@ export class CreateFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFlowLogResponseBody,
     };
   }
@@ -1590,10 +1827,12 @@ export class CreateHealthCheckResponseBody extends $tea.Model {
 
 export class CreateHealthCheckResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1601,7 +1840,110 @@ export class CreateHealthCheckResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateHealthCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProbeTaskRequest extends $tea.Model {
+  domain?: string;
+  enable?: boolean;
+  packetNumber?: number;
+  port?: number;
+  probeTaskSourceAddress?: string;
+  protocol?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  taskName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      enable: 'Enable',
+      packetNumber: 'PacketNumber',
+      port: 'Port',
+      probeTaskSourceAddress: 'ProbeTaskSourceAddress',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+      taskName: 'TaskName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enable: 'boolean',
+      packetNumber: 'number',
+      port: 'number',
+      probeTaskSourceAddress: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+      taskName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProbeTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProbeTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateProbeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProbeTaskResponseBody,
     };
   }
 
@@ -1674,10 +2016,12 @@ export class CreateQosResponseBody extends $tea.Model {
 
 export class CreateQosResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateQosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1685,6 +2029,7 @@ export class CreateQosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateQosResponseBody,
     };
   }
@@ -1806,10 +2151,12 @@ export class CreateQosCarResponseBody extends $tea.Model {
 
 export class CreateQosCarResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateQosCarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1817,6 +2164,7 @@ export class CreateQosCarResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateQosCarResponseBody,
     };
   }
@@ -1959,10 +2307,12 @@ export class CreateQosPolicyResponseBody extends $tea.Model {
 
 export class CreateQosPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateQosPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1970,6 +2320,7 @@ export class CreateQosPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateQosPolicyResponseBody,
     };
   }
@@ -2049,10 +2400,12 @@ export class CreateSagExpressConnectInterfaceResponseBody extends $tea.Model {
 
 export class CreateSagExpressConnectInterfaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSagExpressConnectInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2060,6 +2413,7 @@ export class CreateSagExpressConnectInterfaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSagExpressConnectInterfaceResponseBody,
     };
   }
@@ -2139,10 +2493,12 @@ export class CreateSagStaticRouteResponseBody extends $tea.Model {
 
 export class CreateSagStaticRouteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSagStaticRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2150,7 +2506,89 @@ export class CreateSagStaticRouteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSagStaticRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAddressRequest extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAddressResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateServiceAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceAddressResponseBody,
     };
   }
 
@@ -2292,10 +2730,12 @@ export class CreateSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class CreateSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2303,6 +2743,7 @@ export class CreateSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSmartAccessGatewayResponseBody,
     };
   }
@@ -2394,10 +2835,12 @@ export class CreateSmartAccessGatewayClientUserResponseBody extends $tea.Model {
 
 export class CreateSmartAccessGatewayClientUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSmartAccessGatewayClientUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2405,6 +2848,7 @@ export class CreateSmartAccessGatewayClientUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSmartAccessGatewayClientUserResponseBody,
     };
   }
@@ -2490,10 +2934,12 @@ export class CreateSmartAccessGatewaySoftwareResponseBody extends $tea.Model {
 
 export class CreateSmartAccessGatewaySoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSmartAccessGatewaySoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2501,6 +2947,7 @@ export class CreateSmartAccessGatewaySoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSmartAccessGatewaySoftwareResponseBody,
     };
   }
@@ -2565,10 +3012,12 @@ export class DeactiveFlowLogResponseBody extends $tea.Model {
 
 export class DeactiveFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeactiveFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2576,6 +3025,7 @@ export class DeactiveFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeactiveFlowLogResponseBody,
     };
   }
@@ -2640,10 +3090,12 @@ export class DeleteACLResponseBody extends $tea.Model {
 
 export class DeleteACLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteACLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2651,6 +3103,7 @@ export class DeleteACLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteACLResponseBody,
     };
   }
@@ -2718,10 +3171,12 @@ export class DeleteACLRuleResponseBody extends $tea.Model {
 
 export class DeleteACLRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteACLRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2729,6 +3184,7 @@ export class DeleteACLRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteACLRuleResponseBody,
     };
   }
@@ -2793,10 +3249,12 @@ export class DeleteCloudConnectNetworkResponseBody extends $tea.Model {
 
 export class DeleteCloudConnectNetworkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCloudConnectNetworkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2804,6 +3262,7 @@ export class DeleteCloudConnectNetworkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCloudConnectNetworkResponseBody,
     };
   }
@@ -2871,10 +3330,12 @@ export class DeleteDnatEntryResponseBody extends $tea.Model {
 
 export class DeleteDnatEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDnatEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2882,6 +3343,7 @@ export class DeleteDnatEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDnatEntryResponseBody,
     };
   }
@@ -2937,10 +3399,12 @@ export class DeleteEnterpriseCodeResponseBody extends $tea.Model {
 
 export class DeleteEnterpriseCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteEnterpriseCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2948,6 +3412,7 @@ export class DeleteEnterpriseCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteEnterpriseCodeResponseBody,
     };
   }
@@ -3012,10 +3477,12 @@ export class DeleteFlowLogResponseBody extends $tea.Model {
 
 export class DeleteFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3023,6 +3490,7 @@ export class DeleteFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteFlowLogResponseBody,
     };
   }
@@ -3087,10 +3555,12 @@ export class DeleteHealthCheckResponseBody extends $tea.Model {
 
 export class DeleteHealthCheckResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3098,7 +3568,86 @@ export class DeleteHealthCheckResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteHealthCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProbeTaskRequest extends $tea.Model {
+  probeTaskId?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probeTaskId: 'ProbeTaskId',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probeTaskId: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProbeTaskResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProbeTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteProbeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProbeTaskResponseBody,
     };
   }
 
@@ -3162,10 +3711,12 @@ export class DeleteQosResponseBody extends $tea.Model {
 
 export class DeleteQosResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteQosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3173,6 +3724,7 @@ export class DeleteQosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteQosResponseBody,
     };
   }
@@ -3240,10 +3792,12 @@ export class DeleteQosCarResponseBody extends $tea.Model {
 
 export class DeleteQosCarResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteQosCarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3251,6 +3805,7 @@ export class DeleteQosCarResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteQosCarResponseBody,
     };
   }
@@ -3318,10 +3873,12 @@ export class DeleteQosPolicyResponseBody extends $tea.Model {
 
 export class DeleteQosPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteQosPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3329,6 +3886,7 @@ export class DeleteQosPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteQosPolicyResponseBody,
     };
   }
@@ -3402,10 +3960,12 @@ export class DeleteRouteDistributionStrategyResponseBody extends $tea.Model {
 
 export class DeleteRouteDistributionStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRouteDistributionStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3413,6 +3973,7 @@ export class DeleteRouteDistributionStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRouteDistributionStrategyResponseBody,
     };
   }
@@ -3486,10 +4047,12 @@ export class DeleteSagExpressConnectInterfaceResponseBody extends $tea.Model {
 
 export class DeleteSagExpressConnectInterfaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSagExpressConnectInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3497,6 +4060,7 @@ export class DeleteSagExpressConnectInterfaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSagExpressConnectInterfaceResponseBody,
     };
   }
@@ -3573,10 +4137,12 @@ export class DeleteSagStaticRouteResponseBody extends $tea.Model {
 
 export class DeleteSagStaticRouteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSagStaticRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3584,7 +4150,89 @@ export class DeleteSagStaticRouteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSagStaticRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceAddressRequest extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceAddressResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteServiceAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteServiceAddressResponseBody,
     };
   }
 
@@ -3639,10 +4287,12 @@ export class DeleteSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class DeleteSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3650,6 +4300,7 @@ export class DeleteSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSmartAccessGatewayResponseBody,
     };
   }
@@ -3717,10 +4368,12 @@ export class DeleteSmartAccessGatewayClientUserResponseBody extends $tea.Model {
 
 export class DeleteSmartAccessGatewayClientUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSmartAccessGatewayClientUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3728,7 +4381,92 @@ export class DeleteSmartAccessGatewayClientUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSmartAccessGatewayClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartAccessGatewayDnsForwardRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartAccessGatewayDnsForwardResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartAccessGatewayDnsForwardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteSmartAccessGatewayDnsForwardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSmartAccessGatewayDnsForwardResponseBody,
     };
   }
 
@@ -3795,10 +4533,12 @@ export class DeleteSnatEntryResponseBody extends $tea.Model {
 
 export class DeleteSnatEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSnatEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3806,6 +4546,7 @@ export class DeleteSnatEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSnatEntryResponseBody,
     };
   }
@@ -3897,10 +4638,12 @@ export class DescribeACLAttributeResponseBody extends $tea.Model {
 
 export class DescribeACLAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeACLAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3908,6 +4651,7 @@ export class DescribeACLAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeACLAttributeResponseBody,
     };
   }
@@ -3919,6 +4663,7 @@ export class DescribeACLAttributeResponse extends $tea.Model {
 
 export class DescribeACLsRequest extends $tea.Model {
   aclIds?: string;
+  aclType?: string;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3930,6 +4675,7 @@ export class DescribeACLsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aclIds: 'AclIds',
+      aclType: 'AclType',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -3944,6 +4690,7 @@ export class DescribeACLsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclIds: 'string',
+      aclType: 'string',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3993,10 +4740,12 @@ export class DescribeACLsResponseBody extends $tea.Model {
 
 export class DescribeACLsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeACLsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4004,6 +4753,7 @@ export class DescribeACLsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeACLsResponseBody,
     };
   }
@@ -4095,10 +4845,12 @@ export class DescribeBindableSmartAccessGatewaysResponseBody extends $tea.Model 
 
 export class DescribeBindableSmartAccessGatewaysResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBindableSmartAccessGatewaysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4106,6 +4858,7 @@ export class DescribeBindableSmartAccessGatewaysResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBindableSmartAccessGatewaysResponseBody,
     };
   }
@@ -4176,10 +4929,12 @@ export class DescribeClientUserDNSResponseBody extends $tea.Model {
 
 export class DescribeClientUserDNSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeClientUserDNSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4187,6 +4942,7 @@ export class DescribeClientUserDNSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeClientUserDNSResponseBody,
     };
   }
@@ -4275,10 +5031,12 @@ export class DescribeCloudConnectNetworksResponseBody extends $tea.Model {
 
 export class DescribeCloudConnectNetworksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCloudConnectNetworksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4286,6 +5044,7 @@ export class DescribeCloudConnectNetworksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCloudConnectNetworksResponseBody,
     };
   }
@@ -4377,10 +5136,12 @@ export class DescribeDeviceAutoUpgradePolicyResponseBody extends $tea.Model {
 
 export class DescribeDeviceAutoUpgradePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDeviceAutoUpgradePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4388,6 +5149,7 @@ export class DescribeDeviceAutoUpgradePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDeviceAutoUpgradePolicyResponseBody,
     };
   }
@@ -4473,10 +5235,12 @@ export class DescribeDnatEntriesResponseBody extends $tea.Model {
 
 export class DescribeDnatEntriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnatEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4484,6 +5248,7 @@ export class DescribeDnatEntriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnatEntriesResponseBody,
     };
   }
@@ -4566,10 +5331,12 @@ export class DescribeFlowLogSagsResponseBody extends $tea.Model {
 
 export class DescribeFlowLogSagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeFlowLogSagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4577,6 +5344,7 @@ export class DescribeFlowLogSagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeFlowLogSagsResponseBody,
     };
   }
@@ -4671,10 +5439,12 @@ export class DescribeFlowLogsResponseBody extends $tea.Model {
 
 export class DescribeFlowLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeFlowLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4682,6 +5452,7 @@ export class DescribeFlowLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeFlowLogsResponseBody,
     };
   }
@@ -4764,10 +5535,12 @@ export class DescribeGrantRulesResponseBody extends $tea.Model {
 
 export class DescribeGrantRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGrantRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4775,6 +5548,7 @@ export class DescribeGrantRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGrantRulesResponseBody,
     };
   }
@@ -4857,10 +5631,12 @@ export class DescribeGrantSagRulesResponseBody extends $tea.Model {
 
 export class DescribeGrantSagRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGrantSagRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4868,6 +5644,7 @@ export class DescribeGrantSagRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGrantSagRulesResponseBody,
     };
   }
@@ -4953,10 +5730,12 @@ export class DescribeGrantSagVbrRulesResponseBody extends $tea.Model {
 
 export class DescribeGrantSagVbrRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGrantSagVbrRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4964,6 +5743,7 @@ export class DescribeGrantSagVbrRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGrantSagVbrRulesResponseBody,
     };
   }
@@ -5079,10 +5859,12 @@ export class DescribeHealthCheckAttributeResponseBody extends $tea.Model {
 
 export class DescribeHealthCheckAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHealthCheckAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5090,6 +5872,7 @@ export class DescribeHealthCheckAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHealthCheckAttributeResponseBody,
     };
   }
@@ -5178,10 +5961,12 @@ export class DescribeHealthChecksResponseBody extends $tea.Model {
 
 export class DescribeHealthChecksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHealthChecksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5189,6 +5974,7 @@ export class DescribeHealthChecksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHealthChecksResponseBody,
     };
   }
@@ -5280,10 +6066,12 @@ export class DescribeQosCarsResponseBody extends $tea.Model {
 
 export class DescribeQosCarsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeQosCarsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5291,6 +6079,7 @@ export class DescribeQosCarsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeQosCarsResponseBody,
     };
   }
@@ -5382,10 +6171,12 @@ export class DescribeQosPoliciesResponseBody extends $tea.Model {
 
 export class DescribeQosPoliciesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeQosPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5393,6 +6184,7 @@ export class DescribeQosPoliciesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeQosPoliciesResponseBody,
     };
   }
@@ -5478,10 +6270,12 @@ export class DescribeQosesResponseBody extends $tea.Model {
 
 export class DescribeQosesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeQosesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5489,6 +6283,7 @@ export class DescribeQosesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeQosesResponseBody,
     };
   }
@@ -5553,10 +6348,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5564,6 +6361,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -5649,10 +6447,12 @@ export class DescribeRouteDistributionStrategiesResponseBody extends $tea.Model 
 
 export class DescribeRouteDistributionStrategiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRouteDistributionStrategiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5660,6 +6460,7 @@ export class DescribeRouteDistributionStrategiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRouteDistributionStrategiesResponseBody,
     };
   }
@@ -5754,10 +6555,12 @@ export class DescribeSAGDeviceInfoResponseBody extends $tea.Model {
 
 export class DescribeSAGDeviceInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSAGDeviceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5765,6 +6568,7 @@ export class DescribeSAGDeviceInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSAGDeviceInfoResponseBody,
     };
   }
@@ -5838,10 +6642,12 @@ export class DescribeSagCurrentDnsResponseBody extends $tea.Model {
 
 export class DescribeSagCurrentDnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagCurrentDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5849,6 +6655,7 @@ export class DescribeSagCurrentDnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagCurrentDnsResponseBody,
     };
   }
@@ -5916,10 +6723,12 @@ export class DescribeSagDropTopNResponseBody extends $tea.Model {
 
 export class DescribeSagDropTopNResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagDropTopNResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5927,6 +6736,7 @@ export class DescribeSagDropTopNResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagDropTopNResponseBody,
     };
   }
@@ -6003,10 +6813,12 @@ export class DescribeSagExpressConnectInterfaceListResponseBody extends $tea.Mod
 
 export class DescribeSagExpressConnectInterfaceListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagExpressConnectInterfaceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6014,6 +6826,7 @@ export class DescribeSagExpressConnectInterfaceListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagExpressConnectInterfaceListResponseBody,
     };
   }
@@ -6087,10 +6900,12 @@ export class DescribeSagGlobalRouteProtocolResponseBody extends $tea.Model {
 
 export class DescribeSagGlobalRouteProtocolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagGlobalRouteProtocolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6098,6 +6913,7 @@ export class DescribeSagGlobalRouteProtocolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagGlobalRouteProtocolResponseBody,
     };
   }
@@ -6174,10 +6990,12 @@ export class DescribeSagHaResponseBody extends $tea.Model {
 
 export class DescribeSagHaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagHaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6185,6 +7003,7 @@ export class DescribeSagHaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagHaResponseBody,
     };
   }
@@ -6258,10 +7077,12 @@ export class DescribeSagLanListResponseBody extends $tea.Model {
 
 export class DescribeSagLanListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagLanListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6269,6 +7090,7 @@ export class DescribeSagLanListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagLanListResponseBody,
     };
   }
@@ -6348,10 +7170,12 @@ export class DescribeSagManagementPortResponseBody extends $tea.Model {
 
 export class DescribeSagManagementPortResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagManagementPortResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6359,6 +7183,7 @@ export class DescribeSagManagementPortResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagManagementPortResponseBody,
     };
   }
@@ -6426,10 +7251,12 @@ export class DescribeSagOnlineClientStatisticsResponseBody extends $tea.Model {
 
 export class DescribeSagOnlineClientStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagOnlineClientStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6437,6 +7264,7 @@ export class DescribeSagOnlineClientStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagOnlineClientStatisticsResponseBody,
     };
   }
@@ -6510,10 +7338,12 @@ export class DescribeSagPortListResponseBody extends $tea.Model {
 
 export class DescribeSagPortListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagPortListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6521,6 +7351,7 @@ export class DescribeSagPortListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagPortListResponseBody,
     };
   }
@@ -6594,10 +7425,12 @@ export class DescribeSagPortRouteProtocolListResponseBody extends $tea.Model {
 
 export class DescribeSagPortRouteProtocolListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagPortRouteProtocolListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6605,6 +7438,7 @@ export class DescribeSagPortRouteProtocolListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagPortRouteProtocolListResponseBody,
     };
   }
@@ -6687,10 +7521,12 @@ export class DescribeSagRemoteAccessResponseBody extends $tea.Model {
 
 export class DescribeSagRemoteAccessResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagRemoteAccessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6698,6 +7534,7 @@ export class DescribeSagRemoteAccessResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagRemoteAccessResponseBody,
     };
   }
@@ -6768,10 +7605,12 @@ export class DescribeSagRouteListResponseBody extends $tea.Model {
 
 export class DescribeSagRouteListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagRouteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6779,6 +7618,7 @@ export class DescribeSagRouteListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagRouteListResponseBody,
     };
   }
@@ -6861,10 +7701,12 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $tea.Model {
 
 export class DescribeSagRouteProtocolBgpResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagRouteProtocolBgpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6872,6 +7714,7 @@ export class DescribeSagRouteProtocolBgpResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagRouteProtocolBgpResponseBody,
     };
   }
@@ -6966,10 +7809,12 @@ export class DescribeSagRouteProtocolOspfResponseBody extends $tea.Model {
 
 export class DescribeSagRouteProtocolOspfResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagRouteProtocolOspfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6977,6 +7822,7 @@ export class DescribeSagRouteProtocolOspfResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagRouteProtocolOspfResponseBody,
     };
   }
@@ -7050,10 +7896,12 @@ export class DescribeSagStaticRouteListResponseBody extends $tea.Model {
 
 export class DescribeSagStaticRouteListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagStaticRouteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7061,6 +7909,7 @@ export class DescribeSagStaticRouteListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagStaticRouteListResponseBody,
     };
   }
@@ -7128,10 +7977,12 @@ export class DescribeSagTrafficTopNResponseBody extends $tea.Model {
 
 export class DescribeSagTrafficTopNResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagTrafficTopNResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7139,6 +7990,7 @@ export class DescribeSagTrafficTopNResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagTrafficTopNResponseBody,
     };
   }
@@ -7215,10 +8067,12 @@ export class DescribeSagUserDnsResponseBody extends $tea.Model {
 
 export class DescribeSagUserDnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagUserDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7226,6 +8080,7 @@ export class DescribeSagUserDnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagUserDnsResponseBody,
     };
   }
@@ -7296,10 +8151,12 @@ export class DescribeSagVbrRelationsResponseBody extends $tea.Model {
 
 export class DescribeSagVbrRelationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagVbrRelationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7307,6 +8164,7 @@ export class DescribeSagVbrRelationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagVbrRelationsResponseBody,
     };
   }
@@ -7392,10 +8250,12 @@ export class DescribeSagWan4GResponseBody extends $tea.Model {
 
 export class DescribeSagWan4GResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagWan4GResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7403,6 +8263,7 @@ export class DescribeSagWan4GResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagWan4GResponseBody,
     };
   }
@@ -7476,10 +8337,12 @@ export class DescribeSagWanListResponseBody extends $tea.Model {
 
 export class DescribeSagWanListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagWanListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7487,6 +8350,7 @@ export class DescribeSagWanListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagWanListResponseBody,
     };
   }
@@ -7560,10 +8424,12 @@ export class DescribeSagWanSnatResponseBody extends $tea.Model {
 
 export class DescribeSagWanSnatResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagWanSnatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7571,6 +8437,7 @@ export class DescribeSagWanSnatResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagWanSnatResponseBody,
     };
   }
@@ -7665,10 +8532,12 @@ export class DescribeSagWifiResponseBody extends $tea.Model {
 
 export class DescribeSagWifiResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSagWifiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7676,6 +8545,7 @@ export class DescribeSagWifiResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSagWifiResponseBody,
     };
   }
@@ -7738,14 +8608,17 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $tea.Model 
   description?: string;
   devices?: DescribeSmartAccessGatewayAttributeResponseBodyDevices;
   enableOptimization?: boolean;
+  enableSoftwareConnectionAudit?: boolean;
   endTime?: number;
   flowLogIds?: DescribeSmartAccessGatewayAttributeResponseBodyFlowLogIds;
+  IRIds?: DescribeSmartAccessGatewayAttributeResponseBodyIRIds;
   instanceType?: string;
   ipsecStatus?: string;
   links?: DescribeSmartAccessGatewayAttributeResponseBodyLinks;
   maxBandwidth?: string;
   name?: string;
   optimizationType?: boolean;
+  position?: string;
   qosIds?: DescribeSmartAccessGatewayAttributeResponseBodyQosIds;
   requestId?: string;
   resellerInstanceId?: string;
@@ -7781,14 +8654,17 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $tea.Model 
       description: 'Description',
       devices: 'Devices',
       enableOptimization: 'EnableOptimization',
+      enableSoftwareConnectionAudit: 'EnableSoftwareConnectionAudit',
       endTime: 'EndTime',
       flowLogIds: 'FlowLogIds',
+      IRIds: 'IRIds',
       instanceType: 'InstanceType',
       ipsecStatus: 'IpsecStatus',
       links: 'Links',
       maxBandwidth: 'MaxBandwidth',
       name: 'Name',
       optimizationType: 'OptimizationType',
+      position: 'Position',
       qosIds: 'QosIds',
       requestId: 'RequestId',
       resellerInstanceId: 'ResellerInstanceId',
@@ -7827,14 +8703,17 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $tea.Model 
       description: 'string',
       devices: DescribeSmartAccessGatewayAttributeResponseBodyDevices,
       enableOptimization: 'boolean',
+      enableSoftwareConnectionAudit: 'boolean',
       endTime: 'number',
       flowLogIds: DescribeSmartAccessGatewayAttributeResponseBodyFlowLogIds,
+      IRIds: DescribeSmartAccessGatewayAttributeResponseBodyIRIds,
       instanceType: 'string',
       ipsecStatus: 'string',
       links: DescribeSmartAccessGatewayAttributeResponseBodyLinks,
       maxBandwidth: 'string',
       name: 'string',
       optimizationType: 'boolean',
+      position: 'string',
       qosIds: DescribeSmartAccessGatewayAttributeResponseBodyQosIds,
       requestId: 'string',
       resellerInstanceId: 'string',
@@ -7860,10 +8739,12 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $tea.Model 
 
 export class DescribeSmartAccessGatewayAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSmartAccessGatewayAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7871,6 +8752,7 @@ export class DescribeSmartAccessGatewayAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSmartAccessGatewayAttributeResponseBody,
     };
   }
@@ -7959,10 +8841,12 @@ export class DescribeSmartAccessGatewayClientUsersResponseBody extends $tea.Mode
 
 export class DescribeSmartAccessGatewayClientUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSmartAccessGatewayClientUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7970,6 +8854,7 @@ export class DescribeSmartAccessGatewayClientUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSmartAccessGatewayClientUsersResponseBody,
     };
   }
@@ -8052,10 +8937,12 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $tea.Model {
 
 export class DescribeSmartAccessGatewayHaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSmartAccessGatewayHaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8063,6 +8950,7 @@ export class DescribeSmartAccessGatewayHaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSmartAccessGatewayHaResponseBody,
     };
   }
@@ -8136,10 +9024,12 @@ export class DescribeSmartAccessGatewayVersionsResponseBody extends $tea.Model {
 
 export class DescribeSmartAccessGatewayVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSmartAccessGatewayVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8147,6 +9037,7 @@ export class DescribeSmartAccessGatewayVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSmartAccessGatewayVersionsResponseBody,
     };
   }
@@ -8159,6 +9050,7 @@ export class DescribeSmartAccessGatewayVersionsResponse extends $tea.Model {
 export class DescribeSmartAccessGatewaysRequest extends $tea.Model {
   aclIds?: string;
   associatedCcnId?: string;
+  associatedCcnName?: string;
   businessState?: string;
   canAssociateQos?: boolean;
   hardwareType?: string;
@@ -8183,6 +9075,7 @@ export class DescribeSmartAccessGatewaysRequest extends $tea.Model {
     return {
       aclIds: 'AclIds',
       associatedCcnId: 'AssociatedCcnId',
+      associatedCcnName: 'AssociatedCcnName',
       businessState: 'BusinessState',
       canAssociateQos: 'CanAssociateQos',
       hardwareType: 'HardwareType',
@@ -8210,6 +9103,7 @@ export class DescribeSmartAccessGatewaysRequest extends $tea.Model {
     return {
       aclIds: 'string',
       associatedCcnId: 'string',
+      associatedCcnName: 'string',
       businessState: 'string',
       canAssociateQos: 'boolean',
       hardwareType: 'string',
@@ -8271,10 +9165,12 @@ export class DescribeSmartAccessGatewaysResponseBody extends $tea.Model {
 
 export class DescribeSmartAccessGatewaysResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSmartAccessGatewaysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8282,6 +9178,7 @@ export class DescribeSmartAccessGatewaysResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSmartAccessGatewaysResponseBody,
     };
   }
@@ -8364,10 +9261,12 @@ export class DescribeSnatEntriesResponseBody extends $tea.Model {
 
 export class DescribeSnatEntriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSnatEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8375,6 +9274,7 @@ export class DescribeSnatEntriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSnatEntriesResponseBody,
     };
   }
@@ -8442,10 +9342,12 @@ export class DescribeUnbindFlowLogSagsResponseBody extends $tea.Model {
 
 export class DescribeUnbindFlowLogSagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUnbindFlowLogSagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8453,6 +9355,7 @@ export class DescribeUnbindFlowLogSagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUnbindFlowLogSagsResponseBody,
     };
   }
@@ -8526,10 +9429,12 @@ export class DescribeUserFlowStatisticsResponseBody extends $tea.Model {
 
 export class DescribeUserFlowStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUserFlowStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8537,6 +9442,7 @@ export class DescribeUserFlowStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUserFlowStatisticsResponseBody,
     };
   }
@@ -8607,10 +9513,12 @@ export class DescribeUserOnlineClientStatisticsResponseBody extends $tea.Model {
 
 export class DescribeUserOnlineClientStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUserOnlineClientStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8618,6 +9526,7 @@ export class DescribeUserOnlineClientStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUserOnlineClientStatisticsResponseBody,
     };
   }
@@ -8688,10 +9597,12 @@ export class DescribeUserOnlineClientsResponseBody extends $tea.Model {
 
 export class DescribeUserOnlineClientsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeUserOnlineClientsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8699,6 +9610,7 @@ export class DescribeUserOnlineClientsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeUserOnlineClientsResponseBody,
     };
   }
@@ -8766,10 +9678,12 @@ export class DiagnoseSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class DiagnoseSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DiagnoseSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8777,6 +9691,7 @@ export class DiagnoseSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DiagnoseSmartAccessGatewayResponseBody,
     };
   }
@@ -8847,10 +9762,12 @@ export class DisableSmartAGDpiMonitorResponseBody extends $tea.Model {
 
 export class DisableSmartAGDpiMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableSmartAGDpiMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8858,6 +9775,7 @@ export class DisableSmartAGDpiMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableSmartAGDpiMonitorResponseBody,
     };
   }
@@ -8925,10 +9843,12 @@ export class DisableSmartAccessGatewayUserResponseBody extends $tea.Model {
 
 export class DisableSmartAccessGatewayUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableSmartAccessGatewayUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8936,6 +9856,7 @@ export class DisableSmartAccessGatewayUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableSmartAccessGatewayUserResponseBody,
     };
   }
@@ -9003,10 +9924,12 @@ export class DisassociateACLResponseBody extends $tea.Model {
 
 export class DisassociateACLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisassociateACLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9014,6 +9937,7 @@ export class DisassociateACLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisassociateACLResponseBody,
     };
   }
@@ -9081,10 +10005,12 @@ export class DisassociateFlowLogResponseBody extends $tea.Model {
 
 export class DisassociateFlowLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisassociateFlowLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9092,6 +10018,7 @@ export class DisassociateFlowLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisassociateFlowLogResponseBody,
     };
   }
@@ -9159,10 +10086,12 @@ export class DisassociateQosResponseBody extends $tea.Model {
 
 export class DisassociateQosResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisassociateQosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9170,6 +10099,7 @@ export class DisassociateQosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisassociateQosResponseBody,
     };
   }
@@ -9240,10 +10170,12 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBody extends $tea.
 
 export class DiscribeSmartAccessGatewayDiagnosisReportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DiscribeSmartAccessGatewayDiagnosisReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9251,7 +10183,86 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponse extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DiscribeSmartAccessGatewayDiagnosisReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateSmartAGFromApplicationBandwidthPackageRequest extends $tea.Model {
+  applicationBandwidthPackageId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  smartAGId?: string;
+  smartAGIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationBandwidthPackageId: 'ApplicationBandwidthPackageId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      smartAGId: 'SmartAGId',
+      smartAGIdList: 'SmartAGIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationBandwidthPackageId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      smartAGId: 'string',
+      smartAGIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateSmartAGFromApplicationBandwidthPackageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateSmartAGFromApplicationBandwidthPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DissociateSmartAGFromApplicationBandwidthPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DissociateSmartAGFromApplicationBandwidthPackageResponseBody,
     };
   }
 
@@ -9324,10 +10335,12 @@ export class DowngradeSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class DowngradeSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DowngradeSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9335,6 +10348,7 @@ export class DowngradeSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DowngradeSmartAccessGatewayResponseBody,
     };
   }
@@ -9411,10 +10425,12 @@ export class DowngradeSmartAccessGatewaySoftwareResponseBody extends $tea.Model 
 
 export class DowngradeSmartAccessGatewaySoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DowngradeSmartAccessGatewaySoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9422,6 +10438,7 @@ export class DowngradeSmartAccessGatewaySoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DowngradeSmartAccessGatewaySoftwareResponseBody,
     };
   }
@@ -9498,10 +10515,12 @@ export class EnableSmartAGDpiMonitorResponseBody extends $tea.Model {
 
 export class EnableSmartAGDpiMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableSmartAGDpiMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9509,6 +10528,7 @@ export class EnableSmartAGDpiMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableSmartAGDpiMonitorResponseBody,
     };
   }
@@ -9576,10 +10596,12 @@ export class EnableSmartAccessGatewayUserResponseBody extends $tea.Model {
 
 export class EnableSmartAccessGatewayUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableSmartAccessGatewayUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9587,6 +10609,7 @@ export class EnableSmartAccessGatewayUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableSmartAccessGatewayUserResponseBody,
     };
   }
@@ -9648,10 +10671,12 @@ export class GetAclAttributeResponseBody extends $tea.Model {
 
 export class GetAclAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAclAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9659,7 +10684,83 @@ export class GetAclAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAclAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvancedMonitorStateRequest extends $tea.Model {
+  regionId?: string;
+  sagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      sagId: 'SagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      sagId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvancedMonitorStateResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAdvancedMonitorStateResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetAdvancedMonitorStateResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdvancedMonitorStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAdvancedMonitorStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdvancedMonitorStateResponseBody,
     };
   }
 
@@ -9726,10 +10827,12 @@ export class GetCloudConnectNetworkUseLimitResponseBody extends $tea.Model {
 
 export class GetCloudConnectNetworkUseLimitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCloudConnectNetworkUseLimitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9737,6 +10840,7 @@ export class GetCloudConnectNetworkUseLimitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCloudConnectNetworkUseLimitResponseBody,
     };
   }
@@ -9804,10 +10908,12 @@ export class GetQosAttributeResponseBody extends $tea.Model {
 
 export class GetQosAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetQosAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9815,6 +10921,7 @@ export class GetQosAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetQosAttributeResponseBody,
     };
   }
@@ -9894,10 +11001,12 @@ export class GetSmartAGDpiAttributeResponseBody extends $tea.Model {
 
 export class GetSmartAGDpiAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSmartAGDpiAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9905,6 +11014,7 @@ export class GetSmartAGDpiAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSmartAGDpiAttributeResponseBody,
     };
   }
@@ -9972,10 +11082,12 @@ export class GetSmartAccessGatewayUseLimitResponseBody extends $tea.Model {
 
 export class GetSmartAccessGatewayUseLimitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSmartAccessGatewayUseLimitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9983,6 +11095,7 @@ export class GetSmartAccessGatewayUseLimitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSmartAccessGatewayUseLimitResponseBody,
     };
   }
@@ -10056,10 +11169,12 @@ export class GrantInstanceToCbnResponseBody extends $tea.Model {
 
 export class GrantInstanceToCbnResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GrantInstanceToCbnResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10067,6 +11182,7 @@ export class GrantInstanceToCbnResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GrantInstanceToCbnResponseBody,
     };
   }
@@ -10143,10 +11259,12 @@ export class GrantSagInstanceToCcnResponseBody extends $tea.Model {
 
 export class GrantSagInstanceToCcnResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GrantSagInstanceToCcnResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10154,6 +11272,7 @@ export class GrantSagInstanceToCcnResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GrantSagInstanceToCcnResponseBody,
     };
   }
@@ -10230,10 +11349,12 @@ export class GrantSagInstanceToVbrResponseBody extends $tea.Model {
 
 export class GrantSagInstanceToVbrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GrantSagInstanceToVbrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10241,6 +11362,7 @@ export class GrantSagInstanceToVbrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GrantSagInstanceToVbrResponseBody,
     };
   }
@@ -10308,10 +11430,12 @@ export class KickOutClientsResponseBody extends $tea.Model {
 
 export class KickOutClientsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: KickOutClientsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10319,6 +11443,7 @@ export class KickOutClientsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: KickOutClientsResponseBody,
     };
   }
@@ -10386,10 +11511,12 @@ export class ListAccessPointNetworkQualitiesResponseBody extends $tea.Model {
 
 export class ListAccessPointNetworkQualitiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessPointNetworkQualitiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10397,6 +11524,7 @@ export class ListAccessPointNetworkQualitiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessPointNetworkQualitiesResponseBody,
     };
   }
@@ -10473,10 +11601,12 @@ export class ListAccessPointsResponseBody extends $tea.Model {
 
 export class ListAccessPointsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessPointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10484,7 +11614,89 @@ export class ListAccessPointsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessPointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableServiceAddressRequest extends $tea.Model {
+  addressType?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressType: 'AddressType',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressType: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableServiceAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListAvailableServiceAddressResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListAvailableServiceAddressResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableServiceAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAvailableServiceAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvailableServiceAddressResponseBody,
     };
   }
 
@@ -10560,10 +11772,12 @@ export class ListDpiConfigErrorResponseBody extends $tea.Model {
 
 export class ListDpiConfigErrorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDpiConfigErrorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10571,6 +11785,7 @@ export class ListDpiConfigErrorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDpiConfigErrorResponseBody,
     };
   }
@@ -10653,10 +11868,12 @@ export class ListDpiGroupsResponseBody extends $tea.Model {
 
 export class ListDpiGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDpiGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10664,6 +11881,7 @@ export class ListDpiGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDpiGroupsResponseBody,
     };
   }
@@ -10749,10 +11967,12 @@ export class ListDpiSignaturesResponseBody extends $tea.Model {
 
 export class ListDpiSignaturesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDpiSignaturesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10760,6 +11980,7 @@ export class ListDpiSignaturesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDpiSignaturesResponseBody,
     };
   }
@@ -10833,10 +12054,12 @@ export class ListEnterpriseCodeResponseBody extends $tea.Model {
 
 export class ListEnterpriseCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEnterpriseCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10844,7 +12067,113 @@ export class ListEnterpriseCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEnterpriseCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProbeTaskRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  probeTaskId?: string;
+  protocol?: string;
+  regionId?: string;
+  sagId?: string;
+  sagName?: string;
+  sn?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      probeTaskId: 'ProbeTaskId',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sagName: 'SagName',
+      sn: 'Sn',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      probeTaskId: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sagName: 'string',
+      sn: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProbeTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListProbeTaskResponseBodyData[];
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListProbeTaskResponseBodyData },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProbeTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProbeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProbeTaskResponseBody,
     };
   }
 
@@ -10917,10 +12246,12 @@ export class ListSmartAGApiUnsupportedFeatureResponseBody extends $tea.Model {
 
 export class ListSmartAGApiUnsupportedFeatureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSmartAGApiUnsupportedFeatureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10928,6 +12259,7 @@ export class ListSmartAGApiUnsupportedFeatureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSmartAGApiUnsupportedFeatureResponseBody,
     };
   }
@@ -11007,10 +12339,12 @@ export class ListSmartAGByAccessPointResponseBody extends $tea.Model {
 
 export class ListSmartAGByAccessPointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSmartAGByAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11018,6 +12352,7 @@ export class ListSmartAGByAccessPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSmartAGByAccessPointResponseBody,
     };
   }
@@ -11085,10 +12420,12 @@ export class ModifyACLResponseBody extends $tea.Model {
 
 export class ModifyACLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyACLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11096,6 +12433,7 @@ export class ModifyACLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyACLResponseBody,
     };
   }
@@ -11247,10 +12585,12 @@ export class ModifyACLRuleResponseBody extends $tea.Model {
 
 export class ModifyACLRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyACLRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11258,6 +12598,7 @@ export class ModifyACLRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyACLRuleResponseBody,
     };
   }
@@ -11328,10 +12669,12 @@ export class ModifyClientUserDNSResponseBody extends $tea.Model {
 
 export class ModifyClientUserDNSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyClientUserDNSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11339,6 +12682,7 @@ export class ModifyClientUserDNSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyClientUserDNSResponseBody,
     };
   }
@@ -11415,10 +12759,12 @@ export class ModifyCloudConnectNetworkResponseBody extends $tea.Model {
 
 export class ModifyCloudConnectNetworkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyCloudConnectNetworkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11426,6 +12772,7 @@ export class ModifyCloudConnectNetworkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyCloudConnectNetworkResponseBody,
     };
   }
@@ -11508,10 +12855,12 @@ export class ModifyDeviceAutoUpgradePolicyResponseBody extends $tea.Model {
 
 export class ModifyDeviceAutoUpgradePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDeviceAutoUpgradePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11519,6 +12868,7 @@ export class ModifyDeviceAutoUpgradePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDeviceAutoUpgradePolicyResponseBody,
     };
   }
@@ -11616,10 +12966,12 @@ export class ModifyFlowLogAttributeResponseBody extends $tea.Model {
 
 export class ModifyFlowLogAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyFlowLogAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11627,6 +12979,7 @@ export class ModifyFlowLogAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyFlowLogAttributeResponseBody,
     };
   }
@@ -11733,10 +13086,12 @@ export class ModifyHealthCheckResponseBody extends $tea.Model {
 
 export class ModifyHealthCheckResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyHealthCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11744,6 +13099,7 @@ export class ModifyHealthCheckResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyHealthCheckResponseBody,
     };
   }
@@ -11814,10 +13170,12 @@ export class ModifyQosResponseBody extends $tea.Model {
 
 export class ModifyQosResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyQosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11825,6 +13183,7 @@ export class ModifyQosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyQosResponseBody,
     };
   }
@@ -11919,10 +13278,12 @@ export class ModifyQosCarResponseBody extends $tea.Model {
 
 export class ModifyQosCarResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyQosCarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11930,6 +13291,7 @@ export class ModifyQosCarResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyQosCarResponseBody,
     };
   }
@@ -12033,10 +13395,12 @@ export class ModifyQosPolicyResponseBody extends $tea.Model {
 
 export class ModifyQosPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyQosPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12044,6 +13408,7 @@ export class ModifyQosPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyQosPolicyResponseBody,
     };
   }
@@ -12123,10 +13488,12 @@ export class ModifyRouteDistributionStrategyResponseBody extends $tea.Model {
 
 export class ModifyRouteDistributionStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyRouteDistributionStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12134,6 +13501,7 @@ export class ModifyRouteDistributionStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyRouteDistributionStrategyResponseBody,
     };
   }
@@ -12204,10 +13572,12 @@ export class ModifySAGAdminPasswordResponseBody extends $tea.Model {
 
 export class ModifySAGAdminPasswordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySAGAdminPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12215,6 +13585,7 @@ export class ModifySAGAdminPasswordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySAGAdminPasswordResponseBody,
     };
   }
@@ -12294,10 +13665,12 @@ export class ModifySagExpressConnectInterfaceResponseBody extends $tea.Model {
 
 export class ModifySagExpressConnectInterfaceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagExpressConnectInterfaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12305,6 +13678,7 @@ export class ModifySagExpressConnectInterfaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagExpressConnectInterfaceResponseBody,
     };
   }
@@ -12375,10 +13749,12 @@ export class ModifySagGlobalRouteProtocolResponseBody extends $tea.Model {
 
 export class ModifySagGlobalRouteProtocolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagGlobalRouteProtocolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12386,6 +13762,7 @@ export class ModifySagGlobalRouteProtocolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagGlobalRouteProtocolResponseBody,
     };
   }
@@ -12462,10 +13839,12 @@ export class ModifySagHaResponseBody extends $tea.Model {
 
 export class ModifySagHaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagHaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12473,6 +13852,7 @@ export class ModifySagHaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagHaResponseBody,
     };
   }
@@ -12561,10 +13941,12 @@ export class ModifySagLanResponseBody extends $tea.Model {
 
 export class ModifySagLanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagLanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12572,6 +13954,7 @@ export class ModifySagLanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagLanResponseBody,
     };
   }
@@ -12648,10 +14031,12 @@ export class ModifySagManagementPortResponseBody extends $tea.Model {
 
 export class ModifySagManagementPortResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagManagementPortResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12659,6 +14044,7 @@ export class ModifySagManagementPortResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagManagementPortResponseBody,
     };
   }
@@ -12732,10 +14118,12 @@ export class ModifySagPortRoleResponseBody extends $tea.Model {
 
 export class ModifySagPortRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagPortRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12743,6 +14131,7 @@ export class ModifySagPortRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagPortRoleResponseBody,
     };
   }
@@ -12825,10 +14214,12 @@ export class ModifySagPortRouteProtocolResponseBody extends $tea.Model {
 
 export class ModifySagPortRouteProtocolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagPortRouteProtocolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12836,6 +14227,7 @@ export class ModifySagPortRouteProtocolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagPortRouteProtocolResponseBody,
     };
   }
@@ -12918,10 +14310,12 @@ export class ModifySagRemoteAccessResponseBody extends $tea.Model {
 
 export class ModifySagRemoteAccessResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagRemoteAccessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -12929,6 +14323,7 @@ export class ModifySagRemoteAccessResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagRemoteAccessResponseBody,
     };
   }
@@ -13008,10 +14403,12 @@ export class ModifySagRouteProtocolBgpResponseBody extends $tea.Model {
 
 export class ModifySagRouteProtocolBgpResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagRouteProtocolBgpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13019,6 +14416,7 @@ export class ModifySagRouteProtocolBgpResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagRouteProtocolBgpResponseBody,
     };
   }
@@ -13110,10 +14508,12 @@ export class ModifySagRouteProtocolOspfResponseBody extends $tea.Model {
 
 export class ModifySagRouteProtocolOspfResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagRouteProtocolOspfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13121,6 +14521,7 @@ export class ModifySagRouteProtocolOspfResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagRouteProtocolOspfResponseBody,
     };
   }
@@ -13200,10 +14601,12 @@ export class ModifySagStaticRouteResponseBody extends $tea.Model {
 
 export class ModifySagStaticRouteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagStaticRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13211,6 +14614,7 @@ export class ModifySagStaticRouteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagStaticRouteResponseBody,
     };
   }
@@ -13284,10 +14688,12 @@ export class ModifySagUserDnsResponseBody extends $tea.Model {
 
 export class ModifySagUserDnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagUserDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13295,6 +14701,7 @@ export class ModifySagUserDnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagUserDnsResponseBody,
     };
   }
@@ -13395,10 +14802,12 @@ export class ModifySagWanResponseBody extends $tea.Model {
 
 export class ModifySagWanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagWanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13406,6 +14815,7 @@ export class ModifySagWanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagWanResponseBody,
     };
   }
@@ -13476,10 +14886,12 @@ export class ModifySagWanSnatResponseBody extends $tea.Model {
 
 export class ModifySagWanSnatResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagWanSnatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13487,6 +14899,7 @@ export class ModifySagWanSnatResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagWanSnatResponseBody,
     };
   }
@@ -13581,10 +14994,12 @@ export class ModifySagWifiResponseBody extends $tea.Model {
 
 export class ModifySagWifiResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySagWifiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13592,6 +15007,7 @@ export class ModifySagWifiResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySagWifiResponseBody,
     };
   }
@@ -13604,9 +15020,11 @@ export class ModifySagWifiResponse extends $tea.Model {
 export class ModifySmartAccessGatewayRequest extends $tea.Model {
   cidrBlock?: string;
   description?: string;
+  enableSoftwareConnectionAudit?: boolean;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
+  position?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -13617,9 +15035,11 @@ export class ModifySmartAccessGatewayRequest extends $tea.Model {
     return {
       cidrBlock: 'CidrBlock',
       description: 'Description',
+      enableSoftwareConnectionAudit: 'EnableSoftwareConnectionAudit',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      position: 'Position',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -13633,9 +15053,11 @@ export class ModifySmartAccessGatewayRequest extends $tea.Model {
     return {
       cidrBlock: 'string',
       description: 'string',
+      enableSoftwareConnectionAudit: 'boolean',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      position: 'string',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -13671,10 +15093,12 @@ export class ModifySmartAccessGatewayResponseBody extends $tea.Model {
 
 export class ModifySmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13682,6 +15106,7 @@ export class ModifySmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySmartAccessGatewayResponseBody,
     };
   }
@@ -13767,10 +15192,12 @@ export class ModifySmartAccessGatewayClientUserResponseBody extends $tea.Model {
 
 export class ModifySmartAccessGatewayClientUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySmartAccessGatewayClientUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13778,6 +15205,7 @@ export class ModifySmartAccessGatewayClientUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySmartAccessGatewayClientUserResponseBody,
     };
   }
@@ -13848,10 +15276,12 @@ export class ModifySmartAccessGatewayUpBandwidthResponseBody extends $tea.Model 
 
 export class ModifySmartAccessGatewayUpBandwidthResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySmartAccessGatewayUpBandwidthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13859,6 +15289,7 @@ export class ModifySmartAccessGatewayUpBandwidthResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySmartAccessGatewayUpBandwidthResponseBody,
     };
   }
@@ -13929,10 +15360,12 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 
 export class MoveResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -13940,6 +15373,7 @@ export class MoveResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveResourceGroupResponseBody,
     };
   }
@@ -14007,10 +15441,12 @@ export class ProbeAccessPointNetworkQualityResponseBody extends $tea.Model {
 
 export class ProbeAccessPointNetworkQualityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ProbeAccessPointNetworkQualityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14018,6 +15454,7 @@ export class ProbeAccessPointNetworkQualityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ProbeAccessPointNetworkQualityResponseBody,
     };
   }
@@ -14085,10 +15522,12 @@ export class RebootSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class RebootSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RebootSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14096,6 +15535,7 @@ export class RebootSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RebootSmartAccessGatewayResponseBody,
     };
   }
@@ -14166,10 +15606,12 @@ export class ResetSmartAccessGatewayClientUserPasswordResponseBody extends $tea.
 
 export class ResetSmartAccessGatewayClientUserPasswordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetSmartAccessGatewayClientUserPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14177,6 +15619,7 @@ export class ResetSmartAccessGatewayClientUserPasswordResponse extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetSmartAccessGatewayClientUserPasswordResponseBody,
     };
   }
@@ -14244,10 +15687,12 @@ export class RevokeInstanceFromCbnResponseBody extends $tea.Model {
 
 export class RevokeInstanceFromCbnResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RevokeInstanceFromCbnResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14255,6 +15700,7 @@ export class RevokeInstanceFromCbnResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RevokeInstanceFromCbnResponseBody,
     };
   }
@@ -14322,10 +15768,12 @@ export class RevokeInstanceFromVbrResponseBody extends $tea.Model {
 
 export class RevokeInstanceFromVbrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RevokeInstanceFromVbrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14333,6 +15781,7 @@ export class RevokeInstanceFromVbrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RevokeInstanceFromVbrResponseBody,
     };
   }
@@ -14400,10 +15849,12 @@ export class RevokeSagInstanceFromCcnResponseBody extends $tea.Model {
 
 export class RevokeSagInstanceFromCcnResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RevokeSagInstanceFromCcnResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14411,6 +15862,7 @@ export class RevokeSagInstanceFromCcnResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RevokeSagInstanceFromCcnResponseBody,
     };
   }
@@ -14484,10 +15936,12 @@ export class RoamClientUserResponseBody extends $tea.Model {
 
 export class RoamClientUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RoamClientUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14495,7 +15949,83 @@ export class RoamClientUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RoamClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAdvancedMonitorStateRequest extends $tea.Model {
+  enable?: boolean;
+  regionId?: string;
+  sagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      regionId: 'string',
+      sagId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAdvancedMonitorStateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAdvancedMonitorStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetAdvancedMonitorStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetAdvancedMonitorStateResponseBody,
     };
   }
 
@@ -14562,10 +16092,12 @@ export class SynchronizeSmartAGWebConfigResponseBody extends $tea.Model {
 
 export class SynchronizeSmartAGWebConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SynchronizeSmartAGWebConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14573,6 +16105,7 @@ export class SynchronizeSmartAGWebConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SynchronizeSmartAGWebConfigResponseBody,
     };
   }
@@ -14640,10 +16173,12 @@ export class UnbindSerialNumberResponseBody extends $tea.Model {
 
 export class UnbindSerialNumberResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnbindSerialNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14651,6 +16186,7 @@ export class UnbindSerialNumberResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnbindSerialNumberResponseBody,
     };
   }
@@ -14721,10 +16257,12 @@ export class UnbindSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class UnbindSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnbindSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14732,6 +16270,7 @@ export class UnbindSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnbindSmartAccessGatewayResponseBody,
     };
   }
@@ -14805,10 +16344,12 @@ export class UnbindVbrResponseBody extends $tea.Model {
 
 export class UnbindVbrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnbindVbrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14816,6 +16357,7 @@ export class UnbindVbrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnbindVbrResponseBody,
     };
   }
@@ -14880,10 +16422,12 @@ export class UnlockSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class UnlockSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnlockSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14891,6 +16435,7 @@ export class UnlockSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnlockSmartAccessGatewayResponseBody,
     };
   }
@@ -14949,10 +16494,12 @@ export class UpdateEnterpriseCodeResponseBody extends $tea.Model {
 
 export class UpdateEnterpriseCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateEnterpriseCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -14960,7 +16507,110 @@ export class UpdateEnterpriseCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateEnterpriseCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProbeTaskRequest extends $tea.Model {
+  addressType?: string;
+  domain?: string;
+  enable?: boolean;
+  packetNumber?: number;
+  port?: number;
+  probeTaskId?: string;
+  probeTaskSourceAddress?: string;
+  protocol?: string;
+  regionId?: string;
+  sagId?: string;
+  sn?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressType: 'AddressType',
+      domain: 'Domain',
+      enable: 'Enable',
+      packetNumber: 'PacketNumber',
+      port: 'Port',
+      probeTaskId: 'ProbeTaskId',
+      probeTaskSourceAddress: 'ProbeTaskSourceAddress',
+      protocol: 'Protocol',
+      regionId: 'RegionId',
+      sagId: 'SagId',
+      sn: 'Sn',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressType: 'string',
+      domain: 'string',
+      enable: 'boolean',
+      packetNumber: 'number',
+      port: 'number',
+      probeTaskId: 'string',
+      probeTaskSourceAddress: 'string',
+      protocol: 'string',
+      regionId: 'string',
+      sagId: 'string',
+      sn: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProbeTaskResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProbeTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateProbeTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProbeTaskResponseBody,
     };
   }
 
@@ -15027,10 +16677,12 @@ export class UpdateSmartAGAccessPointResponseBody extends $tea.Model {
 
 export class UpdateSmartAGAccessPointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSmartAGAccessPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15038,6 +16690,7 @@ export class UpdateSmartAGAccessPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSmartAGAccessPointResponseBody,
     };
   }
@@ -15111,10 +16764,12 @@ export class UpdateSmartAGDpiAttributeResponseBody extends $tea.Model {
 
 export class UpdateSmartAGDpiAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSmartAGDpiAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15122,6 +16777,7 @@ export class UpdateSmartAGDpiAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSmartAGDpiAttributeResponseBody,
     };
   }
@@ -15180,10 +16836,12 @@ export class UpdateSmartAGEnterpriseCodeResponseBody extends $tea.Model {
 
 export class UpdateSmartAGEnterpriseCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSmartAGEnterpriseCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15191,7 +16849,773 @@ export class UpdateSmartAGEnterpriseCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSmartAGEnterpriseCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAGUserAccelerateConfigRequest extends $tea.Model {
+  bandwidth?: number;
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  smartAGId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      smartAGId: 'SmartAGId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      smartAGId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAGUserAccelerateConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAGUserAccelerateConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAGUserAccelerateConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAGUserAccelerateConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayAdminPasswordRequest extends $tea.Model {
+  crossAccount?: boolean;
+  password?: string;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      password: 'Password',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      password: 'string',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayAdminPasswordResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayAdminPasswordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayAdminPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayAdminPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayBgpRouteRequest extends $tea.Model {
+  crossAccount?: boolean;
+  holdTime?: number;
+  keepAlive?: number;
+  localAs?: number;
+  regionId?: string;
+  resourceUid?: string;
+  routerId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      holdTime: 'HoldTime',
+      keepAlive: 'KeepAlive',
+      localAs: 'LocalAs',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      routerId: 'RouterId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      holdTime: 'number',
+      keepAlive: 'number',
+      localAs: 'number',
+      regionId: 'string',
+      resourceUid: 'string',
+      routerId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayBgpRouteResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayBgpRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayBgpRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayBgpRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsRequest extends $tea.Model {
+  crossAccount?: boolean;
+  masterDns?: string;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  slaveDns?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      masterDns: 'MasterDns',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+      slaveDns: 'SlaveDns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      masterDns: 'string',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+      slaveDns: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayDnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayDnsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsForwardRequest extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  masterIp?: string;
+  mode?: string;
+  outboundPortIndex?: number;
+  outboundPortName?: string;
+  outboundPortType?: string;
+  regionId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  slaveIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      masterIp: 'MasterIp',
+      mode: 'Mode',
+      outboundPortIndex: 'OutboundPortIndex',
+      outboundPortName: 'OutboundPortName',
+      outboundPortType: 'OutboundPortType',
+      regionId: 'RegionId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+      slaveIp: 'SlaveIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      masterIp: 'string',
+      mode: 'string',
+      outboundPortIndex: 'number',
+      outboundPortName: 'string',
+      outboundPortType: 'string',
+      regionId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+      slaveIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsForwardResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayDnsForwardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayDnsForwardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayDnsForwardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayGlobalRouteProtocolRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  routeProtocol?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      routeProtocol: 'RouteProtocol',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      routeProtocol: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayGlobalRouteProtocolResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayGlobalRouteProtocolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayGlobalRouteProtocolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayGlobalRouteProtocolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayOspfRouteRequest extends $tea.Model {
+  areaId?: number;
+  authenticationType?: string;
+  crossAccount?: boolean;
+  deadTime?: number;
+  helloTime?: number;
+  interfaceName?: string;
+  md5Key?: string;
+  md5KeyId?: number;
+  networks?: string;
+  ospfCost?: number;
+  ospfNetworkType?: string;
+  password?: string;
+  redistributeProtocol?: string;
+  regionId?: string;
+  resourceUid?: string;
+  routerId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areaId: 'AreaId',
+      authenticationType: 'AuthenticationType',
+      crossAccount: 'CrossAccount',
+      deadTime: 'DeadTime',
+      helloTime: 'HelloTime',
+      interfaceName: 'InterfaceName',
+      md5Key: 'Md5Key',
+      md5KeyId: 'Md5KeyId',
+      networks: 'Networks',
+      ospfCost: 'OspfCost',
+      ospfNetworkType: 'OspfNetworkType',
+      password: 'Password',
+      redistributeProtocol: 'RedistributeProtocol',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      routerId: 'RouterId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaId: 'number',
+      authenticationType: 'string',
+      crossAccount: 'boolean',
+      deadTime: 'number',
+      helloTime: 'number',
+      interfaceName: 'string',
+      md5Key: 'string',
+      md5KeyId: 'number',
+      networks: 'string',
+      ospfCost: 'number',
+      ospfNetworkType: 'string',
+      password: 'string',
+      redistributeProtocol: 'string',
+      regionId: 'string',
+      resourceUid: 'string',
+      routerId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayOspfRouteResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayOspfRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayOspfRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayOspfRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayPortRouteProtocolRequest extends $tea.Model {
+  crossAccount?: boolean;
+  portName?: string;
+  regionId?: string;
+  remoteAs?: string;
+  remoteIp?: string;
+  resourceUid?: string;
+  routeProtocol?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  vlan?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      portName: 'PortName',
+      regionId: 'RegionId',
+      remoteAs: 'RemoteAs',
+      remoteIp: 'RemoteIp',
+      resourceUid: 'ResourceUid',
+      routeProtocol: 'RouteProtocol',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+      vlan: 'Vlan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      portName: 'string',
+      regionId: 'string',
+      remoteAs: 'string',
+      remoteIp: 'string',
+      resourceUid: 'string',
+      routeProtocol: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+      vlan: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayPortRouteProtocolResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayPortRouteProtocolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayPortRouteProtocolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayPortRouteProtocolResponseBody,
     };
   }
 
@@ -15264,10 +17688,12 @@ export class UpdateSmartAccessGatewayVersionResponseBody extends $tea.Model {
 
 export class UpdateSmartAccessGatewayVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSmartAccessGatewayVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15275,7 +17701,95 @@ export class UpdateSmartAccessGatewayVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSmartAccessGatewayVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayWanSnatRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  snat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+      snat: 'Snat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+      snat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayWanSnatResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartAccessGatewayWanSnatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSmartAccessGatewayWanSnatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmartAccessGatewayWanSnatResponseBody,
     };
   }
 
@@ -15348,10 +17862,12 @@ export class UpgradeSmartAccessGatewayResponseBody extends $tea.Model {
 
 export class UpgradeSmartAccessGatewayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeSmartAccessGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15359,6 +17875,7 @@ export class UpgradeSmartAccessGatewayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeSmartAccessGatewayResponseBody,
     };
   }
@@ -15435,10 +17952,12 @@ export class UpgradeSmartAccessGatewaySoftwareResponseBody extends $tea.Model {
 
 export class UpgradeSmartAccessGatewaySoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeSmartAccessGatewaySoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -15446,7 +17965,689 @@ export class UpgradeSmartAccessGatewaySoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeSmartAccessGatewaySoftwareResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayBgpRouteRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayBgpRouteResponseBody extends $tea.Model {
+  holdTime?: number;
+  keepAlive?: number;
+  localAs?: number;
+  requestId?: string;
+  routerId?: string;
+  taskStates?: ViewSmartAccessGatewayBgpRouteResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      holdTime: 'HoldTime',
+      keepAlive: 'KeepAlive',
+      localAs: 'LocalAs',
+      requestId: 'RequestId',
+      routerId: 'RouterId',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      holdTime: 'number',
+      keepAlive: 'number',
+      localAs: 'number',
+      requestId: 'string',
+      routerId: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayBgpRouteResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayBgpRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayBgpRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayBgpRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsResponseBody extends $tea.Model {
+  masterDns?: string;
+  requestId?: string;
+  slaveDns?: string;
+  taskStates?: ViewSmartAccessGatewayDnsResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      masterDns: 'MasterDns',
+      requestId: 'RequestId',
+      slaveDns: 'SlaveDns',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      masterDns: 'string',
+      requestId: 'string',
+      slaveDns: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayDnsResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayDnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayDnsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsForwardsRequest extends $tea.Model {
+  regionId?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsForwardsResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: ViewSmartAccessGatewayDnsForwardsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ViewSmartAccessGatewayDnsForwardsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsForwardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayDnsForwardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayDnsForwardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayGlobalRouteProtocolRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBody extends $tea.Model {
+  requestId?: string;
+  routeProtocol?: string;
+  taskStates?: ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeProtocol: 'RouteProtocol',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeProtocol: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayGlobalRouteProtocolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayGlobalRouteProtocolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayGlobalRouteProtocolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayOspfRouteRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayOspfRouteResponseBody extends $tea.Model {
+  areaId?: number;
+  authenticationType?: string;
+  deadTime?: number;
+  helloTime?: number;
+  md5Key?: string;
+  md5KeyId?: number;
+  requestId?: string;
+  routerId?: string;
+  taskStates?: ViewSmartAccessGatewayOspfRouteResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      areaId: 'AreaId',
+      authenticationType: 'AuthenticationType',
+      deadTime: 'DeadTime',
+      helloTime: 'HelloTime',
+      md5Key: 'Md5Key',
+      md5KeyId: 'Md5KeyId',
+      requestId: 'RequestId',
+      routerId: 'RouterId',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaId: 'number',
+      authenticationType: 'string',
+      deadTime: 'number',
+      helloTime: 'number',
+      md5Key: 'string',
+      md5KeyId: 'number',
+      requestId: 'string',
+      routerId: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayOspfRouteResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayOspfRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayOspfRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayOspfRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayPortRouteProtocolRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayPortRouteProtocolResponseBody extends $tea.Model {
+  ports?: ViewSmartAccessGatewayPortRouteProtocolResponseBodyPorts[];
+  requestId?: string;
+  taskStates?: ViewSmartAccessGatewayPortRouteProtocolResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      ports: 'Ports',
+      requestId: 'RequestId',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ports: { 'type': 'array', 'itemType': ViewSmartAccessGatewayPortRouteProtocolResponseBodyPorts },
+      requestId: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayPortRouteProtocolResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayPortRouteProtocolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayPortRouteProtocolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayPortRouteProtocolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayRoutesRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayRoutesResponseBody extends $tea.Model {
+  requestId?: string;
+  routes?: ViewSmartAccessGatewayRoutesResponseBodyRoutes[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routes: 'Routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routes: { 'type': 'array', 'itemType': ViewSmartAccessGatewayRoutesResponseBodyRoutes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayRoutesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayRoutesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayWanSnatRequest extends $tea.Model {
+  crossAccount?: boolean;
+  regionId?: string;
+  resourceUid?: string;
+  sagInsId?: string;
+  sagSn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccount: 'CrossAccount',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      sagInsId: 'SagInsId',
+      sagSn: 'SagSn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccount: 'boolean',
+      regionId: 'string',
+      resourceUid: 'string',
+      sagInsId: 'string',
+      sagSn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayWanSnatResponseBody extends $tea.Model {
+  requestId?: string;
+  snat?: string;
+  taskStates?: ViewSmartAccessGatewayWanSnatResponseBodyTaskStates[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      snat: 'Snat',
+      taskStates: 'TaskStates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      snat: 'string',
+      taskStates: { 'type': 'array', 'itemType': ViewSmartAccessGatewayWanSnatResponseBodyTaskStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayWanSnatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ViewSmartAccessGatewayWanSnatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ViewSmartAccessGatewayWanSnatResponseBody,
     };
   }
 
@@ -15485,6 +18686,68 @@ export class AddACLRuleResponseBodyDpiSignatureIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dpiSignatureId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  masterIp?: string;
+  mode?: string;
+  outboundPortIndex?: number;
+  outboundPortName?: string;
+  outboundPortType?: string;
+  slaveIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      masterIp: 'MasterIp',
+      mode: 'Mode',
+      outboundPortIndex: 'OutboundPortIndex',
+      outboundPortName: 'OutboundPortName',
+      outboundPortType: 'OutboundPortType',
+      slaveIp: 'SlaveIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      masterIp: 'string',
+      mode: 'string',
+      outboundPortIndex: 'number',
+      outboundPortName: 'string',
+      outboundPortType: 'string',
+      slaveIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConfigs extends $tea.Model {
+  bandwidth?: number;
+  smartAGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      smartAGId: 'SmartAGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      smartAGId: 'string',
     };
   }
 
@@ -15571,6 +18834,7 @@ export class DescribeACLAttributeResponseBodyAcrsAcrDpiSignatureIds extends $tea
 
 export class DescribeACLAttributeResponseBodyAcrsAcr extends $tea.Model {
   aclId?: string;
+  aclType?: string;
   acrId?: string;
   description?: string;
   destCidr?: string;
@@ -15589,6 +18853,7 @@ export class DescribeACLAttributeResponseBodyAcrsAcr extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclType: 'AclType',
       acrId: 'AcrId',
       description: 'Description',
       destCidr: 'DestCidr',
@@ -15610,6 +18875,7 @@ export class DescribeACLAttributeResponseBodyAcrsAcr extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclType: 'string',
       acrId: 'string',
       description: 'string',
       destCidr: 'string',
@@ -15654,12 +18920,14 @@ export class DescribeACLAttributeResponseBodyAcrs extends $tea.Model {
 
 export class DescribeACLsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
+  aclType?: string;
   name?: string;
   resourceGroupId?: string;
   sagCount?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aclType: 'AclType',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
       sagCount: 'SagCount',
@@ -15669,6 +18937,7 @@ export class DescribeACLsResponseBodyAclsAcl extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aclType: 'string',
       name: 'string',
       resourceGroupId: 'string',
       sagCount: 'string',
@@ -17605,6 +20874,25 @@ export class DescribeSmartAccessGatewayAttributeResponseBodyFlowLogIds extends $
   }
 }
 
+export class DescribeSmartAccessGatewayAttributeResponseBodyIRIds extends $tea.Model {
+  IRId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IRId: 'IRId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IRId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSmartAccessGatewayAttributeResponseBodyLinksLink extends $tea.Model {
   bandwidth?: string;
   commodityType?: string;
@@ -17917,15 +21205,20 @@ export class DescribeSmartAccessGatewaysResponseBodySmartAccessGatewaysSmartAcce
   description?: string;
   dpiMonitorStatus?: string;
   dpiStatus?: string;
+  enableAdvancedMonitor?: boolean;
+  enableSoftwareConnectionAudit?: boolean;
   endTime?: number;
   enterpriseCode?: string;
   hardwareVersion?: string;
+  IRIds?: string;
   idaasApplicationId?: string;
   idaasId?: string;
   ipsecStatus?: string;
+  isp?: string;
   links?: DescribeSmartAccessGatewaysResponseBodySmartAccessGatewaysSmartAccessGatewayLinks;
   maxBandwidth?: string;
   name?: string;
+  position?: string;
   qosIds?: string;
   resellerInstanceId?: string;
   resellerUid?: string;
@@ -17958,15 +21251,20 @@ export class DescribeSmartAccessGatewaysResponseBodySmartAccessGatewaysSmartAcce
       description: 'Description',
       dpiMonitorStatus: 'DpiMonitorStatus',
       dpiStatus: 'DpiStatus',
+      enableAdvancedMonitor: 'EnableAdvancedMonitor',
+      enableSoftwareConnectionAudit: 'EnableSoftwareConnectionAudit',
       endTime: 'EndTime',
       enterpriseCode: 'EnterpriseCode',
       hardwareVersion: 'HardwareVersion',
+      IRIds: 'IRIds',
       idaasApplicationId: 'IdaasApplicationId',
       idaasId: 'IdaasId',
       ipsecStatus: 'IpsecStatus',
+      isp: 'Isp',
       links: 'Links',
       maxBandwidth: 'MaxBandwidth',
       name: 'Name',
+      position: 'Position',
       qosIds: 'QosIds',
       resellerInstanceId: 'ResellerInstanceId',
       resellerUid: 'ResellerUid',
@@ -18002,15 +21300,20 @@ export class DescribeSmartAccessGatewaysResponseBodySmartAccessGatewaysSmartAcce
       description: 'string',
       dpiMonitorStatus: 'string',
       dpiStatus: 'string',
+      enableAdvancedMonitor: 'boolean',
+      enableSoftwareConnectionAudit: 'boolean',
       endTime: 'number',
       enterpriseCode: 'string',
       hardwareVersion: 'string',
+      IRIds: 'string',
       idaasApplicationId: 'string',
       idaasId: 'string',
       ipsecStatus: 'string',
+      isp: 'string',
       links: DescribeSmartAccessGatewaysResponseBodySmartAccessGatewaysSmartAccessGatewayLinks,
       maxBandwidth: 'string',
       name: 'string',
+      position: 'string',
       qosIds: 'string',
       resellerInstanceId: 'string',
       resellerUid: 'string',
@@ -18545,6 +21848,25 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
   }
 }
 
+export class GetAdvancedMonitorStateResponseBodyData extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQosAttributeResponseBodyQosCars extends $tea.Model {
   limitType?: string;
   maxBandwidthAbs?: number;
@@ -18693,6 +22015,28 @@ export class ListAccessPointsResponseBodyAccessPoints extends $tea.Model {
   }
 }
 
+export class ListAvailableServiceAddressResponseBodyData extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDpiConfigErrorResponseBodyDpiConfigErrorRuleConfigErrorList extends $tea.Model {
   dpiGroupIds?: string[];
   dpiSignatureIds?: string[];
@@ -18827,6 +22171,61 @@ export class ListEnterpriseCodeResponseBodyEnterpriseCodes extends $tea.Model {
   }
 }
 
+export class ListProbeTaskResponseBodyData extends $tea.Model {
+  domain?: string;
+  enable?: boolean;
+  gmtCreate?: string;
+  gmtModify?: string;
+  packetNumber?: number;
+  port?: number;
+  probeTaskId?: string;
+  probeTaskSourceAddress?: string;
+  protocol?: string;
+  sagId?: string;
+  sn?: string;
+  taskName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      enable: 'Enable',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      packetNumber: 'PacketNumber',
+      port: 'Port',
+      probeTaskId: 'ProbeTaskId',
+      probeTaskSourceAddress: 'ProbeTaskSourceAddress',
+      protocol: 'Protocol',
+      sagId: 'SagId',
+      sn: 'Sn',
+      taskName: 'TaskName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enable: 'boolean',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      packetNumber: 'number',
+      port: 'number',
+      probeTaskId: 'string',
+      probeTaskSourceAddress: 'string',
+      protocol: 'string',
+      sagId: 'string',
+      sn: 'string',
+      taskName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSmartAGApiUnsupportedFeatureResponseBodyFeatures extends $tea.Model {
   feature?: string;
   static names(): { [key: string]: string } {
@@ -18913,6 +22312,288 @@ export class ModifyACLRuleResponseBodyDpiSignatureIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dpiSignatureId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayBgpRouteResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  masterIp?: string;
+  mode?: string;
+  outboundPortIndex?: number;
+  outboundPortName?: string;
+  outboundPortType?: string;
+  slaveIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      masterIp: 'MasterIp',
+      mode: 'Mode',
+      outboundPortIndex: 'OutboundPortIndex',
+      outboundPortName: 'OutboundPortName',
+      outboundPortType: 'OutboundPortType',
+      slaveIp: 'SlaveIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      masterIp: 'string',
+      mode: 'string',
+      outboundPortIndex: 'number',
+      outboundPortName: 'string',
+      outboundPortType: 'string',
+      slaveIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayOspfRouteResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayPortRouteProtocolResponseBodyPorts extends $tea.Model {
+  neighborIp?: string;
+  portName?: string;
+  remoteAs?: string;
+  remoteIp?: string;
+  routeProtocol?: string;
+  status?: string;
+  vlan?: string;
+  static names(): { [key: string]: string } {
+    return {
+      neighborIp: 'NeighborIp',
+      portName: 'PortName',
+      remoteAs: 'RemoteAs',
+      remoteIp: 'RemoteIp',
+      routeProtocol: 'RouteProtocol',
+      status: 'Status',
+      vlan: 'Vlan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      neighborIp: 'string',
+      portName: 'string',
+      remoteAs: 'string',
+      remoteIp: 'string',
+      routeProtocol: 'string',
+      status: 'string',
+      vlan: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayPortRouteProtocolResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayRoutesResponseBodyRoutes extends $tea.Model {
+  conflictCidrs?: string[];
+  cost?: string;
+  dst?: string;
+  idx?: number;
+  nexthop?: string;
+  role?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conflictCidrs: 'ConflictCidrs',
+      cost: 'Cost',
+      dst: 'Dst',
+      idx: 'Idx',
+      nexthop: 'Nexthop',
+      role: 'Role',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflictCidrs: { 'type': 'array', 'itemType': 'string' },
+      cost: 'string',
+      dst: 'string',
+      idx: 'number',
+      nexthop: 'string',
+      role: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ViewSmartAccessGatewayWanSnatResponseBodyTaskStates extends $tea.Model {
+  createTime?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      state: 'string',
     };
   }
 
@@ -19216,6 +22897,71 @@ export default class Client extends OpenApi {
     return await this.addDnatEntryWithOptions(request, runtime);
   }
 
+  async addSmartAccessGatewayDnsForwardWithOptions(request: AddSmartAccessGatewayDnsForwardRequest, runtime: $Util.RuntimeOptions): Promise<AddSmartAccessGatewayDnsForwardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.masterIp)) {
+      query["MasterIp"] = request.masterIp;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.outboundPortIndex)) {
+      query["OutboundPortIndex"] = request.outboundPortIndex;
+    }
+
+    if (!Util.isUnset(request.outboundPortName)) {
+      query["OutboundPortName"] = request.outboundPortName;
+    }
+
+    if (!Util.isUnset(request.outboundPortType)) {
+      query["OutboundPortType"] = request.outboundPortType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    if (!Util.isUnset(request.slaveIp)) {
+      query["SlaveIp"] = request.slaveIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddSmartAccessGatewayDnsForward",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSmartAccessGatewayDnsForwardResponse>(await this.callApi(params, req, runtime), new AddSmartAccessGatewayDnsForwardResponse({}));
+  }
+
+  async addSmartAccessGatewayDnsForward(request: AddSmartAccessGatewayDnsForwardRequest): Promise<AddSmartAccessGatewayDnsForwardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSmartAccessGatewayDnsForwardWithOptions(request, runtime);
+  }
+
   async addSnatEntryWithOptions(request: AddSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19430,6 +23176,51 @@ export default class Client extends OpenApi {
   async associateQos(request: AssociateQosRequest): Promise<AssociateQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateQosWithOptions(request, runtime);
+  }
+
+  async associateSmartAGWithApplicationBandwidthPackageWithOptions(request: AssociateSmartAGWithApplicationBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<AssociateSmartAGWithApplicationBandwidthPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationBandwidthPackageId)) {
+      query["ApplicationBandwidthPackageId"] = request.applicationBandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.associateConfigs)) {
+      query["AssociateConfigs"] = request.associateConfigs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateSmartAGWithApplicationBandwidthPackage",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateSmartAGWithApplicationBandwidthPackageResponse>(await this.callApi(params, req, runtime), new AssociateSmartAGWithApplicationBandwidthPackageResponse({}));
+  }
+
+  async associateSmartAGWithApplicationBandwidthPackage(request: AssociateSmartAGWithApplicationBandwidthPackageRequest): Promise<AssociateSmartAGWithApplicationBandwidthPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateSmartAGWithApplicationBandwidthPackageWithOptions(request, runtime);
   }
 
   async bindSerialNumberWithOptions(request: BindSerialNumberRequest, runtime: $Util.RuntimeOptions): Promise<BindSerialNumberResponse> {
@@ -19708,6 +23499,10 @@ export default class Client extends OpenApi {
   async createACLWithOptions(request: CreateACLRequest, runtime: $Util.RuntimeOptions): Promise<CreateACLResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -20040,6 +23835,75 @@ export default class Client extends OpenApi {
   async createHealthCheck(request: CreateHealthCheckRequest): Promise<CreateHealthCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHealthCheckWithOptions(request, runtime);
+  }
+
+  async createProbeTaskWithOptions(request: CreateProbeTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateProbeTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.packetNumber)) {
+      query["PacketNumber"] = request.packetNumber;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.probeTaskSourceAddress)) {
+      query["ProbeTaskSourceAddress"] = request.probeTaskSourceAddress;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProbeTask",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProbeTaskResponse>(await this.callApi(params, req, runtime), new CreateProbeTaskResponse({}));
+  }
+
+  async createProbeTask(request: CreateProbeTaskRequest): Promise<CreateProbeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProbeTaskWithOptions(request, runtime);
   }
 
   async createQosWithOptions(request: CreateQosRequest, runtime: $Util.RuntimeOptions): Promise<CreateQosResponse> {
@@ -20413,6 +24277,51 @@ export default class Client extends OpenApi {
   async createSagStaticRoute(request: CreateSagStaticRouteRequest): Promise<CreateSagStaticRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSagStaticRouteWithOptions(request, runtime);
+  }
+
+  async createServiceAddressWithOptions(request: CreateServiceAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceAddress",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceAddressResponse>(await this.callApi(params, req, runtime), new CreateServiceAddressResponse({}));
+  }
+
+  async createServiceAddress(request: CreateServiceAddressRequest): Promise<CreateServiceAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceAddressWithOptions(request, runtime);
   }
 
   async createSmartAccessGatewayWithOptions(request: CreateSmartAccessGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmartAccessGatewayResponse> {
@@ -21070,6 +24979,47 @@ export default class Client extends OpenApi {
     return await this.deleteHealthCheckWithOptions(request, runtime);
   }
 
+  async deleteProbeTaskWithOptions(request: DeleteProbeTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProbeTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.probeTaskId)) {
+      query["ProbeTaskId"] = request.probeTaskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteProbeTask",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProbeTaskResponse>(await this.callApi(params, req, runtime), new DeleteProbeTaskResponse({}));
+  }
+
+  async deleteProbeTask(request: DeleteProbeTaskRequest): Promise<DeleteProbeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProbeTaskWithOptions(request, runtime);
+  }
+
   async deleteQosWithOptions(request: DeleteQosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21412,6 +25362,51 @@ export default class Client extends OpenApi {
     return await this.deleteSagStaticRouteWithOptions(request, runtime);
   }
 
+  async deleteServiceAddressWithOptions(request: DeleteServiceAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteServiceAddress",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceAddressResponse>(await this.callApi(params, req, runtime), new DeleteServiceAddressResponse({}));
+  }
+
+  async deleteServiceAddress(request: DeleteServiceAddressRequest): Promise<DeleteServiceAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteServiceAddressWithOptions(request, runtime);
+  }
+
   async deleteSmartAccessGatewayWithOptions(request: DeleteSmartAccessGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartAccessGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21500,6 +25495,47 @@ export default class Client extends OpenApi {
   async deleteSmartAccessGatewayClientUser(request: DeleteSmartAccessGatewayClientUserRequest): Promise<DeleteSmartAccessGatewayClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSmartAccessGatewayClientUserWithOptions(request, runtime);
+  }
+
+  async deleteSmartAccessGatewayDnsForwardWithOptions(request: DeleteSmartAccessGatewayDnsForwardRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartAccessGatewayDnsForwardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSmartAccessGatewayDnsForward",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSmartAccessGatewayDnsForwardResponse>(await this.callApi(params, req, runtime), new DeleteSmartAccessGatewayDnsForwardResponse({}));
+  }
+
+  async deleteSmartAccessGatewayDnsForward(request: DeleteSmartAccessGatewayDnsForwardRequest): Promise<DeleteSmartAccessGatewayDnsForwardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSmartAccessGatewayDnsForwardWithOptions(request, runtime);
   }
 
   async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
@@ -21629,6 +25665,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aclIds)) {
       query["AclIds"] = request.aclIds;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -24156,6 +28196,10 @@ export default class Client extends OpenApi {
       query["AssociatedCcnId"] = request.associatedCcnId;
     }
 
+    if (!Util.isUnset(request.associatedCcnName)) {
+      query["AssociatedCcnName"] = request.associatedCcnName;
+    }
+
     if (!Util.isUnset(request.businessState)) {
       query["BusinessState"] = request.businessState;
     }
@@ -24898,6 +28942,55 @@ export default class Client extends OpenApi {
     return await this.discribeSmartAccessGatewayDiagnosisReportWithOptions(request, runtime);
   }
 
+  async dissociateSmartAGFromApplicationBandwidthPackageWithOptions(request: DissociateSmartAGFromApplicationBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DissociateSmartAGFromApplicationBandwidthPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationBandwidthPackageId)) {
+      query["ApplicationBandwidthPackageId"] = request.applicationBandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.smartAGId)) {
+      query["SmartAGId"] = request.smartAGId;
+    }
+
+    if (!Util.isUnset(request.smartAGIdList)) {
+      query["SmartAGIdList"] = request.smartAGIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DissociateSmartAGFromApplicationBandwidthPackage",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateSmartAGFromApplicationBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DissociateSmartAGFromApplicationBandwidthPackageResponse({}));
+  }
+
+  async dissociateSmartAGFromApplicationBandwidthPackage(request: DissociateSmartAGFromApplicationBandwidthPackageRequest): Promise<DissociateSmartAGFromApplicationBandwidthPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dissociateSmartAGFromApplicationBandwidthPackageWithOptions(request, runtime);
+  }
+
   async downgradeSmartAccessGatewayWithOptions(request: DowngradeSmartAccessGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DowngradeSmartAccessGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25165,6 +29258,39 @@ export default class Client extends OpenApi {
   async getAclAttribute(request: GetAclAttributeRequest): Promise<GetAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAclAttributeWithOptions(request, runtime);
+  }
+
+  async getAdvancedMonitorStateWithOptions(request: GetAdvancedMonitorStateRequest, runtime: $Util.RuntimeOptions): Promise<GetAdvancedMonitorStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAdvancedMonitorState",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAdvancedMonitorStateResponse>(await this.callApi(params, req, runtime), new GetAdvancedMonitorStateResponse({}));
+  }
+
+  async getAdvancedMonitorState(request: GetAdvancedMonitorStateRequest): Promise<GetAdvancedMonitorStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAdvancedMonitorStateWithOptions(request, runtime);
   }
 
   async getCloudConnectNetworkUseLimitWithOptions(request: GetCloudConnectNetworkUseLimitRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudConnectNetworkUseLimitResponse> {
@@ -25681,6 +29807,47 @@ export default class Client extends OpenApi {
     return await this.listAccessPointsWithOptions(request, runtime);
   }
 
+  async listAvailableServiceAddressWithOptions(request: ListAvailableServiceAddressRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableServiceAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvailableServiceAddress",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableServiceAddressResponse>(await this.callApi(params, req, runtime), new ListAvailableServiceAddressResponse({}));
+  }
+
+  async listAvailableServiceAddress(request: ListAvailableServiceAddressRequest): Promise<ListAvailableServiceAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAvailableServiceAddressWithOptions(request, runtime);
+  }
+
   async listDpiConfigErrorWithOptions(request: ListDpiConfigErrorRequest, runtime: $Util.RuntimeOptions): Promise<ListDpiConfigErrorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25899,6 +30066,67 @@ export default class Client extends OpenApi {
   async listEnterpriseCode(request: ListEnterpriseCodeRequest): Promise<ListEnterpriseCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnterpriseCodeWithOptions(request, runtime);
+  }
+
+  async listProbeTaskWithOptions(request: ListProbeTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListProbeTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.probeTaskId)) {
+      query["ProbeTaskId"] = request.probeTaskId;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sagName)) {
+      query["SagName"] = request.sagName;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProbeTask",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProbeTaskResponse>(await this.callApi(params, req, runtime), new ListProbeTaskResponse({}));
+  }
+
+  async listProbeTask(request: ListProbeTaskRequest): Promise<ListProbeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProbeTaskWithOptions(request, runtime);
   }
 
   async listSmartAGApiUnsupportedFeatureWithOptions(request: ListSmartAGApiUnsupportedFeatureRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartAGApiUnsupportedFeatureResponse> {
@@ -28005,6 +32233,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.enableSoftwareConnectionAudit)) {
+      query["EnableSoftwareConnectionAudit"] = request.enableSoftwareConnectionAudit;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -28015,6 +32247,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.position)) {
+      query["Position"] = request.position;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -28621,6 +32857,43 @@ export default class Client extends OpenApi {
     return await this.roamClientUserWithOptions(request, runtime);
   }
 
+  async setAdvancedMonitorStateWithOptions(request: SetAdvancedMonitorStateRequest, runtime: $Util.RuntimeOptions): Promise<SetAdvancedMonitorStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetAdvancedMonitorState",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAdvancedMonitorStateResponse>(await this.callApi(params, req, runtime), new SetAdvancedMonitorStateResponse({}));
+  }
+
+  async setAdvancedMonitorState(request: SetAdvancedMonitorStateRequest): Promise<SetAdvancedMonitorStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAdvancedMonitorStateWithOptions(request, runtime);
+  }
+
   async synchronizeSmartAGWebConfigWithOptions(request: SynchronizeSmartAGWebConfigRequest, runtime: $Util.RuntimeOptions): Promise<SynchronizeSmartAGWebConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28935,6 +33208,79 @@ export default class Client extends OpenApi {
     return await this.updateEnterpriseCodeWithOptions(request, runtime);
   }
 
+  async updateProbeTaskWithOptions(request: UpdateProbeTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProbeTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.packetNumber)) {
+      query["PacketNumber"] = request.packetNumber;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.probeTaskId)) {
+      query["ProbeTaskId"] = request.probeTaskId;
+    }
+
+    if (!Util.isUnset(request.probeTaskSourceAddress)) {
+      query["ProbeTaskSourceAddress"] = request.probeTaskSourceAddress;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagId)) {
+      query["SagId"] = request.sagId;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProbeTask",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProbeTaskResponse>(await this.callApi(params, req, runtime), new UpdateProbeTaskResponse({}));
+  }
+
+  async updateProbeTask(request: UpdateProbeTaskRequest): Promise<UpdateProbeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateProbeTaskWithOptions(request, runtime);
+  }
+
   async updateSmartAGAccessPointWithOptions(request: UpdateSmartAGAccessPointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAGAccessPointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29090,6 +33436,498 @@ export default class Client extends OpenApi {
     return await this.updateSmartAGEnterpriseCodeWithOptions(request, runtime);
   }
 
+  async updateSmartAGUserAccelerateConfigWithOptions(request: UpdateSmartAGUserAccelerateConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAGUserAccelerateConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.smartAGId)) {
+      query["SmartAGId"] = request.smartAGId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAGUserAccelerateConfig",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAGUserAccelerateConfigResponse>(await this.callApi(params, req, runtime), new UpdateSmartAGUserAccelerateConfigResponse({}));
+  }
+
+  async updateSmartAGUserAccelerateConfig(request: UpdateSmartAGUserAccelerateConfigRequest): Promise<UpdateSmartAGUserAccelerateConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAGUserAccelerateConfigWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayAdminPasswordWithOptions(request: UpdateSmartAccessGatewayAdminPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayAdminPasswordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayAdminPassword",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayAdminPasswordResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayAdminPasswordResponse({}));
+  }
+
+  async updateSmartAccessGatewayAdminPassword(request: UpdateSmartAccessGatewayAdminPasswordRequest): Promise<UpdateSmartAccessGatewayAdminPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayAdminPasswordWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayBgpRouteWithOptions(request: UpdateSmartAccessGatewayBgpRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayBgpRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.holdTime)) {
+      query["HoldTime"] = request.holdTime;
+    }
+
+    if (!Util.isUnset(request.keepAlive)) {
+      query["KeepAlive"] = request.keepAlive;
+    }
+
+    if (!Util.isUnset(request.localAs)) {
+      query["LocalAs"] = request.localAs;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.routerId)) {
+      query["RouterId"] = request.routerId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayBgpRoute",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayBgpRouteResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayBgpRouteResponse({}));
+  }
+
+  async updateSmartAccessGatewayBgpRoute(request: UpdateSmartAccessGatewayBgpRouteRequest): Promise<UpdateSmartAccessGatewayBgpRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayBgpRouteWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayDnsWithOptions(request: UpdateSmartAccessGatewayDnsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayDnsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.masterDns)) {
+      query["MasterDns"] = request.masterDns;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    if (!Util.isUnset(request.slaveDns)) {
+      query["SlaveDns"] = request.slaveDns;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayDns",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayDnsResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayDnsResponse({}));
+  }
+
+  async updateSmartAccessGatewayDns(request: UpdateSmartAccessGatewayDnsRequest): Promise<UpdateSmartAccessGatewayDnsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayDnsWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayDnsForwardWithOptions(request: UpdateSmartAccessGatewayDnsForwardRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayDnsForwardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.masterIp)) {
+      query["MasterIp"] = request.masterIp;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.outboundPortIndex)) {
+      query["OutboundPortIndex"] = request.outboundPortIndex;
+    }
+
+    if (!Util.isUnset(request.outboundPortName)) {
+      query["OutboundPortName"] = request.outboundPortName;
+    }
+
+    if (!Util.isUnset(request.outboundPortType)) {
+      query["OutboundPortType"] = request.outboundPortType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    if (!Util.isUnset(request.slaveIp)) {
+      query["SlaveIp"] = request.slaveIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayDnsForward",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayDnsForwardResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayDnsForwardResponse({}));
+  }
+
+  async updateSmartAccessGatewayDnsForward(request: UpdateSmartAccessGatewayDnsForwardRequest): Promise<UpdateSmartAccessGatewayDnsForwardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayDnsForwardWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayGlobalRouteProtocolWithOptions(request: UpdateSmartAccessGatewayGlobalRouteProtocolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayGlobalRouteProtocolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.routeProtocol)) {
+      query["RouteProtocol"] = request.routeProtocol;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayGlobalRouteProtocol",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayGlobalRouteProtocolResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayGlobalRouteProtocolResponse({}));
+  }
+
+  async updateSmartAccessGatewayGlobalRouteProtocol(request: UpdateSmartAccessGatewayGlobalRouteProtocolRequest): Promise<UpdateSmartAccessGatewayGlobalRouteProtocolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayGlobalRouteProtocolWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayOspfRouteWithOptions(request: UpdateSmartAccessGatewayOspfRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayOspfRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.areaId)) {
+      query["AreaId"] = request.areaId;
+    }
+
+    if (!Util.isUnset(request.authenticationType)) {
+      query["AuthenticationType"] = request.authenticationType;
+    }
+
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.deadTime)) {
+      query["DeadTime"] = request.deadTime;
+    }
+
+    if (!Util.isUnset(request.helloTime)) {
+      query["HelloTime"] = request.helloTime;
+    }
+
+    if (!Util.isUnset(request.interfaceName)) {
+      query["InterfaceName"] = request.interfaceName;
+    }
+
+    if (!Util.isUnset(request.md5Key)) {
+      query["Md5Key"] = request.md5Key;
+    }
+
+    if (!Util.isUnset(request.md5KeyId)) {
+      query["Md5KeyId"] = request.md5KeyId;
+    }
+
+    if (!Util.isUnset(request.networks)) {
+      query["Networks"] = request.networks;
+    }
+
+    if (!Util.isUnset(request.ospfCost)) {
+      query["OspfCost"] = request.ospfCost;
+    }
+
+    if (!Util.isUnset(request.ospfNetworkType)) {
+      query["OspfNetworkType"] = request.ospfNetworkType;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.redistributeProtocol)) {
+      query["RedistributeProtocol"] = request.redistributeProtocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.routerId)) {
+      query["RouterId"] = request.routerId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayOspfRoute",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayOspfRouteResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayOspfRouteResponse({}));
+  }
+
+  async updateSmartAccessGatewayOspfRoute(request: UpdateSmartAccessGatewayOspfRouteRequest): Promise<UpdateSmartAccessGatewayOspfRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayOspfRouteWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayPortRouteProtocolWithOptions(request: UpdateSmartAccessGatewayPortRouteProtocolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayPortRouteProtocolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.portName)) {
+      query["PortName"] = request.portName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remoteAs)) {
+      query["RemoteAs"] = request.remoteAs;
+    }
+
+    if (!Util.isUnset(request.remoteIp)) {
+      query["RemoteIp"] = request.remoteIp;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.routeProtocol)) {
+      query["RouteProtocol"] = request.routeProtocol;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    if (!Util.isUnset(request.vlan)) {
+      query["Vlan"] = request.vlan;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayPortRouteProtocol",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayPortRouteProtocolResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayPortRouteProtocolResponse({}));
+  }
+
+  async updateSmartAccessGatewayPortRouteProtocol(request: UpdateSmartAccessGatewayPortRouteProtocolRequest): Promise<UpdateSmartAccessGatewayPortRouteProtocolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayPortRouteProtocolWithOptions(request, runtime);
+  }
+
   async updateSmartAccessGatewayVersionWithOptions(request: UpdateSmartAccessGatewayVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29149,6 +33987,55 @@ export default class Client extends OpenApi {
   async updateSmartAccessGatewayVersion(request: UpdateSmartAccessGatewayVersionRequest): Promise<UpdateSmartAccessGatewayVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSmartAccessGatewayVersionWithOptions(request, runtime);
+  }
+
+  async updateSmartAccessGatewayWanSnatWithOptions(request: UpdateSmartAccessGatewayWanSnatRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartAccessGatewayWanSnatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    if (!Util.isUnset(request.snat)) {
+      query["Snat"] = request.snat;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartAccessGatewayWanSnat",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartAccessGatewayWanSnatResponse>(await this.callApi(params, req, runtime), new UpdateSmartAccessGatewayWanSnatResponse({}));
+  }
+
+  async updateSmartAccessGatewayWanSnat(request: UpdateSmartAccessGatewayWanSnatRequest): Promise<UpdateSmartAccessGatewayWanSnatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartAccessGatewayWanSnatWithOptions(request, runtime);
   }
 
   async upgradeSmartAccessGatewayWithOptions(request: UpgradeSmartAccessGatewayRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeSmartAccessGatewayResponse> {
@@ -29267,6 +34154,358 @@ export default class Client extends OpenApi {
   async upgradeSmartAccessGatewaySoftware(request: UpgradeSmartAccessGatewaySoftwareRequest): Promise<UpgradeSmartAccessGatewaySoftwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeSmartAccessGatewaySoftwareWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayBgpRouteWithOptions(request: ViewSmartAccessGatewayBgpRouteRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayBgpRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayBgpRoute",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayBgpRouteResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayBgpRouteResponse({}));
+  }
+
+  async viewSmartAccessGatewayBgpRoute(request: ViewSmartAccessGatewayBgpRouteRequest): Promise<ViewSmartAccessGatewayBgpRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayBgpRouteWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayDnsWithOptions(request: ViewSmartAccessGatewayDnsRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayDnsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayDns",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayDnsResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayDnsResponse({}));
+  }
+
+  async viewSmartAccessGatewayDns(request: ViewSmartAccessGatewayDnsRequest): Promise<ViewSmartAccessGatewayDnsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayDnsWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayDnsForwardsWithOptions(request: ViewSmartAccessGatewayDnsForwardsRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayDnsForwardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayDnsForwards",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayDnsForwardsResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayDnsForwardsResponse({}));
+  }
+
+  async viewSmartAccessGatewayDnsForwards(request: ViewSmartAccessGatewayDnsForwardsRequest): Promise<ViewSmartAccessGatewayDnsForwardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayDnsForwardsWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayGlobalRouteProtocolWithOptions(request: ViewSmartAccessGatewayGlobalRouteProtocolRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayGlobalRouteProtocolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayGlobalRouteProtocol",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayGlobalRouteProtocolResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayGlobalRouteProtocolResponse({}));
+  }
+
+  async viewSmartAccessGatewayGlobalRouteProtocol(request: ViewSmartAccessGatewayGlobalRouteProtocolRequest): Promise<ViewSmartAccessGatewayGlobalRouteProtocolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayGlobalRouteProtocolWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayOspfRouteWithOptions(request: ViewSmartAccessGatewayOspfRouteRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayOspfRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayOspfRoute",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayOspfRouteResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayOspfRouteResponse({}));
+  }
+
+  async viewSmartAccessGatewayOspfRoute(request: ViewSmartAccessGatewayOspfRouteRequest): Promise<ViewSmartAccessGatewayOspfRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayOspfRouteWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayPortRouteProtocolWithOptions(request: ViewSmartAccessGatewayPortRouteProtocolRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayPortRouteProtocolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayPortRouteProtocol",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayPortRouteProtocolResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayPortRouteProtocolResponse({}));
+  }
+
+  async viewSmartAccessGatewayPortRouteProtocol(request: ViewSmartAccessGatewayPortRouteProtocolRequest): Promise<ViewSmartAccessGatewayPortRouteProtocolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayPortRouteProtocolWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayRoutesWithOptions(request: ViewSmartAccessGatewayRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayRoutesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayRoutes",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayRoutesResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayRoutesResponse({}));
+  }
+
+  async viewSmartAccessGatewayRoutes(request: ViewSmartAccessGatewayRoutesRequest): Promise<ViewSmartAccessGatewayRoutesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayRoutesWithOptions(request, runtime);
+  }
+
+  async viewSmartAccessGatewayWanSnatWithOptions(request: ViewSmartAccessGatewayWanSnatRequest, runtime: $Util.RuntimeOptions): Promise<ViewSmartAccessGatewayWanSnatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crossAccount)) {
+      query["CrossAccount"] = request.crossAccount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.sagInsId)) {
+      query["SagInsId"] = request.sagInsId;
+    }
+
+    if (!Util.isUnset(request.sagSn)) {
+      query["SagSn"] = request.sagSn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ViewSmartAccessGatewayWanSnat",
+      version: "2018-03-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ViewSmartAccessGatewayWanSnatResponse>(await this.callApi(params, req, runtime), new ViewSmartAccessGatewayWanSnatResponse({}));
+  }
+
+  async viewSmartAccessGatewayWanSnat(request: ViewSmartAccessGatewayWanSnatRequest): Promise<ViewSmartAccessGatewayWanSnatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.viewSmartAccessGatewayWanSnatWithOptions(request, runtime);
   }
 
 }
