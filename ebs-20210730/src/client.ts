@@ -672,6 +672,8 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
   groupIds?: string;
   maxResults?: number;
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   site?: string;
   static names(): { [key: string]: string } {
@@ -679,6 +681,8 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
       groupIds: 'GroupIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       site: 'Site',
     };
@@ -689,6 +693,8 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
       groupIds: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       site: 'string',
     };
@@ -701,21 +707,30 @@ export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
 
 export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   replicaGroups?: DescribeDiskReplicaGroupsResponseBodyReplicaGroups[];
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       replicaGroups: 'ReplicaGroups',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       replicaGroups: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsResponseBodyReplicaGroups },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3049,6 +3064,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.regionId)) {
