@@ -4373,6 +4373,90 @@ export class GetIfEcsTypeSupportHtConfigResponse extends $tea.Model {
   }
 }
 
+export class GetJobLogRequest extends $tea.Model {
+  clusterId?: string;
+  execHost?: string;
+  jobId?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      execHost: 'ExecHost',
+      jobId: 'JobId',
+      offset: 'Offset',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      execHost: 'string',
+      jobId: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobLogResponseBody extends $tea.Model {
+  errorLog?: string;
+  jobId?: string;
+  outputLog?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorLog: 'ErrorLog',
+      jobId: 'JobId',
+      outputLog: 'OutputLog',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorLog: 'string',
+      jobId: 'string',
+      outputLog: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobLogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetJobLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPostScriptsRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -17487,6 +17571,31 @@ export default class Client extends OpenApi {
   async getIfEcsTypeSupportHtConfig(request: GetIfEcsTypeSupportHtConfigRequest): Promise<GetIfEcsTypeSupportHtConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIfEcsTypeSupportHtConfigWithOptions(request, runtime);
+  }
+
+  async getJobLogWithOptions(request: GetJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetJobLogResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetJobLog",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobLogResponse>(await this.callApi(params, req, runtime), new GetJobLogResponse({}));
+  }
+
+  async getJobLog(request: GetJobLogRequest): Promise<GetJobLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getJobLogWithOptions(request, runtime);
   }
 
   async getPostScriptsWithOptions(request: GetPostScriptsRequest, runtime: $Util.RuntimeOptions): Promise<GetPostScriptsResponse> {
