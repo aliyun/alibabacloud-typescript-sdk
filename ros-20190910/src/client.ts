@@ -851,6 +851,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
   sourceResourceGroup?: CreateTemplateScratchRequestSourceResourceGroup;
   sourceResources?: CreateTemplateScratchRequestSourceResources[];
   sourceTag?: CreateTemplateScratchRequestSourceTag;
+  tags?: CreateTemplateScratchRequestTags[];
   templateScratchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -863,6 +864,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
+      tags: 'Tags',
       templateScratchType: 'TemplateScratchType',
     };
   }
@@ -878,6 +880,7 @@ export class CreateTemplateScratchRequest extends $tea.Model {
       sourceResourceGroup: CreateTemplateScratchRequestSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': CreateTemplateScratchRequestSourceResources },
       sourceTag: CreateTemplateScratchRequestSourceTag,
+      tags: { 'type': 'array', 'itemType': CreateTemplateScratchRequestTags },
       templateScratchType: 'string',
     };
   }
@@ -897,6 +900,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
   sourceResourceGroupShrink?: string;
   sourceResourcesShrink?: string;
   sourceTagShrink?: string;
+  tags?: CreateTemplateScratchShrinkRequestTags[];
   templateScratchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -909,6 +913,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
       sourceResourceGroupShrink: 'SourceResourceGroup',
       sourceResourcesShrink: 'SourceResources',
       sourceTagShrink: 'SourceTag',
+      tags: 'Tags',
       templateScratchType: 'TemplateScratchType',
     };
   }
@@ -924,6 +929,7 @@ export class CreateTemplateScratchShrinkRequest extends $tea.Model {
       sourceResourceGroupShrink: 'string',
       sourceResourcesShrink: 'string',
       sourceTagShrink: 'string',
+      tags: { 'type': 'array', 'itemType': CreateTemplateScratchShrinkRequestTags },
       templateScratchType: 'string',
     };
   }
@@ -4073,6 +4079,7 @@ export class ListStackGroupsRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   status?: string;
+  tags?: ListStackGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
@@ -4080,6 +4087,7 @@ export class ListStackGroupsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -4090,6 +4098,7 @@ export class ListStackGroupsRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListStackGroupsRequestTags },
     };
   }
 
@@ -4837,6 +4846,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
   pageSize?: number;
   regionId?: string;
   status?: string;
+  tags?: ListTemplateScratchesRequestTags[];
   templateScratchId?: string;
   templateScratchType?: string;
   static names(): { [key: string]: string } {
@@ -4845,6 +4855,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       status: 'Status',
+      tags: 'Tags',
       templateScratchId: 'TemplateScratchId',
       templateScratchType: 'TemplateScratchType',
     };
@@ -4856,6 +4867,7 @@ export class ListTemplateScratchesRequest extends $tea.Model {
       pageSize: 'number',
       regionId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListTemplateScratchesRequestTags },
       templateScratchId: 'string',
       templateScratchType: 'string',
     };
@@ -5165,10 +5177,10 @@ export class MoveResourceGroupResponse extends $tea.Model {
 export class PreviewStackRequest extends $tea.Model {
   clientToken?: string;
   disableRollback?: boolean;
+  enablePreConfig?: boolean;
   parallelism?: number;
   parameters?: PreviewStackRequestParameters[];
   regionId?: string;
-  resourceConfigRules?: PreviewStackRequestResourceConfigRules[];
   stackId?: string;
   stackName?: string;
   stackPolicyBody?: string;
@@ -5184,10 +5196,10 @@ export class PreviewStackRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       disableRollback: 'DisableRollback',
+      enablePreConfig: 'EnablePreConfig',
       parallelism: 'Parallelism',
       parameters: 'Parameters',
       regionId: 'RegionId',
-      resourceConfigRules: 'ResourceConfigRules',
       stackId: 'StackId',
       stackName: 'StackName',
       stackPolicyBody: 'StackPolicyBody',
@@ -5206,77 +5218,10 @@ export class PreviewStackRequest extends $tea.Model {
     return {
       clientToken: 'string',
       disableRollback: 'boolean',
+      enablePreConfig: 'boolean',
       parallelism: 'number',
       parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
       regionId: 'string',
-      resourceConfigRules: { 'type': 'array', 'itemType': PreviewStackRequestResourceConfigRules },
-      stackId: 'string',
-      stackName: 'string',
-      stackPolicyBody: 'string',
-      stackPolicyURL: 'string',
-      templateBody: 'string',
-      templateId: 'string',
-      templateScratchId: 'string',
-      templateScratchRegionId: 'string',
-      templateURL: 'string',
-      templateVersion: 'string',
-      timeoutInMinutes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackShrinkRequest extends $tea.Model {
-  clientToken?: string;
-  disableRollback?: boolean;
-  parallelism?: number;
-  parameters?: PreviewStackShrinkRequestParameters[];
-  regionId?: string;
-  resourceConfigRulesShrink?: string;
-  stackId?: string;
-  stackName?: string;
-  stackPolicyBody?: string;
-  stackPolicyURL?: string;
-  templateBody?: string;
-  templateId?: string;
-  templateScratchId?: string;
-  templateScratchRegionId?: string;
-  templateURL?: string;
-  templateVersion?: string;
-  timeoutInMinutes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      disableRollback: 'DisableRollback',
-      parallelism: 'Parallelism',
-      parameters: 'Parameters',
-      regionId: 'RegionId',
-      resourceConfigRulesShrink: 'ResourceConfigRules',
-      stackId: 'StackId',
-      stackName: 'StackName',
-      stackPolicyBody: 'StackPolicyBody',
-      stackPolicyURL: 'StackPolicyURL',
-      templateBody: 'TemplateBody',
-      templateId: 'TemplateId',
-      templateScratchId: 'TemplateScratchId',
-      templateScratchRegionId: 'TemplateScratchRegionId',
-      templateURL: 'TemplateURL',
-      templateVersion: 'TemplateVersion',
-      timeoutInMinutes: 'TimeoutInMinutes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      disableRollback: 'boolean',
-      parallelism: 'number',
-      parameters: { 'type': 'array', 'itemType': PreviewStackShrinkRequestParameters },
-      regionId: 'string',
-      resourceConfigRulesShrink: 'string',
       stackId: 'string',
       stackName: 'string',
       stackPolicyBody: 'string',
@@ -7086,6 +7031,50 @@ export class CreateTemplateScratchRequestSourceTag extends $tea.Model {
   }
 }
 
+export class CreateTemplateScratchRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchShrinkRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
   rdFolderIds?: string[];
   static names(): { [key: string]: string } {
@@ -8834,6 +8823,28 @@ export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $t
   }
 }
 
+export class ListStackGroupsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $tea.Model {
   enabled?: boolean;
   retainStacksOnAccountRemoval?: boolean;
@@ -8856,6 +8867,28 @@ export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $tea.M
   }
 }
 
+export class ListStackGroupsResponseBodyStackGroupsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
   autoDeployment?: ListStackGroupsResponseBodyStackGroupsAutoDeployment;
   description?: string;
@@ -8866,6 +8899,7 @@ export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
   stackGroupId?: string;
   stackGroupName?: string;
   status?: string;
+  tags?: ListStackGroupsResponseBodyStackGroupsTags[];
   static names(): { [key: string]: string } {
     return {
       autoDeployment: 'AutoDeployment',
@@ -8877,6 +8911,7 @@ export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
       stackGroupId: 'StackGroupId',
       stackGroupName: 'StackGroupName',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -8891,6 +8926,7 @@ export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
       stackGroupId: 'string',
       stackGroupName: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListStackGroupsResponseBodyStackGroupsTags },
     };
   }
 
@@ -9303,6 +9339,28 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ListTemplateScratchesRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -9391,6 +9449,28 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends
   }
 }
 
+export class ListTemplateScratchesResponseBodyTemplateScratchesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -9402,6 +9482,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
   sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
   status?: string;
   statusReason?: string;
+  tags?: ListTemplateScratchesResponseBodyTemplateScratchesTags[];
   templateScratchId?: string;
   templateScratchType?: string;
   updateTime?: string;
@@ -9417,6 +9498,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
       sourceTag: 'SourceTag',
       status: 'Status',
       statusReason: 'StatusReason',
+      tags: 'Tags',
       templateScratchId: 'TemplateScratchId',
       templateScratchType: 'TemplateScratchType',
       updateTime: 'UpdateTime',
@@ -9435,6 +9517,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Mod
       sourceTag: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag,
       status: 'string',
       statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesTags },
       templateScratchId: 'string',
       templateScratchType: 'string',
       updateTime: 'string',
@@ -9595,53 +9678,6 @@ export class PreviewStackRequestParameters extends $tea.Model {
   }
 }
 
-export class PreviewStackRequestResourceConfigRules extends $tea.Model {
-  identifier?: string;
-  inputParameters?: { [key: string]: any };
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      identifier: 'Identifier',
-      inputParameters: 'InputParameters',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identifier: 'string',
-      inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewStackShrinkRequestParameters extends $tea.Model {
-  parameterKey?: string;
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PreviewStackResponseBodyStackLogTerraformLogs extends $tea.Model {
   command?: string;
   content?: string;
@@ -9708,37 +9744,9 @@ export class PreviewStackResponseBodyStackParameters extends $tea.Model {
   }
 }
 
-export class PreviewStackResponseBodyStackResourcesConfigRuleEvaluations extends $tea.Model {
-  annotation?: string;
-  complianceType?: string;
-  helpUrl?: string;
-  identifier?: string;
-  static names(): { [key: string]: string } {
-    return {
-      annotation: 'Annotation',
-      complianceType: 'ComplianceType',
-      helpUrl: 'HelpUrl',
-      identifier: 'Identifier',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      annotation: 'string',
-      complianceType: 'string',
-      helpUrl: 'string',
-      identifier: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PreviewStackResponseBodyStackResources extends $tea.Model {
+  acsResourceType?: string;
   action?: string;
-  configRuleEvaluations?: PreviewStackResponseBodyStackResourcesConfigRuleEvaluations[];
   description?: string;
   logicalResourceId?: string;
   properties?: { [key: string]: any };
@@ -9748,8 +9756,8 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
   stack?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      acsResourceType: 'AcsResourceType',
       action: 'Action',
-      configRuleEvaluations: 'ConfigRuleEvaluations',
       description: 'Description',
       logicalResourceId: 'LogicalResourceId',
       properties: 'Properties',
@@ -9762,8 +9770,8 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acsResourceType: 'string',
       action: 'string',
-      configRuleEvaluations: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResourcesConfigRuleEvaluations },
       description: 'string',
       logicalResourceId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -10855,6 +10863,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceTagShrink)) {
       query["SourceTag"] = request.sourceTagShrink;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.templateScratchType)) {
@@ -12395,6 +12407,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -12824,6 +12840,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.templateScratchId)) {
       query["TemplateScratchId"] = request.templateScratchId;
     }
@@ -12985,14 +13005,8 @@ export default class Client extends OpenApi {
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
-  async previewStackWithOptions(tmpReq: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PreviewStackShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceConfigRules)) {
-      request.resourceConfigRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceConfigRules, "ResourceConfigRules", "json");
-    }
-
+  async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
+    Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -13000,6 +13014,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.enablePreConfig)) {
+      query["EnablePreConfig"] = request.enablePreConfig;
     }
 
     if (!Util.isUnset(request.parallelism)) {
@@ -13012,10 +13030,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceConfigRulesShrink)) {
-      query["ResourceConfigRules"] = request.resourceConfigRulesShrink;
     }
 
     if (!Util.isUnset(request.stackId)) {
