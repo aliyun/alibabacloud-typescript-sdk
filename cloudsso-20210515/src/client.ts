@@ -4261,10 +4261,12 @@ export class UpdateInlinePolicyForAccessConfigurationResponse extends $tea.Model
 export class UpdateMFAAuthenticationSettingsRequest extends $tea.Model {
   directoryId?: string;
   MFAAuthenticationSettings?: string;
+  operationForRiskLogin?: string;
   static names(): { [key: string]: string } {
     return {
       directoryId: 'DirectoryId',
       MFAAuthenticationSettings: 'MFAAuthenticationSettings',
+      operationForRiskLogin: 'OperationForRiskLogin',
     };
   }
 
@@ -4272,6 +4274,7 @@ export class UpdateMFAAuthenticationSettingsRequest extends $tea.Model {
     return {
       directoryId: 'string',
       MFAAuthenticationSettings: 'string',
+      operationForRiskLogin: 'string',
     };
   }
 
@@ -8396,6 +8399,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.MFAAuthenticationSettings)) {
       query["MFAAuthenticationSettings"] = request.MFAAuthenticationSettings;
+    }
+
+    if (!Util.isUnset(request.operationForRiskLogin)) {
+      query["OperationForRiskLogin"] = request.operationForRiskLogin;
     }
 
     let req = new $OpenApi.OpenApiRequest({
