@@ -22004,20 +22004,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new AddGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.directResponseJSON)) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset(tmpReq.predicates)) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
     }
 
-    if (!Util.isUnset(tmpReq.redirectJSON)) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -22376,8 +22376,8 @@ export default class Client extends OpenApi {
       request.groupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupList, "GroupList", "json");
     }
 
-    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
@@ -25497,8 +25497,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filterParams)) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
     }
 
     let query = { };
@@ -25589,8 +25589,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filterParams)) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
     }
 
     let query = { };
@@ -25644,8 +25644,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filterParams)) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
     }
 
     let query = { };
@@ -27488,8 +27488,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayOptionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.gatewayOption)) {
-      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayOption, "GatewayOption", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.gatewayOption))) {
+      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayOption), "GatewayOption", "json");
     }
 
     let query = { };
@@ -27535,20 +27535,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.directResponseJSON)) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset(tmpReq.predicates)) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
     }
 
-    if (!Util.isUnset(tmpReq.redirectJSON)) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -27642,8 +27642,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteCORSShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.corsJSON)) {
-      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.corsJSON, "CorsJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.corsJSON))) {
+      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.corsJSON), "CorsJSON", "json");
     }
 
     let query = { };
@@ -27783,8 +27783,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteRetryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.retryJSON)) {
-      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retryJSON, "RetryJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.retryJSON))) {
+      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.retryJSON), "RetryJSON", "json");
     }
 
     let query = { };
@@ -27834,8 +27834,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteTimeoutShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.timeoutJSON)) {
-      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutJSON, "TimeoutJSON", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.timeoutJSON))) {
+      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.timeoutJSON), "TimeoutJSON", "json");
     }
 
     let query = { };
@@ -27926,8 +27926,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceTrafficPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.gatewayTrafficPolicy)) {
-      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayTrafficPolicy, "GatewayTrafficPolicy", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.gatewayTrafficPolicy))) {
+      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayTrafficPolicy), "GatewayTrafficPolicy", "json");
     }
 
     let query = { };
@@ -28523,8 +28523,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateServiceSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
