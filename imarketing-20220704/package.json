@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/imarketing20220704",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
