@@ -810,6 +810,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
   jupyterUrl?: string;
   regionId?: string;
   securityGroupId?: string;
+  startTime?: string;
   status?: string;
   tags?: DescribeEaisResponseBodyInstancesInstanceTags;
   vSwitchId?: string;
@@ -828,6 +829,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
       jupyterUrl: 'JupyterUrl',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
+      startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -849,6 +851,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
       jupyterUrl: 'string',
       regionId: 'string',
       securityGroupId: 'string',
+      startTime: 'string',
       status: 'string',
       tags: DescribeEaisResponseBodyInstancesInstanceTags,
       vSwitchId: 'string',
