@@ -3347,6 +3347,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
   clientToken?: string;
   parameters?: GetTemplateParameterConstraintsRequestParameters[];
   parametersKeyFilter?: string[];
+  parametersOrder?: string[];
   regionId?: string;
   templateBody?: string;
   templateId?: string;
@@ -3357,6 +3358,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
       clientToken: 'ClientToken',
       parameters: 'Parameters',
       parametersKeyFilter: 'ParametersKeyFilter',
+      parametersOrder: 'ParametersOrder',
       regionId: 'RegionId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
@@ -3370,6 +3372,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
       clientToken: 'string',
       parameters: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsRequestParameters },
       parametersKeyFilter: { 'type': 'array', 'itemType': 'string' },
+      parametersOrder: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       templateBody: 'string',
       templateId: 'string',
@@ -3387,6 +3390,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
   clientToken?: string;
   parameters?: GetTemplateParameterConstraintsShrinkRequestParameters[];
   parametersKeyFilterShrink?: string;
+  parametersOrderShrink?: string;
   regionId?: string;
   templateBody?: string;
   templateId?: string;
@@ -3397,6 +3401,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
       clientToken: 'ClientToken',
       parameters: 'Parameters',
       parametersKeyFilterShrink: 'ParametersKeyFilter',
+      parametersOrderShrink: 'ParametersOrder',
       regionId: 'RegionId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
@@ -3410,6 +3415,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
       clientToken: 'string',
       parameters: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsShrinkRequestParameters },
       parametersKeyFilterShrink: 'string',
+      parametersOrderShrink: 'string',
       regionId: 'string',
       templateBody: 'string',
       templateId: 'string',
@@ -10143,10 +10149,12 @@ export class UpdateTemplateScratchRequestSourceTag extends $tea.Model {
 
 export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
   description?: string;
+  label?: string;
   outputKey?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      label: 'Label',
       outputKey: 'OutputKey',
     };
   }
@@ -10154,6 +10162,7 @@ export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      label: 'string',
       outputKey: 'string',
     };
   }
@@ -12006,6 +12015,10 @@ export default class Client extends OpenApi {
       request.parametersKeyFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersKeyFilter, "ParametersKeyFilter", "json");
     }
 
+    if (!Util.isUnset(tmpReq.parametersOrder)) {
+      request.parametersOrderShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersOrder, "ParametersOrder", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -12017,6 +12030,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parametersKeyFilterShrink)) {
       query["ParametersKeyFilter"] = request.parametersKeyFilterShrink;
+    }
+
+    if (!Util.isUnset(request.parametersOrderShrink)) {
+      query["ParametersOrder"] = request.parametersOrderShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
