@@ -1159,6 +1159,87 @@ export class QueryAuditResultResponse extends $tea.Model {
   }
 }
 
+export class ReportImpressionRequest extends $tea.Model {
+  impressionlink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      impressionlink: 'Impressionlink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      impressionlink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportImpressionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  ext?: { [key: string]: string };
+  header?: ReportImpressionResponseBodyHeader;
+  requestId?: string;
+  result?: ReportImpressionResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      ext: 'Ext',
+      header: 'Header',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      header: ReportImpressionResponseBodyHeader,
+      requestId: 'string',
+      result: ReportImpressionResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportImpressionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReportImpressionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReportImpressionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendSmsRequest extends $tea.Model {
   nowStamp?: number;
   phoneNumbers?: string;
@@ -2373,6 +2454,56 @@ export class QueryAuditResultResponseBodyRecords extends $tea.Model {
   }
 }
 
+export class ReportImpressionResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReportImpressionResponseBodyResult extends $tea.Model {
+  bidid?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bidid: 'Bidid',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bidid: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncInfoResponseBodyData extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -3001,6 +3132,35 @@ export default class Client extends OpenApi {
   async queryAuditResult(request: QueryAuditResultRequest): Promise<QueryAuditResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAuditResultWithOptions(request, runtime);
+  }
+
+  async reportImpressionWithOptions(request: ReportImpressionRequest, runtime: $Util.RuntimeOptions): Promise<ReportImpressionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.impressionlink)) {
+      query["Impressionlink"] = request.impressionlink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReportImpression",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReportImpressionResponse>(await this.callApi(params, req, runtime), new ReportImpressionResponse({}));
+  }
+
+  async reportImpression(request: ReportImpressionRequest): Promise<ReportImpressionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reportImpressionWithOptions(request, runtime);
   }
 
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
