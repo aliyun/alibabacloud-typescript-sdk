@@ -17623,6 +17623,7 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecordsRecord extends $te
   priority?: number;
   RR?: string;
   recordId?: string;
+  remark?: string;
   status?: string;
   TTL?: number;
   type?: string;
@@ -17636,6 +17637,7 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecordsRecord extends $te
       priority: 'Priority',
       RR: 'RR',
       recordId: 'RecordId',
+      remark: 'Remark',
       status: 'Status',
       TTL: 'TTL',
       type: 'Type',
@@ -17652,6 +17654,7 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecordsRecord extends $te
       priority: 'number',
       RR: 'string',
       recordId: 'string',
+      remark: 'string',
       status: 'string',
       TTL: 'number',
       type: 'string',
