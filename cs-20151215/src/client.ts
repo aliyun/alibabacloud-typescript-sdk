@@ -3809,6 +3809,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
   askClusterQuota?: number;
   clusterNodepoolQuota?: number;
   clusterQuota?: number;
+  edgeImprovedNodepoolQuota?: DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota;
   nodeQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3816,6 +3817,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
       askClusterQuota: 'ask_cluster_quota',
       clusterNodepoolQuota: 'cluster_nodepool_quota',
       clusterQuota: 'cluster_quota',
+      edgeImprovedNodepoolQuota: 'edge_improved_nodepool_quota',
       nodeQuota: 'node_quota',
     };
   }
@@ -3826,6 +3828,7 @@ export class DescribeUserQuotaResponseBody extends $tea.Model {
       askClusterQuota: 'number',
       clusterNodepoolQuota: 'number',
       clusterQuota: 'number',
+      edgeImprovedNodepoolQuota: DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota,
       nodeQuota: 'number',
     };
   }
@@ -6121,6 +6124,75 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
   }
 }
 
+export class UpgradeClusterNodepoolRequest extends $tea.Model {
+  imageId?: string;
+  kubernetesVersion?: string;
+  runtimeVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'image_id',
+      kubernetesVersion: 'kubernetes_version',
+      runtimeVersion: 'runtime_version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      kubernetesVersion: 'string',
+      runtimeVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeClusterNodepoolResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeClusterNodepoolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpgradeClusterNodepoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeClusterNodepoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachInstancesResponseBodyList extends $tea.Model {
   code?: string;
   instanceId?: string;
@@ -8221,6 +8293,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $tea.Mo
   imageType?: string;
   osType?: string;
   imageCategory?: string;
+  architecture?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'image_id',
@@ -8230,6 +8303,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $tea.Mo
       imageType: 'image_type',
       osType: 'os_type',
       imageCategory: 'image_category',
+      architecture: 'architecture',
     };
   }
 
@@ -8242,6 +8316,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $tea.Mo
       imageType: 'string',
       osType: 'string',
       imageCategory: 'string',
+      architecture: 'string',
     };
   }
 
@@ -8950,6 +9025,31 @@ export class DescribeUserPermissionResponseBody extends $tea.Model {
       roleType: 'string',
       isOwner: 'number',
       isRamRole: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserQuotaResponseBodyEdgeImprovedNodepoolQuota extends $tea.Model {
+  bandwidth?: number;
+  count?: number;
+  period?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'bandwidth',
+      count: 'count',
+      period: 'period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      count: 'number',
+      period: 'number',
     };
   }
 
@@ -13702,6 +13802,45 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UpgradeClusterAddonsResponse>(await this.callApi(params, req, runtime), new UpgradeClusterAddonsResponse({}));
+  }
+
+  async upgradeClusterNodepool(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest): Promise<UpgradeClusterNodepoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+  }
+
+  async upgradeClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterNodepoolResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageId)) {
+      body["image_id"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.kubernetesVersion)) {
+      body["kubernetes_version"] = request.kubernetesVersion;
+    }
+
+    if (!Util.isUnset(request.runtimeVersion)) {
+      body["runtime_version"] = request.runtimeVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeClusterNodepool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}/upgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeClusterNodepoolResponse>(await this.callApi(params, req, runtime), new UpgradeClusterNodepoolResponse({}));
   }
 
 }
