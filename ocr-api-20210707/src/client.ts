@@ -2822,11 +2822,13 @@ export class RecognizeHouseholdResponse extends $tea.Model {
 
 export class RecognizeIdcardRequest extends $tea.Model {
   outputFigure?: boolean;
+  outputQualityInfo?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       outputFigure: 'OutputFigure',
+      outputQualityInfo: 'OutputQualityInfo',
       url: 'Url',
       body: 'body',
     };
@@ -2835,6 +2837,7 @@ export class RecognizeIdcardRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       outputFigure: 'boolean',
+      outputQualityInfo: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -5560,6 +5563,156 @@ export class RecognizeWaybillResponse extends $tea.Model {
   }
 }
 
+export class VerifyBusinessLicenseRequest extends $tea.Model {
+  companyName?: string;
+  creditCode?: string;
+  legalPerson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      companyName: 'CompanyName',
+      creditCode: 'CreditCode',
+      legalPerson: 'LegalPerson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyName: 'string',
+      creditCode: 'string',
+      legalPerson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBusinessLicenseResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBusinessLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyBusinessLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyBusinessLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyVATInvoiceRequest extends $tea.Model {
+  invoiceCode?: string;
+  invoiceDate?: string;
+  invoiceNo?: string;
+  invoiceSum?: string;
+  verifyCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invoiceCode: 'InvoiceCode',
+      invoiceDate: 'InvoiceDate',
+      invoiceNo: 'InvoiceNo',
+      invoiceSum: 'InvoiceSum',
+      verifyCode: 'VerifyCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invoiceCode: 'string',
+      invoiceDate: 'string',
+      invoiceNo: 'string',
+      invoiceSum: 'string',
+      verifyCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyVATInvoiceResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyVATInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyVATInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyVATInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -6854,6 +7007,10 @@ export default class Client extends OpenApi {
       query["OutputFigure"] = request.outputFigure;
     }
 
+    if (!Util.isUnset(request.outputQualityInfo)) {
+      query["OutputQualityInfo"] = request.outputQualityInfo;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
@@ -8040,6 +8197,88 @@ export default class Client extends OpenApi {
   async recognizeWaybill(request: RecognizeWaybillRequest): Promise<RecognizeWaybillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeWaybillWithOptions(request, runtime);
+  }
+
+  async verifyBusinessLicenseWithOptions(request: VerifyBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBusinessLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!Util.isUnset(request.creditCode)) {
+      query["CreditCode"] = request.creditCode;
+    }
+
+    if (!Util.isUnset(request.legalPerson)) {
+      query["LegalPerson"] = request.legalPerson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyBusinessLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyBusinessLicenseResponse>(await this.callApi(params, req, runtime), new VerifyBusinessLicenseResponse({}));
+  }
+
+  async verifyBusinessLicense(request: VerifyBusinessLicenseRequest): Promise<VerifyBusinessLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyBusinessLicenseWithOptions(request, runtime);
+  }
+
+  async verifyVATInvoiceWithOptions(request: VerifyVATInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyVATInvoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.invoiceCode)) {
+      query["InvoiceCode"] = request.invoiceCode;
+    }
+
+    if (!Util.isUnset(request.invoiceDate)) {
+      query["InvoiceDate"] = request.invoiceDate;
+    }
+
+    if (!Util.isUnset(request.invoiceNo)) {
+      query["InvoiceNo"] = request.invoiceNo;
+    }
+
+    if (!Util.isUnset(request.invoiceSum)) {
+      query["InvoiceSum"] = request.invoiceSum;
+    }
+
+    if (!Util.isUnset(request.verifyCode)) {
+      query["VerifyCode"] = request.verifyCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyVATInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyVATInvoiceResponse>(await this.callApi(params, req, runtime), new VerifyVATInvoiceResponse({}));
+  }
+
+  async verifyVATInvoice(request: VerifyVATInvoiceRequest): Promise<VerifyVATInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyVATInvoiceWithOptions(request, runtime);
   }
 
 }
