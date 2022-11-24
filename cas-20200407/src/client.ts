@@ -383,6 +383,210 @@ export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
   }
 }
 
+export class CreateWHClientCertificateRequest extends $tea.Model {
+  afterTime?: number;
+  algorithm?: string;
+  beforeTime?: number;
+  commonName?: string;
+  country?: string;
+  csr?: string;
+  days?: number;
+  immediately?: number;
+  locality?: string;
+  months?: number;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sanType?: number;
+  sanValue?: string;
+  state?: string;
+  years?: number;
+  static names(): { [key: string]: string } {
+    return {
+      afterTime: 'AfterTime',
+      algorithm: 'Algorithm',
+      beforeTime: 'BeforeTime',
+      commonName: 'CommonName',
+      country: 'Country',
+      csr: 'Csr',
+      days: 'Days',
+      immediately: 'Immediately',
+      locality: 'Locality',
+      months: 'Months',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sanType: 'SanType',
+      sanValue: 'SanValue',
+      state: 'State',
+      years: 'Years',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      afterTime: 'number',
+      algorithm: 'string',
+      beforeTime: 'number',
+      commonName: 'string',
+      country: 'string',
+      csr: 'string',
+      days: 'number',
+      immediately: 'number',
+      locality: 'string',
+      months: 'number',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sanType: 'number',
+      sanValue: 'string',
+      state: 'string',
+      years: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWHClientCertificateResponseBody extends $tea.Model {
+  certificateChain?: string;
+  identifier?: string;
+  parentX509Certificate?: string;
+  requestId?: string;
+  rootX509Certificate?: string;
+  x509Certificate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateChain: 'CertificateChain',
+      identifier: 'Identifier',
+      parentX509Certificate: 'ParentX509Certificate',
+      requestId: 'RequestId',
+      rootX509Certificate: 'RootX509Certificate',
+      x509Certificate: 'X509Certificate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateChain: 'string',
+      identifier: 'string',
+      parentX509Certificate: 'string',
+      requestId: 'string',
+      rootX509Certificate: 'string',
+      x509Certificate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWHClientCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateWHClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWHClientCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptRequest extends $tea.Model {
+  algorithm?: string;
+  certIdentifier?: string;
+  ciphertextBlob?: string;
+  messageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      certIdentifier: 'CertIdentifier',
+      ciphertextBlob: 'CiphertextBlob',
+      messageType: 'MessageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      certIdentifier: 'string',
+      ciphertextBlob: 'string',
+      messageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptResponseBody extends $tea.Model {
+  certIdentifier?: string;
+  plaintext?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certIdentifier: 'CertIdentifier',
+      plaintext: 'Plaintext',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIdentifier: 'string',
+      plaintext: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DecryptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DecryptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCertificateRequestRequest extends $tea.Model {
   orderId?: number;
   static names(): { [key: string]: string } {
@@ -501,6 +705,69 @@ export class DeletePCACertResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeletePCACertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserCertificateRequest extends $tea.Model {
+  certId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteUserCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserCertificateResponseBody,
     };
   }
 
@@ -677,10 +944,250 @@ export class DescribePackageStateResponse extends $tea.Model {
   }
 }
 
+export class EncryptRequest extends $tea.Model {
+  algorithm?: string;
+  certIdentifier?: string;
+  messageType?: string;
+  plaintext?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      certIdentifier: 'CertIdentifier',
+      messageType: 'MessageType',
+      plaintext: 'Plaintext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      certIdentifier: 'string',
+      messageType: 'string',
+      plaintext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptResponseBody extends $tea.Model {
+  certIdentifier?: string;
+  ciphertextBlob?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certIdentifier: 'CertIdentifier',
+      ciphertextBlob: 'CiphertextBlob',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIdentifier: 'string',
+      ciphertextBlob: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EncryptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EncryptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertWarehouseQuotaResponseBody extends $tea.Model {
+  requestId?: string;
+  totalQuota?: number;
+  useCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalQuota: 'TotalQuota',
+      useCount: 'UseCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalQuota: 'number',
+      useCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertWarehouseQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCertWarehouseQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCertWarehouseQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserCertificateDetailRequest extends $tea.Model {
+  certId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserCertificateDetailResponseBody extends $tea.Model {
+  buyInAliyun?: boolean;
+  cert?: string;
+  city?: string;
+  common?: string;
+  country?: string;
+  endDate?: string;
+  expired?: boolean;
+  fingerprint?: string;
+  id?: number;
+  issuer?: string;
+  key?: string;
+  name?: string;
+  orgName?: string;
+  province?: string;
+  requestId?: string;
+  sans?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buyInAliyun: 'BuyInAliyun',
+      cert: 'Cert',
+      city: 'City',
+      common: 'Common',
+      country: 'Country',
+      endDate: 'EndDate',
+      expired: 'Expired',
+      fingerprint: 'Fingerprint',
+      id: 'Id',
+      issuer: 'Issuer',
+      key: 'Key',
+      name: 'Name',
+      orgName: 'OrgName',
+      province: 'Province',
+      requestId: 'RequestId',
+      sans: 'Sans',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyInAliyun: 'boolean',
+      cert: 'string',
+      city: 'string',
+      common: 'string',
+      country: 'string',
+      endDate: 'string',
+      expired: 'boolean',
+      fingerprint: 'string',
+      id: 'number',
+      issuer: 'string',
+      key: 'string',
+      name: 'string',
+      orgName: 'string',
+      province: 'string',
+      requestId: 'string',
+      sans: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserCertificateDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserCertificateDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserCertificateDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCertRequest extends $tea.Model {
   currentPage?: number;
   keyWord?: string;
   showSize?: number;
+  sourceType?: string;
   status?: string;
   warehouseId?: number;
   static names(): { [key: string]: string } {
@@ -688,6 +1195,7 @@ export class ListCertRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       keyWord: 'KeyWord',
       showSize: 'ShowSize',
+      sourceType: 'SourceType',
       status: 'Status',
       warehouseId: 'WarehouseId',
     };
@@ -698,6 +1206,7 @@ export class ListCertRequest extends $tea.Model {
       currentPage: 'number',
       keyWord: 'string',
       showSize: 'number',
+      sourceType: 'string',
       status: 'string',
       warehouseId: 'number',
     };
@@ -1007,6 +1516,69 @@ export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
   }
 }
 
+export class RevokeWHClientCertificateRequest extends $tea.Model {
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeWHClientCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeWHClientCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RevokeWHClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeWHClientCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SignRequest extends $tea.Model {
   certIdentifier?: string;
   message?: string;
@@ -1111,15 +1683,18 @@ export class UploadPCACertRequest extends $tea.Model {
 }
 
 export class UploadPCACertResponseBody extends $tea.Model {
+  identifier?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      identifier: 'Identifier',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      identifier: 'string',
       requestId: 'string',
     };
   }
@@ -1146,6 +1721,90 @@ export class UploadPCACertResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UploadPCACertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadUserCertificateRequest extends $tea.Model {
+  cert?: string;
+  encryptCert?: string;
+  encryptPrivateKey?: string;
+  key?: string;
+  name?: string;
+  signCert?: string;
+  signPrivateKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+      encryptCert: 'EncryptCert',
+      encryptPrivateKey: 'EncryptPrivateKey',
+      key: 'Key',
+      name: 'Name',
+      signCert: 'SignCert',
+      signPrivateKey: 'SignPrivateKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: 'string',
+      encryptCert: 'string',
+      encryptPrivateKey: 'string',
+      key: 'string',
+      name: 'string',
+      signCert: 'string',
+      signPrivateKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadUserCertificateResponseBody extends $tea.Model {
+  certId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadUserCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UploadUserCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadUserCertificateResponseBody,
     };
   }
 
@@ -1328,18 +1987,34 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
   certEndTime?: number;
   certStartTime?: number;
   certType?: string;
+  certificateId?: number;
+  city?: string;
+  commonName?: string;
+  country?: string;
   domain?: string;
   domainCount?: number;
   domainType?: string;
+  endDate?: string;
+  expired?: boolean;
+  fingerprint?: string;
   instanceId?: string;
+  issuer?: string;
+  name?: string;
   orderId?: number;
+  orgName?: string;
   partnerOrderId?: string;
   productCode?: string;
   productName?: string;
+  province?: string;
   rootBrand?: string;
+  sans?: string;
+  serialNo?: string;
+  sha2?: string;
   sourceType?: string;
+  startDate?: string;
   status?: string;
   trusteeStatus?: string;
+  upload?: boolean;
   wildDomainCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1349,18 +2024,34 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
       certEndTime: 'CertEndTime',
       certStartTime: 'CertStartTime',
       certType: 'CertType',
+      certificateId: 'CertificateId',
+      city: 'City',
+      commonName: 'CommonName',
+      country: 'Country',
       domain: 'Domain',
       domainCount: 'DomainCount',
       domainType: 'DomainType',
+      endDate: 'EndDate',
+      expired: 'Expired',
+      fingerprint: 'Fingerprint',
       instanceId: 'InstanceId',
+      issuer: 'Issuer',
+      name: 'Name',
       orderId: 'OrderId',
+      orgName: 'OrgName',
       partnerOrderId: 'PartnerOrderId',
       productCode: 'ProductCode',
       productName: 'ProductName',
+      province: 'Province',
       rootBrand: 'RootBrand',
+      sans: 'Sans',
+      serialNo: 'SerialNo',
+      sha2: 'Sha2',
       sourceType: 'SourceType',
+      startDate: 'StartDate',
       status: 'Status',
       trusteeStatus: 'TrusteeStatus',
+      upload: 'Upload',
       wildDomainCount: 'WildDomainCount',
     };
   }
@@ -1373,18 +2064,34 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
       certEndTime: 'number',
       certStartTime: 'number',
       certType: 'string',
+      certificateId: 'number',
+      city: 'string',
+      commonName: 'string',
+      country: 'string',
       domain: 'string',
       domainCount: 'number',
       domainType: 'string',
+      endDate: 'string',
+      expired: 'boolean',
+      fingerprint: 'string',
       instanceId: 'string',
+      issuer: 'string',
+      name: 'string',
       orderId: 'number',
+      orgName: 'string',
       partnerOrderId: 'string',
       productCode: 'string',
       productName: 'string',
+      province: 'string',
       rootBrand: 'string',
+      sans: 'string',
+      serialNo: 'string',
+      sha2: 'string',
       sourceType: 'string',
+      startDate: 'string',
       status: 'string',
       trusteeStatus: 'string',
+      upload: 'boolean',
       wildDomainCount: 'number',
     };
   }
@@ -1681,6 +2388,140 @@ export default class Client extends OpenApi {
     return await this.createCertificateWithCsrRequestWithOptions(request, runtime);
   }
 
+  async createWHClientCertificateWithOptions(request: CreateWHClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateWHClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.afterTime)) {
+      query["AfterTime"] = request.afterTime;
+    }
+
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.beforeTime)) {
+      query["BeforeTime"] = request.beforeTime;
+    }
+
+    if (!Util.isUnset(request.commonName)) {
+      query["CommonName"] = request.commonName;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.days)) {
+      query["Days"] = request.days;
+    }
+
+    if (!Util.isUnset(request.immediately)) {
+      query["Immediately"] = request.immediately;
+    }
+
+    if (!Util.isUnset(request.locality)) {
+      query["Locality"] = request.locality;
+    }
+
+    if (!Util.isUnset(request.months)) {
+      query["Months"] = request.months;
+    }
+
+    if (!Util.isUnset(request.organization)) {
+      query["Organization"] = request.organization;
+    }
+
+    if (!Util.isUnset(request.organizationUnit)) {
+      query["OrganizationUnit"] = request.organizationUnit;
+    }
+
+    if (!Util.isUnset(request.parentIdentifier)) {
+      query["ParentIdentifier"] = request.parentIdentifier;
+    }
+
+    if (!Util.isUnset(request.sanType)) {
+      query["SanType"] = request.sanType;
+    }
+
+    if (!Util.isUnset(request.sanValue)) {
+      query["SanValue"] = request.sanValue;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.years)) {
+      query["Years"] = request.years;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWHClientCertificate",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWHClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateWHClientCertificateResponse({}));
+  }
+
+  async createWHClientCertificate(request: CreateWHClientCertificateRequest): Promise<CreateWHClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createWHClientCertificateWithOptions(request, runtime);
+  }
+
+  async decryptWithOptions(request: DecryptRequest, runtime: $Util.RuntimeOptions): Promise<DecryptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Decrypt",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DecryptResponse>(await this.callApi(params, req, runtime), new DecryptResponse({}));
+  }
+
+  async decrypt(request: DecryptRequest): Promise<DecryptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.decryptWithOptions(request, runtime);
+  }
+
   async deleteCertificateRequestWithOptions(request: DeleteCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateRequestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1737,6 +2578,35 @@ export default class Client extends OpenApi {
   async deletePCACert(request: DeletePCACertRequest): Promise<DeletePCACertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePCACertWithOptions(request, runtime);
+  }
+
+  async deleteUserCertificateWithOptions(request: DeleteUserCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUserCertificate",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserCertificateResponse>(await this.callApi(params, req, runtime), new DeleteUserCertificateResponse({}));
+  }
+
+  async deleteUserCertificate(request: DeleteUserCertificateRequest): Promise<DeleteUserCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteUserCertificateWithOptions(request, runtime);
   }
 
   async describeCertificateStateWithOptions(request: DescribeCertificateStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateStateResponse> {
@@ -1797,6 +2667,97 @@ export default class Client extends OpenApi {
     return await this.describePackageStateWithOptions(request, runtime);
   }
 
+  async encryptWithOptions(request: EncryptRequest, runtime: $Util.RuntimeOptions): Promise<EncryptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.plaintext)) {
+      query["Plaintext"] = request.plaintext;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Encrypt",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EncryptResponse>(await this.callApi(params, req, runtime), new EncryptResponse({}));
+  }
+
+  async encrypt(request: EncryptRequest): Promise<EncryptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.encryptWithOptions(request, runtime);
+  }
+
+  async getCertWarehouseQuotaWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCertWarehouseQuotaResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetCertWarehouseQuota",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCertWarehouseQuotaResponse>(await this.callApi(params, req, runtime), new GetCertWarehouseQuotaResponse({}));
+  }
+
+  async getCertWarehouseQuota(): Promise<GetCertWarehouseQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCertWarehouseQuotaWithOptions(runtime);
+  }
+
+  async getUserCertificateDetailWithOptions(request: GetUserCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetUserCertificateDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserCertificateDetail",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserCertificateDetailResponse>(await this.callApi(params, req, runtime), new GetUserCertificateDetailResponse({}));
+  }
+
+  async getUserCertificateDetail(request: GetUserCertificateDetailRequest): Promise<GetUserCertificateDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserCertificateDetailWithOptions(request, runtime);
+  }
+
   async listCertWithOptions(request: ListCertRequest, runtime: $Util.RuntimeOptions): Promise<ListCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1810,6 +2771,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.showSize)) {
       query["ShowSize"] = request.showSize;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -1965,6 +2930,35 @@ export default class Client extends OpenApi {
     return await this.renewCertificateOrderForPackageRequestWithOptions(request, runtime);
   }
 
+  async revokeWHClientCertificateWithOptions(request: RevokeWHClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RevokeWHClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeWHClientCertificate",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeWHClientCertificateResponse>(await this.callApi(params, req, runtime), new RevokeWHClientCertificateResponse({}));
+  }
+
+  async revokeWHClientCertificate(request: RevokeWHClientCertificateRequest): Promise<RevokeWHClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeWHClientCertificateWithOptions(request, runtime);
+  }
+
   async signWithOptions(request: SignRequest, runtime: $Util.RuntimeOptions): Promise<SignResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2045,6 +3039,59 @@ export default class Client extends OpenApi {
   async uploadPCACert(request: UploadPCACertRequest): Promise<UploadPCACertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadPCACertWithOptions(request, runtime);
+  }
+
+  async uploadUserCertificateWithOptions(request: UploadUserCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadUserCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cert)) {
+      query["Cert"] = request.cert;
+    }
+
+    if (!Util.isUnset(request.encryptCert)) {
+      query["EncryptCert"] = request.encryptCert;
+    }
+
+    if (!Util.isUnset(request.encryptPrivateKey)) {
+      query["EncryptPrivateKey"] = request.encryptPrivateKey;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.signCert)) {
+      query["SignCert"] = request.signCert;
+    }
+
+    if (!Util.isUnset(request.signPrivateKey)) {
+      query["SignPrivateKey"] = request.signPrivateKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadUserCertificate",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadUserCertificateResponse>(await this.callApi(params, req, runtime), new UploadUserCertificateResponse({}));
+  }
+
+  async uploadUserCertificate(request: UploadUserCertificateRequest): Promise<UploadUserCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadUserCertificateWithOptions(request, runtime);
   }
 
   async verifyWithOptions(request: VerifyRequest, runtime: $Util.RuntimeOptions): Promise<VerifyResponse> {
