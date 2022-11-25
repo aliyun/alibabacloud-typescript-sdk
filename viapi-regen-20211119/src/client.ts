@@ -13,6 +13,72 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CheckDatasetOssBucketCORSRequest extends $tea.Model {
+  labelsetId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      labelsetId: 'LabelsetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelsetId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDatasetOssBucketCORSResponseBody extends $tea.Model {
+  data?: CheckDatasetOssBucketCORSResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CheckDatasetOssBucketCORSResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckDatasetOssBucketCORSResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckDatasetOssBucketCORSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckDatasetOssBucketCORSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDatasetRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -2517,6 +2583,53 @@ export class GetUploadPolicyResponse extends $tea.Model {
   }
 }
 
+export class GetUserInfoResponseBody extends $tea.Model {
+  data?: GetUserInfoResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetUserInfoResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceRequest extends $tea.Model {
   id?: number;
   static names(): { [key: string]: string } {
@@ -3930,6 +4043,31 @@ export class UpdateWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class CheckDatasetOssBucketCORSResponseBodyData extends $tea.Model {
+  bucket?: string;
+  ossBucketCORSConfigUrl?: string;
+  setOssBucketCORSFlag?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      ossBucketCORSConfigUrl: 'OssBucketCORSConfigUrl',
+      setOssBucketCORSFlag: 'SetOssBucketCORSFlag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      ossBucketCORSConfigUrl: 'string',
+      setOssBucketCORSFlag: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDatasetResponseBodyData extends $tea.Model {
   description?: string;
   gmtCreate?: number;
@@ -5104,6 +5242,28 @@ export class GetUploadPolicyResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetUserInfoResponseBodyData extends $tea.Model {
+  parentUid?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parentUid: 'ParentUid',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parentUid: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceResponseBodyData extends $tea.Model {
   description?: string;
   gmtCreate?: number;
@@ -5859,6 +6019,35 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async checkDatasetOssBucketCORSWithOptions(request: CheckDatasetOssBucketCORSRequest, runtime: $Util.RuntimeOptions): Promise<CheckDatasetOssBucketCORSResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelsetId)) {
+      body["LabelsetId"] = request.labelsetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckDatasetOssBucketCORS",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDatasetOssBucketCORSResponse>(await this.callApi(params, req, runtime), new CheckDatasetOssBucketCORSResponse({}));
+  }
+
+  async checkDatasetOssBucketCORS(request: CheckDatasetOssBucketCORSRequest): Promise<CheckDatasetOssBucketCORSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkDatasetOssBucketCORSWithOptions(request, runtime);
   }
 
   async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
@@ -7263,6 +7452,27 @@ export default class Client extends OpenApi {
   async getUploadPolicy(request: GetUploadPolicyRequest): Promise<GetUploadPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadPolicyWithOptions(request, runtime);
+  }
+
+  async getUserInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetUserInfo",
+      version: "2021-11-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserInfoResponse>(await this.callApi(params, req, runtime), new GetUserInfoResponse({}));
+  }
+
+  async getUserInfo(): Promise<GetUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserInfoWithOptions(runtime);
   }
 
   async getWorkspaceWithOptions(request: GetWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
