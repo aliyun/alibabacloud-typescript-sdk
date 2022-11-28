@@ -125,11 +125,13 @@ export class CreateUserHeaders extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  customFields?: CreateUserRequestCustomFields[];
   description?: string;
   displayName?: string;
   email?: string;
   emailVerified?: boolean;
   password?: string;
+  passwordInitializationConfig?: CreateUserRequestPasswordInitializationConfig;
   phoneNumber?: string;
   phoneNumberVerified?: boolean;
   phoneRegion?: string;
@@ -138,11 +140,13 @@ export class CreateUserRequest extends $tea.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      customFields: 'customFields',
       description: 'description',
       displayName: 'displayName',
       email: 'email',
       emailVerified: 'emailVerified',
       password: 'password',
+      passwordInitializationConfig: 'passwordInitializationConfig',
       phoneNumber: 'phoneNumber',
       phoneNumberVerified: 'phoneNumberVerified',
       phoneRegion: 'phoneRegion',
@@ -154,11 +158,13 @@ export class CreateUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customFields: { 'type': 'array', 'itemType': CreateUserRequestCustomFields },
       description: 'string',
       displayName: 'string',
       email: 'string',
       emailVerified: 'boolean',
       password: 'string',
+      passwordInitializationConfig: CreateUserRequestPasswordInitializationConfig,
       phoneNumber: 'string',
       phoneNumberVerified: 'boolean',
       phoneRegion: 'string',
@@ -284,6 +290,94 @@ export class DeleteUserHeaders extends $tea.Model {
 }
 
 export class DeleteUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableUserHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableUserHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableUserResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -772,6 +866,7 @@ export class GetUserHeaders extends $tea.Model {
 export class GetUserResponseBody extends $tea.Model {
   accountExpireTime?: number;
   createTime?: number;
+  customFields?: GetUserResponseBodyCustomFields[];
   description?: string;
   displayName?: string;
   email?: string;
@@ -779,6 +874,7 @@ export class GetUserResponseBody extends $tea.Model {
   instanceId?: string;
   lockExpireTime?: number;
   organizationalUnits?: GetUserResponseBodyOrganizationalUnits[];
+  passwordSet?: boolean;
   phoneNumber?: string;
   phoneNumberVerified?: boolean;
   phoneRegion?: string;
@@ -795,6 +891,7 @@ export class GetUserResponseBody extends $tea.Model {
     return {
       accountExpireTime: 'accountExpireTime',
       createTime: 'createTime',
+      customFields: 'customFields',
       description: 'description',
       displayName: 'displayName',
       email: 'email',
@@ -802,6 +899,7 @@ export class GetUserResponseBody extends $tea.Model {
       instanceId: 'instanceId',
       lockExpireTime: 'lockExpireTime',
       organizationalUnits: 'organizationalUnits',
+      passwordSet: 'passwordSet',
       phoneNumber: 'phoneNumber',
       phoneNumberVerified: 'phoneNumberVerified',
       phoneRegion: 'phoneRegion',
@@ -821,6 +919,7 @@ export class GetUserResponseBody extends $tea.Model {
     return {
       accountExpireTime: 'number',
       createTime: 'number',
+      customFields: { 'type': 'array', 'itemType': GetUserResponseBodyCustomFields },
       description: 'string',
       displayName: 'string',
       email: 'string',
@@ -828,6 +927,7 @@ export class GetUserResponseBody extends $tea.Model {
       instanceId: 'string',
       lockExpireTime: 'number',
       organizationalUnits: { 'type': 'array', 'itemType': GetUserResponseBodyOrganizationalUnits },
+      passwordSet: 'boolean',
       phoneNumber: 'string',
       phoneNumberVerified: 'boolean',
       phoneRegion: 'string',
@@ -1609,6 +1709,7 @@ export class PatchUserHeaders extends $tea.Model {
 }
 
 export class PatchUserRequest extends $tea.Model {
+  customFields?: PatchUserRequestCustomFields[];
   displayName?: string;
   email?: string;
   emailVerified?: boolean;
@@ -1618,6 +1719,7 @@ export class PatchUserRequest extends $tea.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      customFields: 'customFields',
       displayName: 'displayName',
       email: 'email',
       emailVerified: 'emailVerified',
@@ -1630,6 +1732,7 @@ export class PatchUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customFields: { 'type': 'array', 'itemType': PatchUserRequestCustomFields },
       displayName: 'string',
       email: 'string',
       emailVerified: 'boolean',
@@ -1720,6 +1823,78 @@ export class RevokeTokenResponse extends $tea.Model {
   }
 }
 
+export class CreateUserRequestCustomFields extends $tea.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'fieldName',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserRequestPasswordInitializationConfig extends $tea.Model {
+  passwordForcedUpdateStatus?: string;
+  passwordInitializationPolicyPriority?: string;
+  passwordInitializationType?: string;
+  userNotificationChannels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      passwordForcedUpdateStatus: 'passwordForcedUpdateStatus',
+      passwordInitializationPolicyPriority: 'passwordInitializationPolicyPriority',
+      passwordInitializationType: 'passwordInitializationType',
+      userNotificationChannels: 'userNotificationChannels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passwordForcedUpdateStatus: 'string',
+      passwordInitializationPolicyPriority: 'string',
+      passwordInitializationType: 'string',
+      userNotificationChannels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyCustomFields extends $tea.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'fieldName',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserResponseBodyOrganizationalUnits extends $tea.Model {
   organizationalUnitId?: string;
   organizationalUnitName?: string;
@@ -1800,6 +1975,7 @@ export class ListUsersResponseBodyData extends $tea.Model {
   emailVerified?: boolean;
   instanceId?: string;
   lockExpireTime?: number;
+  passwordSet?: boolean;
   phoneNumber?: string;
   phoneNumberVerified?: boolean;
   phoneRegion?: string;
@@ -1821,6 +1997,7 @@ export class ListUsersResponseBodyData extends $tea.Model {
       emailVerified: 'emailVerified',
       instanceId: 'instanceId',
       lockExpireTime: 'lockExpireTime',
+      passwordSet: 'passwordSet',
       phoneNumber: 'phoneNumber',
       phoneNumberVerified: 'phoneNumberVerified',
       phoneRegion: 'phoneRegion',
@@ -1845,6 +2022,7 @@ export class ListUsersResponseBodyData extends $tea.Model {
       emailVerified: 'boolean',
       instanceId: 'string',
       lockExpireTime: 'number',
+      passwordSet: 'boolean',
       phoneNumber: 'string',
       phoneNumberVerified: 'boolean',
       phoneRegion: 'string',
@@ -1856,6 +2034,31 @@ export class ListUsersResponseBodyData extends $tea.Model {
       userSourceId: 'string',
       userSourceType: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchUserRequestCustomFields extends $tea.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  operator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'fieldName',
+      fieldValue: 'fieldValue',
+      operator: 'operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+      operator: 'string',
     };
   }
 
@@ -1896,8 +2099,6 @@ export default class Client extends OpenApi {
 
   async createOrganizationalUnitWithOptions(instanceId: string, applicationId: string, request: CreateOrganizationalUnitRequest, headers: CreateOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<CreateOrganizationalUnitResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -1932,7 +2133,7 @@ export default class Client extends OpenApi {
       action: "CreateOrganizationalUnit",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -1950,9 +2151,11 @@ export default class Client extends OpenApi {
 
   async createUserWithOptions(instanceId: string, applicationId: string, request: CreateUserRequest, headers: CreateUserHeaders, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customFields)) {
+      body["customFields"] = request.customFields;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
@@ -1971,6 +2174,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.password)) {
       body["password"] = request.password;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.passwordInitializationConfig))) {
+      body["passwordInitializationConfig"] = request.passwordInitializationConfig;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
@@ -2014,7 +2221,7 @@ export default class Client extends OpenApi {
       action: "CreateUser",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2031,9 +2238,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: DeleteOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteOrganizationalUnitResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    organizationalUnitId = OpenApiUtil.getEncodeParam(organizationalUnitId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2050,7 +2254,7 @@ export default class Client extends OpenApi {
       action: "DeleteOrganizationalUnit",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/${organizationalUnitId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits/${OpenApiUtil.getEncodeParam(organizationalUnitId)}`,
       method: "DELETE",
       authType: "Anonymous",
       style: "ROA",
@@ -2067,9 +2271,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: DeleteUserHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    userId = OpenApiUtil.getEncodeParam(userId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2086,7 +2287,7 @@ export default class Client extends OpenApi {
       action: "DeleteUser",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/${userId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}`,
       method: "DELETE",
       authType: "Anonymous",
       style: "ROA",
@@ -2094,6 +2295,72 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
+  }
+
+  async disableUser(instanceId: string, applicationId: string, userId: string): Promise<DisableUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DisableUserHeaders({ });
+    return await this.disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  }
+
+  async disableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: DisableUserHeaders, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableUser",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/disable`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DisableUserResponse>(await this.callApi(params, req, runtime), new DisableUserResponse({}));
+  }
+
+  async enableUser(instanceId: string, applicationId: string, userId: string): Promise<EnableUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new EnableUserHeaders({ });
+    return await this.enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  }
+
+  async enableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: EnableUserHeaders, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableUser",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/enable`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<EnableUserResponse>(await this.callApi(params, req, runtime), new EnableUserResponse({}));
   }
 
   async generateDeviceCode(instanceId: string, applicationId: string, request: GenerateDeviceCodeRequest): Promise<GenerateDeviceCodeResponse> {
@@ -2104,8 +2371,6 @@ export default class Client extends OpenApi {
 
   async generateDeviceCodeWithOptions(instanceId: string, applicationId: string, request: GenerateDeviceCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateDeviceCodeResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.scope)) {
       query["scope"] = request.scope;
@@ -2119,7 +2384,7 @@ export default class Client extends OpenApi {
       action: "GenerateDeviceCode",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/oauth2/device/code`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/oauth2/device/code`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2137,8 +2402,6 @@ export default class Client extends OpenApi {
 
   async generateTokenWithOptions(instanceId: string, applicationId: string, request: GenerateTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTokenResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientId)) {
       query["client_id"] = request.clientId;
@@ -2196,7 +2459,7 @@ export default class Client extends OpenApi {
       action: "GenerateToken",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/oauth2/token`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/oauth2/token`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2213,8 +2476,6 @@ export default class Client extends OpenApi {
   }
 
   async getApplicationProvisioningScopeWithOptions(instanceId: string, applicationId: string, headers: GetApplicationProvisioningScopeHeaders, runtime: $Util.RuntimeOptions): Promise<GetApplicationProvisioningScopeResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2231,7 +2492,7 @@ export default class Client extends OpenApi {
       action: "GetApplicationProvisioningScope",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/provisioningScope`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/provisioningScope`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2248,9 +2509,6 @@ export default class Client extends OpenApi {
   }
 
   async getOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: GetOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    organizationalUnitId = OpenApiUtil.getEncodeParam(organizationalUnitId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2267,7 +2525,7 @@ export default class Client extends OpenApi {
       action: "GetOrganizationalUnit",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/${organizationalUnitId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits/${OpenApiUtil.getEncodeParam(organizationalUnitId)}`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2285,8 +2543,6 @@ export default class Client extends OpenApi {
 
   async getOrganizationalUnitIdByExternalIdWithOptions(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest, headers: GetOrganizationalUnitIdByExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.organizationalUnitExternalId)) {
       body["organizationalUnitExternalId"] = request.organizationalUnitExternalId;
@@ -2317,7 +2573,7 @@ export default class Client extends OpenApi {
       action: "GetOrganizationalUnitIdByExternalId",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2334,9 +2590,6 @@ export default class Client extends OpenApi {
   }
 
   async getUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: GetUserHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    userId = OpenApiUtil.getEncodeParam(userId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2353,7 +2606,7 @@ export default class Client extends OpenApi {
       action: "GetUser",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/${userId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2371,8 +2624,6 @@ export default class Client extends OpenApi {
 
   async getUserIdByEmailWithOptions(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest, headers: GetUserIdByEmailHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByEmailResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.email)) {
       body["email"] = request.email;
@@ -2395,7 +2646,7 @@ export default class Client extends OpenApi {
       action: "GetUserIdByEmail",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByEmail`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/_/actions/getUserIdByEmail`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2413,8 +2664,6 @@ export default class Client extends OpenApi {
 
   async getUserIdByPhoneNumberWithOptions(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest, headers: GetUserIdByPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByPhoneNumberResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.phoneNumber)) {
       body["phoneNumber"] = request.phoneNumber;
@@ -2437,7 +2686,7 @@ export default class Client extends OpenApi {
       action: "GetUserIdByPhoneNumber",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByPhoneNumber`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/_/actions/getUserIdByPhoneNumber`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2455,8 +2704,6 @@ export default class Client extends OpenApi {
 
   async getUserIdByUserExternalIdWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest, headers: GetUserIdByUserExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUserExternalIdResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.userExternalId)) {
       body["userExternalId"] = request.userExternalId;
@@ -2487,7 +2734,7 @@ export default class Client extends OpenApi {
       action: "GetUserIdByUserExternalId",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByExternalId`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/_/actions/getUserIdByExternalId`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2505,8 +2752,6 @@ export default class Client extends OpenApi {
 
   async getUserIdByUsernameWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest, headers: GetUserIdByUsernameHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUsernameResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.username)) {
       body["username"] = request.username;
@@ -2529,7 +2774,7 @@ export default class Client extends OpenApi {
       action: "GetUserIdByUsername",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByUsername`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/_/actions/getUserIdByUsername`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
@@ -2546,8 +2791,6 @@ export default class Client extends OpenApi {
   }
 
   async getUserInfoWithOptions(instanceId: string, applicationId: string, headers: GetUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2564,7 +2807,7 @@ export default class Client extends OpenApi {
       action: "GetUserInfo",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/oauth2/userinfo`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/oauth2/userinfo`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2581,9 +2824,6 @@ export default class Client extends OpenApi {
   }
 
   async listOrganizationalUnitParentIdsWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: ListOrganizationalUnitParentIdsHeaders, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitParentIdsResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    organizationalUnitId = OpenApiUtil.getEncodeParam(organizationalUnitId);
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2600,7 +2840,7 @@ export default class Client extends OpenApi {
       action: "ListOrganizationalUnitParentIds",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/${organizationalUnitId}/parentIds`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits/${OpenApiUtil.getEncodeParam(organizationalUnitId)}/parentIds`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2618,8 +2858,6 @@ export default class Client extends OpenApi {
 
   async listOrganizationalUnitsWithOptions(instanceId: string, applicationId: string, request: ListOrganizationalUnitsRequest, headers: ListOrganizationalUnitsHeaders, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitsResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
@@ -2650,7 +2888,7 @@ export default class Client extends OpenApi {
       action: "ListOrganizationalUnits",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2668,8 +2906,6 @@ export default class Client extends OpenApi {
 
   async listUsersWithOptions(instanceId: string, applicationId: string, request: ListUsersRequest, headers: ListUsersHeaders, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.organizationalUnitId)) {
       query["organizationalUnitId"] = request.organizationalUnitId;
@@ -2700,7 +2936,7 @@ export default class Client extends OpenApi {
       action: "ListUsers",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users`,
       method: "GET",
       authType: "Anonymous",
       style: "ROA",
@@ -2718,9 +2954,6 @@ export default class Client extends OpenApi {
 
   async patchOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: PatchOrganizationalUnitRequest, headers: PatchOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<PatchOrganizationalUnitResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    organizationalUnitId = OpenApiUtil.getEncodeParam(organizationalUnitId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -2747,7 +2980,7 @@ export default class Client extends OpenApi {
       action: "PatchOrganizationalUnit",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/${organizationalUnitId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/organizationalUnits/${OpenApiUtil.getEncodeParam(organizationalUnitId)}`,
       method: "PATCH",
       authType: "Anonymous",
       style: "ROA",
@@ -2765,10 +2998,11 @@ export default class Client extends OpenApi {
 
   async patchUserWithOptions(instanceId: string, applicationId: string, userId: string, request: PatchUserRequest, headers: PatchUserHeaders, runtime: $Util.RuntimeOptions): Promise<PatchUserResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    userId = OpenApiUtil.getEncodeParam(userId);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customFields)) {
+      body["customFields"] = request.customFields;
+    }
+
     if (!Util.isUnset(request.displayName)) {
       body["displayName"] = request.displayName;
     }
@@ -2814,7 +3048,7 @@ export default class Client extends OpenApi {
       action: "PatchUser",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/${userId}`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}`,
       method: "PATCH",
       authType: "Anonymous",
       style: "ROA",
@@ -2832,8 +3066,6 @@ export default class Client extends OpenApi {
 
   async revokeTokenWithOptions(instanceId: string, applicationId: string, request: RevokeTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RevokeTokenResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientId)) {
       query["client_id"] = request.clientId;
@@ -2859,7 +3091,7 @@ export default class Client extends OpenApi {
       action: "RevokeToken",
       version: "2022-02-25",
       protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/oauth2/revoke`,
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/oauth2/revoke`,
       method: "POST",
       authType: "Anonymous",
       style: "ROA",
