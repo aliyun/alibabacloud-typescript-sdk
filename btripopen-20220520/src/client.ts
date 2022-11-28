@@ -1858,6 +1858,109 @@ export class CarOrderListQueryResponse extends $tea.Model {
   }
 }
 
+export class CarOrderQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryRequest extends $tea.Model {
+  orderId?: number;
+  subOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      subOrderId: 'sub_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      subOrderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CarOrderQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: CarOrderQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CarOrderQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CarOrderQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CitySearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -4115,6 +4218,106 @@ export class HotelOrderListQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HotelOrderListQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryRequest extends $tea.Model {
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelOrderQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelOrderQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: HotelOrderQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelOrderQueryResponseBody,
     };
   }
 
@@ -8091,6 +8294,297 @@ export class CarOrderListQueryResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class CarOrderQueryResponseBodyModuleCarInfo extends $tea.Model {
+  businessCategory?: string;
+  cancelTime?: number;
+  carInfo?: string;
+  carLevel?: number;
+  driverConfirmTime?: number;
+  estimatePrice?: number;
+  fromAddress?: string;
+  fromCityName?: string;
+  isSpecial?: boolean;
+  memo?: string;
+  payTime?: number;
+  publishTime?: number;
+  realFromAddress?: string;
+  realFromCityName?: string;
+  realToAddress?: string;
+  realToCityName?: string;
+  serviceType?: number;
+  specialTypes?: string;
+  takenTime?: number;
+  toAddress?: string;
+  toCityName?: string;
+  travelDistance?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessCategory: 'business_category',
+      cancelTime: 'cancel_time',
+      carInfo: 'car_info',
+      carLevel: 'car_level',
+      driverConfirmTime: 'driver_confirm_time',
+      estimatePrice: 'estimate_price',
+      fromAddress: 'from_address',
+      fromCityName: 'from_city_name',
+      isSpecial: 'is_special',
+      memo: 'memo',
+      payTime: 'pay_time',
+      publishTime: 'publish_time',
+      realFromAddress: 'real_from_address',
+      realFromCityName: 'real_from_city_name',
+      realToAddress: 'real_to_address',
+      realToCityName: 'real_to_city_name',
+      serviceType: 'service_type',
+      specialTypes: 'special_types',
+      takenTime: 'taken_time',
+      toAddress: 'to_address',
+      toCityName: 'to_city_name',
+      travelDistance: 'travel_distance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessCategory: 'string',
+      cancelTime: 'number',
+      carInfo: 'string',
+      carLevel: 'number',
+      driverConfirmTime: 'number',
+      estimatePrice: 'number',
+      fromAddress: 'string',
+      fromCityName: 'string',
+      isSpecial: 'boolean',
+      memo: 'string',
+      payTime: 'number',
+      publishTime: 'number',
+      realFromAddress: 'string',
+      realFromCityName: 'string',
+      realToAddress: 'string',
+      realToCityName: 'string',
+      serviceType: 'number',
+      specialTypes: 'string',
+      takenTime: 'number',
+      toAddress: 'string',
+      toCityName: 'string',
+      travelDistance: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBodyModuleInvoiceInfo extends $tea.Model {
+  id?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
+  applyId?: string;
+  btripCause?: string;
+  btripTitle?: string;
+  corpId?: string;
+  corpName?: string;
+  departId?: string;
+  departName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  itineraryId?: string;
+  orderId?: number;
+  orderStatus?: number;
+  subOrderId?: number;
+  thirdDepartId?: string;
+  thirdpartApplyId?: string;
+  thirdpartItineraryId?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyId: 'apply_id',
+      btripCause: 'btrip_cause',
+      btripTitle: 'btrip_title',
+      corpId: 'corp_id',
+      corpName: 'corp_name',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      gmtCreate: 'gmt_create',
+      gmtModified: 'gmt_modified',
+      itineraryId: 'itinerary_id',
+      orderId: 'order_id',
+      orderStatus: 'order_status',
+      subOrderId: 'sub_order_id',
+      thirdDepartId: 'third_depart_id',
+      thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartItineraryId: 'thirdpart_itinerary_id',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyId: 'string',
+      btripCause: 'string',
+      btripTitle: 'string',
+      corpId: 'string',
+      corpName: 'string',
+      departId: 'string',
+      departName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      itineraryId: 'string',
+      orderId: 'number',
+      orderStatus: 'number',
+      subOrderId: 'number',
+      thirdDepartId: 'string',
+      thirdpartApplyId: 'string',
+      thirdpartItineraryId: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBodyModulePassengerList extends $tea.Model {
+  costCenterId?: number;
+  costCenterName?: string;
+  costCenterNumber?: string;
+  projectCode?: string;
+  projectId?: number;
+  projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartProjectId?: string;
+  userId?: string;
+  userName?: string;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      costCenterNumber: 'cost_center_number',
+      projectCode: 'project_code',
+      projectId: 'project_id',
+      projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartProjectId: 'thirdpart_project_id',
+      userId: 'user_id',
+      userName: 'user_name',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterId: 'number',
+      costCenterName: 'string',
+      costCenterNumber: 'string',
+      projectCode: 'string',
+      projectId: 'number',
+      projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartProjectId: 'string',
+      userId: 'string',
+      userName: 'string',
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBodyModulePriceInfoList extends $tea.Model {
+  categoryCode?: number;
+  gmtCreate?: number;
+  payType?: number;
+  personPrice?: number;
+  price?: number;
+  tradeId?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'category_code',
+      gmtCreate: 'gmt_create',
+      payType: 'pay_type',
+      personPrice: 'person_price',
+      price: 'price',
+      tradeId: 'trade_id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'number',
+      gmtCreate: 'number',
+      payType: 'number',
+      personPrice: 'number',
+      price: 'number',
+      tradeId: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderQueryResponseBodyModule extends $tea.Model {
+  carInfo?: CarOrderQueryResponseBodyModuleCarInfo;
+  invoiceInfo?: CarOrderQueryResponseBodyModuleInvoiceInfo;
+  orderBaseInfo?: CarOrderQueryResponseBodyModuleOrderBaseInfo;
+  passengerList?: CarOrderQueryResponseBodyModulePassengerList[];
+  priceInfoList?: CarOrderQueryResponseBodyModulePriceInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      carInfo: 'car_info',
+      invoiceInfo: 'invoice_info',
+      orderBaseInfo: 'order_base_info',
+      passengerList: 'passenger_list',
+      priceInfoList: 'price_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carInfo: CarOrderQueryResponseBodyModuleCarInfo,
+      invoiceInfo: CarOrderQueryResponseBodyModuleInvoiceInfo,
+      orderBaseInfo: CarOrderQueryResponseBodyModuleOrderBaseInfo,
+      passengerList: { 'type': 'array', 'itemType': CarOrderQueryResponseBodyModulePassengerList },
+      priceInfoList: { 'type': 'array', 'itemType': CarOrderQueryResponseBodyModulePriceInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CitySearchResponseBodyModuleCities extends $tea.Model {
   code?: string;
   name?: string;
@@ -10178,6 +10672,249 @@ export class HotelOrderListQueryResponseBodyPageInfo extends $tea.Model {
       page: 'number',
       pageSize: 'number',
       totalNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModuleHotelInfo extends $tea.Model {
+  checkIn?: number;
+  checkOut?: number;
+  city?: string;
+  hotelName?: string;
+  hotelSupportVatInvoiceType?: number;
+  night?: number;
+  roomNum?: number;
+  roomType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkIn: 'check_in',
+      checkOut: 'check_out',
+      city: 'city',
+      hotelName: 'hotel_name',
+      hotelSupportVatInvoiceType: 'hotel_support_vat_invoice_type',
+      night: 'night',
+      roomNum: 'room_num',
+      roomType: 'room_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkIn: 'number',
+      checkOut: 'number',
+      city: 'string',
+      hotelName: 'string',
+      hotelSupportVatInvoiceType: 'number',
+      night: 'number',
+      roomNum: 'number',
+      roomType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModuleInvoiceInfo extends $tea.Model {
+  id?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
+  applyId?: string;
+  btripTitle?: string;
+  corpId?: string;
+  corpName?: string;
+  departId?: string;
+  departName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  id?: number;
+  itineraryId?: string;
+  orderStatus?: number;
+  orderType?: number;
+  thirdpartApplyId?: string;
+  thirdpartDepartId?: string;
+  thirdpartItineraryId?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyId: 'apply_id',
+      btripTitle: 'btrip_title',
+      corpId: 'corp_id',
+      corpName: 'corp_name',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      gmtCreate: 'gmt_create',
+      gmtModified: 'gmt_modified',
+      id: 'id',
+      itineraryId: 'itinerary_id',
+      orderStatus: 'order_status',
+      orderType: 'order_type',
+      thirdpartApplyId: 'thirdpart_apply_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
+      thirdpartItineraryId: 'thirdpart_itinerary_id',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyId: 'string',
+      btripTitle: 'string',
+      corpId: 'string',
+      corpName: 'string',
+      departId: 'string',
+      departName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      itineraryId: 'string',
+      orderStatus: 'number',
+      orderType: 'number',
+      thirdpartApplyId: 'string',
+      thirdpartDepartId: 'string',
+      thirdpartItineraryId: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModulePassengerList extends $tea.Model {
+  costCenterId?: number;
+  costCenterName?: string;
+  costCenterNumber?: string;
+  projectCode?: string;
+  projectId?: number;
+  projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartProjectId?: string;
+  userId?: string;
+  userName?: string;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      costCenterNumber: 'cost_center_number',
+      projectCode: 'project_code',
+      projectId: 'project_id',
+      projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartProjectId: 'thirdpart_project_id',
+      userId: 'user_id',
+      userName: 'user_name',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterId: 'number',
+      costCenterName: 'string',
+      costCenterNumber: 'string',
+      projectCode: 'string',
+      projectId: 'number',
+      projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartProjectId: 'string',
+      userId: 'string',
+      userName: 'string',
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModulePriceInfoList extends $tea.Model {
+  categoryCode?: number;
+  gmtCreate?: number;
+  payType?: number;
+  price?: number;
+  tradeId?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'category_code',
+      gmtCreate: 'gmt_create',
+      payType: 'pay_type',
+      price: 'price',
+      tradeId: 'trade_id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'number',
+      gmtCreate: 'number',
+      payType: 'number',
+      price: 'number',
+      tradeId: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderQueryResponseBodyModule extends $tea.Model {
+  hotelInfo?: HotelOrderQueryResponseBodyModuleHotelInfo;
+  invoiceInfo?: HotelOrderQueryResponseBodyModuleInvoiceInfo;
+  orderBaseInfo?: HotelOrderQueryResponseBodyModuleOrderBaseInfo;
+  passengerList?: HotelOrderQueryResponseBodyModulePassengerList[];
+  priceInfoList?: HotelOrderQueryResponseBodyModulePriceInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      hotelInfo: 'hotel_info',
+      invoiceInfo: 'invoice_info',
+      orderBaseInfo: 'order_base_info',
+      passengerList: 'passenger_list',
+      priceInfoList: 'price_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelInfo: HotelOrderQueryResponseBodyModuleHotelInfo,
+      invoiceInfo: HotelOrderQueryResponseBodyModuleInvoiceInfo,
+      orderBaseInfo: HotelOrderQueryResponseBodyModuleOrderBaseInfo,
+      passengerList: { 'type': 'array', 'itemType': HotelOrderQueryResponseBodyModulePassengerList },
+      priceInfoList: { 'type': 'array', 'itemType': HotelOrderQueryResponseBodyModulePriceInfoList },
     };
   }
 
@@ -12772,6 +13509,50 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderListQueryResponse>(await this.callApi(params, req, runtime), new CarOrderListQueryResponse({}));
   }
 
+  async carOrderQuery(request: CarOrderQueryRequest): Promise<CarOrderQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CarOrderQueryHeaders({ });
+    return await this.carOrderQueryWithOptions(request, headers, runtime);
+  }
+
+  async carOrderQueryWithOptions(request: CarOrderQueryRequest, headers: CarOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.subOrderId)) {
+      query["sub_order_id"] = request.subOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CarOrderQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/car/v1/order`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CarOrderQueryResponse>(await this.callApi(params, req, runtime), new CarOrderQueryResponse({}));
+  }
+
   async citySearch(request: CitySearchRequest): Promise<CitySearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CitySearchHeaders({ });
@@ -13820,6 +14601,46 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<HotelOrderListQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderListQueryResponse({}));
+  }
+
+  async hotelOrderQuery(request: HotelOrderQueryRequest): Promise<HotelOrderQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelOrderQueryHeaders({ });
+    return await this.hotelOrderQueryWithOptions(request, headers, runtime);
+  }
+
+  async hotelOrderQueryWithOptions(request: HotelOrderQueryRequest, headers: HotelOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelOrderQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/hotel/v1/order`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelOrderQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderQueryResponse({}));
   }
 
   async ieFlightBillSettlementQuery(request: IeFlightBillSettlementQueryRequest): Promise<IeFlightBillSettlementQueryResponse> {
