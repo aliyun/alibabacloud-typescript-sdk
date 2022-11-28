@@ -5567,10 +5567,12 @@ export class GetImportFileUrlResponse extends $tea.Model {
 export class GetKubernetesSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -5578,6 +5580,7 @@ export class GetKubernetesSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -9448,6 +9451,120 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListZkTrackRequest extends $tea.Model {
+  acceptLanguage?: string;
+  endTs?: number;
+  instanceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  path?: string;
+  requestPars?: string;
+  reverse?: boolean;
+  sessionId?: string;
+  startTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      endTs: 'EndTs',
+      instanceId: 'InstanceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      path: 'Path',
+      requestPars: 'RequestPars',
+      reverse: 'Reverse',
+      sessionId: 'SessionId',
+      startTs: 'StartTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      endTs: 'number',
+      instanceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      path: 'string',
+      requestPars: 'string',
+      reverse: 'boolean',
+      sessionId: 'string',
+      startTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListZkTrackResponseBody extends $tea.Model {
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  traces?: ListZkTrackResponseBodyTraces[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      traces: 'Traces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      traces: { 'type': 'array', 'itemType': ListZkTrackResponseBodyTraces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListZkTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListZkTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListZkTrackResponseBody,
     };
   }
 
@@ -20120,6 +20237,64 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ListZkTrackResponseBodyTraces extends $tea.Model {
+  acl?: string;
+  dataType?: string;
+  eventType?: string;
+  finished?: boolean;
+  logDate?: string;
+  multiSize?: number;
+  opType?: string;
+  path?: string;
+  result?: string;
+  sessionId?: string;
+  timestamp?: string;
+  traceType?: string;
+  ttl?: number;
+  watch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'Acl',
+      dataType: 'DataType',
+      eventType: 'EventType',
+      finished: 'Finished',
+      logDate: 'LogDate',
+      multiSize: 'MultiSize',
+      opType: 'OpType',
+      path: 'Path',
+      result: 'Result',
+      sessionId: 'SessionId',
+      timestamp: 'Timestamp',
+      traceType: 'TraceType',
+      ttl: 'Ttl',
+      watch: 'Watch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: 'string',
+      dataType: 'string',
+      eventType: 'string',
+      finished: 'boolean',
+      logDate: 'string',
+      multiSize: 'number',
+      opType: 'string',
+      path: 'string',
+      result: 'string',
+      sessionId: 'string',
+      timestamp: 'string',
+      traceType: 'string',
+      ttl: 'number',
+      watch: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListZnodeChildrenResponseBodyData extends $tea.Model {
   data?: string;
   dir?: boolean;
@@ -24593,6 +24768,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26176,6 +26355,31 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async listZkTrackWithOptions(request: ListZkTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListZkTrackResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListZkTrack",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListZkTrackResponse>(await this.callApi(params, req, runtime), new ListZkTrackResponse({}));
+  }
+
+  async listZkTrack(request: ListZkTrackRequest): Promise<ListZkTrackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listZkTrackWithOptions(request, runtime);
   }
 
   async listZnodeChildrenWithOptions(request: ListZnodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<ListZnodeChildrenResponse> {
