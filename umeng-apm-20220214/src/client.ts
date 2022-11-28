@@ -254,6 +254,81 @@ export class GetTodayStatTrendResponse extends $tea.Model {
   }
 }
 
+export class UpdateAlertPlanRequest extends $tea.Model {
+  dataSourceId?: string;
+  planId?: number;
+  versions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'dataSourceId',
+      planId: 'planId',
+      versions: 'versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      planId: 'number',
+      versions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertPlanResponseBody extends $tea.Model {
+  code?: number;
+  msg?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAlertPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAlertPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStatTrendResponseBodyData extends $tea.Model {
   affectedUserCount?: number;
   affectedUserRate?: number;
@@ -500,6 +575,45 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetTodayStatTrendResponse>(await this.callApi(params, req, runtime), new GetTodayStatTrendResponse({}));
+  }
+
+  async updateAlertPlan(request: UpdateAlertPlanRequest): Promise<UpdateAlertPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertPlanWithOptions(request, headers, runtime);
+  }
+
+  async updateAlertPlanWithOptions(request: UpdateAlertPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAlertPlanResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.planId)) {
+      query["planId"] = request.planId;
+    }
+
+    if (!Util.isUnset(request.versions)) {
+      query["versions"] = request.versions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAlertPlan",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/updateAlertPlan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAlertPlanResponse>(await this.callApi(params, req, runtime), new UpdateAlertPlanResponse({}));
   }
 
 }
