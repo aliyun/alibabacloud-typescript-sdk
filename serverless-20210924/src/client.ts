@@ -66,6 +66,75 @@ export class Application extends $tea.Model {
   }
 }
 
+export class Condition extends $tea.Model {
+  expression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Context extends $tea.Model {
+  data?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContextSchema extends $tea.Model {
+  description?: string;
+  hint?: string;
+  name?: string;
+  required?: boolean;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      hint: 'hint',
+      name: 'name',
+      required: 'required',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hint: 'string',
+      name: 'string',
+      required: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Environment extends $tea.Model {
   createdTime?: string;
   deletionTime?: string;
@@ -267,6 +336,167 @@ export class OutputValue extends $tea.Model {
   }
 }
 
+export class Pipeline extends $tea.Model {
+  createdTime?: string;
+  deletionTime?: string;
+  description?: string;
+  generation?: number;
+  kind?: string;
+  labels?: { [key: string]: string };
+  name?: string;
+  resourceVersion?: number;
+  spec?: PipelineSpec;
+  status?: PipelineStatus;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
+      description: 'description',
+      generation: 'generation',
+      kind: 'kind',
+      labels: 'labels',
+      name: 'name',
+      resourceVersion: 'resourceVersion',
+      spec: 'spec',
+      status: 'status',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      deletionTime: 'string',
+      description: 'string',
+      generation: 'number',
+      kind: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      resourceVersion: 'number',
+      spec: PipelineSpec,
+      status: PipelineStatus,
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PipelineSpec extends $tea.Model {
+  context?: Context;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      templateName: 'templateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: Context,
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PipelineStatus extends $tea.Model {
+  phase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phase: 'phase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PipelineTemplate extends $tea.Model {
+  createdTime?: string;
+  deletionTime?: string;
+  description?: string;
+  generation?: number;
+  kind?: string;
+  labels?: { [key: string]: string };
+  name?: string;
+  resourceVersion?: number;
+  spec?: PipelineTemplateSpec;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
+      description: 'description',
+      generation: 'generation',
+      kind: 'kind',
+      labels: 'labels',
+      name: 'name',
+      resourceVersion: 'resourceVersion',
+      spec: 'spec',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      deletionTime: 'string',
+      description: 'string',
+      generation: 'number',
+      kind: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      resourceVersion: 'number',
+      spec: PipelineTemplateSpec,
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PipelineTemplateSpec extends $tea.Model {
+  context?: Context;
+  contextSchema?: { [key: string]: any };
+  tasks?: TaskExec[];
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      contextSchema: 'contextSchema',
+      tasks: 'tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: Context,
+      contextSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      tasks: { 'type': 'array', 'itemType': TaskExec },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Release extends $tea.Model {
   appConfig?: { [key: string]: any };
   codeVersion?: ReleaseCodeVersion;
@@ -321,6 +551,25 @@ export class RepoSource extends $tea.Model {
       owner: 'string',
       provider: 'string',
       repo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunAfter extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
     };
   }
 
@@ -522,6 +771,226 @@ export class StsCredentials extends $tea.Model {
       kind: 'string',
       secretAccessKey: 'string',
       token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Task extends $tea.Model {
+  createdTime?: string;
+  deletionTime?: string;
+  description?: string;
+  generation?: number;
+  kind?: string;
+  labels?: { [key: string]: string };
+  name?: string;
+  resourceVersion?: number;
+  spec?: TaskSpec;
+  status?: TaskStatus;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
+      description: 'description',
+      generation: 'generation',
+      kind: 'kind',
+      labels: 'labels',
+      name: 'name',
+      resourceVersion: 'resourceVersion',
+      spec: 'spec',
+      status: 'status',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      deletionTime: 'string',
+      description: 'string',
+      generation: 'number',
+      kind: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      resourceVersion: 'number',
+      spec: TaskSpec,
+      status: TaskStatus,
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskExec extends $tea.Model {
+  context?: Context;
+  name?: string;
+  runAfters?: RunAfter[];
+  taskTemplate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      name: 'name',
+      runAfters: 'runAfters',
+      taskTemplate: 'taskTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: Context,
+      name: 'string',
+      runAfters: { 'type': 'array', 'itemType': RunAfter },
+      taskTemplate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskSpec extends $tea.Model {
+  context?: Context;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      templateName: 'templateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: Context,
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskStatus extends $tea.Model {
+  executionDetails?: string[];
+  phase?: string;
+  statusGeneration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      executionDetails: 'executionDetails',
+      phase: 'phase',
+      statusGeneration: 'statusGeneration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionDetails: { 'type': 'array', 'itemType': 'string' },
+      phase: 'string',
+      statusGeneration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskTemplate extends $tea.Model {
+  createdTime?: string;
+  deletionTime?: string;
+  description?: string;
+  generation?: number;
+  kind?: string;
+  labels?: { [key: string]: string };
+  name?: string;
+  resourceVersion?: number;
+  spec?: TaskTemplateSpec;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
+      description: 'description',
+      generation: 'generation',
+      kind: 'kind',
+      labels: 'labels',
+      name: 'name',
+      resourceVersion: 'resourceVersion',
+      spec: 'spec',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      deletionTime: 'string',
+      description: 'string',
+      generation: 'number',
+      kind: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      resourceVersion: 'number',
+      spec: TaskTemplateSpec,
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskTemplateSpec extends $tea.Model {
+  context?: Context;
+  contextSchema?: { [key: string]: any };
+  description?: string;
+  executeCondition?: Condition;
+  worker?: TaskWorker;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      contextSchema: 'contextSchema',
+      description: 'description',
+      executeCondition: 'executeCondition',
+      worker: 'worker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: Context,
+      contextSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      description: 'string',
+      executeCondition: Condition,
+      worker: TaskWorker,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskWorker extends $tea.Model {
+  presetWorker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      presetWorker: 'presetWorker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      presetWorker: 'string',
     };
   }
 
@@ -771,6 +1240,94 @@ export class CreateApplicationResponse extends $tea.Model {
   }
 }
 
+export class CreatePipelineRequest extends $tea.Model {
+  body?: Pipeline;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Pipeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Pipeline;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Pipeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineTemplateRequest extends $tea.Model {
+  body?: PipelineTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: PipelineTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PipelineTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PipelineTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReleaseRequest extends $tea.Model {
   description?: string;
   static names(): { [key: string]: string } {
@@ -807,6 +1364,94 @@ export class CreateReleaseResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Release,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequest extends $tea.Model {
+  body?: Task;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskTemplateRequest extends $tea.Model {
+  body?: TaskTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: TaskTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TaskTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TaskTemplate,
     };
   }
 
@@ -854,6 +1499,94 @@ export class DeleteEnvironmentResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePipelineTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePipelineTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePipelineTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePipelineTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTaskTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTaskTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTaskTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTaskTemplateResponseBody,
     };
   }
 
@@ -956,6 +1689,56 @@ export class GetEnvironmentResponse extends $tea.Model {
   }
 }
 
+export class GetPipelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Pipeline;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Pipeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PipelineTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PipelineTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetReleaseResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -998,6 +1781,56 @@ export class GetServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Service,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TaskTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TaskTemplate,
     };
   }
 
@@ -1119,6 +1952,132 @@ export class ListEnvironmentsResponse extends $tea.Model {
   }
 }
 
+export class ListPipelineTemplatesRequest extends $tea.Model {
+  labelSelector?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      labelSelector: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineTemplatesShrinkRequest extends $tea.Model {
+  labelSelectorShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelSelectorShrink: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelectorShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PipelineTemplate[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': PipelineTemplate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelinesRequest extends $tea.Model {
+  labelSelector?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      labelSelector: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelinesShrinkRequest extends $tea.Model {
+  labelSelectorShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelSelectorShrink: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelectorShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelinesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Pipeline[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': Pipeline },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceRevisionsRequest extends $tea.Model {
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -1180,6 +2139,132 @@ export class ListServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': Service },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskTemplatesRequest extends $tea.Model {
+  labelSelector?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      labelSelector: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskTemplatesShrinkRequest extends $tea.Model {
+  labelSelectorShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelSelectorShrink: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelectorShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TaskTemplate[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': TaskTemplate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksRequest extends $tea.Model {
+  labelSelector?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      labelSelector: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksShrinkRequest extends $tea.Model {
+  labelSelectorShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelSelectorShrink: 'labelSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelSelectorShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': Task },
     };
   }
 
@@ -1414,6 +2499,81 @@ export class PutTemplateResponse extends $tea.Model {
   }
 }
 
+export class ResumeTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPipelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Pipeline;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Pipeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationRequest extends $tea.Model {
   body?: Application;
   static names(): { [key: string]: string } {
@@ -1616,6 +2776,58 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
+  async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineWithOptions(request, headers, runtime);
+  }
+
+  async createPipelineWithOptions(request: CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePipeline",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelines`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
+  }
+
+  async createPipelineTemplate(request: CreatePipelineTemplateRequest): Promise<CreatePipelineTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineTemplateWithOptions(request, headers, runtime);
+  }
+
+  async createPipelineTemplateWithOptions(request: CreatePipelineTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePipelineTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelinetemplates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineTemplateResponse>(await this.callApi(params, req, runtime), new CreatePipelineTemplateResponse({}));
+  }
+
   async createRelease(appName: string, request: CreateReleaseRequest): Promise<CreateReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1624,7 +2836,6 @@ export default class Client extends OpenApi {
 
   async createReleaseWithOptions(appName: string, request: CreateReleaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateReleaseResponse> {
     Util.validateModel(request);
-    appName = OpenApiUtil.getEncodeParam(appName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       query["description"] = request.description;
@@ -1638,7 +2849,7 @@ export default class Client extends OpenApi {
       action: "CreateRelease",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/applications/${appName}/releases`,
+      pathname: `/apis/serverlessdeployment/v1/applications/${OpenApiUtil.getEncodeParam(appName)}/releases`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -1648,6 +2859,58 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateReleaseResponse>(await this.callApi(params, req, runtime), new CreateReleaseResponse({}));
   }
 
+  async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTaskWithOptions(request, headers, runtime);
+  }
+
+  async createTaskWithOptions(request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+  }
+
+  async createTaskTemplate(request: CreateTaskTemplateRequest): Promise<CreateTaskTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTaskTemplateWithOptions(request, headers, runtime);
+  }
+
+  async createTaskTemplateWithOptions(request: CreateTaskTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTaskTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasktemplates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTaskTemplateResponse>(await this.callApi(params, req, runtime), new CreateTaskTemplateResponse({}));
+  }
+
   async deleteApplication(name: string): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1655,7 +2918,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteApplicationWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1663,7 +2925,7 @@ export default class Client extends OpenApi {
       action: "DeleteApplication",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/applications/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/applications/${OpenApiUtil.getEncodeParam(name)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -1680,7 +2942,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteEnvironmentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1688,7 +2949,7 @@ export default class Client extends OpenApi {
       action: "DeleteEnvironment",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/environments/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/environments/${OpenApiUtil.getEncodeParam(name)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -1696,6 +2957,54 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentResponse({}));
+  }
+
+  async deletePipelineTemplate(name: string): Promise<DeletePipelineTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePipelineTemplateWithOptions(name, headers, runtime);
+  }
+
+  async deletePipelineTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePipelineTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelinetemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePipelineTemplateResponse>(await this.callApi(params, req, runtime), new DeletePipelineTemplateResponse({}));
+  }
+
+  async deleteTaskTemplate(name: string): Promise<DeleteTaskTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTaskTemplateWithOptions(name, headers, runtime);
+  }
+
+  async deleteTaskTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTaskTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTaskTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasktemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTaskTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTaskTemplateResponse({}));
   }
 
   async deleteTemplate(name: string, request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
@@ -1706,7 +3015,6 @@ export default class Client extends OpenApi {
 
   async deleteTemplateWithOptions(name: string, request: DeleteTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.version)) {
       query["version"] = request.version;
@@ -1720,7 +3028,7 @@ export default class Client extends OpenApi {
       action: "DeleteTemplate",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/templates/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/templates/${OpenApiUtil.getEncodeParam(name)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -1737,7 +3045,6 @@ export default class Client extends OpenApi {
   }
 
   async getApplicationWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1745,7 +3052,7 @@ export default class Client extends OpenApi {
       action: "GetApplication",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/applications/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/applications/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1762,7 +3069,6 @@ export default class Client extends OpenApi {
   }
 
   async getEnvironmentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEnvironmentResponse> {
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1770,7 +3076,7 @@ export default class Client extends OpenApi {
       action: "GetEnvironment",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/environments/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/environments/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1780,6 +3086,54 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEnvironmentResponse>(await this.callApi(params, req, runtime), new GetEnvironmentResponse({}));
   }
 
+  async getPipeline(name: string): Promise<GetPipelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPipelineWithOptions(name, headers, runtime);
+  }
+
+  async getPipelineWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPipeline",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelines/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineResponse>(await this.callApi(params, req, runtime), new GetPipelineResponse({}));
+  }
+
+  async getPipelineTemplate(name: string): Promise<GetPipelineTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPipelineTemplateWithOptions(name, headers, runtime);
+  }
+
+  async getPipelineTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPipelineTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelinetemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineTemplateResponse>(await this.callApi(params, req, runtime), new GetPipelineTemplateResponse({}));
+  }
+
   async getRelease(appName: string, versionId: string): Promise<GetReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1787,8 +3141,6 @@ export default class Client extends OpenApi {
   }
 
   async getReleaseWithOptions(appName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetReleaseResponse> {
-    appName = OpenApiUtil.getEncodeParam(appName);
-    versionId = OpenApiUtil.getEncodeParam(versionId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1796,7 +3148,7 @@ export default class Client extends OpenApi {
       action: "GetRelease",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/applications/${appName}/releases/${versionId}`,
+      pathname: `/apis/serverlessdeployment/v1/applications/${OpenApiUtil.getEncodeParam(appName)}/releases/${OpenApiUtil.getEncodeParam(versionId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1813,7 +3165,6 @@ export default class Client extends OpenApi {
   }
 
   async getServiceWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1821,7 +3172,7 @@ export default class Client extends OpenApi {
       action: "GetService",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/services/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/services/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1829,6 +3180,54 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+  }
+
+  async getTask(name: string): Promise<GetTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskWithOptions(name, headers, runtime);
+  }
+
+  async getTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+  }
+
+  async getTaskTemplate(name: string): Promise<GetTaskTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskTemplateWithOptions(name, headers, runtime);
+  }
+
+  async getTaskTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTaskTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasktemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskTemplateResponse>(await this.callApi(params, req, runtime), new GetTaskTemplateResponse({}));
   }
 
   async getTemplate(name: string, request: GetTemplateRequest): Promise<GetTemplateResponse> {
@@ -1839,7 +3238,6 @@ export default class Client extends OpenApi {
 
   async getTemplateWithOptions(name: string, request: GetTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.version)) {
       query["version"] = request.version;
@@ -1853,7 +3251,7 @@ export default class Client extends OpenApi {
       action: "GetTemplate",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/templates/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/templates/${OpenApiUtil.getEncodeParam(name)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -1918,6 +3316,80 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentsResponse({}));
   }
 
+  async listPipelineTemplates(request: ListPipelineTemplatesRequest): Promise<ListPipelineTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelineTemplatesWithOptions(request, headers, runtime);
+  }
+
+  async listPipelineTemplatesWithOptions(tmpReq: ListPipelineTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineTemplatesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPipelineTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPipelineTemplates",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelinetemplates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListPipelineTemplatesResponse>(await this.callApi(params, req, runtime), new ListPipelineTemplatesResponse({}));
+  }
+
+  async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelinesWithOptions(request, headers, runtime);
+  }
+
+  async listPipelinesWithOptions(tmpReq: ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPipelinesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPipelines",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelines`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
+  }
+
   async listServiceRevisions(request: ListServiceRevisionsRequest): Promise<ListServiceRevisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1971,6 +3443,80 @@ export default class Client extends OpenApi {
       bodyType: "array",
     });
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+  }
+
+  async listTaskTemplates(request: ListTaskTemplatesRequest): Promise<ListTaskTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTaskTemplatesWithOptions(request, headers, runtime);
+  }
+
+  async listTaskTemplatesWithOptions(tmpReq: ListTaskTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaskTemplatesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTaskTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTaskTemplates",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasktemplates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListTaskTemplatesResponse>(await this.callApi(params, req, runtime), new ListTaskTemplatesResponse({}));
+  }
+
+  async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTasksWithOptions(request, headers, runtime);
+  }
+
+  async listTasksWithOptions(tmpReq: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTasks",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
   async listTemplateRevisions(request: ListTemplateRevisionsRequest): Promise<ListTemplateRevisionsResponse> {
@@ -2047,7 +3593,6 @@ export default class Client extends OpenApi {
 
   async putEnvironmentWithOptions(name: string, request: PutEnvironmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutEnvironmentResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
@@ -2056,7 +3601,7 @@ export default class Client extends OpenApi {
       action: "PutEnvironment",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/environments/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/environments/${OpenApiUtil.getEncodeParam(name)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -2074,7 +3619,6 @@ export default class Client extends OpenApi {
 
   async putServiceWithOptions(name: string, request: PutServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutServiceResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
@@ -2083,7 +3627,7 @@ export default class Client extends OpenApi {
       action: "PutService",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/services/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/services/${OpenApiUtil.getEncodeParam(name)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -2101,7 +3645,6 @@ export default class Client extends OpenApi {
 
   async putTemplateWithOptions(name: string, request: PutTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTemplateResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.version)) {
       query["version"] = request.version;
@@ -2116,7 +3659,7 @@ export default class Client extends OpenApi {
       action: "PutTemplate",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/templates/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/templates/${OpenApiUtil.getEncodeParam(name)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -2124,6 +3667,78 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<PutTemplateResponse>(await this.callApi(params, req, runtime), new PutTemplateResponse({}));
+  }
+
+  async resumeTask(name: string): Promise<ResumeTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeTaskWithOptions(name, headers, runtime);
+  }
+
+  async resumeTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}/resume`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeTaskResponse>(await this.callApi(params, req, runtime), new ResumeTaskResponse({}));
+  }
+
+  async startPipeline(name: string): Promise<StartPipelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startPipelineWithOptions(name, headers, runtime);
+  }
+
+  async startPipelineWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartPipelineResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartPipeline",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelines/${OpenApiUtil.getEncodeParam(name)}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartPipelineResponse>(await this.callApi(params, req, runtime), new StartPipelineResponse({}));
+  }
+
+  async startTask(name: string): Promise<StartTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startTaskWithOptions(name, headers, runtime);
+  }
+
+  async startTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTaskResponse>(await this.callApi(params, req, runtime), new StartTaskResponse({}));
   }
 
   async updateApplication(name: string, request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
@@ -2134,7 +3749,6 @@ export default class Client extends OpenApi {
 
   async updateApplicationWithOptions(name: string, request: UpdateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(request);
-    name = OpenApiUtil.getEncodeParam(name);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
@@ -2143,7 +3757,7 @@ export default class Client extends OpenApi {
       action: "UpdateApplication",
       version: "2021-09-24",
       protocol: "HTTPS",
-      pathname: `/apis/serverlessdeployment/v1/applications/${name}`,
+      pathname: `/apis/serverlessdeployment/v1/applications/${OpenApiUtil.getEncodeParam(name)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
