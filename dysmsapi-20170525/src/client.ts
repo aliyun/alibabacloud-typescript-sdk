@@ -1370,6 +1370,103 @@ export class QueryCardSmsTemplateReportResponse extends $tea.Model {
   }
 }
 
+export class QueryMobilesCardSupportRequest extends $tea.Model {
+  mobiles?: { [key: string]: any }[];
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobiles: 'Mobiles',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobiles: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportShrinkRequest extends $tea.Model {
+  mobilesShrink?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobilesShrink: 'Mobiles',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobilesShrink: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryMobilesCardSupportResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryMobilesCardSupportResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMobilesCardSupportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMobilesCardSupportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySendDetailsRequest extends $tea.Model {
   bizId?: string;
   currentPage?: number;
@@ -2938,6 +3035,47 @@ export class QueryCardSmsTemplateReportResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
+  mobile?: string;
+  support?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      support: 'Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      support: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportResponseBodyData extends $tea.Model {
+  queryResult?: QueryMobilesCardSupportResponseBodyDataQueryResult[];
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'QueryResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: { 'type': 'array', 'itemType': QueryMobilesCardSupportResponseBodyDataQueryResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
   content?: string;
   errCode?: string;
@@ -4101,6 +4239,45 @@ export default class Client extends OpenApi {
   async queryCardSmsTemplateReport(request: QueryCardSmsTemplateReportRequest): Promise<QueryCardSmsTemplateReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCardSmsTemplateReportWithOptions(request, runtime);
+  }
+
+  async queryMobilesCardSupportWithOptions(tmpReq: QueryMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<QueryMobilesCardSupportResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryMobilesCardSupportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.mobiles)) {
+      request.mobilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mobiles, "Mobiles", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.mobilesShrink)) {
+      query["Mobiles"] = request.mobilesShrink;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMobilesCardSupport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new QueryMobilesCardSupportResponse({}));
+  }
+
+  async queryMobilesCardSupport(request: QueryMobilesCardSupportRequest): Promise<QueryMobilesCardSupportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMobilesCardSupportWithOptions(request, runtime);
   }
 
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
