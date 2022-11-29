@@ -171,6 +171,47 @@ export class HttpConfig extends $tea.Model {
   }
 }
 
+export class InstanceActiveOpsGroup extends $tea.Model {
+  instanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstanceActiveOpsTask extends $tea.Model {
+  instanceActiveOpsTaskId?: string;
+  instanceActiveOpsTaskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceActiveOpsTaskId: 'InstanceActiveOpsTaskId',
+      instanceActiveOpsTaskStatus: 'InstanceActiveOpsTaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceActiveOpsTaskId: 'string',
+      instanceActiveOpsTaskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SecurityGroupRule extends $tea.Model {
   description?: string;
   destCidrIp?: string;
@@ -2062,6 +2103,91 @@ export class CreateInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceActiveOpsTaskRequest extends $tea.Model {
+  instanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceActiveOpsTaskShrinkRequest extends $tea.Model {
+  instanceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceActiveOpsTaskResponseBody extends $tea.Model {
+  instanceActiveOpsTask?: InstanceActiveOpsTask;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceActiveOpsTask: 'InstanceActiveOpsTask',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceActiveOpsTask: InstanceActiveOpsTask,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceActiveOpsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateInstanceActiveOpsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceActiveOpsTaskResponseBody,
     };
   }
 
@@ -4551,19 +4677,28 @@ export class DescribeARMServerInstancesShrinkRequest extends $tea.Model {
 }
 
 export class DescribeARMServerInstancesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
   servers?: DescribeARMServerInstancesResponseBodyServers[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       servers: 'Servers',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
       servers: { 'type': 'array', 'itemType': DescribeARMServerInstancesResponseBodyServers },
+      totalCount: 'number',
     };
   }
 
@@ -22128,6 +22263,41 @@ export default class Client extends OpenApi {
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
+  }
+
+  async createInstanceActiveOpsTaskWithOptions(tmpReq: CreateInstanceActiveOpsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceActiveOpsTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateInstanceActiveOpsTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceActiveOpsTask",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceActiveOpsTaskResponse>(await this.callApi(params, req, runtime), new CreateInstanceActiveOpsTaskResponse({}));
+  }
+
+  async createInstanceActiveOpsTask(request: CreateInstanceActiveOpsTaskRequest): Promise<CreateInstanceActiveOpsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createInstanceActiveOpsTaskWithOptions(request, runtime);
   }
 
   async createKeyPairWithOptions(request: CreateKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyPairResponse> {
