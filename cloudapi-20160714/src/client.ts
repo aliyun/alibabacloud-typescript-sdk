@@ -523,10 +523,12 @@ export class BatchDeployApisResponse extends $tea.Model {
 
 export class CreateAccessControlListRequest extends $tea.Model {
   aclName?: string;
+  addressIPVersion?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclName: 'AclName',
+      addressIPVersion: 'AddressIPVersion',
       securityToken: 'SecurityToken',
     };
   }
@@ -534,6 +536,7 @@ export class CreateAccessControlListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclName: 'string',
+      addressIPVersion: 'string',
       securityToken: 'string',
     };
   }
@@ -3700,12 +3703,14 @@ export class DescribeAccessControlListAttributeResponse extends $tea.Model {
 
 export class DescribeAccessControlListsRequest extends $tea.Model {
   aclName?: string;
+  addressIPVersion?: string;
   pageNumber?: number;
   pageSize?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclName: 'AclName',
+      addressIPVersion: 'AddressIPVersion',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       securityToken: 'SecurityToken',
@@ -3715,6 +3720,7 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclName: 'string',
+      addressIPVersion: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       securityToken: 'string',
@@ -7856,6 +7862,108 @@ export class DescribeModelsResponse extends $tea.Model {
   }
 }
 
+export class DescribePluginApisRequest extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  description?: string;
+  groupId?: string;
+  method?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  path?: string;
+  pluginId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      description: 'Description',
+      groupId: 'GroupId',
+      method: 'Method',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      path: 'Path',
+      pluginId: 'PluginId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      description: 'string',
+      groupId: 'string',
+      method: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      path: 'string',
+      pluginId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginApisResponseBody extends $tea.Model {
+  apiSummarys?: DescribePluginApisResponseBodyApiSummarys;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiSummarys: 'ApiSummarys',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiSummarys: DescribePluginApisResponseBodyApiSummarys,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginApisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePluginApisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePluginApisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePluginSchemasRequest extends $tea.Model {
   language?: string;
   securityToken?: string;
@@ -9286,11 +9394,13 @@ export class DetachPluginResponse extends $tea.Model {
 
 export class DisableInstanceAccessControlRequest extends $tea.Model {
   aclId?: string;
+  addressIPVersion?: string;
   instanceId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      addressIPVersion: 'AddressIPVersion',
       instanceId: 'InstanceId',
       securityToken: 'SecurityToken',
     };
@@ -9299,6 +9409,7 @@ export class DisableInstanceAccessControlRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      addressIPVersion: 'string',
       instanceId: 'string',
       securityToken: 'string',
     };
@@ -9483,12 +9594,14 @@ export class DryRunSwaggerResponse extends $tea.Model {
 export class EnableInstanceAccessControlRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
+  addressIPVersion?: string;
   instanceId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclType: 'AclType',
+      addressIPVersion: 'AddressIPVersion',
       instanceId: 'InstanceId',
       securityToken: 'SecurityToken',
     };
@@ -9498,6 +9611,7 @@ export class EnableInstanceAccessControlRequest extends $tea.Model {
     return {
       aclId: 'string',
       aclType: 'string',
+      addressIPVersion: 'string',
       instanceId: 'string',
       securityToken: 'string',
     };
@@ -14081,10 +14195,12 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $te
 export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
   aclName?: string;
+  addressIPVersion?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclName: 'AclName',
+      addressIPVersion: 'AddressIPVersion',
     };
   }
 
@@ -14092,6 +14208,7 @@ export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
     return {
       aclId: 'string',
       aclName: 'string',
+      addressIPVersion: 'string',
     };
   }
 
@@ -18718,6 +18835,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   egressIpv6Enable?: boolean;
   expiredTime?: string;
   httpsPolicies?: string;
+  IPV6AclId?: string;
+  IPV6AclName?: string;
+  IPV6AclStatus?: string;
+  IPV6AclType?: string;
   instanceChargeType?: string;
   instanceId?: string;
   instanceName?: string;
@@ -18750,6 +18871,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       egressIpv6Enable: 'EgressIpv6Enable',
       expiredTime: 'ExpiredTime',
       httpsPolicies: 'HttpsPolicies',
+      IPV6AclId: 'IPV6AclId',
+      IPV6AclName: 'IPV6AclName',
+      IPV6AclStatus: 'IPV6AclStatus',
+      IPV6AclType: 'IPV6AclType',
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -18785,6 +18910,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       egressIpv6Enable: 'boolean',
       expiredTime: 'string',
       httpsPolicies: 'string',
+      IPV6AclId: 'string',
+      IPV6AclName: 'string',
+      IPV6AclStatus: 'string',
+      IPV6AclType: 'string',
       instanceChargeType: 'string',
       instanceId: 'string',
       instanceName: 'string',
@@ -19037,6 +19166,68 @@ export class DescribeModelsResponseBodyModelDetails extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       modelDetail: { 'type': 'array', 'itemType': DescribeModelsResponseBodyModelDetailsModelDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginApisResponseBodyApiSummarysApiPluginSummary extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  method?: string;
+  path?: string;
+  regionId?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      method: 'Method',
+      path: 'Path',
+      regionId: 'RegionId',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      method: 'string',
+      path: 'string',
+      regionId: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginApisResponseBodyApiSummarys extends $tea.Model {
+  apiPluginSummary?: DescribePluginApisResponseBodyApiSummarysApiPluginSummary[];
+  static names(): { [key: string]: string } {
+    return {
+      apiPluginSummary: 'ApiPluginSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiPluginSummary: { 'type': 'array', 'itemType': DescribePluginApisResponseBodyApiSummarysApiPluginSummary },
     };
   }
 
@@ -21377,6 +21568,10 @@ export default class Client extends OpenApi {
       query["AclName"] = request.aclName;
     }
 
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -23145,6 +23340,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aclName)) {
       query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -25128,6 +25327,71 @@ export default class Client extends OpenApi {
     return await this.describeModelsWithOptions(request, runtime);
   }
 
+  async describePluginApisWithOptions(request: DescribePluginApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginApisResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      query["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePluginApis",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePluginApisResponse>(await this.callApi(params, req, runtime), new DescribePluginApisResponse({}));
+  }
+
+  async describePluginApis(request: DescribePluginApisRequest): Promise<DescribePluginApisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePluginApisWithOptions(request, runtime);
+  }
+
   async describePluginSchemasWithOptions(request: DescribePluginSchemasRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginSchemasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25873,6 +26137,10 @@ export default class Client extends OpenApi {
       query["AclId"] = request.aclId;
     }
 
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -25969,6 +26237,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.aclType)) {
       query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
     }
 
     if (!Util.isUnset(request.instanceId)) {
