@@ -7,7 +7,6 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import Array from '@alicloud/darabonba-array';
 import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
