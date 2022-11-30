@@ -133,10 +133,12 @@ export class ContinueCreateStackRequest extends $tea.Model {
 }
 
 export class ContinueCreateStackResponseBody extends $tea.Model {
+  dryRunResult?: ContinueCreateStackResponseBodyDryRunResult;
   requestId?: string;
   stackId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       requestId: 'RequestId',
       stackId: 'StackId',
     };
@@ -144,6 +146,7 @@ export class ContinueCreateStackResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: ContinueCreateStackResponseBodyDryRunResult,
       requestId: 'string',
       stackId: 'string',
     };
@@ -6655,6 +6658,31 @@ export class ContinueCreateStackRequestParameters extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueCreateStackResponseBodyDryRunResult extends $tea.Model {
+  parametersAllowedToBeModified?: string[];
+  parametersConditionallyAllowedToBeModified?: string[];
+  parametersNotAllowedToBeModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
