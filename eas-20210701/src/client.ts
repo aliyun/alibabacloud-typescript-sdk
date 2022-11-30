@@ -308,6 +308,7 @@ export class Service extends $tea.Model {
   role?: string;
   roleAttrs?: string;
   runningInstance?: number;
+  safetyLock?: string;
   serviceConfig?: string;
   serviceGroup?: string;
   serviceId?: string;
@@ -344,6 +345,7 @@ export class Service extends $tea.Model {
       role: 'Role',
       roleAttrs: 'RoleAttrs',
       runningInstance: 'RunningInstance',
+      safetyLock: 'SafetyLock',
       serviceConfig: 'ServiceConfig',
       serviceGroup: 'ServiceGroup',
       serviceId: 'ServiceId',
@@ -383,6 +385,7 @@ export class Service extends $tea.Model {
       role: 'string',
       roleAttrs: 'string',
       runningInstance: 'number',
+      safetyLock: 'string',
       serviceConfig: 'string',
       serviceGroup: 'string',
       serviceId: 'string',
@@ -2249,13 +2252,13 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
 }
 
 export class ListBenchmarkTaskRequest extends $tea.Model {
-  fileter?: string;
+  filter?: string;
   pageNumber?: string;
   pageSize?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      fileter: 'Fileter',
+      filter: 'Filter',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       serviceName: 'ServiceName',
@@ -2264,7 +2267,7 @@ export class ListBenchmarkTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      fileter: 'string',
+      filter: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       serviceName: 'string',
@@ -2493,11 +2496,15 @@ export class ListResourceInstanceWorkerResponse extends $tea.Model {
 
 export class ListResourceInstancesRequest extends $tea.Model {
   chargeType?: string;
+  instanceId?: string;
+  instanceName?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -2506,6 +2513,8 @@ export class ListResourceInstancesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       chargeType: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2653,10 +2662,14 @@ export class ListResourceServicesResponse extends $tea.Model {
 export class ListResourcesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
+  resourceId?: string;
+  resourceName?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
     };
   }
 
@@ -2664,6 +2677,8 @@ export class ListResourcesRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      resourceId: 'string',
+      resourceName: 'string',
     };
   }
 
@@ -3441,6 +3456,75 @@ export class UpdateResourceDLinkResponse extends $tea.Model {
   }
 }
 
+export class UpdateResourceInstanceRequest extends $tea.Model {
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceInstanceResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateResourceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceRequest extends $tea.Model {
   body?: string;
   static names(): { [key: string]: string } {
@@ -3709,6 +3793,72 @@ export class UpdateServiceMirrorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceMirrorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceSafetyLockRequest extends $tea.Model {
+  lock?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lock: 'Lock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lock: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceSafetyLockResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceSafetyLockResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateServiceSafetyLockResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceSafetyLockResponseBody,
     };
   }
 
@@ -5006,8 +5156,8 @@ export default class Client extends OpenApi {
   async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.fileter)) {
-      query["Fileter"] = request.fileter;
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -5127,6 +5277,14 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -5203,6 +5361,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5575,6 +5741,37 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceDLinkResponse>(await this.callApi(params, req, runtime), new UpdateResourceDLinkResponse({}));
   }
 
+  async updateResourceInstance(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest): Promise<UpdateResourceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
+  }
+
+  async updateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.action)) {
+      body["Action"] = request.action;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceInstance",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateResourceInstanceResponse({}));
+  }
+
   async updateService(ClusterId: string, ServiceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5708,6 +5905,37 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateServiceMirrorResponse>(await this.callApi(params, req, runtime), new UpdateServiceMirrorResponse({}));
+  }
+
+  async updateServiceSafetyLock(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest): Promise<UpdateServiceSafetyLockResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceSafetyLockWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
+  async updateServiceSafetyLockWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSafetyLockResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.lock)) {
+      body["Lock"] = request.lock;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceSafetyLock",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/lock`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceSafetyLockResponse>(await this.callApi(params, req, runtime), new UpdateServiceSafetyLockResponse({}));
   }
 
   async updateServiceVersion(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest): Promise<UpdateServiceVersionResponse> {
