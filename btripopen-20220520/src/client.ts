@@ -304,6 +304,87 @@ export class AirportSearchResponse extends $tea.Model {
   }
 }
 
+export class AllBaseCityInfoQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripAccessToken: 'x-acs-btrip-access-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllBaseCityInfoQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: AllBaseCityInfoQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: AllBaseCityInfoQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllBaseCityInfoQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AllBaseCityInfoQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllBaseCityInfoQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyAddHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -6431,6 +6512,62 @@ export class AirportSearchResponseBodyModule extends $tea.Model {
     return {
       cities: { 'type': 'array', 'itemType': AirportSearchResponseBodyModuleCities },
       nearby: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList extends $tea.Model {
+  adcode?: string;
+  cityCode?: string;
+  cityLevel?: string;
+  cityName?: string;
+  cnNameTree?: string;
+  id?: number;
+  otherNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      adcode: 'adcode',
+      cityCode: 'city_code',
+      cityLevel: 'city_level',
+      cityName: 'city_name',
+      cnNameTree: 'cn_name_tree',
+      id: 'id',
+      otherNameList: 'other_name_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adcode: 'string',
+      cityCode: 'string',
+      cityLevel: 'string',
+      cityName: 'string',
+      cnNameTree: 'string',
+      id: 'number',
+      otherNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllBaseCityInfoQueryResponseBodyModule extends $tea.Model {
+  allCityBaseInfoList?: AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      allCityBaseInfoList: 'all_city_base_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allCityBaseInfoList: { 'type': 'array', 'itemType': AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList },
     };
   }
 
@@ -12910,6 +13047,39 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<AirportSearchResponse>(await this.callApi(params, req, runtime), new AirportSearchResponse({}));
+  }
+
+  async allBaseCityInfoQuery(): Promise<AllBaseCityInfoQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AllBaseCityInfoQueryHeaders({ });
+    return await this.allBaseCityInfoQueryWithOptions(headers, runtime);
+  }
+
+  async allBaseCityInfoQueryWithOptions(headers: AllBaseCityInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<AllBaseCityInfoQueryResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripAccessToken)) {
+      realHeaders["x-acs-btrip-access-token"] = Util.toJSONString(headers.xAcsBtripAccessToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "AllBaseCityInfoQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/city/v1/code`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AllBaseCityInfoQueryResponse>(await this.callApi(params, req, runtime), new AllBaseCityInfoQueryResponse({}));
   }
 
   async applyAdd(request: ApplyAddRequest): Promise<ApplyAddResponse> {
