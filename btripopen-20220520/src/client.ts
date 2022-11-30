@@ -3324,6 +3324,124 @@ export class EntitySetResponse extends $tea.Model {
   }
 }
 
+export class EstimatedPriceQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryRequest extends $tea.Model {
+  arrCity?: string;
+  category?: string;
+  depCity?: string;
+  endTime?: number;
+  itineraryId?: string;
+  startTime?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      category: 'category',
+      depCity: 'dep_city',
+      endTime: 'end_time',
+      itineraryId: 'itinerary_id',
+      startTime: 'start_time',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      category: 'string',
+      depCity: 'string',
+      endTime: 'number',
+      itineraryId: 'string',
+      startTime: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  module?: EstimatedPriceQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      module: EstimatedPriceQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EstimatedPriceQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EstimatedPriceQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExceedApplySyncHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -8990,6 +9108,201 @@ export class EntitySetResponseBodyModule extends $tea.Model {
   }
 }
 
+export class EstimatedPriceQueryResponseBodyModuleHotelFeeDetail extends $tea.Model {
+  city?: string;
+  criterion?: number;
+  itineraryId?: string;
+  total?: number;
+  tripDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'city',
+      criterion: 'criterion',
+      itineraryId: 'itinerary_id',
+      total: 'total',
+      tripDays: 'trip_days',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      criterion: 'number',
+      itineraryId: 'string',
+      total: 'number',
+      tripDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest extends $tea.Model {
+  arrTime?: string;
+  depTime?: string;
+  fee?: number;
+  seatGrade?: string;
+  vehicleNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrTime: 'arr_time',
+      depTime: 'dep_time',
+      fee: 'fee',
+      seatGrade: 'seat_grade',
+      vehicleNo: 'vehicle_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrTime: 'string',
+      depTime: 'string',
+      fee: 'number',
+      seatGrade: 'string',
+      vehicleNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive extends $tea.Model {
+  arrTime?: string;
+  depTime?: string;
+  fee?: number;
+  seatGrade?: string;
+  vehicleNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrTime: 'arr_time',
+      depTime: 'dep_time',
+      fee: 'fee',
+      seatGrade: 'seat_grade',
+      vehicleNo: 'vehicle_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrTime: 'string',
+      depTime: 'string',
+      fee: 'number',
+      seatGrade: 'string',
+      vehicleNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends $tea.Model {
+  arrDate?: string;
+  btripType?: number;
+  cheapest?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest;
+  depDate?: string;
+  destCity?: string;
+  errMsg?: string;
+  itineraryId?: string;
+  itineraryIndex?: number;
+  mostExpensive?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive;
+  orgCity?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      btripType: 'btrip_type',
+      cheapest: 'cheapest',
+      depDate: 'dep_date',
+      destCity: 'dest_city',
+      errMsg: 'err_msg',
+      itineraryId: 'itinerary_id',
+      itineraryIndex: 'itinerary_index',
+      mostExpensive: 'most_expensive',
+      orgCity: 'org_city',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      btripType: 'number',
+      cheapest: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest,
+      depDate: 'string',
+      destCity: 'string',
+      errMsg: 'string',
+      itineraryId: 'string',
+      itineraryIndex: 'number',
+      mostExpensive: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive,
+      orgCity: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBodyModuleTrafficFee extends $tea.Model {
+  btripRoutes?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes[];
+  errMsg?: string;
+  maxFee?: number;
+  minFee?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      btripRoutes: 'btrip_routes',
+      errMsg: 'err_msg',
+      maxFee: 'max_fee',
+      minFee: 'min_fee',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripRoutes: { 'type': 'array', 'itemType': EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes },
+      errMsg: 'string',
+      maxFee: 'number',
+      minFee: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimatedPriceQueryResponseBodyModule extends $tea.Model {
+  hotelFeeDetail?: EstimatedPriceQueryResponseBodyModuleHotelFeeDetail[];
+  trafficFee?: EstimatedPriceQueryResponseBodyModuleTrafficFee;
+  static names(): { [key: string]: string } {
+    return {
+      hotelFeeDetail: 'hotel_fee_detail',
+      trafficFee: 'traffic_fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotelFeeDetail: { 'type': 'array', 'itemType': EstimatedPriceQueryResponseBodyModuleHotelFeeDetail },
+      trafficFee: EstimatedPriceQueryResponseBodyModuleTrafficFee,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   advanceDay?: number;
   airlineCorpCode?: string;
@@ -14153,6 +14466,70 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<EntitySetResponse>(await this.callApi(params, req, runtime), new EntitySetResponse({}));
+  }
+
+  async estimatedPriceQuery(request: EstimatedPriceQueryRequest): Promise<EstimatedPriceQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new EstimatedPriceQueryHeaders({ });
+    return await this.estimatedPriceQueryWithOptions(request, headers, runtime);
+  }
+
+  async estimatedPriceQueryWithOptions(request: EstimatedPriceQueryRequest, headers: EstimatedPriceQueryHeaders, runtime: $Util.RuntimeOptions): Promise<EstimatedPriceQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrCity)) {
+      query["arr_city"] = request.arrCity;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.depCity)) {
+      query["dep_city"] = request.depCity;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["end_time"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.itineraryId)) {
+      query["itinerary_id"] = request.itineraryId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["start_time"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["user_id"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EstimatedPriceQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/costcenter/v1/estimated-price`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EstimatedPriceQueryResponse>(await this.callApi(params, req, runtime), new EstimatedPriceQueryResponse({}));
   }
 
   async exceedApplySync(request: ExceedApplySyncRequest): Promise<ExceedApplySyncResponse> {
