@@ -1097,6 +1097,8 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   city?: string;
   common?: string;
   country?: string;
+  encryptCert?: string;
+  encryptPrivateKey?: string;
   endDate?: string;
   expired?: boolean;
   fingerprint?: string;
@@ -1104,10 +1106,14 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   issuer?: string;
   key?: string;
   name?: string;
+  orderId?: number;
   orgName?: string;
   province?: string;
   requestId?: string;
+  resourceGroupId?: string;
   sans?: string;
+  signCert?: string;
+  signPrivateKey?: string;
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1116,6 +1122,8 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       city: 'City',
       common: 'Common',
       country: 'Country',
+      encryptCert: 'EncryptCert',
+      encryptPrivateKey: 'EncryptPrivateKey',
       endDate: 'EndDate',
       expired: 'Expired',
       fingerprint: 'Fingerprint',
@@ -1123,10 +1131,14 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       issuer: 'Issuer',
       key: 'Key',
       name: 'Name',
+      orderId: 'OrderId',
       orgName: 'OrgName',
       province: 'Province',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       sans: 'Sans',
+      signCert: 'SignCert',
+      signPrivateKey: 'SignPrivateKey',
       startDate: 'StartDate',
     };
   }
@@ -1138,6 +1150,8 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       city: 'string',
       common: 'string',
       country: 'string',
+      encryptCert: 'string',
+      encryptPrivateKey: 'string',
       endDate: 'string',
       expired: 'boolean',
       fingerprint: 'string',
@@ -1145,10 +1159,14 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       issuer: 'string',
       key: 'string',
       name: 'string',
+      orderId: 'number',
       orgName: 'string',
       province: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
+      signCert: 'string',
+      signPrivateKey: 'string',
       startDate: 'string',
     };
   }
@@ -1364,6 +1382,7 @@ export class ListUserCertificateOrderRequest extends $tea.Model {
   currentPage?: number;
   keyword?: string;
   orderType?: string;
+  resourceGroupId?: string;
   showSize?: number;
   status?: string;
   static names(): { [key: string]: string } {
@@ -1371,6 +1390,7 @@ export class ListUserCertificateOrderRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       keyword: 'Keyword',
       orderType: 'OrderType',
+      resourceGroupId: 'ResourceGroupId',
       showSize: 'ShowSize',
       status: 'Status',
     };
@@ -1381,6 +1401,7 @@ export class ListUserCertificateOrderRequest extends $tea.Model {
       currentPage: 'number',
       keyword: 'string',
       orderType: 'string',
+      resourceGroupId: 'string',
       showSize: 'number',
       status: 'string',
     };
@@ -1735,6 +1756,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
   encryptPrivateKey?: string;
   key?: string;
   name?: string;
+  resourceGroupId?: string;
   signCert?: string;
   signPrivateKey?: string;
   static names(): { [key: string]: string } {
@@ -1744,6 +1766,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
       encryptPrivateKey: 'EncryptPrivateKey',
       key: 'Key',
       name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
       signCert: 'SignCert',
       signPrivateKey: 'SignPrivateKey',
     };
@@ -1756,6 +1779,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
       encryptPrivateKey: 'string',
       key: 'string',
       name: 'string',
+      resourceGroupId: 'string',
       signCert: 'string',
       signPrivateKey: 'string',
     };
@@ -2006,6 +2030,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
   productCode?: string;
   productName?: string;
   province?: string;
+  resourceGroupId?: string;
   rootBrand?: string;
   sans?: string;
   serialNo?: string;
@@ -2043,6 +2068,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
       productCode: 'ProductCode',
       productName: 'ProductName',
       province: 'Province',
+      resourceGroupId: 'ResourceGroupId',
       rootBrand: 'RootBrand',
       sans: 'Sans',
       serialNo: 'SerialNo',
@@ -2083,6 +2109,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $t
       productCode: 'string',
       productName: 'string',
       province: 'string',
+      resourceGroupId: 'string',
       rootBrand: 'string',
       sans: 'string',
       serialNo: 'string',
@@ -2867,6 +2894,10 @@ export default class Client extends OpenApi {
       query["OrderType"] = request.orderType;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.showSize)) {
       query["ShowSize"] = request.showSize;
     }
@@ -3062,6 +3093,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.signCert)) {
