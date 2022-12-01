@@ -327,8 +327,11 @@ export class CreateMyBaseRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   ECSClassList?: CreateMyBaseRequestECSClassList[];
   engine?: string;
+  imageId?: string;
+  keyPairName?: string;
   osPassword?: string;
   ownerId?: number;
+  passwordInherit?: string;
   payType?: string;
   period?: string;
   periodType?: string;
@@ -347,8 +350,11 @@ export class CreateMyBaseRequest extends $tea.Model {
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       ECSClassList: 'ECSClassList',
       engine: 'Engine',
+      imageId: 'ImageId',
+      keyPairName: 'KeyPairName',
       osPassword: 'OsPassword',
       ownerId: 'OwnerId',
+      passwordInherit: 'PasswordInherit',
       payType: 'PayType',
       period: 'Period',
       periodType: 'PeriodType',
@@ -370,8 +376,11 @@ export class CreateMyBaseRequest extends $tea.Model {
       dedicatedHostGroupId: 'string',
       ECSClassList: { 'type': 'array', 'itemType': CreateMyBaseRequestECSClassList },
       engine: 'string',
+      imageId: 'string',
+      keyPairName: 'string',
       osPassword: 'string',
       ownerId: 'number',
+      passwordInherit: 'string',
       payType: 'string',
       period: 'string',
       periodType: 'string',
@@ -397,8 +406,11 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
   dedicatedHostGroupId?: string;
   ECSClassListShrink?: string;
   engine?: string;
+  imageId?: string;
+  keyPairName?: string;
   osPassword?: string;
   ownerId?: number;
+  passwordInherit?: string;
   payType?: string;
   period?: string;
   periodType?: string;
@@ -417,8 +429,11 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       ECSClassListShrink: 'ECSClassList',
       engine: 'Engine',
+      imageId: 'ImageId',
+      keyPairName: 'KeyPairName',
       osPassword: 'OsPassword',
       ownerId: 'OwnerId',
+      passwordInherit: 'PasswordInherit',
       payType: 'PayType',
       period: 'Period',
       periodType: 'PeriodType',
@@ -440,8 +455,11 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       dedicatedHostGroupId: 'string',
       ECSClassListShrink: 'string',
       engine: 'string',
+      imageId: 'string',
+      keyPairName: 'string',
       osPassword: 'string',
       ownerId: 'number',
+      passwordInherit: 'string',
       payType: 'string',
       period: 'string',
       periodType: 'string',
@@ -1129,11 +1147,9 @@ export class DescribeDedicatedHostsResponse extends $tea.Model {
 }
 
 export class DescribeHostEcsLevelInfoRequest extends $tea.Model {
-  commodityCode?: string;
   dbType?: string;
   imageCategory?: string;
   ownerId?: number;
-  payType?: string;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1141,11 +1157,9 @@ export class DescribeHostEcsLevelInfoRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      commodityCode: 'CommodityCode',
       dbType: 'DbType',
       imageCategory: 'ImageCategory',
       ownerId: 'OwnerId',
-      payType: 'PayType',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -1156,11 +1170,9 @@ export class DescribeHostEcsLevelInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      commodityCode: 'string',
       dbType: 'string',
       imageCategory: 'string',
       ownerId: 'number',
-      payType: 'string',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -1213,87 +1225,6 @@ export class DescribeHostEcsLevelInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeHostEcsLevelInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHostSecurityGroupAttributeRequest extends $tea.Model {
-  dedicatedHostId?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dedicatedHostId: 'DedicatedHostId',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dedicatedHostId: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHostSecurityGroupAttributeResponseBody extends $tea.Model {
-  requestId?: string;
-  secGroupPermission?: DescribeHostSecurityGroupAttributeResponseBodySecGroupPermission;
-  success?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      secGroupPermission: 'SecGroupPermission',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      secGroupPermission: DescribeHostSecurityGroupAttributeResponseBodySecGroupPermission,
-      success: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHostSecurityGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHostSecurityGroupAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeHostSecurityGroupAttributeResponseBody,
     };
   }
 
@@ -1375,162 +1306,6 @@ export class DescribeHostWebShellResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeHostWebShellResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewRequest extends $tea.Model {
-  ownerId?: number;
-  region?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      region: 'Region',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      region: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponseBody extends $tea.Model {
-  regions?: DescribeMyBaseHostOverViewResponseBodyRegions;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeMyBaseHostOverViewResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMyBaseHostOverViewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMyBaseHostOverViewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewRequest extends $tea.Model {
-  ownerId?: number;
-  region?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      region: 'Region',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      region: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBody extends $tea.Model {
-  regions?: DescribeMyBaseInstanceOverViewResponseBodyRegions;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeMyBaseInstanceOverViewResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMyBaseInstanceOverViewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMyBaseInstanceOverViewResponseBody,
     };
   }
 
@@ -2610,285 +2385,6 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
-export class ListRequest extends $tea.Model {
-  aliUid?: number;
-  bid?: string;
-  keys?: string[];
-  ownerId?: number;
-  regionId?: string;
-  resourceIds?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bid: 'Bid',
-      keys: 'Keys',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceIds: 'ResourceIds',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      bid: 'string',
-      keys: { 'type': 'array', 'itemType': 'string' },
-      ownerId: 'number',
-      regionId: 'string',
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResponseBody extends $tea.Model {
-  requestId?: string;
-  tagResources?: ListResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagRequest extends $tea.Model {
-  aliUid?: number;
-  bid?: string;
-  keys?: string[];
-  ownerId?: number;
-  regionId?: string;
-  resourceIds?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bid: 'Bid',
-      keys: 'Keys',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceIds: 'ResourceIds',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      bid: 'string',
-      keys: { 'type': 'array', 'itemType': 'string' },
-      ownerId: 'number',
-      regionId: 'string',
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagRequest extends $tea.Model {
-  aliUid?: number;
-  all?: boolean;
-  bid?: string;
-  keys?: string[];
-  ownerId?: number;
-  regionId?: string;
-  release?: boolean;
-  resourceIds?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      all: 'All',
-      bid: 'Bid',
-      keys: 'Keys',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      release: 'Release',
-      resourceIds: 'ResourceIds',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      all: 'boolean',
-      bid: 'string',
-      keys: { 'type': 'array', 'itemType': 'string' },
-      ownerId: 'number',
-      regionId: 'string',
-      release: 'boolean',
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateDedicatedHostResponseBodyDedicateHostListDedicateHostList extends $tea.Model {
   dedicatedHostId?: string;
   static names(): { [key: string]: string } {
@@ -2928,25 +2424,40 @@ export class CreateDedicatedHostResponseBodyDedicateHostList extends $tea.Model 
 }
 
 export class CreateMyBaseRequestECSClassList extends $tea.Model {
+  dataDiskPerformanceLevel?: string;
+  diskCapacity?: number;
+  diskCount?: number;
+  diskType?: string;
   instanceType?: string;
   nodeCount?: number;
   sysDiskCapacity?: number;
   sysDiskType?: string;
+  systemDiskPerformanceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      dataDiskPerformanceLevel: 'dataDiskPerformanceLevel',
+      diskCapacity: 'diskCapacity',
+      diskCount: 'diskCount',
+      diskType: 'diskType',
       instanceType: 'instanceType',
       nodeCount: 'nodeCount',
       sysDiskCapacity: 'sysDiskCapacity',
       sysDiskType: 'sysDiskType',
+      systemDiskPerformanceLevel: 'systemDiskPerformanceLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataDiskPerformanceLevel: 'string',
+      diskCapacity: 'number',
+      diskCount: 'number',
+      diskType: 'string',
       instanceType: 'string',
       nodeCount: 'number',
       sysDiskCapacity: 'number',
       sysDiskType: 'string',
+      systemDiskPerformanceLevel: 'string',
     };
   }
 
@@ -3418,306 +2929,6 @@ export class DescribeHostEcsLevelInfoResponseBodyHostEcsLevelInfos extends $tea.
   }
 }
 
-export class DescribeHostSecurityGroupAttributeResponseBodySecGroupPermissionSecGroupPermission extends $tea.Model {
-  createTime?: string;
-  description?: string;
-  direction?: string;
-  ipProtocol?: string;
-  nicType?: string;
-  policy?: string;
-  portRange?: string;
-  sourceCidrIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      direction: 'Direction',
-      ipProtocol: 'IpProtocol',
-      nicType: 'NicType',
-      policy: 'Policy',
-      portRange: 'PortRange',
-      sourceCidrIp: 'SourceCidrIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      direction: 'string',
-      ipProtocol: 'string',
-      nicType: 'string',
-      policy: 'string',
-      portRange: 'string',
-      sourceCidrIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHostSecurityGroupAttributeResponseBodySecGroupPermission extends $tea.Model {
-  secGroupPermission?: DescribeHostSecurityGroupAttributeResponseBodySecGroupPermissionSecGroupPermission[];
-  static names(): { [key: string]: string } {
-    return {
-      secGroupPermission: 'SecGroupPermission',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secGroupPermission: { 'type': 'array', 'itemType': DescribeHostSecurityGroupAttributeResponseBodySecGroupPermissionSecGroupPermission },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel extends $tea.Model {
-  count?: number;
-  hostDateType?: string;
-  hostEngineCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      hostDateType: 'HostDateType',
-      hostEngineCount: 'HostEngineCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      hostDateType: 'string',
-      hostEngineCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModels extends $tea.Model {
-  typeModel?: DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel[];
-  static names(): { [key: string]: string } {
-    return {
-      typeModel: 'TypeModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      typeModel: { 'type': 'array', 'itemType': DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponseBodyRegionsRegionModel extends $tea.Model {
-  engineCount?: string;
-  hostGroupCount?: number;
-  region?: string;
-  totalCount?: number;
-  typeModels?: DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModels;
-  static names(): { [key: string]: string } {
-    return {
-      engineCount: 'EngineCount',
-      hostGroupCount: 'HostGroupCount',
-      region: 'Region',
-      totalCount: 'TotalCount',
-      typeModels: 'TypeModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engineCount: 'string',
-      hostGroupCount: 'number',
-      region: 'string',
-      totalCount: 'number',
-      typeModels: DescribeMyBaseHostOverViewResponseBodyRegionsRegionModelTypeModels,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseHostOverViewResponseBodyRegions extends $tea.Model {
-  regionModel?: DescribeMyBaseHostOverViewResponseBodyRegionsRegionModel[];
-  static names(): { [key: string]: string } {
-    return {
-      regionModel: 'RegionModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionModel: { 'type': 'array', 'itemType': DescribeMyBaseHostOverViewResponseBodyRegionsRegionModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModelsInstanceModel extends $tea.Model {
-  createdTime?: string;
-  DBInstanceId?: string;
-  DBInstanceStatus?: string;
-  expireTime?: string;
-  payType?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceStatus: 'DBInstanceStatus',
-      expireTime: 'ExpireTime',
-      payType: 'PayType',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      DBInstanceId: 'string',
-      DBInstanceStatus: 'string',
-      expireTime: 'string',
-      payType: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModels extends $tea.Model {
-  instanceModel?: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModelsInstanceModel[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceModel: 'InstanceModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceModel: { 'type': 'array', 'itemType': DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModelsInstanceModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel extends $tea.Model {
-  count?: number;
-  instanceDateType?: string;
-  instanceEngineCount?: string;
-  instanceModels?: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModels;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      instanceDateType: 'InstanceDateType',
-      instanceEngineCount: 'InstanceEngineCount',
-      instanceModels: 'InstanceModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      instanceDateType: 'string',
-      instanceEngineCount: 'string',
-      instanceModels: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModelInstanceModels,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModels extends $tea.Model {
-  typeModel?: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel[];
-  static names(): { [key: string]: string } {
-    return {
-      typeModel: 'TypeModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      typeModel: { 'type': 'array', 'itemType': DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModelsTypeModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModel extends $tea.Model {
-  engineCount?: string;
-  region?: string;
-  totalCount?: number;
-  typeModels?: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModels;
-  static names(): { [key: string]: string } {
-    return {
-      engineCount: 'EngineCount',
-      region: 'Region',
-      totalCount: 'TotalCount',
-      typeModels: 'TypeModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engineCount: 'string',
-      region: 'string',
-      totalCount: 'number',
-      typeModels: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModelTypeModels,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMyBaseInstanceOverViewResponseBodyRegions extends $tea.Model {
-  regionModel?: DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModel[];
-  static names(): { [key: string]: string } {
-    return {
-      regionModel: 'RegionModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionModel: { 'type': 'array', 'itemType': DescribeMyBaseInstanceOverViewResponseBodyRegionsRegionModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRegionsResponseBodyRegionsRDSRegion extends $tea.Model {
   regionId?: string;
   zoneId?: string;
@@ -3961,34 +3172,6 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResponseBodyTagResources extends $tea.Model {
-  resourceId?: string;
-  resourceType?: string;
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
     };
   }
 
@@ -4292,12 +3475,24 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
     if (!Util.isUnset(request.osPassword)) {
       query["OsPassword"] = request.osPassword;
     }
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.passwordInherit)) {
+      query["PasswordInherit"] = request.passwordInherit;
     }
 
     if (!Util.isUnset(request.payType)) {
@@ -4687,10 +3882,6 @@ export default class Client extends OpenApi {
   async describeHostEcsLevelInfoWithOptions(request: DescribeHostEcsLevelInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostEcsLevelInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.commodityCode)) {
-      query["CommodityCode"] = request.commodityCode;
-    }
-
     if (!Util.isUnset(request.dbType)) {
       query["DbType"] = request.dbType;
     }
@@ -4701,10 +3892,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.payType)) {
-      query["PayType"] = request.payType;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -4747,51 +3934,6 @@ export default class Client extends OpenApi {
   async describeHostEcsLevelInfo(request: DescribeHostEcsLevelInfoRequest): Promise<DescribeHostEcsLevelInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHostEcsLevelInfoWithOptions(request, runtime);
-  }
-
-  async describeHostSecurityGroupAttributeWithOptions(request: DescribeHostSecurityGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostSecurityGroupAttributeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.dedicatedHostId)) {
-      query["DedicatedHostId"] = request.dedicatedHostId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeHostSecurityGroupAttribute",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeHostSecurityGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeHostSecurityGroupAttributeResponse({}));
-  }
-
-  async describeHostSecurityGroupAttribute(request: DescribeHostSecurityGroupAttributeRequest): Promise<DescribeHostSecurityGroupAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeHostSecurityGroupAttributeWithOptions(request, runtime);
   }
 
   async describeHostWebShellWithOptions(request: DescribeHostWebShellRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostWebShellResponse> {
@@ -4841,96 +3983,6 @@ export default class Client extends OpenApi {
   async describeHostWebShell(request: DescribeHostWebShellRequest): Promise<DescribeHostWebShellResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHostWebShellWithOptions(request, runtime);
-  }
-
-  async describeMyBaseHostOverViewWithOptions(request: DescribeMyBaseHostOverViewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMyBaseHostOverViewResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMyBaseHostOverView",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMyBaseHostOverViewResponse>(await this.callApi(params, req, runtime), new DescribeMyBaseHostOverViewResponse({}));
-  }
-
-  async describeMyBaseHostOverView(request: DescribeMyBaseHostOverViewRequest): Promise<DescribeMyBaseHostOverViewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMyBaseHostOverViewWithOptions(request, runtime);
-  }
-
-  async describeMyBaseInstanceOverViewWithOptions(request: DescribeMyBaseInstanceOverViewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMyBaseInstanceOverViewResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeMyBaseInstanceOverView",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeMyBaseInstanceOverViewResponse>(await this.callApi(params, req, runtime), new DescribeMyBaseInstanceOverViewResponse({}));
-  }
-
-  async describeMyBaseInstanceOverView(request: DescribeMyBaseInstanceOverViewRequest): Promise<DescribeMyBaseInstanceOverViewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMyBaseInstanceOverViewWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -5600,209 +4652,6 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
-  }
-
-  async listWithOptions(request: ListRequest, runtime: $Util.RuntimeOptions): Promise<ListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.bid)) {
-      query["Bid"] = request.bid;
-    }
-
-    if (!Util.isUnset(request.keys)) {
-      query["Keys"] = request.keys;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceIds)) {
-      query["ResourceIds"] = request.resourceIds;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.values)) {
-      query["Values"] = request.values;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "list",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListResponse>(await this.callApi(params, req, runtime), new ListResponse({}));
-  }
-
-  async list(request: ListRequest): Promise<ListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listWithOptions(request, runtime);
-  }
-
-  async tagWithOptions(request: TagRequest, runtime: $Util.RuntimeOptions): Promise<TagResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.bid)) {
-      query["Bid"] = request.bid;
-    }
-
-    if (!Util.isUnset(request.keys)) {
-      query["Keys"] = request.keys;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceIds)) {
-      query["ResourceIds"] = request.resourceIds;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.values)) {
-      query["Values"] = request.values;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "tag",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TagResponse>(await this.callApi(params, req, runtime), new TagResponse({}));
-  }
-
-  async tag(request: TagRequest): Promise<TagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.tagWithOptions(request, runtime);
-  }
-
-  async untagWithOptions(request: UntagRequest, runtime: $Util.RuntimeOptions): Promise<UntagResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.all)) {
-      query["All"] = request.all;
-    }
-
-    if (!Util.isUnset(request.bid)) {
-      query["Bid"] = request.bid;
-    }
-
-    if (!Util.isUnset(request.keys)) {
-      query["Keys"] = request.keys;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.release)) {
-      query["Release"] = request.release;
-    }
-
-    if (!Util.isUnset(request.resourceIds)) {
-      query["ResourceIds"] = request.resourceIds;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.values)) {
-      query["Values"] = request.values;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "untag",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UntagResponse>(await this.callApi(params, req, runtime), new UntagResponse({}));
-  }
-
-  async untag(request: UntagRequest): Promise<UntagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.untagWithOptions(request, runtime);
   }
 
 }
