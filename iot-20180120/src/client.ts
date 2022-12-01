@@ -22369,6 +22369,207 @@ export class QueryDeviceTunnelResponse extends $tea.Model {
   }
 }
 
+export class QueryDevicesHotStorageDataRequest extends $tea.Model {
+  asc?: number;
+  deviceName?: string;
+  endTime?: number;
+  identifier?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  nextPageToken?: string;
+  pageSize?: number;
+  productKey?: string;
+  startTime?: number;
+  userTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asc: 'Asc',
+      deviceName: 'DeviceName',
+      endTime: 'EndTime',
+      identifier: 'Identifier',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+      startTime: 'StartTime',
+      userTopic: 'UserTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asc: 'number',
+      deviceName: 'string',
+      endTime: 'number',
+      identifier: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      productKey: 'string',
+      startTime: 'number',
+      userTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDevicesHotStorageDataResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDevicesHotStorageDataResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDevicesHotStorageDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDevicesHotStorageDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusRequest extends $tea.Model {
+  asc?: number;
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  nextPageToken?: string;
+  pageSize?: number;
+  productKey?: string;
+  userTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asc: 'Asc',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+      userTopic: 'UserTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asc: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      productKey: 'string',
+      userTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDevicesHotStorageDataStatusResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDevicesHotStorageDataStatusResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDevicesHotStorageDataStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDevicesHotStorageDataStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDynamicGroupDevicesRequest extends $tea.Model {
   currentPage?: number;
   deviceName?: string;
@@ -33169,6 +33370,93 @@ export class UpdateThingScriptResponse extends $tea.Model {
   }
 }
 
+export class WriteDevicesHotStorageDataRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  items?: string;
+  productKey?: string;
+  userTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      items: 'Items',
+      productKey: 'ProductKey',
+      userTopic: 'UserTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      items: 'string',
+      productKey: 'string',
+      userTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WriteDevicesHotStorageDataResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WriteDevicesHotStorageDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: WriteDevicesHotStorageDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WriteDevicesHotStorageDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddShareTaskDeviceResponseBodyData extends $tea.Model {
   progress?: number;
   progressId?: string;
@@ -33431,10 +33719,12 @@ export class BatchDeleteDeviceGroupRelationsRequestDevice extends $tea.Model {
 
 export class BatchGetDeviceBindStatusResponseBodyData extends $tea.Model {
   bindStatus?: number;
+  instanceId?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
       bindStatus: 'BindStatus',
+      instanceId: 'InstanceId',
       iotId: 'IotId',
     };
   }
@@ -33442,6 +33732,7 @@ export class BatchGetDeviceBindStatusResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bindStatus: 'number',
+      instanceId: 'string',
       iotId: 'string',
     };
   }
@@ -40905,6 +41196,141 @@ export class QueryDeviceTunnelResponseBodyData extends $tea.Model {
       udi: 'string',
       utcClosed: 'string',
       utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataResponseBodyDataListPropertyInfo extends $tea.Model {
+  time?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataResponseBodyDataList extends $tea.Model {
+  propertyInfo?: QueryDevicesHotStorageDataResponseBodyDataListPropertyInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyInfo: 'PropertyInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyInfo: { 'type': 'array', 'itemType': QueryDevicesHotStorageDataResponseBodyDataListPropertyInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataResponseBodyData extends $tea.Model {
+  list?: QueryDevicesHotStorageDataResponseBodyDataList;
+  nextValid?: boolean;
+  nextPageToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      nextValid: 'NextValid',
+      nextPageToken: 'nextPageToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QueryDevicesHotStorageDataResponseBodyDataList,
+      nextValid: 'boolean',
+      nextPageToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusResponseBodyDataListPropertyStatusDataInfo extends $tea.Model {
+  identifier?: string;
+  time?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      time: 'Time',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      time: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusResponseBodyDataList extends $tea.Model {
+  propertyStatusDataInfo?: QueryDevicesHotStorageDataStatusResponseBodyDataListPropertyStatusDataInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyStatusDataInfo: 'PropertyStatusDataInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyStatusDataInfo: { 'type': 'array', 'itemType': QueryDevicesHotStorageDataStatusResponseBodyDataListPropertyStatusDataInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesHotStorageDataStatusResponseBodyData extends $tea.Model {
+  list?: QueryDevicesHotStorageDataStatusResponseBodyDataList;
+  nextPageToken?: string;
+  nextValid?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      nextPageToken: 'NextPageToken',
+      nextValid: 'NextValid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QueryDevicesHotStorageDataStatusResponseBodyDataList,
+      nextPageToken: 'string',
+      nextValid: 'boolean',
     };
   }
 
@@ -56311,6 +56737,132 @@ export default class Client extends OpenApi {
     return await this.queryDeviceTunnelWithOptions(request, runtime);
   }
 
+  async queryDevicesHotStorageDataWithOptions(request: QueryDevicesHotStorageDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesHotStorageDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.asc)) {
+      query["Asc"] = request.asc;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.userTopic)) {
+      query["UserTopic"] = request.userTopic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDevicesHotStorageData",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDevicesHotStorageDataResponse>(await this.callApi(params, req, runtime), new QueryDevicesHotStorageDataResponse({}));
+  }
+
+  async queryDevicesHotStorageData(request: QueryDevicesHotStorageDataRequest): Promise<QueryDevicesHotStorageDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDevicesHotStorageDataWithOptions(request, runtime);
+  }
+
+  async queryDevicesHotStorageDataStatusWithOptions(request: QueryDevicesHotStorageDataStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesHotStorageDataStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.asc)) {
+      query["Asc"] = request.asc;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.userTopic)) {
+      query["UserTopic"] = request.userTopic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDevicesHotStorageDataStatus",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDevicesHotStorageDataStatusResponse>(await this.callApi(params, req, runtime), new QueryDevicesHotStorageDataStatusResponse({}));
+  }
+
+  async queryDevicesHotStorageDataStatus(request: QueryDevicesHotStorageDataStatusRequest): Promise<QueryDevicesHotStorageDataStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDevicesHotStorageDataStatusWithOptions(request, runtime);
+  }
+
   async queryDynamicGroupDevicesWithOptions(request: QueryDynamicGroupDevicesRequest, runtime: $Util.RuntimeOptions): Promise<QueryDynamicGroupDevicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61715,6 +62267,55 @@ export default class Client extends OpenApi {
   async updateThingScript(request: UpdateThingScriptRequest): Promise<UpdateThingScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateThingScriptWithOptions(request, runtime);
+  }
+
+  async writeDevicesHotStorageDataWithOptions(request: WriteDevicesHotStorageDataRequest, runtime: $Util.RuntimeOptions): Promise<WriteDevicesHotStorageDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.items)) {
+      query["Items"] = request.items;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.userTopic)) {
+      query["UserTopic"] = request.userTopic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "WriteDevicesHotStorageData",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<WriteDevicesHotStorageDataResponse>(await this.callApi(params, req, runtime), new WriteDevicesHotStorageDataResponse({}));
+  }
+
+  async writeDevicesHotStorageData(request: WriteDevicesHotStorageDataRequest): Promise<WriteDevicesHotStorageDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.writeDevicesHotStorageDataWithOptions(request, runtime);
   }
 
 }
