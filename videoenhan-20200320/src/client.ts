@@ -215,18 +215,15 @@ export class AbstractFilmVideoResponse extends $tea.Model {
 }
 
 export class AddFaceVideoTemplateRequest extends $tea.Model {
-  userId?: string;
   videoURL?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       videoURL: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       videoURL: 'string',
     };
   }
@@ -237,18 +234,15 @@ export class AddFaceVideoTemplateRequest extends $tea.Model {
 }
 
 export class AddFaceVideoTemplateAdvanceRequest extends $tea.Model {
-  userId?: string;
   videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       videoURLObject: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       videoURLObject: 'Readable',
     };
   }
@@ -664,18 +658,15 @@ export class ConvertHdrVideoResponse extends $tea.Model {
 
 export class DeleteFaceVideoTemplateRequest extends $tea.Model {
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -1475,12 +1466,10 @@ export class MergeVideoFaceResponse extends $tea.Model {
 export class MergeVideoModelFaceRequest extends $tea.Model {
   faceImageURL?: string;
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       faceImageURL: 'FaceImageURL',
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
@@ -1488,7 +1477,6 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
     return {
       faceImageURL: 'string',
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -1500,12 +1488,10 @@ export class MergeVideoModelFaceRequest extends $tea.Model {
 export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
   faceImageURLObject?: Readable;
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       faceImageURLObject: 'FaceImageURL',
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
@@ -1513,7 +1499,6 @@ export class MergeVideoModelFaceAdvanceRequest extends $tea.Model {
     return {
       faceImageURLObject: 'Readable',
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -1574,18 +1559,15 @@ export class MergeVideoModelFaceResponse extends $tea.Model {
 
 export class QueryFaceVideoTemplateRequest extends $tea.Model {
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2564,10 +2546,6 @@ export default class Client extends OpenApi {
   async addFaceVideoTemplateWithOptions(request: AddFaceVideoTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceVideoTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
-    }
-
     if (!Util.isUnset(request.videoURL)) {
       body["VideoURL"] = request.videoURL;
     }
@@ -3042,10 +3020,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3889,10 +3863,6 @@ export default class Client extends OpenApi {
       body["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -3994,10 +3964,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
