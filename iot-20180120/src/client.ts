@@ -18350,10 +18350,12 @@ export class PrintByTemplateResponse extends $tea.Model {
 }
 
 export class PubRequest extends $tea.Model {
+  contentType?: string;
   correlationData?: string;
   deviceName?: string;
   iotInstanceId?: string;
   messageContent?: string;
+  payloadFormatIndicator?: number;
   productKey?: string;
   qos?: number;
   responseTopic?: string;
@@ -18361,10 +18363,12 @@ export class PubRequest extends $tea.Model {
   userProp?: PubRequestUserProp[];
   static names(): { [key: string]: string } {
     return {
+      contentType: 'ContentType',
       correlationData: 'CorrelationData',
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       messageContent: 'MessageContent',
+      payloadFormatIndicator: 'PayloadFormatIndicator',
       productKey: 'ProductKey',
       qos: 'Qos',
       responseTopic: 'ResponseTopic',
@@ -18375,10 +18379,12 @@ export class PubRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contentType: 'string',
       correlationData: 'string',
       deviceName: 'string',
       iotInstanceId: 'string',
       messageContent: 'string',
+      payloadFormatIndicator: 'number',
       productKey: 'string',
       qos: 'number',
       responseTopic: 'string',
@@ -54731,6 +54737,10 @@ export default class Client extends OpenApi {
   async pubWithOptions(request: PubRequest, runtime: $Util.RuntimeOptions): Promise<PubResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
     if (!Util.isUnset(request.correlationData)) {
       query["CorrelationData"] = request.correlationData;
     }
@@ -54741,6 +54751,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.payloadFormatIndicator)) {
+      query["PayloadFormatIndicator"] = request.payloadFormatIndicator;
     }
 
     if (!Util.isUnset(request.productKey)) {
