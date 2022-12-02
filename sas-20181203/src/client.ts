@@ -937,6 +937,7 @@ export class CreateHoneypotNodeRequest extends $tea.Model {
 
 export class CreateHoneypotNodeResponseBody extends $tea.Model {
   code?: string;
+  honeypotNode?: CreateHoneypotNodeResponseBodyHoneypotNode;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -944,6 +945,7 @@ export class CreateHoneypotNodeResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      honeypotNode: 'HoneypotNode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -954,6 +956,7 @@ export class CreateHoneypotNodeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      honeypotNode: CreateHoneypotNodeResponseBodyHoneypotNode,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -1042,6 +1045,7 @@ export class CreateHoneypotProbeRequest extends $tea.Model {
 
 export class CreateHoneypotProbeResponseBody extends $tea.Model {
   code?: string;
+  honeypotProbe?: CreateHoneypotProbeResponseBodyHoneypotProbe;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -1049,6 +1053,7 @@ export class CreateHoneypotProbeResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      honeypotProbe: 'HoneypotProbe',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -1059,6 +1064,7 @@ export class CreateHoneypotProbeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      honeypotProbe: CreateHoneypotProbeResponseBodyHoneypotProbe,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -1457,6 +1463,69 @@ export class CreateVulAutoRepairConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateVulAutoRepairConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntiBruteForceRuleRequest extends $tea.Model {
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntiBruteForceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntiBruteForceRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAntiBruteForceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAntiBruteForceRuleResponseBody,
     };
   }
 
@@ -1928,6 +1997,72 @@ export class DeleteVpcHoneyPotResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVpcHoneyPotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVulWhitelistRequest extends $tea.Model {
+  id?: string;
+  whitelist?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      whitelist: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVulWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVulWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteVulWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVulWhitelistResponseBody,
     };
   }
 
@@ -3299,6 +3434,72 @@ export class DescribeBackupPoliciesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBackupPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBody extends $tea.Model {
+  backupPolicyDetail?: DescribeBackupPolicyResponseBodyBackupPolicyDetail;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupPolicyDetail: 'BackupPolicyDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupPolicyDetail: DescribeBackupPolicyResponseBodyBackupPolicyDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeBackupPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupPolicyResponseBody,
     };
   }
 
@@ -5482,6 +5683,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
   imageTag?: string;
   lang?: string;
   levels?: string;
+  maliciousMd5?: string;
   pageSize?: string;
   repoId?: string;
   repoInstanceId?: string;
@@ -5499,6 +5701,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
       imageTag: 'ImageTag',
       lang: 'Lang',
       levels: 'Levels',
+      maliciousMd5: 'MaliciousMd5',
       pageSize: 'PageSize',
       repoId: 'RepoId',
       repoInstanceId: 'RepoInstanceId',
@@ -5519,6 +5722,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
       imageTag: 'string',
       lang: 'string',
       levels: 'string',
+      maliciousMd5: 'string',
       pageSize: 'string',
       repoId: 'string',
       repoInstanceId: 'string',
@@ -7686,6 +7890,93 @@ export class DescribeNoticeConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeNoticeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNsasSuspEventTypeRequest extends $tea.Model {
+  containerFieldName?: string;
+  containerFieldValue?: string;
+  from?: string;
+  lang?: string;
+  name?: string;
+  remark?: string;
+  sourceIp?: string;
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerFieldName: 'ContainerFieldName',
+      containerFieldValue: 'ContainerFieldValue',
+      from: 'From',
+      lang: 'Lang',
+      name: 'Name',
+      remark: 'Remark',
+      sourceIp: 'SourceIp',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerFieldName: 'string',
+      containerFieldValue: 'string',
+      from: 'string',
+      lang: 'string',
+      name: 'string',
+      remark: 'string',
+      sourceIp: 'string',
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNsasSuspEventTypeResponseBody extends $tea.Model {
+  eventTypes?: DescribeNsasSuspEventTypeResponseBodyEventTypes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventTypes: 'EventTypes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventTypes: { 'type': 'array', 'itemType': DescribeNsasSuspEventTypeResponseBodyEventTypes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNsasSuspEventTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNsasSuspEventTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNsasSuspEventTypeResponseBody,
     };
   }
 
@@ -12376,6 +12667,7 @@ export class DescribeVulWhitelistRequest extends $tea.Model {
 }
 
 export class DescribeVulWhitelistResponseBody extends $tea.Model {
+  count?: number;
   currentPage?: number;
   pageSize?: number;
   requestId?: string;
@@ -12383,6 +12675,7 @@ export class DescribeVulWhitelistResponseBody extends $tea.Model {
   vulWhitelists?: DescribeVulWhitelistResponseBodyVulWhitelists[];
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -12393,6 +12686,7 @@ export class DescribeVulWhitelistResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       currentPage: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -13592,6 +13886,72 @@ export class GetVulStatisticsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetVulStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulWhitelistRequest extends $tea.Model {
+  vulWhitelistId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      vulWhitelistId: 'VulWhitelistId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vulWhitelistId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  vulWhitelist?: GetVulWhitelistResponseBodyVulWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vulWhitelist: 'VulWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vulWhitelist: GetVulWhitelistResponseBodyVulWhitelist,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVulWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVulWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVulWhitelistResponseBody,
     };
   }
 
@@ -15077,15 +15437,18 @@ export class ModifyCreateVulWhitelistRequest extends $tea.Model {
 
 export class ModifyCreateVulWhitelistResponseBody extends $tea.Model {
   requestId?: string;
+  vulWhitelistList?: ModifyCreateVulWhitelistResponseBodyVulWhitelistList[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      vulWhitelistList: 'VulWhitelistList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      vulWhitelistList: { 'type': 'array', 'itemType': ModifyCreateVulWhitelistResponseBodyVulWhitelistList },
     };
   }
 
@@ -18773,6 +19136,25 @@ export class CreateHoneypotResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateHoneypotNodeResponseBodyHoneypotNode extends $tea.Model {
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHoneypotProbeRequestHoneypotBindListBindPortList extends $tea.Model {
   bindPort?: boolean;
   endPort?: number;
@@ -18818,6 +19200,25 @@ export class CreateHoneypotProbeRequestHoneypotBindList extends $tea.Model {
     return {
       bindPortList: { 'type': 'array', 'itemType': CreateHoneypotProbeRequestHoneypotBindListBindPortList },
       honeypotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHoneypotProbeResponseBodyHoneypotProbe extends $tea.Model {
+  probeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probeId: 'ProbeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probeId: 'string',
     };
   }
 
@@ -18930,6 +19331,9 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   highLight?: string;
   image?: string;
   imageUuid?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
   latestScanTimestamp?: number;
   latestVerifyTimestamp?: number;
   layer?: string;
@@ -18943,6 +19347,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   repoRegionId?: string;
   status?: number;
   tag?: string;
+  targetId?: string;
+  targetName?: string;
+  targetType?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -18955,6 +19363,9 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       highLight: 'HighLight',
       image: 'Image',
       imageUuid: 'ImageUuid',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
       latestScanTimestamp: 'LatestScanTimestamp',
       latestVerifyTimestamp: 'LatestVerifyTimestamp',
       layer: 'Layer',
@@ -18968,6 +19379,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       repoRegionId: 'RepoRegionId',
       status: 'Status',
       tag: 'Tag',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetType: 'TargetType',
+      uuid: 'Uuid',
     };
   }
 
@@ -18983,6 +19398,9 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       highLight: 'string',
       image: 'string',
       imageUuid: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
       latestScanTimestamp: 'number',
       latestVerifyTimestamp: 'number',
       layer: 'string',
@@ -18996,6 +19414,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
       repoRegionId: 'string',
       status: 'number',
       tag: 'string',
+      targetId: 'string',
+      targetName: 'string',
+      targetType: 'string',
+      uuid: 'string',
     };
   }
 
@@ -19830,6 +20252,46 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       serviceErrorUuidList: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       upgradeStatus: 'string',
+      uuidList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBodyBackupPolicyDetail extends $tea.Model {
+  clientStatus?: string;
+  id?: number;
+  name?: string;
+  policy?: string;
+  policyVersion?: string;
+  regionId?: string;
+  status?: string;
+  uuidList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientStatus: 'ClientStatus',
+      id: 'Id',
+      name: 'Name',
+      policy: 'Policy',
+      policyVersion: 'PolicyVersion',
+      regionId: 'RegionId',
+      status: 'Status',
+      uuidList: 'UuidList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientStatus: 'string',
+      id: 'number',
+      name: 'string',
+      policy: 'string',
+      policyVersion: 'string',
+      regionId: 'string',
+      status: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -21587,6 +22049,10 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   imageSize?: number;
   imageUpdate?: number;
   instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  lastScanTime?: number;
   lowRiskImage?: number;
   middleRiskImage?: number;
   namespace?: string;
@@ -21599,6 +22065,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   repoType?: string;
   riskStatus?: string;
   tag?: string;
+  targetId?: string;
+  targetName?: string;
+  targetType?: string;
   totalItemCount?: number;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -21614,6 +22083,10 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       imageSize: 'ImageSize',
       imageUpdate: 'ImageUpdate',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      lastScanTime: 'LastScanTime',
       lowRiskImage: 'LowRiskImage',
       middleRiskImage: 'MiddleRiskImage',
       namespace: 'Namespace',
@@ -21626,6 +22099,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       repoType: 'RepoType',
       riskStatus: 'RiskStatus',
       tag: 'Tag',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetType: 'TargetType',
       totalItemCount: 'TotalItemCount',
       uuid: 'Uuid',
     };
@@ -21644,6 +22120,10 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       imageSize: 'number',
       imageUpdate: 'number',
       instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      lastScanTime: 'number',
       lowRiskImage: 'number',
       middleRiskImage: 'number',
       namespace: 'string',
@@ -21656,6 +22136,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       repoType: 'string',
       riskStatus: 'string',
       tag: 'string',
+      targetId: 'string',
+      targetName: 'string',
+      targetType: 'string',
       totalItemCount: 'number',
       uuid: 'string',
     };
@@ -21934,8 +22417,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   firstTs?: number;
   image?: string;
   imageDigest?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
   lastTs?: number;
   layers?: string[];
+  maliciousSource?: string;
   modifyTs?: number;
   name?: string;
   namespace?: string;
@@ -21945,8 +22432,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   related?: string;
   repoName?: string;
   repoNamespace?: string;
+  scanTime?: number;
   status?: number;
   tag?: string;
+  targetId?: string;
+  targetName?: string;
+  targetType?: string;
   type?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -21961,8 +22452,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       firstTs: 'FirstTs',
       image: 'Image',
       imageDigest: 'ImageDigest',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
       lastTs: 'LastTs',
       layers: 'Layers',
+      maliciousSource: 'MaliciousSource',
       modifyTs: 'ModifyTs',
       name: 'Name',
       namespace: 'Namespace',
@@ -21972,8 +22467,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       related: 'Related',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
+      scanTime: 'ScanTime',
       status: 'Status',
       tag: 'Tag',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      targetType: 'TargetType',
       type: 'Type',
       uuid: 'Uuid',
     };
@@ -21991,8 +22490,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       firstTs: 'number',
       image: 'string',
       imageDigest: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
       lastTs: 'number',
       layers: { 'type': 'array', 'itemType': 'string' },
+      maliciousSource: 'string',
       modifyTs: 'number',
       name: 'string',
       namespace: 'string',
@@ -22002,8 +22505,12 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       related: 'string',
       repoName: 'string',
       repoNamespace: 'string',
+      scanTime: 'number',
       status: 'number',
       tag: 'string',
+      targetId: 'string',
+      targetName: 'string',
+      targetType: 'string',
       type: 'string',
       uuid: 'string',
     };
@@ -22134,6 +22641,11 @@ export class DescribeInstanceRebootStatusResponseBodyRebootStatuses extends $tea
 
 export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   account?: number;
+  agentlessAll?: number;
+  agentlessBaseline?: number;
+  agentlessMalicious?: number;
+  agentlessVulCve?: number;
+  agentlessVulSca?: number;
   appNum?: number;
   cmsNum?: number;
   cveNum?: number;
@@ -22149,6 +22661,11 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
+      agentlessAll: 'AgentlessAll',
+      agentlessBaseline: 'AgentlessBaseline',
+      agentlessMalicious: 'AgentlessMalicious',
+      agentlessVulCve: 'AgentlessVulCve',
+      agentlessVulSca: 'AgentlessVulSca',
       appNum: 'AppNum',
       cmsNum: 'CmsNum',
       cveNum: 'CveNum',
@@ -22167,6 +22684,11 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       account: 'number',
+      agentlessAll: 'number',
+      agentlessBaseline: 'number',
+      agentlessMalicious: 'number',
+      agentlessVulCve: 'number',
+      agentlessVulSca: 'number',
       appNum: 'number',
       cmsNum: 'number',
       cveNum: 'number',
@@ -22380,6 +22902,31 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $tea.Model
       project: 'string',
       route: 'number',
       timeLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNsasSuspEventTypeResponseBodyEventTypes extends $tea.Model {
+  name?: string;
+  suspEventCount?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      suspEventCount: 'SuspEventCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      suspEventCount: 'number',
+      type: 'string',
     };
   }
 
@@ -25400,6 +25947,9 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
   cveId?: string;
   cvssScore?: string;
   cvssVector?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
   poc?: string;
   pocCreateTime?: number;
   pocDisclosureTime?: number;
@@ -25408,6 +25958,8 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
   releaseTime?: number;
   solution?: string;
   summary?: string;
+  targetId?: string;
+  targetName?: string;
   title?: string;
   vendor?: string;
   vulLevel?: string;
@@ -25421,6 +25973,9 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       cveId: 'CveId',
       cvssScore: 'CvssScore',
       cvssVector: 'CvssVector',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
       poc: 'Poc',
       pocCreateTime: 'PocCreateTime',
       pocDisclosureTime: 'PocDisclosureTime',
@@ -25429,6 +25984,8 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       releaseTime: 'ReleaseTime',
       solution: 'Solution',
       summary: 'Summary',
+      targetId: 'TargetId',
+      targetName: 'TargetName',
       title: 'Title',
       vendor: 'Vendor',
       vulLevel: 'VulLevel',
@@ -25445,6 +26002,9 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       cveId: 'string',
       cvssScore: 'string',
       cvssVector: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
       poc: 'string',
       pocCreateTime: 'number',
       pocDisclosureTime: 'number',
@@ -25453,6 +26013,8 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
       releaseTime: 'number',
       solution: 'string',
       summary: 'string',
+      targetId: 'string',
+      targetName: 'string',
       title: 'string',
       vendor: 'string',
       vulLevel: 'string',
@@ -25765,6 +26327,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
   reason?: string;
   targetInfo?: string;
   type?: string;
+  whitelist?: string;
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
@@ -25773,6 +26336,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
       reason: 'Reason',
       targetInfo: 'TargetInfo',
       type: 'Type',
+      whitelist: 'Whitelist',
     };
   }
 
@@ -25784,6 +26348,7 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
       reason: 'string',
       targetInfo: 'string',
       type: 'string',
+      whitelist: 'string',
     };
   }
 
@@ -26164,6 +26729,43 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
   }
 }
 
+export class GetVulWhitelistResponseBodyVulWhitelist extends $tea.Model {
+  aliasName?: string;
+  id?: number;
+  name?: string;
+  reason?: string;
+  target?: string;
+  type?: string;
+  whitelist?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      id: 'Id',
+      name: 'Name',
+      reason: 'Reason',
+      target: 'Target',
+      type: 'Type',
+      whitelist: 'Whitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      id: 'number',
+      name: 'string',
+      reason: 'string',
+      target: 'string',
+      type: 'string',
+      whitelist: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extends $tea.Model {
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -26462,6 +27064,7 @@ export class ListHoneypotResponseBodyList extends $tea.Model {
   controlNodeName?: string;
   honeypotId?: string;
   honeypotImageDisplayName?: string;
+  honeypotImageId?: string;
   honeypotImageName?: string;
   honeypotName?: string;
   nodeId?: string;
@@ -26472,6 +27075,7 @@ export class ListHoneypotResponseBodyList extends $tea.Model {
       controlNodeName: 'ControlNodeName',
       honeypotId: 'HoneypotId',
       honeypotImageDisplayName: 'HoneypotImageDisplayName',
+      honeypotImageId: 'HoneypotImageId',
       honeypotImageName: 'HoneypotImageName',
       honeypotName: 'HoneypotName',
       nodeId: 'NodeId',
@@ -26485,6 +27089,7 @@ export class ListHoneypotResponseBodyList extends $tea.Model {
       controlNodeName: 'string',
       honeypotId: 'string',
       honeypotImageDisplayName: 'string',
+      honeypotImageId: 'string',
       honeypotImageName: 'string',
       honeypotName: 'string',
       nodeId: 'string',
@@ -26642,6 +27247,7 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
   probeUsedCount?: number;
   securityGroupProbeIpList?: string[];
   totalStatus?: number;
+  upgradeAvailable?: boolean;
   static names(): { [key: string]: string } {
     return {
       allowHoneypotAccessInternet: 'AllowHoneypotAccessInternet',
@@ -26657,6 +27263,7 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
       probeUsedCount: 'ProbeUsedCount',
       securityGroupProbeIpList: 'SecurityGroupProbeIpList',
       totalStatus: 'TotalStatus',
+      upgradeAvailable: 'UpgradeAvailable',
     };
   }
 
@@ -26675,6 +27282,7 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
       probeUsedCount: 'number',
       securityGroupProbeIpList: { 'type': 'array', 'itemType': 'string' },
       totalStatus: 'number',
+      upgradeAvailable: 'boolean',
     };
   }
 
@@ -26762,6 +27370,25 @@ export class ListVulAutoRepairConfigResponseBodyVulAutoRepairConfigList extends 
       name: 'string',
       reason: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCreateVulWhitelistResponseBodyVulWhitelistList extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
     };
   }
 
@@ -27905,6 +28532,35 @@ export default class Client extends OpenApi {
     return await this.createVulAutoRepairConfigWithOptions(request, runtime);
   }
 
+  async deleteAntiBruteForceRuleWithOptions(request: DeleteAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntiBruteForceRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAntiBruteForceRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new DeleteAntiBruteForceRuleResponse({}));
+  }
+
+  async deleteAntiBruteForceRule(request: DeleteAntiBruteForceRuleRequest): Promise<DeleteAntiBruteForceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAntiBruteForceRuleWithOptions(request, runtime);
+  }
+
   async deleteBackupPolicyWithOptions(request: DeleteBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28146,6 +28802,39 @@ export default class Client extends OpenApi {
   async deleteVpcHoneyPot(request: DeleteVpcHoneyPotRequest): Promise<DeleteVpcHoneyPotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcHoneyPotWithOptions(request, runtime);
+  }
+
+  async deleteVulWhitelistWithOptions(request: DeleteVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVulWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.whitelist)) {
+      query["Whitelist"] = request.whitelist;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVulWhitelist",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVulWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteVulWhitelistResponse({}));
+  }
+
+  async deleteVulWhitelist(request: DeleteVulWhitelistRequest): Promise<DeleteVulWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVulWhitelistWithOptions(request, runtime);
   }
 
   async describeAccessKeyLeakDetailWithOptions(request: DescribeAccessKeyLeakDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessKeyLeakDetailResponse> {
@@ -28895,6 +29584,35 @@ export default class Client extends OpenApi {
   async describeBackupPolicies(request: DescribeBackupPoliciesRequest): Promise<DescribeBackupPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPoliciesWithOptions(request, runtime);
+  }
+
+  async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
+  }
+
+  async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
   async describeBackupRestoreCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
@@ -30026,6 +30744,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.levels)) {
       query["Levels"] = request.levels;
+    }
+
+    if (!Util.isUnset(request.maliciousMd5)) {
+      query["MaliciousMd5"] = request.maliciousMd5;
     }
 
     if (!Util.isUnset(request.pageSize)) {
@@ -31242,6 +31964,63 @@ export default class Client extends OpenApi {
   async describeNoticeConfig(request: DescribeNoticeConfigRequest): Promise<DescribeNoticeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNoticeConfigWithOptions(request, runtime);
+  }
+
+  async describeNsasSuspEventTypeWithOptions(request: DescribeNsasSuspEventTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNsasSuspEventTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
+    }
+
+    if (!Util.isUnset(request.containerFieldValue)) {
+      query["ContainerFieldValue"] = request.containerFieldValue;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNsasSuspEventType",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNsasSuspEventTypeResponse>(await this.callApi(params, req, runtime), new DescribeNsasSuspEventTypeResponse({}));
+  }
+
+  async describeNsasSuspEventType(request: DescribeNsasSuspEventTypeRequest): Promise<DescribeNsasSuspEventTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNsasSuspEventTypeWithOptions(request, runtime);
   }
 
   async describeOfflineMachinesWithOptions(request: DescribeOfflineMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOfflineMachinesResponse> {
@@ -34420,6 +35199,35 @@ export default class Client extends OpenApi {
   async getVulStatistics(request: GetVulStatisticsRequest): Promise<GetVulStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVulStatisticsWithOptions(request, runtime);
+  }
+
+  async getVulWhitelistWithOptions(request: GetVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<GetVulWhitelistResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.vulWhitelistId)) {
+      query["VulWhitelistId"] = request.vulWhitelistId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVulWhitelist",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVulWhitelistResponse>(await this.callApi(params, req, runtime), new GetVulWhitelistResponse({}));
+  }
+
+  async getVulWhitelist(request: GetVulWhitelistRequest): Promise<GetVulWhitelistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVulWhitelistWithOptions(request, runtime);
   }
 
   async handleSecurityEventsWithOptions(request: HandleSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<HandleSecurityEventsResponse> {
