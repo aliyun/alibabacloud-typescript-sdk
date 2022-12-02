@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dataworks-public20200518",
-  "version": "4.3.15",
+  "version": "4.3.16",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.4",
+    "@alicloud/tea-util": "^1.4.5",
     "@alicloud/oss-client": "^1.1.2",
     "@alicloud/openplatform20191219": "2.0.0",
     "@alicloud/oss-util": "0.0.1",

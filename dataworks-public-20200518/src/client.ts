@@ -322,6 +322,84 @@ export class ApprovePermissionApplyOrderResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceManagerResourceGroupRequest extends $tea.Model {
+  resourceId?: string;
+  resourceManagerResourceGroupId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceManagerResourceGroupResponseBody extends $tea.Model {
+  data?: boolean;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceManagerResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceManagerResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceManagerResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckFileDeploymentRequest extends $tea.Model {
   checkDetailUrl?: string;
   checkerInstanceId?: string;
@@ -11251,7 +11329,6 @@ export class ListBaselinesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   priority?: string;
-  projectEnv?: string;
   projectId?: number;
   searchText?: string;
   static names(): { [key: string]: string } {
@@ -11262,7 +11339,6 @@ export class ListBaselinesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       priority: 'Priority',
-      projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
       searchText: 'SearchText',
     };
@@ -11276,7 +11352,6 @@ export class ListBaselinesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       priority: 'string',
-      projectEnv: 'string',
       projectId: 'number',
       searchText: 'string',
     };
@@ -15094,6 +15169,7 @@ export class ListResourceGroupsRequest extends $tea.Model {
   resourceGroupType?: number;
   resourceManagerResourceGroupId?: string;
   tags?: ListResourceGroupsRequestTags[];
+  typeNames?: string;
   static names(): { [key: string]: string } {
     return {
       bizExtKey: 'BizExtKey',
@@ -15101,6 +15177,7 @@ export class ListResourceGroupsRequest extends $tea.Model {
       resourceGroupType: 'ResourceGroupType',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       tags: 'Tags',
+      typeNames: 'TypeNames',
     };
   }
 
@@ -15111,6 +15188,7 @@ export class ListResourceGroupsRequest extends $tea.Model {
       resourceGroupType: 'number',
       resourceManagerResourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListResourceGroupsRequestTags },
+      typeNames: 'string',
     };
   }
 
@@ -15125,6 +15203,7 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
   resourceGroupType?: number;
   resourceManagerResourceGroupId?: string;
   tagsShrink?: string;
+  typeNames?: string;
   static names(): { [key: string]: string } {
     return {
       bizExtKey: 'BizExtKey',
@@ -15132,6 +15211,7 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
       resourceGroupType: 'ResourceGroupType',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       tagsShrink: 'Tags',
+      typeNames: 'TypeNames',
     };
   }
 
@@ -15142,6 +15222,7 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
       resourceGroupType: 'number',
       resourceManagerResourceGroupId: 'string',
       tagsShrink: 'string',
+      typeNames: 'string',
     };
   }
 
@@ -32476,6 +32557,43 @@ export default class Client extends OpenApi {
     return await this.approvePermissionApplyOrderWithOptions(request, runtime);
   }
 
+  async changeResourceManagerResourceGroupWithOptions(request: ChangeResourceManagerResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceManagerResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceManagerResourceGroup",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceManagerResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceManagerResourceGroupResponse({}));
+  }
+
+  async changeResourceManagerResourceGroup(request: ChangeResourceManagerResourceGroupRequest): Promise<ChangeResourceManagerResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceManagerResourceGroupWithOptions(request, runtime);
+  }
+
   async checkFileDeploymentWithOptions(request: CheckFileDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CheckFileDeploymentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37910,10 +38028,6 @@ export default class Client extends OpenApi {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.projectEnv)) {
-      body["ProjectEnv"] = request.projectEnv;
-    }
-
     if (!Util.isUnset(request.projectId)) {
       body["ProjectId"] = request.projectId;
     }
@@ -39873,6 +39987,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.typeNames)) {
+      query["TypeNames"] = request.typeNames;
     }
 
     let req = new $OpenApi.OpenApiRequest({
