@@ -2408,6 +2408,100 @@ export class PutEnvironmentResponse extends $tea.Model {
   }
 }
 
+export class PutPipelineStatusRequest extends $tea.Model {
+  body?: Pipeline;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Pipeline,
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutPipelineStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Pipeline;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Pipeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutPipelineTemplateRequest extends $tea.Model {
+  body?: PipelineTemplate;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: PipelineTemplate,
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutPipelineTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PipelineTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PipelineTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PutServiceRequest extends $tea.Model {
   body?: Service;
   static names(): { [key: string]: string } {
@@ -2444,6 +2538,100 @@ export class PutServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Service,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutTaskStatusRequest extends $tea.Model {
+  body?: Task;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Task,
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutTaskTemplateRequest extends $tea.Model {
+  body?: TaskTemplate;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: TaskTemplate,
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutTaskTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TaskTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TaskTemplate,
     };
   }
 
@@ -3611,6 +3799,70 @@ export default class Client extends OpenApi {
     return $tea.cast<PutEnvironmentResponse>(await this.callApi(params, req, runtime), new PutEnvironmentResponse({}));
   }
 
+  async putPipelineStatus(name: string, request: PutPipelineStatusRequest): Promise<PutPipelineStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putPipelineStatusWithOptions(name, request, headers, runtime);
+  }
+
+  async putPipelineStatusWithOptions(name: string, request: PutPipelineStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutPipelineStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutPipelineStatus",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelines/${OpenApiUtil.getEncodeParam(name)}/status`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutPipelineStatusResponse>(await this.callApi(params, req, runtime), new PutPipelineStatusResponse({}));
+  }
+
+  async putPipelineTemplate(name: string, request: PutPipelineTemplateRequest): Promise<PutPipelineTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putPipelineTemplateWithOptions(name, request, headers, runtime);
+  }
+
+  async putPipelineTemplateWithOptions(name: string, request: PutPipelineTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutPipelineTemplateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutPipelineTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/pipelinetemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutPipelineTemplateResponse>(await this.callApi(params, req, runtime), new PutPipelineTemplateResponse({}));
+  }
+
   async putService(name: string, request: PutServiceRequest): Promise<PutServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3635,6 +3887,70 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<PutServiceResponse>(await this.callApi(params, req, runtime), new PutServiceResponse({}));
+  }
+
+  async putTaskStatus(name: string, request: PutTaskStatusRequest): Promise<PutTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putTaskStatusWithOptions(name, request, headers, runtime);
+  }
+
+  async putTaskStatusWithOptions(name: string, request: PutTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTaskStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutTaskStatus",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}/status`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutTaskStatusResponse>(await this.callApi(params, req, runtime), new PutTaskStatusResponse({}));
+  }
+
+  async putTaskTemplate(name: string, request: PutTaskTemplateRequest): Promise<PutTaskTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putTaskTemplateWithOptions(name, request, headers, runtime);
+  }
+
+  async putTaskTemplateWithOptions(name: string, request: PutTaskTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTaskTemplateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutTaskTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasktemplates/${OpenApiUtil.getEncodeParam(name)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutTaskTemplateResponse>(await this.callApi(params, req, runtime), new PutTaskTemplateResponse({}));
   }
 
   async putTemplate(name: string, request: PutTemplateRequest): Promise<PutTemplateResponse> {
