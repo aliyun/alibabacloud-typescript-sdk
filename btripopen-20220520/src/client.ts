@@ -5750,6 +5750,185 @@ export class ProjectModifyResponse extends $tea.Model {
   }
 }
 
+export class SyncSingleUserHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncSingleUserRequest extends $tea.Model {
+  email?: string;
+  jobNo?: string;
+  leaveStatus?: number;
+  managerUserId?: string;
+  phone?: string;
+  position?: string;
+  positionLevel?: string;
+  realNameEn?: string;
+  thirdDepartIdList?: string[];
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'email',
+      jobNo: 'job_no',
+      leaveStatus: 'leave_status',
+      managerUserId: 'manager_user_id',
+      phone: 'phone',
+      position: 'position',
+      positionLevel: 'position_level',
+      realNameEn: 'real_name_en',
+      thirdDepartIdList: 'third_depart_id_list',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      jobNo: 'string',
+      leaveStatus: 'number',
+      managerUserId: 'string',
+      phone: 'string',
+      position: 'string',
+      positionLevel: 'string',
+      realNameEn: 'string',
+      thirdDepartIdList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncSingleUserShrinkRequest extends $tea.Model {
+  email?: string;
+  jobNo?: string;
+  leaveStatus?: number;
+  managerUserId?: string;
+  phone?: string;
+  position?: string;
+  positionLevel?: string;
+  realNameEn?: string;
+  thirdDepartIdListShrink?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'email',
+      jobNo: 'job_no',
+      leaveStatus: 'leave_status',
+      managerUserId: 'manager_user_id',
+      phone: 'phone',
+      position: 'position',
+      positionLevel: 'position_level',
+      realNameEn: 'real_name_en',
+      thirdDepartIdListShrink: 'third_depart_id_list',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      jobNo: 'string',
+      leaveStatus: 'number',
+      managerUserId: 'string',
+      phone: 'string',
+      position: 'string',
+      positionLevel: 'string',
+      realNameEn: 'string',
+      thirdDepartIdListShrink: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncSingleUserResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncSingleUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SyncSingleUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncSingleUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainBillSettlementQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -9339,10 +9518,10 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpen
 }
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends $tea.Model {
-  arrDate?: string;
+  arrDate?: number;
   btripType?: number;
   cheapest?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest;
-  depDate?: string;
+  depDate?: number;
   destCity?: string;
   errMsg?: string;
   itineraryId?: string;
@@ -9368,10 +9547,10 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends 
 
   static types(): { [key: string]: any } {
     return {
-      arrDate: 'string',
+      arrDate: 'number',
       btripType: 'number',
       cheapest: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest,
-      depDate: 'string',
+      depDate: 'number',
       destCity: 'string',
       errMsg: 'string',
       itineraryId: 'string',
@@ -12480,6 +12659,8 @@ export class TrainOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
   corpName?: string;
   departId?: string;
   departName?: string;
+  exceedApplyId?: string;
+  exceedThirdPartApplyId?: string;
   gmtCreate?: string;
   gmtModify?: string;
   itineraryId?: string;
@@ -12499,6 +12680,8 @@ export class TrainOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'corp_name',
       departId: 'depart_id',
       departName: 'depart_name',
+      exceedApplyId: 'exceed_apply_id',
+      exceedThirdPartApplyId: 'exceed_third_part_apply_id',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       itineraryId: 'itinerary_id',
@@ -12521,6 +12704,8 @@ export class TrainOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'string',
       departId: 'string',
       departName: 'string',
+      exceedApplyId: 'string',
+      exceedThirdPartApplyId: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
       itineraryId: 'string',
@@ -15752,6 +15937,92 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ProjectModifyResponse>(await this.callApi(params, req, runtime), new ProjectModifyResponse({}));
+  }
+
+  async syncSingleUser(request: SyncSingleUserRequest): Promise<SyncSingleUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SyncSingleUserHeaders({ });
+    return await this.syncSingleUserWithOptions(request, headers, runtime);
+  }
+
+  async syncSingleUserWithOptions(tmpReq: SyncSingleUserRequest, headers: SyncSingleUserHeaders, runtime: $Util.RuntimeOptions): Promise<SyncSingleUserResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SyncSingleUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.thirdDepartIdList)) {
+      request.thirdDepartIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdDepartIdList, "third_depart_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.jobNo)) {
+      body["job_no"] = request.jobNo;
+    }
+
+    if (!Util.isUnset(request.leaveStatus)) {
+      body["leave_status"] = request.leaveStatus;
+    }
+
+    if (!Util.isUnset(request.managerUserId)) {
+      body["manager_user_id"] = request.managerUserId;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.position)) {
+      body["position"] = request.position;
+    }
+
+    if (!Util.isUnset(request.positionLevel)) {
+      body["position_level"] = request.positionLevel;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    if (!Util.isUnset(request.thirdDepartIdListShrink)) {
+      body["third_depart_id_list"] = request.thirdDepartIdListShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncSingleUser",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/single-user/action/sync`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncSingleUserResponse>(await this.callApi(params, req, runtime), new SyncSingleUserResponse({}));
   }
 
   async trainBillSettlementQuery(request: TrainBillSettlementQueryRequest): Promise<TrainBillSettlementQueryResponse> {
