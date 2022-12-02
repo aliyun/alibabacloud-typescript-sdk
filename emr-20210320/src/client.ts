@@ -10,7 +10,7 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AckNode extends $tea.Model {
   nodeId?: string;
-  nodeSelector?: AckNodeNodeSelector;
+  nodeSelector?: AckNodeSelector;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -21,7 +21,7 @@ export class AckNode extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodeId: 'string',
-      nodeSelector: AckNodeNodeSelector,
+      nodeSelector: AckNodeSelector,
     };
   }
 
@@ -32,7 +32,7 @@ export class AckNode extends $tea.Model {
 
 export class AckNodePool extends $tea.Model {
   nodePoolId?: string;
-  nodeSelector?: AckNodePoolNodeSelector;
+  nodeSelector?: AckNodeSelector;
   static names(): { [key: string]: string } {
     return {
       nodePoolId: 'NodePoolId',
@@ -43,7 +43,7 @@ export class AckNodePool extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nodePoolId: 'string',
-      nodeSelector: AckNodePoolNodeSelector,
+      nodeSelector: AckNodeSelector,
     };
   }
 
@@ -1138,6 +1138,7 @@ export class MetricsTrigger extends $tea.Model {
   evaluationCount?: number;
   metricName?: string;
   statistics?: string;
+  tags?: Tag[];
   threshold?: number;
   timeWindow?: number;
   static names(): { [key: string]: string } {
@@ -1147,6 +1148,7 @@ export class MetricsTrigger extends $tea.Model {
       evaluationCount: 'EvaluationCount',
       metricName: 'MetricName',
       statistics: 'Statistics',
+      tags: 'Tags',
       threshold: 'Threshold',
       timeWindow: 'TimeWindow',
     };
@@ -1159,6 +1161,7 @@ export class MetricsTrigger extends $tea.Model {
       evaluationCount: 'number',
       metricName: 'string',
       statistics: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       threshold: 'number',
       timeWindow: 'number',
     };
@@ -3274,6 +3277,108 @@ export class JoinResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class ListClustersRequest extends $tea.Model {
+  clusterIds?: string[];
+  clusterName?: string;
+  clusterStates?: string[];
+  clusterTypes?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  paymentTypes?: string[];
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: Tag[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterIds: 'ClusterIds',
+      clusterName: 'ClusterName',
+      clusterStates: 'ClusterStates',
+      clusterTypes: 'ClusterTypes',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      paymentTypes: 'PaymentTypes',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIds: { 'type': 'array', 'itemType': 'string' },
+      clusterName: 'string',
+      clusterStates: { 'type': 'array', 'itemType': 'string' },
+      clusterTypes: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      paymentTypes: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBody extends $tea.Model {
+  clusters?: ClusterSummary[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'Clusters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': ClusterSummary },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodeGroupsRequest extends $tea.Model {
   clusterId?: string;
   maxResults?: number;
@@ -3475,20 +3580,32 @@ export class ListNodesResponse extends $tea.Model {
   }
 }
 
-export class AckNodeNodeSelectorLabels extends $tea.Model {
-  key?: string;
-  value?: string;
+export class ListTagResourcesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceIds?: string[];
+  resourceType?: string;
+  tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
     };
   }
 
@@ -3497,23 +3614,29 @@ export class AckNodeNodeSelectorLabels extends $tea.Model {
   }
 }
 
-export class AckNodeNodeSelectorTaints extends $tea.Model {
-  effect?: string;
-  key?: string;
-  value?: string;
+export class ListTagResourcesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      effect: 'Effect',
-      key: 'Key',
-      value: 'Value',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      effect: 'string',
-      key: 'string',
-      value: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+      totalCount: 'number',
     };
   }
 
@@ -3522,20 +3645,23 @@ export class AckNodeNodeSelectorTaints extends $tea.Model {
   }
 }
 
-export class AckNodeNodeSelector extends $tea.Model {
-  labels?: AckNodeNodeSelectorLabels[];
-  taints?: AckNodeNodeSelectorTaints[];
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
-      labels: 'Labels',
-      taints: 'Taints',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      labels: { 'type': 'array', 'itemType': AckNodeNodeSelectorLabels },
-      taints: { 'type': 'array', 'itemType': AckNodeNodeSelectorTaints },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -3544,20 +3670,26 @@ export class AckNodeNodeSelector extends $tea.Model {
   }
 }
 
-export class AckNodePoolNodeSelectorLabels extends $tea.Model {
-  key?: string;
-  value?: string;
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceIds?: string[];
+  resourceType?: string;
+  tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      regionId: 'RegionId',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      regionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
     };
   }
 
@@ -3566,23 +3698,17 @@ export class AckNodePoolNodeSelectorLabels extends $tea.Model {
   }
 }
 
-export class AckNodePoolNodeSelectorTaints extends $tea.Model {
-  effect?: string;
-  key?: string;
-  value?: string;
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      effect: 'Effect',
-      key: 'Key',
-      value: 'Value',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      effect: 'string',
-      key: 'string',
-      value: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3591,20 +3717,98 @@ export class AckNodePoolNodeSelectorTaints extends $tea.Model {
   }
 }
 
-export class AckNodePoolNodeSelector extends $tea.Model {
-  labels?: AckNodePoolNodeSelectorLabels[];
-  taints?: AckNodePoolNodeSelectorTaints[];
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
-      labels: 'Labels',
-      taints: 'Taints',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      labels: { 'type': 'array', 'itemType': AckNodePoolNodeSelectorLabels },
-      taints: { 'type': 'array', 'itemType': AckNodePoolNodeSelectorTaints },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceIds?: string[];
+  resourceType?: string;
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -3974,6 +4178,34 @@ export class ScalingRuleV1RuleParam extends $tea.Model {
   }
 }
 
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -4300,6 +4532,9 @@ export default class Client extends OpenApi {
     return await this.getOperationWithOptions(request, runtime);
   }
 
+  /**
+   * 扩容节点。
+   */
   async increaseNodesWithOptions(request: IncreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<IncreaseNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4357,6 +4592,9 @@ export default class Client extends OpenApi {
     return await this.increaseNodesWithOptions(request, runtime);
   }
 
+  /**
+   * 加入资源组。
+   */
   async joinResourceGroupWithOptions(request: JoinResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<JoinResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4396,6 +4634,74 @@ export default class Client extends OpenApi {
   async joinResourceGroup(request: JoinResourceGroupRequest): Promise<JoinResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询集群。
+   */
+  async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterIds)) {
+      query["ClusterIds"] = request.clusterIds;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.clusterStates)) {
+      query["ClusterStates"] = request.clusterStates;
+    }
+
+    if (!Util.isUnset(request.clusterTypes)) {
+      query["ClusterTypes"] = request.clusterTypes;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.paymentTypes)) {
+      query["PaymentTypes"] = request.paymentTypes;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClusters",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+  }
+
+  async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClustersWithOptions(request, runtime);
   }
 
   /**
@@ -4528,6 +4834,150 @@ export default class Client extends OpenApi {
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询标签资源。
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 给资源打标签。
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除指定资源标签。
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKeys)) {
+      query["TagKeys"] = request.tagKeys;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }
