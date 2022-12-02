@@ -7,116 +7,12 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import Array from '@alicloud/darabonba-array';
 import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
-
-export class AddBodyTraceRequest extends $tea.Model {
-  dbId?: number;
-  extraData?: string;
-  images?: AddBodyTraceRequestImages[];
-  personId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      extraData: 'ExtraData',
-      images: 'Images',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      extraData: 'string',
-      images: { 'type': 'array', 'itemType': AddBodyTraceRequestImages },
-      personId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBodyTraceShrinkRequest extends $tea.Model {
-  dbId?: number;
-  extraData?: string;
-  imagesShrink?: string;
-  personId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      extraData: 'ExtraData',
-      imagesShrink: 'Images',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      extraData: 'string',
-      imagesShrink: 'string',
-      personId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBodyTraceResponseBody extends $tea.Model {
-  data?: AddBodyTraceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AddBodyTraceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBodyTraceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddBodyTraceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddBodyTraceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
 
 export class AddFaceRequest extends $tea.Model {
   dbName?: string;
@@ -310,18 +206,15 @@ export class AddFaceEntityResponse extends $tea.Model {
 
 export class AddFaceImageTemplateRequest extends $tea.Model {
   imageURL?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      userId: 'string',
     };
   }
 
@@ -332,18 +225,15 @@ export class AddFaceImageTemplateRequest extends $tea.Model {
 
 export class AddFaceImageTemplateAdvanceRequest extends $tea.Model {
   imageURLObject?: Readable;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURL',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
-      userId: 'string',
     };
   }
 
@@ -1087,141 +977,6 @@ export class CountCrowdResponse extends $tea.Model {
   }
 }
 
-export class CreateBodyDbRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyDbResponseBody extends $tea.Model {
-  data?: CreateBodyDbResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateBodyDbResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyDbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBodyDbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateBodyDbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyPersonRequest extends $tea.Model {
-  dbId?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyPersonResponseBody extends $tea.Model {
-  data?: CreateBodyPersonResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateBodyPersonResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBodyPersonResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateBodyPersonResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateFaceDbRequest extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -1277,135 +1032,6 @@ export class CreateFaceDbResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateFaceDbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyDbRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyDbResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyDbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBodyDbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteBodyDbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyPersonRequest extends $tea.Model {
-  dbId?: number;
-  personId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      personId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyPersonResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBodyPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBodyPersonResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteBodyPersonResponseBody,
     };
   }
 
@@ -1611,18 +1237,15 @@ export class DeleteFaceEntityResponse extends $tea.Model {
 
 export class DeleteFaceImageTemplateRequest extends $tea.Model {
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -3446,75 +3069,6 @@ export class GenerateHumanSketchStyleResponse extends $tea.Model {
   }
 }
 
-export class GetBodyPersonRequest extends $tea.Model {
-  dbId?: number;
-  personId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      personId: 'PersonId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      personId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBodyPersonResponseBody extends $tea.Model {
-  data?: GetBodyPersonResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetBodyPersonResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBodyPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBodyPersonResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetBodyPersonResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetFaceEntityRequest extends $tea.Model {
   dbName?: string;
   entityId?: string;
@@ -3826,147 +3380,6 @@ export class LiquifyFaceResponse extends $tea.Model {
   }
 }
 
-export class ListBodyDbsRequest extends $tea.Model {
-  limit?: number;
-  offset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'Limit',
-      offset: 'Offset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      offset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyDbsResponseBody extends $tea.Model {
-  data?: ListBodyDbsResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListBodyDbsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyDbsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBodyDbsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListBodyDbsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyPersonRequest extends $tea.Model {
-  dbId?: number;
-  limit?: number;
-  offset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      limit: 'Limit',
-      offset: 'Offset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      limit: 'number',
-      offset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyPersonResponseBody extends $tea.Model {
-  data?: ListBodyPersonResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListBodyPersonResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyPersonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBodyPersonResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListBodyPersonResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListFaceDbsRequest extends $tea.Model {
   limit?: number;
   offset?: number;
@@ -4123,12 +3536,10 @@ export class ListFaceEntitiesResponse extends $tea.Model {
 export class MergeImageFaceRequest extends $tea.Model {
   imageURL?: string;
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
@@ -4136,7 +3547,6 @@ export class MergeImageFaceRequest extends $tea.Model {
     return {
       imageURL: 'string',
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -4148,12 +3558,10 @@ export class MergeImageFaceRequest extends $tea.Model {
 export class MergeImageFaceAdvanceRequest extends $tea.Model {
   imageURLObject?: Readable;
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURL',
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
@@ -4161,7 +3569,6 @@ export class MergeImageFaceAdvanceRequest extends $tea.Model {
     return {
       imageURLObject: 'Readable',
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -4395,18 +3802,15 @@ export class PedestrianDetectAttributeResponse extends $tea.Model {
 
 export class QueryFaceImageTemplateRequest extends $tea.Model {
   templateId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
-      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
-      userId: 'string',
     };
   }
 
@@ -5165,137 +4569,6 @@ export class RetouchSkinResponse extends $tea.Model {
   }
 }
 
-export class SearchBodyTraceRequest extends $tea.Model {
-  dbId?: number;
-  images?: SearchBodyTraceRequestImages[];
-  limit?: number;
-  minScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      images: 'Images',
-      limit: 'Limit',
-      minScore: 'MinScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      images: { 'type': 'array', 'itemType': SearchBodyTraceRequestImages },
-      limit: 'number',
-      minScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceAdvanceRequest extends $tea.Model {
-  dbId?: number;
-  images?: SearchBodyTraceAdvanceRequestImages[];
-  limit?: number;
-  minScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      images: 'Images',
-      limit: 'Limit',
-      minScore: 'MinScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      images: { 'type': 'array', 'itemType': SearchBodyTraceAdvanceRequestImages },
-      limit: 'number',
-      minScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceShrinkRequest extends $tea.Model {
-  dbId?: number;
-  imagesShrink?: string;
-  limit?: number;
-  minScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      imagesShrink: 'Images',
-      limit: 'Limit',
-      minScore: 'MinScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      imagesShrink: 'string',
-      limit: 'number',
-      minScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceResponseBody extends $tea.Model {
-  data?: SearchBodyTraceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SearchBodyTraceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchBodyTraceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchBodyTraceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SearchFaceRequest extends $tea.Model {
   dbName?: string;
   dbNames?: string;
@@ -5684,47 +4957,6 @@ export class VerifyFaceMaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifyFaceMaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBodyTraceRequestImages extends $tea.Model {
-  imageData?: Buffer;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'Buffer',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddBodyTraceResponseBodyData extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
     };
   }
 
@@ -6386,44 +5618,6 @@ export class CountCrowdResponseBodyData extends $tea.Model {
     return {
       hotMap: 'string',
       peopleNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyDbResponseBodyData extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyPersonResponseBodyData extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
     };
   }
 
@@ -7438,59 +6632,6 @@ export class GenerateHumanSketchStyleResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetBodyPersonResponseBodyDataTraceList extends $tea.Model {
-  extraData?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      extraData: 'ExtraData',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extraData: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBodyPersonResponseBodyData extends $tea.Model {
-  dbId?: number;
-  id?: number;
-  name?: string;
-  traceCount?: number;
-  traceList?: GetBodyPersonResponseBodyDataTraceList[];
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      id: 'Id',
-      name: 'Name',
-      traceCount: 'TraceCount',
-      traceList: 'TraceList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      id: 'number',
-      name: 'string',
-      traceCount: 'number',
-      traceList: { 'type': 'array', 'itemType': GetBodyPersonResponseBodyDataTraceList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetFaceEntityResponseBodyDataFaces extends $tea.Model {
   faceId?: string;
   static names(): { [key: string]: string } {
@@ -7760,100 +6901,6 @@ export class LiquifyFaceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyDbsResponseBodyDataDbList extends $tea.Model {
-  id?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyDbsResponseBodyData extends $tea.Model {
-  dbList?: ListBodyDbsResponseBodyDataDbList[];
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbList: 'DbList',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbList: { 'type': 'array', 'itemType': ListBodyDbsResponseBodyDataDbList },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyPersonResponseBodyDataPersonList extends $tea.Model {
-  dbId?: number;
-  id?: number;
-  name?: string;
-  traceCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      id: 'Id',
-      name: 'Name',
-      traceCount: 'TraceCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      id: 'number',
-      name: 'string',
-      traceCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBodyPersonResponseBodyData extends $tea.Model {
-  personList?: ListBodyPersonResponseBodyDataPersonList[];
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      personList: 'PersonList',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      personList: { 'type': 'array', 'itemType': ListBodyPersonResponseBodyDataPersonList },
-      total: 'number',
     };
   }
 
@@ -9086,100 +8133,6 @@ export class RetouchSkinResponseBodyData extends $tea.Model {
   }
 }
 
-export class SearchBodyTraceRequestImages extends $tea.Model {
-  imageData?: Buffer;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'Buffer',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceAdvanceRequestImages extends $tea.Model {
-  imageData?: Buffer;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'Buffer',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceResponseBodyDataMatchList extends $tea.Model {
-  dbId?: number;
-  extraData?: string;
-  personId?: number;
-  score?: number;
-  traceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbId: 'DbId',
-      extraData: 'ExtraData',
-      personId: 'PersonId',
-      score: 'Score',
-      traceId: 'TraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbId: 'number',
-      extraData: 'string',
-      personId: 'number',
-      score: 'number',
-      traceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchBodyTraceResponseBodyData extends $tea.Model {
-  matchList?: SearchBodyTraceResponseBodyDataMatchList[];
-  static names(): { [key: string]: string } {
-    return {
-      matchList: 'MatchList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matchList: { 'type': 'array', 'itemType': SearchBodyTraceResponseBodyDataMatchList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SearchFaceResponseBodyDataMatchListFaceItems extends $tea.Model {
   confidence?: number;
   dbName?: string;
@@ -9362,53 +8315,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addBodyTraceWithOptions(tmpReq: AddBodyTraceRequest, runtime: $Util.RuntimeOptions): Promise<AddBodyTraceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new AddBodyTraceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.images)) {
-      request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbId)) {
-      body["DbId"] = request.dbId;
-    }
-
-    if (!Util.isUnset(request.extraData)) {
-      body["ExtraData"] = request.extraData;
-    }
-
-    if (!Util.isUnset(request.imagesShrink)) {
-      body["Images"] = request.imagesShrink;
-    }
-
-    if (!Util.isUnset(request.personId)) {
-      body["PersonId"] = request.personId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddBodyTrace",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddBodyTraceResponse>(await this.callApi(params, req, runtime), new AddBodyTraceResponse({}));
-  }
-
-  async addBodyTrace(request: AddBodyTraceRequest): Promise<AddBodyTraceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addBodyTraceWithOptions(request, runtime);
-  }
-
   async addFaceWithOptions(request: AddFaceRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9578,10 +8484,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10358,68 +9260,6 @@ export default class Client extends OpenApi {
     return countCrowdResp;
   }
 
-  async createBodyDbWithOptions(request: CreateBodyDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateBodyDbResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateBodyDb",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateBodyDbResponse>(await this.callApi(params, req, runtime), new CreateBodyDbResponse({}));
-  }
-
-  async createBodyDb(request: CreateBodyDbRequest): Promise<CreateBodyDbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createBodyDbWithOptions(request, runtime);
-  }
-
-  async createBodyPersonWithOptions(request: CreateBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<CreateBodyPersonResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbId)) {
-      body["DbId"] = request.dbId;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateBodyPerson",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateBodyPersonResponse>(await this.callApi(params, req, runtime), new CreateBodyPersonResponse({}));
-  }
-
-  async createBodyPerson(request: CreateBodyPersonRequest): Promise<CreateBodyPersonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createBodyPersonWithOptions(request, runtime);
-  }
-
   async createFaceDbWithOptions(request: CreateFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceDbResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10447,68 +9287,6 @@ export default class Client extends OpenApi {
   async createFaceDb(request: CreateFaceDbRequest): Promise<CreateFaceDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFaceDbWithOptions(request, runtime);
-  }
-
-  async deleteBodyDbWithOptions(request: DeleteBodyDbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBodyDbResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteBodyDb",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteBodyDbResponse>(await this.callApi(params, req, runtime), new DeleteBodyDbResponse({}));
-  }
-
-  async deleteBodyDb(request: DeleteBodyDbRequest): Promise<DeleteBodyDbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteBodyDbWithOptions(request, runtime);
-  }
-
-  async deleteBodyPersonWithOptions(request: DeleteBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBodyPersonResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbId)) {
-      body["DbId"] = request.dbId;
-    }
-
-    if (!Util.isUnset(request.personId)) {
-      body["PersonId"] = request.personId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteBodyPerson",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteBodyPersonResponse>(await this.callApi(params, req, runtime), new DeleteBodyPersonResponse({}));
-  }
-
-  async deleteBodyPerson(request: DeleteBodyPersonRequest): Promise<DeleteBodyPersonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteBodyPersonWithOptions(request, runtime);
   }
 
   async deleteFaceWithOptions(request: DeleteFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceResponse> {
@@ -10611,10 +9389,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12641,31 +11415,6 @@ export default class Client extends OpenApi {
     return generateHumanSketchStyleResp;
   }
 
-  async getBodyPersonWithOptions(request: GetBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<GetBodyPersonResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetBodyPerson",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetBodyPersonResponse>(await this.callApi(params, req, runtime), new GetBodyPersonResponse({}));
-  }
-
-  async getBodyPerson(request: GetBodyPersonRequest): Promise<GetBodyPersonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBodyPersonWithOptions(request, runtime);
-  }
-
   async getFaceEntityWithOptions(request: GetFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetFaceEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -12938,56 +11687,6 @@ export default class Client extends OpenApi {
     return liquifyFaceResp;
   }
 
-  async listBodyDbsWithOptions(request: ListBodyDbsRequest, runtime: $Util.RuntimeOptions): Promise<ListBodyDbsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListBodyDbs",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListBodyDbsResponse>(await this.callApi(params, req, runtime), new ListBodyDbsResponse({}));
-  }
-
-  async listBodyDbs(request: ListBodyDbsRequest): Promise<ListBodyDbsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBodyDbsWithOptions(request, runtime);
-  }
-
-  async listBodyPersonWithOptions(request: ListBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<ListBodyPersonResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListBodyPerson",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListBodyPersonResponse>(await this.callApi(params, req, runtime), new ListBodyPersonResponse({}));
-  }
-
-  async listBodyPerson(request: ListBodyPersonRequest): Promise<ListBodyPersonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBodyPersonWithOptions(request, runtime);
-  }
-
   async listFaceDbsWithOptions(request: ListFaceDbsRequest, runtime: $Util.RuntimeOptions): Promise<ListFaceDbsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13083,10 +11782,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       body["TemplateId"] = request.templateId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14229,136 +12924,6 @@ export default class Client extends OpenApi {
 
     let retouchSkinResp = await this.retouchSkinWithOptions(retouchSkinReq, runtime);
     return retouchSkinResp;
-  }
-
-  async searchBodyTraceWithOptions(tmpReq: SearchBodyTraceRequest, runtime: $Util.RuntimeOptions): Promise<SearchBodyTraceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SearchBodyTraceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.images)) {
-      request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbId)) {
-      body["DbId"] = request.dbId;
-    }
-
-    if (!Util.isUnset(request.imagesShrink)) {
-      body["Images"] = request.imagesShrink;
-    }
-
-    if (!Util.isUnset(request.limit)) {
-      body["Limit"] = request.limit;
-    }
-
-    if (!Util.isUnset(request.minScore)) {
-      body["MinScore"] = request.minScore;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SearchBodyTrace",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SearchBodyTraceResponse>(await this.callApi(params, req, runtime), new SearchBodyTraceResponse({}));
-  }
-
-  async searchBodyTrace(request: SearchBodyTraceRequest): Promise<SearchBodyTraceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchBodyTraceWithOptions(request, runtime);
-  }
-
-  async searchBodyTraceAdvance(request: SearchBodyTraceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SearchBodyTraceResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let searchBodyTraceReq = new SearchBodyTraceRequest({ });
-    OpenApiUtil.convert(request, searchBodyTraceReq);
-    if (!Util.isUnset(request.images)) {
-      let i : number = 0;
-
-      for (let item0 of request.images) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
-            content: item0.imageURLObject,
-            contentType: "",
-          });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
-            file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : SearchBodyTraceRequestImages = searchBodyTraceReq.images[i];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
-        }
-
-      }
-    }
-
-    let searchBodyTraceResp = await this.searchBodyTraceWithOptions(searchBodyTraceReq, runtime);
-    return searchBodyTraceResp;
   }
 
   async searchFaceWithOptions(request: SearchFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {
