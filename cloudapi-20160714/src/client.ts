@@ -21022,7 +21022,7 @@ export class ModifyPluginRequestTag extends $tea.Model {
 export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Model {
   apiId?: string;
   apiName?: string;
-  clientIp?: number;
+  clientIp?: string;
   clientNonce?: string;
   consumerAppId?: string;
   consumerAppKey?: string;
@@ -21099,7 +21099,7 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
     return {
       apiId: 'string',
       apiName: 'string',
-      clientIp: 'number',
+      clientIp: 'string',
       clientNonce: 'string',
       consumerAppId: 'string',
       consumerAppKey: 'string',
