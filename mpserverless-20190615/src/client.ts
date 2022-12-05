@@ -4647,7 +4647,6 @@ export class QuerySpaceUsageRequest extends $tea.Model {
 
 export class QuerySpaceUsageResponseBody extends $tea.Model {
   endTime?: string;
-  gmtCreate?: string;
   requestId?: string;
   spaceId?: string;
   spaceUsageDataList?: QuerySpaceUsageResponseBodySpaceUsageDataList[];
@@ -4655,7 +4654,6 @@ export class QuerySpaceUsageResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      gmtCreate: 'GmtCreate',
       requestId: 'RequestId',
       spaceId: 'SpaceId',
       spaceUsageDataList: 'SpaceUsageDataList',
@@ -4666,7 +4664,6 @@ export class QuerySpaceUsageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      gmtCreate: 'string',
       requestId: 'string',
       spaceId: 'string',
       spaceUsageDataList: { 'type': 'array', 'itemType': QuerySpaceUsageResponseBodySpaceUsageDataList },
