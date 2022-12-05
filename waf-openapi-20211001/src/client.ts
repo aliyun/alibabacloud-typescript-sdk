@@ -700,11 +700,13 @@ export class DeleteDefenseTemplateResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
+  accessType?: string;
   domain?: string;
   instanceId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       domain: 'Domain',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
@@ -713,6 +715,7 @@ export class DeleteDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessType: 'string',
       domain: 'string',
       instanceId: 'string',
       regionId: 'string',
@@ -3686,22 +3689,34 @@ export class CreateDomainRequestRedirectRequestHeaders extends $tea.Model {
 
 export class CreateDomainRequestRedirect extends $tea.Model {
   backends?: string[];
+  cnameEnabled?: boolean;
   connectTimeout?: number;
   focusHttpBackend?: boolean;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadbalance?: string;
   readTimeout?: number;
   requestHeaders?: CreateDomainRequestRedirectRequestHeaders[];
+  retry?: boolean;
+  routingRules?: string;
   sniEnabled?: boolean;
   sniHost?: string;
   writeTimeout?: number;
   static names(): { [key: string]: string } {
     return {
       backends: 'Backends',
+      cnameEnabled: 'CnameEnabled',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
+      retry: 'Retry',
+      routingRules: 'RoutingRules',
       sniEnabled: 'SniEnabled',
       sniHost: 'SniHost',
       writeTimeout: 'WriteTimeout',
@@ -3711,11 +3726,17 @@ export class CreateDomainRequestRedirect extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backends: { 'type': 'array', 'itemType': 'string' },
+      cnameEnabled: 'boolean',
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadbalance: 'string',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': CreateDomainRequestRedirectRequestHeaders },
+      retry: 'boolean',
+      routingRules: 'string',
       sniEnabled: 'boolean',
       sniHost: 'string',
       writeTimeout: 'number',
@@ -4052,9 +4073,13 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
   backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
   connectTimeout?: number;
   focusHttpBackend?: boolean;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadbalance?: string;
   readTimeout?: number;
   requestHeaders?: DescribeDomainDetailResponseBodyRedirectRequestHeaders[];
+  retry?: boolean;
   sniEnabled?: boolean;
   sniHost?: string;
   writeTimeout?: number;
@@ -4063,9 +4088,13 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
       backends: 'Backends',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
+      retry: 'Retry',
       sniEnabled: 'SniEnabled',
       sniHost: 'SniHost',
       writeTimeout: 'WriteTimeout',
@@ -4077,9 +4106,13 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
       backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadbalance: 'string',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectRequestHeaders },
+      retry: 'boolean',
       sniEnabled: 'boolean',
       sniHost: 'string',
       writeTimeout: 'number',
@@ -4936,9 +4969,13 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
   backends?: string[];
   connectTimeout?: number;
   focusHttpBackend?: boolean;
+  keepalive?: boolean;
+  keepaliveRequests?: number;
+  keepaliveTimeout?: number;
   loadbalance?: string;
   readTimeout?: number;
   requestHeaders?: ModifyDomainRequestRedirectRequestHeaders[];
+  retry?: boolean;
   sniEnabled?: boolean;
   sniHost?: string;
   writeTimeout?: number;
@@ -4947,9 +4984,13 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
       backends: 'Backends',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
+      retry: 'Retry',
       sniEnabled: 'SniEnabled',
       sniHost: 'SniHost',
       writeTimeout: 'WriteTimeout',
@@ -4961,9 +5002,13 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
       backends: { 'type': 'array', 'itemType': 'string' },
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
       loadbalance: 'string',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': ModifyDomainRequestRedirectRequestHeaders },
+      retry: 'boolean',
       sniEnabled: 'boolean',
       sniHost: 'string',
       writeTimeout: 'number',
@@ -5432,6 +5477,10 @@ export default class Client extends OpenApi {
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
     if (!Util.isUnset(request.domain)) {
       query["Domain"] = request.domain;
     }
