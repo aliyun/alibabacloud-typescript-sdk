@@ -588,6 +588,7 @@ export class CreateBackupResponse extends $tea.Model {
 }
 
 export class CreateDBClusterRequest extends $tea.Model {
+  allowShutDown?: string;
   autoRenew?: boolean;
   backupRetentionPolicyOnClusterDeletion?: string;
   clientToken?: string;
@@ -612,8 +613,14 @@ export class CreateDBClusterRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  scaleMax?: string;
+  scaleMin?: string;
+  scaleRoNumMax?: string;
+  scaleRoNumMin?: string;
   securityIPList?: string;
+  serverlessType?: string;
   sourceResourceId?: string;
+  storageType?: string;
   TDEStatus?: boolean;
   tag?: CreateDBClusterRequestTag[];
   usedTime?: string;
@@ -622,6 +629,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      allowShutDown: 'AllowShutDown',
       autoRenew: 'AutoRenew',
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
       clientToken: 'ClientToken',
@@ -646,8 +654,14 @@ export class CreateDBClusterRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
+      scaleRoNumMax: 'ScaleRoNumMax',
+      scaleRoNumMin: 'ScaleRoNumMin',
       securityIPList: 'SecurityIPList',
+      serverlessType: 'ServerlessType',
       sourceResourceId: 'SourceResourceId',
+      storageType: 'StorageType',
       TDEStatus: 'TDEStatus',
       tag: 'Tag',
       usedTime: 'UsedTime',
@@ -659,6 +673,7 @@ export class CreateDBClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowShutDown: 'string',
       autoRenew: 'boolean',
       backupRetentionPolicyOnClusterDeletion: 'string',
       clientToken: 'string',
@@ -683,8 +698,14 @@ export class CreateDBClusterRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      scaleMax: 'string',
+      scaleMin: 'string',
+      scaleRoNumMax: 'string',
+      scaleRoNumMin: 'string',
       securityIPList: 'string',
+      serverlessType: 'string',
       sourceResourceId: 'string',
+      storageType: 'string',
       TDEStatus: 'boolean',
       tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
       usedTime: 'string',
@@ -1323,6 +1344,96 @@ export class CreateGlobalDatabaseNetworkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateGlobalDatabaseNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGlobalSecurityIPGroupRequest extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGlobalSecurityIPGroupResponseBody,
     };
   }
 
@@ -2229,6 +2340,96 @@ export class DeleteGlobalDatabaseNetworkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteGlobalDatabaseNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGlobalSecurityIPGroupRequest extends $tea.Model {
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGlobalSecurityIPGroupResponseBody,
     };
   }
 
@@ -3832,6 +4033,7 @@ export class DescribeDBClusterMigrationResponseBody extends $tea.Model {
   rdsReadWriteMode?: string;
   requestId?: string;
   sourceRDSDBInstanceId?: string;
+  srcDbType?: string;
   topologies?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3847,6 +4049,7 @@ export class DescribeDBClusterMigrationResponseBody extends $tea.Model {
       rdsReadWriteMode: 'RdsReadWriteMode',
       requestId: 'RequestId',
       sourceRDSDBInstanceId: 'SourceRDSDBInstanceId',
+      srcDbType: 'SrcDbType',
       topologies: 'Topologies',
     };
   }
@@ -3865,6 +4068,7 @@ export class DescribeDBClusterMigrationResponseBody extends $tea.Model {
       rdsReadWriteMode: 'string',
       requestId: 'string',
       sourceRDSDBInstanceId: 'string',
+      srcDbType: 'string',
       topologies: 'string',
     };
   }
@@ -4235,6 +4439,102 @@ export class DescribeDBClusterSSLResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterServerlessConfRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
+  allowShutDown?: string;
+  DBClusterId?: string;
+  requestId?: string;
+  scaleMax?: string;
+  scaleMin?: string;
+  scaleRoNumMax?: string;
+  scaleRoNumMin?: string;
+  secondsUntilAutoPause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowShutDown: 'AllowShutDown',
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
+      scaleRoNumMax: 'ScaleRoNumMax',
+      scaleRoNumMin: 'ScaleRoNumMin',
+      secondsUntilAutoPause: 'SecondsUntilAutoPause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowShutDown: 'string',
+      DBClusterId: 'string',
+      requestId: 'string',
+      scaleMax: 'string',
+      scaleMin: 'string',
+      scaleRoNumMax: 'string',
+      scaleRoNumMin: 'string',
+      secondsUntilAutoPause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterServerlessConfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBClusterServerlessConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterServerlessConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterTDERequest extends $tea.Model {
   DBClusterId?: string;
   ownerAccount?: string;
@@ -4434,11 +4734,13 @@ export class DescribeDBClusterVersionResponse extends $tea.Model {
 }
 
 export class DescribeDBClustersRequest extends $tea.Model {
+  connectionString?: string;
   DBClusterDescription?: string;
   DBClusterIds?: string;
   DBClusterStatus?: string;
   DBNodeIds?: string;
   DBType?: string;
+  DBVersion?: string;
   expired?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -4454,11 +4756,13 @@ export class DescribeDBClustersRequest extends $tea.Model {
   tag?: DescribeDBClustersRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      connectionString: 'ConnectionString',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterIds: 'DBClusterIds',
       DBClusterStatus: 'DBClusterStatus',
       DBNodeIds: 'DBNodeIds',
       DBType: 'DBType',
+      DBVersion: 'DBVersion',
       expired: 'Expired',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -4477,11 +4781,13 @@ export class DescribeDBClustersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionString: 'string',
       DBClusterDescription: 'string',
       DBClusterIds: 'string',
       DBClusterStatus: 'string',
       DBNodeIds: 'string',
       DBType: 'string',
+      DBVersion: 'string',
       expired: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -5517,6 +5823,183 @@ export class DescribeGlobalDatabaseNetworksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeGlobalDatabaseNetworksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupRequest extends $tea.Model {
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGlobalSecurityIPGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupRelationRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupRelationResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  globalSecurityIPGroupRel?: DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      globalSecurityIPGroupRel: 'GlobalSecurityIPGroupRel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      globalSecurityIPGroupRel: { 'type': 'array', 'itemType': DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGlobalSecurityIPGroupRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGlobalSecurityIPGroupRelationResponseBody,
     };
   }
 
@@ -8897,6 +9380,102 @@ export class ModifyDBClusterSSLResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
+  allowShutDown?: string;
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scaleMax?: string;
+  scaleMin?: string;
+  scaleRoNumMax?: string;
+  scaleRoNumMin?: string;
+  secondsUntilAutoPause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowShutDown: 'AllowShutDown',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
+      scaleRoNumMax: 'ScaleRoNumMax',
+      scaleRoNumMin: 'ScaleRoNumMin',
+      secondsUntilAutoPause: 'SecondsUntilAutoPause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowShutDown: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scaleMax: 'string',
+      scaleMin: 'string',
+      scaleRoNumMax: 'string',
+      scaleRoNumMin: 'string',
+      secondsUntilAutoPause: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterServerlessConfResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterServerlessConfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDBClusterServerlessConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterServerlessConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBClusterTDERequest extends $tea.Model {
   DBClusterId?: string;
   encryptNewTables?: string;
@@ -9525,6 +10104,282 @@ export class ModifyGlobalDatabaseNetworkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyGlobalDatabaseNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupRequest extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyGlobalSecurityIPGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyGlobalSecurityIPGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupNameRequest extends $tea.Model {
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupNameResponseBody extends $tea.Model {
+  globalSecurityIPGroup?: ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalSecurityIPGroup: 'GlobalSecurityIPGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalSecurityIPGroup: { 'type': 'array', 'itemType': ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyGlobalSecurityIPGroupNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyGlobalSecurityIPGroupNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupRelationRequest extends $tea.Model {
+  DBClusterId?: string;
+  globalSecurityGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      globalSecurityGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupRelationResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  globalSecurityIPGroupRel?: ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      globalSecurityIPGroupRel: 'GlobalSecurityIPGroupRel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      globalSecurityIPGroupRel: { 'type': 'array', 'itemType': ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyGlobalSecurityIPGroupRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyGlobalSecurityIPGroupRelationResponseBody,
     };
   }
 
@@ -10360,6 +11215,7 @@ export class RevokeAccountPrivilegeResponse extends $tea.Model {
 
 export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
   DBClusterId?: string;
+  forced?: boolean;
   GDNId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10371,6 +11227,7 @@ export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      forced: 'Forced',
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -10385,6 +11242,7 @@ export class SwitchOverGlobalDatabaseNetworkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      forced: 'boolean',
       GDNId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11060,6 +11918,65 @@ export class CreateDBNodesResponseBodyDBNodeIds extends $tea.Model {
   }
 }
 
+export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  DBInstances?: string[];
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: { 'type': 'array', 'itemType': 'string' },
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $tea.Model {
   accountPrivilege?: string;
   DBName?: string;
@@ -11516,6 +12433,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
   maxConnections?: number;
   maxIOPS?: number;
   sccMode?: string;
+  serverWeight?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11532,6 +12450,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'MaxConnections',
       maxIOPS: 'MaxIOPS',
       sccMode: 'SccMode',
+      serverWeight: 'ServerWeight',
       zoneId: 'ZoneId',
     };
   }
@@ -11551,6 +12470,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $tea.Model {
       maxConnections: 'number',
       maxIOPS: 'number',
       sccMode: 'string',
+      serverWeight: 'string',
       zoneId: 'string',
     };
   }
@@ -13053,6 +13973,65 @@ export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $tea.Model 
   }
 }
 
+export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  DBInstances?: string[];
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: { 'type': 'array', 'itemType': 'string' },
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMaskingRulesResponseBodyData extends $tea.Model {
   ruleList?: string[];
   static names(): { [key: string]: string } {
@@ -13877,6 +14856,93 @@ export class ModifyDBNodesClassRequestDBNode extends $tea.Model {
   }
 }
 
+export class ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  DBInstances?: string[];
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: { 'type': 'array', 'itemType': 'string' },
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel extends $tea.Model {
+  GIpList?: string;
+  globalIgName?: string;
+  globalSecurityGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GIpList: 'GIpList',
+      globalIgName: 'GlobalIgName',
+      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GIpList: 'string',
+      globalIgName: 'string',
+      globalSecurityGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -14366,6 +15432,10 @@ export default class Client extends OpenApi {
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.allowShutDown)) {
+      query["AllowShutDown"] = request.allowShutDown;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -14462,12 +15532,36 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!Util.isUnset(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMax)) {
+      query["ScaleRoNumMax"] = request.scaleRoNumMax;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMin)) {
+      query["ScaleRoNumMin"] = request.scaleRoNumMin;
+    }
+
     if (!Util.isUnset(request.securityIPList)) {
       query["SecurityIPList"] = request.securityIPList;
     }
 
+    if (!Util.isUnset(request.serverlessType)) {
+      query["ServerlessType"] = request.serverlessType;
+    }
+
     if (!Util.isUnset(request.sourceResourceId)) {
       query["SourceResourceId"] = request.sourceResourceId;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     if (!Util.isUnset(request.TDEStatus)) {
@@ -14940,6 +16034,67 @@ export default class Client extends OpenApi {
   async createGlobalDatabaseNetwork(request: CreateGlobalDatabaseNetworkRequest): Promise<CreateGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalDatabaseNetworkWithOptions(request, runtime);
+  }
+
+  async createGlobalSecurityIPGroupWithOptions(request: CreateGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.GIpList)) {
+      query["GIpList"] = request.GIpList;
+    }
+
+    if (!Util.isUnset(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGlobalSecurityIPGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new CreateGlobalSecurityIPGroupResponse({}));
+  }
+
+  async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
@@ -15523,6 +16678,67 @@ export default class Client extends OpenApi {
   async deleteGlobalDatabaseNetwork(request: DeleteGlobalDatabaseNetworkRequest): Promise<DeleteGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalDatabaseNetworkWithOptions(request, runtime);
+  }
+
+  async deleteGlobalSecurityIPGroupWithOptions(request: DeleteGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!Util.isUnset(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGlobalSecurityIPGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DeleteGlobalSecurityIPGroupResponse({}));
+  }
+
+  async deleteGlobalSecurityIPGroup(request: DeleteGlobalSecurityIPGroupRequest): Promise<DeleteGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
   async deleteMaskingRulesWithOptions(request: DeleteMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaskingRulesResponse> {
@@ -16570,6 +17786,51 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterSSLWithOptions(request, runtime);
   }
 
+  async describeDBClusterServerlessConfWithOptions(request: DescribeDBClusterServerlessConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterServerlessConfResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterServerlessConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterServerlessConfResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterServerlessConfResponse({}));
+  }
+
+  async describeDBClusterServerlessConf(request: DescribeDBClusterServerlessConfRequest): Promise<DescribeDBClusterServerlessConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterServerlessConfWithOptions(request, runtime);
+  }
+
   async describeDBClusterTDEWithOptions(request: DescribeDBClusterTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16663,6 +17924,10 @@ export default class Client extends OpenApi {
   async describeDBClustersWithOptions(request: DescribeDBClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClustersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
     if (!Util.isUnset(request.DBClusterDescription)) {
       query["DBClusterDescription"] = request.DBClusterDescription;
     }
@@ -16681,6 +17946,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBType)) {
       query["DBType"] = request.DBType;
+    }
+
+    if (!Util.isUnset(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
     }
 
     if (!Util.isUnset(request.expired)) {
@@ -17317,6 +18586,120 @@ export default class Client extends OpenApi {
   async describeGlobalDatabaseNetworks(request: DescribeGlobalDatabaseNetworksRequest): Promise<DescribeGlobalDatabaseNetworksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDatabaseNetworksWithOptions(request, runtime);
+  }
+
+  async describeGlobalSecurityIPGroupWithOptions(request: DescribeGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGlobalSecurityIPGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupResponse({}));
+  }
+
+  async describeGlobalSecurityIPGroup(request: DescribeGlobalSecurityIPGroupRequest): Promise<DescribeGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  async describeGlobalSecurityIPGroupRelationWithOptions(request: DescribeGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGlobalSecurityIPGroupRelation",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupRelationResponse({}));
+  }
+
+  async describeGlobalSecurityIPGroupRelation(request: DescribeGlobalSecurityIPGroupRelationRequest): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   async describeLogBackupPolicyWithOptions(request: DescribeLogBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogBackupPolicyResponse> {
@@ -19504,6 +20887,75 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterSSLWithOptions(request, runtime);
   }
 
+  async modifyDBClusterServerlessConfWithOptions(request: ModifyDBClusterServerlessConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterServerlessConfResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowShutDown)) {
+      query["AllowShutDown"] = request.allowShutDown;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!Util.isUnset(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMax)) {
+      query["ScaleRoNumMax"] = request.scaleRoNumMax;
+    }
+
+    if (!Util.isUnset(request.scaleRoNumMin)) {
+      query["ScaleRoNumMin"] = request.scaleRoNumMin;
+    }
+
+    if (!Util.isUnset(request.secondsUntilAutoPause)) {
+      query["SecondsUntilAutoPause"] = request.secondsUntilAutoPause;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterServerlessConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterServerlessConfResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterServerlessConfResponse({}));
+  }
+
+  async modifyDBClusterServerlessConf(request: ModifyDBClusterServerlessConfRequest): Promise<ModifyDBClusterServerlessConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterServerlessConfWithOptions(request, runtime);
+  }
+
   async modifyDBClusterTDEWithOptions(request: ModifyDBClusterTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19949,6 +21401,193 @@ export default class Client extends OpenApi {
   async modifyGlobalDatabaseNetwork(request: ModifyGlobalDatabaseNetworkRequest): Promise<ModifyGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalDatabaseNetworkWithOptions(request, runtime);
+  }
+
+  async modifyGlobalSecurityIPGroupWithOptions(request: ModifyGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.GIpList)) {
+      query["GIpList"] = request.GIpList;
+    }
+
+    if (!Util.isUnset(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!Util.isUnset(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyGlobalSecurityIPGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupResponse({}));
+  }
+
+  async modifyGlobalSecurityIPGroup(request: ModifyGlobalSecurityIPGroupRequest): Promise<ModifyGlobalSecurityIPGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  async modifyGlobalSecurityIPGroupNameWithOptions(request: ModifyGlobalSecurityIPGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!Util.isUnset(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyGlobalSecurityIPGroupName",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyGlobalSecurityIPGroupNameResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupNameResponse({}));
+  }
+
+  async modifyGlobalSecurityIPGroupName(request: ModifyGlobalSecurityIPGroupNameRequest): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyGlobalSecurityIPGroupNameWithOptions(request, runtime);
+  }
+
+  async modifyGlobalSecurityIPGroupRelationWithOptions(request: ModifyGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyGlobalSecurityIPGroupRelation",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupRelationResponse({}));
+  }
+
+  async modifyGlobalSecurityIPGroupRelation(request: ModifyGlobalSecurityIPGroupRelationRequest): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   async modifyLogBackupPolicyWithOptions(request: ModifyLogBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogBackupPolicyResponse> {
@@ -20490,6 +22129,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.forced)) {
+      query["Forced"] = request.forced;
     }
 
     if (!Util.isUnset(request.GDNId)) {
