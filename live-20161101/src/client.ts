@@ -1715,6 +1715,81 @@ export class AddLiveSnapshotDetectPornConfigResponse extends $tea.Model {
   }
 }
 
+export class AddLiveSnapshotNotifyConfigRequest extends $tea.Model {
+  domainName?: string;
+  notifyAuthKey?: string;
+  notifyReqAuth?: string;
+  notifyUrl?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      notifyAuthKey: 'NotifyAuthKey',
+      notifyReqAuth: 'NotifyReqAuth',
+      notifyUrl: 'NotifyUrl',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      notifyAuthKey: 'string',
+      notifyReqAuth: 'string',
+      notifyUrl: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddLiveSnapshotNotifyConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddLiveSnapshotNotifyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddLiveSnapshotNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddLiveSnapshotNotifyConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddLiveStreamTranscodeRequest extends $tea.Model {
   app?: string;
   domain?: string;
@@ -2909,75 +2984,6 @@ export class CloseLiveShiftResponse extends $tea.Model {
   }
 }
 
-export class CloseMessageGroupRequest extends $tea.Model {
-  appId?: string;
-  groupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      groupId: 'GroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      groupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseMessageGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CloseMessageGroupResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CloseMessageGroupResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseMessageGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloseMessageGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CloseMessageGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CopyCasterRequest extends $tea.Model {
   casterName?: string;
   clientToken?: string;
@@ -3600,6 +3606,103 @@ export class CreateLiveTranscodeTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateLiveTranscodeTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageAppRequest extends $tea.Model {
+  appConfig?: { [key: string]: string };
+  appName?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appConfig: 'AppConfig',
+      appName: 'AppName',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      appName: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageAppShrinkRequest extends $tea.Model {
+  appConfigShrink?: string;
+  appName?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appConfigShrink: 'AppConfig',
+      appName: 'AppName',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfigShrink: 'string',
+      appName: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateMessageAppResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateMessageAppResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMessageAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMessageAppResponseBody,
     };
   }
 
@@ -5548,6 +5651,72 @@ export class DeleteLiveSnapshotDetectPornConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteLiveSnapshotDetectPornConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveSnapshotNotifyConfigRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveSnapshotNotifyConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveSnapshotNotifyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLiveSnapshotNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLiveSnapshotNotifyConfigResponseBody,
     };
   }
 
@@ -7703,6 +7872,7 @@ export class DescribeCastersResponse extends $tea.Model {
 
 export class DescribeDomainUsageDataRequest extends $tea.Model {
   area?: string;
+  dataProtocol?: string;
   domainName?: string;
   endTime?: string;
   field?: string;
@@ -7713,6 +7883,7 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
+      dataProtocol: 'DataProtocol',
       domainName: 'DomainName',
       endTime: 'EndTime',
       field: 'Field',
@@ -7726,6 +7897,7 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       area: 'string',
+      dataProtocol: 'string',
       domainName: 'string',
       endTime: 'string',
       field: 'string',
@@ -7746,9 +7918,9 @@ export class DescribeDomainUsageDataResponseBody extends $tea.Model {
   dataInterval?: string;
   domainName?: string;
   endTime?: string;
-  field?: string;
   requestId?: string;
   startTime?: string;
+  type?: string;
   usageDataPerInterval?: DescribeDomainUsageDataResponseBodyUsageDataPerInterval;
   static names(): { [key: string]: string } {
     return {
@@ -7756,9 +7928,9 @@ export class DescribeDomainUsageDataResponseBody extends $tea.Model {
       dataInterval: 'DataInterval',
       domainName: 'DomainName',
       endTime: 'EndTime',
-      field: 'Field',
       requestId: 'RequestId',
       startTime: 'StartTime',
+      type: 'Type',
       usageDataPerInterval: 'UsageDataPerInterval',
     };
   }
@@ -7769,9 +7941,9 @@ export class DescribeDomainUsageDataResponseBody extends $tea.Model {
       dataInterval: 'string',
       domainName: 'string',
       endTime: 'string',
-      field: 'string',
       requestId: 'string',
       startTime: 'string',
+      type: 'string',
       usageDataPerInterval: DescribeDomainUsageDataResponseBodyUsageDataPerInterval,
     };
   }
@@ -11715,6 +11887,159 @@ export class DescribeLiveSnapshotDetectPornConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeLiveSnapshotNotifyConfigRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveSnapshotNotifyConfigResponseBody extends $tea.Model {
+  domainName?: string;
+  notifyAuthKey?: string;
+  notifyReqAuth?: string;
+  notifyUrl?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      notifyAuthKey: 'NotifyAuthKey',
+      notifyReqAuth: 'NotifyReqAuth',
+      notifyUrl: 'NotifyUrl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      notifyAuthKey: 'string',
+      notifyReqAuth: 'string',
+      notifyUrl: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveSnapshotNotifyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLiveSnapshotNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLiveSnapshotNotifyConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamAuthCheckingRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamAuthCheckingResponseBody extends $tea.Model {
+  description?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamAuthCheckingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLiveStreamAuthCheckingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLiveStreamAuthCheckingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLiveStreamBitRateDataRequest extends $tea.Model {
   appName?: string;
   domainName?: string;
@@ -13183,6 +13508,108 @@ export class DescribeLiveStreamsControlHistoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeLiveStreamsControlHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamsNotifyRecordsRequest extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  endTime?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  status?: string;
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      status: 'Status',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      status: 'string',
+      streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamsNotifyRecordsResponseBody extends $tea.Model {
+  notifyRecordsInfo?: DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfo;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalNum?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notifyRecordsInfo: 'NotifyRecordsInfo',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notifyRecordsInfo: DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfo,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamsNotifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLiveStreamsNotifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLiveStreamsNotifyRecordsResponseBody,
     };
   }
 
@@ -16328,6 +16755,72 @@ export class GetEditingJobInfoResponse extends $tea.Model {
   }
 }
 
+export class GetMessageAppRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetMessageAppResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetMessageAppResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMessageAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMessageGroupRequest extends $tea.Model {
   appId?: string;
   groupId?: string;
@@ -16464,72 +16957,6 @@ export class GetMessageTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMessageTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageUserInfoRequest extends $tea.Model {
-  cloudUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cloudUid: 'CloudUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageUserInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetMessageUserInfoResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetMessageUserInfoResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageUserInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMessageUserInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMessageUserInfoResponseBody,
     };
   }
 
@@ -17259,6 +17686,7 @@ export class ListLiveRealtimeLogDeliveryInfosResponse extends $tea.Model {
 }
 
 export class ListMessageRequest extends $tea.Model {
+  appId?: string;
   groupId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -17266,6 +17694,7 @@ export class ListMessageRequest extends $tea.Model {
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       groupId: 'GroupId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -17276,6 +17705,7 @@ export class ListMessageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       groupId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -17336,13 +17766,87 @@ export class ListMessageResponse extends $tea.Model {
   }
 }
 
+export class ListMessageAppRequest extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  sortType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      sortType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListMessageAppResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListMessageAppResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMessageAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMessageGroupRequest extends $tea.Model {
+  appId?: string;
   pageNum?: number;
   pageSize?: number;
   sortType?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       sortType: 'SortType',
@@ -17352,6 +17856,7 @@ export class ListMessageGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       pageNum: 'number',
       pageSize: 'number',
       sortType: 'number',
@@ -17417,7 +17922,6 @@ export class ListMessageGroupUserRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   sortType?: number;
-  type?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -17425,7 +17929,6 @@ export class ListMessageGroupUserRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       sortType: 'SortType',
-      type: 'Type',
     };
   }
 
@@ -17436,7 +17939,6 @@ export class ListMessageGroupUserRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       sortType: 'number',
-      type: 'number',
     };
   }
 
@@ -17484,6 +17986,103 @@ export class ListMessageGroupUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListMessageGroupUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdRequest extends $tea.Model {
+  appId?: string;
+  groupId?: string;
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      groupId: 'GroupId',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      groupId: 'string',
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdShrinkRequest extends $tea.Model {
+  appId?: string;
+  groupId?: string;
+  userIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      groupId: 'GroupId',
+      userIdListShrink: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      groupId: 'string',
+      userIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListMessageGroupUserByIdResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListMessageGroupUserByIdResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMessageGroupUserByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageGroupUserByIdResponseBody,
     };
   }
 
@@ -18620,6 +19219,84 @@ export class PublishLiveStagingConfigToProductionResponse extends $tea.Model {
   }
 }
 
+export class QueryMessageAppRequest extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  pageNum?: number;
+  pageSize?: number;
+  sortType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      sortType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: QueryMessageAppResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': QueryMessageAppResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryMessageAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryMessageAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySnapshotCallbackAuthRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -18938,6 +19615,72 @@ export class RemoveShowFromShowListResponse extends $tea.Model {
   }
 }
 
+export class RestartCasterRequest extends $tea.Model {
+  casterId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      casterId: 'CasterId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      casterId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartCasterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartCasterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestartCasterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartCasterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResumeLiveStreamRequest extends $tea.Model {
   appName?: string;
   domainName?: string;
@@ -19077,6 +19820,277 @@ export class RollbackLiveStagingConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RollbackLiveStagingConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendLikeRequest extends $tea.Model {
+  appId?: string;
+  broadCastType?: number;
+  count?: string;
+  groupId?: string;
+  operatorUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      broadCastType: 'BroadCastType',
+      count: 'Count',
+      groupId: 'GroupId',
+      operatorUserId: 'OperatorUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      broadCastType: 'number',
+      count: 'string',
+      groupId: 'string',
+      operatorUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendLikeResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendLikeResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendLikeResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendLikeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendLikeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendLikeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupRequest extends $tea.Model {
+  appId?: string;
+  data?: string;
+  groupId?: string;
+  operatorUserId?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      data: 'Data',
+      groupId: 'GroupId',
+      operatorUserId: 'OperatorUserId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      data: 'string',
+      groupId: 'string',
+      operatorUserId: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendMessageToGroupResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendMessageToGroupResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendMessageToGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendMessageToGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupUsersRequest extends $tea.Model {
+  appId?: string;
+  data?: string;
+  groupId?: string;
+  operatorUserId?: string;
+  receiverIdList?: string[];
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      data: 'Data',
+      groupId: 'GroupId',
+      operatorUserId: 'OperatorUserId',
+      receiverIdList: 'ReceiverIdList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      data: 'string',
+      groupId: 'string',
+      operatorUserId: 'string',
+      receiverIdList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupUsersShrinkRequest extends $tea.Model {
+  appId?: string;
+  data?: string;
+  groupId?: string;
+  operatorUserId?: string;
+  receiverIdListShrink?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      data: 'Data',
+      groupId: 'GroupId',
+      operatorUserId: 'OperatorUserId',
+      receiverIdListShrink: 'ReceiverIdList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      data: 'string',
+      groupId: 'string',
+      operatorUserId: 'string',
+      receiverIdListShrink: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendMessageToGroupUsersResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendMessageToGroupUsersResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendMessageToGroupUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendMessageToGroupUsersResponseBody,
     };
   }
 
@@ -21842,6 +22856,81 @@ export class UpdateLiveSnapshotDetectPornConfigResponse extends $tea.Model {
   }
 }
 
+export class UpdateLiveSnapshotNotifyConfigRequest extends $tea.Model {
+  domainName?: string;
+  notifyAuthKey?: string;
+  notifyReqAuth?: string;
+  notifyUrl?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      notifyAuthKey: 'NotifyAuthKey',
+      notifyReqAuth: 'NotifyReqAuth',
+      notifyUrl: 'NotifyUrl',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      notifyAuthKey: 'string',
+      notifyReqAuth: 'string',
+      notifyUrl: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveSnapshotNotifyConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveSnapshotNotifyConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateLiveSnapshotNotifyConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLiveSnapshotNotifyConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLiveStreamMonitorRequest extends $tea.Model {
   app?: string;
   domain?: string;
@@ -22158,6 +23247,206 @@ export class UpdateLiveTopLevelDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateLiveTopLevelDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageAppRequest extends $tea.Model {
+  appConfig?: { [key: string]: string };
+  appId?: string;
+  appName?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appConfig: 'AppConfig',
+      appId: 'AppId',
+      appName: 'AppName',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      appId: 'string',
+      appName: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageAppShrinkRequest extends $tea.Model {
+  appConfigShrink?: string;
+  appId?: string;
+  appName?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appConfigShrink: 'AppConfig',
+      appId: 'AppId',
+      appName: 'AppName',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfigShrink: 'string',
+      appId: 'string',
+      appName: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: UpdateMessageAppResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: UpdateMessageAppResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMessageAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMessageAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageGroupRequest extends $tea.Model {
+  appId?: string;
+  extension?: { [key: string]: string };
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      extension: 'Extension',
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      groupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageGroupShrinkRequest extends $tea.Model {
+  appId?: string;
+  extensionShrink?: string;
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      extensionShrink: 'Extension',
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      extensionShrink: 'string',
+      groupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: UpdateMessageGroupResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: UpdateMessageGroupResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMessageGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMessageGroupResponseBody,
     };
   }
 
@@ -22771,25 +24060,6 @@ export class CancelMuteAllGroupUserResponseBodyResult extends $tea.Model {
   }
 }
 
-export class CloseMessageGroupResponseBodyResult extends $tea.Model {
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $tea.Model {
   appName?: string;
   createTime?: string;
@@ -22840,6 +24110,25 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $tea
       startTime: 'string',
       streamName: 'string',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageAppResponseBodyResult extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
     };
   }
 
@@ -27841,6 +29130,68 @@ export class DescribeLiveStreamsControlHistoryResponseBodyControlInfo extends $t
   }
 }
 
+export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveStreamNotifyRecordsInfo extends $tea.Model {
+  appName?: string;
+  description?: string;
+  domainName?: string;
+  notifyContent?: string;
+  notifyResult?: string;
+  notifyTime?: string;
+  notifyType?: string;
+  notifyUrl?: string;
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      description: 'Description',
+      domainName: 'DomainName',
+      notifyContent: 'NotifyContent',
+      notifyResult: 'NotifyResult',
+      notifyTime: 'NotifyTime',
+      notifyType: 'NotifyType',
+      notifyUrl: 'NotifyUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      description: 'string',
+      domainName: 'string',
+      notifyContent: 'string',
+      notifyResult: 'string',
+      notifyTime: 'string',
+      notifyType: 'string',
+      notifyUrl: 'string',
+      streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfo extends $tea.Model {
+  liveStreamNotifyRecordsInfo?: DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveStreamNotifyRecordsInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      liveStreamNotifyRecordsInfo: 'LiveStreamNotifyRecordsInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveStreamNotifyRecordsInfo: { 'type': 'array', 'itemType': DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveStreamNotifyRecordsInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLiveStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConfig extends $tea.Model {
   domainName?: string;
   notifyAuthKey?: string;
@@ -29199,6 +30550,40 @@ export class EditPlaylistResponseBodyItems extends $tea.Model {
   }
 }
 
+export class GetMessageAppResponseBodyResult extends $tea.Model {
+  appConfig?: { [key: string]: string };
+  appId?: string;
+  appName?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appConfig: 'AppConfig',
+      appId: 'AppId',
+      appName: 'AppName',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      appId: 'string',
+      appName: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMessageGroupResponseBodyResult extends $tea.Model {
   createTime?: number;
   creatorId?: string;
@@ -29250,28 +30635,6 @@ export class GetMessageTokenResponseBodyResult extends $tea.Model {
       accessToken: 'string',
       accessTokenExpiredTime: 'number',
       refreshToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageUserInfoResponseBodyResult extends $tea.Model {
-  hasOrderedIM?: boolean;
-  isNewIMUser?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      hasOrderedIM: 'HasOrderedIM',
-      isNewIMUser: 'IsNewIMUser',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hasOrderedIM: 'boolean',
-      isNewIMUser: 'boolean',
     };
   }
 
@@ -29633,7 +30996,67 @@ export class ListMessageResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListMessageAppResponseBodyResultAppList extends $tea.Model {
+  appConfig?: { [key: string]: string };
+  appId?: string;
+  appName?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appConfig: 'AppConfig',
+      appId: 'AppId',
+      appName: 'AppName',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      appId: 'string',
+      appName: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageAppResponseBodyResult extends $tea.Model {
+  appList?: ListMessageAppResponseBodyResultAppList[];
+  hasMore?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appList: 'AppList',
+      hasMore: 'HasMore',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appList: { 'type': 'array', 'itemType': ListMessageAppResponseBodyResultAppList },
+      hasMore: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMessageGroupResponseBodyResultGroupList extends $tea.Model {
+  appId?: string;
   createTime?: number;
   creatorId?: string;
   extension?: { [key: string]: string };
@@ -29641,6 +31064,7 @@ export class ListMessageGroupResponseBodyResultGroupList extends $tea.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       createTime: 'CreateTime',
       creatorId: 'CreatorId',
       extension: 'Extension',
@@ -29651,6 +31075,7 @@ export class ListMessageGroupResponseBodyResultGroupList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       createTime: 'number',
       creatorId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -29728,6 +31153,65 @@ export class ListMessageGroupUserResponseBodyResult extends $tea.Model {
       hasMore: 'boolean',
       total: 'number',
       userList: { 'type': 'array', 'itemType': ListMessageGroupUserResponseBodyResultUserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdResponseBodyResultUserList extends $tea.Model {
+  isMute?: boolean;
+  muteBy?: string[];
+  userAvatar?: string;
+  userExtension?: string;
+  userId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isMute: 'IsMute',
+      muteBy: 'MuteBy',
+      userAvatar: 'UserAvatar',
+      userExtension: 'UserExtension',
+      userId: 'UserId',
+      userNick: 'UserNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isMute: 'boolean',
+      muteBy: { 'type': 'array', 'itemType': 'string' },
+      userAvatar: 'string',
+      userExtension: 'string',
+      userId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageGroupUserByIdResponseBodyResult extends $tea.Model {
+  hasMore?: boolean;
+  total?: number;
+  userList?: ListMessageGroupUserByIdResponseBodyResultUserList[];
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'HasMore',
+      total: 'Total',
+      userList: 'UserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      total: 'number',
+      userList: { 'type': 'array', 'itemType': ListMessageGroupUserByIdResponseBodyResultUserList },
     };
   }
 
@@ -29895,6 +31379,122 @@ export class ModifyCasterProgramRequestEpisode extends $tea.Model {
       resourceId: 'string',
       startTime: 'string',
       switchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageAppResponseBodyResultAppList extends $tea.Model {
+  appConfig?: { [key: string]: string };
+  appId?: string;
+  appName?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appConfig: 'AppConfig',
+      appId: 'AppId',
+      appName: 'AppName',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      appId: 'string',
+      appName: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageAppResponseBodyResult extends $tea.Model {
+  appList?: QueryMessageAppResponseBodyResultAppList[];
+  hasMore?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appList: 'AppList',
+      hasMore: 'HasMore',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appList: { 'type': 'array', 'itemType': QueryMessageAppResponseBodyResultAppList },
+      hasMore: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendLikeResponseBodyResult extends $tea.Model {
+  likeCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      likeCount: 'LikeCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      likeCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupResponseBodyResult extends $tea.Model {
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGroupUsersResponseBodyResult extends $tea.Model {
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
     };
   }
 
@@ -30177,6 +31777,44 @@ export class UpdateCasterSceneAudioRequestAudioLayer extends $tea.Model {
       fixedDelayDuration: 'number',
       validChannel: 'string',
       volumeRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageAppResponseBodyResult extends $tea.Model {
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageGroupResponseBodyResult extends $tea.Model {
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
     };
   }
 
@@ -31407,6 +33045,51 @@ export default class Client extends OpenApi {
     return await this.addLiveSnapshotDetectPornConfigWithOptions(request, runtime);
   }
 
+  async addLiveSnapshotNotifyConfigWithOptions(request: AddLiveSnapshotNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddLiveSnapshotNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.notifyAuthKey)) {
+      query["NotifyAuthKey"] = request.notifyAuthKey;
+    }
+
+    if (!Util.isUnset(request.notifyReqAuth)) {
+      query["NotifyReqAuth"] = request.notifyReqAuth;
+    }
+
+    if (!Util.isUnset(request.notifyUrl)) {
+      query["NotifyUrl"] = request.notifyUrl;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddLiveSnapshotNotifyConfig",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddLiveSnapshotNotifyConfigResponse>(await this.callApi(params, req, runtime), new AddLiveSnapshotNotifyConfigResponse({}));
+  }
+
+  async addLiveSnapshotNotifyConfig(request: AddLiveSnapshotNotifyConfigRequest): Promise<AddLiveSnapshotNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addLiveSnapshotNotifyConfigWithOptions(request, runtime);
+  }
+
   async addLiveStreamTranscodeWithOptions(request: AddLiveStreamTranscodeRequest, runtime: $Util.RuntimeOptions): Promise<AddLiveStreamTranscodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32181,39 +33864,6 @@ export default class Client extends OpenApi {
     return await this.closeLiveShiftWithOptions(request, runtime);
   }
 
-  async closeMessageGroupWithOptions(request: CloseMessageGroupRequest, runtime: $Util.RuntimeOptions): Promise<CloseMessageGroupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.groupId)) {
-      body["GroupId"] = request.groupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CloseMessageGroup",
-      version: "2016-11-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseMessageGroupResponse>(await this.callApi(params, req, runtime), new CloseMessageGroupResponse({}));
-  }
-
-  async closeMessageGroup(request: CloseMessageGroupRequest): Promise<CloseMessageGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.closeMessageGroupWithOptions(request, runtime);
-  }
-
   async copyCasterWithOptions(request: CopyCasterRequest, runtime: $Util.RuntimeOptions): Promise<CopyCasterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32572,6 +34222,53 @@ export default class Client extends OpenApi {
   async createLiveTranscodeTemplate(request: CreateLiveTranscodeTemplateRequest): Promise<CreateLiveTranscodeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLiveTranscodeTemplateWithOptions(request, runtime);
+  }
+
+  async createMessageAppWithOptions(tmpReq: CreateMessageAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateMessageAppResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateMessageAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.appConfig)) {
+      request.appConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appConfig, "AppConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appConfigShrink)) {
+      body["AppConfig"] = request.appConfigShrink;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMessageApp",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMessageAppResponse>(await this.callApi(params, req, runtime), new CreateMessageAppResponse({}));
+  }
+
+  async createMessageApp(request: CreateMessageAppRequest): Promise<CreateMessageAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createMessageAppWithOptions(request, runtime);
   }
 
   async createMessageGroupWithOptions(tmpReq: CreateMessageGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMessageGroupResponse> {
@@ -33581,6 +35278,39 @@ export default class Client extends OpenApi {
   async deleteLiveSnapshotDetectPornConfig(request: DeleteLiveSnapshotDetectPornConfigRequest): Promise<DeleteLiveSnapshotDetectPornConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLiveSnapshotDetectPornConfigWithOptions(request, runtime);
+  }
+
+  async deleteLiveSnapshotNotifyConfigWithOptions(request: DeleteLiveSnapshotNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveSnapshotNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLiveSnapshotNotifyConfig",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLiveSnapshotNotifyConfigResponse>(await this.callApi(params, req, runtime), new DeleteLiveSnapshotNotifyConfigResponse({}));
+  }
+
+  async deleteLiveSnapshotNotifyConfig(request: DeleteLiveSnapshotNotifyConfigRequest): Promise<DeleteLiveSnapshotNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLiveSnapshotNotifyConfigWithOptions(request, runtime);
   }
 
   async deleteLiveSpecificStagingConfigWithOptions(request: DeleteLiveSpecificStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveSpecificStagingConfigResponse> {
@@ -34692,6 +36422,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.area)) {
       query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.dataProtocol)) {
+      query["DataProtocol"] = request.dataProtocol;
     }
 
     if (!Util.isUnset(request.domainName)) {
@@ -36764,6 +38498,76 @@ export default class Client extends OpenApi {
     return await this.describeLiveSnapshotDetectPornConfigWithOptions(request, runtime);
   }
 
+  async describeLiveSnapshotNotifyConfigWithOptions(request: DescribeLiveSnapshotNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLiveSnapshotNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLiveSnapshotNotifyConfig",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLiveSnapshotNotifyConfigResponse>(await this.callApi(params, req, runtime), new DescribeLiveSnapshotNotifyConfigResponse({}));
+  }
+
+  async describeLiveSnapshotNotifyConfig(request: DescribeLiveSnapshotNotifyConfigRequest): Promise<DescribeLiveSnapshotNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLiveSnapshotNotifyConfigWithOptions(request, runtime);
+  }
+
+  async describeLiveStreamAuthCheckingWithOptions(request: DescribeLiveStreamAuthCheckingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLiveStreamAuthCheckingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLiveStreamAuthChecking",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLiveStreamAuthCheckingResponse>(await this.callApi(params, req, runtime), new DescribeLiveStreamAuthCheckingResponse({}));
+  }
+
+  async describeLiveStreamAuthChecking(request: DescribeLiveStreamAuthCheckingRequest): Promise<DescribeLiveStreamAuthCheckingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLiveStreamAuthCheckingWithOptions(request, runtime);
+  }
+
   async describeLiveStreamBitRateDataWithOptions(request: DescribeLiveStreamBitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLiveStreamBitRateDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37568,6 +39372,67 @@ export default class Client extends OpenApi {
   async describeLiveStreamsControlHistory(request: DescribeLiveStreamsControlHistoryRequest): Promise<DescribeLiveStreamsControlHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLiveStreamsControlHistoryWithOptions(request, runtime);
+  }
+
+  async describeLiveStreamsNotifyRecordsWithOptions(request: DescribeLiveStreamsNotifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLiveStreamsNotifyRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.streamName)) {
+      query["StreamName"] = request.streamName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLiveStreamsNotifyRecords",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLiveStreamsNotifyRecordsResponse>(await this.callApi(params, req, runtime), new DescribeLiveStreamsNotifyRecordsResponse({}));
+  }
+
+  async describeLiveStreamsNotifyRecords(request: DescribeLiveStreamsNotifyRecordsRequest): Promise<DescribeLiveStreamsNotifyRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLiveStreamsNotifyRecordsWithOptions(request, runtime);
   }
 
   async describeLiveStreamsNotifyUrlConfigWithOptions(request: DescribeLiveStreamsNotifyUrlConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLiveStreamsNotifyUrlConfigResponse> {
@@ -39221,6 +41086,35 @@ export default class Client extends OpenApi {
     return await this.getEditingJobInfoWithOptions(request, runtime);
   }
 
+  async getMessageAppWithOptions(request: GetMessageAppRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageAppResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMessageApp",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMessageAppResponse>(await this.callApi(params, req, runtime), new GetMessageAppResponse({}));
+  }
+
+  async getMessageApp(request: GetMessageAppRequest): Promise<GetMessageAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMessageAppWithOptions(request, runtime);
+  }
+
   async getMessageGroupWithOptions(request: GetMessageGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39293,35 +41187,6 @@ export default class Client extends OpenApi {
   async getMessageToken(request: GetMessageTokenRequest): Promise<GetMessageTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMessageTokenWithOptions(request, runtime);
-  }
-
-  async getMessageUserInfoWithOptions(request: GetMessageUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageUserInfoResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cloudUid)) {
-      body["CloudUid"] = request.cloudUid;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetMessageUserInfo",
-      version: "2016-11-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetMessageUserInfoResponse>(await this.callApi(params, req, runtime), new GetMessageUserInfoResponse({}));
-  }
-
-  async getMessageUserInfo(request: GetMessageUserInfoRequest): Promise<GetMessageUserInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMessageUserInfoWithOptions(request, runtime);
   }
 
   async getMultiRateConfigWithOptions(request: GetMultiRateConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetMultiRateConfigResponse> {
@@ -39680,6 +41545,10 @@ export default class Client extends OpenApi {
   async listMessageWithOptions(request: ListMessageRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
     if (!Util.isUnset(request.groupId)) {
       body["GroupId"] = request.groupId;
     }
@@ -39722,9 +41591,50 @@ export default class Client extends OpenApi {
     return await this.listMessageWithOptions(request, runtime);
   }
 
+  async listMessageAppWithOptions(request: ListMessageAppRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageAppResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      body["SortType"] = request.sortType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMessageApp",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMessageAppResponse>(await this.callApi(params, req, runtime), new ListMessageAppResponse({}));
+  }
+
+  async listMessageApp(request: ListMessageAppRequest): Promise<ListMessageAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMessageAppWithOptions(request, runtime);
+  }
+
   async listMessageGroupWithOptions(request: ListMessageGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
     if (!Util.isUnset(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
@@ -39786,10 +41696,6 @@ export default class Client extends OpenApi {
       body["SortType"] = request.sortType;
     }
 
-    if (!Util.isUnset(request.type)) {
-      body["Type"] = request.type;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -39810,6 +41716,49 @@ export default class Client extends OpenApi {
   async listMessageGroupUser(request: ListMessageGroupUserRequest): Promise<ListMessageGroupUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMessageGroupUserWithOptions(request, runtime);
+  }
+
+  async listMessageGroupUserByIdWithOptions(tmpReq: ListMessageGroupUserByIdRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageGroupUserByIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListMessageGroupUserByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userIdList)) {
+      request.userIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIdList, "UserIdList", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.userIdListShrink)) {
+      body["UserIdList"] = request.userIdListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMessageGroupUserById",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMessageGroupUserByIdResponse>(await this.callApi(params, req, runtime), new ListMessageGroupUserByIdResponse({}));
+  }
+
+  async listMessageGroupUserById(request: ListMessageGroupUserByIdRequest): Promise<ListMessageGroupUserByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMessageGroupUserByIdWithOptions(request, runtime);
   }
 
   async listPlaylistWithOptions(request: ListPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<ListPlaylistResponse> {
@@ -40478,6 +42427,51 @@ export default class Client extends OpenApi {
     return await this.publishLiveStagingConfigToProductionWithOptions(request, runtime);
   }
 
+  async queryMessageAppWithOptions(request: QueryMessageAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageAppResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      body["SortType"] = request.sortType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMessageApp",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMessageAppResponse>(await this.callApi(params, req, runtime), new QueryMessageAppResponse({}));
+  }
+
+  async queryMessageApp(request: QueryMessageAppRequest): Promise<QueryMessageAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMessageAppWithOptions(request, runtime);
+  }
+
   async querySnapshotCallbackAuthWithOptions(request: QuerySnapshotCallbackAuthRequest, runtime: $Util.RuntimeOptions): Promise<QuerySnapshotCallbackAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40658,6 +42652,39 @@ export default class Client extends OpenApi {
     return await this.removeShowFromShowListWithOptions(request, runtime);
   }
 
+  async restartCasterWithOptions(request: RestartCasterRequest, runtime: $Util.RuntimeOptions): Promise<RestartCasterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.casterId)) {
+      query["CasterId"] = request.casterId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartCaster",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartCasterResponse>(await this.callApi(params, req, runtime), new RestartCasterResponse({}));
+  }
+
+  async restartCaster(request: RestartCasterRequest): Promise<RestartCasterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartCasterWithOptions(request, runtime);
+  }
+
   async resumeLiveStreamWithOptions(request: ResumeLiveStreamRequest, runtime: $Util.RuntimeOptions): Promise<ResumeLiveStreamResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40742,6 +42769,151 @@ export default class Client extends OpenApi {
   async rollbackLiveStagingConfig(request: RollbackLiveStagingConfigRequest): Promise<RollbackLiveStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackLiveStagingConfigWithOptions(request, runtime);
+  }
+
+  async sendLikeWithOptions(request: SendLikeRequest, runtime: $Util.RuntimeOptions): Promise<SendLikeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.broadCastType)) {
+      body["BroadCastType"] = request.broadCastType;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      body["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.operatorUserId)) {
+      body["OperatorUserId"] = request.operatorUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendLike",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendLikeResponse>(await this.callApi(params, req, runtime), new SendLikeResponse({}));
+  }
+
+  async sendLike(request: SendLikeRequest): Promise<SendLikeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendLikeWithOptions(request, runtime);
+  }
+
+  async sendMessageToGroupWithOptions(request: SendMessageToGroupRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.operatorUserId)) {
+      body["OperatorUserId"] = request.operatorUserId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendMessageToGroup",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendMessageToGroupResponse>(await this.callApi(params, req, runtime), new SendMessageToGroupResponse({}));
+  }
+
+  async sendMessageToGroup(request: SendMessageToGroupRequest): Promise<SendMessageToGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendMessageToGroupWithOptions(request, runtime);
+  }
+
+  async sendMessageToGroupUsersWithOptions(tmpReq: SendMessageToGroupUsersRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGroupUsersResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendMessageToGroupUsersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.receiverIdList)) {
+      request.receiverIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.receiverIdList, "ReceiverIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.operatorUserId)) {
+      body["OperatorUserId"] = request.operatorUserId;
+    }
+
+    if (!Util.isUnset(request.receiverIdListShrink)) {
+      body["ReceiverIdList"] = request.receiverIdListShrink;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendMessageToGroupUsers",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendMessageToGroupUsersResponse>(await this.callApi(params, req, runtime), new SendMessageToGroupUsersResponse({}));
+  }
+
+  async sendMessageToGroupUsers(request: SendMessageToGroupUsersRequest): Promise<SendMessageToGroupUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendMessageToGroupUsersWithOptions(request, runtime);
   }
 
   async sendRoomNotificationWithOptions(request: SendRoomNotificationRequest, runtime: $Util.RuntimeOptions): Promise<SendRoomNotificationResponse> {
@@ -42376,6 +44548,51 @@ export default class Client extends OpenApi {
     return await this.updateLiveSnapshotDetectPornConfigWithOptions(request, runtime);
   }
 
+  async updateLiveSnapshotNotifyConfigWithOptions(request: UpdateLiveSnapshotNotifyConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveSnapshotNotifyConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.notifyAuthKey)) {
+      query["NotifyAuthKey"] = request.notifyAuthKey;
+    }
+
+    if (!Util.isUnset(request.notifyReqAuth)) {
+      query["NotifyReqAuth"] = request.notifyReqAuth;
+    }
+
+    if (!Util.isUnset(request.notifyUrl)) {
+      query["NotifyUrl"] = request.notifyUrl;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLiveSnapshotNotifyConfig",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLiveSnapshotNotifyConfigResponse>(await this.callApi(params, req, runtime), new UpdateLiveSnapshotNotifyConfigResponse({}));
+  }
+
+  async updateLiveSnapshotNotifyConfig(request: UpdateLiveSnapshotNotifyConfigRequest): Promise<UpdateLiveSnapshotNotifyConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLiveSnapshotNotifyConfigWithOptions(request, runtime);
+  }
+
   async updateLiveStreamMonitorWithOptions(request: UpdateLiveStreamMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveStreamMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42586,6 +44803,100 @@ export default class Client extends OpenApi {
   async updateLiveTopLevelDomain(request: UpdateLiveTopLevelDomainRequest): Promise<UpdateLiveTopLevelDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLiveTopLevelDomainWithOptions(request, runtime);
+  }
+
+  async updateMessageAppWithOptions(tmpReq: UpdateMessageAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMessageAppResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateMessageAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.appConfig)) {
+      request.appConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appConfig, "AppConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appConfigShrink)) {
+      body["AppConfig"] = request.appConfigShrink;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMessageApp",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMessageAppResponse>(await this.callApi(params, req, runtime), new UpdateMessageAppResponse({}));
+  }
+
+  async updateMessageApp(request: UpdateMessageAppRequest): Promise<UpdateMessageAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMessageAppWithOptions(request, runtime);
+  }
+
+  async updateMessageGroupWithOptions(tmpReq: UpdateMessageGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMessageGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateMessageGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMessageGroup",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMessageGroupResponse>(await this.callApi(params, req, runtime), new UpdateMessageGroupResponse({}));
+  }
+
+  async updateMessageGroup(request: UpdateMessageGroupRequest): Promise<UpdateMessageGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMessageGroupWithOptions(request, runtime);
   }
 
   async updateMixStreamWithOptions(request: UpdateMixStreamRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMixStreamResponse> {
