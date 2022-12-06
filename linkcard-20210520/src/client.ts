@@ -8,6 +8,226 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddCardToDirectionalGroupRequest extends $tea.Model {
+  addType?: string;
+  apiProduct?: string;
+  groupId?: string;
+  iccidList?: string[];
+  msgNotify?: boolean;
+  serialNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addType: 'AddType',
+      apiProduct: 'ApiProduct',
+      groupId: 'GroupId',
+      iccidList: 'IccidList',
+      msgNotify: 'MsgNotify',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addType: 'string',
+      apiProduct: 'string',
+      groupId: 'string',
+      iccidList: { 'type': 'array', 'itemType': 'string' },
+      msgNotify: 'boolean',
+      serialNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCardToDirectionalGroupShrinkRequest extends $tea.Model {
+  addType?: string;
+  apiProduct?: string;
+  groupId?: string;
+  iccidListShrink?: string;
+  msgNotify?: boolean;
+  serialNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addType: 'AddType',
+      apiProduct: 'ApiProduct',
+      groupId: 'GroupId',
+      iccidListShrink: 'IccidList',
+      msgNotify: 'MsgNotify',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addType: 'string',
+      apiProduct: 'string',
+      groupId: 'string',
+      iccidListShrink: 'string',
+      msgNotify: 'boolean',
+      serialNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCardToDirectionalGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddCardToDirectionalGroupResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddCardToDirectionalGroupResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCardToDirectionalGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddCardToDirectionalGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCardToDirectionalGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalAddressRequest extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  groupId?: string;
+  msgNotify?: boolean;
+  serialNo?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+      groupId: 'GroupId',
+      msgNotify: 'MsgNotify',
+      serialNo: 'SerialNo',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+      groupId: 'string',
+      msgNotify: 'boolean',
+      serialNo: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddDirectionalAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDirectionalAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDirectionalCardRequest extends $tea.Model {
   fileUri?: string;
   groupId?: string;
@@ -298,6 +518,171 @@ export class BatchAddDirectionalAddressResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchAddDirectionalAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalAddressRequest extends $tea.Model {
+  address?: string;
+  groupId?: string;
+  msgNotify?: boolean;
+  serialNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      groupId: 'GroupId',
+      msgNotify: 'MsgNotify',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      groupId: 'string',
+      msgNotify: 'boolean',
+      serialNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDirectionalAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDirectionalAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalGroupRequest extends $tea.Model {
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDirectionalGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDirectionalGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDirectionalGroupResponseBody,
     };
   }
 
@@ -1707,6 +2092,28 @@ export class VerifyIotCardResponse extends $tea.Model {
   }
 }
 
+export class AddCardToDirectionalGroupResponseBodyData extends $tea.Model {
+  result?: boolean;
+  serialNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+      serialNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCardDetailResponseBodyDataListPsimCards extends $tea.Model {
   apnName?: string;
   certifyStatus?: string;
@@ -2653,6 +3060,112 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addCardToDirectionalGroupWithOptions(tmpReq: AddCardToDirectionalGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddCardToDirectionalGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddCardToDirectionalGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.iccidList)) {
+      request.iccidListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.iccidList, "IccidList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.addType)) {
+      query["AddType"] = request.addType;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.iccidListShrink)) {
+      query["IccidList"] = request.iccidListShrink;
+    }
+
+    if (!Util.isUnset(request.msgNotify)) {
+      query["MsgNotify"] = request.msgNotify;
+    }
+
+    if (!Util.isUnset(request.serialNo)) {
+      query["SerialNo"] = request.serialNo;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiProduct)) {
+      body["ApiProduct"] = request.apiProduct;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCardToDirectionalGroup",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCardToDirectionalGroupResponse>(await this.callApi(params, req, runtime), new AddCardToDirectionalGroupResponse({}));
+  }
+
+  async addCardToDirectionalGroup(request: AddCardToDirectionalGroupRequest): Promise<AddCardToDirectionalGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addCardToDirectionalGroupWithOptions(request, runtime);
+  }
+
+  async addDirectionalAddressWithOptions(request: AddDirectionalAddressRequest, runtime: $Util.RuntimeOptions): Promise<AddDirectionalAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.msgNotify)) {
+      query["MsgNotify"] = request.msgNotify;
+    }
+
+    if (!Util.isUnset(request.serialNo)) {
+      query["SerialNo"] = request.serialNo;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDirectionalAddress",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDirectionalAddressResponse>(await this.callApi(params, req, runtime), new AddDirectionalAddressResponse({}));
+  }
+
+  async addDirectionalAddress(request: AddDirectionalAddressRequest): Promise<AddDirectionalAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDirectionalAddressWithOptions(request, runtime);
+  }
+
   async addDirectionalCardWithOptions(tmpReq: AddDirectionalCardRequest, runtime: $Util.RuntimeOptions): Promise<AddDirectionalCardResponse> {
     Util.validateModel(tmpReq);
     let request = new AddDirectionalCardShrinkRequest({ });
@@ -2784,6 +3297,76 @@ export default class Client extends OpenApi {
   async batchAddDirectionalAddress(request: BatchAddDirectionalAddressRequest): Promise<BatchAddDirectionalAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddDirectionalAddressWithOptions(request, runtime);
+  }
+
+  async deleteDirectionalAddressWithOptions(request: DeleteDirectionalAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDirectionalAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.msgNotify)) {
+      query["MsgNotify"] = request.msgNotify;
+    }
+
+    if (!Util.isUnset(request.serialNo)) {
+      query["SerialNo"] = request.serialNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDirectionalAddress",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDirectionalAddressResponse>(await this.callApi(params, req, runtime), new DeleteDirectionalAddressResponse({}));
+  }
+
+  async deleteDirectionalAddress(request: DeleteDirectionalAddressRequest): Promise<DeleteDirectionalAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDirectionalAddressWithOptions(request, runtime);
+  }
+
+  async deleteDirectionalGroupWithOptions(request: DeleteDirectionalGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDirectionalGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDirectionalGroup",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDirectionalGroupResponse>(await this.callApi(params, req, runtime), new DeleteDirectionalGroupResponse({}));
+  }
+
+  async deleteDirectionalGroup(request: DeleteDirectionalGroupRequest): Promise<DeleteDirectionalGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDirectionalGroupWithOptions(request, runtime);
   }
 
   async forceActivationWithOptions(request: ForceActivationRequest, runtime: $Util.RuntimeOptions): Promise<ForceActivationResponse> {
