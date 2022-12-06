@@ -1121,6 +1121,255 @@ export class CreateBandwidthPackageResponse extends $tea.Model {
   }
 }
 
+export class CreateBasicAccelerateIpRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  ipSetId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      ipSetId: 'IpSetId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      ipSetId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpResponseBody extends $tea.Model {
+  accelerateIpAddress?: string;
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  ipSetId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpAddress: 'AccelerateIpAddress',
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      ipSetId: 'IpSetId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpAddress: 'string',
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      ipSetId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBasicAccelerateIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBasicAccelerateIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationRequest extends $tea.Model {
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  clientToken?: string;
+  endpointId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      clientToken: 'string',
+      endpointId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationResponseBody extends $tea.Model {
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  endpointId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      endpointId: 'EndpointId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      endpointId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBasicAccelerateIpEndpointRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBasicAccelerateIpEndpointRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationsRequest extends $tea.Model {
+  accelerateIpEndpointRelations?: CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpointRelations[];
+  acceleratorId?: string;
+  clientToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpEndpointRelations: 'AccelerateIpEndpointRelations',
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpEndpointRelations: { 'type': 'array', 'itemType': CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpointRelations },
+      acceleratorId: 'string',
+      clientToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationsResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAccelerateIpEndpointRelationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBasicAccelerateIpEndpointRelationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBasicAccelerateIpEndpointRelationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBasicAcceleratorRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: boolean;
@@ -2519,6 +2768,165 @@ export class DeleteBandwidthPackageResponse extends $tea.Model {
   }
 }
 
+export class DeleteBasicAccelerateIpRequest extends $tea.Model {
+  accelerateIpId?: string;
+  clientToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      clientToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAccelerateIpResponseBody extends $tea.Model {
+  accelerateIpId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAccelerateIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBasicAccelerateIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBasicAccelerateIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAccelerateIpEndpointRelationRequest extends $tea.Model {
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  clientToken?: string;
+  endpointId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      clientToken: 'string',
+      endpointId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAccelerateIpEndpointRelationResponseBody extends $tea.Model {
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  endpointId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      endpointId: 'EndpointId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      endpointId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAccelerateIpEndpointRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBasicAccelerateIpEndpointRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBasicAccelerateIpEndpointRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBasicAcceleratorRequest extends $tea.Model {
   acceleratorId?: string;
   regionId?: string;
@@ -2580,6 +2988,81 @@ export class DeleteBasicAcceleratorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteBasicAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointRequest extends $tea.Model {
+  clientToken?: string;
+  endpointGroupId?: string;
+  endpointId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointGroupId: 'EndpointGroupId',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointGroupId: 'string',
+      endpointId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointResponseBody extends $tea.Model {
+  endpointId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBasicEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBasicEndpointResponseBody,
     };
   }
 
@@ -4445,6 +4928,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
   slsProjectName?: string;
   slsRegion?: string;
   state?: string;
+  tags?: DescribeEndpointGroupResponseBodyTags[];
   thresholdCount?: number;
   totalCount?: number;
   trafficPercentage?: number;
@@ -4475,6 +4959,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       slsProjectName: 'SlsProjectName',
       slsRegion: 'SlsRegion',
       state: 'State',
+      tags: 'Tags',
       thresholdCount: 'ThresholdCount',
       totalCount: 'TotalCount',
       trafficPercentage: 'TrafficPercentage',
@@ -4508,6 +4993,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       slsProjectName: 'string',
       slsRegion: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyTags },
       thresholdCount: 'number',
       totalCount: 'number',
       trafficPercentage: 'number',
@@ -5406,6 +5892,90 @@ export class GetAclResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAccelerateIpRequest extends $tea.Model {
+  accelerateIpId?: string;
+  clientToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      clientToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAccelerateIpResponseBody extends $tea.Model {
+  accelerateIpAddress?: string;
+  accelerateIpId?: string;
+  acceleratorId?: string;
+  ipSetId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpAddress: 'AccelerateIpAddress',
+      accelerateIpId: 'AccelerateIpId',
+      acceleratorId: 'AcceleratorId',
+      ipSetId: 'IpSetId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpAddress: 'string',
+      accelerateIpId: 'string',
+      acceleratorId: 'string',
+      ipSetId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAccelerateIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetBasicAccelerateIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBasicAccelerateIpResponseBody,
     };
   }
 
@@ -7346,6 +7916,7 @@ export class ListEndpointGroupsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  tag?: ListEndpointGroupsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
@@ -7356,6 +7927,7 @@ export class ListEndpointGroupsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -7369,6 +7941,7 @@ export class ListEndpointGroupsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': ListEndpointGroupsRequestTag },
     };
   }
 
@@ -8394,6 +8967,90 @@ export class UpdateAclAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAclAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdditionalCertificateWithListenerRequest extends $tea.Model {
+  acceleratorId?: string;
+  certificateId?: string;
+  clientToken?: string;
+  domain?: string;
+  dryRun?: boolean;
+  listenerId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      certificateId: 'CertificateId',
+      clientToken: 'ClientToken',
+      domain: 'Domain',
+      dryRun: 'DryRun',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      certificateId: 'string',
+      clientToken: 'string',
+      domain: 'string',
+      dryRun: 'boolean',
+      listenerId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdditionalCertificateWithListenerResponseBody extends $tea.Model {
+  listenerId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listenerId: 'ListenerId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdditionalCertificateWithListenerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAdditionalCertificateWithListenerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAdditionalCertificateWithListenerResponseBody,
     };
   }
 
@@ -9864,6 +10521,28 @@ export class CreateAclRequestAclEntries extends $tea.Model {
   }
 }
 
+export class CreateBasicAccelerateIpEndpointRelationsRequestAccelerateIpEndpointRelations extends $tea.Model {
+  accelerateIpId?: string;
+  endpointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateIpId: 'AccelerateIpId',
+      endpointId: 'EndpointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateIpId: 'string',
+      endpointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomRoutingEndpointGroupDestinationsRequestDestinationConfigurations extends $tea.Model {
   fromPort?: number;
   protocols?: string[];
@@ -11070,6 +11749,28 @@ export class DescribeEndpointGroupResponseBodyPortOverrides extends $tea.Model {
     return {
       endpointPort: 'number',
       listenerPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndpointGroupResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -12580,6 +13281,28 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
   }
 }
 
+export class ListEndpointGroupsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations extends $tea.Model {
   enableClientIPPreservation?: boolean;
   endpoint?: string;
@@ -12639,6 +13362,28 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides extends $
   }
 }
 
+export class ListEndpointGroupsResponseBodyEndpointGroupsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
   acceleratorId?: string;
   description?: string;
@@ -12659,6 +13404,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
   name?: string;
   portOverrides?: ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides[];
   state?: string;
+  tags?: ListEndpointGroupsResponseBodyEndpointGroupsTags[];
   thresholdCount?: number;
   trafficPercentage?: number;
   static names(): { [key: string]: string } {
@@ -12682,6 +13428,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       name: 'Name',
       portOverrides: 'PortOverrides',
       state: 'State',
+      tags: 'Tags',
       thresholdCount: 'ThresholdCount',
       trafficPercentage: 'TrafficPercentage',
     };
@@ -12708,6 +13455,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       name: 'string',
       portOverrides: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides },
       state: 'string',
+      tags: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsTags },
       thresholdCount: 'number',
       trafficPercentage: 'number',
     };
@@ -14249,7 +14997,7 @@ export default class Client extends OpenApi {
       query["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.ipSetConfig)) {
+    if (!Util.isUnset($tea.toMap(request.ipSetConfig))) {
       query["IpSetConfig"] = request.ipSetConfig;
     }
 
@@ -14508,6 +15256,133 @@ export default class Client extends OpenApi {
   async createBandwidthPackage(request: CreateBandwidthPackageRequest): Promise<CreateBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBandwidthPackageWithOptions(request, runtime);
+  }
+
+  async createBasicAccelerateIpWithOptions(request: CreateBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBasicAccelerateIp",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpResponse({}));
+  }
+
+  async createBasicAccelerateIp(request: CreateBasicAccelerateIpRequest): Promise<CreateBasicAccelerateIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicAccelerateIpWithOptions(request, runtime);
+  }
+
+  async createBasicAccelerateIpEndpointRelationWithOptions(request: CreateBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accelerateIpId)) {
+      query["AccelerateIpId"] = request.accelerateIpId;
+    }
+
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBasicAccelerateIpEndpointRelation",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicAccelerateIpEndpointRelationResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpEndpointRelationResponse({}));
+  }
+
+  async createBasicAccelerateIpEndpointRelation(request: CreateBasicAccelerateIpEndpointRelationRequest): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicAccelerateIpEndpointRelationWithOptions(request, runtime);
+  }
+
+  async createBasicAccelerateIpEndpointRelationsWithOptions(request: CreateBasicAccelerateIpEndpointRelationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accelerateIpEndpointRelations)) {
+      query["AccelerateIpEndpointRelations"] = request.accelerateIpEndpointRelations;
+    }
+
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBasicAccelerateIpEndpointRelations",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicAccelerateIpEndpointRelationsResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpEndpointRelationsResponse({}));
+  }
+
+  async createBasicAccelerateIpEndpointRelations(request: CreateBasicAccelerateIpEndpointRelationsRequest): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicAccelerateIpEndpointRelationsWithOptions(request, runtime);
   }
 
   async createBasicAcceleratorWithOptions(request: CreateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAcceleratorResponse> {
@@ -15152,7 +16027,7 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.XForwardedForConfig)) {
+    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
@@ -15371,6 +16246,88 @@ export default class Client extends OpenApi {
     return await this.deleteBandwidthPackageWithOptions(request, runtime);
   }
 
+  async deleteBasicAccelerateIpWithOptions(request: DeleteBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accelerateIpId)) {
+      query["AccelerateIpId"] = request.accelerateIpId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicAccelerateIp",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new DeleteBasicAccelerateIpResponse({}));
+  }
+
+  async deleteBasicAccelerateIp(request: DeleteBasicAccelerateIpRequest): Promise<DeleteBasicAccelerateIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicAccelerateIpWithOptions(request, runtime);
+  }
+
+  async deleteBasicAccelerateIpEndpointRelationWithOptions(request: DeleteBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accelerateIpId)) {
+      query["AccelerateIpId"] = request.accelerateIpId;
+    }
+
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicAccelerateIpEndpointRelation",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicAccelerateIpEndpointRelationResponse>(await this.callApi(params, req, runtime), new DeleteBasicAccelerateIpEndpointRelationResponse({}));
+  }
+
+  async deleteBasicAccelerateIpEndpointRelation(request: DeleteBasicAccelerateIpEndpointRelationRequest): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicAccelerateIpEndpointRelationWithOptions(request, runtime);
+  }
+
   async deleteBasicAcceleratorWithOptions(request: DeleteBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15402,6 +16359,47 @@ export default class Client extends OpenApi {
   async deleteBasicAccelerator(request: DeleteBasicAcceleratorRequest): Promise<DeleteBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicAcceleratorWithOptions(request, runtime);
+  }
+
+  async deleteBasicEndpointWithOptions(request: DeleteBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicEndpoint",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicEndpointResponse>(await this.callApi(params, req, runtime), new DeleteBasicEndpointResponse({}));
+  }
+
+  async deleteBasicEndpoint(request: DeleteBasicEndpointRequest): Promise<DeleteBasicEndpointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicEndpointWithOptions(request, runtime);
   }
 
   async deleteBasicEndpointGroupWithOptions(request: DeleteBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointGroupResponse> {
@@ -16666,6 +17664,43 @@ export default class Client extends OpenApi {
     return await this.getAclWithOptions(request, runtime);
   }
 
+  async getBasicAccelerateIpWithOptions(request: GetBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAccelerateIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accelerateIpId)) {
+      query["AccelerateIpId"] = request.accelerateIpId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBasicAccelerateIp",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new GetBasicAccelerateIpResponse({}));
+  }
+
+  async getBasicAccelerateIp(request: GetBasicAccelerateIpRequest): Promise<GetBasicAccelerateIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBasicAccelerateIpWithOptions(request, runtime);
+  }
+
   async getBasicAcceleratorWithOptions(request: GetBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17679,6 +18714,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18235,6 +19274,59 @@ export default class Client extends OpenApi {
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAclAttributeWithOptions(request, runtime);
+  }
+
+  async updateAdditionalCertificateWithListenerWithOptions(request: UpdateAdditionalCertificateWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAdditionalCertificateWithListenerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAdditionalCertificateWithListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAdditionalCertificateWithListenerResponse>(await this.callApi(params, req, runtime), new UpdateAdditionalCertificateWithListenerResponse({}));
+  }
+
+  async updateAdditionalCertificateWithListener(request: UpdateAdditionalCertificateWithListenerRequest): Promise<UpdateAdditionalCertificateWithListenerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAdditionalCertificateWithListenerWithOptions(request, runtime);
   }
 
   async updateApplicationMonitorWithOptions(request: UpdateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationMonitorResponse> {
@@ -19080,7 +20172,7 @@ export default class Client extends OpenApi {
       query["SecurityPolicyId"] = request.securityPolicyId;
     }
 
-    if (!Util.isUnset(request.XForwardedForConfig)) {
+    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
