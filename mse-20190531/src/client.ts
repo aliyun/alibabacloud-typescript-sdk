@@ -10529,6 +10529,7 @@ export class QueryConfigRequest extends $tea.Model {
   clusterId?: string;
   configType?: string;
   instanceId?: string;
+  needRunningConf?: boolean;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10536,6 +10537,7 @@ export class QueryConfigRequest extends $tea.Model {
       clusterId: 'ClusterId',
       configType: 'ConfigType',
       instanceId: 'InstanceId',
+      needRunningConf: 'NeedRunningConf',
       requestPars: 'RequestPars',
     };
   }
@@ -10546,6 +10548,7 @@ export class QueryConfigRequest extends $tea.Model {
       clusterId: 'string',
       configType: 'string',
       instanceId: 'string',
+      needRunningConf: 'boolean',
       requestPars: 'string',
     };
   }
@@ -20654,12 +20657,32 @@ export class QueryClusterSpecificationResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryConfigResponseBodyDataNacosRunningEnv extends $tea.Model {
+  emptyProtect?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      emptyProtect: 'emptyProtect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emptyProtect: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConfigResponseBodyData extends $tea.Model {
   autopurgePurgeInterval?: string;
   autopurgeSnapRetainCount?: string;
   clusterName?: string;
   configAuthEnabled?: boolean;
   configAuthSupported?: boolean;
+  configContentLimit?: number;
   configSecretEnabled?: boolean;
   configSecretSupported?: boolean;
   initLimit?: string;
@@ -20670,6 +20693,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   maxClientCnxns?: string;
   maxSessionTimeout?: string;
   minSessionTimeout?: string;
+  nacosRunningEnv?: QueryConfigResponseBodyDataNacosRunningEnv;
   namingAuthEnabled?: boolean;
   namingAuthSupported?: boolean;
   namingCreateServiceSupported?: boolean;
@@ -20687,6 +20711,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       clusterName: 'ClusterName',
       configAuthEnabled: 'ConfigAuthEnabled',
       configAuthSupported: 'ConfigAuthSupported',
+      configContentLimit: 'ConfigContentLimit',
       configSecretEnabled: 'ConfigSecretEnabled',
       configSecretSupported: 'ConfigSecretSupported',
       initLimit: 'InitLimit',
@@ -20697,6 +20722,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       maxClientCnxns: 'MaxClientCnxns',
       maxSessionTimeout: 'MaxSessionTimeout',
       minSessionTimeout: 'MinSessionTimeout',
+      nacosRunningEnv: 'NacosRunningEnv',
       namingAuthEnabled: 'NamingAuthEnabled',
       namingAuthSupported: 'NamingAuthSupported',
       namingCreateServiceSupported: 'NamingCreateServiceSupported',
@@ -20717,6 +20743,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       clusterName: 'string',
       configAuthEnabled: 'boolean',
       configAuthSupported: 'boolean',
+      configContentLimit: 'number',
       configSecretEnabled: 'boolean',
       configSecretSupported: 'boolean',
       initLimit: 'string',
@@ -20727,6 +20754,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       maxClientCnxns: 'string',
       maxSessionTimeout: 'string',
       minSessionTimeout: 'string',
+      nacosRunningEnv: QueryConfigResponseBodyDataNacosRunningEnv,
       namingAuthEnabled: 'boolean',
       namingAuthSupported: 'boolean',
       namingCreateServiceSupported: 'boolean',
