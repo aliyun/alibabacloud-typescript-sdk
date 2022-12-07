@@ -9518,45 +9518,39 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpen
 }
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends $tea.Model {
+  arrCity?: string;
   arrDate?: number;
-  btripType?: number;
   cheapest?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest;
+  depCity?: string;
   depDate?: number;
-  destCity?: string;
   errMsg?: string;
   itineraryId?: string;
-  itineraryIndex?: number;
   mostExpensive?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive;
-  orgCity?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      arrCity: 'arr_city',
       arrDate: 'arr_date',
-      btripType: 'btrip_type',
       cheapest: 'cheapest',
+      depCity: 'dep_city',
       depDate: 'dep_date',
-      destCity: 'dest_city',
       errMsg: 'err_msg',
       itineraryId: 'itinerary_id',
-      itineraryIndex: 'itinerary_index',
       mostExpensive: 'most_expensive',
-      orgCity: 'org_city',
       success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arrCity: 'string',
       arrDate: 'number',
-      btripType: 'number',
       cheapest: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest,
+      depCity: 'string',
       depDate: 'number',
-      destCity: 'string',
       errMsg: 'string',
       itineraryId: 'string',
-      itineraryIndex: 'number',
       mostExpensive: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive,
-      orgCity: 'string',
       success: 'boolean',
     };
   }
