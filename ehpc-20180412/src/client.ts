@@ -1416,6 +1416,7 @@ export class CreateHybridClusterResponse extends $tea.Model {
 }
 
 export class CreateJobFileRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   content?: string;
   runasUser?: string;
@@ -1423,6 +1424,7 @@ export class CreateJobFileRequest extends $tea.Model {
   targetFile?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       content: 'Content',
       runasUser: 'RunasUser',
@@ -1433,6 +1435,7 @@ export class CreateJobFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       content: 'string',
       runasUser: 'string',
@@ -2007,10 +2010,12 @@ export class DeleteJobTemplatesResponse extends $tea.Model {
 }
 
 export class DeleteJobsRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   jobs?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       jobs: 'Jobs',
     };
@@ -2018,6 +2023,7 @@ export class DeleteJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       jobs: 'string',
     };
@@ -8445,10 +8451,12 @@ export class RecoverClusterResponse extends $tea.Model {
 }
 
 export class RerunJobsRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   jobs?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       jobs: 'Jobs',
     };
@@ -8456,6 +8464,7 @@ export class RerunJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       jobs: 'string',
     };
@@ -9597,10 +9606,12 @@ export class StopGWSInstanceResponse extends $tea.Model {
 }
 
 export class StopJobsRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   jobs?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       jobs: 'Jobs',
     };
@@ -9608,6 +9619,7 @@ export class StopJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       jobs: 'string',
     };
@@ -9808,10 +9820,12 @@ export class StopVisualServiceResponse extends $tea.Model {
 
 export class SubmitJobRequest extends $tea.Model {
   arrayRequest?: string;
+  async?: boolean;
   clockTime?: string;
   clusterId?: string;
   commandLine?: string;
   containerId?: string;
+  cpu?: number;
   gpu?: number;
   inputFileUrl?: string;
   jobQueue?: string;
@@ -9833,10 +9847,12 @@ export class SubmitJobRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       arrayRequest: 'ArrayRequest',
+      async: 'Async',
       clockTime: 'ClockTime',
       clusterId: 'ClusterId',
       commandLine: 'CommandLine',
       containerId: 'ContainerId',
+      cpu: 'Cpu',
       gpu: 'Gpu',
       inputFileUrl: 'InputFileUrl',
       jobQueue: 'JobQueue',
@@ -9861,10 +9877,12 @@ export class SubmitJobRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       arrayRequest: 'string',
+      async: 'boolean',
       clockTime: 'string',
       clusterId: 'string',
       commandLine: 'string',
       containerId: 'string',
+      cpu: 'number',
       gpu: 'number',
       inputFileUrl: 'string',
       jobQueue: 'string',
