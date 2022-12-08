@@ -1449,26 +1449,34 @@ export class GetStoreSearchTopResponseBodyData extends $tea.Model {
 }
 
 export class GetStyleTopResponseBodyData extends $tea.Model {
+  attributeContent?: string;
+  brandName?: string;
   buyerTags?: string;
   cateName?: string;
   color?: string;
   images?: string[];
   material?: string;
+  price?: number;
   productLink?: string;
   salesVolume?: number;
   searchVolume?: number;
+  shopName?: string;
   style?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      attributeContent: 'AttributeContent',
+      brandName: 'BrandName',
       buyerTags: 'BuyerTags',
       cateName: 'CateName',
       color: 'Color',
       images: 'Images',
       material: 'Material',
+      price: 'Price',
       productLink: 'ProductLink',
       salesVolume: 'SalesVolume',
       searchVolume: 'SearchVolume',
+      shopName: 'ShopName',
       style: 'Style',
       title: 'Title',
     };
@@ -1476,14 +1484,18 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributeContent: 'string',
+      brandName: 'string',
       buyerTags: 'string',
       cateName: 'string',
       color: 'string',
       images: { 'type': 'array', 'itemType': 'string' },
       material: 'string',
+      price: 'number',
       productLink: 'string',
       salesVolume: 'number',
       searchVolume: 'number',
+      shopName: 'string',
       style: 'string',
       title: 'string',
     };
