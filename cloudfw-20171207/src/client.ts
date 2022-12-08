@@ -1537,6 +1537,7 @@ export class DescribeInvadeEventListResponse extends $tea.Model {
 
 export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   applicationName?: string;
+  categoryId?: string;
   currentPage?: string;
   dstIP?: string;
   endTime?: string;
@@ -1548,9 +1549,11 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   publicIP?: string;
   sort?: string;
   startTime?: string;
+  tagIdNew?: string;
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
+      categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
       dstIP: 'DstIP',
       endTime: 'EndTime',
@@ -1562,12 +1565,14 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
       publicIP: 'PublicIP',
       sort: 'Sort',
       startTime: 'StartTime',
+      tagIdNew: 'TagIdNew',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applicationName: 'string',
+      categoryId: 'string',
       currentPage: 'string',
       dstIP: 'string',
       endTime: 'string',
@@ -1579,6 +1584,7 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
       publicIP: 'string',
       sort: 'string',
       startTime: 'string',
+      tagIdNew: 'string',
     };
   }
 
@@ -1638,6 +1644,7 @@ export class DescribeOutgoingDestinationIPResponse extends $tea.Model {
 }
 
 export class DescribeOutgoingDomainRequest extends $tea.Model {
+  categoryId?: string;
   currentPage?: string;
   domain?: string;
   endTime?: string;
@@ -1647,8 +1654,10 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
   publicIP?: string;
   sort?: string;
   startTime?: string;
+  tagIdNew?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
       domain: 'Domain',
       endTime: 'EndTime',
@@ -1658,11 +1667,13 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
       publicIP: 'PublicIP',
       sort: 'Sort',
       startTime: 'StartTime',
+      tagIdNew: 'TagIdNew',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryId: 'string',
       currentPage: 'string',
       domain: 'string',
       endTime: 'string',
@@ -1672,6 +1683,7 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
       publicIP: 'string',
       sort: 'string',
       startTime: 'string',
+      tagIdNew: 'string',
     };
   }
 
@@ -2802,6 +2814,123 @@ export class DescribeVpcFirewallPolicyPriorUsedResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVpcFirewallPolicyPriorUsedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulnerabilityProtectedListRequest extends $tea.Model {
+  attackType?: string;
+  buyVersion?: number;
+  currentPage?: string;
+  endTime?: string;
+  lang?: string;
+  order?: string;
+  pageSize?: string;
+  sortKey?: string;
+  sourceIp?: string;
+  startTime?: string;
+  userType?: string;
+  vulnCveName?: string;
+  vulnLevel?: string;
+  vulnResource?: string;
+  vulnStatus?: string;
+  vulnType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attackType: 'AttackType',
+      buyVersion: 'BuyVersion',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      order: 'Order',
+      pageSize: 'PageSize',
+      sortKey: 'SortKey',
+      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
+      userType: 'UserType',
+      vulnCveName: 'VulnCveName',
+      vulnLevel: 'VulnLevel',
+      vulnResource: 'VulnResource',
+      vulnStatus: 'VulnStatus',
+      vulnType: 'VulnType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackType: 'string',
+      buyVersion: 'number',
+      currentPage: 'string',
+      endTime: 'string',
+      lang: 'string',
+      order: 'string',
+      pageSize: 'string',
+      sortKey: 'string',
+      sourceIp: 'string',
+      startTime: 'string',
+      userType: 'string',
+      vulnCveName: 'string',
+      vulnLevel: 'string',
+      vulnResource: 'string',
+      vulnStatus: 'string',
+      vulnType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulnerabilityProtectedListResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: number;
+  vulnList?: DescribeVulnerabilityProtectedListResponseBodyVulnList[];
+  zeroResourceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vulnList: 'VulnList',
+      zeroResourceCount: 'ZeroResourceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      vulnList: { 'type': 'array', 'itemType': DescribeVulnerabilityProtectedListResponseBodyVulnList },
+      zeroResourceCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulnerabilityProtectedListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVulnerabilityProtectedListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVulnerabilityProtectedListResponseBody,
     };
   }
 
@@ -5875,6 +6004,125 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
   }
 }
 
+export class DescribeVulnerabilityProtectedListResponseBodyVulnListResourceList extends $tea.Model {
+  eip?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
+  vulnStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eip: 'Eip',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+      vulnStatus: 'VulnStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eip: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      vulnStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulnerabilityProtectedListResponseBodyVulnList extends $tea.Model {
+  attackCnt?: number;
+  attackType?: number;
+  basicRuleIds?: string;
+  cveId?: string;
+  firstTime?: number;
+  highlightTag?: number;
+  lastTime?: number;
+  needOpenBasicRule?: boolean;
+  needOpenBasicRuleUuids?: string;
+  needOpenRunMode?: boolean;
+  needOpenVirtualPatche?: boolean;
+  needOpenVirtualPatcheUuids?: string;
+  needRuleClass?: number;
+  resourceCnt?: number;
+  resourceList?: DescribeVulnerabilityProtectedListResponseBodyVulnListResourceList[];
+  virtualPatcheIds?: string;
+  vulnKey?: string;
+  vulnLevel?: string;
+  vulnName?: string;
+  vulnStatus?: string;
+  vulnType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attackCnt: 'AttackCnt',
+      attackType: 'AttackType',
+      basicRuleIds: 'BasicRuleIds',
+      cveId: 'CveId',
+      firstTime: 'FirstTime',
+      highlightTag: 'HighlightTag',
+      lastTime: 'LastTime',
+      needOpenBasicRule: 'NeedOpenBasicRule',
+      needOpenBasicRuleUuids: 'NeedOpenBasicRuleUuids',
+      needOpenRunMode: 'NeedOpenRunMode',
+      needOpenVirtualPatche: 'NeedOpenVirtualPatche',
+      needOpenVirtualPatcheUuids: 'NeedOpenVirtualPatcheUuids',
+      needRuleClass: 'NeedRuleClass',
+      resourceCnt: 'ResourceCnt',
+      resourceList: 'ResourceList',
+      virtualPatcheIds: 'VirtualPatcheIds',
+      vulnKey: 'VulnKey',
+      vulnLevel: 'VulnLevel',
+      vulnName: 'VulnName',
+      vulnStatus: 'VulnStatus',
+      vulnType: 'VulnType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attackCnt: 'number',
+      attackType: 'number',
+      basicRuleIds: 'string',
+      cveId: 'string',
+      firstTime: 'number',
+      highlightTag: 'number',
+      lastTime: 'number',
+      needOpenBasicRule: 'boolean',
+      needOpenBasicRuleUuids: 'string',
+      needOpenRunMode: 'boolean',
+      needOpenVirtualPatche: 'boolean',
+      needOpenVirtualPatcheUuids: 'string',
+      needRuleClass: 'number',
+      resourceCnt: 'number',
+      resourceList: { 'type': 'array', 'itemType': DescribeVulnerabilityProtectedListResponseBodyVulnListResourceList },
+      virtualPatcheIds: 'string',
+      vulnKey: 'string',
+      vulnLevel: 'string',
+      vulnName: 'string',
+      vulnStatus: 'string',
+      vulnType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAddressBookRequestTagList extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -6919,6 +7167,10 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -6963,6 +7215,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!Util.isUnset(request.tagIdNew)) {
+      query["TagIdNew"] = request.tagIdNew;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6988,6 +7244,10 @@ export default class Client extends OpenApi {
   async describeOutgoingDomainWithOptions(request: DescribeOutgoingDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDomainResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -7022,6 +7282,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagIdNew)) {
+      query["TagIdNew"] = request.tagIdNew;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7684,6 +7948,99 @@ export default class Client extends OpenApi {
   async describeVpcFirewallPolicyPriorUsed(request: DescribeVpcFirewallPolicyPriorUsedRequest): Promise<DescribeVpcFirewallPolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallPolicyPriorUsedWithOptions(request, runtime);
+  }
+
+  async describeVulnerabilityProtectedListWithOptions(request: DescribeVulnerabilityProtectedListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulnerabilityProtectedListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.attackType)) {
+      query["AttackType"] = request.attackType;
+    }
+
+    if (!Util.isUnset(request.buyVersion)) {
+      query["BuyVersion"] = request.buyVersion;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    if (!Util.isUnset(request.vulnCveName)) {
+      query["VulnCveName"] = request.vulnCveName;
+    }
+
+    if (!Util.isUnset(request.vulnLevel)) {
+      query["VulnLevel"] = request.vulnLevel;
+    }
+
+    if (!Util.isUnset(request.vulnResource)) {
+      query["VulnResource"] = request.vulnResource;
+    }
+
+    if (!Util.isUnset(request.vulnStatus)) {
+      query["VulnStatus"] = request.vulnStatus;
+    }
+
+    if (!Util.isUnset(request.vulnType)) {
+      query["VulnType"] = request.vulnType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVulnerabilityProtectedList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulnerabilityProtectedListResponse>(await this.callApi(params, req, runtime), new DescribeVulnerabilityProtectedListResponse({}));
+  }
+
+  async describeVulnerabilityProtectedList(request: DescribeVulnerabilityProtectedListRequest): Promise<DescribeVulnerabilityProtectedListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVulnerabilityProtectedListWithOptions(request, runtime);
   }
 
   async modifyAddressBookWithOptions(request: ModifyAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAddressBookResponse> {
