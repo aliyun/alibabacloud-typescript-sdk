@@ -434,99 +434,6 @@ export class CreateVpcFirewallCenConfigureResponse extends $tea.Model {
   }
 }
 
-export class CreateVpcFirewallConfigureRequest extends $tea.Model {
-  firewallSwitch?: string;
-  lang?: string;
-  localVpcCidrTableList?: string;
-  localVpcId?: string;
-  localVpcRegion?: string;
-  memberUid?: string;
-  peerVpcCidrTableList?: string;
-  peerVpcId?: string;
-  peerVpcRegion?: string;
-  vpcFirewallName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      firewallSwitch: 'FirewallSwitch',
-      lang: 'Lang',
-      localVpcCidrTableList: 'LocalVpcCidrTableList',
-      localVpcId: 'LocalVpcId',
-      localVpcRegion: 'LocalVpcRegion',
-      memberUid: 'MemberUid',
-      peerVpcCidrTableList: 'PeerVpcCidrTableList',
-      peerVpcId: 'PeerVpcId',
-      peerVpcRegion: 'PeerVpcRegion',
-      vpcFirewallName: 'VpcFirewallName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      firewallSwitch: 'string',
-      lang: 'string',
-      localVpcCidrTableList: 'string',
-      localVpcId: 'string',
-      localVpcRegion: 'string',
-      memberUid: 'string',
-      peerVpcCidrTableList: 'string',
-      peerVpcId: 'string',
-      peerVpcRegion: 'string',
-      vpcFirewallName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpcFirewallConfigureResponseBody extends $tea.Model {
-  requestId?: string;
-  vpcFirewallId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      vpcFirewallId: 'VpcFirewallId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      vpcFirewallId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVpcFirewallConfigureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVpcFirewallConfigureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVpcFirewallConfigureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
   aclAction?: string;
   applicationName?: string;
@@ -2669,6 +2576,7 @@ export class DescribeVpcFirewallDetailResponseBody extends $tea.Model {
   connectType?: string;
   firewallSwitchStatus?: string;
   localVpc?: DescribeVpcFirewallDetailResponseBodyLocalVpc;
+  memberUid?: string;
   peerVpc?: DescribeVpcFirewallDetailResponseBodyPeerVpc;
   requestId?: string;
   vpcFirewallId?: string;
@@ -2679,6 +2587,7 @@ export class DescribeVpcFirewallDetailResponseBody extends $tea.Model {
       connectType: 'ConnectType',
       firewallSwitchStatus: 'FirewallSwitchStatus',
       localVpc: 'LocalVpc',
+      memberUid: 'MemberUid',
       peerVpc: 'PeerVpc',
       requestId: 'RequestId',
       vpcFirewallId: 'VpcFirewallId',
@@ -2692,6 +2601,7 @@ export class DescribeVpcFirewallDetailResponseBody extends $tea.Model {
       connectType: 'string',
       firewallSwitchStatus: 'string',
       localVpc: DescribeVpcFirewallDetailResponseBodyLocalVpc,
+      memberUid: 'string',
       peerVpc: DescribeVpcFirewallDetailResponseBodyPeerVpc,
       requestId: 'string',
       vpcFirewallId: 'string',
@@ -2730,22 +2640,26 @@ export class DescribeVpcFirewallDetailResponse extends $tea.Model {
 }
 
 export class DescribeVpcFirewallListRequest extends $tea.Model {
+  connectSubType?: string;
   currentPage?: string;
   firewallSwitchStatus?: string;
   lang?: string;
   memberUid?: string;
   pageSize?: string;
+  peerUid?: string;
   regionNo?: string;
   vpcFirewallId?: string;
   vpcFirewallName?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectSubType: 'ConnectSubType',
       currentPage: 'CurrentPage',
       firewallSwitchStatus: 'FirewallSwitchStatus',
       lang: 'Lang',
       memberUid: 'MemberUid',
       pageSize: 'PageSize',
+      peerUid: 'PeerUid',
       regionNo: 'RegionNo',
       vpcFirewallId: 'VpcFirewallId',
       vpcFirewallName: 'VpcFirewallName',
@@ -2755,11 +2669,13 @@ export class DescribeVpcFirewallListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectSubType: 'string',
       currentPage: 'string',
       firewallSwitchStatus: 'string',
       lang: 'string',
       memberUid: 'string',
       pageSize: 'string',
+      peerUid: 'string',
       regionNo: 'string',
       vpcFirewallId: 'string',
       vpcFirewallName: 'string',
@@ -5078,6 +4994,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
   ruleResult?: number;
   ruleSource?: number;
   srcIP?: string;
+  srcIPTag?: string;
   srcPrivateIPList?: string[];
   tag?: string;
   vpcDstInfo?: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo;
@@ -5102,6 +5019,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
       ruleResult: 'RuleResult',
       ruleSource: 'RuleSource',
       srcIP: 'SrcIP',
+      srcIPTag: 'SrcIPTag',
       srcPrivateIPList: 'SrcPrivateIPList',
       tag: 'Tag',
       vpcDstInfo: 'VpcDstInfo',
@@ -5129,6 +5047,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
       ruleResult: 'number',
       ruleSource: 'number',
       srcIP: 'string',
+      srcIPTag: 'string',
       srcPrivateIPList: { 'type': 'array', 'itemType': 'string' },
       tag: 'string',
       vpcDstInfo: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo,
@@ -5491,6 +5410,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   destPortType?: string;
   destination?: string;
   destinationGroupCidrs?: string[];
+  destinationGroupType?: string;
   destinationType?: string;
   hitTimes?: number;
   memberUid?: string;
@@ -5499,6 +5419,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
   release?: string;
   source?: string;
   sourceGroupCidrs?: string[];
+  sourceGroupType?: string;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5513,6 +5434,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       destPortType: 'DestPortType',
       destination: 'Destination',
       destinationGroupCidrs: 'DestinationGroupCidrs',
+      destinationGroupType: 'DestinationGroupType',
       destinationType: 'DestinationType',
       hitTimes: 'HitTimes',
       memberUid: 'MemberUid',
@@ -5521,6 +5443,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       release: 'Release',
       source: 'Source',
       sourceGroupCidrs: 'SourceGroupCidrs',
+      sourceGroupType: 'SourceGroupType',
       sourceType: 'SourceType',
     };
   }
@@ -5538,6 +5461,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       destPortType: 'string',
       destination: 'string',
       destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      destinationGroupType: 'string',
       destinationType: 'string',
       hitTimes: 'number',
       memberUid: 'string',
@@ -5546,6 +5470,7 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       release: 'string',
       source: 'string',
       sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      sourceGroupType: 'string',
       sourceType: 'string',
     };
   }
@@ -5900,6 +5825,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $tea
 
 export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model {
   bandwidth?: number;
+  connectSubType?: string;
   connectType?: string;
   firewallSwitchStatus?: string;
   ipsConfig?: DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig;
@@ -5907,11 +5833,13 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
   memberUid?: string;
   peerVpc?: DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc;
   regionStatus?: string;
+  resultCode?: string;
   vpcFirewallId?: string;
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
+      connectSubType: 'ConnectSubType',
       connectType: 'ConnectType',
       firewallSwitchStatus: 'FirewallSwitchStatus',
       ipsConfig: 'IpsConfig',
@@ -5919,6 +5847,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
       memberUid: 'MemberUid',
       peerVpc: 'PeerVpc',
       regionStatus: 'RegionStatus',
+      resultCode: 'ResultCode',
       vpcFirewallId: 'VpcFirewallId',
       vpcFirewallName: 'VpcFirewallName',
     };
@@ -5927,6 +5856,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       bandwidth: 'number',
+      connectSubType: 'string',
       connectType: 'string',
       firewallSwitchStatus: 'string',
       ipsConfig: DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig,
@@ -5934,6 +5864,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $tea.Model 
       memberUid: 'string',
       peerVpc: DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc,
       regionStatus: 'string',
+      resultCode: 'string',
       vpcFirewallId: 'string',
       vpcFirewallName: 'string',
     };
@@ -6294,71 +6225,6 @@ export default class Client extends OpenApi {
   async createVpcFirewallCenConfigure(request: CreateVpcFirewallCenConfigureRequest): Promise<CreateVpcFirewallCenConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcFirewallCenConfigureWithOptions(request, runtime);
-  }
-
-  async createVpcFirewallConfigureWithOptions(request: CreateVpcFirewallConfigureRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallConfigureResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.firewallSwitch)) {
-      query["FirewallSwitch"] = request.firewallSwitch;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.localVpcCidrTableList)) {
-      query["LocalVpcCidrTableList"] = request.localVpcCidrTableList;
-    }
-
-    if (!Util.isUnset(request.localVpcId)) {
-      query["LocalVpcId"] = request.localVpcId;
-    }
-
-    if (!Util.isUnset(request.localVpcRegion)) {
-      query["LocalVpcRegion"] = request.localVpcRegion;
-    }
-
-    if (!Util.isUnset(request.memberUid)) {
-      query["MemberUid"] = request.memberUid;
-    }
-
-    if (!Util.isUnset(request.peerVpcCidrTableList)) {
-      query["PeerVpcCidrTableList"] = request.peerVpcCidrTableList;
-    }
-
-    if (!Util.isUnset(request.peerVpcId)) {
-      query["PeerVpcId"] = request.peerVpcId;
-    }
-
-    if (!Util.isUnset(request.peerVpcRegion)) {
-      query["PeerVpcRegion"] = request.peerVpcRegion;
-    }
-
-    if (!Util.isUnset(request.vpcFirewallName)) {
-      query["VpcFirewallName"] = request.vpcFirewallName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateVpcFirewallConfigure",
-      version: "2017-12-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpcFirewallConfigureResponse>(await this.callApi(params, req, runtime), new CreateVpcFirewallConfigureResponse({}));
-  }
-
-  async createVpcFirewallConfigure(request: CreateVpcFirewallConfigureRequest): Promise<CreateVpcFirewallConfigureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createVpcFirewallConfigureWithOptions(request, runtime);
   }
 
   async createVpcFirewallControlPolicyWithOptions(request: CreateVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallControlPolicyResponse> {
@@ -7717,6 +7583,10 @@ export default class Client extends OpenApi {
   async describeVpcFirewallListWithOptions(request: DescribeVpcFirewallListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectSubType)) {
+      query["ConnectSubType"] = request.connectSubType;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -7739,6 +7609,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.peerUid)) {
+      query["PeerUid"] = request.peerUid;
     }
 
     if (!Util.isUnset(request.regionNo)) {
