@@ -7883,6 +7883,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
 }
 
 export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClasses extends $tea.Model {
+  category?: string;
   description?: string;
   displayClass?: string;
   instanceClass?: string;
@@ -7891,6 +7892,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       description: 'Description',
       displayClass: 'DisplayClass',
       instanceClass: 'InstanceClass',
@@ -7902,6 +7904,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       description: 'string',
       displayClass: 'string',
       instanceClass: 'string',
