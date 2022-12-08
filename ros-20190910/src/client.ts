@@ -1946,12 +1946,14 @@ export class GenerateTemplateByScratchResponse extends $tea.Model {
 }
 
 export class GenerateTemplatePolicyRequest extends $tea.Model {
+  operationTypes?: string[];
   templateBody?: string;
   templateId?: string;
   templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      operationTypes: 'OperationTypes',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -1961,6 +1963,7 @@ export class GenerateTemplatePolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      operationTypes: { 'type': 'array', 'itemType': 'string' },
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -11419,6 +11422,10 @@ export default class Client extends OpenApi {
   async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.operationTypes)) {
+      query["OperationTypes"] = request.operationTypes;
+    }
+
     if (!Util.isUnset(request.templateBody)) {
       query["TemplateBody"] = request.templateBody;
     }
