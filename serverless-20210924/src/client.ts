@@ -1172,6 +1172,31 @@ export class TriggerConfig extends $tea.Model {
   }
 }
 
+export class CancelTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $tea.Model {
   autoDeploy?: boolean;
   description?: string;
@@ -2899,6 +2924,30 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async cancelTask(name: string): Promise<CancelTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelTaskWithOptions(name, headers, runtime);
+  }
+
+  async cancelTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}/cancel`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
