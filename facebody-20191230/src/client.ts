@@ -778,8 +778,8 @@ export class BodyPostureResponse extends $tea.Model {
 }
 
 export class CompareFaceRequest extends $tea.Model {
-  imageDataA?: Buffer;
-  imageDataB?: Buffer;
+  imageDataA?: string;
+  imageDataB?: string;
   imageURLA?: string;
   imageURLB?: string;
   qualityScoreThreshold?: number;
@@ -795,8 +795,8 @@ export class CompareFaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageDataA: 'Buffer',
-      imageDataB: 'Buffer',
+      imageDataA: 'string',
+      imageDataB: 'string',
       imageURLA: 'string',
       imageURLB: 'string',
       qualityScoreThreshold: 'number',
@@ -809,8 +809,8 @@ export class CompareFaceRequest extends $tea.Model {
 }
 
 export class CompareFaceAdvanceRequest extends $tea.Model {
-  imageDataA?: Buffer;
-  imageDataB?: Buffer;
+  imageDataA?: string;
+  imageDataB?: string;
   imageURLAObject?: Readable;
   imageURLBObject?: Readable;
   qualityScoreThreshold?: number;
@@ -826,8 +826,8 @@ export class CompareFaceAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageDataA: 'Buffer',
-      imageDataB: 'Buffer',
+      imageDataA: 'string',
+      imageDataB: 'string',
       imageURLAObject: 'Readable',
       imageURLBObject: 'Readable',
       qualityScoreThreshold: 'number',
@@ -2228,7 +2228,7 @@ export class EnhanceFaceResponse extends $tea.Model {
 }
 
 export class ExtractFingerPrintRequest extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2239,7 +2239,7 @@ export class ExtractFingerPrintRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURL: 'string',
     };
   }
@@ -2250,7 +2250,7 @@ export class ExtractFingerPrintRequest extends $tea.Model {
 }
 
 export class ExtractFingerPrintAdvanceRequest extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -2261,7 +2261,7 @@ export class ExtractFingerPrintAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURLObject: 'Readable',
     };
   }
@@ -3869,7 +3869,7 @@ export class QueryFaceImageTemplateResponse extends $tea.Model {
 export class RecognizeActionRequest extends $tea.Model {
   type?: number;
   URLList?: RecognizeActionRequestURLList[];
-  videoData?: Buffer;
+  videoData?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3884,7 +3884,7 @@ export class RecognizeActionRequest extends $tea.Model {
     return {
       type: 'number',
       URLList: { 'type': 'array', 'itemType': RecognizeActionRequestURLList },
-      videoData: 'Buffer',
+      videoData: 'string',
       videoUrl: 'string',
     };
   }
@@ -3897,7 +3897,7 @@ export class RecognizeActionRequest extends $tea.Model {
 export class RecognizeActionAdvanceRequest extends $tea.Model {
   type?: number;
   URLList?: RecognizeActionAdvanceRequestURLList[];
-  videoData?: Buffer;
+  videoData?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3912,7 +3912,7 @@ export class RecognizeActionAdvanceRequest extends $tea.Model {
     return {
       type: 'number',
       URLList: { 'type': 'array', 'itemType': RecognizeActionAdvanceRequestURLList },
-      videoData: 'Buffer',
+      videoData: 'string',
       videoUrl: 'string',
     };
   }
@@ -5877,7 +5877,7 @@ export class DetectIPCPedestrianResponseBodyData extends $tea.Model {
 }
 
 export class DetectLivingFaceRequestTasks extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5888,7 +5888,7 @@ export class DetectLivingFaceRequestTasks extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURL: 'string',
     };
   }
@@ -5899,7 +5899,7 @@ export class DetectLivingFaceRequestTasks extends $tea.Model {
 }
 
 export class DetectLivingFaceAdvanceRequestTasks extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -5910,7 +5910,7 @@ export class DetectLivingFaceAdvanceRequestTasks extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURLObject: 'Readable',
     };
   }
@@ -7602,7 +7602,7 @@ export class QueryFaceImageTemplateResponseBodyData extends $tea.Model {
 
 export class RecognizeActionRequestURLList extends $tea.Model {
   URL?: string;
-  imageData?: Buffer;
+  imageData?: string;
   static names(): { [key: string]: string } {
     return {
       URL: 'URL',
@@ -7613,7 +7613,7 @@ export class RecognizeActionRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
-      imageData: 'Buffer',
+      imageData: 'string',
     };
   }
 
@@ -7624,7 +7624,7 @@ export class RecognizeActionRequestURLList extends $tea.Model {
 
 export class RecognizeActionAdvanceRequestURLList extends $tea.Model {
   URLObject?: Readable;
-  imageData?: Buffer;
+  imageData?: string;
   static names(): { [key: string]: string } {
     return {
       URLObject: 'URL',
@@ -7635,7 +7635,7 @@ export class RecognizeActionAdvanceRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URLObject: 'Readable',
-      imageData: 'Buffer',
+      imageData: 'string',
     };
   }
 
@@ -7924,7 +7924,7 @@ export class RecognizeHandGestureResponseBodyData extends $tea.Model {
 }
 
 export class RecognizePublicFaceRequestTask extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7935,7 +7935,7 @@ export class RecognizePublicFaceRequestTask extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURL: 'string',
     };
   }
@@ -7946,7 +7946,7 @@ export class RecognizePublicFaceRequestTask extends $tea.Model {
 }
 
 export class RecognizePublicFaceAdvanceRequestTask extends $tea.Model {
-  imageData?: Buffer;
+  imageData?: string;
   imageURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -7957,7 +7957,7 @@ export class RecognizePublicFaceAdvanceRequestTask extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      imageData: 'Buffer',
+      imageData: 'string',
       imageURLObject: 'Readable',
     };
   }

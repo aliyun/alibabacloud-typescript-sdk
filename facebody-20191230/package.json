@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/facebody20191230",
-  "version": "3.0.7",
+  "version": "4.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
