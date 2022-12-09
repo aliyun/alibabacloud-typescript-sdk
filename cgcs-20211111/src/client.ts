@@ -9,7 +9,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BatchCheckSessionRequest extends $tea.Model {
-  records?: BatchCheckSessionRequestRecords;
+  records?: BatchCheckSessionRequestRecords[];
   static names(): { [key: string]: string } {
     return {
       records: 'Records',
@@ -18,7 +18,7 @@ export class BatchCheckSessionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      records: BatchCheckSessionRequestRecords,
+      records: { 'type': 'array', 'itemType': BatchCheckSessionRequestRecords },
     };
   }
 
@@ -320,6 +320,7 @@ export class CreateAppResponse extends $tea.Model {
 }
 
 export class CreateAppSessionRequest extends $tea.Model {
+  adapterFileId?: string;
   appId?: string;
   appVersion?: string;
   clientIp?: string;
@@ -332,6 +333,7 @@ export class CreateAppSessionRequest extends $tea.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      adapterFileId: 'AdapterFileId',
       appId: 'AppId',
       appVersion: 'AppVersion',
       clientIp: 'ClientIp',
@@ -347,6 +349,7 @@ export class CreateAppSessionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adapterFileId: 'string',
       appId: 'string',
       appVersion: 'string',
       clientIp: 'string',
@@ -917,90 +920,6 @@ export class DeleteAppVersionResponse extends $tea.Model {
   }
 }
 
-export class DownloadDumpfileRequest extends $tea.Model {
-  appVersionId?: string;
-  dumpFileId?: string;
-  operatorId?: string;
-  operatorType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersionId: 'AppVersionId',
-      dumpFileId: 'DumpFileId',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersionId: 'string',
-      dumpFileId: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DownloadDumpfileResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DownloadDumpfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DownloadDumpfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DownloadDumpfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAdaptationRequest extends $tea.Model {
   adaptApplyId?: number;
   appVersionId?: string;
@@ -1419,6 +1338,84 @@ export class GetAppVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoPickPicRequest extends $tea.Model {
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoPickPicResponseBody extends $tea.Model {
+  data?: GetAutoPickPicResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpCode: 'HttpCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAutoPickPicResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoPickPicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAutoPickPicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAutoPickPicResponseBody,
     };
   }
 
@@ -2066,177 +2063,6 @@ export class ModifyAppVersionResponse extends $tea.Model {
   }
 }
 
-export class QueryDumpFilesRequest extends $tea.Model {
-  appVersionId?: string;
-  operatorId?: string;
-  operatorType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersionId: 'AppVersionId',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersionId: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDumpFilesResponseBody extends $tea.Model {
-  code?: string;
-  data?: QueryDumpFilesResponseBodyData[];
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': QueryDumpFilesResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDumpFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDumpFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDumpFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOpsChartRequest extends $tea.Model {
-  chartType?: string;
-  operatorId?: string;
-  operatorType?: string;
-  platformSessionId?: string;
-  queryEndDate?: string;
-  queryStartDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chartType: 'ChartType',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      platformSessionId: 'PlatformSessionId',
-      queryEndDate: 'QueryEndDate',
-      queryStartDate: 'QueryStartDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chartType: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-      platformSessionId: 'string',
-      queryEndDate: 'string',
-      queryStartDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOpsChartResponseBody extends $tea.Model {
-  code?: string;
-  data?: QueryOpsChartResponseBodyData[];
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': QueryOpsChartResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOpsChartResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOpsChartResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryOpsChartResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ReleaseCapacityRequest extends $tea.Model {
   appId?: string;
   appVersion?: string;
@@ -2608,7 +2434,7 @@ export class StopAppSessionBatchResponse extends $tea.Model {
 export class BatchCheckSessionRequestRecords extends $tea.Model {
   customSessionId?: string;
   platformSessionId?: string;
-  referenceInfo?: { [key: string]: string };
+  referenceInfo?: { [key: string]: any };
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2623,7 +2449,7 @@ export class BatchCheckSessionRequestRecords extends $tea.Model {
     return {
       customSessionId: 'string',
       platformSessionId: 'string',
-      referenceInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      referenceInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
     };
   }
@@ -3159,12 +2985,14 @@ export class GetAdaptationResponseBodyAdaptTarget extends $tea.Model {
 
 export class GetAppCcuResponseBodyDetailList extends $tea.Model {
   appId?: string;
+  appVersion?: string;
   ccu?: string;
   districtId?: string;
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      appVersion: 'AppVersion',
       ccu: 'Ccu',
       districtId: 'DistrictId',
       projectId: 'ProjectId',
@@ -3174,6 +3002,7 @@ export class GetAppCcuResponseBodyDetailList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      appVersion: 'string',
       ccu: 'string',
       districtId: 'string',
       projectId: 'string',
@@ -3207,16 +3036,62 @@ export class GetAppSessionResponseBodyBizInfo extends $tea.Model {
   }
 }
 
+export class GetAutoPickPicResponseBodyDataDtoList extends $tea.Model {
+  key?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoPickPicResponseBodyData extends $tea.Model {
+  dtoList?: GetAutoPickPicResponseBodyDataDtoList[];
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtoList: 'DtoList',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtoList: { 'type': 'array', 'itemType': GetAutoPickPicResponseBodyDataDtoList },
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCapacityResponseBodyCapacities extends $tea.Model {
   appId?: string;
   appVersion?: string;
   districtId?: string;
+  projectId?: string;
   sessionCapacity?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appVersion: 'AppVersion',
       districtId: 'DistrictId',
+      projectId: 'ProjectId',
       sessionCapacity: 'SessionCapacity',
     };
   }
@@ -3226,6 +3101,7 @@ export class GetCapacityResponseBodyCapacities extends $tea.Model {
       appId: 'string',
       appVersion: 'string',
       districtId: 'string',
+      projectId: 'string',
       sessionCapacity: 'number',
     };
   }
@@ -3424,59 +3300,6 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
   }
 }
 
-export class QueryDumpFilesResponseBodyData extends $tea.Model {
-  fileCreatTime?: string;
-  fileId?: string;
-  fileName?: string;
-  fileSize?: number;
-  objectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileCreatTime: 'FileCreatTime',
-      fileId: 'FileId',
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      objectName: 'ObjectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileCreatTime: 'string',
-      fileId: 'string',
-      fileName: 'string',
-      fileSize: 'number',
-      objectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOpsChartResponseBodyData extends $tea.Model {
-  statDate?: string;
-  usagePercent?: number;
-  static names(): { [key: string]: string } {
-    return {
-      statDate: 'StatDate',
-      usagePercent: 'UsagePercent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statDate: 'string',
-      usagePercent: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StopAppSessionRequestStopParam extends $tea.Model {
   key?: string;
   value?: any;
@@ -3592,8 +3415,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new BatchCheckSessionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.records))) {
-      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.records), "Records", "json");
+    if (!Util.isUnset(tmpReq.records)) {
+      request.recordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.records, "Records", "json");
     }
 
     let query = { };
@@ -3731,6 +3554,10 @@ export default class Client extends OpenApi {
   async createAppSessionWithOptions(request: CreateAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adapterFileId)) {
+      query["AdapterFileId"] = request.adapterFileId;
+    }
+
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -4049,47 +3876,6 @@ export default class Client extends OpenApi {
     return await this.deleteAppVersionWithOptions(request, runtime);
   }
 
-  async downloadDumpfileWithOptions(request: DownloadDumpfileRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDumpfileResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appVersionId)) {
-      body["AppVersionId"] = request.appVersionId;
-    }
-
-    if (!Util.isUnset(request.dumpFileId)) {
-      body["DumpFileId"] = request.dumpFileId;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DownloadDumpfile",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DownloadDumpfileResponse>(await this.callApi(params, req, runtime), new DownloadDumpfileResponse({}));
-  }
-
-  async downloadDumpfile(request: DownloadDumpfileRequest): Promise<DownloadDumpfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.downloadDumpfileWithOptions(request, runtime);
-  }
-
   async getAdaptationWithOptions(request: GetAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<GetAdaptationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4237,6 +4023,35 @@ export default class Client extends OpenApi {
   async getAppVersion(request: GetAppVersionRequest): Promise<GetAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppVersionWithOptions(request, runtime);
+  }
+
+  async getAutoPickPicWithOptions(request: GetAutoPickPicRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoPickPicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAutoPickPic",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAutoPickPicResponse>(await this.callApi(params, req, runtime), new GetAutoPickPicResponse({}));
+  }
+
+  async getAutoPickPic(request: GetAutoPickPicRequest): Promise<GetAutoPickPicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAutoPickPicWithOptions(request, runtime);
   }
 
   async getCapacityWithOptions(request: GetCapacityRequest, runtime: $Util.RuntimeOptions): Promise<GetCapacityResponse> {
@@ -4537,92 +4352,6 @@ export default class Client extends OpenApi {
   async modifyAppVersion(request: ModifyAppVersionRequest): Promise<ModifyAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppVersionWithOptions(request, runtime);
-  }
-
-  async queryDumpFilesWithOptions(request: QueryDumpFilesRequest, runtime: $Util.RuntimeOptions): Promise<QueryDumpFilesResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appVersionId)) {
-      body["AppVersionId"] = request.appVersionId;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryDumpFiles",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryDumpFilesResponse>(await this.callApi(params, req, runtime), new QueryDumpFilesResponse({}));
-  }
-
-  async queryDumpFiles(request: QueryDumpFilesRequest): Promise<QueryDumpFilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDumpFilesWithOptions(request, runtime);
-  }
-
-  async queryOpsChartWithOptions(request: QueryOpsChartRequest, runtime: $Util.RuntimeOptions): Promise<QueryOpsChartResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chartType)) {
-      body["ChartType"] = request.chartType;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.platformSessionId)) {
-      body["PlatformSessionId"] = request.platformSessionId;
-    }
-
-    if (!Util.isUnset(request.queryEndDate)) {
-      body["QueryEndDate"] = request.queryEndDate;
-    }
-
-    if (!Util.isUnset(request.queryStartDate)) {
-      body["QueryStartDate"] = request.queryStartDate;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryOpsChart",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryOpsChartResponse>(await this.callApi(params, req, runtime), new QueryOpsChartResponse({}));
-  }
-
-  async queryOpsChart(request: QueryOpsChartRequest): Promise<QueryOpsChartResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryOpsChartWithOptions(request, runtime);
   }
 
   async releaseCapacityWithOptions(request: ReleaseCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityResponse> {
