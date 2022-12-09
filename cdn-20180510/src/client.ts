@@ -1374,13 +1374,11 @@ export class DeleteCdnDomainRequest extends $tea.Model {
   domainName?: string;
   ownerAccount?: string;
   ownerId?: number;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -1389,7 +1387,6 @@ export class DeleteCdnDomainRequest extends $tea.Model {
       domainName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      securityToken: 'string',
     };
   }
 
@@ -1986,102 +1983,6 @@ export class DeleteUserUsageDataExportTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteUserUsageDataExportTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveVersionOfConfigGroupRequest extends $tea.Model {
-  configGroupId?: string;
-  env?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configGroupId: 'ConfigGroupId',
-      env: 'Env',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configGroupId: 'string',
-      env: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveVersionOfConfigGroupResponseBody extends $tea.Model {
-  baseVersionId?: string;
-  configGroupId?: string;
-  createTime?: string;
-  description?: string;
-  operator?: string;
-  requestId?: string;
-  seqId?: number;
-  status?: string;
-  updateTime?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersionId: 'BaseVersionId',
-      configGroupId: 'ConfigGroupId',
-      createTime: 'CreateTime',
-      description: 'Description',
-      operator: 'Operator',
-      requestId: 'RequestId',
-      seqId: 'SeqId',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersionId: 'string',
-      configGroupId: 'string',
-      createTime: 'string',
-      description: 'string',
-      operator: 'string',
-      requestId: 'string',
-      seqId: 'number',
-      status: 'string',
-      updateTime: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveVersionOfConfigGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeActiveVersionOfConfigGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeActiveVersionOfConfigGroupResponseBody,
     };
   }
 
@@ -4232,174 +4133,6 @@ export class DescribeCertificateInfoByIDResponse extends $tea.Model {
   }
 }
 
-export class DescribeConfigGroupDetailRequest extends $tea.Model {
-  configGroupId?: string;
-  configGroupName?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configGroupId: 'ConfigGroupId',
-      configGroupName: 'ConfigGroupName',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configGroupId: 'string',
-      configGroupName: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigGroupDetailResponseBody extends $tea.Model {
-  bizName?: string;
-  configGroupId?: string;
-  configGroupName?: string;
-  createTime?: string;
-  description?: string;
-  requestId?: string;
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizName: 'BizName',
-      configGroupId: 'ConfigGroupId',
-      configGroupName: 'ConfigGroupName',
-      createTime: 'CreateTime',
-      description: 'Description',
-      requestId: 'RequestId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizName: 'string',
-      configGroupId: 'string',
-      configGroupName: 'string',
-      createTime: 'string',
-      description: 'string',
-      requestId: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigGroupDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeConfigGroupDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeConfigGroupDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionRequest extends $tea.Model {
-  functionId?: number;
-  functionName?: string;
-  groupId?: number;
-  ownerId?: number;
-  securityToken?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      functionId: 'FunctionId',
-      functionName: 'FunctionName',
-      groupId: 'GroupId',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      functionId: 'number',
-      functionName: 'string',
-      groupId: 'number',
-      ownerId: 'number',
-      securityToken: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionResponseBody extends $tea.Model {
-  requestId?: string;
-  versionConfigs?: DescribeConfigOfVersionResponseBodyVersionConfigs;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      versionConfigs: 'VersionConfigs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      versionConfigs: DescribeConfigOfVersionResponseBodyVersionConfigs,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeConfigOfVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeConfigOfVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeCustomLogConfigRequest extends $tea.Model {
   configId?: string;
   ownerId?: number;
@@ -5805,84 +5538,6 @@ export class DescribeDomainMultiUsageDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDomainMultiUsageDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainNamesOfVersionRequest extends $tea.Model {
-  ownerId?: number;
-  pageIndex?: number;
-  pageSize?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      pageIndex: 'number',
-      pageSize: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainNamesOfVersionResponseBody extends $tea.Model {
-  contents?: DescribeDomainNamesOfVersionResponseBodyContents[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      contents: 'Contents',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contents: { 'type': 'array', 'itemType': DescribeDomainNamesOfVersionResponseBodyContents },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainNamesOfVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainNamesOfVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDomainNamesOfVersionResponseBody,
     };
   }
 
@@ -8857,21 +8512,15 @@ export class DescribeIllegalUrlExportTaskResponse extends $tea.Model {
 
 export class DescribeIpInfoRequest extends $tea.Model {
   IP?: string;
-  ownerId?: number;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       IP: 'IP',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       IP: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
     };
   }
 
@@ -9237,72 +8886,6 @@ export class DescribeRealtimeDeliveryAccResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRealtimeDeliveryAccResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRealtimeLogAuthorizedRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRealtimeLogAuthorizedResponseBody extends $tea.Model {
-  authorizedStatus?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizedStatus: 'AuthorizedStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizedStatus: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRealtimeLogAuthorizedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRealtimeLogAuthorizedResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRealtimeLogAuthorizedResponseBody,
     };
   }
 
@@ -11135,6 +10718,75 @@ export class ModifyRealtimeLogDeliveryResponse extends $tea.Model {
   }
 }
 
+export class OpenCdnServiceRequest extends $tea.Model {
+  internetChargeType?: string;
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetChargeType: 'InternetChargeType',
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetChargeType: 'string',
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenCdnServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenCdnServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OpenCdnServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenCdnServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishStagingConfigToProductionRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -11628,90 +11280,6 @@ export class SetCdnDomainStagingConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetCdnDomainStagingConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetConfigOfVersionRequest extends $tea.Model {
-  configId?: string;
-  functionArgs?: string;
-  functionId?: number;
-  functionName?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  securityToken?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      functionArgs: 'FunctionArgs',
-      functionId: 'FunctionId',
-      functionName: 'FunctionName',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'string',
-      functionArgs: 'string',
-      functionId: 'number',
-      functionName: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      securityToken: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetConfigOfVersionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetConfigOfVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetConfigOfVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetConfigOfVersionResponseBody,
     };
   }
 
@@ -13947,94 +13515,6 @@ export class DescribeCertificateInfoByIDResponseBodyCertInfos extends $tea.Model
   }
 }
 
-export class DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgsFunctionArg extends $tea.Model {
-  argName?: string;
-  argValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      argName: 'ArgName',
-      argValue: 'ArgValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      argName: 'string',
-      argValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgs extends $tea.Model {
-  functionArg?: DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgsFunctionArg[];
-  static names(): { [key: string]: string } {
-    return {
-      functionArg: 'FunctionArg',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      functionArg: { 'type': 'array', 'itemType': DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgsFunctionArg },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfig extends $tea.Model {
-  configId?: string;
-  functionArgs?: DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgs;
-  functionName?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      functionArgs: 'FunctionArgs',
-      functionName: 'FunctionName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'string',
-      functionArgs: DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfigFunctionArgs,
-      functionName: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigOfVersionResponseBodyVersionConfigs extends $tea.Model {
-  versionConfig?: DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfig[];
-  static names(): { [key: string]: string } {
-    return {
-      versionConfig: 'VersionConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      versionConfig: { 'type': 'array', 'itemType': DescribeConfigOfVersionResponseBodyVersionConfigsVersionConfig },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDomainAverageResponseTimeResponseBodyAvgRTPerIntervalDataModule extends $tea.Model {
   timeStamp?: string;
   value?: string;
@@ -14817,28 +14297,6 @@ export class DescribeDomainMultiUsageDataResponseBodyTrafficPerInterval extends 
   static types(): { [key: string]: any } {
     return {
       trafficDataModule: { 'type': 'array', 'itemType': DescribeDomainMultiUsageDataResponseBodyTrafficPerIntervalTrafficDataModule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainNamesOfVersionResponseBodyContents extends $tea.Model {
-  domainId?: string;
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainId: 'DomainId',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainId: 'string',
-      domainName: 'string',
     };
   }
 
@@ -18736,10 +18194,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19020,43 +18474,6 @@ export default class Client extends OpenApi {
   async deleteUserUsageDataExportTask(request: DeleteUserUsageDataExportTaskRequest): Promise<DeleteUserUsageDataExportTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserUsageDataExportTaskWithOptions(request, runtime);
-  }
-
-  async describeActiveVersionOfConfigGroupWithOptions(request: DescribeActiveVersionOfConfigGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveVersionOfConfigGroupResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.configGroupId)) {
-      query["ConfigGroupId"] = request.configGroupId;
-    }
-
-    if (!Util.isUnset(request.env)) {
-      query["Env"] = request.env;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeActiveVersionOfConfigGroup",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeActiveVersionOfConfigGroupResponse>(await this.callApi(params, req, runtime), new DescribeActiveVersionOfConfigGroupResponse({}));
-  }
-
-  async describeActiveVersionOfConfigGroup(request: DescribeActiveVersionOfConfigGroupRequest): Promise<DescribeActiveVersionOfConfigGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeActiveVersionOfConfigGroupWithOptions(request, runtime);
   }
 
   async describeBlockedRegionsWithOptions(request: DescribeBlockedRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlockedRegionsResponse> {
@@ -20103,92 +19520,6 @@ export default class Client extends OpenApi {
     return await this.describeCertificateInfoByIDWithOptions(request, runtime);
   }
 
-  async describeConfigGroupDetailWithOptions(request: DescribeConfigGroupDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigGroupDetailResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.configGroupId)) {
-      query["ConfigGroupId"] = request.configGroupId;
-    }
-
-    if (!Util.isUnset(request.configGroupName)) {
-      query["ConfigGroupName"] = request.configGroupName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeConfigGroupDetail",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeConfigGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeConfigGroupDetailResponse({}));
-  }
-
-  async describeConfigGroupDetail(request: DescribeConfigGroupDetailRequest): Promise<DescribeConfigGroupDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeConfigGroupDetailWithOptions(request, runtime);
-  }
-
-  async describeConfigOfVersionWithOptions(request: DescribeConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigOfVersionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.functionId)) {
-      query["FunctionId"] = request.functionId;
-    }
-
-    if (!Util.isUnset(request.functionName)) {
-      query["FunctionName"] = request.functionName;
-    }
-
-    if (!Util.isUnset(request.groupId)) {
-      query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      query["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeConfigOfVersion",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeConfigOfVersionResponse>(await this.callApi(params, req, runtime), new DescribeConfigOfVersionResponse({}));
-  }
-
-  async describeConfigOfVersion(request: DescribeConfigOfVersionRequest): Promise<DescribeConfigOfVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeConfigOfVersionWithOptions(request, runtime);
-  }
-
   async describeCustomLogConfigWithOptions(request: DescribeCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLogConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20895,47 +20226,6 @@ export default class Client extends OpenApi {
   async describeDomainMultiUsageData(request: DescribeDomainMultiUsageDataRequest): Promise<DescribeDomainMultiUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainMultiUsageDataWithOptions(request, runtime);
-  }
-
-  async describeDomainNamesOfVersionWithOptions(request: DescribeDomainNamesOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesOfVersionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageIndex)) {
-      query["PageIndex"] = request.pageIndex;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      query["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDomainNamesOfVersion",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDomainNamesOfVersionResponse>(await this.callApi(params, req, runtime), new DescribeDomainNamesOfVersionResponse({}));
-  }
-
-  async describeDomainNamesOfVersion(request: DescribeDomainNamesOfVersionRequest): Promise<DescribeDomainNamesOfVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDomainNamesOfVersionWithOptions(request, runtime);
   }
 
   async describeDomainPathDataWithOptions(request: DescribeDomainPathDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainPathDataResponse> {
@@ -22327,14 +21617,6 @@ export default class Client extends OpenApi {
       query["IP"] = request.IP;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22515,31 +21797,6 @@ export default class Client extends OpenApi {
   async describeRealtimeDeliveryAcc(request: DescribeRealtimeDeliveryAccRequest): Promise<DescribeRealtimeDeliveryAccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRealtimeDeliveryAccWithOptions(request, runtime);
-  }
-
-  async describeRealtimeLogAuthorizedWithOptions(request: DescribeRealtimeLogAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRealtimeLogAuthorizedResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeRealtimeLogAuthorized",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRealtimeLogAuthorizedResponse>(await this.callApi(params, req, runtime), new DescribeRealtimeLogAuthorizedResponse({}));
-  }
-
-  async describeRealtimeLogAuthorized(request: DescribeRealtimeLogAuthorizedRequest): Promise<DescribeRealtimeLogAuthorizedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRealtimeLogAuthorizedWithOptions(request, runtime);
   }
 
   async describeRefreshQuotaWithOptions(request: DescribeRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshQuotaResponse> {
@@ -23390,6 +22647,43 @@ export default class Client extends OpenApi {
     return await this.modifyRealtimeLogDeliveryWithOptions(request, runtime);
   }
 
+  async openCdnServiceWithOptions(request: OpenCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCdnServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenCdnService",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenCdnServiceResponse>(await this.callApi(params, req, runtime), new OpenCdnServiceResponse({}));
+  }
+
+  async openCdnService(request: OpenCdnServiceRequest): Promise<OpenCdnServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openCdnServiceWithOptions(request, runtime);
+  }
+
   async publishStagingConfigToProductionWithOptions(request: PublishStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishStagingConfigToProductionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23659,63 +22953,6 @@ export default class Client extends OpenApi {
   async setCdnDomainStagingConfig(request: SetCdnDomainStagingConfigRequest): Promise<SetCdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setCdnDomainStagingConfigWithOptions(request, runtime);
-  }
-
-  async setConfigOfVersionWithOptions(request: SetConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetConfigOfVersionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.configId)) {
-      query["ConfigId"] = request.configId;
-    }
-
-    if (!Util.isUnset(request.functionArgs)) {
-      query["FunctionArgs"] = request.functionArgs;
-    }
-
-    if (!Util.isUnset(request.functionId)) {
-      query["FunctionId"] = request.functionId;
-    }
-
-    if (!Util.isUnset(request.functionName)) {
-      query["FunctionName"] = request.functionName;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      query["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetConfigOfVersion",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetConfigOfVersionResponse>(await this.callApi(params, req, runtime), new SetConfigOfVersionResponse({}));
-  }
-
-  async setConfigOfVersion(request: SetConfigOfVersionRequest): Promise<SetConfigOfVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setConfigOfVersionWithOptions(request, runtime);
   }
 
   async setDomainServerCertificateWithOptions(request: SetDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainServerCertificateResponse> {
