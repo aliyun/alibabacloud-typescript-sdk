@@ -571,18 +571,18 @@ export class ErasePersonRequest extends $tea.Model {
 
 export class ErasePersonAdvanceRequest extends $tea.Model {
   imageURLObject?: Readable;
-  userMask?: string;
+  userMaskObject?: Readable;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURL',
-      userMask: 'UserMask',
+      userMaskObject: 'UserMask',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
-      userMask: 'string',
+      userMaskObject: 'Readable',
     };
   }
 
@@ -3106,6 +3106,32 @@ export default class Client extends OpenApi {
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
       erasePersonReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.userMaskObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.userMaskObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      erasePersonReq.userMask = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let erasePersonResp = await this.erasePersonWithOptions(erasePersonReq, runtime);
