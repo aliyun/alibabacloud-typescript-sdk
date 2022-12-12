@@ -5157,6 +5157,78 @@ export class DescribeSpecificationResponse extends $tea.Model {
   }
 }
 
+export class DescribeSupportFeaturesRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportFeaturesResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  requestId?: string;
+  supportFeatureList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      supportFeatureList: 'SupportFeatureList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      supportFeatureList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportFeaturesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSupportFeaturesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSupportFeaturesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTagsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -10948,6 +11020,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddBuDBInstanceRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddBuDBInstanceRelationResponse
+   */
+  // Deprecated
   async addBuDBInstanceRelationWithOptions(request: AddBuDBInstanceRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddBuDBInstanceRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10980,6 +11060,13 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBuDBInstanceRelationResponse>(await this.callApi(params, req, runtime), new AddBuDBInstanceRelationResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddBuDBInstanceRelationRequest
+    * @return AddBuDBInstanceRelationResponse
+   */
+  // Deprecated
   async addBuDBInstanceRelation(request: AddBuDBInstanceRelationRequest): Promise<AddBuDBInstanceRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBuDBInstanceRelationWithOptions(request, runtime);
@@ -11607,6 +11694,14 @@ export default class Client extends OpenApi {
     return await this.deleteDBInstancePlanWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteDatabaseRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDatabaseResponse
+   */
+  // Deprecated
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11639,6 +11734,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteDatabaseRequest
+    * @return DeleteDatabaseResponse
+   */
+  // Deprecated
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
@@ -13827,6 +13929,39 @@ export default class Client extends OpenApi {
   async describeSpecification(request: DescribeSpecificationRequest): Promise<DescribeSpecificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSpecificationWithOptions(request, runtime);
+  }
+
+  async describeSupportFeaturesWithOptions(request: DescribeSupportFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportFeaturesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSupportFeatures",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSupportFeaturesResponse>(await this.callApi(params, req, runtime), new DescribeSupportFeaturesResponse({}));
+  }
+
+  async describeSupportFeatures(request: DescribeSupportFeaturesRequest): Promise<DescribeSupportFeaturesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSupportFeaturesWithOptions(request, runtime);
   }
 
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
