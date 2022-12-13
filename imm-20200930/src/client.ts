@@ -6268,15 +6268,19 @@ export class FuzzyQueryRequest extends $tea.Model {
   datasetName?: string;
   maxResults?: number;
   nextToken?: string;
+  order?: string;
   projectName?: string;
   query?: string;
+  sort?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      order: 'Order',
       projectName: 'ProjectName',
       query: 'Query',
+      sort: 'Sort',
     };
   }
 
@@ -6285,8 +6289,10 @@ export class FuzzyQueryRequest extends $tea.Model {
       datasetName: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      order: 'string',
       projectName: 'string',
       query: 'string',
+      sort: 'string',
     };
   }
 
@@ -9169,13 +9175,11 @@ export class SemanticQueryRequest extends $tea.Model {
 }
 
 export class SemanticQueryResponseBody extends $tea.Model {
-  aggregations?: SemanticQueryResponseBodyAggregations[];
   files?: File[];
   nextToken?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      aggregations: 'Aggregations',
       files: 'Files',
       nextToken: 'NextToken',
       requestId: 'RequestId',
@@ -9184,7 +9188,6 @@ export class SemanticQueryResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      aggregations: { 'type': 'array', 'itemType': SemanticQueryResponseBodyAggregations },
       files: { 'type': 'array', 'itemType': File },
       nextToken: 'string',
       requestId: 'string',
@@ -11493,56 +11496,6 @@ export class RemoveStoryFilesRequestFiles extends $tea.Model {
   }
 }
 
-export class SemanticQueryResponseBodyAggregationsGroups extends $tea.Model {
-  count?: number;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SemanticQueryResponseBodyAggregations extends $tea.Model {
-  field?: string;
-  groups?: SemanticQueryResponseBodyAggregationsGroups[];
-  operation?: string;
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      field: 'Field',
-      groups: 'Groups',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      field: 'string',
-      groups: { 'type': 'array', 'itemType': SemanticQueryResponseBodyAggregationsGroups },
-      operation: 'string',
-      value: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SimpleQueryRequestAggregations extends $tea.Model {
   field?: string;
   operation?: string;
@@ -12302,6 +12255,14 @@ export default class Client extends OpenApi {
     return await this.createDatasetWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param tmpReq CreateDetectVideoLabelsTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDetectVideoLabelsTaskResponse
+   */
+  // Deprecated
   async createDetectVideoLabelsTaskWithOptions(tmpReq: CreateDetectVideoLabelsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDetectVideoLabelsTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDetectVideoLabelsTaskShrinkRequest({ });
@@ -12356,6 +12317,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDetectVideoLabelsTaskResponse>(await this.callApi(params, req, runtime), new CreateDetectVideoLabelsTaskResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateDetectVideoLabelsTaskRequest
+    * @return CreateDetectVideoLabelsTaskResponse
+   */
+  // Deprecated
   async createDetectVideoLabelsTask(request: CreateDetectVideoLabelsTaskRequest): Promise<CreateDetectVideoLabelsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
@@ -14038,12 +14006,20 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
 
     if (!Util.isUnset(request.query)) {
       query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14142,6 +14118,14 @@ export default class Client extends OpenApi {
     return await this.getDatasetWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetDetectVideoLabelsResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDetectVideoLabelsResultResponse
+   */
+  // Deprecated
   async getDetectVideoLabelsResultWithOptions(request: GetDetectVideoLabelsResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectVideoLabelsResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14174,6 +14158,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDetectVideoLabelsResultResponse>(await this.callApi(params, req, runtime), new GetDetectVideoLabelsResultResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetDetectVideoLabelsResultRequest
+    * @return GetDetectVideoLabelsResultResponse
+   */
+  // Deprecated
   async getDetectVideoLabelsResult(request: GetDetectVideoLabelsResultRequest): Promise<GetDetectVideoLabelsResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDetectVideoLabelsResultWithOptions(request, runtime);
