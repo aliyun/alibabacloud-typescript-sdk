@@ -658,6 +658,7 @@ export class JobSettings extends $tea.Model {
   businessUserId?: string;
   caller?: string;
   enableErrorMonitoringInAIMaster?: boolean;
+  enableOssAppend?: boolean;
   enableRDMA?: boolean;
   enableTideResource?: boolean;
   errorMonitoringArgs?: string;
@@ -668,6 +669,7 @@ export class JobSettings extends $tea.Model {
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
+      enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
       enableTideResource: 'EnableTideResource',
       errorMonitoringArgs: 'ErrorMonitoringArgs',
@@ -681,6 +683,7 @@ export class JobSettings extends $tea.Model {
       businessUserId: 'string',
       caller: 'string',
       enableErrorMonitoringInAIMaster: 'boolean',
+      enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
       enableTideResource: 'boolean',
       errorMonitoringArgs: 'string',
@@ -822,12 +825,10 @@ export class PodMetric extends $tea.Model {
 export class Quota extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
-  enableTideResource?: boolean;
-  isExclusiveQuota?: boolean;
+  quotaConfig?: QuotaConfig;
   quotaId?: string;
   quotaName?: string;
   quotaType?: string;
-  resourceLevel?: string;
   totalQuota?: QuotaDetail;
   totalTideQuota?: QuotaDetail;
   usedQuota?: QuotaDetail;
@@ -836,12 +837,10 @@ export class Quota extends $tea.Model {
     return {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
-      enableTideResource: 'EnableTideResource',
-      isExclusiveQuota: 'IsExclusiveQuota',
+      quotaConfig: 'QuotaConfig',
       quotaId: 'QuotaId',
       quotaName: 'QuotaName',
       quotaType: 'QuotaType',
-      resourceLevel: 'ResourceLevel',
       totalQuota: 'TotalQuota',
       totalTideQuota: 'TotalTideQuota',
       usedQuota: 'UsedQuota',
@@ -853,16 +852,45 @@ export class Quota extends $tea.Model {
     return {
       clusterId: 'string',
       clusterName: 'string',
-      enableTideResource: 'boolean',
-      isExclusiveQuota: 'boolean',
+      quotaConfig: QuotaConfig,
       quotaId: 'string',
       quotaName: 'string',
       quotaType: 'string',
-      resourceLevel: 'string',
       totalQuota: QuotaDetail,
       totalTideQuota: QuotaDetail,
       usedQuota: QuotaDetail,
       usedTideQuota: QuotaDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuotaConfig extends $tea.Model {
+  allowedMaxPriority?: number;
+  enableDLC?: boolean;
+  enableDSW?: boolean;
+  enableTideResource?: boolean;
+  resourceLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedMaxPriority: 'AllowedMaxPriority',
+      enableDLC: 'EnableDLC',
+      enableDSW: 'EnableDSW',
+      enableTideResource: 'EnableTideResource',
+      resourceLevel: 'ResourceLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedMaxPriority: 'number',
+      enableDLC: 'boolean',
+      enableDSW: 'boolean',
+      enableTideResource: 'boolean',
+      resourceLevel: 'string',
     };
   }
 
@@ -1162,6 +1190,7 @@ export class CreateJobRequest extends $tea.Model {
   priority?: number;
   resourceId?: string;
   settings?: JobSettings;
+  successPolicy?: string;
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
   userCommand?: string;
@@ -1182,6 +1211,7 @@ export class CreateJobRequest extends $tea.Model {
       priority: 'Priority',
       resourceId: 'ResourceId',
       settings: 'Settings',
+      successPolicy: 'SuccessPolicy',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
@@ -1205,6 +1235,7 @@ export class CreateJobRequest extends $tea.Model {
       priority: 'number',
       resourceId: 'string',
       settings: JobSettings,
+      successPolicy: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',
@@ -2087,6 +2118,7 @@ export class ListJobsRequest extends $tea.Model {
   displayName?: string;
   endTime?: string;
   fromAllWorkspaces?: boolean;
+  jobId?: string;
   jobType?: string;
   order?: string;
   pageNumber?: number;
@@ -2106,6 +2138,7 @@ export class ListJobsRequest extends $tea.Model {
       displayName: 'DisplayName',
       endTime: 'EndTime',
       fromAllWorkspaces: 'FromAllWorkspaces',
+      jobId: 'JobId',
       jobType: 'JobType',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -2128,6 +2161,7 @@ export class ListJobsRequest extends $tea.Model {
       displayName: 'string',
       endTime: 'string',
       fromAllWorkspaces: 'boolean',
+      jobId: 'string',
       jobType: 'string',
       order: 'string',
       pageNumber: 'number',
@@ -2154,6 +2188,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   displayName?: string;
   endTime?: string;
   fromAllWorkspaces?: boolean;
+  jobId?: string;
   jobType?: string;
   order?: string;
   pageNumber?: number;
@@ -2173,6 +2208,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       displayName: 'DisplayName',
       endTime: 'EndTime',
       fromAllWorkspaces: 'FromAllWorkspaces',
+      jobId: 'JobId',
       jobType: 'JobType',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -2195,6 +2231,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       displayName: 'string',
       endTime: 'string',
       fromAllWorkspaces: 'boolean',
+      jobId: 'string',
       jobType: 'string',
       order: 'string',
       pageNumber: 'number',
@@ -3023,16 +3060,10 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createJobWithOptions(request, headers, runtime);
-  }
-
   async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.codeSource))) {
+    if (!Util.isUnset(request.codeSource)) {
       body["CodeSource"] = request.codeSource;
     }
 
@@ -3048,7 +3079,7 @@ export default class Client extends OpenApi {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.elasticSpec))) {
+    if (!Util.isUnset(request.elasticSpec)) {
       body["ElasticSpec"] = request.elasticSpec;
     }
 
@@ -3080,8 +3111,12 @@ export default class Client extends OpenApi {
       body["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.settings))) {
+    if (!Util.isUnset(request.settings)) {
       body["Settings"] = request.settings;
+    }
+
+    if (!Util.isUnset(request.successPolicy)) {
+      body["SuccessPolicy"] = request.successPolicy;
     }
 
     if (!Util.isUnset(request.thirdpartyLibDir)) {
@@ -3096,7 +3131,7 @@ export default class Client extends OpenApi {
       body["UserCommand"] = request.userCommand;
     }
 
-    if (!Util.isUnset($tea.toMap(request.userVpc))) {
+    if (!Util.isUnset(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
 
@@ -3122,10 +3157,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
-  async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
+  async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTensorboardWithOptions(request, headers, runtime);
+    return await this.createJobWithOptions(request, headers, runtime);
   }
 
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
@@ -3201,14 +3236,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
   }
 
-  async deleteJob(JobId: string): Promise<DeleteJobResponse> {
+  async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteJobWithOptions(JobId, headers, runtime);
+    return await this.createTensorboardWithOptions(request, headers, runtime);
   }
 
   async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3216,7 +3250,7 @@ export default class Client extends OpenApi {
       action: "DeleteJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -3226,15 +3260,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
-  async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
+  async deleteJob(JobId: string): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
+    return await this.deleteJobWithOptions(JobId, headers, runtime);
   }
 
   async deleteTensorboardWithOptions(TensorboardId: string, request: DeleteTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTensorboardResponse> {
     Util.validateModel(request);
-    TensorboardId = OpenApiUtil.getEncodeParam(TensorboardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
@@ -3248,7 +3281,7 @@ export default class Client extends OpenApi {
       action: "DeleteTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -3258,14 +3291,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
   }
 
-  async getJob(JobId: string): Promise<GetJobResponse> {
+  async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJobWithOptions(JobId, headers, runtime);
+    return await this.deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
   async getJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3273,7 +3305,7 @@ export default class Client extends OpenApi {
       action: "GetJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3283,15 +3315,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
-  async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
+  async getJob(JobId: string): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJobEventsWithOptions(JobId, request, headers, runtime);
+    return await this.getJobWithOptions(JobId, headers, runtime);
   }
 
   async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobEventsResponse> {
     Util.validateModel(request);
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
@@ -3313,7 +3344,7 @@ export default class Client extends OpenApi {
       action: "GetJobEvents",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}/events`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3323,15 +3354,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
   }
 
-  async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
+  async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJobMetricsWithOptions(JobId, request, headers, runtime);
+    return await this.getJobEventsWithOptions(JobId, request, headers, runtime);
   }
 
   async getJobMetricsWithOptions(JobId: string, request: GetJobMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobMetricsResponse> {
     Util.validateModel(request);
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
@@ -3361,7 +3391,7 @@ export default class Client extends OpenApi {
       action: "GetJobMetrics",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}/metrics`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/metrics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3371,16 +3401,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
   }
 
-  async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
+  async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
+    return await this.getJobMetricsWithOptions(JobId, request, headers, runtime);
   }
 
   async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodEventsResponse> {
     Util.validateModel(request);
-    JobId = OpenApiUtil.getEncodeParam(JobId);
-    PodId = OpenApiUtil.getEncodeParam(PodId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
@@ -3406,7 +3434,7 @@ export default class Client extends OpenApi {
       action: "GetPodEvents",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}/pods/${PodId}/events`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3416,16 +3444,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
   }
 
-  async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
+  async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
+    return await this.getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
   }
 
   async getPodLogsWithOptions(JobId: string, PodId: string, request: GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodLogsResponse> {
     Util.validateModel(request);
-    JobId = OpenApiUtil.getEncodeParam(JobId);
-    PodId = OpenApiUtil.getEncodeParam(PodId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.downloadToFile)) {
       query["DownloadToFile"] = request.downloadToFile;
@@ -3455,7 +3481,7 @@ export default class Client extends OpenApi {
       action: "GetPodLogs",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}/pods/${PodId}/logs`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3465,15 +3491,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
   }
 
-  async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
+  async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
+    return await this.getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
   }
 
   async getTensorboardWithOptions(TensorboardId: string, request: GetTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardResponse> {
     Util.validateModel(request);
-    TensorboardId = OpenApiUtil.getEncodeParam(TensorboardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.jodId)) {
       query["JodId"] = request.jodId;
@@ -3491,7 +3516,7 @@ export default class Client extends OpenApi {
       action: "GetTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -3501,10 +3526,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
   }
 
-  async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
+  async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEcsSpecsWithOptions(request, headers, runtime);
+    return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
@@ -3548,10 +3573,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
-  async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
+  async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listJobsWithOptions(request, headers, runtime);
+    return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
 
   async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
@@ -3581,6 +3606,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fromAllWorkspaces)) {
       query["FromAllWorkspaces"] = request.fromAllWorkspaces;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
     }
 
     if (!Util.isUnset(request.jobType)) {
@@ -3649,10 +3678,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
-  async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
+  async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTensorboardsWithOptions(request, headers, runtime);
+    return await this.listJobsWithOptions(request, headers, runtime);
   }
 
   async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTensorboardsResponse> {
@@ -3732,15 +3761,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
   }
 
-  async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
+  async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startTensorboardWithOptions(TensorboardId, request, headers, runtime);
+    return await this.listTensorboardsWithOptions(request, headers, runtime);
   }
 
   async startTensorboardWithOptions(TensorboardId: string, request: StartTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTensorboardResponse> {
     Util.validateModel(request);
-    TensorboardId = OpenApiUtil.getEncodeParam(TensorboardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
@@ -3754,7 +3782,7 @@ export default class Client extends OpenApi {
       action: "StartTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${TensorboardId}/start`,
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -3764,14 +3792,13 @@ export default class Client extends OpenApi {
     return $tea.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
   }
 
-  async stopJob(JobId: string): Promise<StopJobResponse> {
+  async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopJobWithOptions(JobId, headers, runtime);
+    return await this.startTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
   async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3779,7 +3806,7 @@ export default class Client extends OpenApi {
       action: "StopJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}/stop`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -3789,15 +3816,14 @@ export default class Client extends OpenApi {
     return $tea.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
   }
 
-  async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
+  async stopJob(JobId: string): Promise<StopJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
+    return await this.stopJobWithOptions(JobId, headers, runtime);
   }
 
   async stopTensorboardWithOptions(TensorboardId: string, request: StopTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTensorboardResponse> {
     Util.validateModel(request);
-    TensorboardId = OpenApiUtil.getEncodeParam(TensorboardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
@@ -3811,7 +3837,7 @@ export default class Client extends OpenApi {
       action: "StopTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${TensorboardId}/stop`,
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -3821,15 +3847,14 @@ export default class Client extends OpenApi {
     return $tea.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
   }
 
-  async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
+  async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateJobWithOptions(JobId, request, headers, runtime);
+    return await this.stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
   async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
-    JobId = OpenApiUtil.getEncodeParam(JobId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.priority)) {
       body["Priority"] = request.priority;
@@ -3843,7 +3868,7 @@ export default class Client extends OpenApi {
       action: "UpdateJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${JobId}`,
+      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -3853,15 +3878,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
   }
 
-  async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
+  async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTensorboardWithOptions(TensorboardId, request, headers, runtime);
+    return await this.updateJobWithOptions(JobId, request, headers, runtime);
   }
 
   async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTensorboardResponse> {
     Util.validateModel(request);
-    TensorboardId = OpenApiUtil.getEncodeParam(TensorboardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.maxRunningTimeMinutes)) {
       query["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
@@ -3879,7 +3903,7 @@ export default class Client extends OpenApi {
       action: "UpdateTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -3887,6 +3911,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
+  }
+
+  async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
 
 }
