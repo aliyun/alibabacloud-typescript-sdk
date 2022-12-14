@@ -3511,7 +3511,7 @@ export default class Client extends OpenApi {
     let generateVideoReq = new GenerateVideoRequest({ });
     OpenApiUtil.convert(request, generateVideoReq);
     if (!Util.isUnset(request.fileList)) {
-      let i : number = 0;
+      let i0 : number = 0;
 
       for (let item0 of request.fileList) {
         if (!Util.isUnset(item0.fileUrlObject)) {
@@ -3537,9 +3537,9 @@ export default class Client extends OpenApi {
             header: ossHeader,
           });
           await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : GenerateVideoRequestFileList = generateVideoReq.fileList[i];
+          let tmp : GenerateVideoRequestFileList = generateVideoReq.fileList[i0];
           tmp.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
         }
 
       }
