@@ -9,22 +9,22 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DetectIPCPedestrianOptimizedRequest extends $tea.Model {
+  height?: number;
   imageData?: Buffer;
   width?: number;
-  height?: number;
   static names(): { [key: string]: string } {
     return {
+      height: 'height',
       imageData: 'imageData',
       width: 'width',
-      height: 'height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      height: 'number',
       imageData: 'Buffer',
       width: 'number',
-      height: 'number',
     };
   }
 
@@ -57,10 +57,12 @@ export class DetectIPCPedestrianOptimizedResponseBody extends $tea.Model {
 
 export class DetectIPCPedestrianOptimizedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectIPCPedestrianOptimizedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -68,6 +70,7 @@ export class DetectIPCPedestrianOptimizedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectIPCPedestrianOptimizedResponseBody,
     };
   }
@@ -80,7 +83,7 @@ export class DetectIPCPedestrianOptimizedResponse extends $tea.Model {
 export class ExecuteServerSideVerificationRequest extends $tea.Model {
   certificateName?: string;
   certificateNumber?: string;
-  facialPictureData?: Buffer;
+  facialPictureData?: string;
   facialPictureUrl?: string;
   sceneType?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +100,7 @@ export class ExecuteServerSideVerificationRequest extends $tea.Model {
     return {
       certificateName: 'string',
       certificateNumber: 'string',
-      facialPictureData: 'Buffer',
+      facialPictureData: 'string',
       facialPictureUrl: 'string',
       sceneType: 'string',
     };
@@ -109,19 +112,19 @@ export class ExecuteServerSideVerificationRequest extends $tea.Model {
 }
 
 export class ExecuteServerSideVerificationResponseBody extends $tea.Model {
-  requestId?: string;
   data?: ExecuteServerSideVerificationResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: ExecuteServerSideVerificationResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -132,10 +135,12 @@ export class ExecuteServerSideVerificationResponseBody extends $tea.Model {
 
 export class ExecuteServerSideVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ExecuteServerSideVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -143,6 +148,7 @@ export class ExecuteServerSideVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ExecuteServerSideVerificationResponseBody,
     };
   }
@@ -214,21 +220,21 @@ export class DetectIPCPedestrianOptimizedResponseBodyData extends $tea.Model {
 
 export class ExecuteServerSideVerificationResponseBodyData extends $tea.Model {
   pass?: boolean;
-  verificationToken?: string;
   reason?: string;
+  verificationToken?: string;
   static names(): { [key: string]: string } {
     return {
       pass: 'Pass',
-      verificationToken: 'VerificationToken',
       reason: 'Reason',
+      verificationToken: 'VerificationToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pass: 'boolean',
-      verificationToken: 'string',
       reason: 'string',
+      verificationToken: 'string',
     };
   }
 
@@ -261,27 +267,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 行人检测快速版
+    * 行人检测快速版
+    *
+    * @param request DetectIPCPedestrianOptimizedRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetectIPCPedestrianOptimizedResponse
    */
-  async detectIPCPedestrianOptimized(request: DetectIPCPedestrianOptimizedRequest): Promise<DetectIPCPedestrianOptimizedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.detectIPCPedestrianOptimizedWithOptions(request, headers, runtime);
-  }
-
   async detectIPCPedestrianOptimizedWithOptions(request: DetectIPCPedestrianOptimizedRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianOptimizedResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.height)) {
+      body["height"] = request.height;
+    }
+
     if (!Util.isUnset(request.imageData)) {
       body["imageData"] = request.imageData;
     }
 
     if (!Util.isUnset(request.width)) {
       body["width"] = request.width;
-    }
-
-    if (!Util.isUnset(request.height)) {
-      body["height"] = request.height;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -302,10 +307,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectIPCPedestrianOptimizedResponse>(await this.callApi(params, req, runtime), new DetectIPCPedestrianOptimizedResponse({}));
   }
 
-  async executeServerSideVerification(request: ExecuteServerSideVerificationRequest): Promise<ExecuteServerSideVerificationResponse> {
+  /**
+    * 行人检测快速版
+    *
+    * @param request DetectIPCPedestrianOptimizedRequest
+    * @return DetectIPCPedestrianOptimizedResponse
+   */
+  async detectIPCPedestrianOptimized(request: DetectIPCPedestrianOptimizedRequest): Promise<DetectIPCPedestrianOptimizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.executeServerSideVerificationWithOptions(request, headers, runtime);
+    return await this.detectIPCPedestrianOptimizedWithOptions(request, headers, runtime);
   }
 
   async executeServerSideVerificationWithOptions(request: ExecuteServerSideVerificationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteServerSideVerificationResponse> {
@@ -347,6 +358,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ExecuteServerSideVerificationResponse>(await this.callApi(params, req, runtime), new ExecuteServerSideVerificationResponse({}));
+  }
+
+  async executeServerSideVerification(request: ExecuteServerSideVerificationRequest): Promise<ExecuteServerSideVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeServerSideVerificationWithOptions(request, headers, runtime);
   }
 
 }
