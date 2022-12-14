@@ -7,6 +7,7 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -36,6 +37,37 @@ export class AnalyzeChestVesselRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': AnalyzeChestVesselRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeChestVesselAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: AnalyzeChestVesselAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': AnalyzeChestVesselAdvanceRequestURLList },
     };
   }
 
@@ -117,6 +149,37 @@ export class CalcCACSRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': CalcCACSRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: CalcCACSAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': CalcCACSAdvanceRequestURLList },
     };
   }
 
@@ -304,6 +367,34 @@ export class DetectCovid19CadRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': DetectCovid19CadRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectCovid19CadAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: DetectCovid19CadAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectCovid19CadAdvanceRequestURLList },
     };
   }
 
@@ -714,6 +805,37 @@ export class DetectLungNoduleRequest extends $tea.Model {
   }
 }
 
+export class DetectLungNoduleAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  threshold?: number;
+  URLList?: DetectLungNoduleAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      threshold: 'Threshold',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      threshold: 'number',
+      URLList: { 'type': 'array', 'itemType': DetectLungNoduleAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLungNoduleResponseBody extends $tea.Model {
   data?: DetectLungNoduleResponseBodyData;
   message?: string;
@@ -786,6 +908,28 @@ export class DetectLymphRequest extends $tea.Model {
   }
 }
 
+export class DetectLymphAdvanceRequest extends $tea.Model {
+  dataSourceType?: string;
+  URLList?: DetectLymphAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'DataSourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectLymphAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLymphResponseBody extends $tea.Model {
   data?: DetectLymphResponseBodyData;
   requestId?: string;
@@ -847,6 +991,28 @@ export class DetectPancRequest extends $tea.Model {
     return {
       dataSourceType: 'string',
       URLList: { 'type': 'array', 'itemType': DetectPancRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectPancAdvanceRequest extends $tea.Model {
+  dataSourceType?: string;
+  URLList?: DetectPancAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'DataSourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectPancAdvanceRequestURLList },
     };
   }
 
@@ -925,6 +1091,37 @@ export class DetectRibFractureRequest extends $tea.Model {
       orgName: 'string',
       sourceType: 'string',
       URLList: { 'type': 'array', 'itemType': DetectRibFractureRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  sourceType?: string;
+  URLList?: DetectRibFractureAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      sourceType: 'SourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      sourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectRibFractureAdvanceRequestURLList },
     };
   }
 
@@ -1100,6 +1297,34 @@ export class DetectSpineMRIRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': DetectSpineMRIRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: DetectSpineMRIAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectSpineMRIAdvanceRequestURLList },
     };
   }
 
@@ -1321,6 +1546,40 @@ export class RunCTRegistrationRequest extends $tea.Model {
   }
 }
 
+export class RunCTRegistrationAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  dataSourceType?: string;
+  floatingList?: RunCTRegistrationAdvanceRequestFloatingList[];
+  orgId?: string;
+  orgName?: string;
+  referenceList?: RunCTRegistrationAdvanceRequestReferenceList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      dataSourceType: 'DataSourceType',
+      floatingList: 'FloatingList',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      referenceList: 'ReferenceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      dataSourceType: 'string',
+      floatingList: { 'type': 'array', 'itemType': RunCTRegistrationAdvanceRequestFloatingList },
+      orgId: 'string',
+      orgName: 'string',
+      referenceList: { 'type': 'array', 'itemType': RunCTRegistrationAdvanceRequestReferenceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCTRegistrationResponseBody extends $tea.Model {
   data?: RunCTRegistrationResponseBodyData;
   message?: string;
@@ -1411,6 +1670,46 @@ export class RunMedQARequest extends $tea.Model {
   }
 }
 
+export class RunMedQAAdvanceRequest extends $tea.Model {
+  answerImageDataList?: RunMedQAAdvanceRequestAnswerImageDataList[];
+  answerImageURLList?: RunMedQAAdvanceRequestAnswerImageURLList[];
+  answerTextList?: RunMedQAAdvanceRequestAnswerTextList[];
+  department?: string;
+  orgId?: string;
+  orgName?: string;
+  questionType?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerImageDataList: 'AnswerImageDataList',
+      answerImageURLList: 'AnswerImageURLList',
+      answerTextList: 'AnswerTextList',
+      department: 'Department',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      questionType: 'QuestionType',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerImageDataList: { 'type': 'array', 'itemType': RunMedQAAdvanceRequestAnswerImageDataList },
+      answerImageURLList: { 'type': 'array', 'itemType': RunMedQAAdvanceRequestAnswerImageURLList },
+      answerTextList: { 'type': 'array', 'itemType': RunMedQAAdvanceRequestAnswerTextList },
+      department: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      questionType: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunMedQAResponseBody extends $tea.Model {
   data?: RunMedQAResponseBodyData;
   requestId?: string;
@@ -1483,6 +1782,40 @@ export class ScreenChestCTRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': ScreenChestCTRequestURLList },
+      verbose: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTAdvanceRequest extends $tea.Model {
+  dataFormat?: string;
+  mask?: number;
+  orgId?: string;
+  orgName?: string;
+  URLList?: ScreenChestCTAdvanceRequestURLList[];
+  verbose?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      mask: 'Mask',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+      verbose: 'Verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      mask: 'number',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenChestCTAdvanceRequestURLList },
       verbose: 'number',
     };
   }
@@ -1651,6 +1984,43 @@ export class SegmentOARRequest extends $tea.Model {
   }
 }
 
+export class SegmentOARAdvanceRequest extends $tea.Model {
+  bodyPart?: string;
+  contrast?: boolean;
+  dataFormat?: string;
+  maskList?: number[];
+  orgId?: string;
+  orgName?: string;
+  URLList?: SegmentOARAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      bodyPart: 'BodyPart',
+      contrast: 'Contrast',
+      dataFormat: 'DataFormat',
+      maskList: 'MaskList',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyPart: 'string',
+      contrast: 'boolean',
+      dataFormat: 'string',
+      maskList: { 'type': 'array', 'itemType': 'number' },
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': SegmentOARAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SegmentOARResponseBody extends $tea.Model {
   data?: SegmentOARResponseBodyData;
   message?: string;
@@ -1792,6 +2162,25 @@ export class AnalyzeChestVesselRequestURLList extends $tea.Model {
   }
 }
 
+export class AnalyzeChestVesselAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AnalyzeChestVesselResponseBodyDataAortaInfo extends $tea.Model {
   area?: number[];
   coordinates?: number[][];
@@ -1899,6 +2288,25 @@ export class CalcCACSRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -2046,6 +2454,25 @@ export class DetectCovid19CadRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectCovid19CadAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -2292,6 +2719,25 @@ export class DetectLungNoduleRequestURLList extends $tea.Model {
   }
 }
 
+export class DetectLungNoduleAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLungNoduleResponseBodyDataSeriesElements extends $tea.Model {
   category?: string;
   confidence?: number;
@@ -2419,6 +2865,25 @@ export class DetectLymphRequestURLList extends $tea.Model {
   }
 }
 
+export class DetectLymphAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectLymphResponseBodyDataLesions extends $tea.Model {
   boxes?: number[];
   diametermm?: number[];
@@ -2480,6 +2945,25 @@ export class DetectPancRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectPancAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -2557,9 +3041,29 @@ export class DetectRibFractureRequestURLList extends $tea.Model {
   }
 }
 
+export class DetectRibFractureAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
   coordinateImage?: number[];
   coordinates?: number[];
+  fracSOPInstanceUID?: string;
   fractureCategory?: string;
   fractureConfidence?: number;
   fractureId?: number;
@@ -2569,6 +3073,7 @@ export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
     return {
       coordinateImage: 'CoordinateImage',
       coordinates: 'Coordinates',
+      fracSOPInstanceUID: 'FracSOPInstanceUID',
       fractureCategory: 'FractureCategory',
       fractureConfidence: 'FractureConfidence',
       fractureId: 'FractureId',
@@ -2581,6 +3086,7 @@ export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
     return {
       coordinateImage: { 'type': 'array', 'itemType': 'number' },
       coordinates: { 'type': 'array', 'itemType': 'number' },
+      fracSOPInstanceUID: 'string',
       fractureCategory: 'string',
       fractureConfidence: 'number',
       fractureId: 'number',
@@ -2623,16 +3129,28 @@ export class DetectRibFractureResponseBodyData extends $tea.Model {
 }
 
 export class DetectSkinDiseaseResponseBodyData extends $tea.Model {
+  bodyPart?: string;
+  imageQuality?: number;
+  imageType?: string;
   results?: { [key: string]: any };
+  resultsEnglish?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      bodyPart: 'BodyPart',
+      imageQuality: 'ImageQuality',
+      imageType: 'ImageType',
       results: 'Results',
+      resultsEnglish: 'ResultsEnglish',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bodyPart: 'string',
+      imageQuality: 'number',
+      imageType: 'string',
       results: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resultsEnglish: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2652,6 +3170,25 @@ export class DetectSpineMRIRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -2801,6 +3338,44 @@ export class RunCTRegistrationRequestReferenceList extends $tea.Model {
   }
 }
 
+export class RunCTRegistrationAdvanceRequestFloatingList extends $tea.Model {
+  floatingURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      floatingURLObject: 'FloatingURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      floatingURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCTRegistrationAdvanceRequestReferenceList extends $tea.Model {
+  referenceURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      referenceURLObject: 'ReferenceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referenceURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCTRegistrationResponseBodyData extends $tea.Model {
   DUrl?: string;
   NUrl?: string;
@@ -2824,7 +3399,7 @@ export class RunCTRegistrationResponseBodyData extends $tea.Model {
 }
 
 export class RunMedQARequestAnswerImageDataList extends $tea.Model {
-  answerImageData?: Buffer;
+  answerImageData?: string;
   static names(): { [key: string]: string } {
     return {
       answerImageData: 'AnswerImageData',
@@ -2833,7 +3408,7 @@ export class RunMedQARequestAnswerImageDataList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      answerImageData: 'Buffer',
+      answerImageData: 'string',
     };
   }
 
@@ -2862,6 +3437,63 @@ export class RunMedQARequestAnswerImageURLList extends $tea.Model {
 }
 
 export class RunMedQARequestAnswerTextList extends $tea.Model {
+  answerText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerText: 'AnswerText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAAdvanceRequestAnswerImageDataList extends $tea.Model {
+  answerImageData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerImageData: 'AnswerImageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerImageData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAAdvanceRequestAnswerImageURLList extends $tea.Model {
+  answerImageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      answerImageURLObject: 'AnswerImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerImageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAAdvanceRequestAnswerTextList extends $tea.Model {
   answerText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2925,6 +3557,25 @@ export class ScreenChestCTRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -3231,6 +3882,7 @@ export class ScreenChestCTResponseBodyDataDetectPdac extends $tea.Model {
 export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $tea.Model {
   coordinateImage?: number[];
   coordinates?: number[];
+  fracSOPInstanceUID?: string;
   fractureCategory?: number;
   fractureConfidence?: number;
   fractureId?: number;
@@ -3240,6 +3892,7 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
     return {
       coordinateImage: 'CoordinateImage',
       coordinates: 'Coordinates',
+      fracSOPInstanceUID: 'FracSOPInstanceUID',
       fractureCategory: 'FractureCategory',
       fractureConfidence: 'FractureConfidence',
       fractureId: 'FractureId',
@@ -3252,6 +3905,7 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
     return {
       coordinateImage: { 'type': 'array', 'itemType': 'number' },
       coordinates: { 'type': 'array', 'itemType': 'number' },
+      fracSOPInstanceUID: 'string',
       fractureCategory: 'number',
       fractureConfidence: 'number',
       fractureId: 'number',
@@ -3410,6 +4064,59 @@ export class ScreenChestCTResponseBodyDataLungNodule extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataScreenEcLesion extends $tea.Model {
+  benignVolume?: string;
+  ecVolume?: string;
+  esoVolume?: string;
+  mask?: string;
+  possibilities?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      benignVolume: 'BenignVolume',
+      ecVolume: 'EcVolume',
+      esoVolume: 'EsoVolume',
+      mask: 'Mask',
+      possibilities: 'Possibilities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      benignVolume: 'string',
+      ecVolume: 'string',
+      esoVolume: 'string',
+      mask: 'string',
+      possibilities: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataScreenEc extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataScreenEcLesion;
+  seriesInsanceUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+      seriesInsanceUid: 'SeriesInsanceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataScreenEcLesion,
+      seriesInsanceUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyData extends $tea.Model {
   analyzeChestVessel?: ScreenChestCTResponseBodyDataAnalyzeChestVessel;
   CACS?: ScreenChestCTResponseBodyDataCACS;
@@ -3420,6 +4127,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   errorMessage?: string;
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
   nestedUrlList?: { [key: string]: any };
+  screenEc?: ScreenChestCTResponseBodyDataScreenEc;
   URLList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -3432,6 +4140,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       errorMessage: 'ErrorMessage',
       lungNodule: 'LungNodule',
       nestedUrlList: 'NestedUrlList',
+      screenEc: 'ScreenEc',
       URLList: 'URLList',
     };
   }
@@ -3447,6 +4156,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       errorMessage: 'string',
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
       nestedUrlList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      screenEc: ScreenChestCTResponseBodyDataScreenEc,
       URLList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -3536,6 +4246,25 @@ export class SegmentOARRequestURLList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentOARAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
     };
   }
 
@@ -3653,6 +4382,89 @@ export default class Client extends OpenApi {
     return await this.analyzeChestVesselWithOptions(request, runtime);
   }
 
+  async analyzeChestVesselAdvance(request: AnalyzeChestVesselAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AnalyzeChestVesselResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let analyzeChestVesselReq = new AnalyzeChestVesselRequest({ });
+    OpenApiUtil.convert(request, analyzeChestVesselReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : AnalyzeChestVesselRequestURLList = analyzeChestVesselReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let analyzeChestVesselResp = await this.analyzeChestVesselWithOptions(analyzeChestVesselReq, runtime);
+    return analyzeChestVesselResp;
+  }
+
   async calcCACSWithOptions(request: CalcCACSRequest, runtime: $Util.RuntimeOptions): Promise<CalcCACSResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3696,6 +4508,89 @@ export default class Client extends OpenApi {
   async calcCACS(request: CalcCACSRequest): Promise<CalcCACSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.calcCACSWithOptions(request, runtime);
+  }
+
+  async calcCACSAdvance(request: CalcCACSAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CalcCACSResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let calcCACSReq = new CalcCACSRequest({ });
+    OpenApiUtil.convert(request, calcCACSReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : CalcCACSRequestURLList = calcCACSReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let calcCACSResp = await this.calcCACSWithOptions(calcCACSReq, runtime);
+    return calcCACSResp;
   }
 
   async classifyFNFWithOptions(request: ClassifyFNFRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
@@ -3856,6 +4751,89 @@ export default class Client extends OpenApi {
   async detectCovid19Cad(request: DetectCovid19CadRequest): Promise<DetectCovid19CadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectCovid19CadWithOptions(request, runtime);
+  }
+
+  async detectCovid19CadAdvance(request: DetectCovid19CadAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectCovid19CadResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectCovid19CadReq = new DetectCovid19CadRequest({ });
+    OpenApiUtil.convert(request, detectCovid19CadReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectCovid19CadRequestURLList = detectCovid19CadReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectCovid19CadResp = await this.detectCovid19CadWithOptions(detectCovid19CadReq, runtime);
+    return detectCovid19CadResp;
   }
 
   async detectHipKeypointXRayWithOptions(request: DetectHipKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
@@ -4256,6 +5234,89 @@ export default class Client extends OpenApi {
     return await this.detectLungNoduleWithOptions(request, runtime);
   }
 
+  async detectLungNoduleAdvance(request: DetectLungNoduleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLungNoduleResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectLungNoduleReq = new DetectLungNoduleRequest({ });
+    OpenApiUtil.convert(request, detectLungNoduleReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectLungNoduleRequestURLList = detectLungNoduleReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectLungNoduleResp = await this.detectLungNoduleWithOptions(detectLungNoduleReq, runtime);
+    return detectLungNoduleResp;
+  }
+
   async detectLymphWithOptions(request: DetectLymphRequest, runtime: $Util.RuntimeOptions): Promise<DetectLymphResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4289,6 +5350,89 @@ export default class Client extends OpenApi {
     return await this.detectLymphWithOptions(request, runtime);
   }
 
+  async detectLymphAdvance(request: DetectLymphAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLymphResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectLymphReq = new DetectLymphRequest({ });
+    OpenApiUtil.convert(request, detectLymphReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectLymphRequestURLList = detectLymphReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectLymphResp = await this.detectLymphWithOptions(detectLymphReq, runtime);
+    return detectLymphResp;
+  }
+
   async detectPancWithOptions(request: DetectPancRequest, runtime: $Util.RuntimeOptions): Promise<DetectPancResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4320,6 +5464,89 @@ export default class Client extends OpenApi {
   async detectPanc(request: DetectPancRequest): Promise<DetectPancResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectPancWithOptions(request, runtime);
+  }
+
+  async detectPancAdvance(request: DetectPancAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectPancResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectPancReq = new DetectPancRequest({ });
+    OpenApiUtil.convert(request, detectPancReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectPancRequestURLList = detectPancReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectPancResp = await this.detectPancWithOptions(detectPancReq, runtime);
+    return detectPancResp;
   }
 
   async detectRibFractureWithOptions(request: DetectRibFractureRequest, runtime: $Util.RuntimeOptions): Promise<DetectRibFractureResponse> {
@@ -4365,6 +5592,89 @@ export default class Client extends OpenApi {
   async detectRibFracture(request: DetectRibFractureRequest): Promise<DetectRibFractureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectRibFractureWithOptions(request, runtime);
+  }
+
+  async detectRibFractureAdvance(request: DetectRibFractureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectRibFractureResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectRibFractureReq = new DetectRibFractureRequest({ });
+    OpenApiUtil.convert(request, detectRibFractureReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectRibFractureRequestURLList = detectRibFractureReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectRibFractureResp = await this.detectRibFractureWithOptions(detectRibFractureReq, runtime);
+    return detectRibFractureResp;
   }
 
   async detectSkinDiseaseWithOptions(request: DetectSkinDiseaseRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
@@ -4519,6 +5829,89 @@ export default class Client extends OpenApi {
     return await this.detectSpineMRIWithOptions(request, runtime);
   }
 
+  async detectSpineMRIAdvance(request: DetectSpineMRIAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectSpineMRIResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectSpineMRIReq = new DetectSpineMRIRequest({ });
+    OpenApiUtil.convert(request, detectSpineMRIReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectSpineMRIRequestURLList = detectSpineMRIReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectSpineMRIResp = await this.detectSpineMRIWithOptions(detectSpineMRIReq, runtime);
+    return detectSpineMRIResp;
+  }
+
   async feedbackSessionWithOptions(request: FeedbackSessionRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackSessionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4630,6 +6023,124 @@ export default class Client extends OpenApi {
     return await this.runCTRegistrationWithOptions(request, runtime);
   }
 
+  async runCTRegistrationAdvance(request: RunCTRegistrationAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RunCTRegistrationResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let runCTRegistrationReq = new RunCTRegistrationRequest({ });
+    OpenApiUtil.convert(request, runCTRegistrationReq);
+    if (!Util.isUnset(request.floatingList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.floatingList) {
+        if (!Util.isUnset(item0.floatingURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.floatingURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RunCTRegistrationRequestFloatingList = runCTRegistrationReq.floatingList[i0];
+          tmp.floatingURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    if (!Util.isUnset(request.referenceList)) {
+      let i1 : number = 0;
+
+      for (let item0 of request.referenceList) {
+        if (!Util.isUnset(item0.referenceURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.referenceURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RunCTRegistrationRequestReferenceList = runCTRegistrationReq.referenceList[i1];
+          tmp.referenceURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i1 = Number.ltoi(Number.add(Number.itol(i1), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let runCTRegistrationResp = await this.runCTRegistrationWithOptions(runCTRegistrationReq, runtime);
+    return runCTRegistrationResp;
+  }
+
   async runMedQAWithOptions(request: RunMedQARequest, runtime: $Util.RuntimeOptions): Promise<RunMedQAResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4687,6 +6198,89 @@ export default class Client extends OpenApi {
     return await this.runMedQAWithOptions(request, runtime);
   }
 
+  async runMedQAAdvance(request: RunMedQAAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RunMedQAResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let runMedQAReq = new RunMedQARequest({ });
+    OpenApiUtil.convert(request, runMedQAReq);
+    if (!Util.isUnset(request.answerImageURLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.answerImageURLList) {
+        if (!Util.isUnset(item0.answerImageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.answerImageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : RunMedQARequestAnswerImageURLList = runMedQAReq.answerImageURLList[i0];
+          tmp.answerImageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let runMedQAResp = await this.runMedQAWithOptions(runMedQAReq, runtime);
+    return runMedQAResp;
+  }
+
   async screenChestCTWithOptions(request: ScreenChestCTRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4734,6 +6328,89 @@ export default class Client extends OpenApi {
   async screenChestCT(request: ScreenChestCTRequest): Promise<ScreenChestCTResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.screenChestCTWithOptions(request, runtime);
+  }
+
+  async screenChestCTAdvance(request: ScreenChestCTAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let screenChestCTReq = new ScreenChestCTRequest({ });
+    OpenApiUtil.convert(request, screenChestCTReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : ScreenChestCTRequestURLList = screenChestCTReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let screenChestCTResp = await this.screenChestCTWithOptions(screenChestCTReq, runtime);
+    return screenChestCTResp;
   }
 
   async screenECWithOptions(request: ScreenECRequest, runtime: $Util.RuntimeOptions): Promise<ScreenECResponse> {
@@ -4820,6 +6497,89 @@ export default class Client extends OpenApi {
   async segmentOAR(request: SegmentOARRequest): Promise<SegmentOARResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentOARWithOptions(request, runtime);
+  }
+
+  async segmentOARAdvance(request: SegmentOARAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentOARResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let segmentOARReq = new SegmentOARRequest({ });
+    OpenApiUtil.convert(request, segmentOARReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : SegmentOARRequestURLList = segmentOARReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let segmentOARResp = await this.segmentOARWithOptions(segmentOARReq, runtime);
+    return segmentOARResp;
   }
 
   async translateMedWithOptions(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
