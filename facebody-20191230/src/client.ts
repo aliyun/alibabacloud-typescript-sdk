@@ -3898,13 +3898,13 @@ export class RecognizeActionAdvanceRequest extends $tea.Model {
   type?: number;
   URLList?: RecognizeActionAdvanceRequestURLList[];
   videoData?: string;
-  videoUrl?: string;
+  videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       URLList: 'URLList',
       videoData: 'VideoData',
-      videoUrl: 'VideoUrl',
+      videoUrlObject: 'VideoUrl',
     };
   }
 
@@ -3913,7 +3913,7 @@ export class RecognizeActionAdvanceRequest extends $tea.Model {
       type: 'number',
       URLList: { 'type': 'array', 'itemType': RecognizeActionAdvanceRequestURLList },
       videoData: 'string',
-      videoUrl: 'string',
+      videoUrlObject: 'Readable',
     };
   }
 
@@ -8641,8 +8641,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new BeautifyBodyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.ageRange))) {
-      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ageRange), "AgeRange", "json");
+    if (!Util.isUnset(tmpReq.ageRange)) {
+      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ageRange, "AgeRange", "json");
     }
 
     if (!Util.isUnset(tmpReq.bodyBoxes)) {
@@ -10030,7 +10030,7 @@ export default class Client extends OpenApi {
     let detectLivingFaceReq = new DetectLivingFaceRequest({ });
     OpenApiUtil.convert(request, detectLivingFaceReq);
     if (!Util.isUnset(request.tasks)) {
-      let i : number = 0;
+      let i0 : number = 0;
 
       for (let item0 of request.tasks) {
         if (!Util.isUnset(item0.imageURLObject)) {
@@ -10056,9 +10056,9 @@ export default class Client extends OpenApi {
             header: ossHeader,
           });
           await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : DetectLivingFaceRequestTasks = detectLivingFaceReq.tasks[i];
+          let tmp : DetectLivingFaceRequestTasks = detectLivingFaceReq.tasks[i0];
           tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
         }
 
       }
@@ -12201,7 +12201,7 @@ export default class Client extends OpenApi {
     let recognizeActionReq = new RecognizeActionRequest({ });
     OpenApiUtil.convert(request, recognizeActionReq);
     if (!Util.isUnset(request.URLList)) {
-      let i : number = 0;
+      let i0 : number = 0;
 
       for (let item0 of request.URLList) {
         if (!Util.isUnset(item0.URLObject)) {
@@ -12227,12 +12227,38 @@ export default class Client extends OpenApi {
             header: ossHeader,
           });
           await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : RecognizeActionRequestURLList = recognizeActionReq.URLList[i];
+          let tmp : RecognizeActionRequestURLList = recognizeActionReq.URLList[i0];
           tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
         }
 
       }
+    }
+
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeActionReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let recognizeActionResp = await this.recognizeActionWithOptions(recognizeActionReq, runtime);
@@ -12666,7 +12692,7 @@ export default class Client extends OpenApi {
     let recognizePublicFaceReq = new RecognizePublicFaceRequest({ });
     OpenApiUtil.convert(request, recognizePublicFaceReq);
     if (!Util.isUnset(request.task)) {
-      let i : number = 0;
+      let i0 : number = 0;
 
       for (let item0 of request.task) {
         if (!Util.isUnset(item0.imageURLObject)) {
@@ -12692,9 +12718,9 @@ export default class Client extends OpenApi {
             header: ossHeader,
           });
           await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : RecognizePublicFaceRequestTask = recognizePublicFaceReq.task[i];
+          let tmp : RecognizePublicFaceRequestTask = recognizePublicFaceReq.task[i0];
           tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
         }
 
       }
