@@ -1140,18 +1140,18 @@ export class ImitatePhotoStyleRequest extends $tea.Model {
 
 export class ImitatePhotoStyleAdvanceRequest extends $tea.Model {
   imageURLObject?: Readable;
-  styleUrl?: string;
+  styleUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURL',
-      styleUrl: 'StyleUrl',
+      styleUrlObject: 'StyleUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
-      styleUrl: 'string',
+      styleUrlObject: 'Readable',
     };
   }
 
@@ -3832,6 +3832,32 @@ export default class Client extends OpenApi {
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
       imitatePhotoStyleReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.styleUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.styleUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      imitatePhotoStyleReq.styleUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let imitatePhotoStyleResp = await this.imitatePhotoStyleWithOptions(imitatePhotoStyleReq, runtime);
