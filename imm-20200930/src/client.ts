@@ -6195,6 +6195,169 @@ export class DetectImageScoreResponse extends $tea.Model {
   }
 }
 
+export class DetectMediaMetaRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  projectName?: string;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      projectName: 'string',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectMediaMetaShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  projectName?: string;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectMediaMetaResponseBody extends $tea.Model {
+  addresses?: Address[];
+  album?: string;
+  albumArtist?: string;
+  artist?: string;
+  audioStreams?: AudioStream[];
+  bitrate?: number;
+  composer?: string;
+  duration?: number;
+  formatLongName?: string;
+  formatName?: string;
+  language?: string;
+  latLong?: string;
+  performer?: string;
+  produceTime?: string;
+  programCount?: number;
+  requestId?: string;
+  size?: number;
+  startTime?: number;
+  streamCount?: number;
+  subtitles?: SubtitleStream[];
+  title?: string;
+  videoHeight?: number;
+  videoStreams?: VideoStream[];
+  videoWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      album: 'Album',
+      albumArtist: 'AlbumArtist',
+      artist: 'Artist',
+      audioStreams: 'AudioStreams',
+      bitrate: 'Bitrate',
+      composer: 'Composer',
+      duration: 'Duration',
+      formatLongName: 'FormatLongName',
+      formatName: 'FormatName',
+      language: 'Language',
+      latLong: 'LatLong',
+      performer: 'Performer',
+      produceTime: 'ProduceTime',
+      programCount: 'ProgramCount',
+      requestId: 'RequestId',
+      size: 'Size',
+      startTime: 'StartTime',
+      streamCount: 'StreamCount',
+      subtitles: 'Subtitles',
+      title: 'Title',
+      videoHeight: 'VideoHeight',
+      videoStreams: 'VideoStreams',
+      videoWidth: 'VideoWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': Address },
+      album: 'string',
+      albumArtist: 'string',
+      artist: 'string',
+      audioStreams: { 'type': 'array', 'itemType': AudioStream },
+      bitrate: 'number',
+      composer: 'string',
+      duration: 'number',
+      formatLongName: 'string',
+      formatName: 'string',
+      language: 'string',
+      latLong: 'string',
+      performer: 'string',
+      produceTime: 'string',
+      programCount: 'number',
+      requestId: 'string',
+      size: 'number',
+      startTime: 'number',
+      streamCount: 'number',
+      subtitles: { 'type': 'array', 'itemType': SubtitleStream },
+      title: 'string',
+      videoHeight: 'number',
+      videoStreams: { 'type': 'array', 'itemType': VideoStream },
+      videoWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectMediaMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectMediaMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectMediaMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectTextAnomalyRequest extends $tea.Model {
   content?: string;
   projectName?: string;
@@ -6343,6 +6506,229 @@ export class FuzzyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FuzzyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDRMLicenseRequest extends $tea.Model {
+  keyId?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  protectionSystem?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyId: 'KeyId',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      protectionSystem: 'ProtectionSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyId: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      protectionSystem: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDRMLicenseResponseBody extends $tea.Model {
+  deviceInfo?: string;
+  license?: string;
+  requestId?: string;
+  states?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      license: 'License',
+      requestId: 'RequestId',
+      states: 'States',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: 'string',
+      license: 'string',
+      requestId: 'string',
+      states: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDRMLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateDRMLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateDRMLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  masterURI?: string;
+  projectName?: string;
+  sourceDuration?: number;
+  sourceStartTime?: number;
+  sourceSubtitles?: GenerateVideoPlaylistRequestSourceSubtitles[];
+  sourceURI?: string;
+  tags?: { [key: string]: any };
+  targets?: GenerateVideoPlaylistRequestTargets[];
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      masterURI: 'MasterURI',
+      projectName: 'ProjectName',
+      sourceDuration: 'SourceDuration',
+      sourceStartTime: 'SourceStartTime',
+      sourceSubtitles: 'SourceSubtitles',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      targets: 'Targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      masterURI: 'string',
+      projectName: 'string',
+      sourceDuration: 'number',
+      sourceStartTime: 'number',
+      sourceSubtitles: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestSourceSubtitles },
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targets: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestTargets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  masterURI?: string;
+  projectName?: string;
+  sourceDuration?: number;
+  sourceStartTime?: number;
+  sourceSubtitlesShrink?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  targetsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      masterURI: 'MasterURI',
+      projectName: 'ProjectName',
+      sourceDuration: 'SourceDuration',
+      sourceStartTime: 'SourceStartTime',
+      sourceSubtitlesShrink: 'SourceSubtitles',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      targetsShrink: 'Targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      masterURI: 'string',
+      projectName: 'string',
+      sourceDuration: 'number',
+      sourceStartTime: 'number',
+      sourceSubtitlesShrink: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      targetsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponseBody extends $tea.Model {
+  requestId?: string;
+  signedURL?: string;
+  token?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signedURL: 'SignedURL',
+      token: 'Token',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signedURL: 'string',
+      token: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoPlaylistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateVideoPlaylistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateVideoPlaylistResponseBody,
     };
   }
 
@@ -6733,169 +7119,6 @@ export class GetFileMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetFileMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaMetaRequest extends $tea.Model {
-  credentialConfig?: CredentialConfig;
-  projectName?: string;
-  sourceURI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfig: 'CredentialConfig',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfig: CredentialConfig,
-      projectName: 'string',
-      sourceURI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaMetaShrinkRequest extends $tea.Model {
-  credentialConfigShrink?: string;
-  projectName?: string;
-  sourceURI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfigShrink: 'CredentialConfig',
-      projectName: 'ProjectName',
-      sourceURI: 'SourceURI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfigShrink: 'string',
-      projectName: 'string',
-      sourceURI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaMetaResponseBody extends $tea.Model {
-  addresses?: Address[];
-  album?: string;
-  albumArtist?: string;
-  artist?: string;
-  audioStreams?: AudioStream[];
-  bitrate?: number;
-  composer?: string;
-  duration?: number;
-  formatLongName?: string;
-  formatName?: string;
-  language?: string;
-  latLong?: string;
-  performer?: string;
-  produceTime?: string;
-  programCount?: number;
-  requestId?: string;
-  size?: number;
-  startTime?: number;
-  streamCount?: number;
-  subtitles?: SubtitleStream[];
-  title?: string;
-  videoHeight?: number;
-  videoStreams?: VideoStream[];
-  videoWidth?: number;
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'Addresses',
-      album: 'Album',
-      albumArtist: 'AlbumArtist',
-      artist: 'Artist',
-      audioStreams: 'AudioStreams',
-      bitrate: 'Bitrate',
-      composer: 'Composer',
-      duration: 'Duration',
-      formatLongName: 'FormatLongName',
-      formatName: 'FormatName',
-      language: 'Language',
-      latLong: 'LatLong',
-      performer: 'Performer',
-      produceTime: 'ProduceTime',
-      programCount: 'ProgramCount',
-      requestId: 'RequestId',
-      size: 'Size',
-      startTime: 'StartTime',
-      streamCount: 'StreamCount',
-      subtitles: 'Subtitles',
-      title: 'Title',
-      videoHeight: 'VideoHeight',
-      videoStreams: 'VideoStreams',
-      videoWidth: 'VideoWidth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': Address },
-      album: 'string',
-      albumArtist: 'string',
-      artist: 'string',
-      audioStreams: { 'type': 'array', 'itemType': AudioStream },
-      bitrate: 'number',
-      composer: 'string',
-      duration: 'number',
-      formatLongName: 'string',
-      formatName: 'string',
-      language: 'string',
-      latLong: 'string',
-      performer: 'string',
-      produceTime: 'string',
-      programCount: 'number',
-      requestId: 'string',
-      size: 'number',
-      startTime: 'number',
-      streamCount: 'number',
-      subtitles: { 'type': 'array', 'itemType': SubtitleStream },
-      title: 'string',
-      videoHeight: 'number',
-      videoStreams: { 'type': 'array', 'itemType': VideoStream },
-      videoWidth: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMediaMetaResponseBody,
     };
   }
 
@@ -7307,326 +7530,6 @@ export class GetVideoLabelClassificationResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetVideoLabelClassificationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVideoPlaylistRequest extends $tea.Model {
-  credentialConfig?: CredentialConfig;
-  masterURI?: string;
-  projectName?: string;
-  sourceDuration?: number;
-  sourceStartTime?: number;
-  sourceSubtitles?: GetVideoPlaylistRequestSourceSubtitles[];
-  sourceURI?: string;
-  tags?: { [key: string]: any };
-  targets?: GetVideoPlaylistRequestTargets[];
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfig: 'CredentialConfig',
-      masterURI: 'MasterURI',
-      projectName: 'ProjectName',
-      sourceDuration: 'SourceDuration',
-      sourceStartTime: 'SourceStartTime',
-      sourceSubtitles: 'SourceSubtitles',
-      sourceURI: 'SourceURI',
-      tags: 'Tags',
-      targets: 'Targets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfig: CredentialConfig,
-      masterURI: 'string',
-      projectName: 'string',
-      sourceDuration: 'number',
-      sourceStartTime: 'number',
-      sourceSubtitles: { 'type': 'array', 'itemType': GetVideoPlaylistRequestSourceSubtitles },
-      sourceURI: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      targets: { 'type': 'array', 'itemType': GetVideoPlaylistRequestTargets },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVideoPlaylistShrinkRequest extends $tea.Model {
-  credentialConfigShrink?: string;
-  masterURI?: string;
-  projectName?: string;
-  sourceDuration?: number;
-  sourceStartTime?: number;
-  sourceSubtitlesShrink?: string;
-  sourceURI?: string;
-  tagsShrink?: string;
-  targetsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialConfigShrink: 'CredentialConfig',
-      masterURI: 'MasterURI',
-      projectName: 'ProjectName',
-      sourceDuration: 'SourceDuration',
-      sourceStartTime: 'SourceStartTime',
-      sourceSubtitlesShrink: 'SourceSubtitles',
-      sourceURI: 'SourceURI',
-      tagsShrink: 'Tags',
-      targetsShrink: 'Targets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialConfigShrink: 'string',
-      masterURI: 'string',
-      projectName: 'string',
-      sourceDuration: 'number',
-      sourceStartTime: 'number',
-      sourceSubtitlesShrink: 'string',
-      sourceURI: 'string',
-      tagsShrink: 'string',
-      targetsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVideoPlaylistResponseBody extends $tea.Model {
-  requestId?: string;
-  signedURL?: string;
-  token?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      signedURL: 'SignedURL',
-      token: 'Token',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      signedURL: 'string',
-      token: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVideoPlaylistResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoPlaylistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVideoPlaylistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeURLRequest extends $tea.Model {
-  cachePreview?: boolean;
-  credentialConfig?: CredentialConfig;
-  externalUploaded?: boolean;
-  filename?: string;
-  hidecmb?: boolean;
-  notifyTopicName?: string;
-  password?: string;
-  permission?: WebofficePermission;
-  previewPages?: number;
-  projectName?: string;
-  referer?: string;
-  sourceURI?: string;
-  user?: WebofficeUser;
-  userData?: string;
-  watermark?: WebofficeWatermark;
-  static names(): { [key: string]: string } {
-    return {
-      cachePreview: 'CachePreview',
-      credentialConfig: 'CredentialConfig',
-      externalUploaded: 'ExternalUploaded',
-      filename: 'Filename',
-      hidecmb: 'Hidecmb',
-      notifyTopicName: 'NotifyTopicName',
-      password: 'Password',
-      permission: 'Permission',
-      previewPages: 'PreviewPages',
-      projectName: 'ProjectName',
-      referer: 'Referer',
-      sourceURI: 'SourceURI',
-      user: 'User',
-      userData: 'UserData',
-      watermark: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cachePreview: 'boolean',
-      credentialConfig: CredentialConfig,
-      externalUploaded: 'boolean',
-      filename: 'string',
-      hidecmb: 'boolean',
-      notifyTopicName: 'string',
-      password: 'string',
-      permission: WebofficePermission,
-      previewPages: 'number',
-      projectName: 'string',
-      referer: 'string',
-      sourceURI: 'string',
-      user: WebofficeUser,
-      userData: 'string',
-      watermark: WebofficeWatermark,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeURLShrinkRequest extends $tea.Model {
-  cachePreview?: boolean;
-  credentialConfigShrink?: string;
-  externalUploaded?: boolean;
-  filename?: string;
-  hidecmb?: boolean;
-  notifyTopicName?: string;
-  password?: string;
-  permissionShrink?: string;
-  previewPages?: number;
-  projectName?: string;
-  referer?: string;
-  sourceURI?: string;
-  userShrink?: string;
-  userData?: string;
-  watermarkShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cachePreview: 'CachePreview',
-      credentialConfigShrink: 'CredentialConfig',
-      externalUploaded: 'ExternalUploaded',
-      filename: 'Filename',
-      hidecmb: 'Hidecmb',
-      notifyTopicName: 'NotifyTopicName',
-      password: 'Password',
-      permissionShrink: 'Permission',
-      previewPages: 'PreviewPages',
-      projectName: 'ProjectName',
-      referer: 'Referer',
-      sourceURI: 'SourceURI',
-      userShrink: 'User',
-      userData: 'UserData',
-      watermarkShrink: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cachePreview: 'boolean',
-      credentialConfigShrink: 'string',
-      externalUploaded: 'boolean',
-      filename: 'string',
-      hidecmb: 'boolean',
-      notifyTopicName: 'string',
-      password: 'string',
-      permissionShrink: 'string',
-      previewPages: 'number',
-      projectName: 'string',
-      referer: 'string',
-      sourceURI: 'string',
-      userShrink: 'string',
-      userData: 'string',
-      watermarkShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeURLResponseBody extends $tea.Model {
-  accessToken?: string;
-  accessTokenExpiredTime?: string;
-  refreshToken?: string;
-  refreshTokenExpiredTime?: string;
-  requestId?: string;
-  webofficeURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'AccessToken',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
-      refreshToken: 'RefreshToken',
-      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      requestId: 'RequestId',
-      webofficeURL: 'WebofficeURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      accessTokenExpiredTime: 'string',
-      refreshToken: 'string',
-      refreshTokenExpiredTime: 'string',
-      requestId: 'string',
-      webofficeURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeURLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWebofficeURLResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWebofficeURLResponseBody,
     };
   }
 
@@ -11069,7 +10972,7 @@ export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestSourceSubtitles extends $tea.Model {
+export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
   language?: string;
   URI?: string;
   static names(): { [key: string]: string } {
@@ -11091,7 +10994,7 @@ export class GetVideoPlaylistRequestSourceSubtitles extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargetsAudioFilterAudio extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsAudioFilterAudio extends $tea.Model {
   mixing?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11110,7 +11013,7 @@ export class GetVideoPlaylistRequestTargetsAudioFilterAudio extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargetsAudioTranscodeAudio extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio extends $tea.Model {
   bitrate?: number;
   bitrateOption?: string;
   channel?: number;
@@ -11147,10 +11050,10 @@ export class GetVideoPlaylistRequestTargetsAudioTranscodeAudio extends $tea.Mode
   }
 }
 
-export class GetVideoPlaylistRequestTargetsAudio extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsAudio extends $tea.Model {
   disableAudio?: boolean;
-  filterAudio?: GetVideoPlaylistRequestTargetsAudioFilterAudio;
-  transcodeAudio?: GetVideoPlaylistRequestTargetsAudioTranscodeAudio;
+  filterAudio?: GenerateVideoPlaylistRequestTargetsAudioFilterAudio;
+  transcodeAudio?: GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio;
   static names(): { [key: string]: string } {
     return {
       disableAudio: 'DisableAudio',
@@ -11162,8 +11065,8 @@ export class GetVideoPlaylistRequestTargetsAudio extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       disableAudio: 'boolean',
-      filterAudio: GetVideoPlaylistRequestTargetsAudioFilterAudio,
-      transcodeAudio: GetVideoPlaylistRequestTargetsAudioTranscodeAudio,
+      filterAudio: GenerateVideoPlaylistRequestTargetsAudioFilterAudio,
+      transcodeAudio: GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio,
     };
   }
 
@@ -11172,7 +11075,7 @@ export class GetVideoPlaylistRequestTargetsAudio extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle extends $tea.Model {
   format?: string;
   URI?: string;
   static names(): { [key: string]: string } {
@@ -11194,9 +11097,9 @@ export class GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle extends $tea.
   }
 }
 
-export class GetVideoPlaylistRequestTargetsSubtitle extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsSubtitle extends $tea.Model {
   disableSubtitle?: boolean;
-  extractSubtitle?: GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle;
+  extractSubtitle?: GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle;
   static names(): { [key: string]: string } {
     return {
       disableSubtitle: 'DisableSubtitle',
@@ -11207,7 +11110,7 @@ export class GetVideoPlaylistRequestTargetsSubtitle extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       disableSubtitle: 'boolean',
-      extractSubtitle: GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle,
+      extractSubtitle: GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle,
     };
   }
 
@@ -11216,7 +11119,7 @@ export class GetVideoPlaylistRequestTargetsSubtitle extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos extends $tea.Model {
   duration?: number;
   dx?: number;
   dy?: number;
@@ -11253,7 +11156,7 @@ export class GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos extends $tea.
   }
 }
 
-export class GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks extends $tea.Model {
   boardWidth?: number;
   borderColor?: string;
   content?: string;
@@ -11317,9 +11220,9 @@ export class GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks extends $t
   }
 }
 
-export class GetVideoPlaylistRequestTargetsVideoFilterVideo extends $tea.Model {
-  delogos?: GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos[];
-  watermarks?: GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks[];
+export class GenerateVideoPlaylistRequestTargetsVideoFilterVideo extends $tea.Model {
+  delogos?: GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos[];
+  watermarks?: GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks[];
   static names(): { [key: string]: string } {
     return {
       delogos: 'Delogos',
@@ -11329,8 +11232,8 @@ export class GetVideoPlaylistRequestTargetsVideoFilterVideo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      delogos: { 'type': 'array', 'itemType': GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos },
-      watermarks: { 'type': 'array', 'itemType': GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks },
+      delogos: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos },
+      watermarks: { 'type': 'array', 'itemType': GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks },
     };
   }
 
@@ -11339,7 +11242,7 @@ export class GetVideoPlaylistRequestTargetsVideoFilterVideo extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargetsVideoTranscodeVideo extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo extends $tea.Model {
   adaptiveResolutionDirection?: boolean;
   BFrames?: number;
   bitrate?: number;
@@ -11406,10 +11309,10 @@ export class GetVideoPlaylistRequestTargetsVideoTranscodeVideo extends $tea.Mode
   }
 }
 
-export class GetVideoPlaylistRequestTargetsVideo extends $tea.Model {
+export class GenerateVideoPlaylistRequestTargetsVideo extends $tea.Model {
   disableVideo?: boolean;
-  filterVideo?: GetVideoPlaylistRequestTargetsVideoFilterVideo;
-  transcodeVideo?: GetVideoPlaylistRequestTargetsVideoTranscodeVideo;
+  filterVideo?: GenerateVideoPlaylistRequestTargetsVideoFilterVideo;
+  transcodeVideo?: GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo;
   static names(): { [key: string]: string } {
     return {
       disableVideo: 'DisableVideo',
@@ -11421,8 +11324,8 @@ export class GetVideoPlaylistRequestTargetsVideo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       disableVideo: 'boolean',
-      filterVideo: GetVideoPlaylistRequestTargetsVideoFilterVideo,
-      transcodeVideo: GetVideoPlaylistRequestTargetsVideoTranscodeVideo,
+      filterVideo: GenerateVideoPlaylistRequestTargetsVideoFilterVideo,
+      transcodeVideo: GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo,
     };
   }
 
@@ -11431,17 +11334,17 @@ export class GetVideoPlaylistRequestTargetsVideo extends $tea.Model {
   }
 }
 
-export class GetVideoPlaylistRequestTargets extends $tea.Model {
-  audio?: GetVideoPlaylistRequestTargetsAudio;
+export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
+  audio?: GenerateVideoPlaylistRequestTargetsAudio;
   duration?: number;
   initialSegments?: number[];
   initialTranscode?: number;
   presetId?: PresetReference;
   speed?: number;
-  subtitle?: GetVideoPlaylistRequestTargetsSubtitle;
+  subtitle?: GenerateVideoPlaylistRequestTargetsSubtitle;
   transcodeAhead?: number;
   URI?: string;
-  video?: GetVideoPlaylistRequestTargetsVideo;
+  video?: GenerateVideoPlaylistRequestTargetsVideo;
   static names(): { [key: string]: string } {
     return {
       audio: 'Audio',
@@ -11459,16 +11362,16 @@ export class GetVideoPlaylistRequestTargets extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      audio: GetVideoPlaylistRequestTargetsAudio,
+      audio: GenerateVideoPlaylistRequestTargetsAudio,
       duration: 'number',
       initialSegments: { 'type': 'array', 'itemType': 'number' },
       initialTranscode: 'number',
       presetId: PresetReference,
       speed: 'number',
-      subtitle: GetVideoPlaylistRequestTargetsSubtitle,
+      subtitle: GenerateVideoPlaylistRequestTargetsSubtitle,
       transcodeAhead: 'number',
       URI: 'string',
-      video: GetVideoPlaylistRequestTargetsVideo,
+      video: GenerateVideoPlaylistRequestTargetsVideo,
     };
   }
 
@@ -13958,6 +13861,49 @@ export default class Client extends OpenApi {
     return await this.detectImageScoreWithOptions(request, runtime);
   }
 
+  async detectMediaMetaWithOptions(tmpReq: DetectMediaMetaRequest, runtime: $Util.RuntimeOptions): Promise<DetectMediaMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetectMediaMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectMediaMeta",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectMediaMetaResponse>(await this.callApi(params, req, runtime), new DetectMediaMetaResponse({}));
+  }
+
+  async detectMediaMeta(request: DetectMediaMetaRequest): Promise<DetectMediaMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectMediaMetaWithOptions(request, runtime);
+  }
+
   async detectTextAnomalyWithOptions(request: DetectTextAnomalyRequest, runtime: $Util.RuntimeOptions): Promise<DetectTextAnomalyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14042,6 +13988,130 @@ export default class Client extends OpenApi {
   async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fuzzyQueryWithOptions(request, runtime);
+  }
+
+  async generateDRMLicenseWithOptions(request: GenerateDRMLicenseRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDRMLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.protectionSystem)) {
+      query["ProtectionSystem"] = request.protectionSystem;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateDRMLicense",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateDRMLicenseResponse>(await this.callApi(params, req, runtime), new GenerateDRMLicenseResponse({}));
+  }
+
+  async generateDRMLicense(request: GenerateDRMLicenseRequest): Promise<GenerateDRMLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateDRMLicenseWithOptions(request, runtime);
+  }
+
+  async generateVideoPlaylistWithOptions(tmpReq: GenerateVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoPlaylistResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GenerateVideoPlaylistShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceSubtitles)) {
+      request.sourceSubtitlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceSubtitles, "SourceSubtitles", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.targets)) {
+      request.targetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targets, "Targets", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.masterURI)) {
+      query["MasterURI"] = request.masterURI;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceDuration)) {
+      query["SourceDuration"] = request.sourceDuration;
+    }
+
+    if (!Util.isUnset(request.sourceStartTime)) {
+      query["SourceStartTime"] = request.sourceStartTime;
+    }
+
+    if (!Util.isUnset(request.sourceSubtitlesShrink)) {
+      query["SourceSubtitles"] = request.sourceSubtitlesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targetsShrink)) {
+      query["Targets"] = request.targetsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateVideoPlaylist",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateVideoPlaylistResponse>(await this.callApi(params, req, runtime), new GenerateVideoPlaylistResponse({}));
+  }
+
+  async generateVideoPlaylist(request: GenerateVideoPlaylistRequest): Promise<GenerateVideoPlaylistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateVideoPlaylistWithOptions(request, runtime);
   }
 
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
@@ -14244,49 +14314,6 @@ export default class Client extends OpenApi {
     return await this.getFileMetaWithOptions(request, runtime);
   }
 
-  async getMediaMetaWithOptions(tmpReq: GetMediaMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaMetaResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetMediaMetaShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.credentialConfig)) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetMediaMeta",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetMediaMetaResponse>(await this.callApi(params, req, runtime), new GetMediaMetaResponse({}));
-  }
-
-  async getMediaMeta(request: GetMediaMetaRequest): Promise<GetMediaMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMediaMetaWithOptions(request, runtime);
-  }
-
   async getOSSBucketAttachmentWithOptions(request: GetOSSBucketAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSBucketAttachmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14458,188 +14485,6 @@ export default class Client extends OpenApi {
   async getVideoLabelClassificationResult(request: GetVideoLabelClassificationResultRequest): Promise<GetVideoLabelClassificationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoLabelClassificationResultWithOptions(request, runtime);
-  }
-
-  async getVideoPlaylistWithOptions(tmpReq: GetVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoPlaylistResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetVideoPlaylistShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.credentialConfig)) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sourceSubtitles)) {
-      request.sourceSubtitlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceSubtitles, "SourceSubtitles", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tags)) {
-      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.targets)) {
-      request.targetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targets, "Targets", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.masterURI)) {
-      query["MasterURI"] = request.masterURI;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.sourceDuration)) {
-      query["SourceDuration"] = request.sourceDuration;
-    }
-
-    if (!Util.isUnset(request.sourceStartTime)) {
-      query["SourceStartTime"] = request.sourceStartTime;
-    }
-
-    if (!Util.isUnset(request.sourceSubtitlesShrink)) {
-      query["SourceSubtitles"] = request.sourceSubtitlesShrink;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    if (!Util.isUnset(request.tagsShrink)) {
-      query["Tags"] = request.tagsShrink;
-    }
-
-    if (!Util.isUnset(request.targetsShrink)) {
-      query["Targets"] = request.targetsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetVideoPlaylist",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetVideoPlaylistResponse>(await this.callApi(params, req, runtime), new GetVideoPlaylistResponse({}));
-  }
-
-  async getVideoPlaylist(request: GetVideoPlaylistRequest): Promise<GetVideoPlaylistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getVideoPlaylistWithOptions(request, runtime);
-  }
-
-  async getWebofficeURLWithOptions(tmpReq: GetWebofficeURLRequest, runtime: $Util.RuntimeOptions): Promise<GetWebofficeURLResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetWebofficeURLShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.credentialConfig)) {
-      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.permission)) {
-      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.user)) {
-      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.watermark)) {
-      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermark, "Watermark", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.cachePreview)) {
-      query["CachePreview"] = request.cachePreview;
-    }
-
-    if (!Util.isUnset(request.credentialConfigShrink)) {
-      query["CredentialConfig"] = request.credentialConfigShrink;
-    }
-
-    if (!Util.isUnset(request.externalUploaded)) {
-      query["ExternalUploaded"] = request.externalUploaded;
-    }
-
-    if (!Util.isUnset(request.filename)) {
-      query["Filename"] = request.filename;
-    }
-
-    if (!Util.isUnset(request.hidecmb)) {
-      query["Hidecmb"] = request.hidecmb;
-    }
-
-    if (!Util.isUnset(request.notifyTopicName)) {
-      query["NotifyTopicName"] = request.notifyTopicName;
-    }
-
-    if (!Util.isUnset(request.password)) {
-      query["Password"] = request.password;
-    }
-
-    if (!Util.isUnset(request.permissionShrink)) {
-      query["Permission"] = request.permissionShrink;
-    }
-
-    if (!Util.isUnset(request.previewPages)) {
-      query["PreviewPages"] = request.previewPages;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.referer)) {
-      query["Referer"] = request.referer;
-    }
-
-    if (!Util.isUnset(request.sourceURI)) {
-      query["SourceURI"] = request.sourceURI;
-    }
-
-    if (!Util.isUnset(request.userShrink)) {
-      query["User"] = request.userShrink;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      query["UserData"] = request.userData;
-    }
-
-    if (!Util.isUnset(request.watermarkShrink)) {
-      query["Watermark"] = request.watermarkShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetWebofficeURL",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetWebofficeURLResponse>(await this.callApi(params, req, runtime), new GetWebofficeURLResponse({}));
-  }
-
-  async getWebofficeURL(request: GetWebofficeURLRequest): Promise<GetWebofficeURLResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebofficeURLWithOptions(request, runtime);
   }
 
   async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
