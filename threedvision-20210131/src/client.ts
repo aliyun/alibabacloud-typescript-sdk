@@ -214,6 +214,28 @@ export class EstimateStereoImageDepthRequest extends $tea.Model {
   }
 }
 
+export class EstimateStereoImageDepthAdvanceRequest extends $tea.Model {
+  leftImageURLObject?: Readable;
+  rightImageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      leftImageURLObject: 'LeftImageURL',
+      rightImageURLObject: 'RightImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      leftImageURLObject: 'Readable',
+      rightImageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EstimateStereoImageDepthResponseBody extends $tea.Model {
   data?: EstimateStereoImageDepthResponseBodyData;
   requestId?: string;
@@ -908,6 +930,106 @@ export default class Client extends OpenApi {
   async estimateStereoImageDepth(request: EstimateStereoImageDepthRequest): Promise<EstimateStereoImageDepthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.estimateStereoImageDepthWithOptions(request, runtime);
+  }
+
+  async estimateStereoImageDepthAdvance(request: EstimateStereoImageDepthAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoImageDepthResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "threedvision",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let estimateStereoImageDepthReq = new EstimateStereoImageDepthRequest({ });
+    OpenApiUtil.convert(request, estimateStereoImageDepthReq);
+    if (!Util.isUnset(request.leftImageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.leftImageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      estimateStereoImageDepthReq.leftImageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.rightImageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.rightImageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      estimateStereoImageDepthReq.rightImageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let estimateStereoImageDepthResp = await this.estimateStereoImageDepthWithOptions(estimateStereoImageDepthReq, runtime);
+    return estimateStereoImageDepthResp;
   }
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
