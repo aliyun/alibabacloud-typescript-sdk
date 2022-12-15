@@ -6805,6 +6805,7 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyAddRequestExternalTravelerStandardHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   static names(): { [key: string]: string } {
@@ -6814,6 +6815,7 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
     };
@@ -6826,6 +6828,7 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestExternalTravelerStandardHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
     };
@@ -7030,6 +7033,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyAddRequestTravelerStandardHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   userId?: string;
@@ -7040,6 +7044,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
       userId: 'user_id',
@@ -7053,6 +7058,7 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestTravelerStandardHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
       userId: 'string',
@@ -7406,6 +7412,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyModifyRequestExternalTravelerStandardHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   static names(): { [key: string]: string } {
@@ -7415,6 +7422,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
     };
@@ -7427,6 +7435,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
     };
@@ -7631,6 +7640,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyModifyRequestTravelerStandardHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   userId?: string;
@@ -7641,6 +7651,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
       userId: 'user_id',
@@ -7654,6 +7665,7 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
       userId: 'string',
@@ -7758,6 +7770,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   userName?: string;
@@ -7768,6 +7781,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
       userName: 'user_name',
@@ -7781,6 +7795,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
       userName: 'string',
@@ -7946,6 +7961,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
   firstDiscount?: number;
   flightCabins?: string;
   hotelCitys?: ApplyQueryResponseBodyModuleTravelerListHotelCitys[];
+  premiumEconomyDiscount?: number;
   reserveType?: number;
   trainSeats?: string;
   userId?: string;
@@ -7957,6 +7973,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
       hotelCitys: 'hotel_citys',
+      premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainSeats: 'train_seats',
       userId: 'user_id',
@@ -7971,6 +7988,7 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       firstDiscount: 'number',
       flightCabins: 'string',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelCitys },
+      premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainSeats: 'string',
       userId: 'string',
@@ -13093,12 +13111,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async accessToken(request: AccessTokenRequest): Promise<AccessTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.accessTokenWithOptions(request, headers, runtime);
-  }
-
   async accessTokenWithOptions(request: AccessTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AccessTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -13128,10 +13140,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AccessTokenResponse>(await this.callApi(params, req, runtime), new AccessTokenResponse({}));
   }
 
-  async addressGet(request: AddressGetRequest): Promise<AddressGetResponse> {
+  async accessToken(request: AccessTokenRequest): Promise<AccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AddressGetHeaders({ });
-    return await this.addressGetWithOptions(request, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.accessTokenWithOptions(request, headers, runtime);
   }
 
   async addressGetWithOptions(request: AddressGetRequest, headers: AddressGetHeaders, runtime: $Util.RuntimeOptions): Promise<AddressGetResponse> {
@@ -13184,10 +13196,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddressGetResponse>(await this.callApi(params, req, runtime), new AddressGetResponse({}));
   }
 
-  async airportSearch(request: AirportSearchRequest): Promise<AirportSearchResponse> {
+  async addressGet(request: AddressGetRequest): Promise<AddressGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AirportSearchHeaders({ });
-    return await this.airportSearchWithOptions(request, headers, runtime);
+    let headers = new AddressGetHeaders({ });
+    return await this.addressGetWithOptions(request, headers, runtime);
   }
 
   async airportSearchWithOptions(request: AirportSearchRequest, headers: AirportSearchHeaders, runtime: $Util.RuntimeOptions): Promise<AirportSearchResponse> {
@@ -13228,10 +13240,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AirportSearchResponse>(await this.callApi(params, req, runtime), new AirportSearchResponse({}));
   }
 
-  async allBaseCityInfoQuery(): Promise<AllBaseCityInfoQueryResponse> {
+  async airportSearch(request: AirportSearchRequest): Promise<AirportSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AllBaseCityInfoQueryHeaders({ });
-    return await this.allBaseCityInfoQueryWithOptions(headers, runtime);
+    let headers = new AirportSearchHeaders({ });
+    return await this.airportSearchWithOptions(request, headers, runtime);
   }
 
   async allBaseCityInfoQueryWithOptions(headers: AllBaseCityInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<AllBaseCityInfoQueryResponse> {
@@ -13261,10 +13273,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AllBaseCityInfoQueryResponse>(await this.callApi(params, req, runtime), new AllBaseCityInfoQueryResponse({}));
   }
 
-  async applyAdd(request: ApplyAddRequest): Promise<ApplyAddResponse> {
+  async allBaseCityInfoQuery(): Promise<AllBaseCityInfoQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ApplyAddHeaders({ });
-    return await this.applyAddWithOptions(request, headers, runtime);
+    let headers = new AllBaseCityInfoQueryHeaders({ });
+    return await this.allBaseCityInfoQueryWithOptions(headers, runtime);
   }
 
   async applyAddWithOptions(tmpReq: ApplyAddRequest, headers: ApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyAddResponse> {
@@ -13275,12 +13287,12 @@ export default class Client extends OpenApi {
       request.externalTravelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerList, "external_traveler_list", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.externalTravelerStandard))) {
-      request.externalTravelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.externalTravelerStandard), "external_traveler_standard", "json");
+    if (!Util.isUnset(tmpReq.externalTravelerStandard)) {
+      request.externalTravelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerStandard, "external_traveler_standard", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.hotelShare))) {
-      request.hotelShareShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.hotelShare), "hotel_share", "json");
+    if (!Util.isUnset(tmpReq.hotelShare)) {
+      request.hotelShareShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotelShare, "hotel_share", "json");
     }
 
     if (!Util.isUnset(tmpReq.itineraryList)) {
@@ -13453,10 +13465,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAddResponse>(await this.callApi(params, req, runtime), new ApplyAddResponse({}));
   }
 
-  async applyApprove(request: ApplyApproveRequest): Promise<ApplyApproveResponse> {
+  async applyAdd(request: ApplyAddRequest): Promise<ApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ApplyApproveHeaders({ });
-    return await this.applyApproveWithOptions(request, headers, runtime);
+    let headers = new ApplyAddHeaders({ });
+    return await this.applyAddWithOptions(request, headers, runtime);
   }
 
   async applyApproveWithOptions(request: ApplyApproveRequest, headers: ApplyApproveHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyApproveResponse> {
@@ -13513,10 +13525,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyApproveResponse>(await this.callApi(params, req, runtime), new ApplyApproveResponse({}));
   }
 
-  async applyListQuery(request: ApplyListQueryRequest): Promise<ApplyListQueryResponse> {
+  async applyApprove(request: ApplyApproveRequest): Promise<ApplyApproveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ApplyListQueryHeaders({ });
-    return await this.applyListQueryWithOptions(request, headers, runtime);
+    let headers = new ApplyApproveHeaders({ });
+    return await this.applyApproveWithOptions(request, headers, runtime);
   }
 
   async applyListQueryWithOptions(request: ApplyListQueryRequest, headers: ApplyListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyListQueryResponse> {
@@ -13593,10 +13605,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyListQueryResponse>(await this.callApi(params, req, runtime), new ApplyListQueryResponse({}));
   }
 
-  async applyModify(request: ApplyModifyRequest): Promise<ApplyModifyResponse> {
+  async applyListQuery(request: ApplyListQueryRequest): Promise<ApplyListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ApplyModifyHeaders({ });
-    return await this.applyModifyWithOptions(request, headers, runtime);
+    let headers = new ApplyListQueryHeaders({ });
+    return await this.applyListQueryWithOptions(request, headers, runtime);
   }
 
   async applyModifyWithOptions(tmpReq: ApplyModifyRequest, headers: ApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyModifyResponse> {
@@ -13607,12 +13619,12 @@ export default class Client extends OpenApi {
       request.externalTravelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerList, "external_traveler_list", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.externalTravelerStandard))) {
-      request.externalTravelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.externalTravelerStandard), "external_traveler_standard", "json");
+    if (!Util.isUnset(tmpReq.externalTravelerStandard)) {
+      request.externalTravelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.externalTravelerStandard, "external_traveler_standard", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.hotelShare))) {
-      request.hotelShareShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.hotelShare), "hotel_share", "json");
+    if (!Util.isUnset(tmpReq.hotelShare)) {
+      request.hotelShareShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotelShare, "hotel_share", "json");
     }
 
     if (!Util.isUnset(tmpReq.itineraryList)) {
@@ -13775,10 +13787,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyModifyResponse>(await this.callApi(params, req, runtime), new ApplyModifyResponse({}));
   }
 
-  async applyQuery(request: ApplyQueryRequest): Promise<ApplyQueryResponse> {
+  async applyModify(request: ApplyModifyRequest): Promise<ApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ApplyQueryHeaders({ });
-    return await this.applyQueryWithOptions(request, headers, runtime);
+    let headers = new ApplyModifyHeaders({ });
+    return await this.applyModifyWithOptions(request, headers, runtime);
   }
 
   async applyQueryWithOptions(request: ApplyQueryRequest, headers: ApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyQueryResponse> {
@@ -13827,10 +13839,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyQueryResponse>(await this.callApi(params, req, runtime), new ApplyQueryResponse({}));
   }
 
-  async carApplyAdd(request: CarApplyAddRequest): Promise<CarApplyAddResponse> {
+  async applyQuery(request: ApplyQueryRequest): Promise<ApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarApplyAddHeaders({ });
-    return await this.carApplyAddWithOptions(request, headers, runtime);
+    let headers = new ApplyQueryHeaders({ });
+    return await this.applyQueryWithOptions(request, headers, runtime);
   }
 
   async carApplyAddWithOptions(request: CarApplyAddRequest, headers: CarApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyAddResponse> {
@@ -13923,10 +13935,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyAddResponse>(await this.callApi(params, req, runtime), new CarApplyAddResponse({}));
   }
 
-  async carApplyModify(request: CarApplyModifyRequest): Promise<CarApplyModifyResponse> {
+  async carApplyAdd(request: CarApplyAddRequest): Promise<CarApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarApplyModifyHeaders({ });
-    return await this.carApplyModifyWithOptions(request, headers, runtime);
+    let headers = new CarApplyAddHeaders({ });
+    return await this.carApplyAddWithOptions(request, headers, runtime);
   }
 
   async carApplyModifyWithOptions(request: CarApplyModifyRequest, headers: CarApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyModifyResponse> {
@@ -13979,10 +13991,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyModifyResponse>(await this.callApi(params, req, runtime), new CarApplyModifyResponse({}));
   }
 
-  async carApplyQuery(request: CarApplyQueryRequest): Promise<CarApplyQueryResponse> {
+  async carApplyModify(request: CarApplyModifyRequest): Promise<CarApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarApplyQueryHeaders({ });
-    return await this.carApplyQueryWithOptions(request, headers, runtime);
+    let headers = new CarApplyModifyHeaders({ });
+    return await this.carApplyModifyWithOptions(request, headers, runtime);
   }
 
   async carApplyQueryWithOptions(request: CarApplyQueryRequest, headers: CarApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyQueryResponse> {
@@ -14039,10 +14051,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyQueryResponse>(await this.callApi(params, req, runtime), new CarApplyQueryResponse({}));
   }
 
-  async carBillSettlementQuery(request: CarBillSettlementQueryRequest): Promise<CarBillSettlementQueryResponse> {
+  async carApplyQuery(request: CarApplyQueryRequest): Promise<CarApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarBillSettlementQueryHeaders({ });
-    return await this.carBillSettlementQueryWithOptions(request, headers, runtime);
+    let headers = new CarApplyQueryHeaders({ });
+    return await this.carApplyQueryWithOptions(request, headers, runtime);
   }
 
   async carBillSettlementQueryWithOptions(request: CarBillSettlementQueryRequest, headers: CarBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarBillSettlementQueryResponse> {
@@ -14091,10 +14103,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CarBillSettlementQueryResponse({}));
   }
 
-  async carOrderListQuery(request: CarOrderListQueryRequest): Promise<CarOrderListQueryResponse> {
+  async carBillSettlementQuery(request: CarBillSettlementQueryRequest): Promise<CarBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarOrderListQueryHeaders({ });
-    return await this.carOrderListQueryWithOptions(request, headers, runtime);
+    let headers = new CarBillSettlementQueryHeaders({ });
+    return await this.carBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async carOrderListQueryWithOptions(request: CarOrderListQueryRequest, headers: CarOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderListQueryResponse> {
@@ -14171,10 +14183,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderListQueryResponse>(await this.callApi(params, req, runtime), new CarOrderListQueryResponse({}));
   }
 
-  async carOrderQuery(request: CarOrderQueryRequest): Promise<CarOrderQueryResponse> {
+  async carOrderListQuery(request: CarOrderListQueryRequest): Promise<CarOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CarOrderQueryHeaders({ });
-    return await this.carOrderQueryWithOptions(request, headers, runtime);
+    let headers = new CarOrderListQueryHeaders({ });
+    return await this.carOrderListQueryWithOptions(request, headers, runtime);
   }
 
   async carOrderQueryWithOptions(request: CarOrderQueryRequest, headers: CarOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderQueryResponse> {
@@ -14215,10 +14227,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderQueryResponse>(await this.callApi(params, req, runtime), new CarOrderQueryResponse({}));
   }
 
-  async citySearch(request: CitySearchRequest): Promise<CitySearchResponse> {
+  async carOrderQuery(request: CarOrderQueryRequest): Promise<CarOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CitySearchHeaders({ });
-    return await this.citySearchWithOptions(request, headers, runtime);
+    let headers = new CarOrderQueryHeaders({ });
+    return await this.carOrderQueryWithOptions(request, headers, runtime);
   }
 
   async citySearchWithOptions(request: CitySearchRequest, headers: CitySearchHeaders, runtime: $Util.RuntimeOptions): Promise<CitySearchResponse> {
@@ -14255,10 +14267,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CitySearchResponse>(await this.callApi(params, req, runtime), new CitySearchResponse({}));
   }
 
-  async commonApplyQuery(request: CommonApplyQueryRequest): Promise<CommonApplyQueryResponse> {
+  async citySearch(request: CitySearchRequest): Promise<CitySearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CommonApplyQueryHeaders({ });
-    return await this.commonApplyQueryWithOptions(request, headers, runtime);
+    let headers = new CitySearchHeaders({ });
+    return await this.citySearchWithOptions(request, headers, runtime);
   }
 
   async commonApplyQueryWithOptions(request: CommonApplyQueryRequest, headers: CommonApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplyQueryResponse> {
@@ -14303,10 +14315,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CommonApplyQueryResponse>(await this.callApi(params, req, runtime), new CommonApplyQueryResponse({}));
   }
 
-  async commonApplySync(request: CommonApplySyncRequest): Promise<CommonApplySyncResponse> {
+  async commonApplyQuery(request: CommonApplyQueryRequest): Promise<CommonApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CommonApplySyncHeaders({ });
-    return await this.commonApplySyncWithOptions(request, headers, runtime);
+    let headers = new CommonApplyQueryHeaders({ });
+    return await this.commonApplyQueryWithOptions(request, headers, runtime);
   }
 
   async commonApplySyncWithOptions(request: CommonApplySyncRequest, headers: CommonApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplySyncResponse> {
@@ -14363,10 +14375,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CommonApplySyncResponse>(await this.callApi(params, req, runtime), new CommonApplySyncResponse({}));
   }
 
-  async corpToken(request: CorpTokenRequest): Promise<CorpTokenResponse> {
+  async commonApplySync(request: CommonApplySyncRequest): Promise<CommonApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CorpTokenHeaders({ });
-    return await this.corpTokenWithOptions(request, headers, runtime);
+    let headers = new CommonApplySyncHeaders({ });
+    return await this.commonApplySyncWithOptions(request, headers, runtime);
   }
 
   async corpTokenWithOptions(request: CorpTokenRequest, headers: CorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
@@ -14411,10 +14423,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CorpTokenResponse>(await this.callApi(params, req, runtime), new CorpTokenResponse({}));
   }
 
-  async costCenterDelete(request: CostCenterDeleteRequest): Promise<CostCenterDeleteResponse> {
+  async corpToken(request: CorpTokenRequest): Promise<CorpTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CostCenterDeleteHeaders({ });
-    return await this.costCenterDeleteWithOptions(request, headers, runtime);
+    let headers = new CorpTokenHeaders({ });
+    return await this.corpTokenWithOptions(request, headers, runtime);
   }
 
   async costCenterDeleteWithOptions(request: CostCenterDeleteRequest, headers: CostCenterDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterDeleteResponse> {
@@ -14451,10 +14463,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterDeleteResponse>(await this.callApi(params, req, runtime), new CostCenterDeleteResponse({}));
   }
 
-  async costCenterModify(request: CostCenterModifyRequest): Promise<CostCenterModifyResponse> {
+  async costCenterDelete(request: CostCenterDeleteRequest): Promise<CostCenterDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CostCenterModifyHeaders({ });
-    return await this.costCenterModifyWithOptions(request, headers, runtime);
+    let headers = new CostCenterDeleteHeaders({ });
+    return await this.costCenterDeleteWithOptions(request, headers, runtime);
   }
 
   async costCenterModifyWithOptions(request: CostCenterModifyRequest, headers: CostCenterModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterModifyResponse> {
@@ -14507,10 +14519,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterModifyResponse>(await this.callApi(params, req, runtime), new CostCenterModifyResponse({}));
   }
 
-  async costCenterQuery(request: CostCenterQueryRequest): Promise<CostCenterQueryResponse> {
+  async costCenterModify(request: CostCenterModifyRequest): Promise<CostCenterModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CostCenterQueryHeaders({ });
-    return await this.costCenterQueryWithOptions(request, headers, runtime);
+    let headers = new CostCenterModifyHeaders({ });
+    return await this.costCenterModifyWithOptions(request, headers, runtime);
   }
 
   async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: CostCenterQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
@@ -14559,10 +14571,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterQueryResponse>(await this.callApi(params, req, runtime), new CostCenterQueryResponse({}));
   }
 
-  async costCenterSave(request: CostCenterSaveRequest): Promise<CostCenterSaveResponse> {
+  async costCenterQuery(request: CostCenterQueryRequest): Promise<CostCenterQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CostCenterSaveHeaders({ });
-    return await this.costCenterSaveWithOptions(request, headers, runtime);
+    let headers = new CostCenterQueryHeaders({ });
+    return await this.costCenterQueryWithOptions(request, headers, runtime);
   }
 
   async costCenterSaveWithOptions(request: CostCenterSaveRequest, headers: CostCenterSaveHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterSaveResponse> {
@@ -14615,10 +14627,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterSaveResponse>(await this.callApi(params, req, runtime), new CostCenterSaveResponse({}));
   }
 
-  async departmentSave(request: DepartmentSaveRequest): Promise<DepartmentSaveResponse> {
+  async costCenterSave(request: CostCenterSaveRequest): Promise<CostCenterSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DepartmentSaveHeaders({ });
-    return await this.departmentSaveWithOptions(request, headers, runtime);
+    let headers = new CostCenterSaveHeaders({ });
+    return await this.costCenterSaveWithOptions(request, headers, runtime);
   }
 
   async departmentSaveWithOptions(tmpReq: DepartmentSaveRequest, headers: DepartmentSaveHeaders, runtime: $Util.RuntimeOptions): Promise<DepartmentSaveResponse> {
@@ -14661,10 +14673,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DepartmentSaveResponse>(await this.callApi(params, req, runtime), new DepartmentSaveResponse({}));
   }
 
-  async entityAdd(request: EntityAddRequest): Promise<EntityAddResponse> {
+  async departmentSave(request: DepartmentSaveRequest): Promise<DepartmentSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EntityAddHeaders({ });
-    return await this.entityAddWithOptions(request, headers, runtime);
+    let headers = new DepartmentSaveHeaders({ });
+    return await this.departmentSaveWithOptions(request, headers, runtime);
   }
 
   async entityAddWithOptions(tmpReq: EntityAddRequest, headers: EntityAddHeaders, runtime: $Util.RuntimeOptions): Promise<EntityAddResponse> {
@@ -14711,10 +14723,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EntityAddResponse>(await this.callApi(params, req, runtime), new EntityAddResponse({}));
   }
 
-  async entityDelete(request: EntityDeleteRequest): Promise<EntityDeleteResponse> {
+  async entityAdd(request: EntityAddRequest): Promise<EntityAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EntityDeleteHeaders({ });
-    return await this.entityDeleteWithOptions(request, headers, runtime);
+    let headers = new EntityAddHeaders({ });
+    return await this.entityAddWithOptions(request, headers, runtime);
   }
 
   async entityDeleteWithOptions(tmpReq: EntityDeleteRequest, headers: EntityDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<EntityDeleteResponse> {
@@ -14767,10 +14779,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EntityDeleteResponse>(await this.callApi(params, req, runtime), new EntityDeleteResponse({}));
   }
 
-  async entitySet(request: EntitySetRequest): Promise<EntitySetResponse> {
+  async entityDelete(request: EntityDeleteRequest): Promise<EntityDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EntitySetHeaders({ });
-    return await this.entitySetWithOptions(request, headers, runtime);
+    let headers = new EntityDeleteHeaders({ });
+    return await this.entityDeleteWithOptions(request, headers, runtime);
   }
 
   async entitySetWithOptions(tmpReq: EntitySetRequest, headers: EntitySetHeaders, runtime: $Util.RuntimeOptions): Promise<EntitySetResponse> {
@@ -14817,10 +14829,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EntitySetResponse>(await this.callApi(params, req, runtime), new EntitySetResponse({}));
   }
 
-  async estimatedPriceQuery(request: EstimatedPriceQueryRequest): Promise<EstimatedPriceQueryResponse> {
+  async entitySet(request: EntitySetRequest): Promise<EntitySetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EstimatedPriceQueryHeaders({ });
-    return await this.estimatedPriceQueryWithOptions(request, headers, runtime);
+    let headers = new EntitySetHeaders({ });
+    return await this.entitySetWithOptions(request, headers, runtime);
   }
 
   async estimatedPriceQueryWithOptions(request: EstimatedPriceQueryRequest, headers: EstimatedPriceQueryHeaders, runtime: $Util.RuntimeOptions): Promise<EstimatedPriceQueryResponse> {
@@ -14881,10 +14893,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedPriceQueryResponse>(await this.callApi(params, req, runtime), new EstimatedPriceQueryResponse({}));
   }
 
-  async exceedApplySync(request: ExceedApplySyncRequest): Promise<ExceedApplySyncResponse> {
+  async estimatedPriceQuery(request: EstimatedPriceQueryRequest): Promise<EstimatedPriceQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ExceedApplySyncHeaders({ });
-    return await this.exceedApplySyncWithOptions(request, headers, runtime);
+    let headers = new EstimatedPriceQueryHeaders({ });
+    return await this.estimatedPriceQueryWithOptions(request, headers, runtime);
   }
 
   async exceedApplySyncWithOptions(request: ExceedApplySyncRequest, headers: ExceedApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<ExceedApplySyncResponse> {
@@ -14941,10 +14953,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ExceedApplySyncResponse>(await this.callApi(params, req, runtime), new ExceedApplySyncResponse({}));
   }
 
-  async flightBillSettlementQuery(request: FlightBillSettlementQueryRequest): Promise<FlightBillSettlementQueryResponse> {
+  async exceedApplySync(request: ExceedApplySyncRequest): Promise<ExceedApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FlightBillSettlementQueryHeaders({ });
-    return await this.flightBillSettlementQueryWithOptions(request, headers, runtime);
+    let headers = new ExceedApplySyncHeaders({ });
+    return await this.exceedApplySyncWithOptions(request, headers, runtime);
   }
 
   async flightBillSettlementQueryWithOptions(request: FlightBillSettlementQueryRequest, headers: FlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightBillSettlementQueryResponse> {
@@ -14993,10 +15005,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new FlightBillSettlementQueryResponse({}));
   }
 
-  async flightExceedApplyQuery(request: FlightExceedApplyQueryRequest): Promise<FlightExceedApplyQueryResponse> {
+  async flightBillSettlementQuery(request: FlightBillSettlementQueryRequest): Promise<FlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FlightExceedApplyQueryHeaders({ });
-    return await this.flightExceedApplyQueryWithOptions(request, headers, runtime);
+    let headers = new FlightBillSettlementQueryHeaders({ });
+    return await this.flightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async flightExceedApplyQueryWithOptions(request: FlightExceedApplyQueryRequest, headers: FlightExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightExceedApplyQueryResponse> {
@@ -15033,10 +15045,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new FlightExceedApplyQueryResponse({}));
   }
 
-  async flightOrderListQuery(request: FlightOrderListQueryRequest): Promise<FlightOrderListQueryResponse> {
+  async flightExceedApplyQuery(request: FlightExceedApplyQueryRequest): Promise<FlightExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FlightOrderListQueryHeaders({ });
-    return await this.flightOrderListQueryWithOptions(request, headers, runtime);
+    let headers = new FlightExceedApplyQueryHeaders({ });
+    return await this.flightExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
   async flightOrderListQueryWithOptions(request: FlightOrderListQueryRequest, headers: FlightOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderListQueryResponse> {
@@ -15113,10 +15125,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderListQueryResponse>(await this.callApi(params, req, runtime), new FlightOrderListQueryResponse({}));
   }
 
-  async flightOrderQuery(request: FlightOrderQueryRequest): Promise<FlightOrderQueryResponse> {
+  async flightOrderListQuery(request: FlightOrderListQueryRequest): Promise<FlightOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new FlightOrderQueryHeaders({ });
-    return await this.flightOrderQueryWithOptions(request, headers, runtime);
+    let headers = new FlightOrderListQueryHeaders({ });
+    return await this.flightOrderListQueryWithOptions(request, headers, runtime);
   }
 
   async flightOrderQueryWithOptions(request: FlightOrderQueryRequest, headers: FlightOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderQueryResponse> {
@@ -15157,10 +15169,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderQueryResponse>(await this.callApi(params, req, runtime), new FlightOrderQueryResponse({}));
   }
 
-  async hotelBillSettlementQuery(request: HotelBillSettlementQueryRequest): Promise<HotelBillSettlementQueryResponse> {
+  async flightOrderQuery(request: FlightOrderQueryRequest): Promise<FlightOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HotelBillSettlementQueryHeaders({ });
-    return await this.hotelBillSettlementQueryWithOptions(request, headers, runtime);
+    let headers = new FlightOrderQueryHeaders({ });
+    return await this.flightOrderQueryWithOptions(request, headers, runtime);
   }
 
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
@@ -15209,10 +15221,10 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new HotelBillSettlementQueryResponse({}));
   }
 
-  async hotelExceedApplyQuery(request: HotelExceedApplyQueryRequest): Promise<HotelExceedApplyQueryResponse> {
+  async hotelBillSettlementQuery(request: HotelBillSettlementQueryRequest): Promise<HotelBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HotelExceedApplyQueryHeaders({ });
-    return await this.hotelExceedApplyQueryWithOptions(request, headers, runtime);
+    let headers = new HotelBillSettlementQueryHeaders({ });
+    return await this.hotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async hotelExceedApplyQueryWithOptions(request: HotelExceedApplyQueryRequest, headers: HotelExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelExceedApplyQueryResponse> {
@@ -15249,10 +15261,10 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new HotelExceedApplyQueryResponse({}));
   }
 
-  async hotelOrderListQuery(request: HotelOrderListQueryRequest): Promise<HotelOrderListQueryResponse> {
+  async hotelExceedApplyQuery(request: HotelExceedApplyQueryRequest): Promise<HotelExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HotelOrderListQueryHeaders({ });
-    return await this.hotelOrderListQueryWithOptions(request, headers, runtime);
+    let headers = new HotelExceedApplyQueryHeaders({ });
+    return await this.hotelExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
   async hotelOrderListQueryWithOptions(request: HotelOrderListQueryRequest, headers: HotelOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderListQueryResponse> {
@@ -15329,10 +15341,10 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderListQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderListQueryResponse({}));
   }
 
-  async hotelOrderQuery(request: HotelOrderQueryRequest): Promise<HotelOrderQueryResponse> {
+  async hotelOrderListQuery(request: HotelOrderListQueryRequest): Promise<HotelOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new HotelOrderQueryHeaders({ });
-    return await this.hotelOrderQueryWithOptions(request, headers, runtime);
+    let headers = new HotelOrderListQueryHeaders({ });
+    return await this.hotelOrderListQueryWithOptions(request, headers, runtime);
   }
 
   async hotelOrderQueryWithOptions(request: HotelOrderQueryRequest, headers: HotelOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderQueryResponse> {
@@ -15369,10 +15381,10 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderQueryResponse({}));
   }
 
-  async ieFlightBillSettlementQuery(request: IeFlightBillSettlementQueryRequest): Promise<IeFlightBillSettlementQueryResponse> {
+  async hotelOrderQuery(request: HotelOrderQueryRequest): Promise<HotelOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new IeFlightBillSettlementQueryHeaders({ });
-    return await this.ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
+    let headers = new HotelOrderQueryHeaders({ });
+    return await this.hotelOrderQueryWithOptions(request, headers, runtime);
   }
 
   async ieFlightBillSettlementQueryWithOptions(request: IeFlightBillSettlementQueryRequest, headers: IeFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeFlightBillSettlementQueryResponse> {
@@ -15421,10 +15433,10 @@ export default class Client extends OpenApi {
     return $tea.cast<IeFlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new IeFlightBillSettlementQueryResponse({}));
   }
 
-  async invoiceAdd(request: InvoiceAddRequest): Promise<InvoiceAddResponse> {
+  async ieFlightBillSettlementQuery(request: IeFlightBillSettlementQueryRequest): Promise<IeFlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InvoiceAddHeaders({ });
-    return await this.invoiceAddWithOptions(request, headers, runtime);
+    let headers = new IeFlightBillSettlementQueryHeaders({ });
+    return await this.ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async invoiceAddWithOptions(request: InvoiceAddRequest, headers: InvoiceAddHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceAddResponse> {
@@ -15489,10 +15501,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceAddResponse>(await this.callApi(params, req, runtime), new InvoiceAddResponse({}));
   }
 
-  async invoiceDelete(request: InvoiceDeleteRequest): Promise<InvoiceDeleteResponse> {
+  async invoiceAdd(request: InvoiceAddRequest): Promise<InvoiceAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InvoiceDeleteHeaders({ });
-    return await this.invoiceDeleteWithOptions(request, headers, runtime);
+    let headers = new InvoiceAddHeaders({ });
+    return await this.invoiceAddWithOptions(request, headers, runtime);
   }
 
   async invoiceDeleteWithOptions(request: InvoiceDeleteRequest, headers: InvoiceDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceDeleteResponse> {
@@ -15529,10 +15541,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceDeleteResponse>(await this.callApi(params, req, runtime), new InvoiceDeleteResponse({}));
   }
 
-  async invoiceModify(request: InvoiceModifyRequest): Promise<InvoiceModifyResponse> {
+  async invoiceDelete(request: InvoiceDeleteRequest): Promise<InvoiceDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InvoiceModifyHeaders({ });
-    return await this.invoiceModifyWithOptions(request, headers, runtime);
+    let headers = new InvoiceDeleteHeaders({ });
+    return await this.invoiceDeleteWithOptions(request, headers, runtime);
   }
 
   async invoiceModifyWithOptions(request: InvoiceModifyRequest, headers: InvoiceModifyHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceModifyResponse> {
@@ -15597,10 +15609,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceModifyResponse>(await this.callApi(params, req, runtime), new InvoiceModifyResponse({}));
   }
 
-  async invoiceRuleSave(request: InvoiceRuleSaveRequest): Promise<InvoiceRuleSaveResponse> {
+  async invoiceModify(request: InvoiceModifyRequest): Promise<InvoiceModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InvoiceRuleSaveHeaders({ });
-    return await this.invoiceRuleSaveWithOptions(request, headers, runtime);
+    let headers = new InvoiceModifyHeaders({ });
+    return await this.invoiceModifyWithOptions(request, headers, runtime);
   }
 
   async invoiceRuleSaveWithOptions(tmpReq: InvoiceRuleSaveRequest, headers: InvoiceRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleSaveResponse> {
@@ -15651,10 +15663,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceRuleSaveResponse>(await this.callApi(params, req, runtime), new InvoiceRuleSaveResponse({}));
   }
 
-  async invoiceSearch(request: InvoiceSearchRequest): Promise<InvoiceSearchResponse> {
+  async invoiceRuleSave(request: InvoiceRuleSaveRequest): Promise<InvoiceRuleSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new InvoiceSearchHeaders({ });
-    return await this.invoiceSearchWithOptions(request, headers, runtime);
+    let headers = new InvoiceRuleSaveHeaders({ });
+    return await this.invoiceRuleSaveWithOptions(request, headers, runtime);
   }
 
   async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: InvoiceSearchHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
@@ -15695,10 +15707,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceSearchResponse>(await this.callApi(params, req, runtime), new InvoiceSearchResponse({}));
   }
 
-  async isvUserSave(request: IsvUserSaveRequest): Promise<IsvUserSaveResponse> {
+  async invoiceSearch(request: InvoiceSearchRequest): Promise<InvoiceSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new IsvUserSaveHeaders({ });
-    return await this.isvUserSaveWithOptions(request, headers, runtime);
+    let headers = new InvoiceSearchHeaders({ });
+    return await this.invoiceSearchWithOptions(request, headers, runtime);
   }
 
   async isvUserSaveWithOptions(tmpReq: IsvUserSaveRequest, headers: IsvUserSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvUserSaveResponse> {
@@ -15741,10 +15753,10 @@ export default class Client extends OpenApi {
     return $tea.cast<IsvUserSaveResponse>(await this.callApi(params, req, runtime), new IsvUserSaveResponse({}));
   }
 
-  async monthBillGet(request: MonthBillGetRequest): Promise<MonthBillGetResponse> {
+  async isvUserSave(request: IsvUserSaveRequest): Promise<IsvUserSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new MonthBillGetHeaders({ });
-    return await this.monthBillGetWithOptions(request, headers, runtime);
+    let headers = new IsvUserSaveHeaders({ });
+    return await this.isvUserSaveWithOptions(request, headers, runtime);
   }
 
   async monthBillGetWithOptions(request: MonthBillGetRequest, headers: MonthBillGetHeaders, runtime: $Util.RuntimeOptions): Promise<MonthBillGetResponse> {
@@ -15781,10 +15793,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MonthBillGetResponse>(await this.callApi(params, req, runtime), new MonthBillGetResponse({}));
   }
 
-  async projectAdd(request: ProjectAddRequest): Promise<ProjectAddResponse> {
+  async monthBillGet(request: MonthBillGetRequest): Promise<MonthBillGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ProjectAddHeaders({ });
-    return await this.projectAddWithOptions(request, headers, runtime);
+    let headers = new MonthBillGetHeaders({ });
+    return await this.monthBillGetWithOptions(request, headers, runtime);
   }
 
   async projectAddWithOptions(request: ProjectAddRequest, headers: ProjectAddHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectAddResponse> {
@@ -15837,10 +15849,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectAddResponse>(await this.callApi(params, req, runtime), new ProjectAddResponse({}));
   }
 
-  async projectDelete(request: ProjectDeleteRequest): Promise<ProjectDeleteResponse> {
+  async projectAdd(request: ProjectAddRequest): Promise<ProjectAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ProjectDeleteHeaders({ });
-    return await this.projectDeleteWithOptions(request, headers, runtime);
+    let headers = new ProjectAddHeaders({ });
+    return await this.projectAddWithOptions(request, headers, runtime);
   }
 
   async projectDeleteWithOptions(request: ProjectDeleteRequest, headers: ProjectDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectDeleteResponse> {
@@ -15877,10 +15889,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectDeleteResponse>(await this.callApi(params, req, runtime), new ProjectDeleteResponse({}));
   }
 
-  async projectModify(request: ProjectModifyRequest): Promise<ProjectModifyResponse> {
+  async projectDelete(request: ProjectDeleteRequest): Promise<ProjectDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ProjectModifyHeaders({ });
-    return await this.projectModifyWithOptions(request, headers, runtime);
+    let headers = new ProjectDeleteHeaders({ });
+    return await this.projectDeleteWithOptions(request, headers, runtime);
   }
 
   async projectModifyWithOptions(request: ProjectModifyRequest, headers: ProjectModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectModifyResponse> {
@@ -15933,10 +15945,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectModifyResponse>(await this.callApi(params, req, runtime), new ProjectModifyResponse({}));
   }
 
-  async syncSingleUser(request: SyncSingleUserRequest): Promise<SyncSingleUserResponse> {
+  async projectModify(request: ProjectModifyRequest): Promise<ProjectModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new SyncSingleUserHeaders({ });
-    return await this.syncSingleUserWithOptions(request, headers, runtime);
+    let headers = new ProjectModifyHeaders({ });
+    return await this.projectModifyWithOptions(request, headers, runtime);
   }
 
   async syncSingleUserWithOptions(tmpReq: SyncSingleUserRequest, headers: SyncSingleUserHeaders, runtime: $Util.RuntimeOptions): Promise<SyncSingleUserResponse> {
@@ -16019,10 +16031,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncSingleUserResponse>(await this.callApi(params, req, runtime), new SyncSingleUserResponse({}));
   }
 
-  async trainBillSettlementQuery(request: TrainBillSettlementQueryRequest): Promise<TrainBillSettlementQueryResponse> {
+  async syncSingleUser(request: SyncSingleUserRequest): Promise<SyncSingleUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new TrainBillSettlementQueryHeaders({ });
-    return await this.trainBillSettlementQueryWithOptions(request, headers, runtime);
+    let headers = new SyncSingleUserHeaders({ });
+    return await this.syncSingleUserWithOptions(request, headers, runtime);
   }
 
   async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
@@ -16071,10 +16083,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new TrainBillSettlementQueryResponse({}));
   }
 
-  async trainExceedApplyQuery(request: TrainExceedApplyQueryRequest): Promise<TrainExceedApplyQueryResponse> {
+  async trainBillSettlementQuery(request: TrainBillSettlementQueryRequest): Promise<TrainBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new TrainExceedApplyQueryHeaders({ });
-    return await this.trainExceedApplyQueryWithOptions(request, headers, runtime);
+    let headers = new TrainBillSettlementQueryHeaders({ });
+    return await this.trainBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
   async trainExceedApplyQueryWithOptions(request: TrainExceedApplyQueryRequest, headers: TrainExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainExceedApplyQueryResponse> {
@@ -16111,10 +16123,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new TrainExceedApplyQueryResponse({}));
   }
 
-  async trainOrderListQuery(request: TrainOrderListQueryRequest): Promise<TrainOrderListQueryResponse> {
+  async trainExceedApplyQuery(request: TrainExceedApplyQueryRequest): Promise<TrainExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new TrainOrderListQueryHeaders({ });
-    return await this.trainOrderListQueryWithOptions(request, headers, runtime);
+    let headers = new TrainExceedApplyQueryHeaders({ });
+    return await this.trainExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
   async trainOrderListQueryWithOptions(request: TrainOrderListQueryRequest, headers: TrainOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderListQueryResponse> {
@@ -16191,10 +16203,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderListQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderListQueryResponse({}));
   }
 
-  async trainOrderQuery(request: TrainOrderQueryRequest): Promise<TrainOrderQueryResponse> {
+  async trainOrderListQuery(request: TrainOrderListQueryRequest): Promise<TrainOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new TrainOrderQueryHeaders({ });
-    return await this.trainOrderQueryWithOptions(request, headers, runtime);
+    let headers = new TrainOrderListQueryHeaders({ });
+    return await this.trainOrderListQueryWithOptions(request, headers, runtime);
   }
 
   async trainOrderQueryWithOptions(request: TrainOrderQueryRequest, headers: TrainOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryResponse> {
@@ -16235,10 +16247,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderQueryResponse({}));
   }
 
-  async trainStationSearch(request: TrainStationSearchRequest): Promise<TrainStationSearchResponse> {
+  async trainOrderQuery(request: TrainOrderQueryRequest): Promise<TrainOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new TrainStationSearchHeaders({ });
-    return await this.trainStationSearchWithOptions(request, headers, runtime);
+    let headers = new TrainOrderQueryHeaders({ });
+    return await this.trainOrderQueryWithOptions(request, headers, runtime);
   }
 
   async trainStationSearchWithOptions(request: TrainStationSearchRequest, headers: TrainStationSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainStationSearchResponse> {
@@ -16275,10 +16287,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainStationSearchResponse>(await this.callApi(params, req, runtime), new TrainStationSearchResponse({}));
   }
 
-  async userQuery(request: UserQueryRequest): Promise<UserQueryResponse> {
+  async trainStationSearch(request: TrainStationSearchRequest): Promise<TrainStationSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UserQueryHeaders({ });
-    return await this.userQueryWithOptions(request, headers, runtime);
+    let headers = new TrainStationSearchHeaders({ });
+    return await this.trainStationSearchWithOptions(request, headers, runtime);
   }
 
   async userQueryWithOptions(request: UserQueryRequest, headers: UserQueryHeaders, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
@@ -16325,6 +16337,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UserQueryResponse>(await this.callApi(params, req, runtime), new UserQueryResponse({}));
+  }
+
+  async userQuery(request: UserQueryRequest): Promise<UserQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UserQueryHeaders({ });
+    return await this.userQueryWithOptions(request, headers, runtime);
   }
 
 }
