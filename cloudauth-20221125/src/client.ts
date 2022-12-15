@@ -139,15 +139,18 @@ export class EntVerifyResponseBodyResultRiskVerifyResultModelResults extends $te
 }
 
 export class EntVerifyResponseBodyResultRiskVerifyResult extends $tea.Model {
+  found?: string;
   modelResults?: EntVerifyResponseBodyResultRiskVerifyResultModelResults[];
   static names(): { [key: string]: string } {
     return {
+      found: 'Found',
       modelResults: 'ModelResults',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      found: 'string',
       modelResults: { 'type': 'array', 'itemType': EntVerifyResponseBodyResultRiskVerifyResultModelResults },
     };
   }
