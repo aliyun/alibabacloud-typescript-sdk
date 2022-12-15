@@ -401,6 +401,7 @@ export class Dataset extends $tea.Model {
   description?: string;
   fileCount?: number;
   projectName?: string;
+  templateId?: string;
   totalFileSize?: number;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -416,6 +417,7 @@ export class Dataset extends $tea.Model {
       description: 'Description',
       fileCount: 'FileCount',
       projectName: 'ProjectName',
+      templateId: 'TemplateId',
       totalFileSize: 'TotalFileSize',
       updateTime: 'UpdateTime',
     };
@@ -434,6 +436,7 @@ export class Dataset extends $tea.Model {
       description: 'string',
       fileCount: 'number',
       projectName: 'string',
+      templateId: 'string',
       totalFileSize: 'number',
       updateTime: 'string',
     };
@@ -1236,6 +1239,7 @@ export class Project extends $tea.Model {
   projectName?: string;
   projectQueriesPerSecond?: number;
   serviceRole?: string;
+  templateId?: string;
   totalFileSize?: number;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -1254,6 +1258,7 @@ export class Project extends $tea.Model {
       projectName: 'ProjectName',
       projectQueriesPerSecond: 'ProjectQueriesPerSecond',
       serviceRole: 'ServiceRole',
+      templateId: 'TemplateId',
       totalFileSize: 'TotalFileSize',
       updateTime: 'UpdateTime',
     };
@@ -1275,6 +1280,7 @@ export class Project extends $tea.Model {
       projectName: 'string',
       projectQueriesPerSecond: 'number',
       serviceRole: 'string',
+      templateId: 'string',
       totalFileSize: 'number',
       updateTime: 'string',
     };
