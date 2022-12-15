@@ -139,7 +139,7 @@ export class EntVerifyResponseBodyResultRiskVerifyResultModelResults extends $te
 }
 
 export class EntVerifyResponseBodyResultRiskVerifyResult extends $tea.Model {
-  found?: string;
+  found?: boolean;
   modelResults?: EntVerifyResponseBodyResultRiskVerifyResultModelResults[];
   static names(): { [key: string]: string } {
     return {
@@ -150,7 +150,7 @@ export class EntVerifyResponseBodyResultRiskVerifyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      found: 'string',
+      found: 'boolean',
       modelResults: { 'type': 'array', 'itemType': EntVerifyResponseBodyResultRiskVerifyResultModelResults },
     };
   }
