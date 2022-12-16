@@ -1364,12 +1364,10 @@ export class InterpolateVideoFrameResponse extends $tea.Model {
 }
 
 export class MergeVideoFaceRequest extends $tea.Model {
-  postURL?: string;
   referenceURL?: string;
   videoURL?: string;
   static names(): { [key: string]: string } {
     return {
-      postURL: 'PostURL',
       referenceURL: 'ReferenceURL',
       videoURL: 'VideoURL',
     };
@@ -1377,7 +1375,6 @@ export class MergeVideoFaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      postURL: 'string',
       referenceURL: 'string',
       videoURL: 'string',
     };
@@ -1389,12 +1386,10 @@ export class MergeVideoFaceRequest extends $tea.Model {
 }
 
 export class MergeVideoFaceAdvanceRequest extends $tea.Model {
-  postURLObject?: Readable;
   referenceURLObject?: Readable;
   videoURLObject?: Readable;
   static names(): { [key: string]: string } {
     return {
-      postURLObject: 'PostURL',
       referenceURLObject: 'ReferenceURL',
       videoURLObject: 'VideoURL',
     };
@@ -1402,7 +1397,6 @@ export class MergeVideoFaceAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      postURLObject: 'Readable',
       referenceURLObject: 'Readable',
       videoURLObject: 'Readable',
     };
@@ -3692,10 +3686,6 @@ export default class Client extends OpenApi {
   async mergeVideoFaceWithOptions(request: MergeVideoFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.postURL)) {
-      body["PostURL"] = request.postURL;
-    }
-
     if (!Util.isUnset(request.referenceURL)) {
       body["ReferenceURL"] = request.referenceURL;
     }
@@ -3770,32 +3760,6 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let mergeVideoFaceReq = new MergeVideoFaceRequest({ });
     OpenApiUtil.convert(request, mergeVideoFaceReq);
-    if (!Util.isUnset(request.postURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.postURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      mergeVideoFaceReq.postURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
     if (!Util.isUnset(request.referenceURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.body.accessKeyId;
