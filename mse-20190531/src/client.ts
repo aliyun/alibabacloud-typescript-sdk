@@ -10037,6 +10037,8 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
   delayTime?: number;
   enable?: boolean;
   funcType?: number;
+  lossLessDetail?: boolean;
+  notice?: boolean;
   regionId?: string;
   related?: boolean;
   shutdownWaitSeconds?: number;
@@ -10051,6 +10053,8 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       delayTime: 'DelayTime',
       enable: 'Enable',
       funcType: 'FuncType',
+      lossLessDetail: 'LossLessDetail',
+      notice: 'Notice',
       regionId: 'RegionId',
       related: 'Related',
       shutdownWaitSeconds: 'ShutdownWaitSeconds',
@@ -10068,6 +10072,8 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       delayTime: 'number',
       enable: 'boolean',
       funcType: 'number',
+      lossLessDetail: 'boolean',
+      notice: 'boolean',
       regionId: 'string',
       related: 'boolean',
       shutdownWaitSeconds: 'number',
@@ -27394,6 +27400,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.funcType)) {
       query["FuncType"] = request.funcType;
+    }
+
+    if (!Util.isUnset(request.lossLessDetail)) {
+      query["LossLessDetail"] = request.lossLessDetail;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      query["Notice"] = request.notice;
     }
 
     if (!Util.isUnset(request.regionId)) {
