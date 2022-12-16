@@ -13037,11 +13037,13 @@ export class TrainStationSearchResponseBodyModule extends $tea.Model {
 
 export class UserQueryResponseBodyModuleItems extends $tea.Model {
   employeeNick?: string;
+  leaveStatus?: number;
   thirdPartEmployeeId?: string;
   thirdPartJobNo?: string;
   static names(): { [key: string]: string } {
     return {
       employeeNick: 'employee_nick',
+      leaveStatus: 'leave_status',
       thirdPartEmployeeId: 'third_part_employee_id',
       thirdPartJobNo: 'third_part_job_no',
     };
@@ -13050,6 +13052,7 @@ export class UserQueryResponseBodyModuleItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       employeeNick: 'string',
+      leaveStatus: 'number',
       thirdPartEmployeeId: 'string',
       thirdPartJobNo: 'string',
     };
