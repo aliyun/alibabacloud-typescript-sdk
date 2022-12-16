@@ -19,11 +19,13 @@ export class AddImageRequest extends $tea.Model {
   customContent?: string;
   instanceName?: string;
   intAttr?: number;
+  intAttr2?: number;
   picContent?: string;
   picName?: string;
   productId?: string;
   region?: string;
   strAttr?: string;
+  strAttr2?: string;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
@@ -31,11 +33,13 @@ export class AddImageRequest extends $tea.Model {
       customContent: 'CustomContent',
       instanceName: 'InstanceName',
       intAttr: 'IntAttr',
+      intAttr2: 'IntAttr2',
       picContent: 'PicContent',
       picName: 'PicName',
       productId: 'ProductId',
       region: 'Region',
       strAttr: 'StrAttr',
+      strAttr2: 'StrAttr2',
     };
   }
 
@@ -46,11 +50,13 @@ export class AddImageRequest extends $tea.Model {
       customContent: 'string',
       instanceName: 'string',
       intAttr: 'number',
+      intAttr2: 'number',
       picContent: 'string',
       picName: 'string',
       productId: 'string',
       region: 'string',
       strAttr: 'string',
+      strAttr2: 'string',
     };
   }
 
@@ -65,11 +71,13 @@ export class AddImageAdvanceRequest extends $tea.Model {
   customContent?: string;
   instanceName?: string;
   intAttr?: number;
+  intAttr2?: number;
   picContentObject?: Readable;
   picName?: string;
   productId?: string;
   region?: string;
   strAttr?: string;
+  strAttr2?: string;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
@@ -77,11 +85,13 @@ export class AddImageAdvanceRequest extends $tea.Model {
       customContent: 'CustomContent',
       instanceName: 'InstanceName',
       intAttr: 'IntAttr',
+      intAttr2: 'IntAttr2',
       picContentObject: 'PicContent',
       picName: 'PicName',
       productId: 'ProductId',
       region: 'Region',
       strAttr: 'StrAttr',
+      strAttr2: 'StrAttr2',
     };
   }
 
@@ -92,11 +102,13 @@ export class AddImageAdvanceRequest extends $tea.Model {
       customContent: 'string',
       instanceName: 'string',
       intAttr: 'number',
+      intAttr2: 'number',
       picContentObject: 'Readable',
       picName: 'string',
       productId: 'string',
       region: 'string',
       strAttr: 'string',
+      strAttr2: 'string',
     };
   }
 
@@ -859,17 +871,21 @@ export class UpdateImageRequest extends $tea.Model {
   customContent?: string;
   instanceName?: string;
   intAttr?: number;
+  intAttr2?: number;
   picName?: string;
   productId?: string;
   strAttr?: string;
+  strAttr2?: string;
   static names(): { [key: string]: string } {
     return {
       customContent: 'CustomContent',
       instanceName: 'InstanceName',
       intAttr: 'IntAttr',
+      intAttr2: 'IntAttr2',
       picName: 'PicName',
       productId: 'ProductId',
       strAttr: 'StrAttr',
+      strAttr2: 'StrAttr2',
     };
   }
 
@@ -878,9 +894,11 @@ export class UpdateImageRequest extends $tea.Model {
       customContent: 'string',
       instanceName: 'string',
       intAttr: 'number',
+      intAttr2: 'number',
       picName: 'string',
       productId: 'string',
       strAttr: 'string',
+      strAttr2: 'string',
     };
   }
 
@@ -1229,21 +1247,25 @@ export class SearchImageByNameResponseBodyAuctions extends $tea.Model {
   categoryId?: number;
   customContent?: string;
   intAttr?: number;
+  intAttr2?: number;
   picName?: string;
   productId?: string;
   score?: number;
   sortExprValues?: string;
   strAttr?: string;
+  strAttr2?: string;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
       customContent: 'CustomContent',
       intAttr: 'IntAttr',
+      intAttr2: 'IntAttr2',
       picName: 'PicName',
       productId: 'ProductId',
       score: 'Score',
       sortExprValues: 'SortExprValues',
       strAttr: 'StrAttr',
+      strAttr2: 'StrAttr2',
     };
   }
 
@@ -1252,11 +1274,13 @@ export class SearchImageByNameResponseBodyAuctions extends $tea.Model {
       categoryId: 'number',
       customContent: 'string',
       intAttr: 'number',
+      intAttr2: 'number',
       picName: 'string',
       productId: 'string',
       score: 'number',
       sortExprValues: 'string',
       strAttr: 'string',
+      strAttr2: 'string',
     };
   }
 
@@ -1363,21 +1387,25 @@ export class SearchImageByPicResponseBodyAuctions extends $tea.Model {
   categoryId?: number;
   customContent?: string;
   intAttr?: number;
+  intAttr2?: number;
   picName?: string;
   productId?: string;
   score?: number;
   sortExprValues?: string;
   strAttr?: string;
+  strAttr2?: string;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
       customContent: 'CustomContent',
       intAttr: 'IntAttr',
+      intAttr2: 'IntAttr2',
       picName: 'PicName',
       productId: 'ProductId',
       score: 'Score',
       sortExprValues: 'SortExprValues',
       strAttr: 'StrAttr',
+      strAttr2: 'StrAttr2',
     };
   }
 
@@ -1386,11 +1414,13 @@ export class SearchImageByPicResponseBodyAuctions extends $tea.Model {
       categoryId: 'number',
       customContent: 'string',
       intAttr: 'number',
+      intAttr2: 'number',
       picName: 'string',
       productId: 'string',
       score: 'number',
       sortExprValues: 'string',
       strAttr: 'string',
+      strAttr2: 'string',
     };
   }
 
@@ -1539,6 +1569,10 @@ export default class Client extends OpenApi {
       body["IntAttr"] = request.intAttr;
     }
 
+    if (!Util.isUnset(request.intAttr2)) {
+      body["IntAttr2"] = request.intAttr2;
+    }
+
     if (!Util.isUnset(request.picContent)) {
       body["PicContent"] = request.picContent;
     }
@@ -1557,6 +1591,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.strAttr)) {
       body["StrAttr"] = request.strAttr;
+    }
+
+    if (!Util.isUnset(request.strAttr2)) {
+      body["StrAttr2"] = request.strAttr2;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2080,6 +2118,10 @@ export default class Client extends OpenApi {
       body["IntAttr"] = request.intAttr;
     }
 
+    if (!Util.isUnset(request.intAttr2)) {
+      body["IntAttr2"] = request.intAttr2;
+    }
+
     if (!Util.isUnset(request.picName)) {
       body["PicName"] = request.picName;
     }
@@ -2090,6 +2132,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.strAttr)) {
       body["StrAttr"] = request.strAttr;
+    }
+
+    if (!Util.isUnset(request.strAttr2)) {
+      body["StrAttr2"] = request.strAttr2;
     }
 
     let req = new $OpenApi.OpenApiRequest({
