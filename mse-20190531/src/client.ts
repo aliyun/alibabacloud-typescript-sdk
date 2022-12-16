@@ -6563,6 +6563,99 @@ export class GetTagsBySwimmingLaneGroupIdResponse extends $tea.Model {
   }
 }
 
+export class GetZookeeperDataImportUrlRequest extends $tea.Model {
+  acceptLanguage?: string;
+  contentType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      contentType: 'ContentType',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      contentType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetZookeeperDataImportUrlResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetZookeeperDataImportUrlResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetZookeeperDataImportUrlResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetZookeeperDataImportUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetZookeeperDataImportUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetZookeeperDataImportUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   fileUrl?: string;
@@ -6772,6 +6865,99 @@ export class ImportServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportZookeeperDataRequest extends $tea.Model {
+  acceptLanguage?: string;
+  fileName?: string;
+  fileUrl?: string;
+  instanceId?: string;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportZookeeperDataResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportZookeeperDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ImportZookeeperDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportZookeeperDataResponseBody,
     };
   }
 
@@ -7372,6 +7558,108 @@ export class ListClusterConnectionTypesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListClusterConnectionTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  instanceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      instanceId: 'InstanceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      instanceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListClusterHealthCheckTaskResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListClusterHealthCheckTaskResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListClusterHealthCheckTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClusterHealthCheckTaskResponseBody,
     };
   }
 
@@ -17677,6 +17965,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
   summary?: string;
   type?: number;
   version?: string;
+  versionJson?: string;
   wasmLang?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17697,6 +17986,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       summary: 'Summary',
       type: 'Type',
       version: 'Version',
+      versionJson: 'VersionJson',
       wasmLang: 'WasmLang',
     };
   }
@@ -17720,6 +18010,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       summary: 'string',
       type: 'number',
       version: 'string',
+      versionJson: 'string',
       wasmLang: 'number',
     };
   }
@@ -17733,7 +18024,10 @@ export class GetPluginsResponseBodyData extends $tea.Model {
   category?: number;
   configCheck?: string;
   id?: number;
+  maxVersion?: string;
+  mode?: number;
   name?: string;
+  newVersionPublishingFlag?: boolean;
   phase?: number;
   primaryUser?: string;
   priority?: number;
@@ -17748,7 +18042,10 @@ export class GetPluginsResponseBodyData extends $tea.Model {
       category: 'Category',
       configCheck: 'ConfigCheck',
       id: 'Id',
+      maxVersion: 'MaxVersion',
+      mode: 'Mode',
       name: 'Name',
+      newVersionPublishingFlag: 'NewVersionPublishingFlag',
       phase: 'Phase',
       primaryUser: 'PrimaryUser',
       priority: 'Priority',
@@ -17766,7 +18063,10 @@ export class GetPluginsResponseBodyData extends $tea.Model {
       category: 'number',
       configCheck: 'string',
       id: 'number',
+      maxVersion: 'string',
+      mode: 'number',
       name: 'string',
+      newVersionPublishingFlag: 'boolean',
       phase: 'number',
       primaryUser: 'string',
       priority: 'number',
@@ -17896,6 +18196,28 @@ export class GetServiceListenersResponseBodyData extends $tea.Model {
       namespaceId: 'string',
       port: 'string',
       serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetZookeeperDataImportUrlResponseBodyData extends $tea.Model {
+  maxSize?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxSize: 'MaxSize',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxSize: 'string',
+      url: 'string',
     };
   }
 
@@ -18307,6 +18629,165 @@ export class ListClusterConnectionTypesResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       showName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $tea.Model {
+  description?: string;
+  id?: number;
+  module?: string;
+  mute?: boolean;
+  noticeFeature?: boolean;
+  primaryUser?: string;
+  riskCode?: string;
+  riskLevel?: string;
+  riskName?: string;
+  riskType?: string;
+  situation?: string;
+  suggestion?: string;
+  taskId?: number;
+  type?: number;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      module: 'Module',
+      mute: 'Mute',
+      noticeFeature: 'NoticeFeature',
+      primaryUser: 'PrimaryUser',
+      riskCode: 'RiskCode',
+      riskLevel: 'RiskLevel',
+      riskName: 'RiskName',
+      riskType: 'RiskType',
+      situation: 'Situation',
+      suggestion: 'Suggestion',
+      taskId: 'TaskId',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'number',
+      module: 'string',
+      mute: 'boolean',
+      noticeFeature: 'boolean',
+      primaryUser: 'string',
+      riskCode: 'string',
+      riskLevel: 'string',
+      riskName: 'string',
+      riskType: 'string',
+      situation: 'string',
+      suggestion: 'string',
+      taskId: 'number',
+      type: 'number',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskResponseBodyDataResult extends $tea.Model {
+  appVersion?: string;
+  chargeType?: string;
+  clusterType?: string;
+  createTime?: string;
+  id?: number;
+  imageVersion?: string;
+  instanceId?: string;
+  primaryUser?: string;
+  replica?: string;
+  riskList?: ListClusterHealthCheckTaskResponseBodyDataResultRiskList[];
+  score?: number;
+  spec?: string;
+  status?: string;
+  totalItem?: number;
+  totalRisk?: number;
+  type?: string;
+  updateTime?: string;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'AppVersion',
+      chargeType: 'ChargeType',
+      clusterType: 'ClusterType',
+      createTime: 'CreateTime',
+      id: 'Id',
+      imageVersion: 'ImageVersion',
+      instanceId: 'InstanceId',
+      primaryUser: 'PrimaryUser',
+      replica: 'Replica',
+      riskList: 'RiskList',
+      score: 'Score',
+      spec: 'Spec',
+      status: 'Status',
+      totalItem: 'TotalItem',
+      totalRisk: 'TotalRisk',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      chargeType: 'string',
+      clusterType: 'string',
+      createTime: 'string',
+      id: 'number',
+      imageVersion: 'string',
+      instanceId: 'string',
+      primaryUser: 'string',
+      replica: 'string',
+      riskList: { 'type': 'array', 'itemType': ListClusterHealthCheckTaskResponseBodyDataResultRiskList },
+      score: 'number',
+      spec: 'string',
+      status: 'string',
+      totalItem: 'number',
+      totalRisk: 'number',
+      type: 'string',
+      updateTime: 'string',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterHealthCheckTaskResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListClusterHealthCheckTaskResponseBodyDataResult[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListClusterHealthCheckTaskResponseBodyDataResult },
+      totalSize: 'number',
     };
   }
 
@@ -22207,20 +22688,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new AddGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    if (!Util.isUnset(tmpReq.directResponseJSON)) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
+    if (!Util.isUnset(tmpReq.predicates)) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
+    if (!Util.isUnset(tmpReq.redirectJSON)) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -22579,8 +23060,8 @@ export default class Client extends OpenApi {
       request.groupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupList, "GroupList", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
+    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
@@ -22736,6 +23217,13 @@ export default class Client extends OpenApi {
     return await this.applyTagPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CloneNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloneNacosConfigResponse
+   */
   async cloneNacosConfigWithOptions(request: CloneNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<CloneNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22780,6 +23268,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneNacosConfigResponse>(await this.callApi(params, req, runtime), new CloneNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CloneNacosConfigRequest
+    * @return CloneNacosConfigResponse
+   */
   async cloneNacosConfig(request: CloneNacosConfigRequest): Promise<CloneNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneNacosConfigWithOptions(request, runtime);
@@ -22842,6 +23336,13 @@ export default class Client extends OpenApi {
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+    *
+    * @param request CreateClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateClusterResponse
+   */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22938,6 +23439,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+    * Before you call this API operation, you must make sure that you fully understand the billing method and pricing of MSE.
+    *
+    * @param request CreateClusterRequest
+    * @return CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
@@ -23057,6 +23564,13 @@ export default class Client extends OpenApi {
     return await this.createMseServiceApplicationWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CreateNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNacosConfigResponse
+   */
   async createNacosConfigWithOptions(request: CreateNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23121,11 +23635,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNacosConfigResponse>(await this.callApi(params, req, runtime), new CreateNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CreateNacosConfigRequest
+    * @return CreateNacosConfigResponse
+   */
   async createNacosConfig(request: CreateNacosConfigRequest): Promise<CreateNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Programming language
+    *
+    * @param request CreateNacosInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNacosInstanceResponse
+   */
   async createNacosInstanceWithOptions(request: CreateNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23196,11 +23723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNacosInstanceResponse>(await this.callApi(params, req, runtime), new CreateNacosInstanceResponse({}));
   }
 
+  /**
+    * Programming language
+    *
+    * @param request CreateNacosInstanceRequest
+    * @return CreateNacosInstanceResponse
+   */
   async createNacosInstance(request: CreateNacosInstanceRequest): Promise<CreateNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNacosInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CreateNacosServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNacosServiceResponse
+   */
   async createNacosServiceWithOptions(request: CreateNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNacosServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23253,6 +23793,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNacosServiceResponse>(await this.callApi(params, req, runtime), new CreateNacosServiceResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request CreateNacosServiceRequest
+    * @return CreateNacosServiceResponse
+   */
   async createNacosService(request: CreateNacosServiceRequest): Promise<CreateNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNacosServiceWithOptions(request, runtime);
@@ -23822,6 +24368,13 @@ export default class Client extends OpenApi {
     return await this.deleteGatewaySlbWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNacosConfigResponse
+   */
   async deleteNacosConfigWithOptions(request: DeleteNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23866,11 +24419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosConfigResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosConfigRequest
+    * @return DeleteNacosConfigResponse
+   */
   async deleteNacosConfig(request: DeleteNacosConfigRequest): Promise<DeleteNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNacosConfigsResponse
+   */
   async deleteNacosConfigsWithOptions(request: DeleteNacosConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23907,11 +24473,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosConfigsResponse>(await this.callApi(params, req, runtime), new DeleteNacosConfigsResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosConfigsRequest
+    * @return DeleteNacosConfigsResponse
+   */
   async deleteNacosConfigs(request: DeleteNacosConfigsRequest): Promise<DeleteNacosConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNacosInstanceResponse
+   */
   async deleteNacosInstanceWithOptions(request: DeleteNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23968,11 +24547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosInstanceResponse>(await this.callApi(params, req, runtime), new DeleteNacosInstanceResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosInstanceRequest
+    * @return DeleteNacosInstanceResponse
+   */
   async deleteNacosInstance(request: DeleteNacosInstanceRequest): Promise<DeleteNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNacosServiceResponse
+   */
   async deleteNacosServiceWithOptions(request: DeleteNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNacosServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24013,6 +24605,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNacosServiceResponse>(await this.callApi(params, req, runtime), new DeleteNacosServiceResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request DeleteNacosServiceRequest
+    * @return DeleteNacosServiceResponse
+   */
   async deleteNacosService(request: DeleteNacosServiceRequest): Promise<DeleteNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNacosServiceWithOptions(request, runtime);
@@ -24199,6 +24797,13 @@ export default class Client extends OpenApi {
     return await this.deleteZnodeWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ExportNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExportNacosConfigResponse
+   */
   async exportNacosConfigWithOptions(request: ExportNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<ExportNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24247,6 +24852,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportNacosConfigResponse>(await this.callApi(params, req, runtime), new ExportNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ExportNacosConfigRequest
+    * @return ExportNacosConfigResponse
+   */
   async exportNacosConfig(request: ExportNacosConfigRequest): Promise<ExportNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportNacosConfigWithOptions(request, runtime);
@@ -24744,6 +25355,13 @@ export default class Client extends OpenApi {
     return await this.getImageWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetImportFileUrlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetImportFileUrlResponse
+   */
   async getImportFileUrlWithOptions(request: GetImportFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetImportFileUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24780,6 +25398,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImportFileUrlResponse>(await this.callApi(params, req, runtime), new GetImportFileUrlResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetImportFileUrlRequest
+    * @return GetImportFileUrlResponse
+   */
   async getImportFileUrl(request: GetImportFileUrlRequest): Promise<GetImportFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImportFileUrlWithOptions(request, runtime);
@@ -24888,6 +25512,13 @@ export default class Client extends OpenApi {
     return await this.getMseSourceWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetNacosConfigResponse
+   */
   async getNacosConfigWithOptions(request: GetNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24932,11 +25563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNacosConfigResponse>(await this.callApi(params, req, runtime), new GetNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetNacosConfigRequest
+    * @return GetNacosConfigResponse
+   */
   async getNacosConfig(request: GetNacosConfigRequest): Promise<GetNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetNacosHistoryConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetNacosHistoryConfigResponse
+   */
   async getNacosHistoryConfigWithOptions(request: GetNacosHistoryConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetNacosHistoryConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24981,6 +25625,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNacosHistoryConfigResponse>(await this.callApi(params, req, runtime), new GetNacosHistoryConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request GetNacosHistoryConfigRequest
+    * @return GetNacosHistoryConfigResponse
+   */
   async getNacosHistoryConfig(request: GetNacosHistoryConfigRequest): Promise<GetNacosHistoryConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNacosHistoryConfigWithOptions(request, runtime);
@@ -25260,6 +25910,50 @@ export default class Client extends OpenApi {
     return await this.getTagsBySwimmingLaneGroupIdWithOptions(request, runtime);
   }
 
+  async getZookeeperDataImportUrlWithOptions(request: GetZookeeperDataImportUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetZookeeperDataImportUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetZookeeperDataImportUrl",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetZookeeperDataImportUrlResponse>(await this.callApi(params, req, runtime), new GetZookeeperDataImportUrlResponse({}));
+  }
+
+  async getZookeeperDataImportUrl(request: GetZookeeperDataImportUrlRequest): Promise<GetZookeeperDataImportUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getZookeeperDataImportUrlWithOptions(request, runtime);
+  }
+
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ImportNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportNacosConfigResponse
+   */
   async importNacosConfigWithOptions(request: ImportNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<ImportNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25300,6 +25994,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportNacosConfigResponse>(await this.callApi(params, req, runtime), new ImportNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ImportNacosConfigRequest
+    * @return ImportNacosConfigResponse
+   */
   async importNacosConfig(request: ImportNacosConfigRequest): Promise<ImportNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importNacosConfigWithOptions(request, runtime);
@@ -25356,6 +26056,62 @@ export default class Client extends OpenApi {
     return await this.importServicesWithOptions(request, runtime);
   }
 
+  async importZookeeperDataWithOptions(request: ImportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ImportZookeeperDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportZookeeperData",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ImportZookeeperDataResponse({}));
+  }
+
+  async importZookeeperData(request: ImportZookeeperDataRequest): Promise<ImportZookeeperDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importZookeeperDataWithOptions(request, runtime);
+  }
+
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAnsInstancesResponse
+   */
   async listAnsInstancesWithOptions(request: ListAnsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -25376,11 +26132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAnsInstancesResponse>(await this.callApi(params, req, runtime), new ListAnsInstancesResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsInstancesRequest
+    * @return ListAnsInstancesResponse
+   */
   async listAnsInstances(request: ListAnsInstancesRequest): Promise<ListAnsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAnsInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsServiceClustersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAnsServiceClustersResponse
+   */
   async listAnsServiceClustersWithOptions(request: ListAnsServiceClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServiceClustersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -25401,11 +26170,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAnsServiceClustersResponse>(await this.callApi(params, req, runtime), new ListAnsServiceClustersResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsServiceClustersRequest
+    * @return ListAnsServiceClustersResponse
+   */
   async listAnsServiceClusters(request: ListAnsServiceClustersRequest): Promise<ListAnsServiceClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAnsServiceClustersWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsServicesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAnsServicesResponse
+   */
   async listAnsServicesWithOptions(request: ListAnsServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnsServicesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -25426,6 +26208,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAnsServicesResponse>(await this.callApi(params, req, runtime), new ListAnsServicesResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListAnsServicesRequest
+    * @return ListAnsServicesResponse
+   */
   async listAnsServices(request: ListAnsServicesRequest): Promise<ListAnsServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAnsServicesWithOptions(request, runtime);
@@ -25520,6 +26308,55 @@ export default class Client extends OpenApi {
   async listClusterConnectionTypes(request: ListClusterConnectionTypesRequest): Promise<ListClusterConnectionTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterConnectionTypesWithOptions(request, runtime);
+  }
+
+  async listClusterHealthCheckTaskWithOptions(request: ListClusterHealthCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterHealthCheckTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClusterHealthCheckTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new ListClusterHealthCheckTaskResponse({}));
+  }
+
+  async listClusterHealthCheckTask(request: ListClusterHealthCheckTaskRequest): Promise<ListClusterHealthCheckTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClusterHealthCheckTaskWithOptions(request, runtime);
   }
 
   async listClusterTypesWithOptions(request: ListClusterTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterTypesResponse> {
@@ -25704,8 +26541,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -25796,8 +26633,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -25851,8 +26688,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListGatewayServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.filterParams))) {
-      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.filterParams), "FilterParams", "json");
+    if (!Util.isUnset(tmpReq.filterParams)) {
+      request.filterParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterParams, "FilterParams", "json");
     }
 
     let query = { };
@@ -25980,6 +26817,13 @@ export default class Client extends OpenApi {
     return await this.listInstanceCountWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListListenersByConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListListenersByConfigResponse
+   */
   async listListenersByConfigWithOptions(request: ListListenersByConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26024,11 +26868,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenersByConfigResponse>(await this.callApi(params, req, runtime), new ListListenersByConfigResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListListenersByConfigRequest
+    * @return ListListenersByConfigResponse
+   */
   async listListenersByConfig(request: ListListenersByConfigRequest): Promise<ListListenersByConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersByConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListListenersByIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListListenersByIpResponse
+   */
   async listListenersByIpWithOptions(request: ListListenersByIpRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26069,11 +26926,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenersByIpResponse>(await this.callApi(params, req, runtime), new ListListenersByIpResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListListenersByIpRequest
+    * @return ListListenersByIpResponse
+   */
   async listListenersByIp(request: ListListenersByIpRequest): Promise<ListListenersByIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersByIpWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListNacosConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListNacosConfigsResponse
+   */
   async listNacosConfigsWithOptions(request: ListNacosConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListNacosConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26138,11 +27008,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNacosConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosConfigsResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListNacosConfigsRequest
+    * @return ListNacosConfigsResponse
+   */
   async listNacosConfigs(request: ListNacosConfigsRequest): Promise<ListNacosConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNacosConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListNacosHistoryConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListNacosHistoryConfigsResponse
+   */
   async listNacosHistoryConfigsWithOptions(request: ListNacosHistoryConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListNacosHistoryConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26199,6 +27082,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNacosHistoryConfigsResponse>(await this.callApi(params, req, runtime), new ListNacosHistoryConfigsResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request ListNacosHistoryConfigsRequest
+    * @return ListNacosHistoryConfigsResponse
+   */
   async listNacosHistoryConfigs(request: ListNacosHistoryConfigsRequest): Promise<ListNacosHistoryConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNacosHistoryConfigsWithOptions(request, runtime);
@@ -27405,6 +28294,13 @@ export default class Client extends OpenApi {
     return await this.updateClusterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~)
+    *
+    * @param request UpdateClusterSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateClusterSpecResponse
+   */
   async updateClusterSpecWithOptions(request: UpdateClusterSpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27445,6 +28341,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClusterSpecResponse>(await this.callApi(params, req, runtime), new UpdateClusterSpecResponse({}));
   }
 
+  /**
+    * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~)
+    *
+    * @param request UpdateClusterSpecRequest
+    * @return UpdateClusterSpecResponse
+   */
   async updateClusterSpec(request: UpdateClusterSpecRequest): Promise<UpdateClusterSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClusterSpecWithOptions(request, runtime);
@@ -27720,8 +28622,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayOptionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.gatewayOption))) {
-      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayOption), "GatewayOption", "json");
+    if (!Util.isUnset(tmpReq.gatewayOption)) {
+      request.gatewayOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayOption, "GatewayOption", "json");
     }
 
     let query = { };
@@ -27767,20 +28669,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
-      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    if (!Util.isUnset(tmpReq.directResponseJSON)) {
+      request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directResponseJSON, "DirectResponseJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.fallbackServices)) {
       request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
-      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.predicates), "Predicates", "json");
+    if (!Util.isUnset(tmpReq.predicates)) {
+      request.predicatesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.predicates, "Predicates", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.redirectJSON))) {
-      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.redirectJSON), "RedirectJSON", "json");
+    if (!Util.isUnset(tmpReq.redirectJSON)) {
+      request.redirectJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectJSON, "RedirectJSON", "json");
     }
 
     if (!Util.isUnset(tmpReq.services)) {
@@ -27874,8 +28776,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteCORSShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.corsJSON))) {
-      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.corsJSON), "CorsJSON", "json");
+    if (!Util.isUnset(tmpReq.corsJSON)) {
+      request.corsJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.corsJSON, "CorsJSON", "json");
     }
 
     let query = { };
@@ -28015,8 +28917,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteRetryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.retryJSON))) {
-      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.retryJSON), "RetryJSON", "json");
+    if (!Util.isUnset(tmpReq.retryJSON)) {
+      request.retryJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retryJSON, "RetryJSON", "json");
     }
 
     let query = { };
@@ -28066,8 +28968,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayRouteTimeoutShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.timeoutJSON))) {
-      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.timeoutJSON), "TimeoutJSON", "json");
+    if (!Util.isUnset(tmpReq.timeoutJSON)) {
+      request.timeoutJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutJSON, "TimeoutJSON", "json");
     }
 
     let query = { };
@@ -28158,8 +29060,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceTrafficPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.gatewayTrafficPolicy))) {
-      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.gatewayTrafficPolicy), "GatewayTrafficPolicy", "json");
+    if (!Util.isUnset(tmpReq.gatewayTrafficPolicy)) {
+      request.gatewayTrafficPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewayTrafficPolicy, "GatewayTrafficPolicy", "json");
     }
 
     let query = { };
@@ -28246,6 +29148,13 @@ export default class Client extends OpenApi {
     return await this.updateGatewayServiceVersionWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+    *
+    * @param request UpdateGatewaySpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateGatewaySpecResponse
+   */
   async updateGatewaySpecWithOptions(request: UpdateGatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewaySpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28282,6 +29191,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewaySpecResponse>(await this.callApi(params, req, runtime), new UpdateGatewaySpecResponse({}));
   }
 
+  /**
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+    *
+    * @param request UpdateGatewaySpecRequest
+    * @return UpdateGatewaySpecResponse
+   */
   async updateGatewaySpec(request: UpdateGatewaySpecRequest): Promise<UpdateGatewaySpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewaySpecWithOptions(request, runtime);
@@ -28440,6 +29355,13 @@ export default class Client extends OpenApi {
     return await this.updateNacosClusterWithOptions(request, runtime);
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNacosConfigResponse
+   */
   async updateNacosConfigWithOptions(request: UpdateNacosConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28512,11 +29434,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNacosConfigResponse>(await this.callApi(params, req, runtime), new UpdateNacosConfigResponse({}));
   }
 
+  /**
+    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosConfigRequest
+    * @return UpdateNacosConfigResponse
+   */
   async updateNacosConfig(request: UpdateNacosConfigRequest): Promise<UpdateNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNacosInstanceResponse
+   */
   async updateNacosInstanceWithOptions(request: UpdateNacosInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28587,11 +29522,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNacosInstanceResponse>(await this.callApi(params, req, runtime), new UpdateNacosInstanceResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosInstanceRequest
+    * @return UpdateNacosInstanceResponse
+   */
   async updateNacosInstance(request: UpdateNacosInstanceRequest): Promise<UpdateNacosInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateNacosServiceResponse
+   */
   async updateNacosServiceWithOptions(request: UpdateNacosServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28640,6 +29588,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNacosServiceResponse>(await this.callApi(params, req, runtime), new UpdateNacosServiceResponse({}));
   }
 
+  /**
+    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    *
+    * @param request UpdateNacosServiceRequest
+    * @return UpdateNacosServiceResponse
+   */
   async updateNacosService(request: UpdateNacosServiceRequest): Promise<UpdateNacosServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNacosServiceWithOptions(request, runtime);
@@ -28755,8 +29709,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateServiceSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
-      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
+    if (!Util.isUnset(tmpReq.ingressOptionsRequest)) {
+      request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ingressOptionsRequest, "IngressOptionsRequest", "json");
     }
 
     if (!Util.isUnset(tmpReq.pathList)) {
