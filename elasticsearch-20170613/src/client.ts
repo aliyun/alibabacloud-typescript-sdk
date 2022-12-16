@@ -1541,7 +1541,7 @@ export class CreateDataStreamResponse extends $tea.Model {
 
 export class CreateDataTasksRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
+  body?: CreateDataTasksRequestBody[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -1552,7 +1552,7 @@ export class CreateDataTasksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
+      body: { 'type': 'array', 'itemType': CreateDataTasksRequestBody },
     };
   }
 
@@ -7048,6 +7048,7 @@ export class ListInstanceResponse extends $tea.Model {
 }
 
 export class ListInstanceHistoryEventsRequest extends $tea.Model {
+  body?: ListInstanceHistoryEventsRequestBody[];
   eventCreateEndTime?: string;
   eventCreateStartTime?: string;
   eventCycleStatus?: string[];
@@ -7063,6 +7064,7 @@ export class ListInstanceHistoryEventsRequest extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       eventCreateEndTime: 'eventCreateEndTime',
       eventCreateStartTime: 'eventCreateStartTime',
       eventCycleStatus: 'eventCycleStatus',
@@ -7081,6 +7083,7 @@ export class ListInstanceHistoryEventsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': ListInstanceHistoryEventsRequestBody },
       eventCreateEndTime: 'string',
       eventCreateStartTime: 'string',
       eventCycleStatus: { 'type': 'array', 'itemType': 'string' },
@@ -7103,6 +7106,7 @@ export class ListInstanceHistoryEventsRequest extends $tea.Model {
 }
 
 export class ListInstanceHistoryEventsShrinkRequest extends $tea.Model {
+  body?: ListInstanceHistoryEventsShrinkRequestBody[];
   eventCreateEndTime?: string;
   eventCreateStartTime?: string;
   eventCycleStatusShrink?: string;
@@ -7118,6 +7122,7 @@ export class ListInstanceHistoryEventsShrinkRequest extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       eventCreateEndTime: 'eventCreateEndTime',
       eventCreateStartTime: 'eventCreateStartTime',
       eventCycleStatusShrink: 'eventCycleStatus',
@@ -7136,6 +7141,7 @@ export class ListInstanceHistoryEventsShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': ListInstanceHistoryEventsShrinkRequestBody },
       eventCreateEndTime: 'string',
       eventCreateStartTime: 'string',
       eventCycleStatusShrink: 'string',
@@ -7366,7 +7372,6 @@ export class ListKibanaPluginsResponse extends $tea.Model {
 export class ListLogstashRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
-  ownerId?: string;
   page?: number;
   resourceGroupId?: string;
   size?: number;
@@ -7376,7 +7381,6 @@ export class ListLogstashRequest extends $tea.Model {
     return {
       description: 'description',
       instanceId: 'instanceId',
-      ownerId: 'ownerId',
       page: 'page',
       resourceGroupId: 'resourceGroupId',
       size: 'size',
@@ -7389,7 +7393,6 @@ export class ListLogstashRequest extends $tea.Model {
     return {
       description: 'string',
       instanceId: 'string',
-      ownerId: 'string',
       page: 'number',
       resourceGroupId: 'string',
       size: 'number',
@@ -14108,6 +14111,133 @@ export class CreateDataStreamResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateDataTasksRequestBodyMigrateConfig extends $tea.Model {
+  sourceFilterParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceFilterParams: 'sourceFilterParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceFilterParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataTasksRequestBodySinkCluster extends $tea.Model {
+  dataSourceType?: string;
+  index?: string;
+  mapping?: string;
+  password?: string;
+  routing?: string;
+  settings?: string;
+  type?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'dataSourceType',
+      index: 'index',
+      mapping: 'mapping',
+      password: 'password',
+      routing: 'routing',
+      settings: 'settings',
+      type: 'type',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      index: 'string',
+      mapping: 'string',
+      password: 'string',
+      routing: 'string',
+      settings: 'string',
+      type: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataTasksRequestBodySourceCluster extends $tea.Model {
+  dataSourceType?: string;
+  endpoint?: string;
+  index?: string;
+  password?: string;
+  type?: string;
+  username?: string;
+  vpcId?: string;
+  vpcInstanceId?: string;
+  vpcInstancePort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'dataSourceType',
+      endpoint: 'endpoint',
+      index: 'index',
+      password: 'password',
+      type: 'type',
+      username: 'username',
+      vpcId: 'vpcId',
+      vpcInstanceId: 'vpcInstanceId',
+      vpcInstancePort: 'vpcInstancePort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      endpoint: 'string',
+      index: 'string',
+      password: 'string',
+      type: 'string',
+      username: 'string',
+      vpcId: 'string',
+      vpcInstanceId: 'string',
+      vpcInstancePort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataTasksRequestBody extends $tea.Model {
+  migrateConfig?: CreateDataTasksRequestBodyMigrateConfig;
+  sinkCluster?: CreateDataTasksRequestBodySinkCluster;
+  sourceCluster?: CreateDataTasksRequestBodySourceCluster;
+  static names(): { [key: string]: string } {
+    return {
+      migrateConfig: 'migrateConfig',
+      sinkCluster: 'sinkCluster',
+      sourceCluster: 'sourceCluster',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      migrateConfig: CreateDataTasksRequestBodyMigrateConfig,
+      sinkCluster: CreateDataTasksRequestBodySinkCluster,
+      sourceCluster: CreateDataTasksRequestBodySourceCluster,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataTasksResponseBodyResultSinkCluster extends $tea.Model {
   dataSourceType?: string;
   index?: string;
@@ -18626,6 +18756,50 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListInstanceHistoryEventsRequestBody extends $tea.Model {
+  desc?: boolean;
+  sortField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      sortField: 'sortField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'boolean',
+      sortField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsShrinkRequestBody extends $tea.Model {
+  desc?: boolean;
+  sortField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      sortField: 'sortField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'boolean',
+      sortField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceHistoryEventsResponseBodyHeaders extends $tea.Model {
   xTotalCount?: number;
   xTotalFailed?: number;
@@ -21313,12 +21487,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async activateZones(InstanceId: string, request: ActivateZonesRequest): Promise<ActivateZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.activateZonesWithOptions(InstanceId, request, headers, runtime);
-  }
-
   async activateZonesWithOptions(InstanceId: string, request: ActivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ActivateZonesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -21345,10 +21513,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateZonesResponse>(await this.callApi(params, req, runtime), new ActivateZonesResponse({}));
   }
 
-  async addConnectableCluster(InstanceId: string, request: AddConnectableClusterRequest): Promise<AddConnectableClusterResponse> {
+  async activateZones(InstanceId: string, request: ActivateZonesRequest): Promise<ActivateZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addConnectableClusterWithOptions(InstanceId, request, headers, runtime);
+    return await this.activateZonesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async addConnectableClusterWithOptions(InstanceId: string, request: AddConnectableClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddConnectableClusterResponse> {
@@ -21377,10 +21545,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddConnectableClusterResponse>(await this.callApi(params, req, runtime), new AddConnectableClusterResponse({}));
   }
 
-  async addSnapshotRepo(InstanceId: string, request: AddSnapshotRepoRequest): Promise<AddSnapshotRepoResponse> {
+  async addConnectableCluster(InstanceId: string, request: AddConnectableClusterRequest): Promise<AddConnectableClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
+    return await this.addConnectableClusterWithOptions(InstanceId, request, headers, runtime);
   }
 
   async addSnapshotRepoWithOptions(InstanceId: string, request: AddSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddSnapshotRepoResponse> {
@@ -21403,10 +21571,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSnapshotRepoResponse>(await this.callApi(params, req, runtime), new AddSnapshotRepoResponse({}));
   }
 
-  async cancelDeletion(InstanceId: string, request: CancelDeletionRequest): Promise<CancelDeletionResponse> {
+  async addSnapshotRepo(InstanceId: string, request: AddSnapshotRepoRequest): Promise<AddSnapshotRepoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelDeletionWithOptions(InstanceId, request, headers, runtime);
+    return await this.addSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
   }
 
   async cancelDeletionWithOptions(InstanceId: string, request: CancelDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelDeletionResponse> {
@@ -21434,10 +21602,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelDeletionResponse>(await this.callApi(params, req, runtime), new CancelDeletionResponse({}));
   }
 
-  async cancelLogstashDeletion(InstanceId: string, request: CancelLogstashDeletionRequest): Promise<CancelLogstashDeletionResponse> {
+  async cancelDeletion(InstanceId: string, request: CancelDeletionRequest): Promise<CancelDeletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelLogstashDeletionWithOptions(InstanceId, request, headers, runtime);
+    return await this.cancelDeletionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async cancelLogstashDeletionWithOptions(InstanceId: string, request: CancelLogstashDeletionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelLogstashDeletionResponse> {
@@ -21465,10 +21633,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelLogstashDeletionResponse>(await this.callApi(params, req, runtime), new CancelLogstashDeletionResponse({}));
   }
 
-  async cancelTask(InstanceId: string, request: CancelTaskRequest): Promise<CancelTaskResponse> {
+  async cancelLogstashDeletion(InstanceId: string, request: CancelLogstashDeletionRequest): Promise<CancelLogstashDeletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.cancelLogstashDeletionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async cancelTaskWithOptions(InstanceId: string, request: CancelTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
@@ -21500,10 +21668,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
-  async capacityPlan(request: CapacityPlanRequest): Promise<CapacityPlanResponse> {
+  async cancelTask(InstanceId: string, request: CancelTaskRequest): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.capacityPlanWithOptions(request, headers, runtime);
+    return await this.cancelTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async capacityPlanWithOptions(request: CapacityPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CapacityPlanResponse> {
@@ -21543,10 +21711,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CapacityPlanResponse>(await this.callApi(params, req, runtime), new CapacityPlanResponse({}));
   }
 
-  async closeDiagnosis(InstanceId: string, request: CloseDiagnosisRequest): Promise<CloseDiagnosisResponse> {
+  async capacityPlan(request: CapacityPlanRequest): Promise<CapacityPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.closeDiagnosisWithOptions(InstanceId, request, headers, runtime);
+    return await this.capacityPlanWithOptions(request, headers, runtime);
   }
 
   async closeDiagnosisWithOptions(InstanceId: string, request: CloseDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseDiagnosisResponse> {
@@ -21578,10 +21746,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseDiagnosisResponse>(await this.callApi(params, req, runtime), new CloseDiagnosisResponse({}));
   }
 
-  async closeHttps(InstanceId: string, request: CloseHttpsRequest): Promise<CloseHttpsResponse> {
+  async closeDiagnosis(InstanceId: string, request: CloseDiagnosisRequest): Promise<CloseDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.closeHttpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.closeDiagnosisWithOptions(InstanceId, request, headers, runtime);
   }
 
   async closeHttpsWithOptions(InstanceId: string, request: CloseHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseHttpsResponse> {
@@ -21609,10 +21777,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseHttpsResponse>(await this.callApi(params, req, runtime), new CloseHttpsResponse({}));
   }
 
-  async closeManagedIndex(InstanceId: string, Index: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
+  async closeHttps(InstanceId: string, request: CloseHttpsRequest): Promise<CloseHttpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
+    return await this.closeHttpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async closeManagedIndexWithOptions(InstanceId: string, Index: string, request: CloseManagedIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseManagedIndexResponse> {
@@ -21640,10 +21808,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseManagedIndexResponse>(await this.callApi(params, req, runtime), new CloseManagedIndexResponse({}));
   }
 
-  async createCollector(request: CreateCollectorRequest): Promise<CreateCollectorResponse> {
+  async closeManagedIndex(InstanceId: string, Index: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createCollectorWithOptions(request, headers, runtime);
+    return await this.closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
   }
 
   async createCollectorWithOptions(request: CreateCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCollectorResponse> {
@@ -21672,10 +21840,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCollectorResponse>(await this.callApi(params, req, runtime), new CreateCollectorResponse({}));
   }
 
-  async createComponentIndex(InstanceId: string, name: string, request: CreateComponentIndexRequest): Promise<CreateComponentIndexResponse> {
+  async createCollector(request: CreateCollectorRequest): Promise<CreateCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.createCollectorWithOptions(request, headers, runtime);
   }
 
   async createComponentIndexWithOptions(InstanceId: string, name: string, request: CreateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateComponentIndexResponse> {
@@ -21685,7 +21853,7 @@ export default class Client extends OpenApi {
       body["_meta"] = request.meta;
     }
 
-    if (!Util.isUnset($tea.toMap(request.template))) {
+    if (!Util.isUnset(request.template)) {
       body["template"] = request.template;
     }
 
@@ -21707,10 +21875,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateComponentIndexResponse>(await this.callApi(params, req, runtime), new CreateComponentIndexResponse({}));
   }
 
-  async createDataStream(InstanceId: string, request: CreateDataStreamRequest): Promise<CreateDataStreamResponse> {
+  async createComponentIndex(InstanceId: string, name: string, request: CreateComponentIndexRequest): Promise<CreateComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createDataStreamWithOptions(InstanceId, request, headers, runtime);
+    return await this.createComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
   }
 
   async createDataStreamWithOptions(InstanceId: string, request: CreateDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataStreamResponse> {
@@ -21739,10 +21907,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataStreamResponse>(await this.callApi(params, req, runtime), new CreateDataStreamResponse({}));
   }
 
-  async createDataTasks(InstanceId: string, request: CreateDataTasksRequest): Promise<CreateDataTasksResponse> {
+  async createDataStream(InstanceId: string, request: CreateDataStreamRequest): Promise<CreateDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createDataTasksWithOptions(InstanceId, request, headers, runtime);
+    return await this.createDataStreamWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createDataTasksWithOptions(InstanceId: string, request: CreateDataTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataTasksResponse> {
@@ -21755,7 +21923,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataTasks",
@@ -21771,10 +21939,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataTasksResponse>(await this.callApi(params, req, runtime), new CreateDataTasksResponse({}));
   }
 
-  async createILMPolicy(InstanceId: string, request: CreateILMPolicyRequest): Promise<CreateILMPolicyResponse> {
+  async createDataTasks(InstanceId: string, request: CreateDataTasksRequest): Promise<CreateDataTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createILMPolicyWithOptions(InstanceId, request, headers, runtime);
+    return await this.createDataTasksWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createILMPolicyWithOptions(InstanceId: string, request: CreateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateILMPolicyResponse> {
@@ -21803,10 +21971,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateILMPolicyResponse>(await this.callApi(params, req, runtime), new CreateILMPolicyResponse({}));
   }
 
-  async createIndexTemplate(InstanceId: string, request: CreateIndexTemplateRequest): Promise<CreateIndexTemplateResponse> {
+  async createILMPolicy(InstanceId: string, request: CreateILMPolicyRequest): Promise<CreateILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createIndexTemplateWithOptions(InstanceId, request, headers, runtime);
+    return await this.createILMPolicyWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createIndexTemplateWithOptions(InstanceId: string, request: CreateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexTemplateResponse> {
@@ -21835,10 +22003,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIndexTemplateResponse>(await this.callApi(params, req, runtime), new CreateIndexTemplateResponse({}));
   }
 
-  async createLogstash(request: CreateLogstashRequest): Promise<CreateLogstashResponse> {
+  async createIndexTemplate(InstanceId: string, request: CreateIndexTemplateRequest): Promise<CreateIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createLogstashWithOptions(request, headers, runtime);
+    return await this.createIndexTemplateWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createLogstashWithOptions(request: CreateLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogstashResponse> {
@@ -21853,7 +22021,7 @@ export default class Client extends OpenApi {
       body["description"] = request.description;
     }
 
-    if (!Util.isUnset($tea.toMap(request.networkConfig))) {
+    if (!Util.isUnset(request.networkConfig)) {
       body["networkConfig"] = request.networkConfig;
     }
 
@@ -21861,11 +22029,11 @@ export default class Client extends OpenApi {
       body["nodeAmount"] = request.nodeAmount;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+    if (!Util.isUnset(request.nodeSpec)) {
       body["nodeSpec"] = request.nodeSpec;
     }
 
-    if (!Util.isUnset($tea.toMap(request.paymentInfo))) {
+    if (!Util.isUnset(request.paymentInfo)) {
       body["paymentInfo"] = request.paymentInfo;
     }
 
@@ -21896,10 +22064,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogstashResponse>(await this.callApi(params, req, runtime), new CreateLogstashResponse({}));
   }
 
-  async createPipelines(InstanceId: string, request: CreatePipelinesRequest): Promise<CreatePipelinesResponse> {
+  async createLogstash(request: CreateLogstashRequest): Promise<CreateLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createPipelinesWithOptions(InstanceId, request, headers, runtime);
+    return await this.createLogstashWithOptions(request, headers, runtime);
   }
 
   async createPipelinesWithOptions(InstanceId: string, request: CreatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelinesResponse> {
@@ -21932,10 +22100,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePipelinesResponse>(await this.callApi(params, req, runtime), new CreatePipelinesResponse({}));
   }
 
-  async createSnapshot(InstanceId: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
+  async createPipelines(InstanceId: string, request: CreatePipelinesRequest): Promise<CreatePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createSnapshotWithOptions(InstanceId, request, headers, runtime);
+    return await this.createPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createSnapshotWithOptions(InstanceId: string, request: CreateSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
@@ -21964,10 +22132,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
-  async createVpcEndpoint(InstanceId: string, request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
+  async createSnapshot(InstanceId: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createVpcEndpointWithOptions(InstanceId, request, headers, runtime);
+    return await this.createSnapshotWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createVpcEndpointWithOptions(InstanceId: string, request: CreateVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
@@ -22009,10 +22177,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointResponse({}));
   }
 
-  async deactivateZones(InstanceId: string, request: DeactivateZonesRequest): Promise<DeactivateZonesResponse> {
+  async createVpcEndpoint(InstanceId: string, request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deactivateZonesWithOptions(InstanceId, request, headers, runtime);
+    return await this.createVpcEndpointWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deactivateZonesWithOptions(InstanceId: string, request: DeactivateZonesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeactivateZonesResponse> {
@@ -22041,10 +22209,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactivateZonesResponse>(await this.callApi(params, req, runtime), new DeactivateZonesResponse({}));
   }
 
-  async deleteCollector(ResId: string, request: DeleteCollectorRequest): Promise<DeleteCollectorResponse> {
+  async deactivateZones(InstanceId: string, request: DeactivateZonesRequest): Promise<DeactivateZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.deactivateZonesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteCollectorWithOptions(ResId: string, request: DeleteCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCollectorResponse> {
@@ -22072,10 +22240,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCollectorResponse>(await this.callApi(params, req, runtime), new DeleteCollectorResponse({}));
   }
 
-  async deleteComponentIndex(InstanceId: string, name: string): Promise<DeleteComponentIndexResponse> {
+  async deleteCollector(ResId: string, request: DeleteCollectorRequest): Promise<DeleteCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
+    return await this.deleteCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async deleteComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteComponentIndexResponse> {
@@ -22096,10 +22264,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteComponentIndexResponse>(await this.callApi(params, req, runtime), new DeleteComponentIndexResponse({}));
   }
 
-  async deleteConnectedCluster(InstanceId: string, request: DeleteConnectedClusterRequest): Promise<DeleteConnectedClusterResponse> {
+  async deleteComponentIndex(InstanceId: string, name: string): Promise<DeleteComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConnectedClusterWithOptions(InstanceId, request, headers, runtime);
+    return await this.deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
   async deleteConnectedClusterWithOptions(InstanceId: string, request: DeleteConnectedClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConnectedClusterResponse> {
@@ -22131,10 +22299,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConnectedClusterResponse>(await this.callApi(params, req, runtime), new DeleteConnectedClusterResponse({}));
   }
 
-  async deleteDataStream(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
+  async deleteConnectedCluster(InstanceId: string, request: DeleteConnectedClusterRequest): Promise<DeleteConnectedClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
+    return await this.deleteConnectedClusterWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteDataStreamWithOptions(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataStreamResponse> {
@@ -22162,10 +22330,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataStreamResponse>(await this.callApi(params, req, runtime), new DeleteDataStreamResponse({}));
   }
 
-  async deleteDataTask(InstanceId: string, request: DeleteDataTaskRequest): Promise<DeleteDataTaskResponse> {
+  async deleteDataStream(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDataTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
   async deleteDataTaskWithOptions(InstanceId: string, request: DeleteDataTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataTaskResponse> {
@@ -22197,10 +22365,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataTaskResponse({}));
   }
 
-  async deleteDeprecatedTemplate(InstanceId: string, name: string): Promise<DeleteDeprecatedTemplateResponse> {
+  async deleteDataTask(InstanceId: string, request: DeleteDataTaskRequest): Promise<DeleteDataTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
+    return await this.deleteDataTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDeprecatedTemplateResponse> {
@@ -22221,10 +22389,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDeprecatedTemplateResponse({}));
   }
 
-  async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
+  async deleteDeprecatedTemplate(InstanceId: string, name: string): Promise<DeleteDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
+    return await this.deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
   async deleteILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteILMPolicyResponse> {
@@ -22245,10 +22413,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteILMPolicyResponse>(await this.callApi(params, req, runtime), new DeleteILMPolicyResponse({}));
   }
 
-  async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
+  async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
+    return await this.deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
   async deleteIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
@@ -22269,10 +22437,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIndexTemplateResponse>(await this.callApi(params, req, runtime), new DeleteIndexTemplateResponse({}));
   }
 
-  async deleteInstance(InstanceId: string, request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
+  async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
   async deleteInstanceWithOptions(InstanceId: string, request: DeleteInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
@@ -22304,10 +22472,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
-  async deleteLogstash(InstanceId: string, request: DeleteLogstashRequest): Promise<DeleteLogstashResponse> {
+  async deleteInstance(InstanceId: string, request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLogstashWithOptions(InstanceId, request, headers, runtime);
+    return await this.deleteInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteLogstashWithOptions(InstanceId: string, request: DeleteLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogstashResponse> {
@@ -22339,10 +22507,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogstashResponse>(await this.callApi(params, req, runtime), new DeleteLogstashResponse({}));
   }
 
-  async deletePipelines(InstanceId: string, request: DeletePipelinesRequest): Promise<DeletePipelinesResponse> {
+  async deleteLogstash(InstanceId: string, request: DeleteLogstashRequest): Promise<DeleteLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePipelinesWithOptions(InstanceId, request, headers, runtime);
+    return await this.deleteLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deletePipelinesWithOptions(InstanceId: string, request: DeletePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelinesResponse> {
@@ -22374,10 +22542,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelinesResponse>(await this.callApi(params, req, runtime), new DeletePipelinesResponse({}));
   }
 
-  async deleteSnapshotRepo(InstanceId: string, request: DeleteSnapshotRepoRequest): Promise<DeleteSnapshotRepoResponse> {
+  async deletePipelines(InstanceId: string, request: DeletePipelinesRequest): Promise<DeletePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
+    return await this.deletePipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteSnapshotRepoWithOptions(InstanceId: string, request: DeleteSnapshotRepoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotRepoResponse> {
@@ -22409,10 +22577,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotRepoResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotRepoResponse({}));
   }
 
-  async deleteVpcEndpoint(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
+  async deleteSnapshotRepo(InstanceId: string, request: DeleteSnapshotRepoRequest): Promise<DeleteSnapshotRepoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVpcEndpointWithOptions(InstanceId, EndpointId, request, headers, runtime);
+    return await this.deleteSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
   }
 
   async deleteVpcEndpointWithOptions(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
@@ -22440,10 +22608,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
-  async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
+  async deleteVpcEndpoint(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeAckOperatorWithOptions(ClusterId, headers, runtime);
+    return await this.deleteVpcEndpointWithOptions(InstanceId, EndpointId, request, headers, runtime);
   }
 
   async describeAckOperatorWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAckOperatorResponse> {
@@ -22464,10 +22632,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAckOperatorResponse>(await this.callApi(params, req, runtime), new DescribeAckOperatorResponse({}));
   }
 
-  async describeApm(instanceId: string): Promise<DescribeApmResponse> {
+  async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeApmWithOptions(instanceId, headers, runtime);
+    return await this.describeAckOperatorWithOptions(ClusterId, headers, runtime);
   }
 
   async describeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApmResponse> {
@@ -22488,10 +22656,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApmResponse>(await this.callApi(params, req, runtime), new DescribeApmResponse({}));
   }
 
-  async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
+  async describeApm(instanceId: string): Promise<DescribeApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeCollectorWithOptions(ResId, headers, runtime);
+    return await this.describeApmWithOptions(instanceId, headers, runtime);
   }
 
   async describeCollectorWithOptions(ResId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCollectorResponse> {
@@ -22512,10 +22680,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCollectorResponse>(await this.callApi(params, req, runtime), new DescribeCollectorResponse({}));
   }
 
-  async describeComponentIndex(InstanceId: string, name: string): Promise<DescribeComponentIndexResponse> {
+  async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
+    return await this.describeCollectorWithOptions(ResId, headers, runtime);
   }
 
   async describeComponentIndexWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeComponentIndexResponse> {
@@ -22536,10 +22704,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeComponentIndexResponse>(await this.callApi(params, req, runtime), new DescribeComponentIndexResponse({}));
   }
 
-  async describeConnectableClusters(InstanceId: string, request: DescribeConnectableClustersRequest): Promise<DescribeConnectableClustersResponse> {
+  async describeComponentIndex(InstanceId: string, name: string): Promise<DescribeComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeConnectableClustersWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
   }
 
   async describeConnectableClustersWithOptions(InstanceId: string, request: DescribeConnectableClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConnectableClustersResponse> {
@@ -22567,10 +22735,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConnectableClustersResponse>(await this.callApi(params, req, runtime), new DescribeConnectableClustersResponse({}));
   }
 
-  async describeDeprecatedTemplate(InstanceId: string, name: string): Promise<DescribeDeprecatedTemplateResponse> {
+  async describeConnectableClusters(InstanceId: string, request: DescribeConnectableClustersRequest): Promise<DescribeConnectableClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
+    return await this.describeConnectableClustersWithOptions(InstanceId, request, headers, runtime);
   }
 
   async describeDeprecatedTemplateWithOptions(InstanceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDeprecatedTemplateResponse> {
@@ -22591,10 +22759,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DescribeDeprecatedTemplateResponse({}));
   }
 
-  async describeDiagnoseReport(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest): Promise<DescribeDiagnoseReportResponse> {
+  async describeDeprecatedTemplate(InstanceId: string, name: string): Promise<DescribeDeprecatedTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDiagnoseReportWithOptions(InstanceId, ReportId, request, headers, runtime);
+    return await this.describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
   }
 
   async describeDiagnoseReportWithOptions(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnoseReportResponse> {
@@ -22622,10 +22790,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnoseReportResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportResponse({}));
   }
 
-  async describeDiagnosisSettings(InstanceId: string, request: DescribeDiagnosisSettingsRequest): Promise<DescribeDiagnosisSettingsResponse> {
+  async describeDiagnoseReport(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest): Promise<DescribeDiagnoseReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeDiagnoseReportWithOptions(InstanceId, ReportId, request, headers, runtime);
   }
 
   async describeDiagnosisSettingsWithOptions(InstanceId: string, request: DescribeDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSettingsResponse> {
@@ -22653,10 +22821,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSettingsResponse({}));
   }
 
-  async describeDynamicSettings(InstanceId: string): Promise<DescribeDynamicSettingsResponse> {
+  async describeDiagnosisSettings(InstanceId: string, request: DescribeDiagnosisSettingsRequest): Promise<DescribeDiagnosisSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeDynamicSettingsWithOptions(InstanceId, headers, runtime);
+    return await this.describeDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async describeDynamicSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeDynamicSettingsResponse> {
@@ -22677,10 +22845,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDynamicSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDynamicSettingsResponse({}));
   }
 
-  async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
+  async describeDynamicSettings(InstanceId: string): Promise<DescribeDynamicSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
+    return await this.describeDynamicSettingsWithOptions(InstanceId, headers, runtime);
   }
 
   async describeElasticsearchHealthWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeElasticsearchHealthResponse> {
@@ -22701,10 +22869,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticsearchHealthResponse>(await this.callApi(params, req, runtime), new DescribeElasticsearchHealthResponse({}));
   }
 
-  async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
+  async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
+    return await this.describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
   }
 
   async describeILMPolicyWithOptions(InstanceId: string, PolicyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeILMPolicyResponse> {
@@ -22725,10 +22893,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeILMPolicyResponse>(await this.callApi(params, req, runtime), new DescribeILMPolicyResponse({}));
   }
 
-  async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
+  async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
+    return await this.describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
   }
 
   async describeIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
@@ -22749,10 +22917,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIndexTemplateResponse>(await this.callApi(params, req, runtime), new DescribeIndexTemplateResponse({}));
   }
 
-  async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
+  async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeInstanceWithOptions(InstanceId, headers, runtime);
+    return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
   async describeInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
@@ -22773,10 +22941,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
-  async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
+  async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
+    return await this.describeInstanceWithOptions(InstanceId, headers, runtime);
   }
 
   async describeKibanaSettingsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKibanaSettingsResponse> {
@@ -22797,10 +22965,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKibanaSettingsResponse>(await this.callApi(params, req, runtime), new DescribeKibanaSettingsResponse({}));
   }
 
-  async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
+  async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeLogstashWithOptions(InstanceId, headers, runtime);
+    return await this.describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
   }
 
   async describeLogstashWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeLogstashResponse> {
@@ -22821,10 +22989,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogstashResponse>(await this.callApi(params, req, runtime), new DescribeLogstashResponse({}));
   }
 
-  async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
+  async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
+    return await this.describeLogstashWithOptions(InstanceId, headers, runtime);
   }
 
   async describePipelineWithOptions(InstanceId: string, PipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineResponse> {
@@ -22845,10 +23013,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
   }
 
-  async describePipelineManagementConfig(InstanceId: string, request: DescribePipelineManagementConfigRequest): Promise<DescribePipelineManagementConfigResponse> {
+  async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
+    return await this.describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
   }
 
   async describePipelineManagementConfigWithOptions(InstanceId: string, request: DescribePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePipelineManagementConfigResponse> {
@@ -22876,10 +23044,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new DescribePipelineManagementConfigResponse({}));
   }
 
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describePipelineManagementConfig(InstanceId: string, request: DescribePipelineManagementConfigRequest): Promise<DescribePipelineManagementConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeRegionsWithOptions(headers, runtime);
+    return await this.describePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
   async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -22900,10 +23068,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
-  async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
+  async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
+    return await this.describeRegionsWithOptions(headers, runtime);
   }
 
   async describeSnapshotSettingWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotSettingResponse> {
@@ -22924,10 +23092,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotSettingResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotSettingResponse({}));
   }
 
-  async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
+  async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeTemplatesWithOptions(InstanceId, headers, runtime);
+    return await this.describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
   }
 
   async describeTemplatesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
@@ -22948,10 +23116,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
-  async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
+  async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
+    return await this.describeTemplatesWithOptions(InstanceId, headers, runtime);
   }
 
   async describeXpackMonitorConfigWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeXpackMonitorConfigResponse> {
@@ -22972,10 +23140,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeXpackMonitorConfigResponse({}));
   }
 
-  async diagnoseInstance(InstanceId: string, request: DiagnoseInstanceRequest): Promise<DiagnoseInstanceResponse> {
+  async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
   }
 
   async diagnoseInstanceWithOptions(InstanceId: string, request: DiagnoseInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DiagnoseInstanceResponse> {
@@ -23021,10 +23189,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DiagnoseInstanceResponse>(await this.callApi(params, req, runtime), new DiagnoseInstanceResponse({}));
   }
 
-  async estimatedLogstashRestartTime(InstanceId: string, request: EstimatedLogstashRestartTimeRequest): Promise<EstimatedLogstashRestartTimeResponse> {
+  async diagnoseInstance(InstanceId: string, request: DiagnoseInstanceRequest): Promise<DiagnoseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.estimatedLogstashRestartTimeWithOptions(InstanceId, request, headers, runtime);
+    return await this.diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   async estimatedLogstashRestartTimeWithOptions(InstanceId: string, request: EstimatedLogstashRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedLogstashRestartTimeResponse> {
@@ -23053,10 +23221,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedLogstashRestartTimeResponse({}));
   }
 
-  async estimatedRestartTime(InstanceId: string, request: EstimatedRestartTimeRequest): Promise<EstimatedRestartTimeResponse> {
+  async estimatedLogstashRestartTime(InstanceId: string, request: EstimatedLogstashRestartTimeRequest): Promise<EstimatedLogstashRestartTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.estimatedRestartTimeWithOptions(InstanceId, request, headers, runtime);
+    return await this.estimatedLogstashRestartTimeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async estimatedRestartTimeWithOptions(InstanceId: string, request: EstimatedRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedRestartTimeResponse> {
@@ -23085,10 +23253,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedRestartTimeResponse({}));
   }
 
-  async getClusterDataInformation(request: GetClusterDataInformationRequest): Promise<GetClusterDataInformationResponse> {
+  async estimatedRestartTime(InstanceId: string, request: EstimatedRestartTimeRequest): Promise<EstimatedRestartTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getClusterDataInformationWithOptions(request, headers, runtime);
+    return await this.estimatedRestartTimeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async getClusterDataInformationWithOptions(request: GetClusterDataInformationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterDataInformationResponse> {
@@ -23111,10 +23279,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterDataInformationResponse>(await this.callApi(params, req, runtime), new GetClusterDataInformationResponse({}));
   }
 
-  async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
+  async getClusterDataInformation(request: GetClusterDataInformationRequest): Promise<GetClusterDataInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getElastictaskWithOptions(InstanceId, headers, runtime);
+    return await this.getClusterDataInformationWithOptions(request, headers, runtime);
   }
 
   async getElastictaskWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetElastictaskResponse> {
@@ -23135,10 +23303,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetElastictaskResponse>(await this.callApi(params, req, runtime), new GetElastictaskResponse({}));
   }
 
-  async getEmonGrafanaAlerts(ProjectId: string, request: GetEmonGrafanaAlertsRequest): Promise<GetEmonGrafanaAlertsResponse> {
+  async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEmonGrafanaAlertsWithOptions(ProjectId, request, headers, runtime);
+    return await this.getElastictaskWithOptions(InstanceId, headers, runtime);
   }
 
   async getEmonGrafanaAlertsWithOptions(ProjectId: string, request: GetEmonGrafanaAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaAlertsResponse> {
@@ -23161,10 +23329,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaAlertsResponse({}));
   }
 
-  async getEmonGrafanaDashboards(ProjectId: string, request: GetEmonGrafanaDashboardsRequest): Promise<GetEmonGrafanaDashboardsResponse> {
+  async getEmonGrafanaAlerts(ProjectId: string, request: GetEmonGrafanaAlertsRequest): Promise<GetEmonGrafanaAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEmonGrafanaDashboardsWithOptions(ProjectId, request, headers, runtime);
+    return await this.getEmonGrafanaAlertsWithOptions(ProjectId, request, headers, runtime);
   }
 
   async getEmonGrafanaDashboardsWithOptions(ProjectId: string, request: GetEmonGrafanaDashboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonGrafanaDashboardsResponse> {
@@ -23187,10 +23355,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaDashboardsResponse({}));
   }
 
-  async getEmonMonitorData(ProjectId: string, request: GetEmonMonitorDataRequest): Promise<GetEmonMonitorDataResponse> {
+  async getEmonGrafanaDashboards(ProjectId: string, request: GetEmonGrafanaDashboardsRequest): Promise<GetEmonGrafanaDashboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEmonMonitorDataWithOptions(ProjectId, request, headers, runtime);
+    return await this.getEmonGrafanaDashboardsWithOptions(ProjectId, request, headers, runtime);
   }
 
   async getEmonMonitorDataWithOptions(ProjectId: string, request: GetEmonMonitorDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmonMonitorDataResponse> {
@@ -23213,10 +23381,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEmonMonitorDataResponse>(await this.callApi(params, req, runtime), new GetEmonMonitorDataResponse({}));
   }
 
-  async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
+  async getEmonMonitorData(ProjectId: string, request: GetEmonMonitorDataRequest): Promise<GetEmonMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
+    return await this.getEmonMonitorDataWithOptions(ProjectId, request, headers, runtime);
   }
 
   async getOpenStoreUsageWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOpenStoreUsageResponse> {
@@ -23237,10 +23405,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpenStoreUsageResponse>(await this.callApi(params, req, runtime), new GetOpenStoreUsageResponse({}));
   }
 
-  async getRegionConfiguration(request: GetRegionConfigurationRequest): Promise<GetRegionConfigurationResponse> {
+  async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRegionConfigurationWithOptions(request, headers, runtime);
+    return await this.getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
   }
 
   async getRegionConfigurationWithOptions(request: GetRegionConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRegionConfigurationResponse> {
@@ -23268,10 +23436,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRegionConfigurationResponse>(await this.callApi(params, req, runtime), new GetRegionConfigurationResponse({}));
   }
 
-  async getSuggestShrinkableNodes(InstanceId: string, request: GetSuggestShrinkableNodesRequest): Promise<GetSuggestShrinkableNodesResponse> {
+  async getRegionConfiguration(request: GetRegionConfigurationRequest): Promise<GetRegionConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSuggestShrinkableNodesWithOptions(InstanceId, request, headers, runtime);
+    return await this.getRegionConfigurationWithOptions(request, headers, runtime);
   }
 
   async getSuggestShrinkableNodesWithOptions(InstanceId: string, request: GetSuggestShrinkableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSuggestShrinkableNodesResponse> {
@@ -23307,10 +23475,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.callApi(params, req, runtime), new GetSuggestShrinkableNodesResponse({}));
   }
 
-  async getTransferableNodes(InstanceId: string, request: GetTransferableNodesRequest): Promise<GetTransferableNodesResponse> {
+  async getSuggestShrinkableNodes(InstanceId: string, request: GetSuggestShrinkableNodesRequest): Promise<GetSuggestShrinkableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTransferableNodesWithOptions(InstanceId, request, headers, runtime);
+    return await this.getSuggestShrinkableNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async getTransferableNodesWithOptions(InstanceId: string, request: GetTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTransferableNodesResponse> {
@@ -23342,10 +23510,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTransferableNodesResponse>(await this.callApi(params, req, runtime), new GetTransferableNodesResponse({}));
   }
 
-  async initializeOperationRole(request: InitializeOperationRoleRequest): Promise<InitializeOperationRoleResponse> {
+  async getTransferableNodes(InstanceId: string, request: GetTransferableNodesRequest): Promise<GetTransferableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.initializeOperationRoleWithOptions(request, headers, runtime);
+    return await this.getTransferableNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async initializeOperationRoleWithOptions(request: InitializeOperationRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InitializeOperationRoleResponse> {
@@ -23374,10 +23542,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InitializeOperationRoleResponse>(await this.callApi(params, req, runtime), new InitializeOperationRoleResponse({}));
   }
 
-  async installAckOperator(ClusterId: string, request: InstallAckOperatorRequest): Promise<InstallAckOperatorResponse> {
+  async initializeOperationRole(request: InitializeOperationRoleRequest): Promise<InitializeOperationRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installAckOperatorWithOptions(ClusterId, request, headers, runtime);
+    return await this.initializeOperationRoleWithOptions(request, headers, runtime);
   }
 
   async installAckOperatorWithOptions(ClusterId: string, request: InstallAckOperatorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallAckOperatorResponse> {
@@ -23406,10 +23574,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallAckOperatorResponse>(await this.callApi(params, req, runtime), new InstallAckOperatorResponse({}));
   }
 
-  async installKibanaSystemPlugin(InstanceId: string, request: InstallKibanaSystemPluginRequest): Promise<InstallKibanaSystemPluginResponse> {
+  async installAckOperator(ClusterId: string, request: InstallAckOperatorRequest): Promise<InstallAckOperatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installKibanaSystemPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.installAckOperatorWithOptions(ClusterId, request, headers, runtime);
   }
 
   async installKibanaSystemPluginWithOptions(InstanceId: string, request: InstallKibanaSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallKibanaSystemPluginResponse> {
@@ -23438,10 +23606,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallKibanaSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallKibanaSystemPluginResponse({}));
   }
 
-  async installLogstashSystemPlugin(InstanceId: string, request: InstallLogstashSystemPluginRequest): Promise<InstallLogstashSystemPluginResponse> {
+  async installKibanaSystemPlugin(InstanceId: string, request: InstallKibanaSystemPluginRequest): Promise<InstallKibanaSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installLogstashSystemPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.installKibanaSystemPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async installLogstashSystemPluginWithOptions(InstanceId: string, request: InstallLogstashSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallLogstashSystemPluginResponse> {
@@ -23470,10 +23638,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallLogstashSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallLogstashSystemPluginResponse({}));
   }
 
-  async installSystemPlugin(InstanceId: string, request: InstallSystemPluginRequest): Promise<InstallSystemPluginResponse> {
+  async installLogstashSystemPlugin(InstanceId: string, request: InstallLogstashSystemPluginRequest): Promise<InstallLogstashSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installSystemPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.installLogstashSystemPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async installSystemPluginWithOptions(InstanceId: string, request: InstallSystemPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallSystemPluginResponse> {
@@ -23502,10 +23670,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallSystemPluginResponse({}));
   }
 
-  async installUserPlugins(InstanceId: string, request: InstallUserPluginsRequest): Promise<InstallUserPluginsResponse> {
+  async installSystemPlugin(InstanceId: string, request: InstallSystemPluginRequest): Promise<InstallSystemPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.installUserPluginsWithOptions(InstanceId, request, headers, runtime);
+    return await this.installSystemPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async installUserPluginsWithOptions(InstanceId: string, request: InstallUserPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallUserPluginsResponse> {
@@ -23528,10 +23696,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallUserPluginsResponse>(await this.callApi(params, req, runtime), new InstallUserPluginsResponse({}));
   }
 
-  async interruptElasticsearchTask(InstanceId: string, request: InterruptElasticsearchTaskRequest): Promise<InterruptElasticsearchTaskResponse> {
+  async installUserPlugins(InstanceId: string, request: InstallUserPluginsRequest): Promise<InstallUserPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.interruptElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.installUserPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async interruptElasticsearchTaskWithOptions(InstanceId: string, request: InterruptElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptElasticsearchTaskResponse> {
@@ -23559,10 +23727,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InterruptElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new InterruptElasticsearchTaskResponse({}));
   }
 
-  async interruptLogstashTask(InstanceId: string, request: InterruptLogstashTaskRequest): Promise<InterruptLogstashTaskResponse> {
+  async interruptElasticsearchTask(InstanceId: string, request: InterruptElasticsearchTaskRequest): Promise<InterruptElasticsearchTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.interruptLogstashTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.interruptElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async interruptLogstashTaskWithOptions(InstanceId: string, request: InterruptLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InterruptLogstashTaskResponse> {
@@ -23590,10 +23758,10 @@ export default class Client extends OpenApi {
     return $tea.cast<InterruptLogstashTaskResponse>(await this.callApi(params, req, runtime), new InterruptLogstashTaskResponse({}));
   }
 
-  async listAckClusters(request: ListAckClustersRequest): Promise<ListAckClustersResponse> {
+  async interruptLogstashTask(InstanceId: string, request: InterruptLogstashTaskRequest): Promise<InterruptLogstashTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAckClustersWithOptions(request, headers, runtime);
+    return await this.interruptLogstashTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listAckClustersWithOptions(request: ListAckClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAckClustersResponse> {
@@ -23629,10 +23797,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAckClustersResponse>(await this.callApi(params, req, runtime), new ListAckClustersResponse({}));
   }
 
-  async listAckNamespaces(ClusterId: string, request: ListAckNamespacesRequest): Promise<ListAckNamespacesResponse> {
+  async listAckClusters(request: ListAckClustersRequest): Promise<ListAckClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAckNamespacesWithOptions(ClusterId, request, headers, runtime);
+    return await this.listAckClustersWithOptions(request, headers, runtime);
   }
 
   async listAckNamespacesWithOptions(ClusterId: string, request: ListAckNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAckNamespacesResponse> {
@@ -23664,10 +23832,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAckNamespacesResponse>(await this.callApi(params, req, runtime), new ListAckNamespacesResponse({}));
   }
 
-  async listActionRecords(InstanceId: string, request: ListActionRecordsRequest): Promise<ListActionRecordsResponse> {
+  async listAckNamespaces(ClusterId: string, request: ListAckNamespacesRequest): Promise<ListAckNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listActionRecordsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listAckNamespacesWithOptions(ClusterId, request, headers, runtime);
   }
 
   async listActionRecordsWithOptions(InstanceId: string, request: ListActionRecordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListActionRecordsResponse> {
@@ -23723,10 +23891,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListActionRecordsResponse>(await this.callApi(params, req, runtime), new ListActionRecordsResponse({}));
   }
 
-  async listAllNode(InstanceId: string, request: ListAllNodeRequest): Promise<ListAllNodeResponse> {
+  async listActionRecords(InstanceId: string, request: ListActionRecordsRequest): Promise<ListActionRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAllNodeWithOptions(InstanceId, request, headers, runtime);
+    return await this.listActionRecordsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listAllNodeWithOptions(InstanceId: string, request: ListAllNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAllNodeResponse> {
@@ -23754,10 +23922,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAllNodeResponse>(await this.callApi(params, req, runtime), new ListAllNodeResponse({}));
   }
 
-  async listAlternativeSnapshotRepos(InstanceId: string, request: ListAlternativeSnapshotReposRequest): Promise<ListAlternativeSnapshotReposResponse> {
+  async listAllNode(InstanceId: string, request: ListAllNodeRequest): Promise<ListAllNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
+    return await this.listAllNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listAlternativeSnapshotReposWithOptions(InstanceId: string, request: ListAlternativeSnapshotReposRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlternativeSnapshotReposResponse> {
@@ -23785,10 +23953,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.callApi(params, req, runtime), new ListAlternativeSnapshotReposResponse({}));
   }
 
-  async listApm(request: ListApmRequest): Promise<ListApmResponse> {
+  async listAlternativeSnapshotRepos(InstanceId: string, request: ListAlternativeSnapshotReposRequest): Promise<ListAlternativeSnapshotReposResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listApmWithOptions(request, headers, runtime);
+    return await this.listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listApmWithOptions(request: ListApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApmResponse> {
@@ -23832,10 +24000,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApmResponse>(await this.callApi(params, req, runtime), new ListApmResponse({}));
   }
 
-  async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
+  async listApm(request: ListApmRequest): Promise<ListApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
+    return await this.listApmWithOptions(request, headers, runtime);
   }
 
   async listAvailableEsInstanceIdsWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableEsInstanceIdsResponse> {
@@ -23856,10 +24024,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.callApi(params, req, runtime), new ListAvailableEsInstanceIdsResponse({}));
   }
 
-  async listCollectors(request: ListCollectorsRequest): Promise<ListCollectorsResponse> {
+  async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listCollectorsWithOptions(request, headers, runtime);
+    return await this.listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
   }
 
   async listCollectorsWithOptions(request: ListCollectorsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCollectorsResponse> {
@@ -23907,10 +24075,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCollectorsResponse>(await this.callApi(params, req, runtime), new ListCollectorsResponse({}));
   }
 
-  async listComponentIndices(InstanceId: string, request: ListComponentIndicesRequest): Promise<ListComponentIndicesResponse> {
+  async listCollectors(request: ListCollectorsRequest): Promise<ListCollectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listComponentIndicesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listCollectorsWithOptions(request, headers, runtime);
   }
 
   async listComponentIndicesWithOptions(InstanceId: string, request: ListComponentIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListComponentIndicesResponse> {
@@ -23946,10 +24114,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListComponentIndicesResponse>(await this.callApi(params, req, runtime), new ListComponentIndicesResponse({}));
   }
 
-  async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
+  async listComponentIndices(InstanceId: string, request: ListComponentIndicesRequest): Promise<ListComponentIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConnectedClustersWithOptions(InstanceId, headers, runtime);
+    return await this.listComponentIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listConnectedClustersWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConnectedClustersResponse> {
@@ -23970,10 +24138,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConnectedClustersResponse>(await this.callApi(params, req, runtime), new ListConnectedClustersResponse({}));
   }
 
-  async listDataStreams(InstanceId: string, request: ListDataStreamsRequest): Promise<ListDataStreamsResponse> {
+  async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDataStreamsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listConnectedClustersWithOptions(InstanceId, headers, runtime);
   }
 
   async listDataStreamsWithOptions(InstanceId: string, request: ListDataStreamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataStreamsResponse> {
@@ -24005,10 +24173,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataStreamsResponse>(await this.callApi(params, req, runtime), new ListDataStreamsResponse({}));
   }
 
-  async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
+  async listDataStreams(InstanceId: string, request: ListDataStreamsRequest): Promise<ListDataStreamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDataTasksWithOptions(InstanceId, headers, runtime);
+    return await this.listDataStreamsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDataTasksWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataTasksResponse> {
@@ -24029,10 +24197,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataTasksResponse>(await this.callApi(params, req, runtime), new ListDataTasksResponse({}));
   }
 
-  async listDefaultCollectorConfigurations(request: ListDefaultCollectorConfigurationsRequest): Promise<ListDefaultCollectorConfigurationsResponse> {
+  async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDefaultCollectorConfigurationsWithOptions(request, headers, runtime);
+    return await this.listDataTasksWithOptions(InstanceId, headers, runtime);
   }
 
   async listDefaultCollectorConfigurationsWithOptions(request: ListDefaultCollectorConfigurationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDefaultCollectorConfigurationsResponse> {
@@ -24068,10 +24236,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.callApi(params, req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
   }
 
-  async listDeprecatedTemplates(InstanceId: string, request: ListDeprecatedTemplatesRequest): Promise<ListDeprecatedTemplatesResponse> {
+  async listDefaultCollectorConfigurations(request: ListDefaultCollectorConfigurationsRequest): Promise<ListDefaultCollectorConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDeprecatedTemplatesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDefaultCollectorConfigurationsWithOptions(request, headers, runtime);
   }
 
   async listDeprecatedTemplatesWithOptions(InstanceId: string, request: ListDeprecatedTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeprecatedTemplatesResponse> {
@@ -24107,10 +24275,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeprecatedTemplatesResponse>(await this.callApi(params, req, runtime), new ListDeprecatedTemplatesResponse({}));
   }
 
-  async listDiagnoseIndices(InstanceId: string, request: ListDiagnoseIndicesRequest): Promise<ListDiagnoseIndicesResponse> {
+  async listDeprecatedTemplates(InstanceId: string, request: ListDeprecatedTemplatesRequest): Promise<ListDeprecatedTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDiagnoseIndicesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDeprecatedTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDiagnoseIndicesWithOptions(InstanceId: string, request: ListDiagnoseIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseIndicesResponse> {
@@ -24138,10 +24306,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseIndicesResponse>(await this.callApi(params, req, runtime), new ListDiagnoseIndicesResponse({}));
   }
 
-  async listDiagnoseReport(InstanceId: string, request: ListDiagnoseReportRequest): Promise<ListDiagnoseReportResponse> {
+  async listDiagnoseIndices(InstanceId: string, request: ListDiagnoseIndicesRequest): Promise<ListDiagnoseIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDiagnoseReportWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDiagnoseIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDiagnoseReportWithOptions(InstanceId: string, request: ListDiagnoseReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportResponse> {
@@ -24193,10 +24361,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseReportResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportResponse({}));
   }
 
-  async listDiagnoseReportIds(InstanceId: string, request: ListDiagnoseReportIdsRequest): Promise<ListDiagnoseReportIdsResponse> {
+  async listDiagnoseReport(InstanceId: string, request: ListDiagnoseReportRequest): Promise<ListDiagnoseReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDiagnoseReportWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDiagnoseReportIdsWithOptions(InstanceId: string, request: ListDiagnoseReportIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseReportIdsResponse> {
@@ -24244,10 +24412,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseReportIdsResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportIdsResponse({}));
   }
 
-  async listDictInformation(InstanceId: string, request: ListDictInformationRequest): Promise<ListDictInformationResponse> {
+  async listDiagnoseReportIds(InstanceId: string, request: ListDiagnoseReportIdsRequest): Promise<ListDiagnoseReportIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDictInformationWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDictInformationWithOptions(InstanceId: string, request: ListDictInformationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictInformationResponse> {
@@ -24283,10 +24451,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDictInformationResponse>(await this.callApi(params, req, runtime), new ListDictInformationResponse({}));
   }
 
-  async listDicts(InstanceId: string, request: ListDictsRequest): Promise<ListDictsResponse> {
+  async listDictInformation(InstanceId: string, request: ListDictInformationRequest): Promise<ListDictInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDictsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listDictInformationWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listDictsWithOptions(InstanceId: string, request: ListDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDictsResponse> {
@@ -24318,10 +24486,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDictsResponse>(await this.callApi(params, req, runtime), new ListDictsResponse({}));
   }
 
-  async listEcsInstances(request: ListEcsInstancesRequest): Promise<ListEcsInstancesResponse> {
+  async listDicts(InstanceId: string, request: ListDictsRequest): Promise<ListDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEcsInstancesWithOptions(request, headers, runtime);
+    return await this.listDictsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listEcsInstancesWithOptions(request: ListEcsInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsInstancesResponse> {
@@ -24369,10 +24537,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListEcsInstancesResponse({}));
   }
 
-  async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
+  async listEcsInstances(request: ListEcsInstancesRequest): Promise<ListEcsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listExtendfilesWithOptions(InstanceId, headers, runtime);
+    return await this.listEcsInstancesWithOptions(request, headers, runtime);
   }
 
   async listExtendfilesWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExtendfilesResponse> {
@@ -24393,10 +24561,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExtendfilesResponse>(await this.callApi(params, req, runtime), new ListExtendfilesResponse({}));
   }
 
-  async listILMPolicies(InstanceId: string, request: ListILMPoliciesRequest): Promise<ListILMPoliciesResponse> {
+  async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listILMPoliciesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listExtendfilesWithOptions(InstanceId, headers, runtime);
   }
 
   async listILMPoliciesWithOptions(InstanceId: string, request: ListILMPoliciesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListILMPoliciesResponse> {
@@ -24424,10 +24592,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListILMPoliciesResponse>(await this.callApi(params, req, runtime), new ListILMPoliciesResponse({}));
   }
 
-  async listIndexTemplates(InstanceId: string, request: ListIndexTemplatesRequest): Promise<ListIndexTemplatesResponse> {
+  async listILMPolicies(InstanceId: string, request: ListILMPoliciesRequest): Promise<ListILMPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listIndexTemplatesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listILMPoliciesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listIndexTemplatesWithOptions(InstanceId: string, request: ListIndexTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexTemplatesResponse> {
@@ -24463,10 +24631,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIndexTemplatesResponse>(await this.callApi(params, req, runtime), new ListIndexTemplatesResponse({}));
   }
 
-  async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
+  async listIndexTemplates(InstanceId: string, request: ListIndexTemplatesRequest): Promise<ListIndexTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInstanceWithOptions(request, headers, runtime);
+    return await this.listIndexTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listInstanceWithOptions(request: ListInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
@@ -24534,10 +24702,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
   }
 
-  async listInstanceHistoryEvents(request: ListInstanceHistoryEventsRequest): Promise<ListInstanceHistoryEventsResponse> {
+  async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInstanceHistoryEventsWithOptions(request, headers, runtime);
+    return await this.listInstanceWithOptions(request, headers, runtime);
   }
 
   async listInstanceHistoryEventsWithOptions(tmpReq: ListInstanceHistoryEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryEventsResponse> {
@@ -24612,6 +24780,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "ListInstanceHistoryEvents",
@@ -24627,10 +24796,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryEventsResponse({}));
   }
 
-  async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
+  async listInstanceHistoryEvents(request: ListInstanceHistoryEventsRequest): Promise<ListInstanceHistoryEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInstanceIndicesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listInstanceHistoryEventsWithOptions(request, headers, runtime);
   }
 
   async listInstanceIndicesWithOptions(InstanceId: string, request: ListInstanceIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceIndicesResponse> {
@@ -24678,10 +24847,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceIndicesResponse>(await this.callApi(params, req, runtime), new ListInstanceIndicesResponse({}));
   }
 
-  async listKibanaPlugins(InstanceId: string, request: ListKibanaPluginsRequest): Promise<ListKibanaPluginsResponse> {
+  async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listInstanceIndicesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listKibanaPluginsWithOptions(InstanceId: string, request: ListKibanaPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListKibanaPluginsResponse> {
@@ -24713,10 +24882,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListKibanaPluginsResponse>(await this.callApi(params, req, runtime), new ListKibanaPluginsResponse({}));
   }
 
-  async listLogstash(request: ListLogstashRequest): Promise<ListLogstashResponse> {
+  async listKibanaPlugins(InstanceId: string, request: ListKibanaPluginsRequest): Promise<ListKibanaPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listLogstashWithOptions(request, headers, runtime);
+    return await this.listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listLogstashWithOptions(request: ListLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashResponse> {
@@ -24728,10 +24897,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["instanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["ownerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.page)) {
@@ -24772,10 +24937,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashResponse>(await this.callApi(params, req, runtime), new ListLogstashResponse({}));
   }
 
-  async listLogstashLog(InstanceId: string, request: ListLogstashLogRequest): Promise<ListLogstashLogResponse> {
+  async listLogstash(request: ListLogstashRequest): Promise<ListLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listLogstashLogWithOptions(InstanceId, request, headers, runtime);
+    return await this.listLogstashWithOptions(request, headers, runtime);
   }
 
   async listLogstashLogWithOptions(InstanceId: string, request: ListLogstashLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashLogResponse> {
@@ -24823,10 +24988,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashLogResponse>(await this.callApi(params, req, runtime), new ListLogstashLogResponse({}));
   }
 
-  async listLogstashPlugins(InstanceId: string, request: ListLogstashPluginsRequest): Promise<ListLogstashPluginsResponse> {
+  async listLogstashLog(InstanceId: string, request: ListLogstashLogRequest): Promise<ListLogstashLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listLogstashPluginsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listLogstashLogWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listLogstashPluginsWithOptions(InstanceId: string, request: ListLogstashPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashPluginsResponse> {
@@ -24866,10 +25031,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogstashPluginsResponse>(await this.callApi(params, req, runtime), new ListLogstashPluginsResponse({}));
   }
 
-  async listNodes(ResId: string, request: ListNodesRequest): Promise<ListNodesResponse> {
+  async listLogstashPlugins(InstanceId: string, request: ListLogstashPluginsRequest): Promise<ListLogstashPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listNodesWithOptions(ResId, request, headers, runtime);
+    return await this.listLogstashPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listNodesWithOptions(ResId: string, request: ListNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
@@ -24913,10 +25078,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
-  async listPipeline(InstanceId: string, request: ListPipelineRequest): Promise<ListPipelineResponse> {
+  async listNodes(ResId: string, request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelineWithOptions(InstanceId, request, headers, runtime);
+    return await this.listNodesWithOptions(ResId, request, headers, runtime);
   }
 
   async listPipelineWithOptions(InstanceId: string, request: ListPipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineResponse> {
@@ -24952,10 +25117,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelineResponse>(await this.callApi(params, req, runtime), new ListPipelineResponse({}));
   }
 
-  async listPipelineIds(InstanceId: string, request: ListPipelineIdsRequest): Promise<ListPipelineIdsResponse> {
+  async listPipeline(InstanceId: string, request: ListPipelineRequest): Promise<ListPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelineIdsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listPipelineWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listPipelineIdsWithOptions(InstanceId: string, request: ListPipelineIdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineIdsResponse> {
@@ -24978,10 +25143,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelineIdsResponse>(await this.callApi(params, req, runtime), new ListPipelineIdsResponse({}));
   }
 
-  async listPlugins(InstanceId: string, request: ListPluginsRequest): Promise<ListPluginsResponse> {
+  async listPipelineIds(InstanceId: string, request: ListPipelineIdsRequest): Promise<ListPipelineIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPluginsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listPipelineIdsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listPluginsWithOptions(InstanceId: string, request: ListPluginsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPluginsResponse> {
@@ -25021,10 +25186,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPluginsResponse>(await this.callApi(params, req, runtime), new ListPluginsResponse({}));
   }
 
-  async listSearchLog(InstanceId: string, request: ListSearchLogRequest): Promise<ListSearchLogResponse> {
+  async listPlugins(InstanceId: string, request: ListPluginsRequest): Promise<ListPluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSearchLogWithOptions(InstanceId, request, headers, runtime);
+    return await this.listPluginsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listSearchLogWithOptions(InstanceId: string, request: ListSearchLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSearchLogResponse> {
@@ -25072,10 +25237,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSearchLogResponse>(await this.callApi(params, req, runtime), new ListSearchLogResponse({}));
   }
 
-  async listShardRecoveries(InstanceId: string, request: ListShardRecoveriesRequest): Promise<ListShardRecoveriesResponse> {
+  async listSearchLog(InstanceId: string, request: ListSearchLogRequest): Promise<ListSearchLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listShardRecoveriesWithOptions(InstanceId, request, headers, runtime);
+    return await this.listSearchLogWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listShardRecoveriesWithOptions(InstanceId: string, request: ListShardRecoveriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardRecoveriesResponse> {
@@ -25103,10 +25268,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShardRecoveriesResponse>(await this.callApi(params, req, runtime), new ListShardRecoveriesResponse({}));
   }
 
-  async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
+  async listShardRecoveries(InstanceId: string, request: ListShardRecoveriesRequest): Promise<ListShardRecoveriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
+    return await this.listShardRecoveriesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async listSnapshotReposByInstanceIdWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSnapshotReposByInstanceIdResponse> {
@@ -25127,10 +25292,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.callApi(params, req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
   }
 
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagResourcesWithOptions(request, headers, runtime);
+    return await this.listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -25178,10 +25343,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
-  async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagsWithOptions(request, headers, runtime);
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
   async listTagsWithOptions(request: ListTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
@@ -25213,10 +25378,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
-  async listVpcEndpoints(InstanceId: string, request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
+  async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listVpcEndpointsWithOptions(InstanceId, request, headers, runtime);
+    return await this.listTagsWithOptions(request, headers, runtime);
   }
 
   async listVpcEndpointsWithOptions(InstanceId: string, request: ListVpcEndpointsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
@@ -25248,10 +25413,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
   }
 
-  async migrateToOtherZone(InstanceId: string, request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
+  async listVpcEndpoints(InstanceId: string, request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.migrateToOtherZoneWithOptions(InstanceId, request, headers, runtime);
+    return await this.listVpcEndpointsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async migrateToOtherZoneWithOptions(InstanceId: string, request: MigrateToOtherZoneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
@@ -25280,10 +25445,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
-  async modifyDeployMachine(ResId: string, request: ModifyDeployMachineRequest): Promise<ModifyDeployMachineResponse> {
+  async migrateToOtherZone(InstanceId: string, request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyDeployMachineWithOptions(ResId, request, headers, runtime);
+    return await this.migrateToOtherZoneWithOptions(InstanceId, request, headers, runtime);
   }
 
   async modifyDeployMachineWithOptions(ResId: string, request: ModifyDeployMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDeployMachineResponse> {
@@ -25312,10 +25477,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDeployMachineResponse>(await this.callApi(params, req, runtime), new ModifyDeployMachineResponse({}));
   }
 
-  async modifyElastictask(InstanceId: string, request: ModifyElastictaskRequest): Promise<ModifyElastictaskResponse> {
+  async modifyDeployMachine(ResId: string, request: ModifyDeployMachineRequest): Promise<ModifyDeployMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyElastictaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.modifyDeployMachineWithOptions(ResId, request, headers, runtime);
   }
 
   async modifyElastictaskWithOptions(InstanceId: string, request: ModifyElastictaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyElastictaskResponse> {
@@ -25338,10 +25503,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElastictaskResponse>(await this.callApi(params, req, runtime), new ModifyElastictaskResponse({}));
   }
 
-  async modifyInstanceMaintainTime(InstanceId: string, request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
+  async modifyElastictask(InstanceId: string, request: ModifyElastictaskRequest): Promise<ModifyElastictaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
+    return await this.modifyElastictaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async modifyInstanceMaintainTimeWithOptions(InstanceId: string, request: ModifyInstanceMaintainTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
@@ -25370,10 +25535,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMaintainTimeResponse({}));
   }
 
-  async modifyWhiteIps(InstanceId: string, request: ModifyWhiteIpsRequest): Promise<ModifyWhiteIpsResponse> {
+  async modifyInstanceMaintainTime(InstanceId: string, request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.modifyWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async modifyWhiteIpsWithOptions(InstanceId: string, request: ModifyWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyWhiteIpsResponse> {
@@ -25396,7 +25561,7 @@ export default class Client extends OpenApi {
       body["nodeType"] = request.nodeType;
     }
 
-    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
+    if (!Util.isUnset(request.whiteIpGroup)) {
       body["whiteIpGroup"] = request.whiteIpGroup;
     }
 
@@ -25423,10 +25588,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWhiteIpsResponse>(await this.callApi(params, req, runtime), new ModifyWhiteIpsResponse({}));
   }
 
-  async moveResourceGroup(InstanceId: string, request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
+  async modifyWhiteIps(InstanceId: string, request: ModifyWhiteIpsRequest): Promise<ModifyWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.moveResourceGroupWithOptions(InstanceId, request, headers, runtime);
+    return await this.modifyWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async moveResourceGroupWithOptions(InstanceId: string, request: MoveResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
@@ -25455,10 +25620,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
-  async openDiagnosis(InstanceId: string, request: OpenDiagnosisRequest): Promise<OpenDiagnosisResponse> {
+  async moveResourceGroup(InstanceId: string, request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.openDiagnosisWithOptions(InstanceId, request, headers, runtime);
+    return await this.moveResourceGroupWithOptions(InstanceId, request, headers, runtime);
   }
 
   async openDiagnosisWithOptions(InstanceId: string, request: OpenDiagnosisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenDiagnosisResponse> {
@@ -25490,10 +25655,10 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenDiagnosisResponse>(await this.callApi(params, req, runtime), new OpenDiagnosisResponse({}));
   }
 
-  async openHttps(InstanceId: string, request: OpenHttpsRequest): Promise<OpenHttpsResponse> {
+  async openDiagnosis(InstanceId: string, request: OpenDiagnosisRequest): Promise<OpenDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.openHttpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.openDiagnosisWithOptions(InstanceId, request, headers, runtime);
   }
 
   async openHttpsWithOptions(InstanceId: string, request: OpenHttpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenHttpsResponse> {
@@ -25521,10 +25686,10 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenHttpsResponse>(await this.callApi(params, req, runtime), new OpenHttpsResponse({}));
   }
 
-  async postEmonTryAlarmRule(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest): Promise<PostEmonTryAlarmRuleResponse> {
+  async openHttps(InstanceId: string, request: OpenHttpsRequest): Promise<OpenHttpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, request, headers, runtime);
+    return await this.openHttpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async postEmonTryAlarmRuleWithOptions(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostEmonTryAlarmRuleResponse> {
@@ -25547,10 +25712,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.callApi(params, req, runtime), new PostEmonTryAlarmRuleResponse({}));
   }
 
-  async recommendTemplates(InstanceId: string, request: RecommendTemplatesRequest): Promise<RecommendTemplatesResponse> {
+  async postEmonTryAlarmRule(ProjectId: string, AlarmGroupId: string, request: PostEmonTryAlarmRuleRequest): Promise<PostEmonTryAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.recommendTemplatesWithOptions(InstanceId, request, headers, runtime);
+    return await this.postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, request, headers, runtime);
   }
 
   async recommendTemplatesWithOptions(InstanceId: string, request: RecommendTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecommendTemplatesResponse> {
@@ -25578,10 +25743,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RecommendTemplatesResponse>(await this.callApi(params, req, runtime), new RecommendTemplatesResponse({}));
   }
 
-  async reinstallCollector(ResId: string, request: ReinstallCollectorRequest): Promise<ReinstallCollectorResponse> {
+  async recommendTemplates(InstanceId: string, request: RecommendTemplatesRequest): Promise<RecommendTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.reinstallCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.recommendTemplatesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async reinstallCollectorWithOptions(ResId: string, request: ReinstallCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReinstallCollectorResponse> {
@@ -25610,10 +25775,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ReinstallCollectorResponse>(await this.callApi(params, req, runtime), new ReinstallCollectorResponse({}));
   }
 
-  async removeApm(instanceId: string): Promise<RemoveApmResponse> {
+  async reinstallCollector(ResId: string, request: ReinstallCollectorRequest): Promise<ReinstallCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeApmWithOptions(instanceId, headers, runtime);
+    return await this.reinstallCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async removeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveApmResponse> {
@@ -25634,10 +25799,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveApmResponse>(await this.callApi(params, req, runtime), new RemoveApmResponse({}));
   }
 
-  async renewInstance(InstanceId: string, request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
+  async removeApm(instanceId: string): Promise<RemoveApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.renewInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.removeApmWithOptions(instanceId, headers, runtime);
   }
 
   async renewInstanceWithOptions(InstanceId: string, request: RenewInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
@@ -25666,10 +25831,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
-  async renewLogstash(InstanceId: string, request: RenewLogstashRequest): Promise<RenewLogstashResponse> {
+  async renewInstance(InstanceId: string, request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.renewLogstashWithOptions(InstanceId, request, headers, runtime);
+    return await this.renewInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   async renewLogstashWithOptions(InstanceId: string, request: RenewLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenewLogstashResponse> {
@@ -25698,10 +25863,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewLogstashResponse>(await this.callApi(params, req, runtime), new RenewLogstashResponse({}));
   }
 
-  async restartCollector(ResId: string, request: RestartCollectorRequest): Promise<RestartCollectorResponse> {
+  async renewLogstash(InstanceId: string, request: RenewLogstashRequest): Promise<RenewLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.renewLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
   async restartCollectorWithOptions(ResId: string, request: RestartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartCollectorResponse> {
@@ -25729,10 +25894,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartCollectorResponse>(await this.callApi(params, req, runtime), new RestartCollectorResponse({}));
   }
 
-  async restartInstance(InstanceId: string, request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
+  async restartCollector(ResId: string, request: RestartCollectorRequest): Promise<RestartCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.restartCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async restartInstanceWithOptions(InstanceId: string, request: RestartInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
@@ -25765,10 +25930,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
   }
 
-  async restartLogstash(InstanceId: string, request: RestartLogstashRequest): Promise<RestartLogstashResponse> {
+  async restartInstance(InstanceId: string, request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartLogstashWithOptions(InstanceId, request, headers, runtime);
+    return await this.restartInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   async restartLogstashWithOptions(InstanceId: string, request: RestartLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartLogstashResponse> {
@@ -25822,10 +25987,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartLogstashResponse>(await this.callApi(params, req, runtime), new RestartLogstashResponse({}));
   }
 
-  async resumeElasticsearchTask(InstanceId: string, request: ResumeElasticsearchTaskRequest): Promise<ResumeElasticsearchTaskResponse> {
+  async restartLogstash(InstanceId: string, request: RestartLogstashRequest): Promise<RestartLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.restartLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
   async resumeElasticsearchTaskWithOptions(InstanceId: string, request: ResumeElasticsearchTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeElasticsearchTaskResponse> {
@@ -25853,10 +26018,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new ResumeElasticsearchTaskResponse({}));
   }
 
-  async resumeLogstashTask(InstanceId: string, request: ResumeLogstashTaskRequest): Promise<ResumeLogstashTaskResponse> {
+  async resumeElasticsearchTask(InstanceId: string, request: ResumeElasticsearchTaskRequest): Promise<ResumeElasticsearchTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeLogstashTaskWithOptions(InstanceId, request, headers, runtime);
+    return await this.resumeElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async resumeLogstashTaskWithOptions(InstanceId: string, request: ResumeLogstashTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeLogstashTaskResponse> {
@@ -25884,10 +26049,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeLogstashTaskResponse>(await this.callApi(params, req, runtime), new ResumeLogstashTaskResponse({}));
   }
 
-  async rolloverDataStream(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
+  async resumeLogstashTask(InstanceId: string, request: ResumeLogstashTaskRequest): Promise<ResumeLogstashTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
+    return await this.resumeLogstashTaskWithOptions(InstanceId, request, headers, runtime);
   }
 
   async rolloverDataStreamWithOptions(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RolloverDataStreamResponse> {
@@ -25915,10 +26080,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RolloverDataStreamResponse>(await this.callApi(params, req, runtime), new RolloverDataStreamResponse({}));
   }
 
-  async runPipelines(InstanceId: string, request: RunPipelinesRequest): Promise<RunPipelinesResponse> {
+  async rolloverDataStream(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.runPipelinesWithOptions(InstanceId, request, headers, runtime);
+    return await this.rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
   async runPipelinesWithOptions(InstanceId: string, request: RunPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunPipelinesResponse> {
@@ -25947,10 +26112,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RunPipelinesResponse>(await this.callApi(params, req, runtime), new RunPipelinesResponse({}));
   }
 
-  async shrinkNode(InstanceId: string, request: ShrinkNodeRequest): Promise<ShrinkNodeResponse> {
+  async runPipelines(InstanceId: string, request: RunPipelinesRequest): Promise<RunPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.shrinkNodeWithOptions(InstanceId, request, headers, runtime);
+    return await this.runPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async shrinkNodeWithOptions(InstanceId: string, request: ShrinkNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ShrinkNodeResponse> {
@@ -25991,10 +26156,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ShrinkNodeResponse>(await this.callApi(params, req, runtime), new ShrinkNodeResponse({}));
   }
 
-  async startApm(instanceId: string): Promise<StartApmResponse> {
+  async shrinkNode(InstanceId: string, request: ShrinkNodeRequest): Promise<ShrinkNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startApmWithOptions(instanceId, headers, runtime);
+    return await this.shrinkNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async startApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApmResponse> {
@@ -26015,10 +26180,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StartApmResponse>(await this.callApi(params, req, runtime), new StartApmResponse({}));
   }
 
-  async startCollector(ResId: string, request: StartCollectorRequest): Promise<StartCollectorResponse> {
+  async startApm(instanceId: string): Promise<StartApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.startApmWithOptions(instanceId, headers, runtime);
   }
 
   async startCollectorWithOptions(ResId: string, request: StartCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartCollectorResponse> {
@@ -26046,10 +26211,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCollectorResponse>(await this.callApi(params, req, runtime), new StartCollectorResponse({}));
   }
 
-  async stopApm(instanceId: string): Promise<StopApmResponse> {
+  async startCollector(ResId: string, request: StartCollectorRequest): Promise<StartCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopApmWithOptions(instanceId, headers, runtime);
+    return await this.startCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async stopApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApmResponse> {
@@ -26070,10 +26235,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopApmResponse>(await this.callApi(params, req, runtime), new StopApmResponse({}));
   }
 
-  async stopCollector(ResId: string, request: StopCollectorRequest): Promise<StopCollectorResponse> {
+  async stopApm(instanceId: string): Promise<StopApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.stopApmWithOptions(instanceId, headers, runtime);
   }
 
   async stopCollectorWithOptions(ResId: string, request: StopCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopCollectorResponse> {
@@ -26101,10 +26266,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopCollectorResponse>(await this.callApi(params, req, runtime), new StopCollectorResponse({}));
   }
 
-  async stopPipelines(InstanceId: string, request: StopPipelinesRequest): Promise<StopPipelinesResponse> {
+  async stopCollector(ResId: string, request: StopCollectorRequest): Promise<StopCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopPipelinesWithOptions(InstanceId, request, headers, runtime);
+    return await this.stopCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async stopPipelinesWithOptions(InstanceId: string, request: StopPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelinesResponse> {
@@ -26133,10 +26298,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StopPipelinesResponse>(await this.callApi(params, req, runtime), new StopPipelinesResponse({}));
   }
 
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  async stopPipelines(InstanceId: string, request: StopPipelinesRequest): Promise<StopPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.tagResourcesWithOptions(request, headers, runtime);
+    return await this.stopPipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -26172,10 +26337,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
-  async transferNode(InstanceId: string, request: TransferNodeRequest): Promise<TransferNodeResponse> {
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.transferNodeWithOptions(InstanceId, request, headers, runtime);
+    return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
   async transferNodeWithOptions(InstanceId: string, request: TransferNodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TransferNodeResponse> {
@@ -26208,10 +26373,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferNodeResponse>(await this.callApi(params, req, runtime), new TransferNodeResponse({}));
   }
 
-  async triggerNetwork(InstanceId: string, request: TriggerNetworkRequest): Promise<TriggerNetworkResponse> {
+  async transferNode(InstanceId: string, request: TransferNodeRequest): Promise<TransferNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.triggerNetworkWithOptions(InstanceId, request, headers, runtime);
+    return await this.transferNodeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async triggerNetworkWithOptions(InstanceId: string, request: TriggerNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerNetworkResponse> {
@@ -26253,10 +26418,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerNetworkResponse>(await this.callApi(params, req, runtime), new TriggerNetworkResponse({}));
   }
 
-  async uninstallKibanaPlugin(InstanceId: string, request: UninstallKibanaPluginRequest): Promise<UninstallKibanaPluginResponse> {
+  async triggerNetwork(InstanceId: string, request: TriggerNetworkRequest): Promise<TriggerNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.uninstallKibanaPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.triggerNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
   async uninstallKibanaPluginWithOptions(InstanceId: string, request: UninstallKibanaPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallKibanaPluginResponse> {
@@ -26285,10 +26450,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallKibanaPluginResponse>(await this.callApi(params, req, runtime), new UninstallKibanaPluginResponse({}));
   }
 
-  async uninstallLogstashPlugin(InstanceId: string, request: UninstallLogstashPluginRequest): Promise<UninstallLogstashPluginResponse> {
+  async uninstallKibanaPlugin(InstanceId: string, request: UninstallKibanaPluginRequest): Promise<UninstallKibanaPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.uninstallLogstashPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.uninstallKibanaPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async uninstallLogstashPluginWithOptions(InstanceId: string, request: UninstallLogstashPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallLogstashPluginResponse> {
@@ -26317,10 +26482,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallLogstashPluginResponse>(await this.callApi(params, req, runtime), new UninstallLogstashPluginResponse({}));
   }
 
-  async uninstallPlugin(InstanceId: string, request: UninstallPluginRequest): Promise<UninstallPluginResponse> {
+  async uninstallLogstashPlugin(InstanceId: string, request: UninstallLogstashPluginRequest): Promise<UninstallLogstashPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.uninstallPluginWithOptions(InstanceId, request, headers, runtime);
+    return await this.uninstallLogstashPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async uninstallPluginWithOptions(InstanceId: string, request: UninstallPluginRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UninstallPluginResponse> {
@@ -26349,10 +26514,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallPluginResponse>(await this.callApi(params, req, runtime), new UninstallPluginResponse({}));
   }
 
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async uninstallPlugin(InstanceId: string, request: UninstallPluginRequest): Promise<UninstallPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.untagResourcesWithOptions(request, headers, runtime);
+    return await this.uninstallPluginWithOptions(InstanceId, request, headers, runtime);
   }
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
@@ -26393,10 +26558,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
-  async updateAdminPassword(InstanceId: string, request: UpdateAdminPasswordRequest): Promise<UpdateAdminPasswordResponse> {
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateAdminPasswordWithOptions(InstanceId, request, headers, runtime);
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   async updateAdminPasswordWithOptions(InstanceId: string, request: UpdateAdminPasswordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdminPasswordResponse> {
@@ -26430,10 +26595,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAdminPasswordResponse>(await this.callApi(params, req, runtime), new UpdateAdminPasswordResponse({}));
   }
 
-  async updateAdvancedSetting(InstanceId: string, request: UpdateAdvancedSettingRequest): Promise<UpdateAdvancedSettingResponse> {
+  async updateAdminPassword(InstanceId: string, request: UpdateAdminPasswordRequest): Promise<UpdateAdminPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateAdvancedSettingWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateAdminPasswordWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateAdvancedSettingWithOptions(InstanceId: string, request: UpdateAdvancedSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAdvancedSettingResponse> {
@@ -26462,10 +26627,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAdvancedSettingResponse>(await this.callApi(params, req, runtime), new UpdateAdvancedSettingResponse({}));
   }
 
-  async updateAliwsDict(InstanceId: string, request: UpdateAliwsDictRequest): Promise<UpdateAliwsDictResponse> {
+  async updateAdvancedSetting(InstanceId: string, request: UpdateAdvancedSettingRequest): Promise<UpdateAdvancedSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateAdvancedSettingWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateAliwsDictWithOptions(InstanceId: string, request: UpdateAliwsDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliwsDictResponse> {
@@ -26494,10 +26659,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAliwsDictResponse>(await this.callApi(params, req, runtime), new UpdateAliwsDictResponse({}));
   }
 
-  async updateApm(instanceId: string, request: UpdateApmRequest): Promise<UpdateApmResponse> {
+  async updateAliwsDict(InstanceId: string, request: UpdateAliwsDictRequest): Promise<UpdateAliwsDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateApmWithOptions(instanceId, request, headers, runtime);
+    return await this.updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateApmWithOptions(instanceId: string, request: UpdateApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApmResponse> {
@@ -26541,12 +26706,21 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApmResponse>(await this.callApi(params, req, runtime), new UpdateApmResponse({}));
   }
 
-  async updateBlackIps(InstanceId: string, request: UpdateBlackIpsRequest): Promise<UpdateBlackIpsResponse> {
+  async updateApm(instanceId: string, request: UpdateApmRequest): Promise<UpdateApmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateBlackIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateApmWithOptions(instanceId, request, headers, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateBlackIpsRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateBlackIpsResponse
+   */
+  // Deprecated
   async updateBlackIpsWithOptions(InstanceId: string, request: UpdateBlackIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBlackIpsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -26572,10 +26746,17 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBlackIpsResponse>(await this.callApi(params, req, runtime), new UpdateBlackIpsResponse({}));
   }
 
-  async updateCollector(ResId: string, request: UpdateCollectorRequest): Promise<UpdateCollectorResponse> {
+  /**
+    * @deprecated
+    *
+    * @param request UpdateBlackIpsRequest
+    * @return UpdateBlackIpsResponse
+   */
+  // Deprecated
+  async updateBlackIps(InstanceId: string, request: UpdateBlackIpsRequest): Promise<UpdateBlackIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateCollectorWithOptions(ResId, request, headers, runtime);
+    return await this.updateBlackIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateCollectorWithOptions(ResId: string, request: UpdateCollectorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorResponse> {
@@ -26604,10 +26785,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCollectorResponse>(await this.callApi(params, req, runtime), new UpdateCollectorResponse({}));
   }
 
-  async updateCollectorName(ResId: string, request: UpdateCollectorNameRequest): Promise<UpdateCollectorNameResponse> {
+  async updateCollector(ResId: string, request: UpdateCollectorRequest): Promise<UpdateCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateCollectorNameWithOptions(ResId, request, headers, runtime);
+    return await this.updateCollectorWithOptions(ResId, request, headers, runtime);
   }
 
   async updateCollectorNameWithOptions(ResId: string, request: UpdateCollectorNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCollectorNameResponse> {
@@ -26636,10 +26817,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCollectorNameResponse>(await this.callApi(params, req, runtime), new UpdateCollectorNameResponse({}));
   }
 
-  async updateComponentIndex(InstanceId: string, name: string, request: UpdateComponentIndexRequest): Promise<UpdateComponentIndexResponse> {
+  async updateCollectorName(ResId: string, request: UpdateCollectorNameRequest): Promise<UpdateCollectorNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+    return await this.updateCollectorNameWithOptions(ResId, request, headers, runtime);
   }
 
   async updateComponentIndexWithOptions(InstanceId: string, name: string, request: UpdateComponentIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateComponentIndexResponse> {
@@ -26649,7 +26830,7 @@ export default class Client extends OpenApi {
       body["_meta"] = request.meta;
     }
 
-    if (!Util.isUnset($tea.toMap(request.template))) {
+    if (!Util.isUnset(request.template)) {
       body["template"] = request.template;
     }
 
@@ -26671,10 +26852,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateComponentIndexResponse>(await this.callApi(params, req, runtime), new UpdateComponentIndexResponse({}));
   }
 
-  async updateDescription(InstanceId: string, request: UpdateDescriptionRequest): Promise<UpdateDescriptionResponse> {
+  async updateComponentIndex(InstanceId: string, name: string, request: UpdateComponentIndexRequest): Promise<UpdateComponentIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateDescriptionWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
   }
 
   async updateDescriptionWithOptions(InstanceId: string, request: UpdateDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDescriptionResponse> {
@@ -26708,10 +26889,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateDescriptionResponse({}));
   }
 
-  async updateDiagnosisSettings(InstanceId: string, request: UpdateDiagnosisSettingsRequest): Promise<UpdateDiagnosisSettingsResponse> {
+  async updateDescription(InstanceId: string, request: UpdateDescriptionRequest): Promise<UpdateDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateDescriptionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateDiagnosisSettingsWithOptions(InstanceId: string, request: UpdateDiagnosisSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDiagnosisSettingsResponse> {
@@ -26744,10 +26925,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDiagnosisSettingsResponse({}));
   }
 
-  async updateDict(InstanceId: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
+  async updateDiagnosisSettings(InstanceId: string, request: UpdateDiagnosisSettingsRequest): Promise<UpdateDiagnosisSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateDictWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateDictWithOptions(InstanceId: string, request: UpdateDictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDictResponse> {
@@ -26776,10 +26957,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDictResponse>(await this.callApi(params, req, runtime), new UpdateDictResponse({}));
   }
 
-  async updateDynamicSettings(InstanceId: string, request: UpdateDynamicSettingsRequest): Promise<UpdateDynamicSettingsResponse> {
+  async updateDict(InstanceId: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateDictWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateDynamicSettingsWithOptions(InstanceId: string, request: UpdateDynamicSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicSettingsResponse> {
@@ -26816,10 +26997,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDynamicSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDynamicSettingsResponse({}));
   }
 
-  async updateExtendConfig(InstanceId: string, request: UpdateExtendConfigRequest): Promise<UpdateExtendConfigResponse> {
+  async updateDynamicSettings(InstanceId: string, request: UpdateDynamicSettingsRequest): Promise<UpdateDynamicSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateExtendConfigWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateExtendConfigWithOptions(InstanceId: string, request: UpdateExtendConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendConfigResponse> {
@@ -26848,10 +27029,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExtendConfigResponse>(await this.callApi(params, req, runtime), new UpdateExtendConfigResponse({}));
   }
 
-  async updateExtendfiles(InstanceId: string, request: UpdateExtendfilesRequest): Promise<UpdateExtendfilesResponse> {
+  async updateExtendConfig(InstanceId: string, request: UpdateExtendConfigRequest): Promise<UpdateExtendConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateExtendfilesWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateExtendConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateExtendfilesWithOptions(InstanceId: string, request: UpdateExtendfilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExtendfilesResponse> {
@@ -26880,10 +27061,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExtendfilesResponse>(await this.callApi(params, req, runtime), new UpdateExtendfilesResponse({}));
   }
 
-  async updateHotIkDicts(InstanceId: string, request: UpdateHotIkDictsRequest): Promise<UpdateHotIkDictsResponse> {
+  async updateExtendfiles(InstanceId: string, request: UpdateExtendfilesRequest): Promise<UpdateExtendfilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateHotIkDictsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateExtendfilesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateHotIkDictsWithOptions(InstanceId: string, request: UpdateHotIkDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHotIkDictsResponse> {
@@ -26912,10 +27093,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHotIkDictsResponse>(await this.callApi(params, req, runtime), new UpdateHotIkDictsResponse({}));
   }
 
-  async updateILMPolicy(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest): Promise<UpdateILMPolicyResponse> {
+  async updateHotIkDicts(InstanceId: string, request: UpdateHotIkDictsRequest): Promise<UpdateHotIkDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
+    return await this.updateHotIkDictsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateILMPolicyWithOptions(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateILMPolicyResponse> {
@@ -26944,10 +27125,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateILMPolicyResponse>(await this.callApi(params, req, runtime), new UpdateILMPolicyResponse({}));
   }
 
-  async updateIndexTemplate(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
+  async updateILMPolicy(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest): Promise<UpdateILMPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
+    return await this.updateILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
   }
 
   async updateIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexTemplateResponse> {
@@ -26976,10 +27157,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIndexTemplateResponse>(await this.callApi(params, req, runtime), new UpdateIndexTemplateResponse({}));
   }
 
-  async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
+  async updateIndexTemplate(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateInstanceWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
   }
 
   async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
@@ -26998,11 +27179,11 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.clientNodeConfiguration))) {
+    if (!Util.isUnset(request.clientNodeConfiguration)) {
       body["clientNodeConfiguration"] = request.clientNodeConfiguration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.elasticDataNodeConfiguration))) {
+    if (!Util.isUnset(request.elasticDataNodeConfiguration)) {
       body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration;
     }
 
@@ -27010,11 +27191,11 @@ export default class Client extends OpenApi {
       body["instanceCategory"] = request.instanceCategory;
     }
 
-    if (!Util.isUnset($tea.toMap(request.kibanaConfiguration))) {
+    if (!Util.isUnset(request.kibanaConfiguration)) {
       body["kibanaConfiguration"] = request.kibanaConfiguration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.masterConfiguration))) {
+    if (!Util.isUnset(request.masterConfiguration)) {
       body["masterConfiguration"] = request.masterConfiguration;
     }
 
@@ -27022,11 +27203,11 @@ export default class Client extends OpenApi {
       body["nodeAmount"] = request.nodeAmount;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+    if (!Util.isUnset(request.nodeSpec)) {
       body["nodeSpec"] = request.nodeSpec;
     }
 
-    if (!Util.isUnset($tea.toMap(request.warmNodeConfiguration))) {
+    if (!Util.isUnset(request.warmNodeConfiguration)) {
       body["warmNodeConfiguration"] = request.warmNodeConfiguration;
     }
 
@@ -27049,10 +27230,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
-  async updateInstanceChargeType(InstanceId: string, request: UpdateInstanceChargeTypeRequest): Promise<UpdateInstanceChargeTypeResponse> {
+  async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateInstanceChargeTypeWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateInstanceChargeTypeWithOptions(InstanceId: string, request: UpdateInstanceChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceChargeTypeResponse> {
@@ -27081,10 +27262,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateInstanceChargeTypeResponse({}));
   }
 
-  async updateInstanceSettings(InstanceId: string, request: UpdateInstanceSettingsRequest): Promise<UpdateInstanceSettingsResponse> {
+  async updateInstanceChargeType(InstanceId: string, request: UpdateInstanceChargeTypeRequest): Promise<UpdateInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateInstanceChargeTypeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateInstanceSettingsWithOptions(InstanceId: string, request: UpdateInstanceSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceSettingsResponse> {
@@ -27113,10 +27294,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceSettingsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSettingsResponse({}));
   }
 
-  async updateKibanaSettings(InstanceId: string, request: UpdateKibanaSettingsRequest): Promise<UpdateKibanaSettingsResponse> {
+  async updateInstanceSettings(InstanceId: string, request: UpdateInstanceSettingsRequest): Promise<UpdateInstanceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateKibanaSettingsWithOptions(InstanceId: string, request: UpdateKibanaSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaSettingsResponse> {
@@ -27145,10 +27326,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateKibanaSettingsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaSettingsResponse({}));
   }
 
-  async updateKibanaWhiteIps(InstanceId: string, request: UpdateKibanaWhiteIpsRequest): Promise<UpdateKibanaWhiteIpsResponse> {
+  async updateKibanaSettings(InstanceId: string, request: UpdateKibanaSettingsRequest): Promise<UpdateKibanaSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateKibanaWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateKibanaWhiteIpsWithOptions(InstanceId: string, request: UpdateKibanaWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaWhiteIpsResponse> {
@@ -27167,7 +27348,7 @@ export default class Client extends OpenApi {
       body["kibanaIPWhitelist"] = request.kibanaIPWhitelist;
     }
 
-    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
+    if (!Util.isUnset(request.whiteIpGroup)) {
       body["whiteIpGroup"] = request.whiteIpGroup;
     }
 
@@ -27190,10 +27371,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateKibanaWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaWhiteIpsResponse({}));
   }
 
-  async updateLogstash(InstanceId: string, request: UpdateLogstashRequest): Promise<UpdateLogstashResponse> {
+  async updateKibanaWhiteIps(InstanceId: string, request: UpdateKibanaWhiteIpsRequest): Promise<UpdateKibanaWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLogstashWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateKibanaWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateLogstashWithOptions(InstanceId: string, request: UpdateLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashResponse> {
@@ -27208,7 +27389,7 @@ export default class Client extends OpenApi {
       body["nodeAmount"] = request.nodeAmount;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+    if (!Util.isUnset(request.nodeSpec)) {
       body["nodeSpec"] = request.nodeSpec;
     }
 
@@ -27231,10 +27412,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashResponse>(await this.callApi(params, req, runtime), new UpdateLogstashResponse({}));
   }
 
-  async updateLogstashChargeType(InstanceId: string, request: UpdateLogstashChargeTypeRequest): Promise<UpdateLogstashChargeTypeResponse> {
+  async updateLogstash(InstanceId: string, request: UpdateLogstashRequest): Promise<UpdateLogstashResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLogstashChargeTypeWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateLogstashWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateLogstashChargeTypeWithOptions(InstanceId: string, request: UpdateLogstashChargeTypeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashChargeTypeResponse> {
@@ -27263,10 +27444,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateLogstashChargeTypeResponse({}));
   }
 
-  async updateLogstashDescription(InstanceId: string, request: UpdateLogstashDescriptionRequest): Promise<UpdateLogstashDescriptionResponse> {
+  async updateLogstashChargeType(InstanceId: string, request: UpdateLogstashChargeTypeRequest): Promise<UpdateLogstashChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLogstashDescriptionWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateLogstashChargeTypeWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateLogstashDescriptionWithOptions(InstanceId: string, request: UpdateLogstashDescriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashDescriptionResponse> {
@@ -27295,10 +27476,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateLogstashDescriptionResponse({}));
   }
 
-  async updateLogstashSettings(InstanceId: string, request: UpdateLogstashSettingsRequest): Promise<UpdateLogstashSettingsResponse> {
+  async updateLogstashDescription(InstanceId: string, request: UpdateLogstashDescriptionRequest): Promise<UpdateLogstashDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLogstashSettingsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateLogstashDescriptionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateLogstashSettingsWithOptions(InstanceId: string, request: UpdateLogstashSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogstashSettingsResponse> {
@@ -27327,10 +27508,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogstashSettingsResponse>(await this.callApi(params, req, runtime), new UpdateLogstashSettingsResponse({}));
   }
 
-  async updatePipelineManagementConfig(InstanceId: string, request: UpdatePipelineManagementConfigRequest): Promise<UpdatePipelineManagementConfigResponse> {
+  async updateLogstashSettings(InstanceId: string, request: UpdateLogstashSettingsRequest): Promise<UpdateLogstashSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateLogstashSettingsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updatePipelineManagementConfigWithOptions(InstanceId: string, request: UpdatePipelineManagementConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineManagementConfigResponse> {
@@ -27380,10 +27561,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new UpdatePipelineManagementConfigResponse({}));
   }
 
-  async updatePipelines(InstanceId: string, request: UpdatePipelinesRequest): Promise<UpdatePipelinesResponse> {
+  async updatePipelineManagementConfig(InstanceId: string, request: UpdatePipelineManagementConfigRequest): Promise<UpdatePipelineManagementConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePipelinesWithOptions(InstanceId, request, headers, runtime);
+    return await this.updatePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updatePipelinesWithOptions(InstanceId: string, request: UpdatePipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelinesResponse> {
@@ -27416,10 +27597,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePipelinesResponse>(await this.callApi(params, req, runtime), new UpdatePipelinesResponse({}));
   }
 
-  async updatePrivateNetworkWhiteIps(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
+  async updatePipelines(InstanceId: string, request: UpdatePipelinesRequest): Promise<UpdatePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePrivateNetworkWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updatePipelinesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updatePrivateNetworkWhiteIpsWithOptions(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
@@ -27452,10 +27633,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrivateNetworkWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePrivateNetworkWhiteIpsResponse({}));
   }
 
-  async updatePublicNetwork(InstanceId: string, request: UpdatePublicNetworkRequest): Promise<UpdatePublicNetworkResponse> {
+  async updatePrivateNetworkWhiteIps(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePublicNetworkWithOptions(InstanceId, request, headers, runtime);
+    return await this.updatePrivateNetworkWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updatePublicNetworkWithOptions(InstanceId: string, request: UpdatePublicNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicNetworkResponse> {
@@ -27484,10 +27665,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicNetworkResponse>(await this.callApi(params, req, runtime), new UpdatePublicNetworkResponse({}));
   }
 
-  async updatePublicWhiteIps(InstanceId: string, request: UpdatePublicWhiteIpsRequest): Promise<UpdatePublicWhiteIpsResponse> {
+  async updatePublicNetwork(InstanceId: string, request: UpdatePublicNetworkRequest): Promise<UpdatePublicNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updatePublicWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updatePublicNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updatePublicWhiteIpsWithOptions(InstanceId: string, request: UpdatePublicWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicWhiteIpsResponse> {
@@ -27520,10 +27701,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePublicWhiteIpsResponse({}));
   }
 
-  async updateReadWritePolicy(InstanceId: string, request: UpdateReadWritePolicyRequest): Promise<UpdateReadWritePolicyResponse> {
+  async updatePublicWhiteIps(InstanceId: string, request: UpdatePublicWhiteIpsRequest): Promise<UpdatePublicWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateReadWritePolicyWithOptions(InstanceId, request, headers, runtime);
+    return await this.updatePublicWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateReadWritePolicyWithOptions(InstanceId: string, request: UpdateReadWritePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateReadWritePolicyResponse> {
@@ -27552,10 +27733,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateReadWritePolicyResponse>(await this.callApi(params, req, runtime), new UpdateReadWritePolicyResponse({}));
   }
 
-  async updateSnapshotSetting(InstanceId: string, request: UpdateSnapshotSettingRequest): Promise<UpdateSnapshotSettingResponse> {
+  async updateReadWritePolicy(InstanceId: string, request: UpdateReadWritePolicyRequest): Promise<UpdateReadWritePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateSnapshotSettingWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateReadWritePolicyWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateSnapshotSettingWithOptions(InstanceId: string, request: UpdateSnapshotSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSnapshotSettingResponse> {
@@ -27578,10 +27759,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSnapshotSettingResponse>(await this.callApi(params, req, runtime), new UpdateSnapshotSettingResponse({}));
   }
 
-  async updateSynonymsDicts(InstanceId: string, request: UpdateSynonymsDictsRequest): Promise<UpdateSynonymsDictsResponse> {
+  async updateSnapshotSetting(InstanceId: string, request: UpdateSnapshotSettingRequest): Promise<UpdateSnapshotSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateSynonymsDictsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateSnapshotSettingWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateSynonymsDictsWithOptions(InstanceId: string, request: UpdateSynonymsDictsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSynonymsDictsResponse> {
@@ -27610,10 +27791,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSynonymsDictsResponse>(await this.callApi(params, req, runtime), new UpdateSynonymsDictsResponse({}));
   }
 
-  async updateTemplate(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
+  async updateSynonymsDicts(InstanceId: string, request: UpdateSynonymsDictsRequest): Promise<UpdateSynonymsDictsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTemplateWithOptions(InstanceId, TemplateName, request, headers, runtime);
+    return await this.updateSynonymsDictsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateTemplateWithOptions(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
@@ -27642,10 +27823,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
-  async updateWhiteIps(InstanceId: string, request: UpdateWhiteIpsRequest): Promise<UpdateWhiteIpsResponse> {
+  async updateTemplate(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateTemplateWithOptions(InstanceId, TemplateName, request, headers, runtime);
   }
 
   async updateWhiteIpsWithOptions(InstanceId: string, request: UpdateWhiteIpsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWhiteIpsResponse> {
@@ -27664,7 +27845,7 @@ export default class Client extends OpenApi {
       body["esIPWhitelist"] = request.esIPWhitelist;
     }
 
-    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
+    if (!Util.isUnset(request.whiteIpGroup)) {
       body["whiteIpGroup"] = request.whiteIpGroup;
     }
 
@@ -27687,10 +27868,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateWhiteIpsResponse({}));
   }
 
-  async updateXpackMonitorConfig(InstanceId: string, request: UpdateXpackMonitorConfigRequest): Promise<UpdateXpackMonitorConfigResponse> {
+  async updateWhiteIps(InstanceId: string, request: UpdateWhiteIpsRequest): Promise<UpdateWhiteIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateXpackMonitorConfigWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateWhiteIpsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateXpackMonitorConfigWithOptions(InstanceId: string, request: UpdateXpackMonitorConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateXpackMonitorConfigResponse> {
@@ -27736,10 +27917,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new UpdateXpackMonitorConfigResponse({}));
   }
 
-  async upgradeEngineVersion(InstanceId: string, request: UpgradeEngineVersionRequest): Promise<UpgradeEngineVersionResponse> {
+  async updateXpackMonitorConfig(InstanceId: string, request: UpdateXpackMonitorConfigRequest): Promise<UpdateXpackMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
+    return await this.updateXpackMonitorConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
   async upgradeEngineVersionWithOptions(InstanceId: string, request: UpgradeEngineVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeEngineVersionResponse> {
@@ -27781,10 +27962,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeEngineVersionResponse({}));
   }
 
-  async validateConnection(InstanceId: string, request: ValidateConnectionRequest): Promise<ValidateConnectionResponse> {
+  async upgradeEngineVersion(InstanceId: string, request: UpgradeEngineVersionRequest): Promise<UpgradeEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.validateConnectionWithOptions(InstanceId, request, headers, runtime);
+    return await this.upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async validateConnectionWithOptions(InstanceId: string, request: ValidateConnectionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateConnectionResponse> {
@@ -27813,10 +27994,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateConnectionResponse>(await this.callApi(params, req, runtime), new ValidateConnectionResponse({}));
   }
 
-  async validateShrinkNodes(InstanceId: string, request: ValidateShrinkNodesRequest): Promise<ValidateShrinkNodesResponse> {
+  async validateConnection(InstanceId: string, request: ValidateConnectionRequest): Promise<ValidateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.validateShrinkNodesWithOptions(InstanceId, request, headers, runtime);
+    return await this.validateConnectionWithOptions(InstanceId, request, headers, runtime);
   }
 
   async validateShrinkNodesWithOptions(InstanceId: string, request: ValidateShrinkNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateShrinkNodesResponse> {
@@ -27853,10 +28034,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateShrinkNodesResponse>(await this.callApi(params, req, runtime), new ValidateShrinkNodesResponse({}));
   }
 
-  async validateSlrPermission(request: ValidateSlrPermissionRequest): Promise<ValidateSlrPermissionResponse> {
+  async validateShrinkNodes(InstanceId: string, request: ValidateShrinkNodesRequest): Promise<ValidateShrinkNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.validateSlrPermissionWithOptions(request, headers, runtime);
+    return await this.validateShrinkNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async validateSlrPermissionWithOptions(request: ValidateSlrPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateSlrPermissionResponse> {
@@ -27888,10 +28069,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateSlrPermissionResponse>(await this.callApi(params, req, runtime), new ValidateSlrPermissionResponse({}));
   }
 
-  async validateTransferableNodes(InstanceId: string, request: ValidateTransferableNodesRequest): Promise<ValidateTransferableNodesResponse> {
+  async validateSlrPermission(request: ValidateSlrPermissionRequest): Promise<ValidateSlrPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.validateTransferableNodesWithOptions(InstanceId, request, headers, runtime);
+    return await this.validateSlrPermissionWithOptions(request, headers, runtime);
   }
 
   async validateTransferableNodesWithOptions(InstanceId: string, request: ValidateTransferableNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateTransferableNodesResponse> {
@@ -27920,10 +28101,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateTransferableNodesResponse>(await this.callApi(params, req, runtime), new ValidateTransferableNodesResponse({}));
   }
 
-  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+  async validateTransferableNodes(InstanceId: string, request: ValidateTransferableNodesRequest): Promise<ValidateTransferableNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createInstanceWithOptions(request, headers, runtime);
+    return await this.validateTransferableNodesWithOptions(InstanceId, request, headers, runtime);
   }
 
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
@@ -27934,11 +28115,11 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.clientNodeConfiguration))) {
+    if (!Util.isUnset(request.clientNodeConfiguration)) {
       body["clientNodeConfiguration"] = request.clientNodeConfiguration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.elasticDataNodeConfiguration))) {
+    if (!Util.isUnset(request.elasticDataNodeConfiguration)) {
       body["elasticDataNodeConfiguration"] = request.elasticDataNodeConfiguration;
     }
 
@@ -27954,15 +28135,15 @@ export default class Client extends OpenApi {
       body["instanceCategory"] = request.instanceCategory;
     }
 
-    if (!Util.isUnset($tea.toMap(request.kibanaConfiguration))) {
+    if (!Util.isUnset(request.kibanaConfiguration)) {
       body["kibanaConfiguration"] = request.kibanaConfiguration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.masterConfiguration))) {
+    if (!Util.isUnset(request.masterConfiguration)) {
       body["masterConfiguration"] = request.masterConfiguration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.networkConfig))) {
+    if (!Util.isUnset(request.networkConfig)) {
       body["networkConfig"] = request.networkConfig;
     }
 
@@ -27970,11 +28151,11 @@ export default class Client extends OpenApi {
       body["nodeAmount"] = request.nodeAmount;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodeSpec))) {
+    if (!Util.isUnset(request.nodeSpec)) {
       body["nodeSpec"] = request.nodeSpec;
     }
 
-    if (!Util.isUnset($tea.toMap(request.paymentInfo))) {
+    if (!Util.isUnset(request.paymentInfo)) {
       body["paymentInfo"] = request.paymentInfo;
     }
 
@@ -27982,7 +28163,7 @@ export default class Client extends OpenApi {
       body["paymentType"] = request.paymentType;
     }
 
-    if (!Util.isUnset($tea.toMap(request.warmNodeConfiguration))) {
+    if (!Util.isUnset(request.warmNodeConfiguration)) {
       body["warmNodeConfiguration"] = request.warmNodeConfiguration;
     }
 
@@ -28007,6 +28188,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+  }
+
+  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
 }
