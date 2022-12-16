@@ -13,6 +13,74 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class Collection extends $tea.Model {
+  collectionType?: string;
+  comment?: string;
+  createTime?: number;
+  level?: number;
+  name?: string;
+  ownerId?: string;
+  ownerName?: string;
+  qualifiedName?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      collectionType: 'CollectionType',
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      level: 'Level',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      ownerName: 'OwnerName',
+      qualifiedName: 'QualifiedName',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionType: 'string',
+      comment: 'string',
+      createTime: 'number',
+      level: 'number',
+      name: 'string',
+      ownerId: 'string',
+      ownerName: 'string',
+      qualifiedName: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Entity extends $tea.Model {
+  entityContent?: { [key: string]: any };
+  qualifiedName?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      entityContent: 'EntityContent',
+      qualifiedName: 'QualifiedName',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      qualifiedName: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDataServiceApiRequest extends $tea.Model {
   apiId?: number;
   projectId?: number;
@@ -8948,6 +9016,7 @@ export class GetMetaTableOutputRequest extends $tea.Model {
   pageSize?: number;
   startDate?: string;
   tableGuid?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
@@ -8955,6 +9024,7 @@ export class GetMetaTableOutputRequest extends $tea.Model {
       pageSize: 'PageSize',
       startDate: 'StartDate',
       tableGuid: 'TableGuid',
+      taskId: 'TaskId',
     };
   }
 
@@ -8965,6 +9035,7 @@ export class GetMetaTableOutputRequest extends $tea.Model {
       pageSize: 'number',
       startDate: 'string',
       tableGuid: 'string',
+      taskId: 'string',
     };
   }
 
@@ -15169,7 +15240,6 @@ export class ListResourceGroupsRequest extends $tea.Model {
   resourceGroupType?: number;
   resourceManagerResourceGroupId?: string;
   tags?: ListResourceGroupsRequestTags[];
-  typeNames?: string;
   static names(): { [key: string]: string } {
     return {
       bizExtKey: 'BizExtKey',
@@ -15177,7 +15247,6 @@ export class ListResourceGroupsRequest extends $tea.Model {
       resourceGroupType: 'ResourceGroupType',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       tags: 'Tags',
-      typeNames: 'TypeNames',
     };
   }
 
@@ -15188,7 +15257,6 @@ export class ListResourceGroupsRequest extends $tea.Model {
       resourceGroupType: 'number',
       resourceManagerResourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListResourceGroupsRequestTags },
-      typeNames: 'string',
     };
   }
 
@@ -15203,7 +15271,6 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
   resourceGroupType?: number;
   resourceManagerResourceGroupId?: string;
   tagsShrink?: string;
-  typeNames?: string;
   static names(): { [key: string]: string } {
     return {
       bizExtKey: 'BizExtKey',
@@ -15211,7 +15278,6 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
       resourceGroupType: 'ResourceGroupType',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       tagsShrink: 'Tags',
-      typeNames: 'TypeNames',
     };
   }
 
@@ -15222,7 +15288,6 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
       resourceGroupType: 'number',
       resourceManagerResourceGroupId: 'string',
       tagsShrink: 'string',
-      typeNames: 'string',
     };
   }
 
@@ -32831,6 +32896,14 @@ export default class Client extends OpenApi {
     return await this.createBusinessWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConnectionResponse
+   */
+  // Deprecated
   async createConnectionWithOptions(request: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32879,6 +32952,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConnectionResponse>(await this.callApi(params, req, runtime), new CreateConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateConnectionRequest
+    * @return CreateConnectionResponse
+   */
+  // Deprecated
   async createConnection(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConnectionWithOptions(request, runtime);
@@ -32933,6 +33013,14 @@ export default class Client extends OpenApi {
     return await this.createDISyncTaskWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateDagComplementRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDagComplementResponse
+   */
+  // Deprecated
   async createDagComplementWithOptions(request: CreateDagComplementRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagComplementResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -32997,11 +33085,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDagComplementResponse>(await this.callApi(params, req, runtime), new CreateDagComplementResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateDagComplementRequest
+    * @return CreateDagComplementResponse
+   */
+  // Deprecated
   async createDagComplement(request: CreateDagComplementRequest): Promise<CreateDagComplementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDagComplementWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateDagTestRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDagTestResponse
+   */
+  // Deprecated
   async createDagTestWithOptions(request: CreateDagTestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagTestResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -33042,6 +33145,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDagTestResponse>(await this.callApi(params, req, runtime), new CreateDagTestResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateDagTestRequest
+    * @return CreateDagTestResponse
+   */
+  // Deprecated
   async createDagTest(request: CreateDagTestRequest): Promise<CreateDagTestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDagTestWithOptions(request, runtime);
@@ -33686,6 +33796,14 @@ export default class Client extends OpenApi {
     return createImportMigrationResp;
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateManualDagRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateManualDagResponse
+   */
+  // Deprecated
   async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -33738,6 +33856,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateManualDagResponse>(await this.callApi(params, req, runtime), new CreateManualDagResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateManualDagRequest
+    * @return CreateManualDagResponse
+   */
+  // Deprecated
   async createManualDag(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createManualDagWithOptions(request, runtime);
@@ -34539,6 +34664,14 @@ export default class Client extends OpenApi {
     return await this.deleteBusinessWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConnectionResponse
+   */
+  // Deprecated
   async deleteConnectionWithOptions(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34563,6 +34696,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConnectionResponse>(await this.callApi(params, req, runtime), new DeleteConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteConnectionRequest
+    * @return DeleteConnectionResponse
+   */
+  // Deprecated
   async deleteConnection(request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConnectionWithOptions(request, runtime);
@@ -36288,6 +36428,14 @@ export default class Client extends OpenApi {
     return await this.getInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceConsumeTimeRankRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceConsumeTimeRankResponse
+   */
+  // Deprecated
   async getInstanceConsumeTimeRankWithOptions(request: GetInstanceConsumeTimeRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsumeTimeRankResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36316,11 +36464,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceConsumeTimeRankResponse>(await this.callApi(params, req, runtime), new GetInstanceConsumeTimeRankResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceConsumeTimeRankRequest
+    * @return GetInstanceConsumeTimeRankResponse
+   */
+  // Deprecated
   async getInstanceConsumeTimeRank(request: GetInstanceConsumeTimeRankRequest): Promise<GetInstanceConsumeTimeRankResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceConsumeTimeRankWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceCountTrendRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceCountTrendResponse
+   */
+  // Deprecated
   async getInstanceCountTrendWithOptions(request: GetInstanceCountTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountTrendResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36353,11 +36516,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceCountTrendResponse>(await this.callApi(params, req, runtime), new GetInstanceCountTrendResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceCountTrendRequest
+    * @return GetInstanceCountTrendResponse
+   */
+  // Deprecated
   async getInstanceCountTrend(request: GetInstanceCountTrendRequest): Promise<GetInstanceCountTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceCountTrendWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceErrorRankRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceErrorRankResponse
+   */
+  // Deprecated
   async getInstanceErrorRankWithOptions(request: GetInstanceErrorRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceErrorRankResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36382,6 +36560,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceErrorRankResponse>(await this.callApi(params, req, runtime), new GetInstanceErrorRankResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceErrorRankRequest
+    * @return GetInstanceErrorRankResponse
+   */
+  // Deprecated
   async getInstanceErrorRank(request: GetInstanceErrorRankRequest): Promise<GetInstanceErrorRankResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceErrorRankWithOptions(request, runtime);
@@ -36424,6 +36609,14 @@ export default class Client extends OpenApi {
     return await this.getInstanceLogWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceStatusCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceStatusCountResponse
+   */
+  // Deprecated
   async getInstanceStatusCountWithOptions(request: GetInstanceStatusCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusCountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36456,6 +36649,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceStatusCountResponse>(await this.callApi(params, req, runtime), new GetInstanceStatusCountResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetInstanceStatusCountRequest
+    * @return GetInstanceStatusCountResponse
+   */
+  // Deprecated
   async getInstanceStatusCount(request: GetInstanceStatusCountRequest): Promise<GetInstanceStatusCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceStatusCountWithOptions(request, runtime);
@@ -36506,6 +36706,14 @@ export default class Client extends OpenApi {
     return await this.getInstanceStatusStatisticWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetManualDagInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetManualDagInstancesResponse
+   */
+  // Deprecated
   async getManualDagInstancesWithOptions(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36538,6 +36746,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetManualDagInstancesResponse>(await this.callApi(params, req, runtime), new GetManualDagInstancesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetManualDagInstancesRequest
+    * @return GetManualDagInstancesResponse
+   */
+  // Deprecated
   async getManualDagInstances(request: GetManualDagInstancesRequest): Promise<GetManualDagInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getManualDagInstancesWithOptions(request, runtime);
@@ -36715,6 +36930,13 @@ export default class Client extends OpenApi {
     return await this.getMetaDBTableListWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request GetMetaTableBasicInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMetaTableBasicInfoResponse
+   */
   async getMetaTableBasicInfoWithOptions(request: GetMetaTableBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableBasicInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -36735,6 +36957,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableBasicInfoResponse>(await this.callApi(params, req, runtime), new GetMetaTableBasicInfoResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request GetMetaTableBasicInfoRequest
+    * @return GetMetaTableBasicInfoResponse
+   */
   async getMetaTableBasicInfo(request: GetMetaTableBasicInfoRequest): Promise<GetMetaTableBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableBasicInfoWithOptions(request, runtime);
@@ -36981,6 +37209,10 @@ export default class Client extends OpenApi {
       query["TableGuid"] = request.tableGuid;
     }
 
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -37007,8 +37239,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GetMetaTablePartitionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.sortCriterion))) {
-      request.sortCriterionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sortCriterion), "SortCriterion", "json");
+    if (!Util.isUnset(tmpReq.sortCriterion)) {
+      request.sortCriterionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sortCriterion, "SortCriterion", "json");
     }
 
     let query = { };
@@ -37256,6 +37488,14 @@ export default class Client extends OpenApi {
     return await this.getNodeCodeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetNodeOnBaselineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetNodeOnBaselineResponse
+   */
+  // Deprecated
   async getNodeOnBaselineWithOptions(request: GetNodeOnBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeOnBaselineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37280,6 +37520,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeOnBaselineResponse>(await this.callApi(params, req, runtime), new GetNodeOnBaselineResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetNodeOnBaselineRequest
+    * @return GetNodeOnBaselineResponse
+   */
+  // Deprecated
   async getNodeOnBaseline(request: GetNodeOnBaselineRequest): Promise<GetNodeOnBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeOnBaselineWithOptions(request, runtime);
@@ -37318,6 +37565,14 @@ export default class Client extends OpenApi {
     return await this.getNodeParentsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetNodeTypeListInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetNodeTypeListInfoResponse
+   */
+  // Deprecated
   async getNodeTypeListInfoWithOptions(request: GetNodeTypeListInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeTypeListInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37362,6 +37617,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeTypeListInfoResponse>(await this.callApi(params, req, runtime), new GetNodeTypeListInfoResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetNodeTypeListInfoRequest
+    * @return GetNodeTypeListInfoResponse
+   */
+  // Deprecated
   async getNodeTypeListInfo(request: GetNodeTypeListInfoRequest): Promise<GetNodeTypeListInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeTypeListInfoWithOptions(request, runtime);
@@ -37508,6 +37770,14 @@ export default class Client extends OpenApi {
     return await this.getProjectWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetProjectDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetProjectDetailResponse
+   */
+  // Deprecated
   async getProjectDetailWithOptions(request: GetProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37532,6 +37802,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectDetailResponse>(await this.callApi(params, req, runtime), new GetProjectDetailResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetProjectDetailRequest
+    * @return GetProjectDetailResponse
+   */
+  // Deprecated
   async getProjectDetail(request: GetProjectDetailRequest): Promise<GetProjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProjectDetailWithOptions(request, runtime);
@@ -37698,6 +37975,14 @@ export default class Client extends OpenApi {
     return await this.getSensitiveDataWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetSuccessInstanceTrendRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSuccessInstanceTrendResponse
+   */
+  // Deprecated
   async getSuccessInstanceTrendWithOptions(request: GetSuccessInstanceTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetSuccessInstanceTrendResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37722,11 +38007,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSuccessInstanceTrendResponse>(await this.callApi(params, req, runtime), new GetSuccessInstanceTrendResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request GetSuccessInstanceTrendRequest
+    * @return GetSuccessInstanceTrendResponse
+   */
+  // Deprecated
   async getSuccessInstanceTrend(request: GetSuccessInstanceTrendRequest): Promise<GetSuccessInstanceTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSuccessInstanceTrendWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request GetTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTopicResponse
+   */
   async getTopicWithOptions(request: GetTopicRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37751,6 +38050,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicResponse>(await this.callApi(params, req, runtime), new GetTopicResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request GetTopicRequest
+    * @return GetTopicResponse
+   */
   async getTopic(request: GetTopicRequest): Promise<GetTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicWithOptions(request, runtime);
@@ -38152,6 +38457,14 @@ export default class Client extends OpenApi {
     return await this.listCalcEnginesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListConnectionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListConnectionsResponse
+   */
+  // Deprecated
   async listConnectionsWithOptions(request: ListConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -38172,6 +38485,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConnectionsResponse>(await this.callApi(params, req, runtime), new ListConnectionsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListConnectionsRequest
+    * @return ListConnectionsResponse
+   */
+  // Deprecated
   async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConnectionsWithOptions(request, runtime);
@@ -39282,6 +39602,14 @@ export default class Client extends OpenApi {
     return await this.listMigrationsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListNodeIORequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListNodeIOResponse
+   */
+  // Deprecated
   async listNodeIOWithOptions(request: ListNodeIORequest, runtime: $Util.RuntimeOptions): Promise<ListNodeIOResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39314,6 +39642,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodeIOResponse>(await this.callApi(params, req, runtime), new ListNodeIOResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListNodeIORequest
+    * @return ListNodeIOResponse
+   */
+  // Deprecated
   async listNodeIO(request: ListNodeIORequest): Promise<ListNodeIOResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodeIOWithOptions(request, runtime);
@@ -39544,6 +39879,14 @@ export default class Client extends OpenApi {
     return await this.listPermissionApplyOrdersWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListProgramTypeCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProgramTypeCountResponse
+   */
+  // Deprecated
   async listProgramTypeCountWithOptions(request: ListProgramTypeCountRequest, runtime: $Util.RuntimeOptions): Promise<ListProgramTypeCountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39572,6 +39915,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProgramTypeCountResponse>(await this.callApi(params, req, runtime), new ListProgramTypeCountResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListProgramTypeCountRequest
+    * @return ListProgramTypeCountResponse
+   */
+  // Deprecated
   async listProgramTypeCount(request: ListProgramTypeCountRequest): Promise<ListProgramTypeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProgramTypeCountWithOptions(request, runtime);
@@ -39719,6 +40069,13 @@ export default class Client extends OpenApi {
     return await this.listProjectsWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request ListQualityResultsByEntityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListQualityResultsByEntityResponse
+   */
   async listQualityResultsByEntityWithOptions(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39763,6 +40120,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQualityResultsByEntityResponse>(await this.callApi(params, req, runtime), new ListQualityResultsByEntityResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request ListQualityResultsByEntityRequest
+    * @return ListQualityResultsByEntityResponse
+   */
   async listQualityResultsByEntity(request: ListQualityResultsByEntityRequest): Promise<ListQualityResultsByEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQualityResultsByEntityWithOptions(request, runtime);
@@ -39987,10 +40350,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
-    }
-
-    if (!Util.isUnset(request.typeNames)) {
-      query["TypeNames"] = request.typeNames;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -40884,6 +41243,14 @@ export default class Client extends OpenApi {
     return await this.searchMetaTablesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SearchNodesByOutputRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchNodesByOutputResponse
+   */
+  // Deprecated
   async searchNodesByOutputWithOptions(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40912,11 +41279,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchNodesByOutputResponse>(await this.callApi(params, req, runtime), new SearchNodesByOutputResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SearchNodesByOutputRequest
+    * @return SearchNodesByOutputResponse
+   */
+  // Deprecated
   async searchNodesByOutput(request: SearchNodesByOutputRequest): Promise<SearchNodesByOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchNodesByOutputWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SetDataSourceShareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDataSourceShareResponse
+   */
+  // Deprecated
   async setDataSourceShareWithOptions(request: SetDataSourceShareRequest, runtime: $Util.RuntimeOptions): Promise<SetDataSourceShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40957,6 +41339,13 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataSourceShareResponse>(await this.callApi(params, req, runtime), new SetDataSourceShareResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SetDataSourceShareRequest
+    * @return SetDataSourceShareResponse
+   */
+  // Deprecated
   async setDataSourceShare(request: SetDataSourceShareRequest): Promise<SetDataSourceShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataSourceShareWithOptions(request, runtime);
@@ -41540,6 +41929,14 @@ export default class Client extends OpenApi {
     return await this.updateBusinessWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConnectionResponse
+   */
+  // Deprecated
   async updateConnectionWithOptions(request: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41580,6 +41977,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConnectionResponse>(await this.callApi(params, req, runtime), new UpdateConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateConnectionRequest
+    * @return UpdateConnectionResponse
+   */
+  // Deprecated
   async updateConnection(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConnectionWithOptions(request, runtime);
