@@ -98,6 +98,129 @@ export class CreateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequest extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  instanceName?: string;
+  networkInfo?: CreateInstanceRequestNetworkInfo;
+  paymentType?: string;
+  period?: number;
+  periodUnit?: string;
+  productInfo?: CreateInstanceRequestProductInfo;
+  remark?: string;
+  resourceGroupId?: string;
+  seriesCode?: string;
+  serviceCode?: string;
+  subSeriesCode?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'autoRenew',
+      autoRenewPeriod: 'autoRenewPeriod',
+      instanceName: 'instanceName',
+      networkInfo: 'networkInfo',
+      paymentType: 'paymentType',
+      period: 'period',
+      periodUnit: 'periodUnit',
+      productInfo: 'productInfo',
+      remark: 'remark',
+      resourceGroupId: 'resourceGroupId',
+      seriesCode: 'seriesCode',
+      serviceCode: 'serviceCode',
+      subSeriesCode: 'subSeriesCode',
+      clientToken: 'clientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      instanceName: 'string',
+      networkInfo: CreateInstanceRequestNetworkInfo,
+      paymentType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      productInfo: CreateInstanceRequestProductInfo,
+      remark: 'string',
+      resourceGroupId: 'string',
+      seriesCode: 'string',
+      serviceCode: 'string',
+      subSeriesCode: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTopicRequest extends $tea.Model {
   messageType?: string;
   remark?: string;
@@ -936,24 +1059,24 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
-  extConfig?: UpdateInstanceRequestExtConfig;
   instanceName?: string;
   networkInfo?: UpdateInstanceRequestNetworkInfo;
+  productInfo?: UpdateInstanceRequestProductInfo;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
-      extConfig: 'extConfig',
       instanceName: 'instanceName',
       networkInfo: 'networkInfo',
+      productInfo: 'productInfo',
       remark: 'remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extConfig: UpdateInstanceRequestExtConfig,
       instanceName: 'string',
       networkInfo: UpdateInstanceRequestNetworkInfo,
+      productInfo: UpdateInstanceRequestProductInfo,
       remark: 'string',
     };
   }
@@ -1134,6 +1257,106 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
+  flowOutBandwidth?: number;
+  flowOutType?: string;
+  internetSpec?: string;
+  ipWhitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      flowOutBandwidth: 'flowOutBandwidth',
+      flowOutType: 'flowOutType',
+      internetSpec: 'internetSpec',
+      ipWhitelist: 'ipWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowOutBandwidth: 'number',
+      flowOutType: 'string',
+      internetSpec: 'string',
+      ipWhitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestNetworkInfo extends $tea.Model {
+  internetInfo?: CreateInstanceRequestNetworkInfoInternetInfo;
+  vpcInfo?: CreateInstanceRequestNetworkInfoVpcInfo;
+  static names(): { [key: string]: string } {
+    return {
+      internetInfo: 'internetInfo',
+      vpcInfo: 'vpcInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetInfo: CreateInstanceRequestNetworkInfoInternetInfo,
+      vpcInfo: CreateInstanceRequestNetworkInfoVpcInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestProductInfo extends $tea.Model {
+  autoScaling?: boolean;
+  messageRetentionTime?: number;
+  msgProcessSpec?: string;
+  sendReceiveRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoScaling: 'autoScaling',
+      messageRetentionTime: 'messageRetentionTime',
+      msgProcessSpec: 'msgProcessSpec',
+      sendReceiveRatio: 'sendReceiveRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoScaling: 'boolean',
+      messageRetentionTime: 'number',
+      msgProcessSpec: 'string',
+      sendReceiveRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $tea.Model {
   maxRetryTimes?: number;
   retryPolicy?: string;
@@ -1210,6 +1433,25 @@ export class GetInstanceResponseBodyDataAccountInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyDataAclInfo extends $tea.Model {
+  aclType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclType: 'aclType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclType: 'string',
     };
   }
 
@@ -1314,6 +1556,34 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model 
   }
 }
 
+export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $tea.Model {
+  flowOutBandwidth?: number;
+  flowOutType?: string;
+  internetSpec?: string;
+  ipWhitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      flowOutBandwidth: 'flowOutBandwidth',
+      flowOutType: 'flowOutType',
+      internetSpec: 'internetSpec',
+      ipWhitelist: 'ipWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowOutBandwidth: 'number',
+      flowOutType: 'string',
+      internetSpec: 'string',
+      ipWhitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
   vSwitchId?: string;
   vpcId?: string;
@@ -1338,10 +1608,12 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
 
 export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
   endpoints?: GetInstanceResponseBodyDataNetworkInfoEndpoints[];
+  internetInfo?: GetInstanceResponseBodyDataNetworkInfoInternetInfo;
   vpcInfo?: GetInstanceResponseBodyDataNetworkInfoVpcInfo;
   static names(): { [key: string]: string } {
     return {
       endpoints: 'endpoints',
+      internetInfo: 'internetInfo',
       vpcInfo: 'vpcInfo',
     };
   }
@@ -1349,7 +1621,39 @@ export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpoints: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataNetworkInfoEndpoints },
+      internetInfo: GetInstanceResponseBodyDataNetworkInfoInternetInfo,
       vpcInfo: GetInstanceResponseBodyDataNetworkInfoVpcInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
+  autoScaling?: boolean;
+  messageRetentionTime?: number;
+  msgProcessSpec?: string;
+  sendReceiveRatio?: number;
+  supportAutoScaling?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoScaling: 'autoScaling',
+      messageRetentionTime: 'messageRetentionTime',
+      msgProcessSpec: 'msgProcessSpec',
+      sendReceiveRatio: 'sendReceiveRatio',
+      supportAutoScaling: 'supportAutoScaling',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoScaling: 'boolean',
+      messageRetentionTime: 'number',
+      msgProcessSpec: 'string',
+      sendReceiveRatio: 'number',
+      supportAutoScaling: 'boolean',
     };
   }
 
@@ -1360,51 +1664,53 @@ export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
 
 export class GetInstanceResponseBodyData extends $tea.Model {
   accountInfo?: GetInstanceResponseBodyDataAccountInfo;
+  aclInfo?: GetInstanceResponseBodyDataAclInfo;
   bid?: string;
   commodityCode?: string;
   createTime?: string;
   expireTime?: string;
   extConfig?: GetInstanceResponseBodyDataExtConfig;
-  groupCount?: number;
   instanceId?: string;
   instanceName?: string;
   instanceQuotas?: GetInstanceResponseBodyDataInstanceQuotas[];
   networkInfo?: GetInstanceResponseBodyDataNetworkInfo;
   paymentType?: string;
+  productInfo?: GetInstanceResponseBodyDataProductInfo;
   regionId?: string;
   releaseTime?: string;
   remark?: string;
+  resourceGroupId?: string;
   seriesCode?: string;
   serviceCode?: string;
   startTime?: string;
   status?: string;
   subSeriesCode?: string;
-  topicCount?: number;
   updateTime?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       accountInfo: 'accountInfo',
+      aclInfo: 'aclInfo',
       bid: 'bid',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
       expireTime: 'expireTime',
       extConfig: 'extConfig',
-      groupCount: 'groupCount',
       instanceId: 'instanceId',
       instanceName: 'instanceName',
       instanceQuotas: 'instanceQuotas',
       networkInfo: 'networkInfo',
       paymentType: 'paymentType',
+      productInfo: 'productInfo',
       regionId: 'regionId',
       releaseTime: 'releaseTime',
       remark: 'remark',
+      resourceGroupId: 'resourceGroupId',
       seriesCode: 'seriesCode',
       serviceCode: 'serviceCode',
       startTime: 'startTime',
       status: 'status',
       subSeriesCode: 'subSeriesCode',
-      topicCount: 'topicCount',
       updateTime: 'updateTime',
       userId: 'userId',
     };
@@ -1413,26 +1719,27 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountInfo: GetInstanceResponseBodyDataAccountInfo,
+      aclInfo: GetInstanceResponseBodyDataAclInfo,
       bid: 'string',
       commodityCode: 'string',
       createTime: 'string',
       expireTime: 'string',
       extConfig: GetInstanceResponseBodyDataExtConfig,
-      groupCount: 'number',
       instanceId: 'string',
       instanceName: 'string',
       instanceQuotas: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataInstanceQuotas },
       networkInfo: GetInstanceResponseBodyDataNetworkInfo,
       paymentType: 'string',
+      productInfo: GetInstanceResponseBodyDataProductInfo,
       regionId: 'string',
       releaseTime: 'string',
       remark: 'string',
+      resourceGroupId: 'string',
       seriesCode: 'string',
       serviceCode: 'string',
       startTime: 'string',
       status: 'string',
       subSeriesCode: 'string',
-      topicCount: 'number',
       updateTime: 'string',
       userId: 'string',
     };
@@ -1736,7 +2043,45 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
   }
 }
 
-export class UpdateInstanceRequestExtConfig extends $tea.Model {
+export class UpdateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
+  ipWhitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelist: 'ipWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestNetworkInfo extends $tea.Model {
+  internetInfo?: UpdateInstanceRequestNetworkInfoInternetInfo;
+  static names(): { [key: string]: string } {
+    return {
+      internetInfo: 'internetInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetInfo: UpdateInstanceRequestNetworkInfoInternetInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestProductInfo extends $tea.Model {
   autoScaling?: boolean;
   messageRetentionTime?: number;
   sendReceiveRatio?: number;
@@ -1753,47 +2098,6 @@ export class UpdateInstanceRequestExtConfig extends $tea.Model {
       autoScaling: 'boolean',
       messageRetentionTime: 'number',
       sendReceiveRatio: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestNetworkInfoEndpoints extends $tea.Model {
-  endpointType?: string;
-  ipWhitelist?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpointType: 'endpointType',
-      ipWhitelist: 'ipWhitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpointType: 'string',
-      ipWhitelist: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestNetworkInfo extends $tea.Model {
-  endpoints?: UpdateInstanceRequestNetworkInfoEndpoints[];
-  static names(): { [key: string]: string } {
-    return {
-      endpoints: 'endpoints',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoints: { 'type': 'array', 'itemType': UpdateInstanceRequestNetworkInfoEndpoints },
     };
   }
 
@@ -1825,16 +2129,10 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createConsumerGroup(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
-  }
-
   async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.consumeRetryPolicy))) {
+    if (!Util.isUnset(request.consumeRetryPolicy)) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
     }
 
@@ -1864,10 +2162,95 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
 
-  async createTopic(instanceId: string, topicName: string, request: CreateTopicRequest): Promise<CreateTopicResponse> {
+  async createConsumerGroup(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTopicWithOptions(instanceId, topicName, request, headers, runtime);
+    return await this.createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+  }
+
+  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoRenew)) {
+      body["autoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewPeriod)) {
+      body["autoRenewPeriod"] = request.autoRenewPeriod;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["instanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.networkInfo)) {
+      body["networkInfo"] = request.networkInfo;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["paymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      body["period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      body["periodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.productInfo)) {
+      body["productInfo"] = request.productInfo;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.seriesCode)) {
+      body["seriesCode"] = request.seriesCode;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["serviceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.subSeriesCode)) {
+      body["subSeriesCode"] = request.subSeriesCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstance",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+  }
+
+  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
   async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
@@ -1899,10 +2282,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
   }
 
-  async deleteConsumerGroup(instanceId: string, consumerGroupId: string): Promise<DeleteConsumerGroupResponse> {
+  async createTopic(instanceId: string, topicName: string, request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
+    return await this.createTopicWithOptions(instanceId, topicName, request, headers, runtime);
   }
 
   async deleteConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
@@ -1923,10 +2306,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
-  async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
+  async deleteConsumerGroup(instanceId: string, consumerGroupId: string): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
+    return await this.deleteConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
 
   async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
@@ -1947,10 +2330,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
-  async deleteTopic(instanceId: string, topicName: string): Promise<DeleteTopicResponse> {
+  async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTopicWithOptions(instanceId, topicName, headers, runtime);
+    return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
   }
 
   async deleteTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
@@ -1971,10 +2354,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTopicResponse>(await this.callApi(params, req, runtime), new DeleteTopicResponse({}));
   }
 
-  async getConsumerGroup(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupResponse> {
+  async deleteTopic(instanceId: string, topicName: string): Promise<DeleteTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
+    return await this.deleteTopicWithOptions(instanceId, topicName, headers, runtime);
   }
 
   async getConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupResponse> {
@@ -1995,10 +2378,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConsumerGroupResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupResponse({}));
   }
 
-  async getInstance(instanceId: string): Promise<GetInstanceResponse> {
+  async getConsumerGroup(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceWithOptions(instanceId, headers, runtime);
+    return await this.getConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
 
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
@@ -2019,10 +2402,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
-  async getTopic(instanceId: string, topicName: string): Promise<GetTopicResponse> {
+  async getInstance(instanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTopicWithOptions(instanceId, topicName, headers, runtime);
+    return await this.getInstanceWithOptions(instanceId, headers, runtime);
   }
 
   async getTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
@@ -2043,10 +2426,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicResponse>(await this.callApi(params, req, runtime), new GetTopicResponse({}));
   }
 
-  async listConsumerGroups(instanceId: string, request: ListConsumerGroupsRequest): Promise<ListConsumerGroupsResponse> {
+  async getTopic(instanceId: string, topicName: string): Promise<GetTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
+    return await this.getTopicWithOptions(instanceId, topicName, headers, runtime);
   }
 
   async listConsumerGroupsWithOptions(instanceId: string, request: ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupsResponse> {
@@ -2082,10 +2465,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerGroupsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupsResponse({}));
   }
 
-  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
+  async listConsumerGroups(instanceId: string, request: ListConsumerGroupsRequest): Promise<ListConsumerGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInstancesWithOptions(request, headers, runtime);
+    return await this.listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
   }
 
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
@@ -2121,10 +2504,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
-  async listTopics(instanceId: string, request: ListTopicsRequest): Promise<ListTopicsResponse> {
+  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTopicsWithOptions(instanceId, request, headers, runtime);
+    return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
   async listTopicsWithOptions(instanceId: string, request: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
@@ -2160,16 +2543,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTopicsResponse>(await this.callApi(params, req, runtime), new ListTopicsResponse({}));
   }
 
-  async updateConsumerGroup(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
+  async listTopics(instanceId: string, request: ListTopicsRequest): Promise<ListTopicsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+    return await this.listTopicsWithOptions(instanceId, request, headers, runtime);
   }
 
   async updateConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.consumeRetryPolicy))) {
+    if (!Util.isUnset(request.consumeRetryPolicy)) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
     }
 
@@ -2199,25 +2582,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerGroupResponse>(await this.callApi(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
 
-  async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
+  async updateConsumerGroup(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateInstanceWithOptions(instanceId, request, headers, runtime);
+    return await this.updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
 
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.extConfig))) {
-      body["extConfig"] = request.extConfig;
-    }
-
     if (!Util.isUnset(request.instanceName)) {
       body["instanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.networkInfo))) {
+    if (!Util.isUnset(request.networkInfo)) {
       body["networkInfo"] = request.networkInfo;
+    }
+
+    if (!Util.isUnset(request.productInfo)) {
+      body["productInfo"] = request.productInfo;
     }
 
     if (!Util.isUnset(request.remark)) {
@@ -2242,10 +2625,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
-  async updateTopic(instanceId: string, topicName: string, request: UpdateTopicRequest): Promise<UpdateTopicResponse> {
+  async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
+    return await this.updateInstanceWithOptions(instanceId, request, headers, runtime);
   }
 
   async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTopicResponse> {
@@ -2271,6 +2654,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateTopicResponse>(await this.callApi(params, req, runtime), new UpdateTopicResponse({}));
+  }
+
+  async updateTopic(instanceId: string, topicName: string, request: UpdateTopicRequest): Promise<UpdateTopicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
   }
 
 }
