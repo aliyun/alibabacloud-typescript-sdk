@@ -2452,6 +2452,103 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
   }
 }
 
+export class CompareImageFacesRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  projectName?: string;
+  source?: CompareImageFacesRequestSource;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      projectName: 'ProjectName',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      projectName: 'string',
+      source: CompareImageFacesRequestSource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareImageFacesShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  projectName?: string;
+  sourceShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      projectName: 'ProjectName',
+      sourceShrink: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      projectName: 'string',
+      sourceShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareImageFacesResponseBody extends $tea.Model {
+  requestId?: string;
+  similarity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      similarity: 'Similarity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      similarity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareImageFacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CompareImageFacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompareImageFacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyTopicName?: string;
@@ -3129,6 +3226,130 @@ export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDetectVideoLabelsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFacesSearchingTaskRequest extends $tea.Model {
+  datasetName?: string;
+  maxResult?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  sources?: CreateFacesSearchingTaskRequestSources[];
+  topK?: number;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxResult: 'MaxResult',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sources: 'Sources',
+      topK: 'TopK',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxResult: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sources: { 'type': 'array', 'itemType': CreateFacesSearchingTaskRequestSources },
+      topK: 'number',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  maxResult?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourcesShrink?: string;
+  topK?: number;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxResult: 'MaxResult',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourcesShrink: 'Sources',
+      topK: 'TopK',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxResult: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourcesShrink: 'string',
+      topK: 'number',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFacesSearchingTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFacesSearchingTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFacesSearchingTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFacesSearchingTaskResponseBody,
     };
   }
 
@@ -4684,6 +4905,118 @@ export class CreateProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusteringTaskRequest extends $tea.Model {
+  datasetName?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusteringTaskShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusteringTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSimilarImageClusteringTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSimilarImageClusteringTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSimilarImageClusteringTaskResponseBody,
     };
   }
 
@@ -6743,6 +7076,187 @@ export class GenerateVideoPlaylistResponse extends $tea.Model {
   }
 }
 
+export class GenerateWebofficeTokenRequest extends $tea.Model {
+  cachePreview?: boolean;
+  credentialConfig?: CredentialConfig;
+  externalUploaded?: boolean;
+  filename?: string;
+  hidecmb?: boolean;
+  notifyTopicName?: string;
+  password?: string;
+  permission?: WebofficePermission;
+  previewPages?: number;
+  projectName?: string;
+  referer?: string;
+  sourceURI?: string;
+  user?: WebofficeUser;
+  userData?: string;
+  watermark?: WebofficeWatermark;
+  static names(): { [key: string]: string } {
+    return {
+      cachePreview: 'CachePreview',
+      credentialConfig: 'CredentialConfig',
+      externalUploaded: 'ExternalUploaded',
+      filename: 'Filename',
+      hidecmb: 'Hidecmb',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      permission: 'Permission',
+      previewPages: 'PreviewPages',
+      projectName: 'ProjectName',
+      referer: 'Referer',
+      sourceURI: 'SourceURI',
+      user: 'User',
+      userData: 'UserData',
+      watermark: 'Watermark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cachePreview: 'boolean',
+      credentialConfig: CredentialConfig,
+      externalUploaded: 'boolean',
+      filename: 'string',
+      hidecmb: 'boolean',
+      notifyTopicName: 'string',
+      password: 'string',
+      permission: WebofficePermission,
+      previewPages: 'number',
+      projectName: 'string',
+      referer: 'string',
+      sourceURI: 'string',
+      user: WebofficeUser,
+      userData: 'string',
+      watermark: WebofficeWatermark,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
+  cachePreview?: boolean;
+  credentialConfigShrink?: string;
+  externalUploaded?: boolean;
+  filename?: string;
+  hidecmb?: boolean;
+  notifyTopicName?: string;
+  password?: string;
+  permissionShrink?: string;
+  previewPages?: number;
+  projectName?: string;
+  referer?: string;
+  sourceURI?: string;
+  userShrink?: string;
+  userData?: string;
+  watermarkShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cachePreview: 'CachePreview',
+      credentialConfigShrink: 'CredentialConfig',
+      externalUploaded: 'ExternalUploaded',
+      filename: 'Filename',
+      hidecmb: 'Hidecmb',
+      notifyTopicName: 'NotifyTopicName',
+      password: 'Password',
+      permissionShrink: 'Permission',
+      previewPages: 'PreviewPages',
+      projectName: 'ProjectName',
+      referer: 'Referer',
+      sourceURI: 'SourceURI',
+      userShrink: 'User',
+      userData: 'UserData',
+      watermarkShrink: 'Watermark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cachePreview: 'boolean',
+      credentialConfigShrink: 'string',
+      externalUploaded: 'boolean',
+      filename: 'string',
+      hidecmb: 'boolean',
+      notifyTopicName: 'string',
+      password: 'string',
+      permissionShrink: 'string',
+      previewPages: 'number',
+      projectName: 'string',
+      referer: 'string',
+      sourceURI: 'string',
+      userShrink: 'string',
+      userData: 'string',
+      watermarkShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateWebofficeTokenResponseBody extends $tea.Model {
+  accessToken?: string;
+  accessTokenExpiredTime?: string;
+  refreshToken?: string;
+  refreshTokenExpiredTime?: string;
+  requestId?: string;
+  webofficeURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshToken: 'RefreshToken',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+      requestId: 'RequestId',
+      webofficeURL: 'WebofficeURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshToken: 'string',
+      refreshTokenExpiredTime: 'string',
+      requestId: 'string',
+      webofficeURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateWebofficeTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateWebofficeTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateWebofficeTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBindingRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -8593,6 +9107,90 @@ export class QueryLocationDateClustersResponse extends $tea.Model {
   }
 }
 
+export class QuerySimilarImageClustersRequest extends $tea.Model {
+  customLabels?: string;
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  projectName?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customLabels: 'string',
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      projectName: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySimilarImageClustersResponseBody extends $tea.Model {
+  locationDateClusters?: LocationDateCluster[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      locationDateClusters: 'LocationDateClusters',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      locationDateClusters: { 'type': 'array', 'itemType': LocationDateCluster },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySimilarImageClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySimilarImageClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySimilarImageClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryStoriesRequest extends $tea.Model {
   createTimeRange?: TimeRange;
   customLabels?: string;
@@ -9044,6 +9642,109 @@ export class ResumeBindingResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResumeBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchImageFigureClusterRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  datasetName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      datasetName: 'DatasetName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      datasetName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  datasetName?: string;
+  projectName?: string;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      datasetName: 'DatasetName',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      datasetName: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchImageFigureClusterResponseBody extends $tea.Model {
+  clusters?: SearchImageFigureClusterResponseBodyClusters[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'Clusters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': SearchImageFigureClusterResponseBodyClusters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchImageFigureClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchImageFigureClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchImageFigureClusterResponseBody,
     };
   }
 
@@ -10214,6 +10915,28 @@ export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
   }
 }
 
+export class CompareImageFacesRequestSource extends $tea.Model {
+  URI1?: string;
+  URI2?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URI1: 'URI1',
+      URI2: 'URI2',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI1: 'string',
+      URI2: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomizedStoryRequestCover extends $tea.Model {
   URI?: string;
   static names(): { [key: string]: string } {
@@ -10234,6 +10957,25 @@ export class CreateCustomizedStoryRequestCover extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequestFiles extends $tea.Model {
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11405,6 +12147,31 @@ export class RemoveStoryFilesRequestFiles extends $tea.Model {
   }
 }
 
+export class SearchImageFigureClusterResponseBodyClusters extends $tea.Model {
+  boundary?: Boundary;
+  clusterId?: string;
+  similarity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boundary: 'Boundary',
+      clusterId: 'ClusterId',
+      similarity: 'Similarity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boundary: Boundary,
+      clusterId: 'string',
+      similarity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SimpleQueryRequestAggregations extends $tea.Model {
   field?: string;
   operation?: string;
@@ -11841,6 +12608,53 @@ export default class Client extends OpenApi {
     return await this.batchUpdateFileMetaWithOptions(request, runtime);
   }
 
+  async compareImageFacesWithOptions(tmpReq: CompareImageFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareImageFacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CompareImageFacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.source)) {
+      request.sourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.source, "Source", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceShrink)) {
+      query["Source"] = request.sourceShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CompareImageFaces",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompareImageFacesResponse>(await this.callApi(params, req, runtime), new CompareImageFacesResponse({}));
+  }
+
+  async compareImageFaces(request: CompareImageFacesRequest): Promise<CompareImageFacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.compareImageFacesWithOptions(request, runtime);
+  }
+
   async createArchiveFileInspectionTaskWithOptions(tmpReq: CreateArchiveFileInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateArchiveFileInspectionTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateArchiveFileInspectionTaskShrinkRequest({ });
@@ -12236,6 +13050,65 @@ export default class Client extends OpenApi {
   async createDetectVideoLabelsTask(request: CreateDetectVideoLabelsTaskRequest): Promise<CreateDetectVideoLabelsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
+  }
+
+  async createFacesSearchingTaskWithOptions(tmpReq: CreateFacesSearchingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFacesSearchingTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateFacesSearchingTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFacesSearchingTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFacesSearchingTaskResponse>(await this.callApi(params, req, runtime), new CreateFacesSearchingTaskResponse({}));
+  }
+
+  async createFacesSearchingTask(request: CreateFacesSearchingTaskRequest): Promise<CreateFacesSearchingTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFacesSearchingTaskWithOptions(request, runtime);
   }
 
   async createFigureClusteringTaskWithOptions(tmpReq: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
@@ -13107,6 +13980,57 @@ export default class Client extends OpenApi {
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
+  }
+
+  async createSimilarImageClusteringTaskWithOptions(tmpReq: CreateSimilarImageClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusteringTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSimilarImageClusteringTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSimilarImageClusteringTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSimilarImageClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateSimilarImageClusteringTaskResponse({}));
+  }
+
+  async createSimilarImageClusteringTask(request: CreateSimilarImageClusteringTaskRequest): Promise<CreateSimilarImageClusteringTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSimilarImageClusteringTaskWithOptions(request, runtime);
   }
 
   async createStoryWithOptions(tmpReq: CreateStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
@@ -14120,6 +15044,109 @@ export default class Client extends OpenApi {
     return await this.generateVideoPlaylistWithOptions(request, runtime);
   }
 
+  async generateWebofficeTokenWithOptions(tmpReq: GenerateWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebofficeTokenResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GenerateWebofficeTokenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.permission)) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.watermark)) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermark, "Watermark", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.cachePreview)) {
+      query["CachePreview"] = request.cachePreview;
+    }
+
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.externalUploaded)) {
+      query["ExternalUploaded"] = request.externalUploaded;
+    }
+
+    if (!Util.isUnset(request.filename)) {
+      query["Filename"] = request.filename;
+    }
+
+    if (!Util.isUnset(request.hidecmb)) {
+      query["Hidecmb"] = request.hidecmb;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.permissionShrink)) {
+      query["Permission"] = request.permissionShrink;
+    }
+
+    if (!Util.isUnset(request.previewPages)) {
+      query["PreviewPages"] = request.previewPages;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.referer)) {
+      query["Referer"] = request.referer;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.userShrink)) {
+      query["User"] = request.userShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.watermarkShrink)) {
+      query["Watermark"] = request.watermarkShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateWebofficeToken",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateWebofficeTokenResponse>(await this.callApi(params, req, runtime), new GenerateWebofficeTokenResponse({}));
+  }
+
+  async generateWebofficeToken(request: GenerateWebofficeTokenRequest): Promise<GenerateWebofficeTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateWebofficeTokenWithOptions(request, runtime);
+  }
+
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15053,6 +16080,55 @@ export default class Client extends OpenApi {
     return await this.queryLocationDateClustersWithOptions(request, runtime);
   }
 
+  async querySimilarImageClustersWithOptions(request: QuerySimilarImageClustersRequest, runtime: $Util.RuntimeOptions): Promise<QuerySimilarImageClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customLabels)) {
+      query["CustomLabels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySimilarImageClusters",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySimilarImageClustersResponse>(await this.callApi(params, req, runtime), new QuerySimilarImageClustersResponse({}));
+  }
+
+  async querySimilarImageClusters(request: QuerySimilarImageClustersRequest): Promise<QuerySimilarImageClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySimilarImageClustersWithOptions(request, runtime);
+  }
+
   async queryStoriesWithOptions(tmpReq: QueryStoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryStoriesResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryStoriesShrinkRequest({ });
@@ -15289,6 +16365,53 @@ export default class Client extends OpenApi {
   async resumeBinding(request: ResumeBindingRequest): Promise<ResumeBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeBindingWithOptions(request, runtime);
+  }
+
+  async searchImageFigureClusterWithOptions(tmpReq: SearchImageFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<SearchImageFigureClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SearchImageFigureClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchImageFigureCluster",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchImageFigureClusterResponse>(await this.callApi(params, req, runtime), new SearchImageFigureClusterResponse({}));
+  }
+
+  async searchImageFigureCluster(request: SearchImageFigureClusterRequest): Promise<SearchImageFigureClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchImageFigureClusterWithOptions(request, runtime);
   }
 
   async semanticQueryWithOptions(request: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
