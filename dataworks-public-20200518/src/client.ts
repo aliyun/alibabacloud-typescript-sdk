@@ -165,6 +165,87 @@ export class AbolishDataServiceApiResponse extends $tea.Model {
   }
 }
 
+export class AddMetaCollectionEntityRequest extends $tea.Model {
+  collectionQualifiedName?: string;
+  entityQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionQualifiedName: 'CollectionQualifiedName',
+      entityQualifiedName: 'EntityQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionQualifiedName: 'string',
+      entityQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMetaCollectionEntityResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  status?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      status: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMetaCollectionEntityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddMetaCollectionEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMetaCollectionEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddProjectMemberToRoleRequest extends $tea.Model {
   clientToken?: string;
   projectId?: number;
@@ -2371,6 +2452,93 @@ export class CreateMetaCategoryResponse extends $tea.Model {
   }
 }
 
+export class CreateMetaCollectionRequest extends $tea.Model {
+  collectionType?: string;
+  comment?: string;
+  name?: string;
+  parentQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionType: 'CollectionType',
+      comment: 'Comment',
+      name: 'Name',
+      parentQualifiedName: 'ParentQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionType: 'string',
+      comment: 'string',
+      name: 'string',
+      parentQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetaCollectionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: string;
+  qualifiedName?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      qualifiedName: 'QualifiedName',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'string',
+      qualifiedName: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetaCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMetaCollectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePermissionApplyOrderRequest extends $tea.Model {
   applyObject?: CreatePermissionApplyOrderRequestApplyObject[];
   applyReason?: string;
@@ -4328,6 +4496,165 @@ export class DeleteMetaCategoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMetaCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionRequest extends $tea.Model {
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  status?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      status: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMetaCollectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionEntityRequest extends $tea.Model {
+  collectionQualifiedName?: string;
+  entityQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionQualifiedName: 'CollectionQualifiedName',
+      entityQualifiedName: 'EntityQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionQualifiedName: 'string',
+      entityQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionEntityResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  status?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      status: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionEntityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMetaCollectionEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMetaCollectionEntityResponseBody,
     };
   }
 
@@ -8107,6 +8434,84 @@ export class GetMetaCategoryResponse extends $tea.Model {
   }
 }
 
+export class GetMetaCollectionDetailRequest extends $tea.Model {
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaCollectionDetailResponseBody extends $tea.Model {
+  collection?: Collection;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: Collection,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaCollectionDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMetaCollectionDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetaCollectionDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMetaColumnLineageRequest extends $tea.Model {
   clusterId?: string;
   columnGuid?: string;
@@ -9234,6 +9639,99 @@ export class GetMetaTablePartitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMetaTablePartitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableProducingTasksRequest extends $tea.Model {
+  clusterId?: string;
+  dataSourceType?: string;
+  dbName?: string;
+  schemaName?: string;
+  tableGuid?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataSourceType: 'DataSourceType',
+      dbName: 'DbName',
+      schemaName: 'SchemaName',
+      tableGuid: 'TableGuid',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataSourceType: 'string',
+      dbName: 'string',
+      schemaName: 'string',
+      tableGuid: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableProducingTasksResponseBody extends $tea.Model {
+  data?: GetMetaTableProducingTasksResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetMetaTableProducingTasksResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableProducingTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMetaTableProducingTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetaTableProducingTasksResponseBody,
     };
   }
 
@@ -13716,6 +14214,198 @@ export class ListManualDagInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListManualDagInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionEntitiesRequest extends $tea.Model {
+  collectionQualifiedName?: string;
+  entityType?: string;
+  keyword?: string;
+  nextToken?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      collectionQualifiedName: 'CollectionQualifiedName',
+      entityType: 'EntityType',
+      keyword: 'Keyword',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionQualifiedName: 'string',
+      entityType: 'string',
+      keyword: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionEntitiesResponseBody extends $tea.Model {
+  data?: ListMetaCollectionEntitiesResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListMetaCollectionEntitiesResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionEntitiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMetaCollectionEntitiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetaCollectionEntitiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsRequest extends $tea.Model {
+  administrator?: string;
+  collectionType?: string;
+  creator?: string;
+  follower?: string;
+  keyword?: string;
+  nextToken?: string;
+  orderBy?: string;
+  pageSize?: number;
+  parentQualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrator: 'Administrator',
+      collectionType: 'CollectionType',
+      creator: 'Creator',
+      follower: 'Follower',
+      keyword: 'Keyword',
+      nextToken: 'NextToken',
+      orderBy: 'OrderBy',
+      pageSize: 'PageSize',
+      parentQualifiedName: 'ParentQualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrator: 'string',
+      collectionType: 'string',
+      creator: 'string',
+      follower: 'string',
+      keyword: 'string',
+      nextToken: 'string',
+      orderBy: 'string',
+      pageSize: 'number',
+      parentQualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponseBody extends $tea.Model {
+  data?: ListMetaCollectionsResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListMetaCollectionsResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMetaCollectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetaCollectionsResponseBody,
     };
   }
 
@@ -19257,6 +19947,90 @@ export class UpdateMetaCategoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMetaCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionRequest extends $tea.Model {
+  comment?: string;
+  name?: string;
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  status?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      status: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMetaCollectionResponseBody,
     };
   }
 
@@ -25010,6 +25784,28 @@ export class GetMetaTablePartitionResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetMetaTableProducingTasksResponseBodyData extends $tea.Model {
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $tea.Model {
   description?: string;
   levelId?: number;
@@ -29684,6 +30480,50 @@ export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
   }
 }
 
+export class ListMetaCollectionEntitiesResponseBodyData extends $tea.Model {
+  entityList?: Entity[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityList: 'EntityList',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityList: { 'type': 'array', 'itemType': Entity },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponseBodyData extends $tea.Model {
+  collectionList?: Collection[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionList: 'CollectionList',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionList: { 'type': 'array', 'itemType': Collection },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMetaDBResponseBodyDatabaseInfoDbList extends $tea.Model {
   createTimeStamp?: number;
   location?: string;
@@ -32511,6 +33351,39 @@ export default class Client extends OpenApi {
     return await this.abolishDataServiceApiWithOptions(request, runtime);
   }
 
+  async addMetaCollectionEntityWithOptions(request: AddMetaCollectionEntityRequest, runtime: $Util.RuntimeOptions): Promise<AddMetaCollectionEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collectionQualifiedName)) {
+      query["CollectionQualifiedName"] = request.collectionQualifiedName;
+    }
+
+    if (!Util.isUnset(request.entityQualifiedName)) {
+      query["EntityQualifiedName"] = request.entityQualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMetaCollectionEntity",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMetaCollectionEntityResponse>(await this.callApi(params, req, runtime), new AddMetaCollectionEntityResponse({}));
+  }
+
+  async addMetaCollectionEntity(request: AddMetaCollectionEntityRequest): Promise<AddMetaCollectionEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMetaCollectionEntityWithOptions(request, runtime);
+  }
+
   async addProjectMemberToRoleWithOptions(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33905,6 +34778,47 @@ export default class Client extends OpenApi {
     return await this.createMetaCategoryWithOptions(request, runtime);
   }
 
+  async createMetaCollectionWithOptions(request: CreateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collectionType)) {
+      query["CollectionType"] = request.collectionType;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentQualifiedName)) {
+      query["ParentQualifiedName"] = request.parentQualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMetaCollection",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMetaCollectionResponse>(await this.callApi(params, req, runtime), new CreateMetaCollectionResponse({}));
+  }
+
+  async createMetaCollection(request: CreateMetaCollectionRequest): Promise<CreateMetaCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createMetaCollectionWithOptions(request, runtime);
+  }
+
   async createPermissionApplyOrderWithOptions(request: CreatePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePermissionApplyOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34982,6 +35896,68 @@ export default class Client extends OpenApi {
   async deleteMetaCategory(request: DeleteMetaCategoryRequest): Promise<DeleteMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMetaCategoryWithOptions(request, runtime);
+  }
+
+  async deleteMetaCollectionWithOptions(request: DeleteMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMetaCollection",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMetaCollectionResponse>(await this.callApi(params, req, runtime), new DeleteMetaCollectionResponse({}));
+  }
+
+  async deleteMetaCollection(request: DeleteMetaCollectionRequest): Promise<DeleteMetaCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMetaCollectionWithOptions(request, runtime);
+  }
+
+  async deleteMetaCollectionEntityWithOptions(request: DeleteMetaCollectionEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCollectionEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collectionQualifiedName)) {
+      query["CollectionQualifiedName"] = request.collectionQualifiedName;
+    }
+
+    if (!Util.isUnset(request.entityQualifiedName)) {
+      query["EntityQualifiedName"] = request.entityQualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMetaCollectionEntity",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMetaCollectionEntityResponse>(await this.callApi(params, req, runtime), new DeleteMetaCollectionEntityResponse({}));
+  }
+
+  async deleteMetaCollectionEntity(request: DeleteMetaCollectionEntityRequest): Promise<DeleteMetaCollectionEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMetaCollectionEntityWithOptions(request, runtime);
   }
 
   async deleteProjectMemberWithOptions(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
@@ -36795,6 +37771,35 @@ export default class Client extends OpenApi {
     return await this.getMetaCategoryWithOptions(request, runtime);
   }
 
+  async getMetaCollectionDetailWithOptions(request: GetMetaCollectionDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCollectionDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMetaCollectionDetail",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMetaCollectionDetailResponse>(await this.callApi(params, req, runtime), new GetMetaCollectionDetailResponse({}));
+  }
+
+  async getMetaCollectionDetail(request: GetMetaCollectionDetailRequest): Promise<GetMetaCollectionDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMetaCollectionDetailWithOptions(request, runtime);
+  }
+
   async getMetaColumnLineageWithOptions(request: GetMetaColumnLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaColumnLineageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37296,6 +38301,55 @@ export default class Client extends OpenApi {
   async getMetaTablePartition(request: GetMetaTablePartitionRequest): Promise<GetMetaTablePartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTablePartitionWithOptions(request, runtime);
+  }
+
+  async getMetaTableProducingTasksWithOptions(request: GetMetaTableProducingTasksRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableProducingTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMetaTableProducingTasks",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMetaTableProducingTasksResponse>(await this.callApi(params, req, runtime), new GetMetaTableProducingTasksResponse({}));
+  }
+
+  async getMetaTableProducingTasks(request: GetMetaTableProducingTasksRequest): Promise<GetMetaTableProducingTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMetaTableProducingTasksWithOptions(request, runtime);
   }
 
   async getMetaTableThemeLevelWithOptions(request: GetMetaTableThemeLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableThemeLevelResponse> {
@@ -39530,6 +40584,112 @@ export default class Client extends OpenApi {
   async listManualDagInstances(request: ListManualDagInstancesRequest): Promise<ListManualDagInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listManualDagInstancesWithOptions(request, runtime);
+  }
+
+  async listMetaCollectionEntitiesWithOptions(request: ListMetaCollectionEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaCollectionEntitiesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.collectionQualifiedName)) {
+      query["CollectionQualifiedName"] = request.collectionQualifiedName;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMetaCollectionEntities",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMetaCollectionEntitiesResponse>(await this.callApi(params, req, runtime), new ListMetaCollectionEntitiesResponse({}));
+  }
+
+  async listMetaCollectionEntities(request: ListMetaCollectionEntitiesRequest): Promise<ListMetaCollectionEntitiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMetaCollectionEntitiesWithOptions(request, runtime);
+  }
+
+  async listMetaCollectionsWithOptions(request: ListMetaCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaCollectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.administrator)) {
+      query["Administrator"] = request.administrator;
+    }
+
+    if (!Util.isUnset(request.collectionType)) {
+      query["CollectionType"] = request.collectionType;
+    }
+
+    if (!Util.isUnset(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.follower)) {
+      query["Follower"] = request.follower;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentQualifiedName)) {
+      query["ParentQualifiedName"] = request.parentQualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMetaCollections",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMetaCollectionsResponse>(await this.callApi(params, req, runtime), new ListMetaCollectionsResponse({}));
+  }
+
+  async listMetaCollections(request: ListMetaCollectionsRequest): Promise<ListMetaCollectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMetaCollectionsWithOptions(request, runtime);
   }
 
   async listMetaDBWithOptions(request: ListMetaDBRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaDBResponse> {
@@ -42455,6 +43615,43 @@ export default class Client extends OpenApi {
   async updateMetaCategory(request: UpdateMetaCategoryRequest): Promise<UpdateMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaCategoryWithOptions(request, runtime);
+  }
+
+  async updateMetaCollectionWithOptions(request: UpdateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCollectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.qualifiedName)) {
+      query["QualifiedName"] = request.qualifiedName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMetaCollection",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMetaCollectionResponse>(await this.callApi(params, req, runtime), new UpdateMetaCollectionResponse({}));
+  }
+
+  async updateMetaCollection(request: UpdateMetaCollectionRequest): Promise<UpdateMetaCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMetaCollectionWithOptions(request, runtime);
   }
 
   async updateMetaTableWithOptions(request: UpdateMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableResponse> {
