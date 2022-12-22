@@ -3042,7 +3042,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
   proto?: string;
   release?: string;
   source?: string;
-  sourceIp?: string;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3061,7 +3060,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       proto: 'Proto',
       release: 'Release',
       source: 'Source',
-      sourceIp: 'SourceIp',
       sourceType: 'SourceType',
     };
   }
@@ -3083,7 +3081,6 @@ export class ModifyControlPolicyRequest extends $tea.Model {
       proto: 'string',
       release: 'string',
       source: 'string',
-      sourceIp: 'string',
       sourceType: 'string',
     };
   }
@@ -6194,6 +6191,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddAddressBookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddAddressBookResponse
+   */
   async addAddressBookWithOptions(request: AddAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<AddAddressBookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6250,11 +6256,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAddressBookResponse>(await this.callApi(params, req, runtime), new AddAddressBookResponse({}));
   }
 
+  /**
+    * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddAddressBookRequest
+    * @return AddAddressBookResponse
+   */
   async addAddressBook(request: AddAddressBookRequest): Promise<AddAddressBookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAddressBookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the AddControlPolicy operation to create an access control policy to allow, deny, or monitor traffic that passes through Cloud Firewall.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddControlPolicyResponse
+   */
   async addControlPolicyWithOptions(request: AddControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AddControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6347,11 +6370,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddControlPolicyResponse>(await this.callApi(params, req, runtime), new AddControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the AddControlPolicy operation to create an access control policy to allow, deny, or monitor traffic that passes through Cloud Firewall.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddControlPolicyRequest
+    * @return AddControlPolicyResponse
+   */
   async addControlPolicy(request: AddControlPolicyRequest): Promise<AddControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the AddInstanceMembers operation to add members to Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddInstanceMembersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddInstanceMembersResponse
+   */
   async addInstanceMembersWithOptions(request: AddInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<AddInstanceMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6376,11 +6416,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AddInstanceMembersResponse>(await this.callApi(params, req, runtime), new AddInstanceMembersResponse({}));
   }
 
+  /**
+    * You can call the AddInstanceMembers operation to add members to Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddInstanceMembersRequest
+    * @return AddInstanceMembersResponse
+   */
   async addInstanceMembers(request: AddInstanceMembersRequest): Promise<AddInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addInstanceMembersWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.  
+    * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).  
+    * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.  
+    * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request BatchCopyVpcFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchCopyVpcFirewallControlPolicyResponse
+   */
   async batchCopyVpcFirewallControlPolicyWithOptions(request: BatchCopyVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<BatchCopyVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6417,11 +6477,31 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCopyVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new BatchCopyVpcFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.  
+    * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).  
+    * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.  
+    * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request BatchCopyVpcFirewallControlPolicyRequest
+    * @return BatchCopyVpcFirewallControlPolicyResponse
+   */
   async batchCopyVpcFirewallControlPolicy(request: BatchCopyVpcFirewallControlPolicyRequest): Promise<BatchCopyVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCopyVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request CreateVpcFirewallCenConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcFirewallCenConfigureResponse
+   */
   async createVpcFirewallCenConfigureWithOptions(request: CreateVpcFirewallCenConfigureRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallCenConfigureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6470,11 +6550,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcFirewallCenConfigureResponse>(await this.callApi(params, req, runtime), new CreateVpcFirewallCenConfigureResponse({}));
   }
 
+  /**
+    * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request CreateVpcFirewallCenConfigureRequest
+    * @return CreateVpcFirewallCenConfigureResponse
+   */
   async createVpcFirewallCenConfigure(request: CreateVpcFirewallCenConfigureRequest): Promise<CreateVpcFirewallCenConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcFirewallCenConfigureWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVpcFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcFirewallControlPolicyResponse
+   */
   async createVpcFirewallControlPolicyWithOptions(request: CreateVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6559,11 +6656,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateVpcFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVpcFirewallControlPolicyRequest
+    * @return CreateVpcFirewallControlPolicyResponse
+   */
   async createVpcFirewallControlPolicy(request: CreateVpcFirewallControlPolicyRequest): Promise<CreateVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteAddressBook operation to delete an address book for access control.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteAddressBookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAddressBookResponse
+   */
   async deleteAddressBookWithOptions(request: DeleteAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAddressBookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6596,11 +6710,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAddressBookResponse>(await this.callApi(params, req, runtime), new DeleteAddressBookResponse({}));
   }
 
+  /**
+    * You can call the DeleteAddressBook operation to delete an address book for access control.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteAddressBookRequest
+    * @return DeleteAddressBookResponse
+   */
   async deleteAddressBook(request: DeleteAddressBookRequest): Promise<DeleteAddressBookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAddressBookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteControlPolicyResponse
+   */
   async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6637,11 +6768,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteControlPolicyRequest
+    * @return DeleteControlPolicyResponse
+   */
   async deleteControlPolicy(request: DeleteControlPolicyRequest): Promise<DeleteControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteInstanceMembersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteInstanceMembersResponse
+   */
   async deleteInstanceMembersWithOptions(request: DeleteInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6666,11 +6814,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceMembersResponse>(await this.callApi(params, req, runtime), new DeleteInstanceMembersResponse({}));
   }
 
+  /**
+    * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteInstanceMembersRequest
+    * @return DeleteInstanceMembersResponse
+   */
   async deleteInstanceMembers(request: DeleteInstanceMembersRequest): Promise<DeleteInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceMembersWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.  
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallcenconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request DeleteVpcFirewallCenConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcFirewallCenConfigureResponse
+   */
   async deleteVpcFirewallCenConfigureWithOptions(request: DeleteVpcFirewallCenConfigureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcFirewallCenConfigureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6703,11 +6869,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcFirewallCenConfigureResponse>(await this.callApi(params, req, runtime), new DeleteVpcFirewallCenConfigureResponse({}));
   }
 
+  /**
+    * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.  
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallcenconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+    *
+    * @param request DeleteVpcFirewallCenConfigureRequest
+    * @return DeleteVpcFirewallCenConfigureResponse
+   */
   async deleteVpcFirewallCenConfigure(request: DeleteVpcFirewallCenConfigureRequest): Promise<DeleteVpcFirewallCenConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcFirewallCenConfigureWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVpcFirewallConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcFirewallConfigureResponse
+   */
   async deleteVpcFirewallConfigureWithOptions(request: DeleteVpcFirewallConfigureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcFirewallConfigureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6740,11 +6925,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcFirewallConfigureResponse>(await this.callApi(params, req, runtime), new DeleteVpcFirewallConfigureResponse({}));
   }
 
+  /**
+    * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVpcFirewallConfigureRequest
+    * @return DeleteVpcFirewallConfigureResponse
+   */
   async deleteVpcFirewallConfigure(request: DeleteVpcFirewallConfigureRequest): Promise<DeleteVpcFirewallConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcFirewallConfigureWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVpcFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcFirewallControlPolicyResponse
+   */
   async deleteVpcFirewallControlPolicyWithOptions(request: DeleteVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6777,11 +6980,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteVpcFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteVpcFirewallControlPolicyRequest
+    * @return DeleteVpcFirewallControlPolicyResponse
+   */
   async deleteVpcFirewallControlPolicy(request: DeleteVpcFirewallControlPolicyRequest): Promise<DeleteVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAddressBookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAddressBookResponse
+   */
   async describeAddressBookWithOptions(request: DescribeAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressBookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6826,11 +7046,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddressBookResponse>(await this.callApi(params, req, runtime), new DescribeAddressBookResponse({}));
   }
 
+  /**
+    * You can call the DescribeAddressBook operation to query the details about an address book for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAddressBookRequest
+    * @return DescribeAddressBookResponse
+   */
   async describeAddressBook(request: DescribeAddressBookRequest): Promise<DescribeAddressBookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAddressBookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAssetListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAssetListResponse
+   */
   async describeAssetListWithOptions(request: DescribeAssetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6899,11 +7136,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetListResponse>(await this.callApi(params, req, runtime), new DescribeAssetListResponse({}));
   }
 
+  /**
+    * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeAssetListRequest
+    * @return DescribeAssetListResponse
+   */
   async describeAssetList(request: DescribeAssetListRequest): Promise<DescribeAssetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeControlPolicyResponse
+   */
   async describeControlPolicyWithOptions(request: DescribeControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6976,11 +7230,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeControlPolicyResponse>(await this.callApi(params, req, runtime), new DescribeControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeControlPolicyRequest
+    * @return DescribeControlPolicyResponse
+   */
   async describeControlPolicy(request: DescribeControlPolicyRequest): Promise<DescribeControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDomainResolveRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDomainResolveResponse
+   */
   async describeDomainResolveWithOptions(request: DescribeDomainResolveRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResolveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7021,11 +7292,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResolveResponse>(await this.callApi(params, req, runtime), new DescribeDomainResolveResponse({}));
   }
 
+  /**
+    * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeDomainResolveRequest
+    * @return DescribeDomainResolveResponse
+   */
   async describeDomainResolve(request: DescribeDomainResolveRequest): Promise<DescribeDomainResolveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainResolveWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceMembersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceMembersResponse
+   */
   async describeInstanceMembersWithOptions(request: DescribeInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7066,6 +7354,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceMembersResponse>(await this.callApi(params, req, runtime), new DescribeInstanceMembersResponse({}));
   }
 
+  /**
+    * You can call the DescribeInstanceMembers operation to query the information about members in Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeInstanceMembersRequest
+    * @return DescribeInstanceMembersResponse
+   */
   async describeInstanceMembers(request: DescribeInstanceMembersRequest): Promise<DescribeInstanceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMembersWithOptions(request, runtime);
@@ -7310,6 +7606,15 @@ export default class Client extends OpenApi {
     return await this.describeOutgoingDomainWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePolicyAdvancedConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePolicyAdvancedConfigResponse
+   */
   async describePolicyAdvancedConfigWithOptions(request: DescribePolicyAdvancedConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyAdvancedConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7342,11 +7647,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyAdvancedConfigResponse>(await this.callApi(params, req, runtime), new DescribePolicyAdvancedConfigResponse({}));
   }
 
+  /**
+    * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePolicyAdvancedConfigRequest
+    * @return DescribePolicyAdvancedConfigResponse
+   */
   async describePolicyAdvancedConfig(request: DescribePolicyAdvancedConfigRequest): Promise<DescribePolicyAdvancedConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyAdvancedConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePolicyPriorUsedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePolicyPriorUsedResponse
+   */
   async describePolicyPriorUsedWithOptions(request: DescribePolicyPriorUsedRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyPriorUsedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7383,11 +7705,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyPriorUsedResponse>(await this.callApi(params, req, runtime), new DescribePolicyPriorUsedResponse({}));
   }
 
+  /**
+    * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribePolicyPriorUsedRequest
+    * @return DescribePolicyPriorUsedResponse
+   */
   async describePolicyPriorUsed(request: DescribePolicyPriorUsedRequest): Promise<DescribePolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyPriorUsedWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the information about the geographical locations of IP addresses, set the NoLocation parameter to true. This prevents query timeout.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRiskEventGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRiskEventGroupResponse
+   */
   async describeRiskEventGroupWithOptions(request: DescribeRiskEventGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskEventGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7496,6 +7835,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRiskEventGroupResponse>(await this.callApi(params, req, runtime), new DescribeRiskEventGroupResponse({}));
   }
 
+  /**
+    * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the information about the geographical locations of IP addresses, set the NoLocation parameter to true. This prevents query timeout.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeRiskEventGroupRequest
+    * @return DescribeRiskEventGroupResponse
+   */
   async describeRiskEventGroup(request: DescribeRiskEventGroupRequest): Promise<DescribeRiskEventGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskEventGroupWithOptions(request, runtime);
@@ -7526,6 +7873,15 @@ export default class Client extends OpenApi {
     return await this.describeUserAssetIPTrafficInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallAclGroupListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallAclGroupListResponse
+   */
   async describeVpcFirewallAclGroupListWithOptions(request: DescribeVpcFirewallAclGroupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallAclGroupListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7566,11 +7922,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallAclGroupListResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallAclGroupListResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallAclGroupListRequest
+    * @return DescribeVpcFirewallAclGroupListResponse
+   */
   async describeVpcFirewallAclGroupList(request: DescribeVpcFirewallAclGroupListRequest): Promise<DescribeVpcFirewallAclGroupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallAclGroupListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall controls mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallCenDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallCenDetailResponse
+   */
   async describeVpcFirewallCenDetailWithOptions(request: DescribeVpcFirewallCenDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallCenDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7607,11 +7980,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallCenDetailResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallCenDetailResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall controls mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallCenDetailRequest
+    * @return DescribeVpcFirewallCenDetailResponse
+   */
   async describeVpcFirewallCenDetail(request: DescribeVpcFirewallCenDetailRequest): Promise<DescribeVpcFirewallCenDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallCenDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallCenListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallCenListResponse
+   */
   async describeVpcFirewallCenListWithOptions(request: DescribeVpcFirewallCenListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallCenListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7688,11 +8078,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallCenListResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallCenListResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallCenListRequest
+    * @return DescribeVpcFirewallCenListResponse
+   */
   async describeVpcFirewallCenList(request: DescribeVpcFirewallCenListRequest): Promise<DescribeVpcFirewallCenListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallCenListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallControlPolicy operation to query the details of all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    *
+    * @param request DescribeVpcFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallControlPolicyResponse
+   */
   async describeVpcFirewallControlPolicyWithOptions(request: DescribeVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7761,11 +8166,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallControlPolicy operation to query the details of all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+    *
+    * @param request DescribeVpcFirewallControlPolicyRequest
+    * @return DescribeVpcFirewallControlPolicyResponse
+   */
   async describeVpcFirewallControlPolicy(request: DescribeVpcFirewallControlPolicyRequest): Promise<DescribeVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallDefaultIPSConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallDefaultIPSConfigResponse
+   */
   async describeVpcFirewallDefaultIPSConfigWithOptions(request: DescribeVpcFirewallDefaultIPSConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallDefaultIPSConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7794,11 +8214,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallDefaultIPSConfigResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallDefaultIPSConfigResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallDefaultIPSConfigRequest
+    * @return DescribeVpcFirewallDefaultIPSConfigResponse
+   */
   async describeVpcFirewallDefaultIPSConfig(request: DescribeVpcFirewallDefaultIPSConfigRequest): Promise<DescribeVpcFirewallDefaultIPSConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallDefaultIPSConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallDetailResponse
+   */
   async describeVpcFirewallDetailWithOptions(request: DescribeVpcFirewallDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7839,11 +8277,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallDetailResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallDetailResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallDetailRequest
+    * @return DescribeVpcFirewallDetailResponse
+   */
   async describeVpcFirewallDetail(request: DescribeVpcFirewallDetailRequest): Promise<DescribeVpcFirewallDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallListResponse
+   */
   async describeVpcFirewallListWithOptions(request: DescribeVpcFirewallListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7912,11 +8368,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallListResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallListResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallListRequest
+    * @return DescribeVpcFirewallListResponse
+   */
   async describeVpcFirewallList(request: DescribeVpcFirewallListRequest): Promise<DescribeVpcFirewallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallPolicyPriorUsedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcFirewallPolicyPriorUsedResponse
+   */
   async describeVpcFirewallPolicyPriorUsedWithOptions(request: DescribeVpcFirewallPolicyPriorUsedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallPolicyPriorUsedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7945,6 +8418,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcFirewallPolicyPriorUsedResponse>(await this.callApi(params, req, runtime), new DescribeVpcFirewallPolicyPriorUsedResponse({}));
   }
 
+  /**
+    * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DescribeVpcFirewallPolicyPriorUsedRequest
+    * @return DescribeVpcFirewallPolicyPriorUsedResponse
+   */
   async describeVpcFirewallPolicyPriorUsed(request: DescribeVpcFirewallPolicyPriorUsedRequest): Promise<DescribeVpcFirewallPolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcFirewallPolicyPriorUsedWithOptions(request, runtime);
@@ -8043,6 +8524,15 @@ export default class Client extends OpenApi {
     return await this.describeVulnerabilityProtectedListWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyAddressBookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAddressBookResponse
+   */
   async modifyAddressBookWithOptions(request: ModifyAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAddressBookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8099,11 +8589,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAddressBookResponse>(await this.callApi(params, req, runtime), new ModifyAddressBookResponse({}));
   }
 
+  /**
+    * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyAddressBookRequest
+    * @return ModifyAddressBookResponse
+   */
   async modifyAddressBook(request: ModifyAddressBookRequest): Promise<ModifyAddressBookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAddressBookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyControlPolicy operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyControlPolicyResponse
+   */
   async modifyControlPolicyWithOptions(request: ModifyControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8167,10 +8674,6 @@ export default class Client extends OpenApi {
       query["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
     }
@@ -8192,11 +8695,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyControlPolicyResponse>(await this.callApi(params, req, runtime), new ModifyControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the ModifyControlPolicy operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyControlPolicyRequest
+    * @return ModifyControlPolicyResponse
+   */
   async modifyControlPolicy(request: ModifyControlPolicyRequest): Promise<ModifyControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyControlPolicyPositionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyControlPolicyPositionResponse
+   */
   async modifyControlPolicyPositionWithOptions(request: ModifyControlPolicyPositionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyControlPolicyPositionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8237,11 +8757,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyControlPolicyPositionResponse>(await this.callApi(params, req, runtime), new ModifyControlPolicyPositionResponse({}));
   }
 
+  /**
+    * You can call the ModifyControlPolicyPosition operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyControlPolicyPositionRequest
+    * @return ModifyControlPolicyPositionResponse
+   */
   async modifyControlPolicyPosition(request: ModifyControlPolicyPositionRequest): Promise<ModifyControlPolicyPositionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyControlPolicyPositionWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyInstanceMemberAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceMemberAttributesResponse
+   */
   async modifyInstanceMemberAttributesWithOptions(request: ModifyInstanceMemberAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMemberAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8266,11 +8803,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceMemberAttributesResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMemberAttributesResponse({}));
   }
 
+  /**
+    * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyInstanceMemberAttributesRequest
+    * @return ModifyInstanceMemberAttributesResponse
+   */
   async modifyInstanceMemberAttributes(request: ModifyInstanceMemberAttributesRequest): Promise<ModifyInstanceMemberAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceMemberAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyPolicyAdvancedConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPolicyAdvancedConfigResponse
+   */
   async modifyPolicyAdvancedConfigWithOptions(request: ModifyPolicyAdvancedConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyAdvancedConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8303,11 +8857,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPolicyAdvancedConfigResponse>(await this.callApi(params, req, runtime), new ModifyPolicyAdvancedConfigResponse({}));
   }
 
+  /**
+    * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyPolicyAdvancedConfigRequest
+    * @return ModifyPolicyAdvancedConfigResponse
+   */
   async modifyPolicyAdvancedConfig(request: ModifyPolicyAdvancedConfigRequest): Promise<ModifyPolicyAdvancedConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPolicyAdvancedConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallcenconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallCenConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallCenConfigureResponse
+   */
   async modifyVpcFirewallCenConfigureWithOptions(request: ModifyVpcFirewallCenConfigureRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallCenConfigureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8344,11 +8916,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallCenConfigureResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallCenConfigureResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallcenconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallCenConfigureRequest
+    * @return ModifyVpcFirewallCenConfigureResponse
+   */
   async modifyVpcFirewallCenConfigure(request: ModifyVpcFirewallCenConfigureRequest): Promise<ModifyVpcFirewallCenConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallCenConfigureWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. 
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~CreateVpcFirewallCenConfigure~~) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallCenSwitchStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallCenSwitchStatusResponse
+   */
   async modifyVpcFirewallCenSwitchStatusWithOptions(request: ModifyVpcFirewallCenSwitchStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallCenSwitchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8385,11 +8976,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallCenSwitchStatusResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallCenSwitchStatusResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. 
+    * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~CreateVpcFirewallCenConfigure~~) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallCenSwitchStatusRequest
+    * @return ModifyVpcFirewallCenSwitchStatusResponse
+   */
   async modifyVpcFirewallCenSwitchStatus(request: ModifyVpcFirewallCenSwitchStatusRequest): Promise<ModifyVpcFirewallCenSwitchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallCenSwitchStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallConfigureResponse
+   */
   async modifyVpcFirewallConfigureWithOptions(request: ModifyVpcFirewallConfigureRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallConfigureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8434,11 +9044,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallConfigureResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallConfigureResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallConfigureRequest
+    * @return ModifyVpcFirewallConfigureResponse
+   */
   async modifyVpcFirewallConfigure(request: ModifyVpcFirewallConfigureRequest): Promise<ModifyVpcFirewallConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallConfigureWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specific policy group. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallControlPolicyResponse
+   */
   async modifyVpcFirewallControlPolicyWithOptions(request: ModifyVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8519,11 +9147,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallControlPolicyResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallControlPolicyResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specific policy group. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallControlPolicyRequest
+    * @return ModifyVpcFirewallControlPolicyResponse
+   */
   async modifyVpcFirewallControlPolicy(request: ModifyVpcFirewallControlPolicyRequest): Promise<ModifyVpcFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallControlPolicyPositionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallControlPolicyPositionResponse
+   */
   async modifyVpcFirewallControlPolicyPositionWithOptions(request: ModifyVpcFirewallControlPolicyPositionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallControlPolicyPositionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8560,11 +9205,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallControlPolicyPositionResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallControlPolicyPositionResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallControlPolicyPosition operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallControlPolicyPositionRequest
+    * @return ModifyVpcFirewallControlPolicyPositionResponse
+   */
   async modifyVpcFirewallControlPolicyPosition(request: ModifyVpcFirewallControlPolicyPositionRequest): Promise<ModifyVpcFirewallControlPolicyPositionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallControlPolicyPositionWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallDefaultIPSConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallDefaultIPSConfigResponse
+   */
   async modifyVpcFirewallDefaultIPSConfigWithOptions(request: ModifyVpcFirewallDefaultIPSConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallDefaultIPSConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8613,11 +9275,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallDefaultIPSConfigResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallDefaultIPSConfigResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallDefaultIPSConfigRequest
+    * @return ModifyVpcFirewallDefaultIPSConfigResponse
+   */
   async modifyVpcFirewallDefaultIPSConfig(request: ModifyVpcFirewallDefaultIPSConfigRequest): Promise<ModifyVpcFirewallDefaultIPSConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallDefaultIPSConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall can control traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall controls mutual access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer controls mutual access traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallSwitchStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcFirewallSwitchStatusResponse
+   */
   async modifyVpcFirewallSwitchStatusWithOptions(request: ModifyVpcFirewallSwitchStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcFirewallSwitchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8654,11 +9334,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcFirewallSwitchStatusResponse>(await this.callApi(params, req, runtime), new ModifyVpcFirewallSwitchStatusResponse({}));
   }
 
+  /**
+    * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall can control traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall controls mutual access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer controls mutual access traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyVpcFirewallSwitchStatusRequest
+    * @return ModifyVpcFirewallSwitchStatusResponse
+   */
   async modifyVpcFirewallSwitchStatus(request: ModifyVpcFirewallSwitchStatusRequest): Promise<ModifyVpcFirewallSwitchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcFirewallSwitchStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutDisableAllFwSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutDisableAllFwSwitchResponse
+   */
   async putDisableAllFwSwitchWithOptions(request: PutDisableAllFwSwitchRequest, runtime: $Util.RuntimeOptions): Promise<PutDisableAllFwSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8691,11 +9389,28 @@ export default class Client extends OpenApi {
     return $tea.cast<PutDisableAllFwSwitchResponse>(await this.callApi(params, req, runtime), new PutDisableAllFwSwitchResponse({}));
   }
 
+  /**
+    * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches. 
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutDisableAllFwSwitchRequest
+    * @return PutDisableAllFwSwitchResponse
+   */
   async putDisableAllFwSwitch(request: PutDisableAllFwSwitchRequest): Promise<PutDisableAllFwSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putDisableAllFwSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutDisableFwSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutDisableFwSwitchResponse
+   */
   async putDisableFwSwitchWithOptions(request: PutDisableFwSwitchRequest, runtime: $Util.RuntimeOptions): Promise<PutDisableFwSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8736,11 +9451,28 @@ export default class Client extends OpenApi {
     return $tea.cast<PutDisableFwSwitchResponse>(await this.callApi(params, req, runtime), new PutDisableFwSwitchResponse({}));
   }
 
+  /**
+    * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutDisableFwSwitchRequest
+    * @return PutDisableFwSwitchResponse
+   */
   async putDisableFwSwitch(request: PutDisableFwSwitchRequest): Promise<PutDisableFwSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putDisableFwSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutEnableAllFwSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutEnableAllFwSwitchResponse
+   */
   async putEnableAllFwSwitchWithOptions(request: PutEnableAllFwSwitchRequest, runtime: $Util.RuntimeOptions): Promise<PutEnableAllFwSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8773,11 +9505,28 @@ export default class Client extends OpenApi {
     return $tea.cast<PutEnableAllFwSwitchResponse>(await this.callApi(params, req, runtime), new PutEnableAllFwSwitchResponse({}));
   }
 
+  /**
+    * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutEnableAllFwSwitchRequest
+    * @return PutEnableAllFwSwitchResponse
+   */
   async putEnableAllFwSwitch(request: PutEnableAllFwSwitchRequest): Promise<PutEnableAllFwSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putEnableAllFwSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutEnableFwSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PutEnableFwSwitchResponse
+   */
   async putEnableFwSwitchWithOptions(request: PutEnableFwSwitchRequest, runtime: $Util.RuntimeOptions): Promise<PutEnableFwSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8818,11 +9567,28 @@ export default class Client extends OpenApi {
     return $tea.cast<PutEnableFwSwitchResponse>(await this.callApi(params, req, runtime), new PutEnableFwSwitchResponse({}));
   }
 
+  /**
+    * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PutEnableFwSwitchRequest
+    * @return PutEnableFwSwitchResponse
+   */
   async putEnableFwSwitch(request: PutEnableFwSwitchRequest): Promise<PutEnableFwSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putEnableFwSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ResetVpcFirewallRuleHitCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetVpcFirewallRuleHitCountResponse
+   */
   async resetVpcFirewallRuleHitCountWithOptions(request: ResetVpcFirewallRuleHitCountRequest, runtime: $Util.RuntimeOptions): Promise<ResetVpcFirewallRuleHitCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8851,6 +9617,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetVpcFirewallRuleHitCountResponse>(await this.callApi(params, req, runtime), new ResetVpcFirewallRuleHitCountResponse({}));
   }
 
+  /**
+    * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.  
+    * ## Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ResetVpcFirewallRuleHitCountRequest
+    * @return ResetVpcFirewallRuleHitCountResponse
+   */
   async resetVpcFirewallRuleHitCount(request: ResetVpcFirewallRuleHitCountRequest): Promise<ResetVpcFirewallRuleHitCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetVpcFirewallRuleHitCountWithOptions(request, runtime);
