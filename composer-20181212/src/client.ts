@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -53,10 +54,12 @@ export class CloneFlowResponseBody extends $tea.Model {
 
 export class CloneFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CloneFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -64,6 +67,7 @@ export class CloneFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CloneFlowResponseBody,
     };
   }
@@ -78,6 +82,7 @@ export class CreateFlowRequest extends $tea.Model {
   flowDescription?: string;
   flowName?: string;
   flowSource?: string;
+  resourceGroupId?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,6 +90,7 @@ export class CreateFlowRequest extends $tea.Model {
       flowDescription: 'FlowDescription',
       flowName: 'FlowName',
       flowSource: 'FlowSource',
+      resourceGroupId: 'ResourceGroupId',
       templateId: 'TemplateId',
     };
   }
@@ -95,6 +101,7 @@ export class CreateFlowRequest extends $tea.Model {
       flowDescription: 'string',
       flowName: 'string',
       flowSource: 'string',
+      resourceGroupId: 'string',
       templateId: 'string',
     };
   }
@@ -128,10 +135,12 @@ export class CreateFlowResponseBody extends $tea.Model {
 
 export class CreateFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -139,6 +148,7 @@ export class CreateFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFlowResponseBody,
     };
   }
@@ -191,10 +201,12 @@ export class DeleteFlowResponseBody extends $tea.Model {
 
 export class DeleteFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -202,6 +214,7 @@ export class DeleteFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteFlowResponseBody,
     };
   }
@@ -257,10 +270,12 @@ export class DisableFlowResponseBody extends $tea.Model {
 
 export class DisableFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -268,6 +283,7 @@ export class DisableFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableFlowResponseBody,
     };
   }
@@ -323,10 +339,12 @@ export class EnableFlowResponseBody extends $tea.Model {
 
 export class EnableFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -334,6 +352,7 @@ export class EnableFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableFlowResponseBody,
     };
   }
@@ -364,7 +383,7 @@ export class GetFlowRequest extends $tea.Model {
 
 export class GetFlowResponseBody extends $tea.Model {
   createTime?: string;
-  currentVersionId?: number;
+  currentVersionId?: string;
   definition?: string;
   flowDescription?: string;
   flowEditMode?: string;
@@ -374,6 +393,7 @@ export class GetFlowResponseBody extends $tea.Model {
   flowStatus?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   templateId?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -389,6 +409,7 @@ export class GetFlowResponseBody extends $tea.Model {
       flowStatus: 'FlowStatus',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       templateId: 'TemplateId',
       updateTime: 'UpdateTime',
     };
@@ -397,7 +418,7 @@ export class GetFlowResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      currentVersionId: 'number',
+      currentVersionId: 'string',
       definition: 'string',
       flowDescription: 'string',
       flowEditMode: 'string',
@@ -407,6 +428,7 @@ export class GetFlowResponseBody extends $tea.Model {
       flowStatus: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       templateId: 'string',
       updateTime: 'string',
     };
@@ -419,10 +441,12 @@ export class GetFlowResponseBody extends $tea.Model {
 
 export class GetFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -430,6 +454,7 @@ export class GetFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetFlowResponseBody,
     };
   }
@@ -524,10 +549,12 @@ export class GetTemplateResponseBody extends $tea.Model {
 
 export class GetTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -535,6 +562,7 @@ export class GetTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTemplateResponseBody,
     };
   }
@@ -614,10 +642,12 @@ export class GetVersionResponseBody extends $tea.Model {
 
 export class GetVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -625,6 +655,7 @@ export class GetVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetVersionResponseBody,
     };
   }
@@ -701,10 +732,12 @@ export class GroupInvokeFlowResponseBody extends $tea.Model {
 
 export class GroupInvokeFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GroupInvokeFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -712,6 +745,7 @@ export class GroupInvokeFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GroupInvokeFlowResponseBody,
     };
   }
@@ -776,10 +810,12 @@ export class InvokeFlowResponseBody extends $tea.Model {
 
 export class InvokeFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InvokeFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -787,6 +823,7 @@ export class InvokeFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InvokeFlowResponseBody,
     };
   }
@@ -801,12 +838,14 @@ export class ListFlowsRequest extends $tea.Model {
   flowName?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       flowName: 'FlowName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -816,6 +855,7 @@ export class ListFlowsRequest extends $tea.Model {
       flowName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -851,10 +891,12 @@ export class ListFlowsResponseBody extends $tea.Model {
 
 export class ListFlowsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListFlowsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -862,6 +904,7 @@ export class ListFlowsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListFlowsResponseBody,
     };
   }
@@ -932,10 +975,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -943,6 +988,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -1010,10 +1056,12 @@ export class ListTemplatesResponseBody extends $tea.Model {
 
 export class ListTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1021,6 +1069,7 @@ export class ListTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTemplatesResponseBody,
     };
   }
@@ -1082,10 +1131,12 @@ export class ListVersionsResponseBody extends $tea.Model {
 
 export class ListVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1093,6 +1144,7 @@ export class ListVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVersionsResponseBody,
     };
   }
@@ -1151,10 +1203,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1162,6 +1216,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -1223,10 +1278,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1234,6 +1291,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -1298,10 +1356,12 @@ export class UpdateFlowResponseBody extends $tea.Model {
 
 export class UpdateFlowResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1309,6 +1369,7 @@ export class UpdateFlowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateFlowResponseBody,
     };
   }
@@ -1327,9 +1388,10 @@ export class ListFlowsResponseBodyFlows extends $tea.Model {
   flowSource?: string;
   flowStatus?: string;
   regionId?: string;
+  resourceGroupId?: string;
   templateId?: string;
   updateTime?: string;
-  versionId?: number;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -1340,6 +1402,7 @@ export class ListFlowsResponseBodyFlows extends $tea.Model {
       flowSource: 'FlowSource',
       flowStatus: 'FlowStatus',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       templateId: 'TemplateId',
       updateTime: 'UpdateTime',
       versionId: 'VersionId',
@@ -1356,9 +1419,10 @@ export class ListFlowsResponseBodyFlows extends $tea.Model {
       flowSource: 'string',
       flowStatus: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       templateId: 'string',
       updateTime: 'string',
-      versionId: 'number',
+      versionId: 'string',
     };
   }
 
@@ -1477,8 +1541,9 @@ export class ListVersionsResponseBodyVersions extends $tea.Model {
   flowId?: string;
   updateTime?: string;
   versionId?: string;
-  versionName?: number;
-  versionStatus?: number;
+  versionName?: string;
+  versionNumber?: number;
+  versionStatus?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -1486,6 +1551,7 @@ export class ListVersionsResponseBodyVersions extends $tea.Model {
       updateTime: 'UpdateTime',
       versionId: 'VersionId',
       versionName: 'VersionName',
+      versionNumber: 'VersionNumber',
       versionStatus: 'VersionStatus',
     };
   }
@@ -1496,8 +1562,9 @@ export class ListVersionsResponseBodyVersions extends $tea.Model {
       flowId: 'string',
       updateTime: 'string',
       versionId: 'string',
-      versionName: 'number',
-      versionStatus: 'number',
+      versionName: 'string',
+      versionNumber: 'number',
+      versionStatus: 'string',
     };
   }
 
@@ -1551,40 +1618,153 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CloneFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloneFlowResponse
+   */
+  // Deprecated
   async cloneFlowWithOptions(request: CloneFlowRequest, runtime: $Util.RuntimeOptions): Promise<CloneFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CloneFlowResponse>(await this.doRPCRequest("CloneFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new CloneFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CloneFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneFlowResponse>(await this.callApi(params, req, runtime), new CloneFlowResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CloneFlowRequest
+    * @return CloneFlowResponse
+   */
+  // Deprecated
   async cloneFlow(request: CloneFlowRequest): Promise<CloneFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneFlowWithOptions(request, runtime);
   }
 
+  /**
+    * After you create a workflow, the system automatically creates a version for the workflow. You can call the GetVersion operation to obtain the version information.
+    *
+    * @param request CreateFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFlowResponse
+   */
   async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.definition)) {
+      body["Definition"] = request.definition;
+    }
+
+    if (!Util.isUnset(request.flowDescription)) {
+      body["FlowDescription"] = request.flowDescription;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.flowSource)) {
+      body["FlowSource"] = request.flowSource;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateFlowResponse>(await this.doRPCRequest("CreateFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
   }
 
+  /**
+    * After you create a workflow, the system automatically creates a version for the workflow. You can call the GetVersion operation to obtain the version information.
+    *
+    * @param request CreateFlowRequest
+    * @return CreateFlowResponse
+   */
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
   }
 
+  /**
+    * If you delete a workflow, all the versions and execution records of the workflow are automatically deleted.
+    *
+    * @param request DeleteFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFlowResponse
+   */
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteFlowResponse>(await this.doRPCRequest("DeleteFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
   }
 
+  /**
+    * If you delete a workflow, all the versions and execution records of the workflow are automatically deleted.
+    *
+    * @param request DeleteFlowRequest
+    * @return DeleteFlowResponse
+   */
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
@@ -1592,10 +1772,26 @@ export default class Client extends OpenApi {
 
   async disableFlowWithOptions(request: DisableFlowRequest, runtime: $Util.RuntimeOptions): Promise<DisableFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DisableFlowResponse>(await this.doRPCRequest("DisableFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new DisableFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableFlowResponse>(await this.callApi(params, req, runtime), new DisableFlowResponse({}));
   }
 
   async disableFlow(request: DisableFlowRequest): Promise<DisableFlowResponse> {
@@ -1605,10 +1801,26 @@ export default class Client extends OpenApi {
 
   async enableFlowWithOptions(request: EnableFlowRequest, runtime: $Util.RuntimeOptions): Promise<EnableFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<EnableFlowResponse>(await this.doRPCRequest("EnableFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new EnableFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableFlowResponse>(await this.callApi(params, req, runtime), new EnableFlowResponse({}));
   }
 
   async enableFlow(request: EnableFlowRequest): Promise<EnableFlowResponse> {
@@ -1618,10 +1830,26 @@ export default class Client extends OpenApi {
 
   async getFlowWithOptions(request: GetFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetFlowResponse>(await this.doRPCRequest("GetFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
   }
 
   async getFlow(request: GetFlowRequest): Promise<GetFlowResponse> {
@@ -1631,10 +1859,26 @@ export default class Client extends OpenApi {
 
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplate",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
@@ -1644,10 +1888,30 @@ export default class Client extends OpenApi {
 
   async getVersionWithOptions(request: GetVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetVersionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetVersionResponse>(await this.doRPCRequest("GetVersion", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVersion",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVersionResponse>(await this.callApi(params, req, runtime), new GetVersionResponse({}));
   }
 
   async getVersion(request: GetVersionRequest): Promise<GetVersionResponse> {
@@ -1655,14 +1919,69 @@ export default class Client extends OpenApi {
     return await this.getVersionWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to trigger a workflow to be executed more than 100 times per second. If the desired execution frequency does not exceed 100 times per second, we recommend that you call the InvokeFlow operation.
+    * *   However, you may need to call the GroupInvokeFlow operation multiple times. For example, assume that you want a workflow to be executed 1,000 times per second and the 1,000 times of execution are divided into ten groups. You need to call the operation ten times for the ten groups and specify a group key for each group.
+    * *   Each call corresponds to a group execution. Logic Composer automatically determines when a group execution starts. You must set the Data parameter to a JSON array of strings to specify the information required by the execution. Each string provides the information required by one time of execution. The string must use the format of the Data parameter in the InvokeFlow operation.
+    *
+    * @param request GroupInvokeFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GroupInvokeFlowResponse
+   */
   async groupInvokeFlowWithOptions(request: GroupInvokeFlowRequest, runtime: $Util.RuntimeOptions): Promise<GroupInvokeFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.groupKey)) {
+      body["GroupKey"] = request.groupKey;
+    }
+
+    if (!Util.isUnset(request.totalCount)) {
+      body["TotalCount"] = request.totalCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GroupInvokeFlowResponse>(await this.doRPCRequest("GroupInvokeFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new GroupInvokeFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GroupInvokeFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GroupInvokeFlowResponse>(await this.callApi(params, req, runtime), new GroupInvokeFlowResponse({}));
   }
 
+  /**
+    * *   You can call this operation to trigger a workflow to be executed more than 100 times per second. If the desired execution frequency does not exceed 100 times per second, we recommend that you call the InvokeFlow operation.
+    * *   However, you may need to call the GroupInvokeFlow operation multiple times. For example, assume that you want a workflow to be executed 1,000 times per second and the 1,000 times of execution are divided into ten groups. You need to call the operation ten times for the ten groups and specify a group key for each group.
+    * *   Each call corresponds to a group execution. Logic Composer automatically determines when a group execution starts. You must set the Data parameter to a JSON array of strings to specify the information required by the execution. Each string provides the information required by one time of execution. The string must use the format of the Data parameter in the InvokeFlow operation.
+    *
+    * @param request GroupInvokeFlowRequest
+    * @return GroupInvokeFlowResponse
+   */
   async groupInvokeFlow(request: GroupInvokeFlowRequest): Promise<GroupInvokeFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.groupInvokeFlowWithOptions(request, runtime);
@@ -1670,10 +1989,38 @@ export default class Client extends OpenApi {
 
   async invokeFlowWithOptions(request: InvokeFlowRequest, runtime: $Util.RuntimeOptions): Promise<InvokeFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      body["Parameters"] = request.parameters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<InvokeFlowResponse>(await this.doRPCRequest("InvokeFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new InvokeFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InvokeFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InvokeFlowResponse>(await this.callApi(params, req, runtime), new InvokeFlowResponse({}));
   }
 
   async invokeFlow(request: InvokeFlowRequest): Promise<InvokeFlowResponse> {
@@ -1683,10 +2030,42 @@ export default class Client extends OpenApi {
 
   async listFlowsWithOptions(request: ListFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListFlowsResponse>(await this.doRPCRequest("ListFlows", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListFlowsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFlows",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
   }
 
   async listFlows(request: ListFlowsRequest): Promise<ListFlowsResponse> {
@@ -1696,10 +2075,42 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -1709,10 +2120,42 @@ export default class Client extends OpenApi {
 
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTemplates",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
@@ -1722,10 +2165,34 @@ export default class Client extends OpenApi {
 
   async listVersionsWithOptions(request: ListVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVersionsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListVersionsResponse>(await this.doRPCRequest("ListVersions", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVersions",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
   }
 
   async listVersions(request: ListVersionsRequest): Promise<ListVersionsResponse> {
@@ -1735,10 +2202,34 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -1748,10 +2239,38 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      body["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      body["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -1761,10 +2280,38 @@ export default class Client extends OpenApi {
 
   async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.definition)) {
+      body["Definition"] = request.definition;
+    }
+
+    if (!Util.isUnset(request.flowDescription)) {
+      body["FlowDescription"] = request.flowDescription;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateFlowResponse>(await this.doRPCRequest("UpdateFlow", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateFlow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowResponse>(await this.callApi(params, req, runtime), new UpdateFlowResponse({}));
   }
 
   async updateFlow(request: UpdateFlowRequest): Promise<UpdateFlowResponse> {
