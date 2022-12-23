@@ -943,6 +943,114 @@ export class AddGatewaySlbResponse extends $tea.Model {
   }
 }
 
+export class AddMigrationTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterType?: string;
+  id?: string;
+  originInstanceAddress?: string;
+  originInstanceName?: string;
+  originInstanceNamespace?: string;
+  projectDesc?: string;
+  requestPars?: string;
+  targetClusterName?: string;
+  targetClusterUrl?: string;
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterType: 'ClusterType',
+      id: 'Id',
+      originInstanceAddress: 'OriginInstanceAddress',
+      originInstanceName: 'OriginInstanceName',
+      originInstanceNamespace: 'OriginInstanceNamespace',
+      projectDesc: 'ProjectDesc',
+      requestPars: 'RequestPars',
+      targetClusterName: 'TargetClusterName',
+      targetClusterUrl: 'TargetClusterUrl',
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterType: 'string',
+      id: 'string',
+      originInstanceAddress: 'string',
+      originInstanceName: 'string',
+      originInstanceNamespace: 'string',
+      projectDesc: 'string',
+      requestPars: 'string',
+      targetClusterName: 'string',
+      targetClusterUrl: 'string',
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMigrationTaskResponseBody extends $tea.Model {
+  data?: AddMigrationTaskResponseBodyData;
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AddMigrationTaskResponseBodyData,
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMigrationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddMigrationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMigrationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMockRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   consumerAppIds?: string;
@@ -10731,6 +10839,99 @@ export class QueryClusterDiskSpecificationResponse extends $tea.Model {
   }
 }
 
+export class QueryClusterInfoRequest extends $tea.Model {
+  acceptLanguage?: string;
+  aclSwitch?: boolean;
+  clusterId?: string;
+  instanceId?: string;
+  orderId?: string;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      aclSwitch: 'AclSwitch',
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      aclSwitch: 'boolean',
+      clusterId: 'string',
+      instanceId: 'string',
+      orderId: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClusterInfoResponseBody extends $tea.Model {
+  data?: QueryClusterInfoResponseBodyData;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryClusterInfoResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClusterInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryClusterInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryClusterInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryClusterSpecificationRequest extends $tea.Model {
   acceptLanguage?: string;
   connectType?: string;
@@ -11149,6 +11350,99 @@ export class QueryGovernanceKubernetesClusterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryGovernanceKubernetesClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancesInfoRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterId?: string;
+  instanceId?: string;
+  orderId?: string;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterId: 'string',
+      instanceId: 'string',
+      orderId: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancesInfoResponseBody extends $tea.Model {
+  data?: QueryInstancesInfoResponseBodyData[];
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryInstancesInfoResponseBodyData },
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancesInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryInstancesInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryInstancesInfoResponseBody,
     };
   }
 
@@ -15571,6 +15865,58 @@ export class AddGatewayRouteRequestServices extends $tea.Model {
       servicePort: 'number',
       sourceType: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMigrationTaskResponseBodyData extends $tea.Model {
+  clusterType?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: string;
+  originInstanceAddress?: string;
+  originInstanceName?: string;
+  originInstanceNamespace?: string;
+  projectDesc?: string;
+  targetClusterName?: string;
+  targetClusterUrl?: string;
+  targetInstanceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterType: 'ClusterType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      originInstanceAddress: 'OriginInstanceAddress',
+      originInstanceName: 'OriginInstanceName',
+      originInstanceNamespace: 'OriginInstanceNamespace',
+      projectDesc: 'ProjectDesc',
+      targetClusterName: 'TargetClusterName',
+      targetClusterUrl: 'TargetClusterUrl',
+      targetInstanceId: 'TargetInstanceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'string',
+      originInstanceAddress: 'string',
+      originInstanceName: 'string',
+      originInstanceNamespace: 'string',
+      projectDesc: 'string',
+      targetClusterName: 'string',
+      targetClusterUrl: 'string',
+      targetInstanceId: 'string',
+      userId: 'string',
     };
   }
 
@@ -21119,6 +21465,167 @@ export class QueryClusterDiskSpecificationResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryClusterInfoResponseBodyDataInstanceModels extends $tea.Model {
+  creationTimestamp?: string;
+  healthStatus?: string;
+  internetIp?: string;
+  ip?: string;
+  podName?: string;
+  role?: string;
+  singleTunnelVip?: string;
+  zone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTimestamp: 'CreationTimestamp',
+      healthStatus: 'HealthStatus',
+      internetIp: 'InternetIp',
+      ip: 'Ip',
+      podName: 'PodName',
+      role: 'Role',
+      singleTunnelVip: 'SingleTunnelVip',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTimestamp: 'string',
+      healthStatus: 'string',
+      internetIp: 'string',
+      ip: 'string',
+      podName: 'string',
+      role: 'string',
+      singleTunnelVip: 'string',
+      zone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClusterInfoResponseBodyData extends $tea.Model {
+  aclEntryList?: string;
+  aclId?: string;
+  appVersion?: string;
+  chargeType?: string;
+  clusterAliasName?: string;
+  clusterName?: string;
+  clusterSpecification?: string;
+  clusterType?: string;
+  clusterVersion?: string;
+  connectionType?: string;
+  cpu?: number;
+  createTime?: string;
+  diskCapacity?: number;
+  diskType?: string;
+  healthStatus?: string;
+  initCostTime?: number;
+  initStatus?: string;
+  instanceCount?: number;
+  instanceId?: string;
+  instanceModels?: QueryClusterInfoResponseBodyDataInstanceModels[];
+  internetAddress?: string;
+  internetDomain?: string;
+  internetPort?: string;
+  intranetAddress?: string;
+  intranetDomain?: string;
+  intranetPort?: string;
+  memoryCapacity?: number;
+  mseVersion?: string;
+  netType?: string;
+  payInfo?: string;
+  pubNetworkFlow?: string;
+  regionId?: string;
+  tags?: { [key: string]: any };
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEntryList: 'AclEntryList',
+      aclId: 'AclId',
+      appVersion: 'AppVersion',
+      chargeType: 'ChargeType',
+      clusterAliasName: 'ClusterAliasName',
+      clusterName: 'ClusterName',
+      clusterSpecification: 'ClusterSpecification',
+      clusterType: 'ClusterType',
+      clusterVersion: 'ClusterVersion',
+      connectionType: 'ConnectionType',
+      cpu: 'Cpu',
+      createTime: 'CreateTime',
+      diskCapacity: 'DiskCapacity',
+      diskType: 'DiskType',
+      healthStatus: 'HealthStatus',
+      initCostTime: 'InitCostTime',
+      initStatus: 'InitStatus',
+      instanceCount: 'InstanceCount',
+      instanceId: 'InstanceId',
+      instanceModels: 'InstanceModels',
+      internetAddress: 'InternetAddress',
+      internetDomain: 'InternetDomain',
+      internetPort: 'InternetPort',
+      intranetAddress: 'IntranetAddress',
+      intranetDomain: 'IntranetDomain',
+      intranetPort: 'IntranetPort',
+      memoryCapacity: 'MemoryCapacity',
+      mseVersion: 'MseVersion',
+      netType: 'NetType',
+      payInfo: 'PayInfo',
+      pubNetworkFlow: 'PubNetworkFlow',
+      regionId: 'RegionId',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntryList: 'string',
+      aclId: 'string',
+      appVersion: 'string',
+      chargeType: 'string',
+      clusterAliasName: 'string',
+      clusterName: 'string',
+      clusterSpecification: 'string',
+      clusterType: 'string',
+      clusterVersion: 'string',
+      connectionType: 'string',
+      cpu: 'number',
+      createTime: 'string',
+      diskCapacity: 'number',
+      diskType: 'string',
+      healthStatus: 'string',
+      initCostTime: 'number',
+      initStatus: 'string',
+      instanceCount: 'number',
+      instanceId: 'string',
+      instanceModels: { 'type': 'array', 'itemType': QueryClusterInfoResponseBodyDataInstanceModels },
+      internetAddress: 'string',
+      internetDomain: 'string',
+      internetPort: 'string',
+      intranetAddress: 'string',
+      intranetDomain: 'string',
+      intranetPort: 'string',
+      memoryCapacity: 'number',
+      mseVersion: 'string',
+      netType: 'string',
+      payInfo: 'string',
+      pubNetworkFlow: 'string',
+      regionId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryClusterSpecificationResponseBodyData extends $tea.Model {
   clusterSpecificationName?: string;
   cpuCapacity?: string;
@@ -21314,6 +21821,49 @@ export class QueryGovernanceKubernetesClusterResponseBodyData extends $tea.Model
       pageSize: 'number',
       result: { 'type': 'array', 'itemType': QueryGovernanceKubernetesClusterResponseBodyDataResult },
       totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstancesInfoResponseBodyData extends $tea.Model {
+  clientPort?: string;
+  creationTimestamp?: string;
+  healthStatus?: string;
+  internetIp?: string;
+  ip?: string;
+  podName?: string;
+  role?: string;
+  singleTunnelVip?: string;
+  zone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientPort: 'ClientPort',
+      creationTimestamp: 'CreationTimestamp',
+      healthStatus: 'HealthStatus',
+      internetIp: 'InternetIp',
+      ip: 'Ip',
+      podName: 'PodName',
+      role: 'Role',
+      singleTunnelVip: 'SingleTunnelVip',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientPort: 'string',
+      creationTimestamp: 'string',
+      healthStatus: 'string',
+      internetIp: 'string',
+      ip: 'string',
+      podName: 'string',
+      role: 'string',
+      singleTunnelVip: 'string',
+      zone: 'string',
     };
   }
 
@@ -22897,6 +23447,75 @@ export default class Client extends OpenApi {
   async addGatewaySlb(request: AddGatewaySlbRequest): Promise<AddGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGatewaySlbWithOptions(request, runtime);
+  }
+
+  async addMigrationTaskWithOptions(request: AddMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddMigrationTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.originInstanceAddress)) {
+      query["OriginInstanceAddress"] = request.originInstanceAddress;
+    }
+
+    if (!Util.isUnset(request.originInstanceName)) {
+      query["OriginInstanceName"] = request.originInstanceName;
+    }
+
+    if (!Util.isUnset(request.originInstanceNamespace)) {
+      query["OriginInstanceNamespace"] = request.originInstanceNamespace;
+    }
+
+    if (!Util.isUnset(request.projectDesc)) {
+      query["ProjectDesc"] = request.projectDesc;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.targetClusterName)) {
+      query["TargetClusterName"] = request.targetClusterName;
+    }
+
+    if (!Util.isUnset(request.targetClusterUrl)) {
+      query["TargetClusterUrl"] = request.targetClusterUrl;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMigrationTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMigrationTaskResponse>(await this.callApi(params, req, runtime), new AddMigrationTaskResponse({}));
+  }
+
+  async addMigrationTask(request: AddMigrationTaskRequest): Promise<AddMigrationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMigrationTaskWithOptions(request, runtime);
   }
 
   async addMockRuleWithOptions(request: AddMockRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddMockRuleResponse> {
@@ -27691,6 +28310,59 @@ export default class Client extends OpenApi {
     return await this.queryClusterDiskSpecificationWithOptions(request, runtime);
   }
 
+  async queryClusterInfoWithOptions(request: QueryClusterInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.aclSwitch)) {
+      query["AclSwitch"] = request.aclSwitch;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryClusterInfo",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryClusterInfoResponse>(await this.callApi(params, req, runtime), new QueryClusterInfoResponse({}));
+  }
+
+  async queryClusterInfo(request: QueryClusterInfoRequest): Promise<QueryClusterInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryClusterInfoWithOptions(request, runtime);
+  }
+
   async queryClusterSpecificationWithOptions(request: QueryClusterSpecificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryClusterSpecificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27834,6 +28506,55 @@ export default class Client extends OpenApi {
   async queryGovernanceKubernetesCluster(request: QueryGovernanceKubernetesClusterRequest): Promise<QueryGovernanceKubernetesClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGovernanceKubernetesClusterWithOptions(request, runtime);
+  }
+
+  async queryInstancesInfoWithOptions(request: QueryInstancesInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstancesInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryInstancesInfo",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstancesInfoResponse>(await this.callApi(params, req, runtime), new QueryInstancesInfoResponse({}));
+  }
+
+  async queryInstancesInfo(request: QueryInstancesInfoRequest): Promise<QueryInstancesInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInstancesInfoWithOptions(request, runtime);
   }
 
   async queryMonitorWithOptions(request: QueryMonitorRequest, runtime: $Util.RuntimeOptions): Promise<QueryMonitorResponse> {
