@@ -3527,6 +3527,189 @@ export class DescribeVodDomainLogResponse extends $tea.Model {
   }
 }
 
+export class DescribeVodDomainSrcBpsDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcBpsDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  requestId?: string;
+  srcBpsDataPerInterval?: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      srcBpsDataPerInterval: 'SrcBpsDataPerInterval',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      requestId: 'string',
+      srcBpsDataPerInterval: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval,
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcBpsDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVodDomainSrcBpsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainSrcBpsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcTrafficDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcTrafficDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  requestId?: string;
+  srcTrafficDataPerInterval?: DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval;
+  startTime?: string;
+  totalTraffic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      srcTrafficDataPerInterval: 'SrcTrafficDataPerInterval',
+      startTime: 'StartTime',
+      totalTraffic: 'TotalTraffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      requestId: 'string',
+      srcTrafficDataPerInterval: DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval,
+      startTime: 'string',
+      totalTraffic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcTrafficDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVodDomainSrcTrafficDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainSrcTrafficDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainTrafficDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
@@ -4727,11 +4910,13 @@ export class GetAppInfosRequest extends $tea.Model {
 
 export class GetAppInfosResponseBody extends $tea.Model {
   appInfoList?: GetAppInfosResponseBodyAppInfoList[];
+  code?: string;
   nonExistAppIds?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       appInfoList: 'AppInfoList',
+      code: 'Code',
       nonExistAppIds: 'NonExistAppIds',
       requestId: 'RequestId',
     };
@@ -4740,6 +4925,7 @@ export class GetAppInfosResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appInfoList: { 'type': 'array', 'itemType': GetAppInfosResponseBodyAppInfoList },
+      code: 'string',
       nonExistAppIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
@@ -11987,6 +12173,94 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetails extends $tea.Model
   }
 }
 
+export class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule extends $tea.Model {
+  httpsValue?: string;
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpsValue: 'HttpsValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpsValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval extends $tea.Model {
+  dataModule?: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule extends $tea.Model {
+  httpsValue?: string;
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpsValue: 'HttpsValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpsValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval extends $tea.Model {
+  dataModule?: DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainTrafficDataResponseBodyTrafficDataPerIntervalDataModule extends $tea.Model {
   domesticValue?: string;
   httpsDomesticValue?: string;
@@ -17546,6 +17820,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+    *
+    * @param request AddAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddAITemplateResponse
+   */
   async addAITemplateWithOptions(request: AddAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17578,11 +17859,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAITemplateResponse>(await this.callApi(params, req, runtime), new AddAITemplateResponse({}));
   }
 
+  /**
+    * Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+    *
+    * @param request AddAITemplateRequest
+    * @return AddAITemplateResponse
+   */
   async addAITemplate(request: AddAITemplateRequest): Promise<AddAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAITemplateWithOptions(request, runtime);
   }
 
+  /**
+    * A maximum of three category levels can be created. Each category can contain up to 100 subcategories.
+    *
+    * @param request AddCategoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddCategoryResponse
+   */
   async addCategoryWithOptions(request: AddCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17615,6 +17909,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddCategoryResponse>(await this.callApi(params, req, runtime), new AddCategoryResponse({}));
   }
 
+  /**
+    * A maximum of three category levels can be created. Each category can contain up to 100 subcategories.
+    *
+    * @param request AddCategoryRequest
+    * @return AddCategoryResponse
+   */
   async addCategory(request: AddCategoryRequest): Promise<AddCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCategoryWithOptions(request, runtime);
@@ -17681,6 +17981,18 @@ export default class Client extends OpenApi {
     return await this.addEditingProjectWithOptions(request, runtime);
   }
 
+  /**
+    * - You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. To manage these transcoding template groups, submit a ticket to contact Alibaba Cloud technical support.
+    * - An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You can create a transcoding template group only after ApsaraVideo VOD has allocated a bucket to you. You can activate the bucket on the Storage page in the ApsaraVideo VOD console.
+    * - You cannot add transcoding templates to the **No Transcoding** template group.
+    * - You can create a maximum of 20 transcoding template groups.
+    * - You can add a maximum of 20 transcoding templates to a transcoding template group.
+    * - If you need to generate an URL for adaptive bitrate streaming, you can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
+    *
+    * @param request AddTranscodeTemplateGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddTranscodeTemplateGroupResponse
+   */
   async addTranscodeTemplateGroupWithOptions(request: AddTranscodeTemplateGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddTranscodeTemplateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17717,11 +18029,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTranscodeTemplateGroupResponse>(await this.callApi(params, req, runtime), new AddTranscodeTemplateGroupResponse({}));
   }
 
+  /**
+    * - You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. To manage these transcoding template groups, submit a ticket to contact Alibaba Cloud technical support.
+    * - An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You can create a transcoding template group only after ApsaraVideo VOD has allocated a bucket to you. You can activate the bucket on the Storage page in the ApsaraVideo VOD console.
+    * - You cannot add transcoding templates to the **No Transcoding** template group.
+    * - You can create a maximum of 20 transcoding template groups.
+    * - You can add a maximum of 20 transcoding templates to a transcoding template group.
+    * - If you need to generate an URL for adaptive bitrate streaming, you can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
+    *
+    * @param request AddTranscodeTemplateGroupRequest
+    * @return AddTranscodeTemplateGroupResponse
+   */
   async addTranscodeTemplateGroup(request: AddTranscodeTemplateGroupRequest): Promise<AddTranscodeTemplateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTranscodeTemplateGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   Before you add a domain name for CDN, you must activate [ApsaraVideo VOD](~~51512~~) and apply for an Internet content provider (ICP) filing for domain name.
+    * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
+    *
+    * @param request AddVodDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddVodDomainResponse
+   */
   async addVodDomainWithOptions(request: AddVodDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddVodDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17774,11 +18106,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AddVodDomainResponse>(await this.callApi(params, req, runtime), new AddVodDomainResponse({}));
   }
 
+  /**
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   Before you add a domain name for CDN, you must activate [ApsaraVideo VOD](~~51512~~) and apply for an Internet content provider (ICP) filing for domain name.
+    * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
+    *
+    * @param request AddVodDomainRequest
+    * @return AddVodDomainResponse
+   */
   async addVodDomain(request: AddVodDomainRequest): Promise<AddVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVodDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
+    * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+    *
+    * @param request AddVodTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddVodTemplateResponse
+   */
   async addVodTemplateWithOptions(request: AddVodTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddVodTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17815,11 +18163,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddVodTemplateResponse>(await this.callApi(params, req, runtime), new AddVodTemplateResponse({}));
   }
 
+  /**
+    * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
+    * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+    *
+    * @param request AddVodTemplateRequest
+    * @return AddVodTemplateResponse
+   */
   async addVodTemplate(request: AddVodTemplateRequest): Promise<AddVodTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVodTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraVideo VOD supports static image watermarks such as PNG files and dynamic image watermarks such as GIF, APNG, and MOV files.
+    *
+    * @param request AddWatermarkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddWatermarkResponse
+   */
   async addWatermarkWithOptions(request: AddWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<AddWatermarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17860,11 +18222,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddWatermarkResponse>(await this.callApi(params, req, runtime), new AddWatermarkResponse({}));
   }
 
+  /**
+    * ApsaraVideo VOD supports static image watermarks such as PNG files and dynamic image watermarks such as GIF, APNG, and MOV files.
+    *
+    * @param request AddWatermarkRequest
+    * @return AddWatermarkResponse
+   */
   async addWatermark(request: AddWatermarkRequest): Promise<AddWatermarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addWatermarkWithOptions(request, runtime);
   }
 
+  /**
+    * > You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+    *
+    * @param request AttachAppPolicyToIdentityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachAppPolicyToIdentityResponse
+   */
   async attachAppPolicyToIdentityWithOptions(request: AttachAppPolicyToIdentityRequest, runtime: $Util.RuntimeOptions): Promise<AttachAppPolicyToIdentityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17901,11 +18276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachAppPolicyToIdentityResponse>(await this.callApi(params, req, runtime), new AttachAppPolicyToIdentityResponse({}));
   }
 
+  /**
+    * > You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+    *
+    * @param request AttachAppPolicyToIdentityRequest
+    * @return AttachAppPolicyToIdentityResponse
+   */
   async attachAppPolicyToIdentity(request: AttachAppPolicyToIdentityRequest): Promise<AttachAppPolicyToIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachAppPolicyToIdentityWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request BatchSetVodDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSetVodDomainConfigsResponse
+   */
   async batchSetVodDomainConfigsWithOptions(request: BatchSetVodDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetVodDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17946,11 +18334,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSetVodDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchSetVodDomainConfigsResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request BatchSetVodDomainConfigsRequest
+    * @return BatchSetVodDomainConfigsResponse
+   */
   async batchSetVodDomainConfigs(request: BatchSetVodDomainConfigsRequest): Promise<BatchSetVodDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetVodDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+    *
+    * @param request BatchStartVodDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchStartVodDomainResponse
+   */
   async batchStartVodDomainWithOptions(request: BatchStartVodDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartVodDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17983,11 +18385,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchStartVodDomainResponse>(await this.callApi(params, req, runtime), new BatchStartVodDomainResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+    *
+    * @param request BatchStartVodDomainRequest
+    * @return BatchStartVodDomainResponse
+   */
   async batchStartVodDomain(request: BatchStartVodDomainRequest): Promise<BatchStartVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchStartVodDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+    *
+    * @param request BatchStopVodDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchStopVodDomainResponse
+   */
   async batchStopVodDomainWithOptions(request: BatchStopVodDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopVodDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18020,11 +18437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchStopVodDomainResponse>(await this.callApi(params, req, runtime), new BatchStopVodDomainResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+    *
+    * @param request BatchStopVodDomainRequest
+    * @return BatchStopVodDomainResponse
+   */
   async batchStopVodDomain(request: BatchStopVodDomainRequest): Promise<BatchStopVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchStopVodDomainWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
+    * *   You cannot cancel an upload job that already starts.
+    *
+    * @param request CancelUrlUploadJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelUrlUploadJobsResponse
+   */
   async cancelUrlUploadJobsWithOptions(request: CancelUrlUploadJobsRequest, runtime: $Util.RuntimeOptions): Promise<CancelUrlUploadJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18053,11 +18485,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelUrlUploadJobsResponse>(await this.callApi(params, req, runtime), new CancelUrlUploadJobsResponse({}));
   }
 
+  /**
+    * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
+    * *   You cannot cancel an upload job that already starts.
+    *
+    * @param request CancelUrlUploadJobsRequest
+    * @return CancelUrlUploadJobsResponse
+   */
   async cancelUrlUploadJobs(request: CancelUrlUploadJobsRequest): Promise<CancelUrlUploadJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelUrlUploadJobsWithOptions(request, runtime);
   }
 
+  /**
+    * You can create a maximum of 10 applications within an Alibaba Cloud account. For more information, see [Overview](https://www.alibabacloud.com/help/en/apsaravideo-for-vod/latest/overview-1).
+    *
+    * @param request CreateAppInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAppInfoResponse
+   */
   async createAppInfoWithOptions(request: CreateAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18086,6 +18532,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppInfoResponse>(await this.callApi(params, req, runtime), new CreateAppInfoResponse({}));
   }
 
+  /**
+    * You can create a maximum of 10 applications within an Alibaba Cloud account. For more information, see [Overview](https://www.alibabacloud.com/help/en/apsaravideo-for-vod/latest/overview-1).
+    *
+    * @param request CreateAppInfoRequest
+    * @return CreateAppInfoResponse
+   */
   async createAppInfo(request: CreateAppInfoRequest): Promise<CreateAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppInfoWithOptions(request, runtime);
@@ -18120,6 +18572,15 @@ export default class Client extends OpenApi {
     return await this.createAuditWithOptions(request, runtime);
   }
 
+  /**
+    * - The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using server upload SDKs, client upload SDKs, URLs of auxiliary media assets, Object Storage Service (OSS) API, or native OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * - If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+    * - You can configure a callback to receive an [AttachedMediaUploadComplete](~~103250~~) event notification to determine whether the upload is successful.
+    *
+    * @param request CreateUploadAttachedMediaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUploadAttachedMediaResponse
+   */
   async createUploadAttachedMediaWithOptions(request: CreateUploadAttachedMediaRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadAttachedMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18184,11 +18645,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUploadAttachedMediaResponse>(await this.callApi(params, req, runtime), new CreateUploadAttachedMediaResponse({}));
   }
 
+  /**
+    * - The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload auxiliary media assets by using server upload SDKs, client upload SDKs, URLs of auxiliary media assets, Object Storage Service (OSS) API, or native OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * - If the upload credential expires, you can call this operation to obtain a new upload URL and credential. The default validity period of an upload credential is 3,000 seconds.
+    * - You can configure a callback to receive an [AttachedMediaUploadComplete](~~103250~~) event notification to determine whether the upload is successful.
+    *
+    * @param request CreateUploadAttachedMediaRequest
+    * @return CreateUploadAttachedMediaResponse
+   */
   async createUploadAttachedMedia(request: CreateUploadAttachedMediaRequest): Promise<CreateUploadAttachedMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUploadAttachedMediaWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * *   The upload credential is not automatically updated when you upload an image. By default, an upload credential is valid for 3,000 seconds before it expires. If your credential expires, call this operation again to obtain the credential.
+    * *   You can call the [CreateUploadAttachedMedia](~~98467~~) operation to upload image watermarks.
+    * *   You can configure a callback for [ImageUploadComplete](~~91968~~) to receive notifications about the image upload status.
+    *
+    * @param request CreateUploadImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUploadImageResponse
+   */
   async createUploadImageWithOptions(request: CreateUploadImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18249,11 +18729,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUploadImageResponse>(await this.callApi(params, req, runtime), new CreateUploadImageResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * *   The upload credential is not automatically updated when you upload an image. By default, an upload credential is valid for 3,000 seconds before it expires. If your credential expires, call this operation again to obtain the credential.
+    * *   You can call the [CreateUploadAttachedMedia](~~98467~~) operation to upload image watermarks.
+    * *   You can configure a callback for [ImageUploadComplete](~~91968~~) to receive notifications about the image upload status.
+    *
+    * @param request CreateUploadImageRequest
+    * @return CreateUploadImageResponse
+   */
   async createUploadImage(request: CreateUploadImageRequest): Promise<CreateUploadImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUploadImageWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation to obtain upload URLs and credentials for both video and audio files. For more information, see [Upload URLs and credentials](~~55397~~).
+    * * The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload media files by using SDKs for upload from servers, SDKs for upload from clients, file URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * * If the upload credential expires, you can call the [RefreshUploadVideo](~~55408~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+    * * You can configure a callback to receive an [event notification](~~55396~~) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](~~59624~~) operation to determine whether the upload is successful based on the value of the Status response parameter.
+    * * The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
+    *
+    * @param request CreateUploadVideoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUploadVideoResponse
+   */
   async createUploadVideoWithOptions(request: CreateUploadVideoRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadVideoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18322,6 +18823,16 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUploadVideoResponse>(await this.callApi(params, req, runtime), new CreateUploadVideoResponse({}));
   }
 
+  /**
+    * * You can call this operation to obtain upload URLs and credentials for both video and audio files. For more information, see [Upload URLs and credentials](~~55397~~).
+    * * The process of obtaining upload URLs and credentials is a core process in ApsaraVideo VOD and is required for each upload operation. ApsaraVideo VOD provides multiple upload methods. You can upload media files by using SDKs for upload from servers, SDKs for upload from clients, file URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](~~55397~~) topic.
+    * * If the upload credential expires, you can call the [RefreshUploadVideo](~~55408~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
+    * * You can configure a callback to receive an [event notification](~~55396~~) when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](~~59624~~) operation to determine whether the upload is successful based on the value of the Status response parameter.
+    * * The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
+    *
+    * @param request CreateUploadVideoRequest
+    * @return CreateUploadVideoResponse
+   */
   async createUploadVideo(request: CreateUploadVideoRequest): Promise<CreateUploadVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUploadVideoWithOptions(request, runtime);
@@ -18372,6 +18883,17 @@ export default class Client extends OpenApi {
     return await this.decryptKMSDataKeyWithOptions(request, runtime);
   }
 
+  /**
+    * This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+    * ### QPS limit
+    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request DeleteAIImageInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAIImageInfosResponse
+   */
   async deleteAIImageInfosWithOptions(request: DeleteAIImageInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAIImageInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18396,11 +18918,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAIImageInfosResponse>(await this.callApi(params, req, runtime), new DeleteAIImageInfosResponse({}));
   }
 
+  /**
+    * This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+    * ### QPS limit
+    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request DeleteAIImageInfosRequest
+    * @return DeleteAIImageInfosResponse
+   */
   async deleteAIImageInfos(request: DeleteAIImageInfosRequest): Promise<DeleteAIImageInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAIImageInfosWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot delete an AI template that is set as the default template.
+    *
+    * @param request DeleteAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAITemplateResponse
+   */
   async deleteAITemplateWithOptions(request: DeleteAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18425,11 +18964,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAITemplateResponse>(await this.callApi(params, req, runtime), new DeleteAITemplateResponse({}));
   }
 
+  /**
+    * You cannot delete an AI template that is set as the default template.
+    *
+    * @param request DeleteAITemplateRequest
+    * @return DeleteAITemplateResponse
+   */
   async deleteAITemplate(request: DeleteAITemplateRequest): Promise<DeleteAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAITemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage note
+    * Application with resources can not be deleted.
+    *
+    * @param request DeleteAppInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAppInfoResponse
+   */
   async deleteAppInfoWithOptions(request: DeleteAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18454,11 +19007,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppInfoResponse>(await this.callApi(params, req, runtime), new DeleteAppInfoResponse({}));
   }
 
+  /**
+    * ## Usage note
+    * Application with resources can not be deleted.
+    *
+    * @param request DeleteAppInfoRequest
+    * @return DeleteAppInfoResponse
+   */
   async deleteAppInfo(request: DeleteAppInfoRequest): Promise<DeleteAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppInfoWithOptions(request, runtime);
   }
 
+  /**
+    * This operation physically deletes auxiliary media assets. Deleted auxiliary media assets cannot be recovered. Exercise caution when you call this operation.
+    *
+    * @param request DeleteAttachedMediaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAttachedMediaResponse
+   */
   async deleteAttachedMediaWithOptions(request: DeleteAttachedMediaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAttachedMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18483,11 +19050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAttachedMediaResponse>(await this.callApi(params, req, runtime), new DeleteAttachedMediaResponse({}));
   }
 
+  /**
+    * This operation physically deletes auxiliary media assets. Deleted auxiliary media assets cannot be recovered. Exercise caution when you call this operation.
+    *
+    * @param request DeleteAttachedMediaRequest
+    * @return DeleteAttachedMediaResponse
+   */
   async deleteAttachedMedia(request: DeleteAttachedMediaRequest): Promise<DeleteAttachedMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAttachedMediaWithOptions(request, runtime);
   }
 
+  /**
+    * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+    *
+    * @param request DeleteCategoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCategoryResponse
+   */
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18512,11 +19092,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
   }
 
+  /**
+    * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+    *
+    * @param request DeleteCategoryRequest
+    * @return DeleteCategoryResponse
+   */
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCategoryWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+    *
+    * @param request DeleteDynamicImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDynamicImageResponse
+   */
   async deleteDynamicImageWithOptions(request: DeleteDynamicImageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18545,6 +19138,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDynamicImageResponse>(await this.callApi(params, req, runtime), new DeleteDynamicImageResponse({}));
   }
 
+  /**
+    * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+    *
+    * @param request DeleteDynamicImageRequest
+    * @return DeleteDynamicImageResponse
+   */
   async deleteDynamicImage(request: DeleteDynamicImageRequest): Promise<DeleteDynamicImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDynamicImageWithOptions(request, runtime);
@@ -18595,6 +19194,13 @@ export default class Client extends OpenApi {
     return await this.deleteEditingProjectWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation irreversibly deletes image mezzanine files. Deleted images cannot be recovered. If some images are cached in Content Delivery Network (CDN), the image URLs do not immediately become invalid.
+    *
+    * @param request DeleteImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteImageResponse
+   */
   async deleteImageWithOptions(request: DeleteImageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18635,11 +19241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageResponse>(await this.callApi(params, req, runtime), new DeleteImageResponse({}));
   }
 
+  /**
+    * > This operation irreversibly deletes image mezzanine files. Deleted images cannot be recovered. If some images are cached in Content Delivery Network (CDN), the image URLs do not immediately become invalid.
+    *
+    * @param request DeleteImageRequest
+    * @return DeleteImageResponse
+   */
   async deleteImage(request: DeleteImageRequest): Promise<DeleteImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageWithOptions(request, runtime);
   }
 
+  /**
+    * > For more information, see [Overview](~~55627~~).
+    *
+    * @param request DeleteMessageCallbackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteMessageCallbackResponse
+   */
   async deleteMessageCallbackWithOptions(request: DeleteMessageCallbackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMessageCallbackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18668,11 +19287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMessageCallbackResponse>(await this.callApi(params, req, runtime), new DeleteMessageCallbackResponse({}));
   }
 
+  /**
+    * > For more information, see [Overview](~~55627~~).
+    *
+    * @param request DeleteMessageCallbackRequest
+    * @return DeleteMessageCallbackResponse
+   */
   async deleteMessageCallback(request: DeleteMessageCallbackRequest): Promise<DeleteMessageCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMessageCallbackWithOptions(request, runtime);
   }
 
+  /**
+    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+    *
+    * @param request DeleteMezzaninesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteMezzaninesResponse
+   */
   async deleteMezzaninesWithOptions(request: DeleteMezzaninesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMezzaninesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18701,11 +19333,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMezzaninesResponse>(await this.callApi(params, req, runtime), new DeleteMezzaninesResponse({}));
   }
 
+  /**
+    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+    *
+    * @param request DeleteMezzaninesRequest
+    * @return DeleteMezzaninesResponse
+   */
   async deleteMezzanines(request: DeleteMezzaninesRequest): Promise<DeleteMezzaninesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMezzaninesWithOptions(request, runtime);
   }
 
+  /**
+    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
+    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
+    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    *
+    * @param request DeleteMultipartUploadRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteMultipartUploadResponse
+   */
   async deleteMultipartUploadWithOptions(request: DeleteMultipartUploadRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMultipartUploadResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18738,6 +19385,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMultipartUploadResponse>(await this.callApi(params, req, runtime), new DeleteMultipartUploadResponse({}));
   }
 
+  /**
+    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
+    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
+    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    *
+    * @param request DeleteMultipartUploadRequest
+    * @return DeleteMultipartUploadResponse
+   */
   async deleteMultipartUpload(request: DeleteMultipartUploadRequest): Promise<DeleteMultipartUploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMultipartUploadWithOptions(request, runtime);
@@ -18776,6 +19431,15 @@ export default class Client extends OpenApi {
     return await this.deleteStreamWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
+    * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+    * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    *
+    * @param request DeleteTranscodeTemplateGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTranscodeTemplateGroupResponse
+   */
   async deleteTranscodeTemplateGroupWithOptions(request: DeleteTranscodeTemplateGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTranscodeTemplateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18808,11 +19472,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTranscodeTemplateGroupResponse>(await this.callApi(params, req, runtime), new DeleteTranscodeTemplateGroupResponse({}));
   }
 
+  /**
+    * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
+    * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+    * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    *
+    * @param request DeleteTranscodeTemplateGroupRequest
+    * @return DeleteTranscodeTemplateGroupResponse
+   */
   async deleteTranscodeTemplateGroup(request: DeleteTranscodeTemplateGroupRequest): Promise<DeleteTranscodeTemplateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTranscodeTemplateGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+    * *   You can call this operation to delete multiple videos at a time.
+    * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+    *
+    * @param request DeleteVideoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVideoResponse
+   */
   async deleteVideoWithOptions(request: DeleteVideoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVideoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18837,11 +19518,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVideoResponse>(await this.callApi(params, req, runtime), new DeleteVideoResponse({}));
   }
 
+  /**
+    * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+    * *   You can call this operation to delete multiple videos at a time.
+    * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+    *
+    * @param request DeleteVideoRequest
+    * @return DeleteVideoResponse
+   */
   async deleteVideo(request: DeleteVideoRequest): Promise<DeleteVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVideoWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
+    * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+    *
+    * @param request DeleteVodDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVodDomainResponse
+   */
   async deleteVodDomainWithOptions(request: DeleteVodDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVodDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18878,11 +19576,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVodDomainResponse>(await this.callApi(params, req, runtime), new DeleteVodDomainResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
+    * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+    *
+    * @param request DeleteVodDomainRequest
+    * @return DeleteVodDomainResponse
+   */
   async deleteVodDomain(request: DeleteVodDomainRequest): Promise<DeleteVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVodDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+    * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+    *
+    * @param request DeleteVodSpecificConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVodSpecificConfigResponse
+   */
   async deleteVodSpecificConfigWithOptions(request: DeleteVodSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVodSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18919,6 +19634,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVodSpecificConfigResponse>(await this.callApi(params, req, runtime), new DeleteVodSpecificConfigResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
+    * > *   After you call this operation to delete the configurations of a domain name for CDN, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](~~120208~~) operation.
+    *
+    * @param request DeleteVodSpecificConfigRequest
+    * @return DeleteVodSpecificConfigResponse
+   */
   async deleteVodSpecificConfig(request: DeleteVodSpecificConfigRequest): Promise<DeleteVodSpecificConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVodSpecificConfigWithOptions(request, runtime);
@@ -18953,6 +19676,14 @@ export default class Client extends OpenApi {
     return await this.deleteVodTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * > *   The default watermark cannot be deleted.
+    * > *   If you delete a watermark, its mezzanine file is also physically deleted and cannot be recovered.
+    *
+    * @param request DeleteWatermarkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteWatermarkResponse
+   */
   async deleteWatermarkWithOptions(request: DeleteWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWatermarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18977,11 +19708,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWatermarkResponse>(await this.callApi(params, req, runtime), new DeleteWatermarkResponse({}));
   }
 
+  /**
+    * > *   The default watermark cannot be deleted.
+    * > *   If you delete a watermark, its mezzanine file is also physically deleted and cannot be recovered.
+    *
+    * @param request DeleteWatermarkRequest
+    * @return DeleteWatermarkResponse
+   */
   async deleteWatermark(request: DeleteWatermarkRequest): Promise<DeleteWatermarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWatermarkWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayTopVideosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePlayTopVideosResponse
+   */
   async describePlayTopVideosWithOptions(request: DescribePlayTopVideosRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayTopVideosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19018,11 +19767,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlayTopVideosResponse>(await this.callApi(params, req, runtime), new DescribePlayTopVideosResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayTopVideosRequest
+    * @return DescribePlayTopVideosResponse
+   */
   async describePlayTopVideos(request: DescribePlayTopVideosRequest): Promise<DescribePlayTopVideosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlayTopVideosWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayUserAvgRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePlayUserAvgResponse
+   */
   async describePlayUserAvgWithOptions(request: DescribePlayUserAvgRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayUserAvgResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19055,11 +19824,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlayUserAvgResponse>(await this.callApi(params, req, runtime), new DescribePlayUserAvgResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayUserAvgRequest
+    * @return DescribePlayUserAvgResponse
+   */
   async describePlayUserAvg(request: DescribePlayUserAvgRequest): Promise<DescribePlayUserAvgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlayUserAvgWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayUserTotalRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePlayUserTotalResponse
+   */
   async describePlayUserTotalWithOptions(request: DescribePlayUserTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayUserTotalResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19092,11 +19880,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlayUserTotalResponse>(await this.callApi(params, req, runtime), new DescribePlayUserTotalResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayUserTotalRequest
+    * @return DescribePlayUserTotalResponse
+   */
   async describePlayUserTotal(request: DescribePlayUserTotalRequest): Promise<DescribePlayUserTotalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlayUserTotalWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayVideoStatisRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePlayVideoStatisResponse
+   */
   async describePlayVideoStatisWithOptions(request: DescribePlayVideoStatisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayVideoStatisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19133,11 +19940,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePlayVideoStatisResponse>(await this.callApi(params, req, runtime), new DescribePlayVideoStatisResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
+    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
+    * > *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
+    *
+    * @param request DescribePlayVideoStatisRequest
+    * @return DescribePlayVideoStatisResponse
+   */
   async describePlayVideoStatis(request: DescribePlayVideoStatisRequest): Promise<DescribePlayVideoStatisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlayVideoStatisWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodAIDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodAIDataResponse
+   */
   async describeVodAIDataWithOptions(request: DescribeVodAIDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodAIDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19178,11 +20002,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodAIDataResponse>(await this.callApi(params, req, runtime), new DescribeVodAIDataResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodAIDataRequest
+    * @return DescribeVodAIDataResponse
+   */
   async describeVodAIData(request: DescribeVodAIDataRequest): Promise<DescribeVodAIDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodAIDataWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodCertificateListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodCertificateListResponse
+   */
   async describeVodCertificateListWithOptions(request: DescribeVodCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19215,11 +20053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeVodCertificateListResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodCertificateListRequest
+    * @return DescribeVodCertificateListResponse
+   */
   async describeVodCertificateList(request: DescribeVodCertificateListRequest): Promise<DescribeVodCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodCertificateListWithOptions(request, runtime);
   }
 
+  /**
+    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    *
+    * @param request DescribeVodDomainBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainBpsDataResponse
+   */
   async describeVodDomainBpsDataWithOptions(request: DescribeVodDomainBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19268,11 +20119,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainBpsDataResponse({}));
   }
 
+  /**
+    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    *
+    * @param request DescribeVodDomainBpsDataRequest
+    * @return DescribeVodDomainBpsDataResponse
+   */
   async describeVodDomainBpsData(request: DescribeVodDomainBpsDataRequest): Promise<DescribeVodDomainBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainCertificateInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainCertificateInfoResponse
+   */
   async describeVodDomainCertificateInfoWithOptions(request: DescribeVodDomainCertificateInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainCertificateInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19301,11 +20165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainCertificateInfoResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainCertificateInfoResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainCertificateInfoRequest
+    * @return DescribeVodDomainCertificateInfoResponse
+   */
   async describeVodDomainCertificateInfo(request: DescribeVodDomainCertificateInfoRequest): Promise<DescribeVodDomainCertificateInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainCertificateInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainConfigsResponse
+   */
   async describeVodDomainConfigsWithOptions(request: DescribeVodDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19342,11 +20219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainConfigsResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainConfigsResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainConfigsRequest
+    * @return DescribeVodDomainConfigsResponse
+   */
   async describeVodDomainConfigs(request: DescribeVodDomainConfigsRequest): Promise<DescribeVodDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainDetailResponse
+   */
   async describeVodDomainDetailWithOptions(request: DescribeVodDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19379,11 +20269,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainDetailResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request DescribeVodDomainDetailRequest
+    * @return DescribeVodDomainDetailResponse
+   */
   async describeVodDomainDetail(request: DescribeVodDomainDetailRequest): Promise<DescribeVodDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage note
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   For more information about the log format and latency, see [Download logs](~~86099~~).
+    * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+    * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified duration.
+    *
+    * @param request DescribeVodDomainLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainLogResponse
+   */
   async describeVodDomainLogWithOptions(request: DescribeVodDomainLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19428,11 +20335,118 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainLogResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainLogResponse({}));
   }
 
+  /**
+    * ## Usage note
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   For more information about the log format and latency, see [Download logs](~~86099~~).
+    * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
+    * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified duration.
+    *
+    * @param request DescribeVodDomainLogRequest
+    * @return DescribeVodDomainLogResponse
+   */
   async describeVodDomainLog(request: DescribeVodDomainLogRequest): Promise<DescribeVodDomainLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainLogWithOptions(request, runtime);
   }
 
+  async describeVodDomainSrcBpsDataWithOptions(request: DescribeVodDomainSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainSrcBpsDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainSrcBpsData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainSrcBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainSrcBpsDataResponse({}));
+  }
+
+  async describeVodDomainSrcBpsData(request: DescribeVodDomainSrcBpsDataRequest): Promise<DescribeVodDomainSrcBpsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainSrcBpsDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainSrcTrafficDataWithOptions(request: DescribeVodDomainSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainSrcTrafficDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainSrcTrafficData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainSrcTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainSrcTrafficDataResponse({}));
+  }
+
+  async describeVodDomainSrcTrafficData(request: DescribeVodDomainSrcTrafficDataRequest): Promise<DescribeVodDomainSrcTrafficDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainSrcTrafficDataWithOptions(request, runtime);
+  }
+
+  /**
+    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    *
+    * @param request DescribeVodDomainTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainTrafficDataResponse
+   */
   async describeVodDomainTrafficDataWithOptions(request: DescribeVodDomainTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19481,11 +20495,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainTrafficDataResponse({}));
   }
 
+  /**
+    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    *
+    * @param request DescribeVodDomainTrafficDataRequest
+    * @return DescribeVodDomainTrafficDataResponse
+   */
   async describeVodDomainTrafficData(request: DescribeVodDomainTrafficDataRequest): Promise<DescribeVodDomainTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can specify a maximum of 100 domain names for CDN at a time. Separate them with commas (,). If you do not specify a domain name for CDN, the data of all domain names for CDN within your Alibaba Cloud account is returned.
+    * > *   You can query data for the past one year at most and query data for a maximum of three months per request. If you query data for one to three days, the system returns the statistics collected on an hourly basis. If you query data for four days or more, the system returns the statistics collected on a daily basis.
+    *
+    * @param request DescribeVodDomainUsageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodDomainUsageDataResponse
+   */
   async describeVodDomainUsageDataWithOptions(request: DescribeVodDomainUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19534,11 +20563,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainUsageDataResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can specify a maximum of 100 domain names for CDN at a time. Separate them with commas (,). If you do not specify a domain name for CDN, the data of all domain names for CDN within your Alibaba Cloud account is returned.
+    * > *   You can query data for the past one year at most and query data for a maximum of three months per request. If you query data for one to three days, the system returns the statistics collected on an hourly basis. If you query data for four days or more, the system returns the statistics collected on a daily basis.
+    *
+    * @param request DescribeVodDomainUsageDataRequest
+    * @return DescribeVodDomainUsageDataResponse
+   */
   async describeVodDomainUsageData(request: DescribeVodDomainUsageDataRequest): Promise<DescribeVodDomainUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainUsageDataWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    *
+    * @param request DescribeVodRefreshQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodRefreshQuotaResponse
+   */
   async describeVodRefreshQuotaWithOptions(request: DescribeVodRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodRefreshQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19567,11 +20612,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodRefreshQuotaResponse>(await this.callApi(params, req, runtime), new DescribeVodRefreshQuotaResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    *
+    * @param request DescribeVodRefreshQuotaRequest
+    * @return DescribeVodRefreshQuotaResponse
+   */
   async describeVodRefreshQuota(request: DescribeVodRefreshQuotaRequest): Promise<DescribeVodRefreshQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodRefreshQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If you specify neither the TaskId parameter nor the ObjectPath parameter, the data in the last three days on the first page is returned. By default, one page displays a maximum of 20 entries. You can specify the Taskid and Objectpath parameters at the same time.
+    *
+    * @param request DescribeVodRefreshTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodRefreshTasksResponse
+   */
   async describeVodRefreshTasksWithOptions(request: DescribeVodRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodRefreshTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19636,11 +20696,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodRefreshTasksResponse>(await this.callApi(params, req, runtime), new DescribeVodRefreshTasksResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If you specify neither the TaskId parameter nor the ObjectPath parameter, the data in the last three days on the first page is returned. By default, one page displays a maximum of 20 entries. You can specify the Taskid and Objectpath parameters at the same time.
+    *
+    * @param request DescribeVodRefreshTasksRequest
+    * @return DescribeVodRefreshTasksResponse
+   */
   async describeVodRefreshTasks(request: DescribeVodRefreshTasksRequest): Promise<DescribeVodRefreshTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodRefreshTasksWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodStorageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodStorageDataResponse
+   */
   async describeVodStorageDataWithOptions(request: DescribeVodStorageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodStorageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19685,11 +20760,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodStorageDataResponse>(await this.callApi(params, req, runtime), new DescribeVodStorageDataResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodStorageDataRequest
+    * @return DescribeVodStorageDataResponse
+   */
   async describeVodStorageData(request: DescribeVodStorageDataRequest): Promise<DescribeVodStorageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodStorageDataWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodTranscodeDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodTranscodeDataResponse
+   */
   async describeVodTranscodeDataWithOptions(request: DescribeVodTranscodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodTranscodeDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19738,6 +20828,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodTranscodeDataResponse>(await this.callApi(params, req, runtime), new DescribeVodTranscodeDataResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+    *
+    * @param request DescribeVodTranscodeDataRequest
+    * @return DescribeVodTranscodeDataResponse
+   */
   async describeVodTranscodeData(request: DescribeVodTranscodeDataRequest): Promise<DescribeVodTranscodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodTranscodeDataWithOptions(request, runtime);
@@ -19833,6 +20930,13 @@ export default class Client extends OpenApi {
     return await this.describeVodVerifyContentWithOptions(request, runtime);
   }
 
+  /**
+    * You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+    *
+    * @param request DetachAppPolicyFromIdentityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachAppPolicyFromIdentityResponse
+   */
   async detachAppPolicyFromIdentityWithOptions(request: DetachAppPolicyFromIdentityRequest, runtime: $Util.RuntimeOptions): Promise<DetachAppPolicyFromIdentityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19869,6 +20973,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachAppPolicyFromIdentityResponse>(await this.callApi(params, req, runtime), new DetachAppPolicyFromIdentityResponse({}));
   }
 
+  /**
+    * You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+    *
+    * @param request DetachAppPolicyFromIdentityRequest
+    * @return DetachAppPolicyFromIdentityResponse
+   */
   async detachAppPolicyFromIdentity(request: DetachAppPolicyFromIdentityRequest): Promise<DetachAppPolicyFromIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachAppPolicyFromIdentityWithOptions(request, runtime);
@@ -19915,6 +21025,17 @@ export default class Client extends OpenApi {
     return await this.generateKMSDataKeyWithOptions(request, runtime);
   }
 
+  /**
+    * Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+    * ### QPS limit
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetAIImageJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAIImageJobsResponse
+   */
   async getAIImageJobsWithOptions(request: GetAIImageJobsRequest, runtime: $Util.RuntimeOptions): Promise<GetAIImageJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19955,11 +21076,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAIImageJobsResponse>(await this.callApi(params, req, runtime), new GetAIImageJobsResponse({}));
   }
 
+  /**
+    * Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs. You can query a maximum of 10 jobs of image AI processing in one request.
+    * ### QPS limit
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetAIImageJobsRequest
+    * @return GetAIImageJobsResponse
+   */
   async getAIImageJobs(request: GetAIImageJobsRequest): Promise<GetAIImageJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAIImageJobsWithOptions(request, runtime);
   }
 
+  /**
+    * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+    *
+    * @param request GetAIMediaAuditJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAIMediaAuditJobResponse
+   */
   async getAIMediaAuditJobWithOptions(request: GetAIMediaAuditJobRequest, runtime: $Util.RuntimeOptions): Promise<GetAIMediaAuditJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19984,11 +21122,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAIMediaAuditJobResponse>(await this.callApi(params, req, runtime), new GetAIMediaAuditJobResponse({}));
   }
 
+  /**
+    * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+    *
+    * @param request GetAIMediaAuditJobRequest
+    * @return GetAIMediaAuditJobResponse
+   */
   async getAIMediaAuditJob(request: GetAIMediaAuditJobRequest): Promise<GetAIMediaAuditJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAIMediaAuditJobWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation to query the details of an AI template, you must obtain the ID of the AI template.
+    *
+    * @param request GetAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAITemplateResponse
+   */
   async getAITemplateWithOptions(request: GetAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20013,11 +21164,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAITemplateResponse>(await this.callApi(params, req, runtime), new GetAITemplateResponse({}));
   }
 
+  /**
+    * Before you call this operation to query the details of an AI template, you must obtain the ID of the AI template.
+    *
+    * @param request GetAITemplateRequest
+    * @return GetAITemplateResponse
+   */
   async getAITemplate(request: GetAITemplateRequest): Promise<GetAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAITemplateWithOptions(request, runtime);
   }
 
+  /**
+    * - The smart tagging feature is not supported. You cannot call this operation.
+    * - You can obtain the smart tagging results by using the video ID.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetAIVideoTagResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAIVideoTagResultResponse
+   */
   async getAIVideoTagResultWithOptions(request: GetAIVideoTagResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAIVideoTagResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20058,11 +21225,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAIVideoTagResultResponse>(await this.callApi(params, req, runtime), new GetAIVideoTagResultResponse({}));
   }
 
+  /**
+    * - The smart tagging feature is not supported. You cannot call this operation.
+    * - You can obtain the smart tagging results by using the video ID.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetAIVideoTagResultRequest
+    * @return GetAIVideoTagResultResponse
+   */
   async getAIVideoTagResult(request: GetAIVideoTagResultRequest): Promise<GetAIVideoTagResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAIVideoTagResultWithOptions(request, runtime);
   }
 
+  /**
+    * Supports batch query.
+    *
+    * @param request GetAppInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAppInfosResponse
+   */
   async getAppInfosWithOptions(request: GetAppInfosRequest, runtime: $Util.RuntimeOptions): Promise<GetAppInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20087,6 +21270,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppInfosResponse>(await this.callApi(params, req, runtime), new GetAppInfosResponse({}));
   }
 
+  /**
+    * Supports batch query.
+    *
+    * @param request GetAppInfosRequest
+    * @return GetAppInfosResponse
+   */
   async getAppInfos(request: GetAppInfosRequest): Promise<GetAppInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppInfosWithOptions(request, runtime);
@@ -20215,6 +21404,13 @@ export default class Client extends OpenApi {
     return await this.getCategoriesWithOptions(request, runtime);
   }
 
+  /**
+    * You can query only the default AI template for intelligent review.
+    *
+    * @param request GetDefaultAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDefaultAITemplateResponse
+   */
   async getDefaultAITemplateWithOptions(request: GetDefaultAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetDefaultAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20239,6 +21435,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDefaultAITemplateResponse>(await this.callApi(params, req, runtime), new GetDefaultAITemplateResponse({}));
   }
 
+  /**
+    * You can query only the default AI template for intelligent review.
+    *
+    * @param request GetDefaultAITemplateRequest
+    * @return GetDefaultAITemplateResponse
+   */
   async getDefaultAITemplate(request: GetDefaultAITemplateRequest): Promise<GetDefaultAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDefaultAITemplateWithOptions(request, runtime);
@@ -20289,6 +21491,13 @@ export default class Client extends OpenApi {
     return await this.getEditingProjectWithOptions(request, runtime);
   }
 
+  /**
+    * During editing, you can add materials to the timeline, but some of them may not be used.
+    *
+    * @param request GetEditingProjectMaterialsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetEditingProjectMaterialsResponse
+   */
   async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20337,6 +21546,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new GetEditingProjectMaterialsResponse({}));
   }
 
+  /**
+    * During editing, you can add materials to the timeline, but some of them may not be used.
+    *
+    * @param request GetEditingProjectMaterialsRequest
+    * @return GetEditingProjectMaterialsResponse
+   */
   async getEditingProjectMaterials(request: GetEditingProjectMaterialsRequest): Promise<GetEditingProjectMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEditingProjectMaterialsWithOptions(request, runtime);
@@ -20379,6 +21594,15 @@ export default class Client extends OpenApi {
     return await this.getImageInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](~~342790~~).
+    *
+    * @param request GetImageInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetImageInfosResponse
+   */
   async getImageInfosWithOptions(request: GetImageInfosRequest, runtime: $Util.RuntimeOptions): Promise<GetImageInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20411,11 +21635,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageInfosResponse>(await this.callApi(params, req, runtime), new GetImageInfosResponse({}));
   }
 
+  /**
+    * You can call this operation to query the basic information about multiple images at a time, such as the image title, type, creation time, tags, and URL.
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on an API operation in ApsaraVideo Live](~~342790~~).
+    *
+    * @param request GetImageInfosRequest
+    * @return GetImageInfosResponse
+   */
   async getImageInfos(request: GetImageInfosRequest): Promise<GetImageInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageInfosWithOptions(request, runtime);
   }
 
+  /**
+    * If notifications for the [CreateAuditComplete](~~89576~~) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+    *
+    * @param request GetMediaAuditAudioResultDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMediaAuditAudioResultDetailResponse
+   */
   async getMediaAuditAudioResultDetailWithOptions(request: GetMediaAuditAudioResultDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaAuditAudioResultDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20460,6 +21699,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMediaAuditAudioResultDetailResponse>(await this.callApi(params, req, runtime), new GetMediaAuditAudioResultDetailResponse({}));
   }
 
+  /**
+    * If notifications for the [CreateAuditComplete](~~89576~~) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+    *
+    * @param request GetMediaAuditAudioResultDetailRequest
+    * @return GetMediaAuditAudioResultDetailResponse
+   */
   async getMediaAuditAudioResultDetail(request: GetMediaAuditAudioResultDetailRequest): Promise<GetMediaAuditAudioResultDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMediaAuditAudioResultDetailWithOptions(request, runtime);
@@ -20494,6 +21739,14 @@ export default class Client extends OpenApi {
     return await this.getMediaAuditResultWithOptions(request, runtime);
   }
 
+  /**
+    * - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+    * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+    *
+    * @param request GetMediaAuditResultDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMediaAuditResultDetailResponse
+   */
   async getMediaAuditResultDetailWithOptions(request: GetMediaAuditResultDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaAuditResultDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20522,6 +21775,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMediaAuditResultDetailResponse>(await this.callApi(params, req, runtime), new GetMediaAuditResultDetailResponse({}));
   }
 
+  /**
+    * - By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+    * - ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+    *
+    * @param request GetMediaAuditResultDetailRequest
+    * @return GetMediaAuditResultDetailResponse
+   */
   async getMediaAuditResultDetail(request: GetMediaAuditResultDetailRequest): Promise<GetMediaAuditResultDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMediaAuditResultDetailWithOptions(request, runtime);
@@ -20556,6 +21816,15 @@ export default class Client extends OpenApi {
     return await this.getMediaAuditResultTimelineWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only in the Singapore (Singapore) region.
+    * ### QPS limit
+    * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~342790~~).
+    *
+    * @param request GetMediaDNAResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMediaDNAResultResponse
+   */
   async getMediaDNAResultWithOptions(request: GetMediaDNAResultRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaDNAResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20596,11 +21865,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMediaDNAResultResponse>(await this.callApi(params, req, runtime), new GetMediaDNAResultResponse({}));
   }
 
+  /**
+    * This operation is available only in the Singapore (Singapore) region.
+    * ### QPS limit
+    * You can call this operation up to 20 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~342790~~).
+    *
+    * @param request GetMediaDNAResultRequest
+    * @return GetMediaDNAResultResponse
+   */
   async getMediaDNAResult(request: GetMediaDNAResultRequest): Promise<GetMediaDNAResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMediaDNAResultWithOptions(request, runtime);
   }
 
+  /**
+    * You can query the information about all media files or a specific media file in a refresh or prefetch job.
+    * ### QPS limits
+    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetMediaRefreshJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMediaRefreshJobsResponse
+   */
   async getMediaRefreshJobsWithOptions(request: GetMediaRefreshJobsRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaRefreshJobsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20621,11 +21907,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMediaRefreshJobsResponse>(await this.callApi(params, req, runtime), new GetMediaRefreshJobsResponse({}));
   }
 
+  /**
+    * You can query the information about all media files or a specific media file in a refresh or prefetch job.
+    * ### QPS limits
+    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request GetMediaRefreshJobsRequest
+    * @return GetMediaRefreshJobsResponse
+   */
   async getMediaRefreshJobs(request: GetMediaRefreshJobsRequest): Promise<GetMediaRefreshJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMediaRefreshJobsWithOptions(request, runtime);
   }
 
+  /**
+    * > For more information, see [Overview](~~55627~~).
+    *
+    * @param request GetMessageCallbackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMessageCallbackResponse
+   */
   async getMessageCallbackWithOptions(request: GetMessageCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageCallbackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20654,11 +21955,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMessageCallbackResponse>(await this.callApi(params, req, runtime), new GetMessageCallbackResponse({}));
   }
 
+  /**
+    * > For more information, see [Overview](~~55627~~).
+    *
+    * @param request GetMessageCallbackRequest
+    * @return GetMessageCallbackResponse
+   */
   async getMessageCallback(request: GetMessageCallbackRequest): Promise<GetMessageCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMessageCallbackWithOptions(request, runtime);
   }
 
+  /**
+    * > You can obtain the complete mezzanine file information only after a stream is transcoded.
+    *
+    * @param request GetMezzanineInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMezzanineInfoResponse
+   */
   async getMezzanineInfoWithOptions(request: GetMezzanineInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMezzanineInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20695,11 +22009,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMezzanineInfoResponse>(await this.callApi(params, req, runtime), new GetMezzanineInfoResponse({}));
   }
 
+  /**
+    * > You can obtain the complete mezzanine file information only after a stream is transcoded.
+    *
+    * @param request GetMezzanineInfoRequest
+    * @return GetMezzanineInfoResponse
+   */
   async getMezzanineInfo(request: GetMezzanineInfoRequest): Promise<GetMezzanineInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMezzanineInfoWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can use the ID of a media file to query the playback URL of the file. After you integrate ApsaraVideo Player SDK for URL-based playback or a third-party player, you can use the obtained playback URLs to play audio and video files.
+    * *   Only videos in the Normal state can be played. The Status parameter in the response indicates the status of the video. For more information, see [Overview](~~57290~~).
+    * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
+    * ### QPS limits
+    * You can call this operation up to 360 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](~~342790~~).
+    *
+    * @param request GetPlayInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPlayInfoResponse
+   */
   async getPlayInfoWithOptions(request: GetPlayInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetPlayInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20760,11 +22091,31 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPlayInfoResponse>(await this.callApi(params, req, runtime), new GetPlayInfoResponse({}));
   }
 
+  /**
+    * *   You can use the ID of a media file to query the playback URL of the file. After you integrate ApsaraVideo Player SDK for URL-based playback or a third-party player, you can use the obtained playback URLs to play audio and video files.
+    * *   Only videos in the Normal state can be played. The Status parameter in the response indicates the status of the video. For more information, see [Overview](~~57290~~).
+    * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
+    * ### QPS limits
+    * You can call this operation up to 360 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](~~342790~~).
+    *
+    * @param request GetPlayInfoRequest
+    * @return GetPlayInfoResponse
+   */
   async getPlayInfo(request: GetPlayInfoRequest): Promise<GetPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPlayInfoWithOptions(request, runtime);
   }
 
+  /**
+    * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+    * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+    * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
+    * *   **You can call this operation to query information only about transcoding tasks created within the past year.**
+    *
+    * @param request GetTranscodeSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTranscodeSummaryResponse
+   */
   async getTranscodeSummaryWithOptions(request: GetTranscodeSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20789,11 +22140,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranscodeSummaryResponse>(await this.callApi(params, req, runtime), new GetTranscodeSummaryResponse({}));
   }
 
+  /**
+    * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+    * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+    * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
+    * *   **You can call this operation to query information only about transcoding tasks created within the past year.**
+    *
+    * @param request GetTranscodeSummaryRequest
+    * @return GetTranscodeSummaryResponse
+   */
   async getTranscodeSummary(request: GetTranscodeSummaryRequest): Promise<GetTranscodeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTranscodeSummaryWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only transcoding tasks created within the past year.
+    *
+    * @param request GetTranscodeTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTranscodeTaskResponse
+   */
   async getTranscodeTaskWithOptions(request: GetTranscodeTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20818,11 +22185,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranscodeTaskResponse>(await this.callApi(params, req, runtime), new GetTranscodeTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to query only transcoding tasks created within the past year.
+    *
+    * @param request GetTranscodeTaskRequest
+    * @return GetTranscodeTaskResponse
+   */
   async getTranscodeTask(request: GetTranscodeTaskRequest): Promise<GetTranscodeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTranscodeTaskWithOptions(request, runtime);
   }
 
+  /**
+    * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+    *
+    * @param request GetTranscodeTemplateGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTranscodeTemplateGroupResponse
+   */
   async getTranscodeTemplateGroupWithOptions(request: GetTranscodeTemplateGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeTemplateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20847,11 +22227,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranscodeTemplateGroupResponse>(await this.callApi(params, req, runtime), new GetTranscodeTemplateGroupResponse({}));
   }
 
+  /**
+    * This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+    *
+    * @param request GetTranscodeTemplateGroupRequest
+    * @return GetTranscodeTemplateGroupResponse
+   */
   async getTranscodeTemplateGroup(request: GetTranscodeTemplateGroupRequest): Promise<GetTranscodeTemplateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTranscodeTemplateGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+    * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+    *
+    * @param request GetURLUploadInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetURLUploadInfosResponse
+   */
   async getURLUploadInfosWithOptions(request: GetURLUploadInfosRequest, runtime: $Util.RuntimeOptions): Promise<GetURLUploadInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20880,11 +22274,33 @@ export default class Client extends OpenApi {
     return $tea.cast<GetURLUploadInfosResponse>(await this.callApi(params, req, runtime), new GetURLUploadInfosResponse({}));
   }
 
+  /**
+    * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+    * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+    *
+    * @param request GetURLUploadInfosRequest
+    * @return GetURLUploadInfosResponse
+   */
   async getURLUploadInfos(request: GetURLUploadInfosRequest): Promise<GetURLUploadInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getURLUploadInfosWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to obtain the upload details only about audio and video files.
+    * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](~~52200~~) meets one of the following requirements:
+    *     *   The version of the upload SDK for Java is 1.4.4 or later.
+    *     *   The version of the upload SDK for C++ is 1.0.0 or later.
+    *     *   The version of the upload SDK for PHP is 1.0.2 or later.
+    *     *   The version of the upload SDK for Python is 1.3.0 or later.
+    *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
+    *     *   The version of the upload SDK for Android is 1.5.0 or later.
+    *     *   The version of the upload SDK for iOS is 1.5.0 or later.
+    *
+    * @param request GetUploadDetailsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetUploadDetailsResponse
+   */
   async getUploadDetailsWithOptions(request: GetUploadDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20913,6 +22329,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadDetailsResponse>(await this.callApi(params, req, runtime), new GetUploadDetailsResponse({}));
   }
 
+  /**
+    * *   You can call this operation to obtain the upload details only about audio and video files.
+    * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](~~52200~~) meets one of the following requirements:
+    *     *   The version of the upload SDK for Java is 1.4.4 or later.
+    *     *   The version of the upload SDK for C++ is 1.0.0 or later.
+    *     *   The version of the upload SDK for PHP is 1.0.2 or later.
+    *     *   The version of the upload SDK for Python is 1.3.0 or later.
+    *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
+    *     *   The version of the upload SDK for Android is 1.5.0 or later.
+    *     *   The version of the upload SDK for iOS is 1.5.0 or later.
+    *
+    * @param request GetUploadDetailsRequest
+    * @return GetUploadDetailsResponse
+   */
   async getUploadDetails(request: GetUploadDetailsRequest): Promise<GetUploadDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadDetailsWithOptions(request, runtime);
@@ -20947,6 +22377,13 @@ export default class Client extends OpenApi {
     return await this.getVideoInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to obtain the basic information about multiple videos at a time based on video IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of each video.
+    *
+    * @param request GetVideoInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetVideoInfosResponse
+   */
   async getVideoInfosWithOptions(request: GetVideoInfosRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20971,11 +22408,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoInfosResponse>(await this.callApi(params, req, runtime), new GetVideoInfosResponse({}));
   }
 
+  /**
+    * You can call this operation to obtain the basic information about multiple videos at a time based on video IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of each video.
+    *
+    * @param request GetVideoInfosRequest
+    * @return GetVideoInfosResponse
+   */
   async getVideoInfos(request: GetVideoInfosRequest): Promise<GetVideoInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoInfosWithOptions(request, runtime);
   }
 
+  /**
+    * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+    *
+    * @param request GetVideoListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetVideoListResponse
+   */
   async getVideoListWithOptions(request: GetVideoListRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21028,11 +22478,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoListResponse>(await this.callApi(params, req, runtime), new GetVideoListResponse({}));
   }
 
+  /**
+    * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+    *
+    * @param request GetVideoListRequest
+    * @return GetVideoListResponse
+   */
   async getVideoList(request: GetVideoListRequest): Promise<GetVideoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoListWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
+    * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+    *
+    * @param request GetVideoPlayAuthRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetVideoPlayAuthResponse
+   */
   async getVideoPlayAuthWithOptions(request: GetVideoPlayAuthRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoPlayAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21065,6 +22529,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoPlayAuthResponse>(await this.callApi(params, req, runtime), new GetVideoPlayAuthResponse({}));
   }
 
+  /**
+    * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
+    * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+    *
+    * @param request GetVideoPlayAuthRequest
+    * @return GetVideoPlayAuthResponse
+   */
   async getVideoPlayAuth(request: GetVideoPlayAuthRequest): Promise<GetVideoPlayAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoPlayAuthWithOptions(request, runtime);
@@ -21128,6 +22599,17 @@ export default class Client extends OpenApi {
     return await this.getWatermarkWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+    * ### QPS limit
+    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request ListAIImageInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAIImageInfoResponse
+   */
   async listAIImageInfoWithOptions(request: ListAIImageInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListAIImageInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21152,11 +22634,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAIImageInfoResponse>(await this.callApi(params, req, runtime), new ListAIImageInfoResponse({}));
   }
 
+  /**
+    * You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+    * ### QPS limit
+    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request ListAIImageInfoRequest
+    * @return ListAIImageInfoResponse
+   */
   async listAIImageInfo(request: ListAIImageInfoRequest): Promise<ListAIImageInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAIImageInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+    *
+    * @param request ListAIJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAIJobResponse
+   */
   async listAIJobWithOptions(request: ListAIJobRequest, runtime: $Util.RuntimeOptions): Promise<ListAIJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21197,11 +22696,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAIJobResponse>(await this.callApi(params, req, runtime), new ListAIJobResponse({}));
   }
 
+  /**
+    * You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+    *
+    * @param request ListAIJobRequest
+    * @return ListAIJobResponse
+   */
   async listAIJob(request: ListAIJobRequest): Promise<ListAIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAIJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can call this operation to query AI templates of a specified type.
+    *
+    * @param request ListAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAITemplateResponse
+   */
   async listAITemplateWithOptions(request: ListAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21226,11 +22739,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAITemplateResponse>(await this.callApi(params, req, runtime), new ListAITemplateResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can call this operation to query AI templates of a specified type.
+    *
+    * @param request ListAITemplateRequest
+    * @return ListAITemplateResponse
+   */
   async listAITemplate(request: ListAITemplateRequest): Promise<ListAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAITemplateWithOptions(request, runtime);
   }
 
+  /**
+    * Supports filtering queries by application status.
+    *
+    * @param request ListAppInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAppInfoResponse
+   */
   async listAppInfoWithOptions(request: ListAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21263,11 +22790,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppInfoResponse>(await this.callApi(params, req, runtime), new ListAppInfoResponse({}));
   }
 
+  /**
+    * Supports filtering queries by application status.
+    *
+    * @param request ListAppInfoRequest
+    * @return ListAppInfoResponse
+   */
   async listAppInfo(request: ListAppInfoRequest): Promise<ListAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+    *
+    * @param request ListAppPoliciesForIdentityRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAppPoliciesForIdentityResponse
+   */
   async listAppPoliciesForIdentityWithOptions(request: ListAppPoliciesForIdentityRequest, runtime: $Util.RuntimeOptions): Promise<ListAppPoliciesForIdentityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21300,6 +22840,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppPoliciesForIdentityResponse>(await this.callApi(params, req, runtime), new ListAppPoliciesForIdentityResponse({}));
   }
 
+  /**
+    * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+    *
+    * @param request ListAppPoliciesForIdentityRequest
+    * @return ListAppPoliciesForIdentityResponse
+   */
   async listAppPoliciesForIdentity(request: ListAppPoliciesForIdentityRequest): Promise<ListAppPoliciesForIdentityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppPoliciesForIdentityWithOptions(request, runtime);
@@ -21363,6 +22909,13 @@ export default class Client extends OpenApi {
     return await this.listDynamicImageWithOptions(request, runtime);
   }
 
+  /**
+    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    *
+    * @param request ListLiveRecordVideoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListLiveRecordVideoResponse
+   */
   async listLiveRecordVideoWithOptions(request: ListLiveRecordVideoRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRecordVideoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21415,11 +22968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLiveRecordVideoResponse>(await this.callApi(params, req, runtime), new ListLiveRecordVideoResponse({}));
   }
 
+  /**
+    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    *
+    * @param request ListLiveRecordVideoRequest
+    * @return ListLiveRecordVideoResponse
+   */
   async listLiveRecordVideo(request: ListLiveRecordVideoRequest): Promise<ListLiveRecordVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLiveRecordVideoWithOptions(request, runtime);
   }
 
+  /**
+    * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+    *
+    * @param request ListSnapshotsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSnapshotsResponse
+   */
   async listSnapshotsWithOptions(request: ListSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21460,11 +23026,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSnapshotsResponse>(await this.callApi(params, req, runtime), new ListSnapshotsResponse({}));
   }
 
+  /**
+    * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+    *
+    * @param request ListSnapshotsRequest
+    * @return ListSnapshotsResponse
+   */
   async listSnapshots(request: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call the [GetTranscodeTask](~~109121~~) operation to query details about transcoding jobs.
+    * *   **You can call this operation to query only transcoding tasks created within the past year.**
+    *
+    * @param request ListTranscodeTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTranscodeTaskResponse
+   */
   async listTranscodeTaskWithOptions(request: ListTranscodeTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTranscodeTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21505,11 +23085,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTranscodeTaskResponse>(await this.callApi(params, req, runtime), new ListTranscodeTaskResponse({}));
   }
 
+  /**
+    * *   You can call the [GetTranscodeTask](~~109121~~) operation to query details about transcoding jobs.
+    * *   **You can call this operation to query only transcoding tasks created within the past year.**
+    *
+    * @param request ListTranscodeTaskRequest
+    * @return ListTranscodeTaskResponse
+   */
   async listTranscodeTask(request: ListTranscodeTaskRequest): Promise<ListTranscodeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTranscodeTaskWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](~~102670~~) operation.
+    *
+    * @param request ListTranscodeTemplateGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTranscodeTemplateGroupResponse
+   */
   async listTranscodeTemplateGroupWithOptions(request: ListTranscodeTemplateGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListTranscodeTemplateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21534,6 +23128,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTranscodeTemplateGroupResponse>(await this.callApi(params, req, runtime), new ListTranscodeTemplateGroupResponse({}));
   }
 
+  /**
+    * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](~~102670~~) operation.
+    *
+    * @param request ListTranscodeTemplateGroupRequest
+    * @return ListTranscodeTemplateGroupResponse
+   */
   async listTranscodeTemplateGroup(request: ListTranscodeTemplateGroupRequest): Promise<ListTranscodeTemplateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTranscodeTemplateGroupWithOptions(request, runtime);
@@ -21638,6 +23238,15 @@ export default class Client extends OpenApi {
     return await this.moveAppResourceWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~l) operation to prefetch content.
+    *
+    * @param request PreloadVodObjectCachesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PreloadVodObjectCachesResponse
+   */
   async preloadVodObjectCachesWithOptions(request: PreloadVodObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<PreloadVodObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21670,11 +23279,33 @@ export default class Client extends OpenApi {
     return $tea.cast<PreloadVodObjectCachesResponse>(await this.callApi(params, req, runtime), new PreloadVodObjectCachesResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~l) operation to prefetch content.
+    *
+    * @param request PreloadVodObjectCachesRequest
+    * @return PreloadVodObjectCachesResponse
+   */
   async preloadVodObjectCaches(request: PreloadVodObjectCachesRequest): Promise<PreloadVodObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.preloadVodObjectCachesWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
+    * *   The mezzanine files that are referenced in the timeline of an online editing project can be materials from media assets or videos in the media library.
+    * *   Videos are produced based on the ProjectId and Timeline parameters. Take note of the following items when you specify the parameters:
+    * *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
+    * *   If you specify only the Timeline parameter, the system automatically creates an online editing project with the specified timeline. Then, the system obtains the mezzanine files that are referenced in the timeline and produces a video from the mezzanine files.
+    * *   If you specify only the ProjectId parameter, the system obtains the latest timeline of the specified project and produces a video based on the timeline.
+    *  *   If you specify both the ProjectId and Timeline parameters, the system produces a video based on the specified timeline and updates the timeline and mezzanine files for the specified online editing project. If you specify other parameters, the system also updates related settings for the online editing project.
+    *  *   You can apply effects to the video to be produced. For more information, see [Special effects](~~69082~~).
+    *
+    * @param request ProduceEditingProjectVideoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ProduceEditingProjectVideoResponse
+   */
   async produceEditingProjectVideoWithOptions(request: ProduceEditingProjectVideoRequest, runtime: $Util.RuntimeOptions): Promise<ProduceEditingProjectVideoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21739,11 +23370,35 @@ export default class Client extends OpenApi {
     return $tea.cast<ProduceEditingProjectVideoResponse>(await this.callApi(params, req, runtime), new ProduceEditingProjectVideoResponse({}));
   }
 
+  /**
+    * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
+    * *   The mezzanine files that are referenced in the timeline of an online editing project can be materials from media assets or videos in the media library.
+    * *   Videos are produced based on the ProjectId and Timeline parameters. Take note of the following items when you specify the parameters:
+    * *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
+    * *   If you specify only the Timeline parameter, the system automatically creates an online editing project with the specified timeline. Then, the system obtains the mezzanine files that are referenced in the timeline and produces a video from the mezzanine files.
+    * *   If you specify only the ProjectId parameter, the system obtains the latest timeline of the specified project and produces a video based on the timeline.
+    *  *   If you specify both the ProjectId and Timeline parameters, the system produces a video based on the specified timeline and updates the timeline and mezzanine files for the specified online editing project. If you specify other parameters, the system also updates related settings for the online editing project.
+    *  *   You can apply effects to the video to be produced. For more information, see [Special effects](~~69082~~).
+    *
+    * @param request ProduceEditingProjectVideoRequest
+    * @return ProduceEditingProjectVideoResponse
+   */
   async produceEditingProjectVideo(request: ProduceEditingProjectVideoRequest): Promise<ProduceEditingProjectVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.produceEditingProjectVideoWithOptions(request, runtime);
   }
 
+  /**
+    * - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+    * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
+    * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
+    * ### QPS limits
+    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request RefreshMediaPlayUrlsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RefreshMediaPlayUrlsResponse
+   */
   async refreshMediaPlayUrlsWithOptions(request: RefreshMediaPlayUrlsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshMediaPlayUrlsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21800,11 +23455,28 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshMediaPlayUrlsResponse>(await this.callApi(params, req, runtime), new RefreshMediaPlayUrlsResponse({}));
   }
 
+  /**
+    * - ApsaraVideo VOD allows you to refresh and prefetch resources. The refresh feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+    * - You can call this operation to submit refresh or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to refresh or prefetch based on your business requirements.
+    * - You can submit a maximum of 20 refresh or prefetch tasks at a time.
+    * ### QPS limits
+    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request RefreshMediaPlayUrlsRequest
+    * @return RefreshMediaPlayUrlsResponse
+   */
   async refreshMediaPlayUrls(request: RefreshMediaPlayUrlsRequest): Promise<RefreshMediaPlayUrlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshMediaPlayUrlsWithOptions(request, runtime);
   }
 
+  /**
+    * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+    *
+    * @param request RefreshUploadVideoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RefreshUploadVideoResponse
+   */
   async refreshUploadVideoWithOptions(request: RefreshUploadVideoRequest, runtime: $Util.RuntimeOptions): Promise<RefreshUploadVideoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21841,11 +23513,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshUploadVideoResponse>(await this.callApi(params, req, runtime), new RefreshUploadVideoResponse({}));
   }
 
+  /**
+    * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+    *
+    * @param request RefreshUploadVideoRequest
+    * @return RefreshUploadVideoResponse
+   */
   async refreshUploadVideo(request: RefreshUploadVideoRequest): Promise<RefreshUploadVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshUploadVideoWithOptions(request, runtime);
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    *
+    * @param request RefreshVodObjectCachesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RefreshVodObjectCachesResponse
+   */
   async refreshVodObjectCachesWithOptions(request: RefreshVodObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshVodObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21882,11 +23569,29 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshVodObjectCachesResponse>(await this.callApi(params, req, runtime), new RefreshVodObjectCachesResponse({}));
   }
 
+  /**
+    * > *   This operation is available only in the **China (Shanghai)** region.
+    * > *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
+    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    *
+    * @param request RefreshVodObjectCachesRequest
+    * @return RefreshVodObjectCachesResponse
+   */
   async refreshVodObjectCaches(request: RefreshVodObjectCachesRequest): Promise<RefreshVodObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshVodObjectCachesWithOptions(request, runtime);
   }
 
+  /**
+    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
+    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
+    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
+    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    *
+    * @param request RegisterMediaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RegisterMediaResponse
+   */
   async registerMediaWithOptions(request: RegisterMediaRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21923,6 +23628,15 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterMediaResponse>(await this.callApi(params, req, runtime), new RegisterMediaResponse({}));
   }
 
+  /**
+    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
+    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
+    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
+    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    *
+    * @param request RegisterMediaRequest
+    * @return RegisterMediaResponse
+   */
   async registerMedia(request: RegisterMediaRequest): Promise<RegisterMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerMediaWithOptions(request, runtime);
@@ -21997,6 +23711,18 @@ export default class Client extends OpenApi {
     return await this.searchEditingProjectWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
+    * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
+    * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+    *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
+    *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
+    *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+    *
+    * @param request SearchMediaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchMediaResponse
+   */
   async searchMediaWithOptions(request: SearchMediaRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22045,11 +23771,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchMediaResponse>(await this.callApi(params, req, runtime), new SearchMediaResponse({}));
   }
 
+  /**
+    * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
+    * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter criteria. This allows you to traverse data page by page. If the number of data records that meet the specified filter criteria exceeds 5,000, use Method 2.
+    * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter criteria, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the desired page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
+    *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
+    *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
+    *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+    *
+    * @param request SearchMediaRequest
+    * @return SearchMediaResponse
+   */
   async searchMedia(request: SearchMediaRequest): Promise<SearchMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchMediaWithOptions(request, runtime);
   }
 
+  /**
+    * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+    *
+    * @param request SetAuditSecurityIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetAuditSecurityIpResponse
+   */
   async setAuditSecurityIpWithOptions(request: SetAuditSecurityIpRequest, runtime: $Util.RuntimeOptions): Promise<SetAuditSecurityIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22082,11 +23826,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAuditSecurityIpResponse>(await this.callApi(params, req, runtime), new SetAuditSecurityIpResponse({}));
   }
 
+  /**
+    * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+    *
+    * @param request SetAuditSecurityIpRequest
+    * @return SetAuditSecurityIpResponse
+   */
   async setAuditSecurityIp(request: SetAuditSecurityIpRequest): Promise<SetAuditSecurityIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAuditSecurityIpWithOptions(request, runtime);
   }
 
+  /**
+    * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](~~86098~~). Alternatively, you can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh resources.
+    *
+    * @param request SetCrossdomainContentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetCrossdomainContentResponse
+   */
   async setCrossdomainContentWithOptions(request: SetCrossdomainContentRequest, runtime: $Util.RuntimeOptions): Promise<SetCrossdomainContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22135,11 +23892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetCrossdomainContentResponse>(await this.callApi(params, req, runtime), new SetCrossdomainContentResponse({}));
   }
 
+  /**
+    * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](~~86098~~). Alternatively, you can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh resources.
+    *
+    * @param request SetCrossdomainContentRequest
+    * @return SetCrossdomainContentResponse
+   */
   async setCrossdomainContent(request: SetCrossdomainContentRequest): Promise<SetCrossdomainContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setCrossdomainContentWithOptions(request, runtime);
   }
 
+  /**
+    * Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template after you specify it as the default template.
+    *
+    * @param request SetDefaultAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDefaultAITemplateResponse
+   */
   async setDefaultAITemplateWithOptions(request: SetDefaultAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22164,6 +23934,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDefaultAITemplateResponse>(await this.callApi(params, req, runtime), new SetDefaultAITemplateResponse({}));
   }
 
+  /**
+    * Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template after you specify it as the default template.
+    *
+    * @param request SetDefaultAITemplateRequest
+    * @return SetDefaultAITemplateResponse
+   */
   async setDefaultAITemplate(request: SetDefaultAITemplateRequest): Promise<SetDefaultAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDefaultAITemplateWithOptions(request, runtime);
@@ -22276,6 +24052,14 @@ export default class Client extends OpenApi {
     return await this.setEditingProjectMaterialsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage note
+    * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+    *
+    * @param request SetMessageCallbackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetMessageCallbackResponse
+   */
   async setMessageCallbackWithOptions(request: SetMessageCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetMessageCallbackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22332,11 +24116,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetMessageCallbackResponse>(await this.callApi(params, req, runtime), new SetMessageCallbackResponse({}));
   }
 
+  /**
+    * ## Usage note
+    * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+    *
+    * @param request SetMessageCallbackRequest
+    * @return SetMessageCallbackResponse
+   */
   async setMessageCallback(request: SetMessageCallbackRequest): Promise<SetMessageCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setMessageCallbackWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request SetVodDomainCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetVodDomainCertificateResponse
+   */
   async setVodDomainCertificateWithOptions(request: SetVodDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetVodDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22385,6 +24183,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetVodDomainCertificateResponse>(await this.callApi(params, req, runtime), new SetVodDomainCertificateResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request SetVodDomainCertificateRequest
+    * @return SetVodDomainCertificateResponse
+   */
   async setVodDomainCertificate(request: SetVodDomainCertificateRequest): Promise<SetVodDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setVodDomainCertificateWithOptions(request, runtime);
@@ -22443,6 +24247,17 @@ export default class Client extends OpenApi {
     return await this.submitAIImageAuditJobWithOptions(request, runtime);
   }
 
+  /**
+    * After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the AI processing result of the job.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the job execution result.
+    * ### QPS limit
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request SubmitAIImageJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitAIImageJobResponse
+   */
   async submitAIImageJobWithOptions(request: SubmitAIImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAIImageJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22495,11 +24310,32 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitAIImageJobResponse>(await this.callApi(params, req, runtime), new SubmitAIImageJobResponse({}));
   }
 
+  /**
+    * After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the AI processing result of the job.
+    * - The smart thumbnail feature is not supported. You cannot call this operation.
+    * - After you call this operation, you can call the [GetAIImageJobs](~~GetAIImageJobs~~) operation to query the job execution result.
+    * ### QPS limit
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request SubmitAIImageJobRequest
+    * @return SubmitAIImageJobResponse
+   */
   async submitAIImageJob(request: SubmitAIImageJobRequest): Promise<SubmitAIImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAIImageJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   AI jobs include smart tagging jobs and video fingerprinting jobs. You must activate the AI service before you call this operation to submit AI jobs.
+    * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+    * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete.
+    * ### QPS limits
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request SubmitAIJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitAIJobResponse
+   */
   async submitAIJobWithOptions(request: SubmitAIJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAIJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22552,6 +24388,16 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitAIJobResponse>(await this.callApi(params, req, runtime), new SubmitAIJobResponse({}));
   }
 
+  /**
+    * *   AI jobs include smart tagging jobs and video fingerprinting jobs. You must activate the AI service before you call this operation to submit AI jobs.
+    * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected.
+    * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete.
+    * ### QPS limits
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](~~342790~~).
+    *
+    * @param request SubmitAIJobRequest
+    * @return SubmitAIJobResponse
+   */
   async submitAIJob(request: SubmitAIJobRequest): Promise<SubmitAIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAIJobWithOptions(request, runtime);
@@ -22602,6 +24448,14 @@ export default class Client extends OpenApi {
     return await this.submitAIMediaAuditJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can capture a part of a video and generate animated images only when the video is in the **UploadSucces**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
+    * *   The fee for generating animated images is included in the video transcoding fees. Both the services are charged by resolution and duration.
+    *
+    * @param request SubmitDynamicImageJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitDynamicImageJobResponse
+   */
   async submitDynamicImageJobWithOptions(request: SubmitDynamicImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicImageJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22634,11 +24488,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDynamicImageJobResponse>(await this.callApi(params, req, runtime), new SubmitDynamicImageJobResponse({}));
   }
 
+  /**
+    * *   You can capture a part of a video and generate animated images only when the video is in the **UploadSucces**, **Transcoding**, **Normal**, **Checking**, or **Blocked** state.
+    * *   The fee for generating animated images is included in the video transcoding fees. Both the services are charged by resolution and duration.
+    *
+    * @param request SubmitDynamicImageJobRequest
+    * @return SubmitDynamicImageJobResponse
+   */
   async submitDynamicImageJob(request: SubmitDynamicImageJobRequest): Promise<SubmitDynamicImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDynamicImageJobWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only in the Singapore (Singapore) region.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see QPS limit.
+    *
+    * @param request SubmitMediaDNADeleteJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitMediaDNADeleteJobResponse
+   */
   async submitMediaDNADeleteJobWithOptions(request: SubmitMediaDNADeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaDNADeleteJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22679,11 +24549,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitMediaDNADeleteJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaDNADeleteJobResponse({}));
   }
 
+  /**
+    * This operation is available only in the Singapore (Singapore) region.
+    * ### QPS limit
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see QPS limit.
+    *
+    * @param request SubmitMediaDNADeleteJobRequest
+    * @return SubmitMediaDNADeleteJobResponse
+   */
   async submitMediaDNADeleteJob(request: SubmitMediaDNADeleteJobRequest): Promise<SubmitMediaDNADeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitMediaDNADeleteJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
+    *  *   You can obtain the preprocessing result in the [TranscodeComplete](~~55638~~) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+    *
+    * @param request SubmitPreprocessJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitPreprocessJobsResponse
+   */
   async submitPreprocessJobsWithOptions(request: SubmitPreprocessJobsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPreprocessJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22712,11 +24598,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitPreprocessJobsResponse>(await this.callApi(params, req, runtime), new SubmitPreprocessJobsResponse({}));
   }
 
+  /**
+    * *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, you are **charged** for video preprocessing. You can submit a ticket for information about the **production studio** service.
+    *  *   You can obtain the preprocessing result in the [TranscodeComplete](~~55638~~) event notification. If the value of the **Preprocess** parameter is true in the event notification, the video is preprocessed.
+    *
+    * @param request SubmitPreprocessJobsRequest
+    * @return SubmitPreprocessJobsResponse
+   */
   async submitPreprocessJobs(request: SubmitPreprocessJobsRequest): Promise<SubmitPreprocessJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitPreprocessJobsWithOptions(request, runtime);
   }
 
+  /**
+    * > *   Only snapshots in the JPG format are generated.
+    * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+    *
+    * @param request SubmitSnapshotJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitSnapshotJobResponse
+   */
   async submitSnapshotJobWithOptions(request: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22773,11 +24674,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitSnapshotJobResponse>(await this.callApi(params, req, runtime), new SubmitSnapshotJobResponse({}));
   }
 
+  /**
+    * > *   Only snapshots in the JPG format are generated.
+    * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+    *
+    * @param request SubmitSnapshotJobRequest
+    * @return SubmitSnapshotJobResponse
+   */
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSnapshotJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can transcode a video only in the UploadSucc, Normal, or Checking state.
+    *  *   You can obtain the transcoding result in the [StreamTranscodeComplete](~~55636~~) or [TranscodeComplete](~~55638~~) event notification.
+    *  *   If you initiate an HTTP Live Streaming (HLS) packaging task, you can call this operation to dynamically override the subtitle. If the packaging task does not contain subtitles, we recommend that you do not call this operation to initiate the packaging task. Instead, you can specify the ID of the specific template group when you upload the video. The packaging process is automatically initiated.
+    *
+    * @param request SubmitTranscodeJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitTranscodeJobsResponse
+   */
   async submitTranscodeJobsWithOptions(request: SubmitTranscodeJobsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTranscodeJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22826,11 +24743,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitTranscodeJobsResponse>(await this.callApi(params, req, runtime), new SubmitTranscodeJobsResponse({}));
   }
 
+  /**
+    * *   You can transcode a video only in the UploadSucc, Normal, or Checking state.
+    *  *   You can obtain the transcoding result in the [StreamTranscodeComplete](~~55636~~) or [TranscodeComplete](~~55638~~) event notification.
+    *  *   If you initiate an HTTP Live Streaming (HLS) packaging task, you can call this operation to dynamically override the subtitle. If the packaging task does not contain subtitles, we recommend that you do not call this operation to initiate the packaging task. Instead, you can specify the ID of the specific template group when you upload the video. The packaging process is automatically initiated.
+    *
+    * @param request SubmitTranscodeJobsRequest
+    * @return SubmitTranscodeJobsResponse
+   */
   async submitTranscodeJobs(request: SubmitTranscodeJobsRequest): Promise<SubmitTranscodeJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTranscodeJobsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](~~115347~~).
+    *
+    * @param request SubmitWorkflowJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitWorkflowJobResponse
+   */
   async submitWorkflowJobWithOptions(request: SubmitWorkflowJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitWorkflowJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22859,11 +24791,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitWorkflowJobResponse>(await this.callApi(params, req, runtime), new SubmitWorkflowJobResponse({}));
   }
 
+  /**
+    * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](~~115347~~).
+    *
+    * @param request SubmitWorkflowJobRequest
+    * @return SubmitWorkflowJobResponse
+   */
   async submitWorkflowJob(request: SubmitWorkflowJobRequest): Promise<SubmitWorkflowJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitWorkflowJobWithOptions(request, runtime);
   }
 
+  /**
+    * After you call the [AddAITemplate](~~102930~~) to add an AI template, you can call the UpdateAITemplate operation to modify the AI template.
+    *
+    * @param request UpdateAITemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAITemplateResponse
+   */
   async updateAITemplateWithOptions(request: UpdateAITemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAITemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22896,11 +24841,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAITemplateResponse>(await this.callApi(params, req, runtime), new UpdateAITemplateResponse({}));
   }
 
+  /**
+    * After you call the [AddAITemplate](~~102930~~) to add an AI template, you can call the UpdateAITemplate operation to modify the AI template.
+    *
+    * @param request UpdateAITemplateRequest
+    * @return UpdateAITemplateResponse
+   */
   async updateAITemplate(request: UpdateAITemplateRequest): Promise<UpdateAITemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAITemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limit
+    * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+    *
+    * @param request UpdateAppInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAppInfoResponse
+   */
   async updateAppInfoWithOptions(request: UpdateAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22937,11 +24896,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppInfoResponse>(await this.callApi(params, req, runtime), new UpdateAppInfoResponse({}));
   }
 
+  /**
+    * ## QPS limit
+    * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+    *
+    * @param request UpdateAppInfoRequest
+    * @return UpdateAppInfoResponse
+   */
   async updateAppInfo(request: UpdateAppInfoRequest): Promise<UpdateAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppInfoWithOptions(request, runtime);
   }
 
+  /**
+    * The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateAttachedMediaInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAttachedMediaInfosResponse
+   */
   async updateAttachedMediaInfosWithOptions(request: UpdateAttachedMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAttachedMediaInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22966,6 +24939,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAttachedMediaInfosResponse>(await this.callApi(params, req, runtime), new UpdateAttachedMediaInfosResponse({}));
   }
 
+  /**
+    * The specific parameter of an auxiliary media asset is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateAttachedMediaInfosRequest
+    * @return UpdateAttachedMediaInfosResponse
+   */
   async updateAttachedMediaInfos(request: UpdateAttachedMediaInfosRequest): Promise<UpdateAttachedMediaInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAttachedMediaInfosWithOptions(request, runtime);
@@ -23094,6 +25073,14 @@ export default class Client extends OpenApi {
     return await this.updateImageInfosWithOptions(request, runtime);
   }
 
+  /**
+    * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+    * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    *
+    * @param request UpdateTranscodeTemplateGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTranscodeTemplateGroupResponse
+   */
   async updateTranscodeTemplateGroupWithOptions(request: UpdateTranscodeTemplateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTranscodeTemplateGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23130,11 +25117,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTranscodeTemplateGroupResponse>(await this.callApi(params, req, runtime), new UpdateTranscodeTemplateGroupResponse({}));
   }
 
+  /**
+    * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
+    * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    *
+    * @param request UpdateTranscodeTemplateGroupRequest
+    * @return UpdateTranscodeTemplateGroupResponse
+   */
   async updateTranscodeTemplateGroup(request: UpdateTranscodeTemplateGroupRequest): Promise<UpdateTranscodeTemplateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTranscodeTemplateGroupWithOptions(request, runtime);
   }
 
+  /**
+    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateVideoInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVideoInfoResponse
+   */
   async updateVideoInfoWithOptions(request: UpdateVideoInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVideoInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23179,11 +25180,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVideoInfoResponse>(await this.callApi(params, req, runtime), new UpdateVideoInfoResponse({}));
   }
 
+  /**
+    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateVideoInfoRequest
+    * @return UpdateVideoInfoResponse
+   */
   async updateVideoInfo(request: UpdateVideoInfoRequest): Promise<UpdateVideoInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVideoInfoWithOptions(request, runtime);
   }
 
+  /**
+    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateVideoInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVideoInfosResponse
+   */
   async updateVideoInfosWithOptions(request: UpdateVideoInfosRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVideoInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23208,11 +25222,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVideoInfosResponse>(await this.callApi(params, req, runtime), new UpdateVideoInfosResponse({}));
   }
 
+  /**
+    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    *
+    * @param request UpdateVideoInfosRequest
+    * @return UpdateVideoInfosResponse
+   */
   async updateVideoInfos(request: UpdateVideoInfosRequest): Promise<UpdateVideoInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVideoInfosWithOptions(request, runtime);
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request UpdateVodDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateVodDomainResponse
+   */
   async updateVodDomainWithOptions(request: UpdateVodDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVodDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23253,6 +25280,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVodDomainResponse>(await this.callApi(params, req, runtime), new UpdateVodDomainResponse({}));
   }
 
+  /**
+    * > This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request UpdateVodDomainRequest
+    * @return UpdateVodDomainResponse
+   */
   async updateVodDomain(request: UpdateVodDomainRequest): Promise<UpdateVodDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVodDomainWithOptions(request, runtime);
@@ -23295,6 +25328,13 @@ export default class Client extends OpenApi {
     return await this.updateVodTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can modify only the name and configurations of a watermark.
+    *
+    * @param request UpdateWatermarkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateWatermarkResponse
+   */
   async updateWatermarkWithOptions(request: UpdateWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWatermarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23327,11 +25367,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWatermarkResponse>(await this.callApi(params, req, runtime), new UpdateWatermarkResponse({}));
   }
 
+  /**
+    * You can modify only the name and configurations of a watermark.
+    *
+    * @param request UpdateWatermarkRequest
+    * @return UpdateWatermarkResponse
+   */
   async updateWatermark(request: UpdateWatermarkRequest): Promise<UpdateWatermarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWatermarkWithOptions(request, runtime);
   }
 
+  /**
+    * - If a callback is configured, you can receive an [UploadByURLComplete](~~86326~~) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](~~106830~~) operation.
+    * - After an upload job is submitted, the job is asynchronously executed on the cloud. All submitted upload jobs are queued for execution. You can check the job status based on the URL and media file ID that are returned in the event notification.
+    * - You can call the UploadMediaByURL operation if the media file is not stored on a local server or terminal and needs to be uploaded by using a URL that can be accessed from the Internet.
+    * - You can call the UploadMediaByURL operation only in the **China (Shanghai)** region.
+    *
+    * @param request UploadMediaByURLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadMediaByURLResponse
+   */
   async uploadMediaByURLWithOptions(request: UploadMediaByURLRequest, runtime: $Util.RuntimeOptions): Promise<UploadMediaByURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23380,11 +25436,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadMediaByURLResponse>(await this.callApi(params, req, runtime), new UploadMediaByURLResponse({}));
   }
 
+  /**
+    * - If a callback is configured, you can receive an [UploadByURLComplete](~~86326~~) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](~~106830~~) operation.
+    * - After an upload job is submitted, the job is asynchronously executed on the cloud. All submitted upload jobs are queued for execution. You can check the job status based on the URL and media file ID that are returned in the event notification.
+    * - You can call the UploadMediaByURL operation if the media file is not stored on a local server or terminal and needs to be uploaded by using a URL that can be accessed from the Internet.
+    * - You can call the UploadMediaByURL operation only in the **China (Shanghai)** region.
+    *
+    * @param request UploadMediaByURLRequest
+    * @return UploadMediaByURLResponse
+   */
   async uploadMediaByURL(request: UploadMediaByURLRequest): Promise<UploadMediaByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadMediaByURLWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+. You can call the [GetURLUploadInfos](~~106830~~) operation to query the upload status. After the upload is complete, the callback of the UploadByURLComplete event is returned.
+    * >  This operation is available only in the Singapore (Singapore) region.
+    *
+    * @param request UploadStreamByURLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadStreamByURLResponse
+   */
   async uploadStreamByURLWithOptions(request: UploadStreamByURLRequest, runtime: $Util.RuntimeOptions): Promise<UploadStreamByURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23429,6 +25502,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadStreamByURLResponse>(await this.callApi(params, req, runtime), new UploadStreamByURLResponse({}));
   }
 
+  /**
+    * You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+. You can call the [GetURLUploadInfos](~~106830~~) operation to query the upload status. After the upload is complete, the callback of the UploadByURLComplete event is returned.
+    * >  This operation is available only in the Singapore (Singapore) region.
+    *
+    * @param request UploadStreamByURLRequest
+    * @return UploadStreamByURLResponse
+   */
   async uploadStreamByURL(request: UploadStreamByURLRequest): Promise<UploadStreamByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadStreamByURLWithOptions(request, runtime);
