@@ -5625,6 +5625,10 @@ export class BodyPostureResponseBodyData extends $tea.Model {
 
 export class CompareFaceResponseBodyData extends $tea.Model {
   confidence?: number;
+  isMaskA?: number;
+  isMaskB?: number;
+  landmarksAList?: number[];
+  landmarksBList?: number[];
   messageTips?: string;
   qualityScoreA?: number;
   qualityScoreB?: number;
@@ -5634,6 +5638,10 @@ export class CompareFaceResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
+      isMaskA: 'IsMaskA',
+      isMaskB: 'IsMaskB',
+      landmarksAList: 'LandmarksAList',
+      landmarksBList: 'LandmarksBList',
       messageTips: 'MessageTips',
       qualityScoreA: 'QualityScoreA',
       qualityScoreB: 'QualityScoreB',
@@ -5646,6 +5654,10 @@ export class CompareFaceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       confidence: 'number',
+      isMaskA: 'number',
+      isMaskB: 'number',
+      landmarksAList: { 'type': 'array', 'itemType': 'number' },
+      landmarksBList: { 'type': 'array', 'itemType': 'number' },
       messageTips: 'string',
       qualityScoreA: 'number',
       qualityScoreB: 'number',
