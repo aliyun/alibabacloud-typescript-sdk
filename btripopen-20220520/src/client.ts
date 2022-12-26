@@ -2363,6 +2363,62 @@ export class CommonApplySyncResponse extends $tea.Model {
   }
 }
 
+export class CorpAuthLinkInfoQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CorpAuthLinkInfoQueryResponseBodyModule;
+  requestId?: string;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: CorpAuthLinkInfoQueryResponseBodyModule,
+      requestId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CorpAuthLinkInfoQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CorpAuthLinkInfoQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CorpAuthLinkInfoQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CorpTokenHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripAccessToken?: string;
@@ -9130,6 +9186,78 @@ export class CommonApplyQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps extends $tea.Model {
+  corpName?: string;
+  openCorpId?: string;
+  trueCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpName: 'corp_name',
+      openCorpId: 'open_corp_id',
+      trueCorpId: 'true_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpName: 'string',
+      openCorpId: 'string',
+      trueCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp extends $tea.Model {
+  corpName?: string;
+  openCorpId?: string;
+  trueCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpName: 'corp_name',
+      openCorpId: 'open_corp_id',
+      trueCorpId: 'true_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpName: 'string',
+      openCorpId: 'string',
+      trueCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CorpAuthLinkInfoQueryResponseBodyModule extends $tea.Model {
+  linkCorps?: CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps[];
+  orgCorp?: CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp;
+  static names(): { [key: string]: string } {
+    return {
+      linkCorps: 'link_corps',
+      orgCorp: 'org_corp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      linkCorps: { 'type': 'array', 'itemType': CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps },
+      orgCorp: CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CorpTokenResponseBodyData extends $tea.Model {
   expire?: number;
   token?: string;
@@ -14382,6 +14510,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommonApplySyncHeaders({ });
     return await this.commonApplySyncWithOptions(request, headers, runtime);
+  }
+
+  async corpAuthLinkInfoQueryWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CorpAuthLinkInfoQueryResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "CorpAuthLinkInfoQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/corp-authority-link/v1/info`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CorpAuthLinkInfoQueryResponse>(await this.callApi(params, req, runtime), new CorpAuthLinkInfoQueryResponse({}));
+  }
+
+  async corpAuthLinkInfoQuery(): Promise<CorpAuthLinkInfoQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.corpAuthLinkInfoQueryWithOptions(headers, runtime);
   }
 
   async corpTokenWithOptions(request: CorpTokenRequest, headers: CorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
