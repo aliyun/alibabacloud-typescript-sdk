@@ -3678,6 +3678,87 @@ export class GetPublishTaskStateResponse extends $tea.Model {
   }
 }
 
+export class InitIMConnectRequest extends $tea.Model {
+  agentKey?: string;
+  from?: string;
+  userAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      from: 'From',
+      userAccessToken: 'UserAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      from: 'string',
+      userAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitIMConnectResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitIMConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InitIMConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitIMConnectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LinkInstanceCategoryRequest extends $tea.Model {
   agentKey?: string;
   categoryIds?: string;
@@ -6132,6 +6213,7 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
   metaData?: string;
   nodeId?: string;
   nodeName?: string;
+  responseType?: string;
   score?: number;
   slots?: ChatResponseBodyMessagesTextSlots[];
   userDefinedChatTitle?: string;
@@ -6150,6 +6232,7 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
       metaData: 'MetaData',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
+      responseType: 'ResponseType',
       score: 'Score',
       slots: 'Slots',
       userDefinedChatTitle: 'UserDefinedChatTitle',
@@ -6171,6 +6254,7 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
       metaData: 'string',
       nodeId: 'string',
       nodeName: 'string',
+      responseType: 'string',
       score: 'number',
       slots: { 'type': 'array', 'itemType': ChatResponseBodyMessagesTextSlots },
       userDefinedChatTitle: 'string',
@@ -8018,8 +8102,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateIntentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.intentDefinition))) {
-      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.intentDefinition), "IntentDefinition", "json");
+    if (!Util.isUnset(tmpReq.intentDefinition)) {
+      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intentDefinition, "IntentDefinition", "json");
     }
 
     let query = { };
@@ -8061,8 +8145,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateLgfShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.lgfDefinition))) {
-      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.lgfDefinition), "LgfDefinition", "json");
+    if (!Util.isUnset(tmpReq.lgfDefinition)) {
+      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lgfDefinition, "LgfDefinition", "json");
     }
 
     let query = { };
@@ -8268,8 +8352,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateUserSayShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userSayDefinition))) {
-      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userSayDefinition), "UserSayDefinition", "json");
+    if (!Util.isUnset(tmpReq.userSayDefinition)) {
+      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSayDefinition, "UserSayDefinition", "json");
     }
 
     let query = { };
@@ -9160,6 +9244,43 @@ export default class Client extends OpenApi {
   async getPublishTaskState(request: GetPublishTaskStateRequest): Promise<GetPublishTaskStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPublishTaskStateWithOptions(request, runtime);
+  }
+
+  async initIMConnectWithOptions(request: InitIMConnectRequest, runtime: $Util.RuntimeOptions): Promise<InitIMConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.userAccessToken)) {
+      query["UserAccessToken"] = request.userAccessToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InitIMConnect",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitIMConnectResponse>(await this.callApi(params, req, runtime), new InitIMConnectResponse({}));
+  }
+
+  async initIMConnect(request: InitIMConnectRequest): Promise<InitIMConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initIMConnectWithOptions(request, runtime);
   }
 
   async linkInstanceCategoryWithOptions(request: LinkInstanceCategoryRequest, runtime: $Util.RuntimeOptions): Promise<LinkInstanceCategoryResponse> {
@@ -10109,8 +10230,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateIntentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.intentDefinition))) {
-      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.intentDefinition), "IntentDefinition", "json");
+    if (!Util.isUnset(tmpReq.intentDefinition)) {
+      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intentDefinition, "IntentDefinition", "json");
     }
 
     let query = { };
@@ -10156,8 +10277,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateLgfShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.lgfDefinition))) {
-      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.lgfDefinition), "LgfDefinition", "json");
+    if (!Util.isUnset(tmpReq.lgfDefinition)) {
+      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lgfDefinition, "LgfDefinition", "json");
     }
 
     let query = { };
@@ -10326,8 +10447,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateUserSayShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.userSayDefinition))) {
-      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userSayDefinition), "UserSayDefinition", "json");
+    if (!Util.isUnset(tmpReq.userSayDefinition)) {
+      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSayDefinition, "UserSayDefinition", "json");
     }
 
     let query = { };
