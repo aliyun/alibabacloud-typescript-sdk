@@ -10,39 +10,69 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateVerifySchemeRequest extends $tea.Model {
   appName?: string;
+  authType?: string;
   bundleId?: string;
+  cmApiCode?: number;
+  ctApiCode?: number;
+  cuApiCode?: number;
+  email?: string;
+  ipWhiteList?: string;
+  origin?: string;
   osType?: string;
   ownerId?: number;
   packName?: string;
   packSign?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  sceneType?: string;
   schemeName?: string;
+  smsSignName?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
+      authType: 'AuthType',
       bundleId: 'BundleId',
+      cmApiCode: 'CmApiCode',
+      ctApiCode: 'CtApiCode',
+      cuApiCode: 'CuApiCode',
+      email: 'Email',
+      ipWhiteList: 'IpWhiteList',
+      origin: 'Origin',
       osType: 'OsType',
       ownerId: 'OwnerId',
       packName: 'PackName',
       packSign: 'PackSign',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      sceneType: 'SceneType',
       schemeName: 'SchemeName',
+      smsSignName: 'SmsSignName',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appName: 'string',
+      authType: 'string',
       bundleId: 'string',
+      cmApiCode: 'number',
+      ctApiCode: 'number',
+      cuApiCode: 'number',
+      email: 'string',
+      ipWhiteList: 'string',
+      origin: 'string',
       osType: 'string',
       ownerId: 'number',
       packName: 'string',
       packSign: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      sceneType: 'string',
       schemeName: 'string',
+      smsSignName: 'string',
+      url: 'string',
     };
   }
 
@@ -54,14 +84,18 @@ export class CreateVerifySchemeRequest extends $tea.Model {
 export class CreateVerifySchemeResponseBody extends $tea.Model {
   code?: string;
   gateVerifySchemeDTO?: CreateVerifySchemeResponseBodyGateVerifySchemeDTO;
+  httpStatusCode?: number;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       gateVerifySchemeDTO: 'GateVerifySchemeDTO',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -69,8 +103,10 @@ export class CreateVerifySchemeResponseBody extends $tea.Model {
     return {
       code: 'string',
       gateVerifySchemeDTO: CreateVerifySchemeResponseBodyGateVerifySchemeDTO,
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -81,10 +117,12 @@ export class CreateVerifySchemeResponseBody extends $tea.Model {
 
 export class CreateVerifySchemeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVerifySchemeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -92,6 +130,7 @@ export class CreateVerifySchemeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVerifySchemeResponseBody,
     };
   }
@@ -162,10 +201,12 @@ export class DeleteVerifySchemeResponseBody extends $tea.Model {
 
 export class DeleteVerifySchemeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVerifySchemeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -173,6 +214,7 @@ export class DeleteVerifySchemeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVerifySchemeResponseBody,
     };
   }
@@ -243,10 +285,12 @@ export class DescribeVerifySchemeResponseBody extends $tea.Model {
 
 export class DescribeVerifySchemeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVerifySchemeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -254,6 +298,7 @@ export class DescribeVerifySchemeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVerifySchemeResponseBody,
     };
   }
@@ -324,10 +369,12 @@ export class GetAuthTokenResponseBody extends $tea.Model {
 
 export class GetAuthTokenResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAuthTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -335,6 +382,7 @@ export class GetAuthTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAuthTokenResponseBody,
     };
   }
@@ -408,10 +456,12 @@ export class GetAuthorizationUrlResponseBody extends $tea.Model {
 
 export class GetAuthorizationUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAuthorizationUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -419,85 +469,8 @@ export class GetAuthorizationUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAuthorizationUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertifyResultRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertifyResultResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetCertifyResultResponseBodyData[];
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetCertifyResultResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertifyResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCertifyResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCertifyResultResponseBody,
     };
   }
 
@@ -567,10 +540,12 @@ export class GetMobileResponseBody extends $tea.Model {
 
 export class GetMobileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetMobileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -578,7 +553,89 @@ export class GetMobileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMobileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneWithTokenRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  spToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      spToken: 'SpToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      spToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneWithTokenResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPhoneWithTokenResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPhoneWithTokenResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneWithTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPhoneWithTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPhoneWithTokenResponseBody,
     };
   }
 
@@ -666,10 +723,12 @@ export class GetSmsAuthTokensResponseBody extends $tea.Model {
 
 export class GetSmsAuthTokensResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSmsAuthTokensResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -677,190 +736,8 @@ export class GetSmsAuthTokensResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSmsAuthTokensResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyCreateVerifySchemeRequest extends $tea.Model {
-  appName?: string;
-  bundleId?: string;
-  cmApiCode?: number;
-  ctApiCode?: number;
-  cuApiCode?: number;
-  osType?: string;
-  ownerId?: number;
-  packName?: string;
-  packSign?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  schemeName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      bundleId: 'BundleId',
-      cmApiCode: 'CmApiCode',
-      ctApiCode: 'CtApiCode',
-      cuApiCode: 'CuApiCode',
-      osType: 'OsType',
-      ownerId: 'OwnerId',
-      packName: 'PackName',
-      packSign: 'PackSign',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      schemeName: 'SchemeName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      bundleId: 'string',
-      cmApiCode: 'number',
-      ctApiCode: 'number',
-      cuApiCode: 'number',
-      osType: 'string',
-      ownerId: 'number',
-      packName: 'string',
-      packSign: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      schemeName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyCreateVerifySchemeResponseBody extends $tea.Model {
-  code?: string;
-  gateVerifySchemeData?: JyCreateVerifySchemeResponseBodyGateVerifySchemeData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      gateVerifySchemeData: 'GateVerifySchemeData',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      gateVerifySchemeData: JyCreateVerifySchemeResponseBodyGateVerifySchemeData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyCreateVerifySchemeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: JyCreateVerifySchemeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: JyCreateVerifySchemeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyGetMobileRequest extends $tea.Model {
-  accessToken?: string;
-  outId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'AccessToken',
-      outId: 'OutId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      outId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyGetMobileResponseBody extends $tea.Model {
-  code?: string;
-  getMobileResultData?: JyGetMobileResponseBodyGetMobileResultData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      getMobileResultData: 'GetMobileResultData',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      getMobileResultData: JyGetMobileResponseBodyGetMobileResultData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyGetMobileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: JyGetMobileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: JyGetMobileResponseBody,
     };
   }
 
@@ -927,10 +804,12 @@ export class QueryGateVerifyBillingPublicResponseBody extends $tea.Model {
 
 export class QueryGateVerifyBillingPublicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryGateVerifyBillingPublicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -938,6 +817,7 @@ export class QueryGateVerifyBillingPublicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryGateVerifyBillingPublicResponseBody,
     };
   }
@@ -1014,10 +894,12 @@ export class QueryGateVerifyStatisticPublicResponseBody extends $tea.Model {
 
 export class QueryGateVerifyStatisticPublicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryGateVerifyStatisticPublicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1025,6 +907,7 @@ export class QueryGateVerifyStatisticPublicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryGateVerifyStatisticPublicResponseBody,
     };
   }
@@ -1098,10 +981,12 @@ export class VerifyMobileResponseBody extends $tea.Model {
 
 export class VerifyMobileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: VerifyMobileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1109,6 +994,7 @@ export class VerifyMobileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: VerifyMobileResponseBody,
     };
   }
@@ -1179,10 +1065,12 @@ export class VerifyPhoneWithTokenResponseBody extends $tea.Model {
 
 export class VerifyPhoneWithTokenResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: VerifyPhoneWithTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1190,6 +1078,7 @@ export class VerifyPhoneWithTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: VerifyPhoneWithTokenResponseBody,
     };
   }
@@ -1254,10 +1143,12 @@ export class VerifySmsCodeResponseBody extends $tea.Model {
 
 export class VerifySmsCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: VerifySmsCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1265,6 +1156,7 @@ export class VerifySmsCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: VerifySmsCodeResponseBody,
     };
   }
@@ -1353,29 +1245,17 @@ export class GetAuthorizationUrlResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetCertifyResultResponseBodyData extends $tea.Model {
-  deviceToken?: string;
-  identityInfo?: string;
-  materialInfo?: string;
-  verifyDesc?: string;
-  verifyResult?: string;
+export class GetMobileResponseBodyGetMobileResultDTO extends $tea.Model {
+  mobile?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceToken: 'DeviceToken',
-      identityInfo: 'IdentityInfo',
-      materialInfo: 'MaterialInfo',
-      verifyDesc: 'VerifyDesc',
-      verifyResult: 'VerifyResult',
+      mobile: 'Mobile',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceToken: 'string',
-      identityInfo: 'string',
-      materialInfo: 'string',
-      verifyDesc: 'string',
-      verifyResult: 'string',
+      mobile: 'string',
     };
   }
 
@@ -1384,7 +1264,7 @@ export class GetCertifyResultResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetMobileResponseBodyGetMobileResultDTO extends $tea.Model {
+export class GetPhoneWithTokenResponseBodyData extends $tea.Model {
   mobile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1426,44 +1306,6 @@ export class GetSmsAuthTokensResponseBodyData extends $tea.Model {
       stsAccessKeyId: 'string',
       stsAccessKeySecret: 'string',
       stsToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyCreateVerifySchemeResponseBodyGateVerifySchemeData extends $tea.Model {
-  schemeCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      schemeCode: 'SchemeCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      schemeCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JyGetMobileResponseBodyGetMobileResultData extends $tea.Model {
-  mobile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mobile: 'Mobile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobile: 'string',
     };
   }
 
@@ -1639,6 +1481,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dypnsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1664,8 +1507,36 @@ export default class Client extends OpenApi {
       query["AppName"] = request.appName;
     }
 
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
     if (!Util.isUnset(request.bundleId)) {
       query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.cmApiCode)) {
+      query["CmApiCode"] = request.cmApiCode;
+    }
+
+    if (!Util.isUnset(request.ctApiCode)) {
+      query["CtApiCode"] = request.ctApiCode;
+    }
+
+    if (!Util.isUnset(request.cuApiCode)) {
+      query["CuApiCode"] = request.cuApiCode;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.ipWhiteList)) {
+      query["IpWhiteList"] = request.ipWhiteList;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
     }
 
     if (!Util.isUnset(request.osType)) {
@@ -1692,8 +1563,20 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
     if (!Util.isUnset(request.schemeName)) {
       query["SchemeName"] = request.schemeName;
+    }
+
+    if (!Util.isUnset(request.smsSignName)) {
+      query["SmsSignName"] = request.smsSignName;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1902,47 +1785,6 @@ export default class Client extends OpenApi {
     return await this.getAuthorizationUrlWithOptions(request, runtime);
   }
 
-  async getCertifyResultWithOptions(request: GetCertifyResultRequest, runtime: $Util.RuntimeOptions): Promise<GetCertifyResultResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.token)) {
-      query["Token"] = request.token;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetCertifyResult",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetCertifyResultResponse>(await this.callApi(params, req, runtime), new GetCertifyResultResponse({}));
-  }
-
-  async getCertifyResult(request: GetCertifyResultRequest): Promise<GetCertifyResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCertifyResultWithOptions(request, runtime);
-  }
-
   async getMobileWithOptions(request: GetMobileRequest, runtime: $Util.RuntimeOptions): Promise<GetMobileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1986,6 +1828,47 @@ export default class Client extends OpenApi {
   async getMobile(request: GetMobileRequest): Promise<GetMobileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMobileWithOptions(request, runtime);
+  }
+
+  async getPhoneWithTokenWithOptions(request: GetPhoneWithTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneWithTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.spToken)) {
+      query["SpToken"] = request.spToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPhoneWithToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPhoneWithTokenResponse>(await this.callApi(params, req, runtime), new GetPhoneWithTokenResponse({}));
+  }
+
+  async getPhoneWithToken(request: GetPhoneWithTokenRequest): Promise<GetPhoneWithTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPhoneWithTokenWithOptions(request, runtime);
   }
 
   async getSmsAuthTokensWithOptions(request: GetSmsAuthTokensRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsAuthTokensResponse> {
@@ -2055,124 +1938,6 @@ export default class Client extends OpenApi {
   async getSmsAuthTokens(request: GetSmsAuthTokensRequest): Promise<GetSmsAuthTokensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSmsAuthTokensWithOptions(request, runtime);
-  }
-
-  async jyCreateVerifySchemeWithOptions(request: JyCreateVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<JyCreateVerifySchemeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.bundleId)) {
-      query["BundleId"] = request.bundleId;
-    }
-
-    if (!Util.isUnset(request.cmApiCode)) {
-      query["CmApiCode"] = request.cmApiCode;
-    }
-
-    if (!Util.isUnset(request.ctApiCode)) {
-      query["CtApiCode"] = request.ctApiCode;
-    }
-
-    if (!Util.isUnset(request.cuApiCode)) {
-      query["CuApiCode"] = request.cuApiCode;
-    }
-
-    if (!Util.isUnset(request.osType)) {
-      query["OsType"] = request.osType;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.packName)) {
-      query["PackName"] = request.packName;
-    }
-
-    if (!Util.isUnset(request.packSign)) {
-      query["PackSign"] = request.packSign;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.schemeName)) {
-      query["SchemeName"] = request.schemeName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "JyCreateVerifyScheme",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<JyCreateVerifySchemeResponse>(await this.callApi(params, req, runtime), new JyCreateVerifySchemeResponse({}));
-  }
-
-  async jyCreateVerifyScheme(request: JyCreateVerifySchemeRequest): Promise<JyCreateVerifySchemeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.jyCreateVerifySchemeWithOptions(request, runtime);
-  }
-
-  async jyGetMobileWithOptions(request: JyGetMobileRequest, runtime: $Util.RuntimeOptions): Promise<JyGetMobileResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.accessToken)) {
-      query["AccessToken"] = request.accessToken;
-    }
-
-    if (!Util.isUnset(request.outId)) {
-      query["OutId"] = request.outId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "JyGetMobile",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<JyGetMobileResponse>(await this.callApi(params, req, runtime), new JyGetMobileResponse({}));
-  }
-
-  async jyGetMobile(request: JyGetMobileRequest): Promise<JyGetMobileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.jyGetMobileWithOptions(request, runtime);
   }
 
   async queryGateVerifyBillingPublicWithOptions(request: QueryGateVerifyBillingPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyBillingPublicResponse> {
