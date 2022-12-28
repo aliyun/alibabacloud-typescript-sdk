@@ -36,6 +36,120 @@ export class ClientNodeConfiguration extends $tea.Model {
   }
 }
 
+export class CollectorDeployMachine extends $tea.Model {
+  configType?: string;
+  groupId?: string;
+  instanceId?: string;
+  machines?: CollectorDeployMachineMachines[];
+  successPodsCount?: string;
+  totalPodsCount?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configType: 'configType',
+      groupId: 'groupId',
+      instanceId: 'instanceId',
+      machines: 'machines',
+      successPodsCount: 'successPodsCount',
+      totalPodsCount: 'totalPodsCount',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configType: 'string',
+      groupId: 'string',
+      instanceId: 'string',
+      machines: { 'type': 'array', 'itemType': CollectorDeployMachineMachines },
+      successPodsCount: 'string',
+      totalPodsCount: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectorKibanaInstance extends $tea.Model {
+  configType?: string;
+  host?: string;
+  instanceId?: string;
+  kibanaHost?: string;
+  password?: string;
+  protocol?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configType: 'configType',
+      host: 'host',
+      instanceId: 'instanceId',
+      kibanaHost: 'kibanaHost',
+      password: 'password',
+      protocol: 'protocol',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configType: 'string',
+      host: 'string',
+      instanceId: 'string',
+      kibanaHost: 'string',
+      password: 'string',
+      protocol: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CollectorTargetInstance extends $tea.Model {
+  configType?: string;
+  enableMonitoring?: boolean;
+  hosts?: string[];
+  instanceId?: string;
+  instanceType?: string;
+  password?: string;
+  protocol?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configType: 'configType',
+      enableMonitoring: 'enableMonitoring',
+      hosts: 'hosts',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      password: 'password',
+      protocol: 'protocol',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configType: 'string',
+      enableMonitoring: 'boolean',
+      hosts: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceType: 'string',
+      password: 'string',
+      protocol: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DictInfo extends $tea.Model {
   fileSize?: number;
   name?: string;
@@ -1333,18 +1447,39 @@ export class CloseManagedIndexResponse extends $tea.Model {
 }
 
 export class CreateCollectorRequest extends $tea.Model {
-  body?: string;
+  collectorPaths?: string[];
+  configs?: CreateCollectorRequestConfigs[];
+  dryRun?: boolean;
+  extendConfigs?: { [key: string]: any }[];
+  name?: string;
+  resType?: string;
+  resVersion?: string;
+  vpcId?: string;
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      collectorPaths: 'collectorPaths',
+      configs: 'configs',
+      dryRun: 'dryRun',
+      extendConfigs: 'extendConfigs',
+      name: 'name',
+      resType: 'resType',
+      resVersion: 'resVersion',
+      vpcId: 'vpcId',
       clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: 'string',
+      collectorPaths: { 'type': 'array', 'itemType': 'string' },
+      configs: { 'type': 'array', 'itemType': CreateCollectorRequestConfigs },
+      dryRun: 'boolean',
+      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      name: 'string',
+      resType: 'string',
+      resVersion: 'string',
+      vpcId: 'string',
       clientToken: 'string',
     };
   }
@@ -1679,18 +1814,33 @@ export class CreateILMPolicyResponse extends $tea.Model {
 
 export class CreateIndexTemplateRequest extends $tea.Model {
   clientToken?: string;
-  body?: string;
+  dataStream?: boolean;
+  ilmPolicy?: string;
+  indexPatterns?: string[];
+  indexTemplate?: string;
+  priority?: number;
+  template?: CreateIndexTemplateRequestTemplate;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      body: 'body',
+      dataStream: 'dataStream',
+      ilmPolicy: 'ilmPolicy',
+      indexPatterns: 'indexPatterns',
+      indexTemplate: 'indexTemplate',
+      priority: 'priority',
+      template: 'template',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      body: 'string',
+      dataStream: 'boolean',
+      ilmPolicy: 'string',
+      indexPatterns: { 'type': 'array', 'itemType': 'string' },
+      indexTemplate: 'string',
+      priority: 'number',
+      template: CreateIndexTemplateRequestTemplate,
     };
   }
 
@@ -13752,6 +13902,28 @@ export class CreateInstanceResponse extends $tea.Model {
   }
 }
 
+export class CollectorDeployMachineMachines extends $tea.Model {
+  agentStatus?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentStatus: 'agentStatus',
+      instanceId: 'instanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentStatus: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ElasticsearchAdvancedSetting extends $tea.Model {
   gcName?: string;
   static names(): { [key: string]: string } {
@@ -14040,6 +14212,28 @@ export class CapacityPlanResponseBodyResult extends $tea.Model {
       instanceCategory: 'string',
       nodeConfigurations: { 'type': 'array', 'itemType': CapacityPlanResponseBodyResultNodeConfigurations },
       oversizedCluster: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCollectorRequestConfigs extends $tea.Model {
+  content?: string;
+  fileName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      fileName: 'fileName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      fileName: 'string',
     };
   }
 
@@ -14344,6 +14538,31 @@ export class CreateDataTasksResponseBodyResult extends $tea.Model {
     return {
       sinkCluster: CreateDataTasksResponseBodyResultSinkCluster,
       sourceCluster: CreateDataTasksResponseBodyResultSourceCluster,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexTemplateRequestTemplate extends $tea.Model {
+  aliases?: string;
+  mappings?: string;
+  settings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliases: 'aliases',
+      mappings: 'mappings',
+      settings: 'settings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliases: 'string',
+      mappings: 'string',
+      settings: 'string',
     };
   }
 
@@ -21821,10 +22040,43 @@ export default class Client extends OpenApi {
       query["clientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collectorPaths)) {
+      body["collectorPaths"] = request.collectorPaths;
+    }
+
+    if (!Util.isUnset(request.configs)) {
+      body["configs"] = request.configs;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.extendConfigs)) {
+      body["extendConfigs"] = request.extendConfigs;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resType)) {
+      body["resType"] = request.resType;
+    }
+
+    if (!Util.isUnset(request.resVersion)) {
+      body["resVersion"] = request.resVersion;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["vpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateCollector",
@@ -21984,10 +22236,35 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataStream)) {
+      body["dataStream"] = request.dataStream;
+    }
+
+    if (!Util.isUnset(request.ilmPolicy)) {
+      body["ilmPolicy"] = request.ilmPolicy;
+    }
+
+    if (!Util.isUnset(request.indexPatterns)) {
+      body["indexPatterns"] = request.indexPatterns;
+    }
+
+    if (!Util.isUnset(request.indexTemplate)) {
+      body["indexTemplate"] = request.indexTemplate;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.template)) {
+      body["template"] = request.template;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateIndexTemplate",
