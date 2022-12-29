@@ -10,15 +10,21 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class GetAgeDistributionRequest extends $tea.Model {
   cateIds?: string;
+  endingDate?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cateIds: 'string',
+      endingDate: 'string',
+      startDate: 'string',
     };
   }
 
@@ -139,17 +145,107 @@ export class GetAllTrendCategoryResponse extends $tea.Model {
   }
 }
 
-export class GetCrowdLabelRequest extends $tea.Model {
+export class GetCrowdDataRequest extends $tea.Model {
   cateIds?: string;
+  endingDate?: string;
+  pageIndex?: number;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      pageIndex: 'PageIndex',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cateIds: 'string',
+      endingDate: 'string',
+      pageIndex: 'number',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrowdDataResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCrowdDataResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  successResponse?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      successResponse: 'SuccessResponse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetCrowdDataResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      successResponse: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrowdDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCrowdDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCrowdDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrowdLabelRequest extends $tea.Model {
+  cateIds?: string;
+  endingDate?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateIds: 'string',
+      endingDate: 'string',
+      startDate: 'string',
     };
   }
 
@@ -216,15 +312,21 @@ export class GetCrowdLabelResponse extends $tea.Model {
 
 export class GetCrowdReginRequest extends $tea.Model {
   cateIds?: string;
+  endingDate?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cateIds: 'string',
+      endingDate: 'string',
+      startDate: 'string',
     };
   }
 
@@ -368,16 +470,31 @@ export class GetOpportunityMarketResponse extends $tea.Model {
 }
 
 export class GetPriceRangeRequest extends $tea.Model {
+  brandNames?: string;
   cateIds?: string;
+  endingDate?: string;
+  section?: number;
+  shopIds?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      brandNames: 'BrandNames',
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      section: 'Section',
+      shopIds: 'ShopIds',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brandNames: 'string',
       cateIds: 'string',
+      endingDate: 'string',
+      section: 'number',
+      shopIds: 'string',
+      startDate: 'string',
     };
   }
 
@@ -444,15 +561,21 @@ export class GetPriceRangeResponse extends $tea.Model {
 
 export class GetSexRatioRequest extends $tea.Model {
   cateIds?: string;
+  endingDate?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cateIds: 'string',
+      endingDate: 'string',
+      startDate: 'string',
     };
   }
 
@@ -518,16 +641,43 @@ export class GetSexRatioResponse extends $tea.Model {
 }
 
 export class GetStoreSalesVolumeTopRequest extends $tea.Model {
+  brandNames?: string;
   cateIds?: string;
+  endingDate?: string;
+  endingPrice?: string;
+  endingSalesVolume?: string;
+  pageIndex?: number;
+  shopIds?: string;
+  startDate?: string;
+  startPrice?: string;
+  startSalesVolume?: string;
   static names(): { [key: string]: string } {
     return {
+      brandNames: 'BrandNames',
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      endingPrice: 'EndingPrice',
+      endingSalesVolume: 'EndingSalesVolume',
+      pageIndex: 'PageIndex',
+      shopIds: 'ShopIds',
+      startDate: 'StartDate',
+      startPrice: 'StartPrice',
+      startSalesVolume: 'StartSalesVolume',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brandNames: 'string',
       cateIds: 'string',
+      endingDate: 'string',
+      endingPrice: 'string',
+      endingSalesVolume: 'string',
+      pageIndex: 'number',
+      shopIds: 'string',
+      startDate: 'string',
+      startPrice: 'string',
+      startSalesVolume: 'string',
     };
   }
 
@@ -593,16 +743,43 @@ export class GetStoreSalesVolumeTopResponse extends $tea.Model {
 }
 
 export class GetStoreSearchTopRequest extends $tea.Model {
+  brandNames?: string;
   cateIds?: string;
+  endingDate?: string;
+  endingPrice?: string;
+  endingSalesVolume?: string;
+  pageIndex?: number;
+  shopIds?: string;
+  startDate?: string;
+  startPrice?: string;
+  startSalesVolume?: string;
   static names(): { [key: string]: string } {
     return {
+      brandNames: 'BrandNames',
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      endingPrice: 'EndingPrice',
+      endingSalesVolume: 'EndingSalesVolume',
+      pageIndex: 'PageIndex',
+      shopIds: 'ShopIds',
+      startDate: 'StartDate',
+      startPrice: 'StartPrice',
+      startSalesVolume: 'StartSalesVolume',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brandNames: 'string',
       cateIds: 'string',
+      endingDate: 'string',
+      endingPrice: 'string',
+      endingSalesVolume: 'string',
+      pageIndex: 'number',
+      shopIds: 'string',
+      startDate: 'string',
+      startPrice: 'string',
+      startSalesVolume: 'string',
     };
   }
 
@@ -667,25 +844,133 @@ export class GetStoreSearchTopResponse extends $tea.Model {
   }
 }
 
-export class GetStyleTopRequest extends $tea.Model {
+export class GetStyleOnlineRequest extends $tea.Model {
+  brandNames?: string;
   cateIds?: string;
+  endingDate?: string;
   pageIndex?: number;
+  shopIds?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brandNames: 'BrandNames',
+      cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      pageIndex: 'PageIndex',
+      shopIds: 'ShopIds',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brandNames: 'string',
+      cateIds: 'string',
+      endingDate: 'string',
+      pageIndex: 'number',
+      shopIds: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStyleOnlineResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetStyleOnlineResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  successResponse?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      successResponse: 'SuccessResponse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetStyleOnlineResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      successResponse: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStyleOnlineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetStyleOnlineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStyleOnlineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStyleTopRequest extends $tea.Model {
+  brandNames?: string;
+  cateIds?: string;
+  endingDate?: string;
+  endingPrice?: string;
+  pageIndex?: number;
+  shopIds?: string;
   sortOrder?: number;
+  startDate?: string;
+  startPrice?: string;
   timeDisplay?: number;
   static names(): { [key: string]: string } {
     return {
+      brandNames: 'BrandNames',
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      endingPrice: 'EndingPrice',
       pageIndex: 'PageIndex',
+      shopIds: 'ShopIds',
       sortOrder: 'SortOrder',
+      startDate: 'StartDate',
+      startPrice: 'StartPrice',
       timeDisplay: 'TimeDisplay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brandNames: 'string',
       cateIds: 'string',
+      endingDate: 'string',
+      endingPrice: 'string',
       pageIndex: 'number',
+      shopIds: 'string',
       sortOrder: 'number',
+      startDate: 'string',
+      startPrice: 'string',
       timeDisplay: 'number',
     };
   }
@@ -1058,16 +1343,28 @@ export class GetTrendSearchRecordResponse extends $tea.Model {
 }
 
 export class GetTrendStatisticRequest extends $tea.Model {
+  brandNames?: string;
   cateIds?: string;
+  endingDate?: string;
+  shopIds?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      brandNames: 'BrandNames',
       cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      shopIds: 'ShopIds',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      brandNames: 'string',
       cateIds: 'string',
+      endingDate: 'string',
+      shopIds: 'string',
+      startDate: 'string',
     };
   }
 
@@ -1132,6 +1429,90 @@ export class GetTrendStatisticResponse extends $tea.Model {
   }
 }
 
+export class GetTrendWordAndIndexRequest extends $tea.Model {
+  cateIds?: string;
+  endingDate?: string;
+  pageIndex?: number;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cateIds: 'CateIds',
+      endingDate: 'EndingDate',
+      pageIndex: 'PageIndex',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateIds: 'string',
+      endingDate: 'string',
+      pageIndex: 'number',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrendWordAndIndexResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetTrendWordAndIndexResponseBodyData[];
+  massage?: string;
+  requestId?: string;
+  successResponse?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      massage: 'Massage',
+      requestId: 'RequestId',
+      successResponse: 'SuccessResponse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetTrendWordAndIndexResponseBodyData },
+      massage: 'string',
+      requestId: 'string',
+      successResponse: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrendWordAndIndexResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTrendWordAndIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTrendWordAndIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgeDistributionResponseBodyData extends $tea.Model {
   ageRange?: string;
   saleNumbers?: number;
@@ -1180,6 +1561,61 @@ export class GetAllTrendCategoryResponseBodyData extends $tea.Model {
       categoryName: 'string',
       childCategory: { 'type': 'array', 'itemType': 'any' },
       superCategoryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrowdDataResponseBodyData extends $tea.Model {
+  age?: number;
+  buyerId?: number;
+  cateId?: number;
+  cateName?: string;
+  classification?: string;
+  classificationNew?: string;
+  gender?: string;
+  onlineDate?: string;
+  orderAmount?: number;
+  orderQuantity?: number;
+  province?: string;
+  searchVolume?: number;
+  trendLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      buyerId: 'BuyerId',
+      cateId: 'CateId',
+      cateName: 'CateName',
+      classification: 'Classification',
+      classificationNew: 'ClassificationNew',
+      gender: 'Gender',
+      onlineDate: 'OnlineDate',
+      orderAmount: 'OrderAmount',
+      orderQuantity: 'OrderQuantity',
+      province: 'Province',
+      searchVolume: 'SearchVolume',
+      trendLevel: 'TrendLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'number',
+      buyerId: 'number',
+      cateId: 'number',
+      cateName: 'string',
+      classification: 'string',
+      classificationNew: 'string',
+      gender: 'string',
+      onlineDate: 'string',
+      orderAmount: 'number',
+      orderQuantity: 'number',
+      province: 'string',
+      searchVolume: 'number',
+      trendLevel: 'string',
     };
   }
 
@@ -1411,16 +1847,31 @@ export class GetSexRatioResponseBodyData extends $tea.Model {
 }
 
 export class GetStoreSalesVolumeTopResponseBodyData extends $tea.Model {
+  commodityQuantity?: number;
+  salesVolume?: number;
+  searchVolume?: number;
+  shopId?: number;
   shopName?: string;
+  totalSales?: number;
   static names(): { [key: string]: string } {
     return {
+      commodityQuantity: 'CommodityQuantity',
+      salesVolume: 'SalesVolume',
+      searchVolume: 'SearchVolume',
+      shopId: 'ShopId',
       shopName: 'ShopName',
+      totalSales: 'TotalSales',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commodityQuantity: 'number',
+      salesVolume: 'number',
+      searchVolume: 'number',
+      shopId: 'number',
       shopName: 'string',
+      totalSales: 'number',
     };
   }
 
@@ -1430,16 +1881,95 @@ export class GetStoreSalesVolumeTopResponseBodyData extends $tea.Model {
 }
 
 export class GetStoreSearchTopResponseBodyData extends $tea.Model {
+  commodityQuantity?: number;
+  salesVolume?: number;
+  searchVolume?: number;
+  shopId?: number;
   shopName?: string;
+  totalSales?: number;
   static names(): { [key: string]: string } {
     return {
+      commodityQuantity: 'CommodityQuantity',
+      salesVolume: 'SalesVolume',
+      searchVolume: 'SearchVolume',
+      shopId: 'ShopId',
       shopName: 'ShopName',
+      totalSales: 'TotalSales',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commodityQuantity: 'number',
+      salesVolume: 'number',
+      searchVolume: 'number',
+      shopId: 'number',
       shopName: 'string',
+      totalSales: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStyleOnlineResponseBodyData extends $tea.Model {
+  attributeContent?: string;
+  brandName?: string;
+  buyerTags?: string;
+  cateName?: string;
+  color?: string;
+  exposureValue?: number;
+  images?: string[];
+  material?: string;
+  price?: number;
+  productLink?: string;
+  salesVolume?: number;
+  searchVolume?: number;
+  shopId?: number;
+  shopName?: string;
+  style?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributeContent: 'AttributeContent',
+      brandName: 'BrandName',
+      buyerTags: 'BuyerTags',
+      cateName: 'CateName',
+      color: 'Color',
+      exposureValue: 'ExposureValue',
+      images: 'Images',
+      material: 'Material',
+      price: 'Price',
+      productLink: 'ProductLink',
+      salesVolume: 'SalesVolume',
+      searchVolume: 'SearchVolume',
+      shopId: 'ShopId',
+      shopName: 'ShopName',
+      style: 'Style',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeContent: 'string',
+      brandName: 'string',
+      buyerTags: 'string',
+      cateName: 'string',
+      color: 'string',
+      exposureValue: 'number',
+      images: { 'type': 'array', 'itemType': 'string' },
+      material: 'string',
+      price: 'number',
+      productLink: 'string',
+      salesVolume: 'number',
+      searchVolume: 'number',
+      shopId: 'number',
+      shopName: 'string',
+      style: 'string',
+      title: 'string',
     };
   }
 
@@ -1454,12 +1984,14 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
   buyerTags?: string;
   cateName?: string;
   color?: string;
+  exposureValue?: number;
   images?: string[];
   material?: string;
   price?: number;
   productLink?: string;
   salesVolume?: number;
   searchVolume?: number;
+  shopId?: number;
   shopName?: string;
   style?: string;
   title?: string;
@@ -1470,12 +2002,14 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
       buyerTags: 'BuyerTags',
       cateName: 'CateName',
       color: 'Color',
+      exposureValue: 'ExposureValue',
       images: 'Images',
       material: 'Material',
       price: 'Price',
       productLink: 'ProductLink',
       salesVolume: 'SalesVolume',
       searchVolume: 'SearchVolume',
+      shopId: 'ShopId',
       shopName: 'ShopName',
       style: 'Style',
       title: 'Title',
@@ -1489,12 +2023,14 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
       buyerTags: 'string',
       cateName: 'string',
       color: 'string',
+      exposureValue: 'number',
       images: { 'type': 'array', 'itemType': 'string' },
       material: 'string',
       price: 'number',
       productLink: 'string',
       salesVolume: 'number',
       searchVolume: 'number',
+      shopId: 'number',
       shopName: 'string',
       style: 'string',
       title: 'string',
@@ -1662,12 +2198,18 @@ export class GetTrendSearchRecordResponseBodyData extends $tea.Model {
 }
 
 export class GetTrendStatisticResponseBodyData extends $tea.Model {
+  brandCount?: number;
   commodityCount?: number;
+  exposureValue?: number;
+  hits?: number;
   sales?: number;
   shopCount?: number;
   static names(): { [key: string]: string } {
     return {
+      brandCount: 'BrandCount',
       commodityCount: 'CommodityCount',
+      exposureValue: 'ExposureValue',
+      hits: 'Hits',
       sales: 'Sales',
       shopCount: 'ShopCount',
     };
@@ -1675,9 +2217,58 @@ export class GetTrendStatisticResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      brandCount: 'number',
       commodityCount: 'number',
+      exposureValue: 'number',
+      hits: 'number',
       sales: 'number',
       shopCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTrendWordAndIndexResponseBodyData extends $tea.Model {
+  brandIndex?: number;
+  cateId?: number;
+  cateName?: string;
+  ecommerceIndex?: number;
+  institutionalIndex?: number;
+  mediaIndex?: number;
+  socialIndex?: number;
+  trendIndex?: number;
+  trendWord?: string;
+  yearMonth?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brandIndex: 'BrandIndex',
+      cateId: 'CateId',
+      cateName: 'CateName',
+      ecommerceIndex: 'EcommerceIndex',
+      institutionalIndex: 'InstitutionalIndex',
+      mediaIndex: 'MediaIndex',
+      socialIndex: 'SocialIndex',
+      trendIndex: 'TrendIndex',
+      trendWord: 'TrendWord',
+      yearMonth: 'YearMonth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brandIndex: 'number',
+      cateId: 'number',
+      cateName: 'string',
+      ecommerceIndex: 'number',
+      institutionalIndex: 'number',
+      mediaIndex: 'number',
+      socialIndex: 'number',
+      trendIndex: 'number',
+      trendWord: 'string',
+      yearMonth: 'string',
     };
   }
 
@@ -1714,6 +2305,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.cateIds)) {
       query["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      query["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1759,11 +2358,60 @@ export default class Client extends OpenApi {
     return await this.getAllTrendCategoryWithOptions(runtime);
   }
 
+  async getCrowdDataWithOptions(request: GetCrowdDataRequest, runtime: $Util.RuntimeOptions): Promise<GetCrowdDataResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cateIds)) {
+      body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCrowdData",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCrowdDataResponse>(await this.callApi(params, req, runtime), new GetCrowdDataResponse({}));
+  }
+
+  async getCrowdData(request: GetCrowdDataRequest): Promise<GetCrowdDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCrowdDataWithOptions(request, runtime);
+  }
+
   async getCrowdLabelWithOptions(request: GetCrowdLabelRequest, runtime: $Util.RuntimeOptions): Promise<GetCrowdLabelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1793,6 +2441,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.cateIds)) {
       query["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      query["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1853,8 +2509,28 @@ export default class Client extends OpenApi {
   async getPriceRangeWithOptions(request: GetPriceRangeRequest, runtime: $Util.RuntimeOptions): Promise<GetPriceRangeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brandNames)) {
+      body["BrandNames"] = request.brandNames;
+    }
+
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.section)) {
+      body["Section"] = request.section;
+    }
+
+    if (!Util.isUnset(request.shopIds)) {
+      body["ShopIds"] = request.shopIds;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1886,6 +2562,14 @@ export default class Client extends OpenApi {
       query["CateIds"] = request.cateIds;
     }
 
+    if (!Util.isUnset(request.endingDate)) {
+      query["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1911,8 +2595,44 @@ export default class Client extends OpenApi {
   async getStoreSalesVolumeTopWithOptions(request: GetStoreSalesVolumeTopRequest, runtime: $Util.RuntimeOptions): Promise<GetStoreSalesVolumeTopResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brandNames)) {
+      body["BrandNames"] = request.brandNames;
+    }
+
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.endingPrice)) {
+      body["EndingPrice"] = request.endingPrice;
+    }
+
+    if (!Util.isUnset(request.endingSalesVolume)) {
+      body["EndingSalesVolume"] = request.endingSalesVolume;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.shopIds)) {
+      body["ShopIds"] = request.shopIds;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.startPrice)) {
+      body["StartPrice"] = request.startPrice;
+    }
+
+    if (!Util.isUnset(request.startSalesVolume)) {
+      body["StartSalesVolume"] = request.startSalesVolume;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1940,8 +2660,44 @@ export default class Client extends OpenApi {
   async getStoreSearchTopWithOptions(request: GetStoreSearchTopRequest, runtime: $Util.RuntimeOptions): Promise<GetStoreSearchTopResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brandNames)) {
+      body["BrandNames"] = request.brandNames;
+    }
+
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.endingPrice)) {
+      body["EndingPrice"] = request.endingPrice;
+    }
+
+    if (!Util.isUnset(request.endingSalesVolume)) {
+      body["EndingSalesVolume"] = request.endingSalesVolume;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.shopIds)) {
+      body["ShopIds"] = request.shopIds;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.startPrice)) {
+      body["StartPrice"] = request.startPrice;
+    }
+
+    if (!Util.isUnset(request.startSalesVolume)) {
+      body["StartSalesVolume"] = request.startSalesVolume;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1966,19 +2722,92 @@ export default class Client extends OpenApi {
     return await this.getStoreSearchTopWithOptions(request, runtime);
   }
 
+  async getStyleOnlineWithOptions(request: GetStyleOnlineRequest, runtime: $Util.RuntimeOptions): Promise<GetStyleOnlineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.brandNames)) {
+      query["BrandNames"] = request.brandNames;
+    }
+
+    if (!Util.isUnset(request.cateIds)) {
+      query["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      query["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.shopIds)) {
+      query["ShopIds"] = request.shopIds;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStyleOnline",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStyleOnlineResponse>(await this.callApi(params, req, runtime), new GetStyleOnlineResponse({}));
+  }
+
+  async getStyleOnline(request: GetStyleOnlineRequest): Promise<GetStyleOnlineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStyleOnlineWithOptions(request, runtime);
+  }
+
   async getStyleTopWithOptions(request: GetStyleTopRequest, runtime: $Util.RuntimeOptions): Promise<GetStyleTopResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brandNames)) {
+      body["BrandNames"] = request.brandNames;
+    }
+
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.endingPrice)) {
+      body["EndingPrice"] = request.endingPrice;
     }
 
     if (!Util.isUnset(request.pageIndex)) {
       body["PageIndex"] = request.pageIndex;
     }
 
+    if (!Util.isUnset(request.shopIds)) {
+      body["ShopIds"] = request.shopIds;
+    }
+
     if (!Util.isUnset(request.sortOrder)) {
       body["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.startPrice)) {
+      body["StartPrice"] = request.startPrice;
     }
 
     if (!Util.isUnset(request.timeDisplay)) {
@@ -2134,8 +2963,24 @@ export default class Client extends OpenApi {
   async getTrendStatisticWithOptions(request: GetTrendStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetTrendStatisticResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.brandNames)) {
+      body["BrandNames"] = request.brandNames;
+    }
+
     if (!Util.isUnset(request.cateIds)) {
       body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.shopIds)) {
+      body["ShopIds"] = request.shopIds;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2158,6 +3003,47 @@ export default class Client extends OpenApi {
   async getTrendStatistic(request: GetTrendStatisticRequest): Promise<GetTrendStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTrendStatisticWithOptions(request, runtime);
+  }
+
+  async getTrendWordAndIndexWithOptions(request: GetTrendWordAndIndexRequest, runtime: $Util.RuntimeOptions): Promise<GetTrendWordAndIndexResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cateIds)) {
+      body["CateIds"] = request.cateIds;
+    }
+
+    if (!Util.isUnset(request.endingDate)) {
+      body["EndingDate"] = request.endingDate;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrendWordAndIndex",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTrendWordAndIndexResponse>(await this.callApi(params, req, runtime), new GetTrendWordAndIndexResponse({}));
+  }
+
+  async getTrendWordAndIndex(request: GetTrendWordAndIndexRequest): Promise<GetTrendWordAndIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTrendWordAndIndexWithOptions(request, runtime);
   }
 
 }
