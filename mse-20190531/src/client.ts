@@ -150,16 +150,20 @@ export class TrafficPolicy extends $tea.Model {
 export class AddAuthResourceRequest extends $tea.Model {
   acceptLanguage?: string;
   authId?: number;
+  authResourceHeaderList?: AddAuthResourceRequestAuthResourceHeaderList[];
   domainId?: number;
   gatewayUniqueId?: string;
+  ignoreCase?: boolean;
   matchType?: string;
   path?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       authId: 'AuthId',
+      authResourceHeaderList: 'AuthResourceHeaderList',
       domainId: 'DomainId',
       gatewayUniqueId: 'GatewayUniqueId',
+      ignoreCase: 'IgnoreCase',
       matchType: 'MatchType',
       path: 'Path',
     };
@@ -169,8 +173,50 @@ export class AddAuthResourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       authId: 'number',
+      authResourceHeaderList: { 'type': 'array', 'itemType': AddAuthResourceRequestAuthResourceHeaderList },
       domainId: 'number',
       gatewayUniqueId: 'string',
+      ignoreCase: 'boolean',
+      matchType: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthResourceShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  authId?: number;
+  authResourceHeaderListShrink?: string;
+  domainId?: number;
+  gatewayUniqueId?: string;
+  ignoreCase?: boolean;
+  matchType?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      authId: 'AuthId',
+      authResourceHeaderListShrink: 'AuthResourceHeaderList',
+      domainId: 'DomainId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      ignoreCase: 'IgnoreCase',
+      matchType: 'MatchType',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      authId: 'number',
+      authResourceHeaderListShrink: 'string',
+      domainId: 'number',
+      gatewayUniqueId: 'string',
+      ignoreCase: 'boolean',
       matchType: 'string',
       path: 'string',
     };
@@ -3606,6 +3652,90 @@ export class DeleteGatewaySlbResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteGatewaySlbResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMigrationTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  id?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      id: 'Id',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      id: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMigrationTaskResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMigrationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMigrationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMigrationTaskResponseBody,
     };
   }
 
@@ -8067,6 +8197,126 @@ export class ListClustersResponse extends $tea.Model {
   }
 }
 
+export class ListConfigTrackRequest extends $tea.Model {
+  acceptLanguage?: string;
+  dataId?: string;
+  endTs?: number;
+  group?: string;
+  instanceId?: string;
+  ip?: string;
+  namespaceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  requestPars?: string;
+  reverse?: boolean;
+  startTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      dataId: 'DataId',
+      endTs: 'EndTs',
+      group: 'Group',
+      instanceId: 'InstanceId',
+      ip: 'Ip',
+      namespaceId: 'NamespaceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestPars: 'RequestPars',
+      reverse: 'Reverse',
+      startTs: 'StartTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      dataId: 'string',
+      endTs: 'number',
+      group: 'string',
+      instanceId: 'string',
+      ip: 'string',
+      namespaceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      requestPars: 'string',
+      reverse: 'boolean',
+      startTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigTrackResponseBody extends $tea.Model {
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  traces?: ListConfigTrackResponseBodyTraces[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      traces: 'Traces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      traces: { 'type': 'array', 'itemType': ListConfigTrackResponseBodyTraces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListConfigTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConfigTrackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEngineNamespacesRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
@@ -9207,6 +9457,105 @@ export class ListListenersByIpResponse extends $tea.Model {
   }
 }
 
+export class ListMigrationTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  originInstanceName?: string;
+  pageNum?: number;
+  pageSize?: number;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      originInstanceName: 'OriginInstanceName',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      originInstanceName: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMigrationTaskResponseBody extends $tea.Model {
+  data?: ListMigrationTaskResponseBodyData[];
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListMigrationTaskResponseBodyData },
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMigrationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMigrationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMigrationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNacosConfigsRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
@@ -9430,6 +9779,126 @@ export class ListNacosHistoryConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNacosHistoryConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamingTrackRequest extends $tea.Model {
+  acceptLanguage?: string;
+  endTs?: number;
+  group?: string;
+  instanceId?: string;
+  ip?: string;
+  namespaceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  requestPars?: string;
+  reverse?: boolean;
+  serviceName?: string;
+  startTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      endTs: 'EndTs',
+      group: 'Group',
+      instanceId: 'InstanceId',
+      ip: 'Ip',
+      namespaceId: 'NamespaceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestPars: 'RequestPars',
+      reverse: 'Reverse',
+      serviceName: 'ServiceName',
+      startTs: 'StartTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      endTs: 'number',
+      group: 'string',
+      instanceId: 'string',
+      ip: 'string',
+      namespaceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      requestPars: 'string',
+      reverse: 'boolean',
+      serviceName: 'string',
+      startTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamingTrackResponseBody extends $tea.Model {
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  traces?: ListNamingTrackResponseBodyTraces[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      traces: 'Traces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      traces: { 'type': 'array', 'itemType': ListNamingTrackResponseBodyTraces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamingTrackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListNamingTrackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNamingTrackResponseBody,
     };
   }
 
@@ -14419,6 +14888,114 @@ export class UpdateMessageQueueRouteResponse extends $tea.Model {
   }
 }
 
+export class UpdateMigrationTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterType?: string;
+  id?: string;
+  originInstanceAddress?: string;
+  originInstanceName?: string;
+  originInstanceNamespace?: string;
+  projectDesc?: string;
+  requestPars?: string;
+  targetClusterName?: string;
+  targetClusterUrl?: string;
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterType: 'ClusterType',
+      id: 'Id',
+      originInstanceAddress: 'OriginInstanceAddress',
+      originInstanceName: 'OriginInstanceName',
+      originInstanceNamespace: 'OriginInstanceNamespace',
+      projectDesc: 'ProjectDesc',
+      requestPars: 'RequestPars',
+      targetClusterName: 'TargetClusterName',
+      targetClusterUrl: 'TargetClusterUrl',
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterType: 'string',
+      id: 'string',
+      originInstanceAddress: 'string',
+      originInstanceName: 'string',
+      originInstanceNamespace: 'string',
+      projectDesc: 'string',
+      requestPars: 'string',
+      targetClusterName: 'string',
+      targetClusterUrl: 'string',
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMigrationTaskResponseBody extends $tea.Model {
+  data?: UpdateMigrationTaskResponseBodyData;
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateMigrationTaskResponseBodyData,
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMigrationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMigrationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMigrationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateNacosClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   checkPort?: number;
@@ -15498,6 +16075,31 @@ export class TrafficPolicyTlsSetting extends $tea.Model {
       certId: 'string',
       sni: 'string',
       tlsMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthResourceRequestAuthResourceHeaderList extends $tea.Model {
+  headerKey?: string;
+  headerMethod?: string;
+  headerValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerKey: 'HeaderKey',
+      headerMethod: 'HeaderMethod',
+      headerValue: 'HeaderValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerKey: 'string',
+      headerMethod: 'string',
+      headerValue: 'string',
     };
   }
 
@@ -19287,6 +19889,61 @@ export class ListClustersResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListConfigTrackResponseBodyTraces extends $tea.Model {
+  client?: boolean;
+  dataId?: string;
+  delay?: string;
+  event?: string;
+  group?: string;
+  logDate?: string;
+  md5?: string;
+  push?: boolean;
+  requestIp?: string;
+  responseIp?: string;
+  result?: string;
+  ts?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      client: 'Client',
+      dataId: 'DataId',
+      delay: 'Delay',
+      event: 'Event',
+      group: 'Group',
+      logDate: 'LogDate',
+      md5: 'Md5',
+      push: 'Push',
+      requestIp: 'RequestIp',
+      responseIp: 'ResponseIp',
+      result: 'Result',
+      ts: 'Ts',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      client: 'boolean',
+      dataId: 'string',
+      delay: 'string',
+      event: 'string',
+      group: 'string',
+      logDate: 'string',
+      md5: 'string',
+      push: 'boolean',
+      requestIp: 'string',
+      responseIp: 'string',
+      result: 'string',
+      ts: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEngineNamespacesResponseBodyData extends $tea.Model {
   configCount?: number;
   namespace?: string;
@@ -20739,6 +21396,58 @@ export class ListListenersByIpResponseBodyListeners extends $tea.Model {
   }
 }
 
+export class ListMigrationTaskResponseBodyData extends $tea.Model {
+  clusterType?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  originInstanceAddress?: string;
+  originInstanceName?: string;
+  originInstanceNamespace?: string;
+  projectDesc?: string;
+  targetClusterName?: string;
+  targetClusterUrl?: string;
+  targetInstanceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterType: 'ClusterType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      originInstanceAddress: 'OriginInstanceAddress',
+      originInstanceName: 'OriginInstanceName',
+      originInstanceNamespace: 'OriginInstanceNamespace',
+      projectDesc: 'ProjectDesc',
+      targetClusterName: 'TargetClusterName',
+      targetClusterUrl: 'TargetClusterUrl',
+      targetInstanceId: 'TargetInstanceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      originInstanceAddress: 'string',
+      originInstanceName: 'string',
+      originInstanceNamespace: 'string',
+      projectDesc: 'string',
+      targetClusterName: 'string',
+      targetClusterUrl: 'string',
+      targetInstanceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNacosConfigsResponseBodyConfigurations extends $tea.Model {
   appName?: string;
   dataId?: string;
@@ -20793,6 +21502,49 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $tea.Model 
       id: 'number',
       lastModifiedTime: 'number',
       opType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamingTrackResponseBodyTraces extends $tea.Model {
+  clientIp?: string;
+  group?: string;
+  instanceSize?: string;
+  nodeName?: string;
+  pushTime?: string;
+  pushTimeAll?: string;
+  pushTimeNetwork?: string;
+  serverName?: string;
+  slaTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientIp: 'ClientIp',
+      group: 'Group',
+      instanceSize: 'InstanceSize',
+      nodeName: 'NodeName',
+      pushTime: 'PushTime',
+      pushTimeAll: 'PushTimeAll',
+      pushTimeNetwork: 'PushTimeNetwork',
+      serverName: 'ServerName',
+      slaTime: 'SlaTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientIp: 'string',
+      group: 'string',
+      instanceSize: 'string',
+      nodeName: 'string',
+      pushTime: 'string',
+      pushTimeAll: 'string',
+      pushTimeNetwork: 'string',
+      serverName: 'string',
+      slaTime: 'string',
     };
   }
 
@@ -22920,6 +23672,58 @@ export class UpdateGatewayRouteWafStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateMigrationTaskResponseBodyData extends $tea.Model {
+  clusterType?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: string;
+  originInstanceAddress?: string;
+  originInstanceName?: string;
+  originInstanceNamespace?: string;
+  projectDesc?: string;
+  targetClusterName?: string;
+  targetClusterUrl?: string;
+  targetInstanceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterType: 'ClusterType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      originInstanceAddress: 'OriginInstanceAddress',
+      originInstanceName: 'OriginInstanceName',
+      originInstanceNamespace: 'OriginInstanceNamespace',
+      projectDesc: 'ProjectDesc',
+      targetClusterName: 'TargetClusterName',
+      targetClusterUrl: 'TargetClusterUrl',
+      targetInstanceId: 'TargetInstanceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'string',
+      originInstanceAddress: 'string',
+      originInstanceName: 'string',
+      originInstanceNamespace: 'string',
+      projectDesc: 'string',
+      targetClusterName: 'string',
+      targetClusterUrl: 'string',
+      targetInstanceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceSourceRequestIngressOptionsRequest extends $tea.Model {
   enableIngress?: boolean;
   enableStatus?: boolean;
@@ -22972,8 +23776,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addAuthResourceWithOptions(request: AddAuthResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthResourceResponse> {
-    Util.validateModel(request);
+  async addAuthResourceWithOptions(tmpReq: AddAuthResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthResourceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddAuthResourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.authResourceHeaderList)) {
+      request.authResourceHeaderListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authResourceHeaderList, "AuthResourceHeaderList", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -22983,12 +23793,20 @@ export default class Client extends OpenApi {
       query["AuthId"] = request.authId;
     }
 
+    if (!Util.isUnset(request.authResourceHeaderListShrink)) {
+      query["AuthResourceHeaderList"] = request.authResourceHeaderListShrink;
+    }
+
     if (!Util.isUnset(request.domainId)) {
       query["DomainId"] = request.domainId;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.ignoreCase)) {
+      query["IgnoreCase"] = request.ignoreCase;
     }
 
     if (!Util.isUnset(request.matchType)) {
@@ -24991,6 +25809,43 @@ export default class Client extends OpenApi {
   async deleteGatewaySlb(request: DeleteGatewaySlbRequest): Promise<DeleteGatewaySlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewaySlbWithOptions(request, runtime);
+  }
+
+  async deleteMigrationTaskWithOptions(request: DeleteMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMigrationTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMigrationTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMigrationTaskResponse>(await this.callApi(params, req, runtime), new DeleteMigrationTaskResponse({}));
+  }
+
+  async deleteMigrationTask(request: DeleteMigrationTaskRequest): Promise<DeleteMigrationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMigrationTaskWithOptions(request, runtime);
   }
 
   /**
@@ -27087,6 +27942,31 @@ export default class Client extends OpenApi {
     return await this.listClustersWithOptions(request, runtime);
   }
 
+  async listConfigTrackWithOptions(request: ListConfigTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigTrackResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListConfigTrack",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConfigTrackResponse>(await this.callApi(params, req, runtime), new ListConfigTrackResponse({}));
+  }
+
+  async listConfigTrack(request: ListConfigTrackRequest): Promise<ListConfigTrackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listConfigTrackWithOptions(request, runtime);
+  }
+
   async listEngineNamespacesWithOptions(request: ListEngineNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListEngineNamespacesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -27562,6 +28442,31 @@ export default class Client extends OpenApi {
     return await this.listListenersByIpWithOptions(request, runtime);
   }
 
+  async listMigrationTaskWithOptions(request: ListMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListMigrationTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMigrationTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMigrationTaskResponse>(await this.callApi(params, req, runtime), new ListMigrationTaskResponse({}));
+  }
+
+  async listMigrationTask(request: ListMigrationTaskRequest): Promise<ListMigrationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMigrationTaskWithOptions(request, runtime);
+  }
+
   /**
     * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
@@ -27716,6 +28621,31 @@ export default class Client extends OpenApi {
   async listNacosHistoryConfigs(request: ListNacosHistoryConfigsRequest): Promise<ListNacosHistoryConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNacosHistoryConfigsWithOptions(request, runtime);
+  }
+
+  async listNamingTrackWithOptions(request: ListNamingTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListNamingTrackResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNamingTrack",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNamingTrackResponse>(await this.callApi(params, req, runtime), new ListNamingTrackResponse({}));
+  }
+
+  async listNamingTrack(request: ListNamingTrackRequest): Promise<ListNamingTrackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNamingTrackWithOptions(request, runtime);
   }
 
   async listSSLCertWithOptions(request: ListSSLCertRequest, runtime: $Util.RuntimeOptions): Promise<ListSSLCertResponse> {
@@ -30027,6 +30957,75 @@ export default class Client extends OpenApi {
   async updateMessageQueueRoute(request: UpdateMessageQueueRouteRequest): Promise<UpdateMessageQueueRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMessageQueueRouteWithOptions(request, runtime);
+  }
+
+  async updateMigrationTaskWithOptions(request: UpdateMigrationTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMigrationTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.originInstanceAddress)) {
+      query["OriginInstanceAddress"] = request.originInstanceAddress;
+    }
+
+    if (!Util.isUnset(request.originInstanceName)) {
+      query["OriginInstanceName"] = request.originInstanceName;
+    }
+
+    if (!Util.isUnset(request.originInstanceNamespace)) {
+      query["OriginInstanceNamespace"] = request.originInstanceNamespace;
+    }
+
+    if (!Util.isUnset(request.projectDesc)) {
+      query["ProjectDesc"] = request.projectDesc;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.targetClusterName)) {
+      query["TargetClusterName"] = request.targetClusterName;
+    }
+
+    if (!Util.isUnset(request.targetClusterUrl)) {
+      query["TargetClusterUrl"] = request.targetClusterUrl;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMigrationTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMigrationTaskResponse>(await this.callApi(params, req, runtime), new UpdateMigrationTaskResponse({}));
+  }
+
+  async updateMigrationTask(request: UpdateMigrationTaskRequest): Promise<UpdateMigrationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMigrationTaskWithOptions(request, runtime);
   }
 
   async updateNacosClusterWithOptions(request: UpdateNacosClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNacosClusterResponse> {
