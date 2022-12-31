@@ -4433,15 +4433,18 @@ export class GetDynamicImageJobResponse extends $tea.Model {
 
 export class GetEditingProjectRequest extends $tea.Model {
   projectId?: string;
+  requestSource?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
+      requestSource: 'RequestSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'string',
+      requestSource: 'string',
     };
   }
 
@@ -14186,6 +14189,8 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
   templateId?: string;
   templateType?: string;
   timeline?: string;
+  timelineConvertErrorMessage?: string;
+  timelineConvertStatus?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14205,6 +14210,8 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       timeline: 'Timeline',
+      timelineConvertErrorMessage: 'TimelineConvertErrorMessage',
+      timelineConvertStatus: 'TimelineConvertStatus',
       title: 'Title',
     };
   }
@@ -14227,6 +14234,8 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       templateId: 'string',
       templateType: 'string',
       timeline: 'string',
+      timelineConvertErrorMessage: 'string',
+      timelineConvertStatus: 'string',
       title: 'string',
     };
   }
@@ -15005,11 +15014,15 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $tea.Mo
 }
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
+  aiCategory?: string;
+  aiJobId?: string;
   result?: string;
   saveType?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      aiCategory: 'AiCategory',
+      aiJobId: 'AiJobId',
       result: 'Result',
       saveType: 'SaveType',
       status: 'Status',
@@ -15018,6 +15031,8 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiCategory: 'string',
+      aiJobId: 'string',
       result: 'string',
       saveType: 'string',
       status: 'string',
@@ -16017,6 +16032,7 @@ export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
   fps?: string;
   HDRType?: string;
   height?: number;
+  jobId?: string;
   modificationTime?: string;
   narrowBandType?: string;
   playURL?: string;
@@ -16041,6 +16057,7 @@ export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
       fps: 'Fps',
       HDRType: 'HDRType',
       height: 'Height',
+      jobId: 'JobId',
       modificationTime: 'ModificationTime',
       narrowBandType: 'NarrowBandType',
       playURL: 'PlayURL',
@@ -16068,6 +16085,7 @@ export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
       fps: 'string',
       HDRType: 'string',
       height: 'number',
+      jobId: 'string',
       modificationTime: 'string',
       narrowBandType: 'string',
       playURL: 'string',
@@ -22548,14 +22566,14 @@ export class SearchMediaResponseBodyMediaInfoListAiData extends $tea.Model {
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $tea.Model {
-  aiCategoryLevel1?: string;
+  aiCategory?: string;
   aiJobId?: string;
   result?: string;
   saveType?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      aiCategoryLevel1: 'AiCategoryLevel1',
+      aiCategory: 'AiCategory',
       aiJobId: 'AiJobId',
       result: 'Result',
       saveType: 'SaveType',
@@ -22565,7 +22583,7 @@ export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
-      aiCategoryLevel1: 'string',
+      aiCategory: 'string',
       aiJobId: 'string',
       result: 'string',
       saveType: 'string',
@@ -27417,8 +27435,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateLiveTranscodeTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.templateConfig))) {
-      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.templateConfig), "TemplateConfig", "json");
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
 
     let query = { };
@@ -29236,6 +29254,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -31736,20 +31758,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitDynamicImageJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.output))) {
-      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.output), "Output", "json");
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.templateConfig))) {
-      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.templateConfig), "TemplateConfig", "json");
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
 
     let query = { };
@@ -31803,16 +31825,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitIProductionJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.output))) {
-      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.output), "Output", "json");
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -31927,12 +31949,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitLiveRecordJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.recordOutput))) {
-      request.recordOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.recordOutput), "RecordOutput", "json");
+    if (!Util.isUnset(tmpReq.recordOutput)) {
+      request.recordOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recordOutput, "RecordOutput", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.streamInput))) {
-      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.streamInput), "StreamInput", "json");
+    if (!Util.isUnset(tmpReq.streamInput)) {
+      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamInput, "StreamInput", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -31982,12 +32004,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitLiveSnapshotJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.snapshotOutput))) {
-      request.snapshotOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.snapshotOutput), "SnapshotOutput", "json");
+    if (!Util.isUnset(tmpReq.snapshotOutput)) {
+      request.snapshotOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.snapshotOutput, "SnapshotOutput", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.streamInput))) {
-      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.streamInput), "StreamInput", "json");
+    if (!Util.isUnset(tmpReq.streamInput)) {
+      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamInput, "StreamInput", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -32037,16 +32059,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitLiveTranscodeJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.streamInput))) {
-      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.streamInput), "StreamInput", "json");
+    if (!Util.isUnset(tmpReq.streamInput)) {
+      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamInput, "StreamInput", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.timedConfig))) {
-      request.timedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.timedConfig), "TimedConfig", "json");
+    if (!Util.isUnset(tmpReq.timedConfig)) {
+      request.timedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timedConfig, "TimedConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.transcodeOutput))) {
-      request.transcodeOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.transcodeOutput), "TranscodeOutput", "json");
+    if (!Util.isUnset(tmpReq.transcodeOutput)) {
+      request.transcodeOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcodeOutput, "TranscodeOutput", "json");
     }
 
     let query = { };
@@ -32100,12 +32122,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitMediaCensorJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32175,12 +32197,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitMediaInfoJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32299,12 +32321,12 @@ export default class Client extends OpenApi {
       request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.output))) {
-      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.output), "Output", "json");
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32354,12 +32376,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitSmarttagJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32429,20 +32451,20 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitSnapshotJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.output))) {
-      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.output), "Output", "json");
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.templateConfig))) {
-      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.templateConfig), "TemplateConfig", "json");
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
 
     let query = { };
@@ -32492,6 +32514,14 @@ export default class Client extends OpenApi {
     return await this.submitSnapshotJobWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SubmitSubtitleProduceJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitSubtitleProduceJobResponse
+   */
+  // Deprecated
   async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32544,6 +32574,13 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitSubtitleProduceJobResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request SubmitSubtitleProduceJobRequest
+    * @return SubmitSubtitleProduceJobResponse
+   */
+  // Deprecated
   async submitSubtitleProduceJob(request: SubmitSubtitleProduceJobRequest): Promise<SubmitSubtitleProduceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSubtitleProduceJobWithOptions(request, runtime);
@@ -32553,12 +32590,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SubmitSyncMediaInfoJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.input))) {
-      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.input), "Input", "json");
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32612,8 +32649,8 @@ export default class Client extends OpenApi {
       request.outputGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputGroup, "OutputGroup", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.scheduleConfig))) {
-      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scheduleConfig), "ScheduleConfig", "json");
+    if (!Util.isUnset(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
     }
 
     let query = { };
@@ -32878,16 +32915,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateLiveTranscodeJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.streamInput))) {
-      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.streamInput), "StreamInput", "json");
+    if (!Util.isUnset(tmpReq.streamInput)) {
+      request.streamInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamInput, "StreamInput", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.timedConfig))) {
-      request.timedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.timedConfig), "TimedConfig", "json");
+    if (!Util.isUnset(tmpReq.timedConfig)) {
+      request.timedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timedConfig, "TimedConfig", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.transcodeOutput))) {
-      request.transcodeOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.transcodeOutput), "TranscodeOutput", "json");
+    if (!Util.isUnset(tmpReq.transcodeOutput)) {
+      request.transcodeOutputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcodeOutput, "TranscodeOutput", "json");
     }
 
     let query = { };
@@ -32937,8 +32974,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateLiveTranscodeTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.templateConfig))) {
-      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.templateConfig), "TemplateConfig", "json");
+    if (!Util.isUnset(tmpReq.templateConfig)) {
+      request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
 
     let query = { };
@@ -33090,6 +33127,14 @@ export default class Client extends OpenApi {
     return await this.updatePipelineWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateSmartJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateSmartJobResponse
+   */
+  // Deprecated
   async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33118,6 +33163,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSmartJobResponse>(await this.callApi(params, req, runtime), new UpdateSmartJobResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UpdateSmartJobRequest
+    * @return UpdateSmartJobResponse
+   */
+  // Deprecated
   async updateSmartJob(request: UpdateSmartJobRequest): Promise<UpdateSmartJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSmartJobWithOptions(request, runtime);
