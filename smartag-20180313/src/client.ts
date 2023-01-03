@@ -16518,7 +16518,6 @@ export class UpdateEnterpriseCodeResponse extends $tea.Model {
 }
 
 export class UpdateProbeTaskRequest extends $tea.Model {
-  addressType?: string;
   domain?: string;
   enable?: boolean;
   packetNumber?: number;
@@ -16532,7 +16531,6 @@ export class UpdateProbeTaskRequest extends $tea.Model {
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
-      addressType: 'AddressType',
       domain: 'Domain',
       enable: 'Enable',
       packetNumber: 'PacketNumber',
@@ -16549,7 +16547,6 @@ export class UpdateProbeTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      addressType: 'string',
       domain: 'string',
       enable: 'boolean',
       packetNumber: 'number',
@@ -29338,6 +29335,13 @@ export default class Client extends OpenApi {
     return await this.getCloudConnectNetworkUseLimitWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request GetQosAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetQosAttributeResponse
+   */
   async getQosAttributeWithOptions(request: GetQosAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetQosAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29366,6 +29370,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQosAttributeResponse>(await this.callApi(params, req, runtime), new GetQosAttributeResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request GetQosAttributeRequest
+    * @return GetQosAttributeResponse
+   */
   async getQosAttribute(request: GetQosAttributeRequest): Promise<GetQosAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQosAttributeWithOptions(request, runtime);
@@ -33211,10 +33221,6 @@ export default class Client extends OpenApi {
   async updateProbeTaskWithOptions(request: UpdateProbeTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProbeTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.addressType)) {
-      query["AddressType"] = request.addressType;
-    }
-
     if (!Util.isUnset(request.domain)) {
       query["Domain"] = request.domain;
     }
