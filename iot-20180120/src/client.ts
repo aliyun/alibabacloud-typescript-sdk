@@ -1017,6 +1017,87 @@ export class BatchCheckImportDeviceResponse extends $tea.Model {
   }
 }
 
+export class BatchCheckVehicleDeviceRequest extends $tea.Model {
+  deviceList?: BatchCheckVehicleDeviceRequestDeviceList[];
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: { 'type': 'array', 'itemType': BatchCheckVehicleDeviceRequestDeviceList },
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCheckVehicleDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BatchCheckVehicleDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BatchCheckVehicleDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCheckVehicleDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchCheckVehicleDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchCheckVehicleDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchClearEdgeInstanceDeviceConfigRequest extends $tea.Model {
   instanceId?: string;
   iotIds?: string[];
@@ -2155,6 +2236,87 @@ export class BatchImportDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchImportDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceRequest extends $tea.Model {
+  deviceList?: BatchImportVehicleDeviceRequestDeviceList[];
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: { 'type': 'array', 'itemType': BatchImportVehicleDeviceRequestDeviceList },
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BatchImportVehicleDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BatchImportVehicleDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchImportVehicleDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchImportVehicleDeviceResponseBody,
     };
   }
 
@@ -27391,7 +27553,89 @@ export class QueryTopicRouteTableResponse extends $tea.Model {
   }
 }
 
+export class QueryVehicleDeviceRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVehicleDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryVehicleDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryVehicleDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVehicleDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryVehicleDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryVehicleDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RRpcRequest extends $tea.Model {
+  contentType?: string;
   deviceName?: string;
   iotInstanceId?: string;
   productKey?: string;
@@ -27400,6 +27644,7 @@ export class RRpcRequest extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      contentType: 'ContentType',
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -27411,6 +27656,7 @@ export class RRpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contentType: 'string',
       deviceName: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -33701,6 +33947,59 @@ export class BatchCheckImportDeviceResponseBodyData extends $tea.Model {
   }
 }
 
+export class BatchCheckVehicleDeviceRequestDeviceList extends $tea.Model {
+  deviceId?: string;
+  deviceModel?: string;
+  manufacturer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      deviceModel: 'DeviceModel',
+      manufacturer: 'Manufacturer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      deviceModel: 'string',
+      manufacturer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCheckVehicleDeviceResponseBodyData extends $tea.Model {
+  invalidDeviceIdList?: string[];
+  invalidDeviceModelList?: string[];
+  invalidManufacturerList?: string[];
+  repeatedDeviceIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDeviceIdList: 'InvalidDeviceIdList',
+      invalidDeviceModelList: 'InvalidDeviceModelList',
+      invalidManufacturerList: 'InvalidManufacturerList',
+      repeatedDeviceIdList: 'RepeatedDeviceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDeviceIdList: { 'type': 'array', 'itemType': 'string' },
+      invalidDeviceModelList: { 'type': 'array', 'itemType': 'string' },
+      invalidManufacturerList: { 'type': 'array', 'itemType': 'string' },
+      repeatedDeviceIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDeleteDeviceGroupRelationsRequestDevice extends $tea.Model {
   deviceName?: string;
   productKey?: string;
@@ -34200,6 +34499,50 @@ export class BatchImportDeviceResponseBodyData extends $tea.Model {
       invalidDeviceSecretList: BatchImportDeviceResponseBodyDataInvalidDeviceSecretList,
       invalidSnList: BatchImportDeviceResponseBodyDataInvalidSnList,
       repeatedDeviceNameList: BatchImportDeviceResponseBodyDataRepeatedDeviceNameList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceRequestDeviceList extends $tea.Model {
+  deviceId?: string;
+  deviceModel?: string;
+  manufacturer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      deviceModel: 'DeviceModel',
+      manufacturer: 'Manufacturer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      deviceModel: 'string',
+      manufacturer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyData extends $tea.Model {
+  applyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applyId: 'ApplyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyId: 'number',
     };
   }
 
@@ -45327,6 +45670,67 @@ export class QueryTopicRouteTableResponseBodyDstTopics extends $tea.Model {
   }
 }
 
+export class QueryVehicleDeviceResponseBodyData extends $tea.Model {
+  authCode?: string;
+  city?: string;
+  createTime?: number;
+  deviceId?: string;
+  deviceModel?: string;
+  deviceName?: string;
+  iotId?: string;
+  manufacturer?: string;
+  modifiedTime?: number;
+  productKey?: string;
+  province?: string;
+  registerTime?: number;
+  status?: string;
+  vehicleColour?: string;
+  vehicleNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      city: 'City',
+      createTime: 'CreateTime',
+      deviceId: 'DeviceId',
+      deviceModel: 'DeviceModel',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      manufacturer: 'Manufacturer',
+      modifiedTime: 'ModifiedTime',
+      productKey: 'ProductKey',
+      province: 'Province',
+      registerTime: 'RegisterTime',
+      status: 'Status',
+      vehicleColour: 'VehicleColour',
+      vehicleNumber: 'VehicleNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      city: 'string',
+      createTime: 'number',
+      deviceId: 'string',
+      deviceModel: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      manufacturer: 'string',
+      modifiedTime: 'number',
+      productKey: 'string',
+      province: 'string',
+      registerTime: 'number',
+      status: 'string',
+      vehicleColour: 'string',
+      vehicleNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReBindLicenseDeviceResponseBodyData extends $tea.Model {
   checkProgressId?: string;
   failSum?: number;
@@ -46231,6 +46635,43 @@ export default class Client extends OpenApi {
     return await this.batchCheckImportDeviceWithOptions(request, runtime);
   }
 
+  async batchCheckVehicleDeviceWithOptions(request: BatchCheckVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchCheckVehicleDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceList)) {
+      query["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCheckVehicleDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchCheckVehicleDeviceResponse>(await this.callApi(params, req, runtime), new BatchCheckVehicleDeviceResponse({}));
+  }
+
+  async batchCheckVehicleDevice(request: BatchCheckVehicleDeviceRequest): Promise<BatchCheckVehicleDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchCheckVehicleDeviceWithOptions(request, runtime);
+  }
+
   async batchClearEdgeInstanceDeviceConfigWithOptions(request: BatchClearEdgeInstanceDeviceConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchClearEdgeInstanceDeviceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46763,6 +47204,43 @@ export default class Client extends OpenApi {
   async batchImportDevice(request: BatchImportDeviceRequest): Promise<BatchImportDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchImportDeviceWithOptions(request, runtime);
+  }
+
+  async batchImportVehicleDeviceWithOptions(request: BatchImportVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchImportVehicleDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceList)) {
+      query["DeviceList"] = request.deviceList;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchImportVehicleDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchImportVehicleDeviceResponse>(await this.callApi(params, req, runtime), new BatchImportVehicleDeviceResponse({}));
+  }
+
+  async batchImportVehicleDevice(request: BatchImportVehicleDeviceRequest): Promise<BatchImportVehicleDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchImportVehicleDeviceWithOptions(request, runtime);
   }
 
   async batchPubWithOptions(request: BatchPubRequest, runtime: $Util.RuntimeOptions): Promise<BatchPubResponse> {
@@ -59201,9 +59679,50 @@ export default class Client extends OpenApi {
     return await this.queryTopicRouteTableWithOptions(request, runtime);
   }
 
+  async queryVehicleDeviceWithOptions(request: QueryVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryVehicleDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryVehicleDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVehicleDeviceResponse>(await this.callApi(params, req, runtime), new QueryVehicleDeviceResponse({}));
+  }
+
+  async queryVehicleDevice(request: QueryVehicleDeviceRequest): Promise<QueryVehicleDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVehicleDeviceWithOptions(request, runtime);
+  }
+
   async rRpcWithOptions(request: RRpcRequest, runtime: $Util.RuntimeOptions): Promise<RRpcResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
     if (!Util.isUnset(request.deviceName)) {
       query["DeviceName"] = request.deviceName;
     }
