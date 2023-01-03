@@ -13053,6 +13053,7 @@ export class UpdateConfigRequest extends $tea.Model {
   configAuthEnabled?: boolean;
   configSecretEnabled?: boolean;
   configType?: string;
+  extendedTypesEnable?: string;
   initLimit?: string;
   instanceId?: string;
   juteMaxbuffer?: string;
@@ -13077,6 +13078,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'ConfigAuthEnabled',
       configSecretEnabled: 'ConfigSecretEnabled',
       configType: 'ConfigType',
+      extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
       instanceId: 'InstanceId',
       juteMaxbuffer: 'JuteMaxbuffer',
@@ -13104,6 +13106,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'boolean',
       configSecretEnabled: 'boolean',
       configType: 'string',
+      extendedTypesEnable: 'string',
       initLimit: 'string',
       instanceId: 'string',
       juteMaxbuffer: 'string',
@@ -22431,6 +22434,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   configContentLimit?: number;
   configSecretEnabled?: boolean;
   configSecretSupported?: boolean;
+  extendedTypesEnable?: boolean;
   initLimit?: string;
   juteMaxbuffer?: string;
   jvmFlagsCustom?: string;
@@ -22460,6 +22464,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'ConfigContentLimit',
       configSecretEnabled: 'ConfigSecretEnabled',
       configSecretSupported: 'ConfigSecretSupported',
+      extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
       juteMaxbuffer: 'JuteMaxbuffer',
       jvmFlagsCustom: 'JvmFlagsCustom',
@@ -22492,6 +22497,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'number',
       configSecretEnabled: 'boolean',
       configSecretSupported: 'boolean',
+      extendedTypesEnable: 'boolean',
       initLimit: 'string',
       juteMaxbuffer: 'string',
       jvmFlagsCustom: 'string',
@@ -30046,6 +30052,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.configType)) {
       query["ConfigType"] = request.configType;
+    }
+
+    if (!Util.isUnset(request.extendedTypesEnable)) {
+      query["ExtendedTypesEnable"] = request.extendedTypesEnable;
     }
 
     if (!Util.isUnset(request.initLimit)) {
