@@ -1145,35 +1145,45 @@ export class SendChatappMassMessageResponse extends $tea.Model {
 export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  contextMessageId?: string;
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
+  label?: string;
   language?: string;
   messageType?: string;
   payload?: string[];
+  tag?: string;
   templateCode?: string;
   templateParams?: { [key: string]: string };
   to?: string;
+  trackingData?: string;
+  ttl?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      contextMessageId: 'ContextMessageId',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
+      label: 'Label',
       language: 'Language',
       messageType: 'MessageType',
       payload: 'Payload',
+      tag: 'Tag',
       templateCode: 'TemplateCode',
       templateParams: 'TemplateParams',
       to: 'To',
+      trackingData: 'TrackingData',
+      ttl: 'Ttl',
       type: 'Type',
     };
   }
@@ -1182,18 +1192,23 @@ export class SendChatappMessageRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      contextMessageId: 'string',
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
+      label: 'string',
       language: 'string',
       messageType: 'string',
       payload: { 'type': 'array', 'itemType': 'string' },
+      tag: 'string',
       templateCode: 'string',
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
+      trackingData: 'string',
+      ttl: 'number',
       type: 'string',
     };
   }
@@ -1206,35 +1221,45 @@ export class SendChatappMessageRequest extends $tea.Model {
 export class SendChatappMessageShrinkRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  contextMessageId?: string;
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
+  label?: string;
   language?: string;
   messageType?: string;
   payloadShrink?: string;
+  tag?: string;
   templateCode?: string;
   templateParamsShrink?: string;
   to?: string;
+  trackingData?: string;
+  ttl?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      contextMessageId: 'ContextMessageId',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
+      label: 'Label',
       language: 'Language',
       messageType: 'MessageType',
       payloadShrink: 'Payload',
+      tag: 'Tag',
       templateCode: 'TemplateCode',
       templateParamsShrink: 'TemplateParams',
       to: 'To',
+      trackingData: 'TrackingData',
+      ttl: 'Ttl',
       type: 'Type',
     };
   }
@@ -1243,18 +1268,23 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      contextMessageId: 'string',
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
+      label: 'string',
       language: 'string',
       messageType: 'string',
       payloadShrink: 'string',
+      tag: 'string',
       templateCode: 'string',
       templateParamsShrink: 'string',
       to: 'string',
+      trackingData: 'string',
+      ttl: 'number',
       type: 'string',
     };
   }
@@ -1963,6 +1993,10 @@ export class QueryChatappBindWabaResponseBodyData extends $tea.Model {
 }
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model {
+  codeVerificationStatus?: string;
+  messagingLimitTier?: string;
+  nameStatus?: string;
+  newNameStatus?: string;
   phoneNumber?: string;
   qualityRating?: string;
   status?: string;
@@ -1973,6 +2007,10 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   verifiedName?: string;
   static names(): { [key: string]: string } {
     return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      messagingLimitTier: 'MessagingLimitTier',
+      nameStatus: 'NameStatus',
+      newNameStatus: 'NewNameStatus',
       phoneNumber: 'PhoneNumber',
       qualityRating: 'QualityRating',
       status: 'Status',
@@ -1986,6 +2024,10 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      codeVerificationStatus: 'string',
+      messagingLimitTier: 'string',
+      nameStatus: 'string',
+      newNameStatus: 'string',
       phoneNumber: 'string',
       qualityRating: 'string',
       status: 'string',
@@ -2050,6 +2092,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq BeeBotAssociateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BeeBotAssociateResponse
+   */
   async beeBotAssociateWithOptions(tmpReq: BeeBotAssociateRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotAssociateResponse> {
     Util.validateModel(tmpReq);
     let request = new BeeBotAssociateShrinkRequest({ });
@@ -2104,11 +2153,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request BeeBotAssociateRequest
+    * @return BeeBotAssociateResponse
+   */
   async beeBotAssociate(request: BeeBotAssociateRequest): Promise<BeeBotAssociateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.beeBotAssociateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq BeeBotChatRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BeeBotChatResponse
+   */
   async beeBotChatWithOptions(tmpReq: BeeBotChatRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotChatResponse> {
     Util.validateModel(tmpReq);
     let request = new BeeBotChatShrinkRequest({ });
@@ -2183,11 +2245,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request BeeBotChatRequest
+    * @return BeeBotChatResponse
+   */
   async beeBotChat(request: BeeBotChatRequest): Promise<BeeBotChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.beeBotChatWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param tmpReq CreateChatappTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateChatappTemplateResponse
+   */
   async createChatappTemplateWithOptions(tmpReq: CreateChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateChatappTemplateShrinkRequest({ });
@@ -2256,11 +2332,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateChatappTemplateResponse>(await this.callApi(params, req, runtime), new CreateChatappTemplateResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request CreateChatappTemplateRequest
+    * @return CreateChatappTemplateResponse
+   */
   async createChatappTemplate(request: CreateChatappTemplateRequest): Promise<CreateChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request DeleteChatappTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteChatappTemplateResponse
+   */
   async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2297,11 +2388,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteChatappTemplateResponse>(await this.callApi(params, req, runtime), new DeleteChatappTemplateResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request DeleteChatappTemplateRequest
+    * @return DeleteChatappTemplateResponse
+   */
   async deleteChatappTemplate(request: DeleteChatappTemplateRequest): Promise<DeleteChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request GetChatappTemplateDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappTemplateDetailResponse
+   */
   async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2342,17 +2448,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request GetChatappTemplateDetailRequest
+    * @return GetChatappTemplateDetailResponse
+   */
   async getChatappTemplateDetail(request: GetChatappTemplateDetailRequest): Promise<GetChatappTemplateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param tmpReq ListChatappTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListChatappTemplateResponse
+   */
   async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new ListChatappTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.page))) {
-      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.page), "Page", "json");
+    if (!Util.isUnset(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
     let query = { };
@@ -2401,6 +2522,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request ListChatappTemplateRequest
+    * @return ListChatappTemplateResponse
+   */
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
@@ -2469,6 +2597,13 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryChatappBindWabaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryChatappBindWabaResponse
+   */
   async queryChatappBindWabaWithOptions(request: QueryChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappBindWabaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2497,11 +2632,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryChatappBindWabaRequest
+    * @return QueryChatappBindWabaResponse
+   */
   async queryChatappBindWaba(request: QueryChatappBindWabaRequest): Promise<QueryChatappBindWabaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryChatappBindWabaWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryChatappPhoneNumbersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryChatappPhoneNumbersResponse
+   */
   async queryChatappPhoneNumbersWithOptions(request: QueryChatappPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappPhoneNumbersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2530,11 +2678,25 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryChatappPhoneNumbersRequest
+    * @return QueryChatappPhoneNumbersResponse
+   */
   async queryChatappPhoneNumbers(request: QueryChatappPhoneNumbersRequest): Promise<QueryChatappPhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * Can support up to 1,000 numbers per request.
+    *
+    * @param tmpReq SendChatappMassMessageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendChatappMassMessageResponse
+   */
   async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new SendChatappMassMessageShrinkRequest({ });
@@ -2605,11 +2767,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * Can support up to 1,000 numbers per request.
+    *
+    * @param request SendChatappMassMessageRequest
+    * @return SendChatappMassMessageResponse
+   */
   async sendChatappMassMessage(request: SendChatappMassMessageRequest): Promise<SendChatappMassMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendChatappMassMessageWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param tmpReq SendChatappMessageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendChatappMessageResponse
+   */
   async sendChatappMessageWithOptions(tmpReq: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
     Util.validateModel(tmpReq);
     let request = new SendChatappMessageShrinkRequest({ });
@@ -2636,6 +2812,10 @@ export default class Client extends OpenApi {
       body["ChannelType"] = request.channelType;
     }
 
+    if (!Util.isUnset(request.contextMessageId)) {
+      body["ContextMessageId"] = request.contextMessageId;
+    }
+
     if (!Util.isUnset(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
@@ -2660,12 +2840,20 @@ export default class Client extends OpenApi {
       body["IsvCode"] = request.isvCode;
     }
 
+    if (!Util.isUnset(request.label)) {
+      body["Label"] = request.label;
+    }
+
     if (!Util.isUnset(request.language)) {
       body["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.messageType)) {
       body["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.templateCode)) {
@@ -2678,6 +2866,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.to)) {
       body["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.trackingData)) {
+      body["TrackingData"] = request.trackingData;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      body["Ttl"] = request.ttl;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -2702,6 +2898,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
   }
 
+  /**
+    * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request SendChatappMessageRequest
+    * @return SendChatappMessageResponse
+   */
   async sendChatappMessage(request: SendChatappMessageRequest): Promise<SendChatappMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendChatappMessageWithOptions(request, runtime);
