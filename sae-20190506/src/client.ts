@@ -948,6 +948,7 @@ export class CreateConfigMapResponse extends $tea.Model {
 }
 
 export class CreateGreyTagRouteRequest extends $tea.Model {
+  albRules?: string;
   appId?: string;
   description?: string;
   dubboRules?: string;
@@ -955,6 +956,7 @@ export class CreateGreyTagRouteRequest extends $tea.Model {
   scRules?: string;
   static names(): { [key: string]: string } {
     return {
+      albRules: 'AlbRules',
       appId: 'AppId',
       description: 'Description',
       dubboRules: 'DubboRules',
@@ -965,6 +967,7 @@ export class CreateGreyTagRouteRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      albRules: 'string',
       appId: 'string',
       description: 'string',
       dubboRules: 'string',
@@ -1162,6 +1165,7 @@ export class CreateJobRequest extends $tea.Model {
   cpu?: number;
   customHostAlias?: string;
   edasContainerVersion?: string;
+  enableImageAccl?: boolean;
   envs?: string;
   imagePullSecrets?: string;
   imageUrl?: string;
@@ -1217,6 +1221,7 @@ export class CreateJobRequest extends $tea.Model {
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
       edasContainerVersion: 'EdasContainerVersion',
+      enableImageAccl: 'EnableImageAccl',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -1275,6 +1280,7 @@ export class CreateJobRequest extends $tea.Model {
       cpu: 'number',
       customHostAlias: 'string',
       edasContainerVersion: 'string',
+      enableImageAccl: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -1386,11 +1392,13 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class CreateNamespaceRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -1399,6 +1407,7 @@ export class CreateNamespaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -2133,15 +2142,18 @@ export class DeleteJobResponse extends $tea.Model {
 }
 
 export class DeleteNamespaceRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
     };
   }
@@ -2328,6 +2340,7 @@ export class DeployApplicationRequest extends $tea.Model {
   ossAkId?: string;
   ossAkSecret?: string;
   ossMountDescs?: string;
+  packageType?: string;
   packageUrl?: string;
   packageVersion?: string;
   phpArmsConfigLocation?: string;
@@ -2381,6 +2394,7 @@ export class DeployApplicationRequest extends $tea.Model {
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
+      packageType: 'PackageType',
       packageUrl: 'PackageUrl',
       packageVersion: 'PackageVersion',
       phpArmsConfigLocation: 'PhpArmsConfigLocation',
@@ -2437,6 +2451,7 @@ export class DeployApplicationRequest extends $tea.Model {
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
+      packageType: 'string',
       packageUrl: 'string',
       packageVersion: 'string',
       phpArmsConfigLocation: 'string',
@@ -4252,15 +4267,18 @@ export class DescribeJobStatusResponse extends $tea.Model {
 }
 
 export class DescribeNamespaceRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
     };
   }
@@ -4417,15 +4435,18 @@ export class DescribeNamespaceListResponse extends $tea.Model {
 }
 
 export class DescribeNamespaceResourcesRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
     };
   }
@@ -8021,12 +8042,14 @@ export class UpdateConfigMapResponse extends $tea.Model {
 }
 
 export class UpdateGreyTagRouteRequest extends $tea.Model {
+  albRules?: string;
   description?: string;
   dubboRules?: string;
   greyTagRouteId?: number;
   scRules?: string;
   static names(): { [key: string]: string } {
     return {
+      albRules: 'AlbRules',
       description: 'Description',
       dubboRules: 'DubboRules',
       greyTagRouteId: 'GreyTagRouteId',
@@ -8036,6 +8059,7 @@ export class UpdateGreyTagRouteRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      albRules: 'string',
       description: 'string',
       dubboRules: 'string',
       greyTagRouteId: 'number',
@@ -8226,6 +8250,7 @@ export class UpdateJobRequest extends $tea.Model {
   configMapMountDesc?: string;
   customHostAlias?: string;
   edasContainerVersion?: string;
+  enableImageAccl?: boolean;
   envs?: string;
   imagePullSecrets?: string;
   imageUrl?: string;
@@ -8272,6 +8297,7 @@ export class UpdateJobRequest extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       customHostAlias: 'CustomHostAlias',
       edasContainerVersion: 'EdasContainerVersion',
+      enableImageAccl: 'EnableImageAccl',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -8321,6 +8347,7 @@ export class UpdateJobRequest extends $tea.Model {
       configMapMountDesc: 'string',
       customHostAlias: 'string',
       edasContainerVersion: 'string',
+      enableImageAccl: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -8426,11 +8453,13 @@ export class UpdateJobResponse extends $tea.Model {
 }
 
 export class UpdateNamespaceRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -8439,6 +8468,7 @@ export class UpdateNamespaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -8513,10 +8543,12 @@ export class UpdateNamespaceResponse extends $tea.Model {
 }
 
 export class UpdateNamespaceVpcRequest extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
       vpcId: 'VpcId',
     };
@@ -8524,6 +8556,7 @@ export class UpdateNamespaceVpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
       vpcId: 'string',
     };
@@ -9036,12 +9069,14 @@ export class CreateJobResponseBodyData extends $tea.Model {
 }
 
 export class CreateNamespaceResponseBodyData extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -9051,6 +9086,7 @@ export class CreateNamespaceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -10863,6 +10899,71 @@ export class DescribeEdasContainersResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeGreyTagRouteResponseBodyDataAlbRulesItems extends $tea.Model {
+  cond?: string;
+  expr?: string;
+  index?: number;
+  name?: string;
+  operator?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      expr: 'expr',
+      index: 'index',
+      name: 'name',
+      operator: 'operator',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      expr: 'string',
+      index: 'number',
+      name: 'string',
+      operator: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGreyTagRouteResponseBodyDataAlbRules extends $tea.Model {
+  condition?: string;
+  ingressId?: string;
+  items?: DescribeGreyTagRouteResponseBodyDataAlbRulesItems[];
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      ingressId: 'ingressId',
+      items: 'items',
+      serviceId: 'serviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      ingressId: 'string',
+      items: { 'type': 'array', 'itemType': DescribeGreyTagRouteResponseBodyDataAlbRulesItems },
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGreyTagRouteResponseBodyDataDubboRulesItems extends $tea.Model {
   cond?: string;
   expr?: string;
@@ -10997,6 +11098,7 @@ export class DescribeGreyTagRouteResponseBodyDataScRules extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
+  albRules?: DescribeGreyTagRouteResponseBodyDataAlbRules[];
   appId?: string;
   createTime?: number;
   description?: string;
@@ -11007,6 +11109,7 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      albRules: 'AlbRules',
       appId: 'AppId',
       createTime: 'CreateTime',
       description: 'Description',
@@ -11020,6 +11123,7 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      albRules: { 'type': 'array', 'itemType': DescribeGreyTagRouteResponseBodyDataAlbRules },
       appId: 'string',
       createTime: 'number',
       description: 'string',
@@ -11589,12 +11693,14 @@ export class DescribeJobStatusResponseBodyData extends $tea.Model {
 }
 
 export class DescribeNamespaceResponseBodyData extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -11604,6 +11710,7 @@ export class DescribeNamespaceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -11621,6 +11728,7 @@ export class DescribeNamespaceListResponseBodyData extends $tea.Model {
   current?: boolean;
   custom?: boolean;
   hybridCloudEnable?: boolean;
+  nameSpaceShortId?: string;
   namespaceId?: string;
   namespaceName?: string;
   regionId?: string;
@@ -11633,6 +11741,7 @@ export class DescribeNamespaceListResponseBodyData extends $tea.Model {
       current: 'Current',
       custom: 'Custom',
       hybridCloudEnable: 'HybridCloudEnable',
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
       regionId: 'RegionId',
@@ -11648,6 +11757,7 @@ export class DescribeNamespaceListResponseBodyData extends $tea.Model {
       current: 'boolean',
       custom: 'boolean',
       hybridCloudEnable: 'boolean',
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
       regionId: 'string',
@@ -11671,6 +11781,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
   lastChangeOrderId?: string;
   lastChangeOrderRunning?: boolean;
   lastChangeOrderStatus?: string;
+  nameSpaceShortId?: string;
   namespaceId?: string;
   namespaceName?: string;
   notificationExpired?: boolean;
@@ -11691,6 +11802,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
       lastChangeOrderId: 'LastChangeOrderId',
       lastChangeOrderRunning: 'LastChangeOrderRunning',
       lastChangeOrderStatus: 'LastChangeOrderStatus',
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
       notificationExpired: 'NotificationExpired',
@@ -11714,6 +11826,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
       lastChangeOrderId: 'string',
       lastChangeOrderRunning: 'boolean',
       lastChangeOrderStatus: 'string',
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
       notificationExpired: 'boolean',
@@ -11735,6 +11848,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $tea.Model {
 export class DescribeNamespacesResponseBodyDataNamespaces extends $tea.Model {
   accessKey?: string;
   addressServerHost?: string;
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
@@ -11745,6 +11859,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $tea.Model {
     return {
       accessKey: 'AccessKey',
       addressServerHost: 'AddressServerHost',
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -11758,6 +11873,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $tea.Model {
     return {
       accessKey: 'string',
       addressServerHost: 'string',
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -12447,6 +12563,71 @@ export class ListConsumedServicesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $tea.Model {
+  cond?: string;
+  expr?: string;
+  index?: number;
+  name?: string;
+  operator?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'cond',
+      expr: 'expr',
+      index: 'index',
+      name: 'name',
+      operator: 'operator',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      expr: 'string',
+      index: 'number',
+      name: 'string',
+      operator: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $tea.Model {
+  condition?: string;
+  ingressId?: string;
+  items?: ListGreyTagRouteResponseBodyDataResultAlbRulesItems[];
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      ingressId: 'ingressId',
+      items: 'items',
+      serviceId: 'serviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      ingressId: 'string',
+      items: { 'type': 'array', 'itemType': ListGreyTagRouteResponseBodyDataResultAlbRulesItems },
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $tea.Model {
   cond?: string;
   expr?: string;
@@ -12581,6 +12762,7 @@ export class ListGreyTagRouteResponseBodyDataResultScRules extends $tea.Model {
 }
 
 export class ListGreyTagRouteResponseBodyDataResult extends $tea.Model {
+  albRules?: ListGreyTagRouteResponseBodyDataResultAlbRules[];
   createTime?: number;
   description?: string;
   dubboRules?: ListGreyTagRouteResponseBodyDataResultDubboRules[];
@@ -12590,6 +12772,7 @@ export class ListGreyTagRouteResponseBodyDataResult extends $tea.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      albRules: 'AlbRules',
       createTime: 'CreateTime',
       description: 'Description',
       dubboRules: 'DubboRules',
@@ -12602,6 +12785,7 @@ export class ListGreyTagRouteResponseBodyDataResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      albRules: { 'type': 'array', 'itemType': ListGreyTagRouteResponseBodyDataResultAlbRules },
       createTime: 'number',
       description: 'string',
       dubboRules: { 'type': 'array', 'itemType': ListGreyTagRouteResponseBodyDataResultDubboRules },
@@ -13687,12 +13871,14 @@ export class UpdateJobResponseBodyData extends $tea.Model {
 }
 
 export class UpdateNamespaceResponseBodyData extends $tea.Model {
+  nameSpaceShortId?: string;
   namespaceDescription?: string;
   namespaceId?: string;
   namespaceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceDescription: 'NamespaceDescription',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
@@ -13702,6 +13888,7 @@ export class UpdateNamespaceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nameSpaceShortId: 'string',
       namespaceDescription: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
@@ -14322,6 +14509,10 @@ export default class Client extends OpenApi {
   async createGreyTagRouteWithOptions(request: CreateGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGreyTagRouteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.albRules)) {
+      query["AlbRules"] = request.albRules;
+    }
+
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -14635,6 +14826,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!Util.isUnset(request.enableImageAccl)) {
+      body["EnableImageAccl"] = request.enableImageAccl;
+    }
+
     if (!Util.isUnset(request.ossAkId)) {
       body["OssAkId"] = request.ossAkId;
     }
@@ -14679,6 +14874,10 @@ export default class Client extends OpenApi {
   async createNamespaceWithOptions(request: CreateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceDescription)) {
       query["NamespaceDescription"] = request.namespaceDescription;
     }
@@ -14988,6 +15187,10 @@ export default class Client extends OpenApi {
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -15160,6 +15363,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
+    }
+
+    if (!Util.isUnset(request.packageType)) {
+      query["PackageType"] = request.packageType;
     }
 
     if (!Util.isUnset(request.packageUrl)) {
@@ -16008,6 +16215,10 @@ export default class Client extends OpenApi {
   async describeNamespaceWithOptions(request: DescribeNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -16074,6 +16285,10 @@ export default class Client extends OpenApi {
   async describeNamespaceResourcesWithOptions(request: DescribeNamespaceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -17732,6 +17947,10 @@ export default class Client extends OpenApi {
   async updateGreyTagRouteWithOptions(request: UpdateGreyTagRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGreyTagRouteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.albRules)) {
+      query["AlbRules"] = request.albRules;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -17997,6 +18216,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!Util.isUnset(request.enableImageAccl)) {
+      body["EnableImageAccl"] = request.enableImageAccl;
+    }
+
     if (!Util.isUnset(request.ossAkId)) {
       body["OssAkId"] = request.ossAkId;
     }
@@ -18045,6 +18268,10 @@ export default class Client extends OpenApi {
   async updateNamespaceWithOptions(request: UpdateNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceDescription)) {
       query["NamespaceDescription"] = request.namespaceDescription;
     }
@@ -18084,6 +18311,10 @@ export default class Client extends OpenApi {
   async updateNamespaceVpcWithOptions(request: UpdateNamespaceVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceVpcResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
