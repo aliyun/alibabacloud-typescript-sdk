@@ -732,8 +732,13 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
   deletionProtection?: boolean;
   enableArgoCD?: boolean;
   enableMesh?: boolean;
+  enabled?: boolean;
   name?: string;
+  priceLimit?: string;
   publicApiServerEnabled?: boolean;
+  scheduleMode?: string;
+  serverEnabled?: boolean;
+  units?: UpdateHubClusterFeatureRequestUnits[];
   static names(): { [key: string]: string } {
     return {
       apiServerEipId: 'ApiServerEipId',
@@ -742,8 +747,13 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       deletionProtection: 'DeletionProtection',
       enableArgoCD: 'EnableArgoCD',
       enableMesh: 'EnableMesh',
+      enabled: 'Enabled',
       name: 'Name',
+      priceLimit: 'PriceLimit',
       publicApiServerEnabled: 'PublicApiServerEnabled',
+      scheduleMode: 'ScheduleMode',
+      serverEnabled: 'ServerEnabled',
+      units: 'Units',
     };
   }
 
@@ -755,8 +765,68 @@ export class UpdateHubClusterFeatureRequest extends $tea.Model {
       deletionProtection: 'boolean',
       enableArgoCD: 'boolean',
       enableMesh: 'boolean',
+      enabled: 'boolean',
       name: 'string',
+      priceLimit: 'string',
       publicApiServerEnabled: 'boolean',
+      scheduleMode: 'string',
+      serverEnabled: 'boolean',
+      units: { 'type': 'array', 'itemType': UpdateHubClusterFeatureRequestUnits },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHubClusterFeatureShrinkRequest extends $tea.Model {
+  apiServerEipId?: string;
+  auditLogEnabled?: boolean;
+  clusterId?: string;
+  deletionProtection?: boolean;
+  enableArgoCD?: boolean;
+  enableMesh?: boolean;
+  enabled?: boolean;
+  name?: string;
+  priceLimit?: string;
+  publicApiServerEnabled?: boolean;
+  scheduleMode?: string;
+  serverEnabled?: boolean;
+  unitsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiServerEipId: 'ApiServerEipId',
+      auditLogEnabled: 'AuditLogEnabled',
+      clusterId: 'ClusterId',
+      deletionProtection: 'DeletionProtection',
+      enableArgoCD: 'EnableArgoCD',
+      enableMesh: 'EnableMesh',
+      enabled: 'Enabled',
+      name: 'Name',
+      priceLimit: 'PriceLimit',
+      publicApiServerEnabled: 'PublicApiServerEnabled',
+      scheduleMode: 'ScheduleMode',
+      serverEnabled: 'ServerEnabled',
+      unitsShrink: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiServerEipId: 'string',
+      auditLogEnabled: 'boolean',
+      clusterId: 'string',
+      deletionProtection: 'boolean',
+      enableArgoCD: 'boolean',
+      enableMesh: 'boolean',
+      enabled: 'boolean',
+      name: 'string',
+      priceLimit: 'string',
+      publicApiServerEnabled: 'boolean',
+      scheduleMode: 'string',
+      serverEnabled: 'boolean',
+      unitsShrink: 'string',
     };
   }
 
@@ -1452,6 +1522,53 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class UpdateHubClusterFeatureRequestUnitsVSwitches extends $tea.Model {
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswitchId: 'VswitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHubClusterFeatureRequestUnits extends $tea.Model {
+  regionId?: string;
+  vSwitches?: UpdateHubClusterFeatureRequestUnitsVSwitches[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': UpdateHubClusterFeatureRequestUnitsVSwitches },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1843,8 +1960,14 @@ export default class Client extends OpenApi {
     return await this.detachClusterFromHubWithOptions(request, runtime);
   }
 
-  async updateHubClusterFeatureWithOptions(request: UpdateHubClusterFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHubClusterFeatureResponse> {
-    Util.validateModel(request);
+  async updateHubClusterFeatureWithOptions(tmpReq: UpdateHubClusterFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHubClusterFeatureResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateHubClusterFeatureShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.units)) {
+      request.unitsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.units, "Units", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.apiServerEipId)) {
       query["ApiServerEipId"] = request.apiServerEipId;
@@ -1870,12 +1993,32 @@ export default class Client extends OpenApi {
       query["EnableMesh"] = request.enableMesh;
     }
 
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
 
+    if (!Util.isUnset(request.priceLimit)) {
+      query["PriceLimit"] = request.priceLimit;
+    }
+
     if (!Util.isUnset(request.publicApiServerEnabled)) {
       query["PublicApiServerEnabled"] = request.publicApiServerEnabled;
+    }
+
+    if (!Util.isUnset(request.scheduleMode)) {
+      query["ScheduleMode"] = request.scheduleMode;
+    }
+
+    if (!Util.isUnset(request.serverEnabled)) {
+      query["ServerEnabled"] = request.serverEnabled;
+    }
+
+    if (!Util.isUnset(request.unitsShrink)) {
+      query["Units"] = request.unitsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
