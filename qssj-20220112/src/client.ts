@@ -2203,6 +2203,7 @@ export class GetTrendStatisticResponseBodyData extends $tea.Model {
   exposureValue?: number;
   hits?: number;
   sales?: number;
+  salesVolume?: number;
   shopCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2211,6 +2212,7 @@ export class GetTrendStatisticResponseBodyData extends $tea.Model {
       exposureValue: 'ExposureValue',
       hits: 'Hits',
       sales: 'Sales',
+      salesVolume: 'SalesVolume',
       shopCount: 'ShopCount',
     };
   }
@@ -2222,6 +2224,7 @@ export class GetTrendStatisticResponseBodyData extends $tea.Model {
       exposureValue: 'number',
       hits: 'number',
       sales: 'number',
+      salesVolume: 'number',
       shopCount: 'number',
     };
   }
