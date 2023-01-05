@@ -793,21 +793,21 @@ export class CreateBaselineRequest extends $tea.Model {
   alertMarginThreshold?: number;
   baselineName?: string;
   baselineType?: string;
+  nodeIds?: string;
   overtimeSettings?: CreateBaselineRequestOvertimeSettings[];
   owner?: string;
   priority?: number;
   projectId?: number;
-  taskIds?: string;
   static names(): { [key: string]: string } {
     return {
       alertMarginThreshold: 'AlertMarginThreshold',
       baselineName: 'BaselineName',
       baselineType: 'BaselineType',
+      nodeIds: 'NodeIds',
       overtimeSettings: 'OvertimeSettings',
       owner: 'Owner',
       priority: 'Priority',
       projectId: 'ProjectId',
-      taskIds: 'TaskIds',
     };
   }
 
@@ -816,11 +816,11 @@ export class CreateBaselineRequest extends $tea.Model {
       alertMarginThreshold: 'number',
       baselineName: 'string',
       baselineType: 'string',
+      nodeIds: 'string',
       overtimeSettings: { 'type': 'array', 'itemType': CreateBaselineRequestOvertimeSettings },
       owner: 'string',
       priority: 'number',
       projectId: 'number',
-      taskIds: 'string',
     };
   }
 
@@ -16534,6 +16534,87 @@ export class ListTopicsResponse extends $tea.Model {
   }
 }
 
+export class MountDirectoryRequest extends $tea.Model {
+  targetId?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountDirectoryResponseBody extends $tea.Model {
+  data?: number;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountDirectoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MountDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MountDirectoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OfflineNodeRequest extends $tea.Model {
   nodeId?: number;
   projectId?: number;
@@ -18850,6 +18931,87 @@ export class TopTenErrorTimesInstanceResponse extends $tea.Model {
   }
 }
 
+export class UmountDirectoryRequest extends $tea.Model {
+  targetId?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UmountDirectoryResponseBody extends $tea.Model {
+  data?: number;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UmountDirectoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UmountDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UmountDirectoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBaselineRequest extends $tea.Model {
   alertEnabled?: boolean;
   alertMarginThreshold?: number;
@@ -18858,12 +19020,12 @@ export class UpdateBaselineRequest extends $tea.Model {
   baselineName?: string;
   baselineType?: string;
   enabled?: boolean;
+  nodeIds?: string;
   overtimeSettings?: UpdateBaselineRequestOvertimeSettings[];
   owner?: string;
   priority?: number;
   projectId?: number;
-  removeTaskIds?: string;
-  taskIds?: string;
+  removeNodeIds?: string;
   static names(): { [key: string]: string } {
     return {
       alertEnabled: 'AlertEnabled',
@@ -18873,12 +19035,12 @@ export class UpdateBaselineRequest extends $tea.Model {
       baselineName: 'BaselineName',
       baselineType: 'BaselineType',
       enabled: 'Enabled',
+      nodeIds: 'NodeIds',
       overtimeSettings: 'OvertimeSettings',
       owner: 'Owner',
       priority: 'Priority',
       projectId: 'ProjectId',
-      removeTaskIds: 'RemoveTaskIds',
-      taskIds: 'TaskIds',
+      removeNodeIds: 'RemoveNodeIds',
     };
   }
 
@@ -18891,12 +19053,12 @@ export class UpdateBaselineRequest extends $tea.Model {
       baselineName: 'string',
       baselineType: 'string',
       enabled: 'boolean',
+      nodeIds: 'string',
       overtimeSettings: { 'type': 'array', 'itemType': UpdateBaselineRequestOvertimeSettings },
       owner: 'string',
       priority: 'number',
       projectId: 'number',
-      removeTaskIds: 'string',
-      taskIds: 'string',
+      removeNodeIds: 'string',
     };
   }
 
@@ -18913,12 +19075,12 @@ export class UpdateBaselineShrinkRequest extends $tea.Model {
   baselineName?: string;
   baselineType?: string;
   enabled?: boolean;
+  nodeIds?: string;
   overtimeSettingsShrink?: string;
   owner?: string;
   priority?: number;
   projectId?: number;
-  removeTaskIds?: string;
-  taskIds?: string;
+  removeNodeIds?: string;
   static names(): { [key: string]: string } {
     return {
       alertEnabled: 'AlertEnabled',
@@ -18928,12 +19090,12 @@ export class UpdateBaselineShrinkRequest extends $tea.Model {
       baselineName: 'BaselineName',
       baselineType: 'BaselineType',
       enabled: 'Enabled',
+      nodeIds: 'NodeIds',
       overtimeSettingsShrink: 'OvertimeSettings',
       owner: 'Owner',
       priority: 'Priority',
       projectId: 'ProjectId',
-      removeTaskIds: 'RemoveTaskIds',
-      taskIds: 'TaskIds',
+      removeNodeIds: 'RemoveNodeIds',
     };
   }
 
@@ -18946,12 +19108,12 @@ export class UpdateBaselineShrinkRequest extends $tea.Model {
       baselineName: 'string',
       baselineType: 'string',
       enabled: 'boolean',
+      nodeIds: 'string',
       overtimeSettingsShrink: 'string',
       owner: 'string',
       priority: 'number',
       projectId: 'number',
-      removeTaskIds: 'string',
-      taskIds: 'string',
+      removeNodeIds: 'string',
     };
   }
 
@@ -33678,6 +33840,10 @@ export default class Client extends OpenApi {
       body["BaselineType"] = request.baselineType;
     }
 
+    if (!Util.isUnset(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
     if (!Util.isUnset(request.overtimeSettings)) {
       body["OvertimeSettings"] = request.overtimeSettings;
     }
@@ -33692,10 +33858,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectId)) {
       body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.taskIds)) {
-      body["TaskIds"] = request.taskIds;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -41760,6 +41922,39 @@ export default class Client extends OpenApi {
     return await this.listTopicsWithOptions(request, runtime);
   }
 
+  async mountDirectoryWithOptions(request: MountDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<MountDirectoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.targetId)) {
+      body["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "MountDirectory",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MountDirectoryResponse>(await this.callApi(params, req, runtime), new MountDirectoryResponse({}));
+  }
+
+  async mountDirectory(request: MountDirectoryRequest): Promise<MountDirectoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mountDirectoryWithOptions(request, runtime);
+  }
+
   async offlineNodeWithOptions(request: OfflineNodeRequest, runtime: $Util.RuntimeOptions): Promise<OfflineNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42953,6 +43148,39 @@ export default class Client extends OpenApi {
     return await this.topTenErrorTimesInstanceWithOptions(request, runtime);
   }
 
+  async umountDirectoryWithOptions(request: UmountDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<UmountDirectoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.targetId)) {
+      body["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UmountDirectory",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UmountDirectoryResponse>(await this.callApi(params, req, runtime), new UmountDirectoryResponse({}));
+  }
+
+  async umountDirectory(request: UmountDirectoryRequest): Promise<UmountDirectoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.umountDirectoryWithOptions(request, runtime);
+  }
+
   async updateBaselineWithOptions(tmpReq: UpdateBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBaselineResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateBaselineShrinkRequest({ });
@@ -42994,6 +43222,10 @@ export default class Client extends OpenApi {
       body["Enabled"] = request.enabled;
     }
 
+    if (!Util.isUnset(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
     if (!Util.isUnset(request.overtimeSettingsShrink)) {
       body["OvertimeSettings"] = request.overtimeSettingsShrink;
     }
@@ -43010,12 +43242,8 @@ export default class Client extends OpenApi {
       body["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.removeTaskIds)) {
-      body["RemoveTaskIds"] = request.removeTaskIds;
-    }
-
-    if (!Util.isUnset(request.taskIds)) {
-      body["TaskIds"] = request.taskIds;
+    if (!Util.isUnset(request.removeNodeIds)) {
+      body["RemoveNodeIds"] = request.removeNodeIds;
     }
 
     let req = new $OpenApi.OpenApiRequest({
