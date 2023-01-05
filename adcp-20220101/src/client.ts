@@ -179,10 +179,12 @@ export class CreateHubClusterResponse extends $tea.Model {
 export class DeleteHubClusterRequest extends $tea.Model {
   clusterId?: string;
   force?: boolean;
+  retainResources?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       force: 'Force',
+      retainResources: 'RetainResources',
     };
   }
 
@@ -190,6 +192,32 @@ export class DeleteHubClusterRequest extends $tea.Model {
     return {
       clusterId: 'string',
       force: 'boolean',
+      retainResources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHubClusterShrinkRequest extends $tea.Model {
+  clusterId?: string;
+  force?: boolean;
+  retainResourcesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      force: 'Force',
+      retainResourcesShrink: 'RetainResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      force: 'boolean',
+      retainResourcesShrink: 'string',
     };
   }
 
@@ -1714,8 +1742,14 @@ export default class Client extends OpenApi {
     return await this.createHubClusterWithOptions(request, runtime);
   }
 
-  async deleteHubClusterWithOptions(request: DeleteHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHubClusterResponse> {
-    Util.validateModel(request);
+  async deleteHubClusterWithOptions(tmpReq: DeleteHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHubClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteHubClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.retainResources)) {
+      request.retainResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainResources, "RetainResources", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
@@ -1723,6 +1757,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.force)) {
       query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.retainResourcesShrink)) {
+      query["RetainResources"] = request.retainResourcesShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
