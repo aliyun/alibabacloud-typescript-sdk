@@ -1989,6 +1989,7 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
   material?: string;
   price?: number;
   productLink?: string;
+  sales?: number;
   salesVolume?: number;
   searchVolume?: number;
   shopId?: number;
@@ -2007,6 +2008,7 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
       material: 'Material',
       price: 'Price',
       productLink: 'ProductLink',
+      sales: 'Sales',
       salesVolume: 'SalesVolume',
       searchVolume: 'SearchVolume',
       shopId: 'ShopId',
@@ -2028,6 +2030,7 @@ export class GetStyleTopResponseBodyData extends $tea.Model {
       material: 'string',
       price: 'number',
       productLink: 'string',
+      sales: 'number',
       salesVolume: 'number',
       searchVolume: 'number',
       shopId: 'number',
