@@ -89,6 +89,7 @@ export class AttachClusterToHubResponse extends $tea.Model {
 export class CreateHubClusterRequest extends $tea.Model {
   apiServerPublicEip?: boolean;
   auditLogEnabled?: boolean;
+  clusterConfiguration?: CreateHubClusterRequestClusterConfiguration;
   isEnterpriseSecurityGroup?: boolean;
   name?: string;
   profile?: string;
@@ -99,6 +100,7 @@ export class CreateHubClusterRequest extends $tea.Model {
     return {
       apiServerPublicEip: 'ApiServerPublicEip',
       auditLogEnabled: 'AuditLogEnabled',
+      clusterConfiguration: 'ClusterConfiguration',
       isEnterpriseSecurityGroup: 'IsEnterpriseSecurityGroup',
       name: 'Name',
       profile: 'Profile',
@@ -112,6 +114,50 @@ export class CreateHubClusterRequest extends $tea.Model {
     return {
       apiServerPublicEip: 'boolean',
       auditLogEnabled: 'boolean',
+      clusterConfiguration: CreateHubClusterRequestClusterConfiguration,
+      isEnterpriseSecurityGroup: 'boolean',
+      name: 'string',
+      profile: 'string',
+      regionId: 'string',
+      vSwitches: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHubClusterShrinkRequest extends $tea.Model {
+  apiServerPublicEip?: boolean;
+  auditLogEnabled?: boolean;
+  clusterConfigurationShrink?: string;
+  isEnterpriseSecurityGroup?: boolean;
+  name?: string;
+  profile?: string;
+  regionId?: string;
+  vSwitches?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiServerPublicEip: 'ApiServerPublicEip',
+      auditLogEnabled: 'AuditLogEnabled',
+      clusterConfigurationShrink: 'ClusterConfiguration',
+      isEnterpriseSecurityGroup: 'IsEnterpriseSecurityGroup',
+      name: 'Name',
+      profile: 'Profile',
+      regionId: 'RegionId',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiServerPublicEip: 'boolean',
+      auditLogEnabled: 'boolean',
+      clusterConfigurationShrink: 'string',
       isEnterpriseSecurityGroup: 'boolean',
       name: 'string',
       profile: 'string',
@@ -907,6 +953,84 @@ export class UpdateHubClusterFeatureResponse extends $tea.Model {
   }
 }
 
+export class CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches extends $tea.Model {
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswitchId: 'VswitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHubClusterRequestClusterConfigurationWorkflowUnits extends $tea.Model {
+  regionId?: string;
+  vSwitches?: CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHubClusterRequestClusterConfiguration extends $tea.Model {
+  argoServerEnabled?: boolean;
+  priceLimit?: string;
+  worflowEnabled?: boolean;
+  workflowScheduleMode?: string;
+  workflowUnits?: CreateHubClusterRequestClusterConfigurationWorkflowUnits[];
+  static names(): { [key: string]: string } {
+    return {
+      argoServerEnabled: 'ArgoServerEnabled',
+      priceLimit: 'PriceLimit',
+      worflowEnabled: 'WorflowEnabled',
+      workflowScheduleMode: 'WorkflowScheduleMode',
+      workflowUnits: 'WorkflowUnits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argoServerEnabled: 'boolean',
+      priceLimit: 'string',
+      worflowEnabled: 'boolean',
+      workflowScheduleMode: 'string',
+      workflowUnits: { 'type': 'array', 'itemType': CreateHubClusterRequestClusterConfigurationWorkflowUnits },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClusterDetailsResponseBodyClusterApiServer extends $tea.Model {
   apiServerEipId?: string;
   enabledPublic?: boolean;
@@ -1685,8 +1809,19 @@ export default class Client extends OpenApi {
     return await this.attachClusterToHubWithOptions(request, runtime);
   }
 
-  async createHubClusterWithOptions(request: CreateHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateHubClusterResponse> {
-    Util.validateModel(request);
+  async createHubClusterWithOptions(tmpReq: CreateHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateHubClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateHubClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clusterConfiguration)) {
+      request.clusterConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterConfiguration, "ClusterConfiguration", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clusterConfigurationShrink)) {
+      query["ClusterConfiguration"] = request.clusterConfigurationShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.apiServerPublicEip)) {
       body["ApiServerPublicEip"] = request.apiServerPublicEip;
@@ -1721,6 +1856,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
