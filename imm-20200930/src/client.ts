@@ -10186,18 +10186,15 @@ export class UpdateFigureClusterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateFigureClusterResponseBody extends $tea.Model {
-  figureCluster?: FigureCluster;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      figureCluster: 'FigureCluster',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      figureCluster: FigureCluster,
       requestId: 'string',
     };
   }
