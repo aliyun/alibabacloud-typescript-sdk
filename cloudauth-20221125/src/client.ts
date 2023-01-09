@@ -8,6 +8,102 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class EntElementVerifyRequest extends $tea.Model {
+  entName?: string;
+  infoVerifyType?: string;
+  legalPersonCertNo?: string;
+  legalPersonName?: string;
+  licenseNo?: string;
+  merchantBizId?: string;
+  merchantUserId?: string;
+  sceneCode?: string;
+  userAuthorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entName: 'EntName',
+      infoVerifyType: 'InfoVerifyType',
+      legalPersonCertNo: 'LegalPersonCertNo',
+      legalPersonName: 'LegalPersonName',
+      licenseNo: 'LicenseNo',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      sceneCode: 'SceneCode',
+      userAuthorization: 'UserAuthorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entName: 'string',
+      infoVerifyType: 'string',
+      legalPersonCertNo: 'string',
+      legalPersonName: 'string',
+      licenseNo: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      sceneCode: 'string',
+      userAuthorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EntElementVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: EntElementVerifyResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: EntElementVerifyResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EntElementVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EntElementVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EntElementVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EntVerifyRequest extends $tea.Model {
   accountNo?: string;
   entName?: string;
@@ -116,6 +212,28 @@ export class EntVerifyResponse extends $tea.Model {
   }
 }
 
+export class EntElementVerifyResponseBodyResult extends $tea.Model {
+  bizCode?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EntVerifyResponseBodyResultRiskVerifyResultModelResults extends $tea.Model {
   modelName?: string;
   result?: string;
@@ -200,6 +318,67 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async entElementVerifyWithOptions(request: EntElementVerifyRequest, runtime: $Util.RuntimeOptions): Promise<EntElementVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entName)) {
+      query["EntName"] = request.entName;
+    }
+
+    if (!Util.isUnset(request.infoVerifyType)) {
+      query["InfoVerifyType"] = request.infoVerifyType;
+    }
+
+    if (!Util.isUnset(request.legalPersonCertNo)) {
+      query["LegalPersonCertNo"] = request.legalPersonCertNo;
+    }
+
+    if (!Util.isUnset(request.legalPersonName)) {
+      query["LegalPersonName"] = request.legalPersonName;
+    }
+
+    if (!Util.isUnset(request.licenseNo)) {
+      query["LicenseNo"] = request.licenseNo;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.userAuthorization)) {
+      query["UserAuthorization"] = request.userAuthorization;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EntElementVerify",
+      version: "2022-11-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EntElementVerifyResponse>(await this.callApi(params, req, runtime), new EntElementVerifyResponse({}));
+  }
+
+  async entElementVerify(request: EntElementVerifyRequest): Promise<EntElementVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.entElementVerifyWithOptions(request, runtime);
   }
 
   async entVerifyWithOptions(request: EntVerifyRequest, runtime: $Util.RuntimeOptions): Promise<EntVerifyResponse> {
