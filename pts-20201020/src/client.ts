@@ -1404,6 +1404,7 @@ export class GetPtsSceneRunningDataResponseBody extends $tea.Model {
   status?: number;
   success?: boolean;
   totalAgents?: number;
+  totalRealQps?: number;
   totalRequestCount?: number;
   tpsLimit?: number;
   vum?: number;
@@ -1429,6 +1430,7 @@ export class GetPtsSceneRunningDataResponseBody extends $tea.Model {
       status: 'Status',
       success: 'Success',
       totalAgents: 'TotalAgents',
+      totalRealQps: 'TotalRealQps',
       totalRequestCount: 'TotalRequestCount',
       tpsLimit: 'TpsLimit',
       vum: 'Vum',
@@ -1457,6 +1459,7 @@ export class GetPtsSceneRunningDataResponseBody extends $tea.Model {
       status: 'number',
       success: 'boolean',
       totalAgents: 'number',
+      totalRealQps: 'number',
       totalRequestCount: 'number',
       tpsLimit: 'number',
       vum: 'number',
@@ -7135,8 +7138,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SaveEnvShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.env))) {
-      request.envShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.env), "Env", "json");
+    if (!Util.isUnset(tmpReq.env)) {
+      request.envShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.env, "Env", "json");
     }
 
     let query = { };
@@ -7170,8 +7173,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SaveOpenJMeterSceneShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.openJMeterScene))) {
-      request.openJMeterSceneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.openJMeterScene), "OpenJMeterScene", "json");
+    if (!Util.isUnset(tmpReq.openJMeterScene)) {
+      request.openJMeterSceneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openJMeterScene, "OpenJMeterScene", "json");
     }
 
     let query = { };
@@ -7205,8 +7208,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new SavePtsSceneShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.scene))) {
-      request.sceneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scene), "Scene", "json");
+    if (!Util.isUnset(tmpReq.scene)) {
+      request.sceneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scene, "Scene", "json");
     }
 
     let query = { };
