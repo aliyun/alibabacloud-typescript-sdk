@@ -2698,6 +2698,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
   messageQueueFilterSide?: string;
   messageQueueGrayEnable?: boolean;
   name?: string;
+  namespace?: string;
   region?: string;
   source?: string;
   status?: number;
@@ -2716,6 +2717,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       messageQueueFilterSide: 'MessageQueueFilterSide',
       messageQueueGrayEnable: 'MessageQueueGrayEnable',
       name: 'Name',
+      namespace: 'Namespace',
       region: 'Region',
       source: 'Source',
       status: 'Status',
@@ -2737,6 +2739,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       messageQueueFilterSide: 'string',
       messageQueueGrayEnable: 'boolean',
       name: 'string',
+      namespace: 'string',
       region: 'string',
       source: 'string',
       status: 'number',
@@ -4739,6 +4742,7 @@ export class GetApplicationListRequest extends $tea.Model {
   appId?: string;
   appName?: string;
   language?: string;
+  namespace?: string;
   pageNumber?: number;
   pageSize?: number;
   region?: string;
@@ -4751,6 +4755,7 @@ export class GetApplicationListRequest extends $tea.Model {
       appId: 'AppId',
       appName: 'AppName',
       language: 'Language',
+      namespace: 'Namespace',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
@@ -4766,6 +4771,7 @@ export class GetApplicationListRequest extends $tea.Model {
       appId: 'string',
       appName: 'string',
       language: 'string',
+      namespace: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
@@ -4843,6 +4849,7 @@ export class GetApplicationListWithMetircsRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   appName?: string;
+  namespace?: string;
   pageNumber?: number;
   pageSize?: number;
   region?: string;
@@ -4852,6 +4859,7 @@ export class GetApplicationListWithMetircsRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       appName: 'AppName',
+      namespace: 'Namespace',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
@@ -4864,6 +4872,7 @@ export class GetApplicationListWithMetircsRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       appName: 'string',
+      namespace: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
@@ -10615,6 +10624,7 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
   enable?: boolean;
   funcType?: number;
   lossLessDetail?: boolean;
+  namespace?: string;
   notice?: boolean;
   regionId?: string;
   related?: boolean;
@@ -10631,6 +10641,7 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       enable: 'Enable',
       funcType: 'FuncType',
       lossLessDetail: 'LossLessDetail',
+      namespace: 'Namespace',
       notice: 'Notice',
       regionId: 'RegionId',
       related: 'Related',
@@ -10650,6 +10661,7 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       enable: 'boolean',
       funcType: 'number',
       lossLessDetail: 'boolean',
+      namespace: 'string',
       notice: 'boolean',
       regionId: 'string',
       related: 'boolean',
@@ -10804,6 +10816,111 @@ export class OfflineGatewayRouteResponse extends $tea.Model {
   }
 }
 
+export class OrderClusterHealthCheckRiskNoticeRequest extends $tea.Model {
+  acceptLanguage?: string;
+  instanceId?: string;
+  mute?: boolean;
+  noticeType?: string;
+  regionId?: string;
+  requestPars?: string;
+  riskCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      instanceId: 'InstanceId',
+      mute: 'Mute',
+      noticeType: 'NoticeType',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+      riskCode: 'RiskCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      instanceId: 'string',
+      mute: 'boolean',
+      noticeType: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+      riskCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderClusterHealthCheckRiskNoticeResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderClusterHealthCheckRiskNoticeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OrderClusterHealthCheckRiskNoticeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OrderClusterHealthCheckRiskNoticeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PullServicesRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
@@ -10883,6 +11000,96 @@ export class PullServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PullServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutClusterHealthCheckTaskRequest extends $tea.Model {
+  acceptLanguage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutClusterHealthCheckTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutClusterHealthCheckTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PutClusterHealthCheckTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PutClusterHealthCheckTaskResponseBody,
     };
   }
 
@@ -10980,15 +11187,18 @@ export class QueryAllSwimmingLaneResponse extends $tea.Model {
 
 export class QueryAllSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
+  namespace?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      namespace: 'Namespace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      namespace: 'string',
     };
   }
 
@@ -17375,6 +17585,7 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
   instancesNumber?: number;
   language?: string;
   licenseKey?: string;
+  namespace?: string;
   regionId?: string;
   source?: string;
   status?: number;
@@ -17387,6 +17598,7 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       instancesNumber: 'InstancesNumber',
       language: 'Language',
       licenseKey: 'LicenseKey',
+      namespace: 'Namespace',
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
@@ -17402,6 +17614,7 @@ export class GetApplicationListResponseBodyDataResult extends $tea.Model {
       instancesNumber: 'number',
       language: 'string',
       licenseKey: 'string',
+      namespace: 'string',
       regionId: 'string',
       source: 'string',
       status: 'number',
@@ -17525,6 +17738,7 @@ export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Mo
   instancesNumber?: number;
   language?: string;
   licenseKey?: string;
+  namespace?: string;
   regionId?: string;
   source?: string;
   status?: number;
@@ -17540,6 +17754,7 @@ export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Mo
       instancesNumber: 'InstancesNumber',
       language: 'Language',
       licenseKey: 'LicenseKey',
+      namespace: 'Namespace',
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
@@ -17558,6 +17773,7 @@ export class GetApplicationListWithMetircsResponseBodyDataResult extends $tea.Mo
       instancesNumber: 'number',
       language: 'string',
       licenseKey: 'string',
+      namespace: 'string',
       regionId: 'string',
       source: 'string',
       status: 'number',
@@ -24667,7 +24883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CloneNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24718,7 +24934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CloneNacosConfigRequest
     * @return CloneNacosConfigResponse
@@ -25014,7 +25230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25085,7 +25301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosConfigRequest
     * @return CreateNacosConfigResponse
@@ -25096,7 +25312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Programming language
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25173,7 +25389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Programming language
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosInstanceRequest
     * @return CreateNacosInstanceResponse
@@ -25184,7 +25400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25243,7 +25459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request CreateNacosServiceRequest
     * @return CreateNacosServiceResponse
@@ -25391,6 +25607,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -25917,7 +26137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25960,7 +26180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosConfigsRequest
     * @return DeleteNacosConfigsResponse
@@ -25971,7 +26191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26034,7 +26254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosInstanceRequest
     * @return DeleteNacosInstanceResponse
@@ -26045,7 +26265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26092,7 +26312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request DeleteNacosServiceRequest
     * @return DeleteNacosServiceResponse
@@ -26284,7 +26504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ExportNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26339,7 +26559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ExportNacosConfigRequest
     * @return ExportNacosConfigResponse
@@ -26405,6 +26625,10 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -26464,6 +26688,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -26842,7 +27070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetImportFileUrlRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26885,7 +27113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetImportFileUrlRequest
     * @return GetImportFileUrlResponse
@@ -26999,7 +27227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27050,7 +27278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetNacosConfigRequest
     * @return GetNacosConfigResponse
@@ -27061,7 +27289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetNacosHistoryConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27112,7 +27340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request GetNacosHistoryConfigRequest
     * @return GetNacosHistoryConfigResponse
@@ -27434,7 +27662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ImportNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27481,7 +27709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ImportNacosConfigRequest
     * @return ImportNacosConfigResponse
@@ -27630,7 +27858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListAnsServiceClustersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27657,7 +27885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListAnsServiceClustersRequest
     * @return ListAnsServiceClustersResponse
@@ -27668,7 +27896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListAnsServicesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27695,7 +27923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListAnsServicesRequest
     * @return ListAnsServicesResponse
@@ -28474,7 +28702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListNacosConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28545,7 +28773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListNacosConfigsRequest
     * @return ListNacosConfigsResponse
@@ -28556,7 +28784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListNacosHistoryConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28619,7 +28847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request ListNacosHistoryConfigsRequest
     * @return ListNacosHistoryConfigsResponse
@@ -28961,6 +29189,10 @@ export default class Client extends OpenApi {
       query["LossLessDetail"] = request.lossLessDetail;
     }
 
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.notice)) {
       query["Notice"] = request.notice;
     }
@@ -29044,6 +29276,59 @@ export default class Client extends OpenApi {
     return await this.offlineGatewayRouteWithOptions(request, runtime);
   }
 
+  async orderClusterHealthCheckRiskNoticeWithOptions(request: OrderClusterHealthCheckRiskNoticeRequest, runtime: $Util.RuntimeOptions): Promise<OrderClusterHealthCheckRiskNoticeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mute)) {
+      query["Mute"] = request.mute;
+    }
+
+    if (!Util.isUnset(request.noticeType)) {
+      query["NoticeType"] = request.noticeType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.riskCode)) {
+      query["RiskCode"] = request.riskCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OrderClusterHealthCheckRiskNotice",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OrderClusterHealthCheckRiskNoticeResponse>(await this.callApi(params, req, runtime), new OrderClusterHealthCheckRiskNoticeResponse({}));
+  }
+
+  async orderClusterHealthCheckRiskNotice(request: OrderClusterHealthCheckRiskNoticeRequest): Promise<OrderClusterHealthCheckRiskNoticeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.orderClusterHealthCheckRiskNoticeWithOptions(request, runtime);
+  }
+
   async pullServicesWithOptions(request: PullServicesRequest, runtime: $Util.RuntimeOptions): Promise<PullServicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29085,6 +29370,39 @@ export default class Client extends OpenApi {
     return await this.pullServicesWithOptions(request, runtime);
   }
 
+  async putClusterHealthCheckTaskWithOptions(request: PutClusterHealthCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<PutClusterHealthCheckTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutClusterHealthCheckTask",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutClusterHealthCheckTaskResponse>(await this.callApi(params, req, runtime), new PutClusterHealthCheckTaskResponse({}));
+  }
+
+  async putClusterHealthCheckTask(request: PutClusterHealthCheckTaskRequest): Promise<PutClusterHealthCheckTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putClusterHealthCheckTaskWithOptions(request, runtime);
+  }
+
   async queryAllSwimmingLaneWithOptions(request: QueryAllSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<QueryAllSwimmingLaneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29123,6 +29441,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -29966,7 +30288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~)
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30013,7 +30335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update the number of nodes or specifications of a pay-as-you-go MSE instance. You are charged for node addition or specifications upgrades of the instance. For more information about billing, see [Billing overview](~~139842~~)
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
     *
     * @param request UpdateClusterSpecRequest
     * @return UpdateClusterSpecResponse
@@ -30824,7 +31146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
     *
     * @param request UpdateGatewaySpecRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -30867,7 +31189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~250950~~`).
+    * You can call this operation to update the number or specifications of nodes in a pay-as-you-go cloud-native gateway. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing](~~250950~~).
     *
     * @param request UpdateGatewaySpecRequest
     * @return UpdateGatewaySpecResponse
@@ -31100,7 +31422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31179,7 +31501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The current API operation is not provided in Nacos SDK. For information about Nacos SDK, see the [official Nacos documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosConfigRequest
     * @return UpdateNacosConfigResponse
@@ -31278,7 +31600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -31333,7 +31655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The operation is not provided in Nacos SDKs. For more information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
     *
     * @param request UpdateNacosServiceRequest
     * @return UpdateNacosServiceResponse
