@@ -83,11 +83,81 @@ export class AttachEaiResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEaiRequest extends $tea.Model {
   clientToken?: string;
   instanceName?: string;
   instanceType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -96,6 +166,7 @@ export class CreateEaiRequest extends $tea.Model {
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
     };
@@ -107,6 +178,7 @@ export class CreateEaiRequest extends $tea.Model {
       instanceName: 'string',
       instanceType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
     };
@@ -180,6 +252,7 @@ export class CreateEaiAllRequest extends $tea.Model {
   eaiInstanceType?: string;
   instanceName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       clientImageId: 'ClientImageId',
@@ -197,6 +270,7 @@ export class CreateEaiAllRequest extends $tea.Model {
       eaiInstanceType: 'EaiInstanceType',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -217,6 +291,7 @@ export class CreateEaiAllRequest extends $tea.Model {
       eaiInstanceType: 'string',
       instanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -275,11 +350,272 @@ export class CreateEaiAllResponse extends $tea.Model {
   }
 }
 
+export class CreateEaiEciRequest extends $tea.Model {
+  clientToken?: string;
+  eaisName?: string;
+  eaisType?: string;
+  eci?: CreateEaiEciRequestEci;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eaisName: 'EaisName',
+      eaisType: 'EaisType',
+      eci: 'Eci',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      eaisName: 'string',
+      eaisType: 'string',
+      eci: CreateEaiEciRequestEci,
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEciShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  eaisName?: string;
+  eaisType?: string;
+  eciShrink?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eaisName: 'EaisName',
+      eaisType: 'EaisType',
+      eciShrink: 'Eci',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      eaisName: 'string',
+      eaisType: 'string',
+      eciShrink: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEciResponseBody extends $tea.Model {
+  clientInstanceId?: string;
+  elasticAcceleratedInstanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientInstanceId: 'ClientInstanceId',
+      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientInstanceId: 'string',
+      elasticAcceleratedInstanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEciResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEaiEciResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEaiEciResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEcsRequest extends $tea.Model {
+  clientToken?: string;
+  eaisName?: string;
+  eaisType?: string;
+  ecs?: CreateEaiEcsRequestEcs;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eaisName: 'EaisName',
+      eaisType: 'EaisType',
+      ecs: 'Ecs',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      eaisName: 'string',
+      eaisType: 'string',
+      ecs: CreateEaiEcsRequestEcs,
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEcsShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  eaisName?: string;
+  eaisType?: string;
+  ecsShrink?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eaisName: 'EaisName',
+      eaisType: 'EaisType',
+      ecsShrink: 'Ecs',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      eaisName: 'string',
+      eaisType: 'string',
+      ecsShrink: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEcsResponseBody extends $tea.Model {
+  clientInstanceId?: string;
+  elasticAcceleratedInstanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientInstanceId: 'ClientInstanceId',
+      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientInstanceId: 'string',
+      elasticAcceleratedInstanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateEaiEcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEaiEcsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEaiJupyterRequest extends $tea.Model {
   clientToken?: string;
   eaisType?: string;
   environmentVar?: CreateEaiJupyterRequestEnvironmentVar[];
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -288,6 +624,7 @@ export class CreateEaiJupyterRequest extends $tea.Model {
       eaisType: 'EaisType',
       environmentVar: 'EnvironmentVar',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
     };
@@ -299,6 +636,7 @@ export class CreateEaiJupyterRequest extends $tea.Model {
       eaisType: 'string',
       environmentVar: { 'type': 'array', 'itemType': CreateEaiJupyterRequestEnvironmentVar },
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
     };
@@ -314,6 +652,7 @@ export class CreateEaiJupyterShrinkRequest extends $tea.Model {
   eaisType?: string;
   environmentVarShrink?: string;
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -322,6 +661,7 @@ export class CreateEaiJupyterShrinkRequest extends $tea.Model {
       eaisType: 'EaisType',
       environmentVarShrink: 'EnvironmentVar',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
     };
@@ -333,6 +673,7 @@ export class CreateEaiJupyterShrinkRequest extends $tea.Model {
       eaisType: 'string',
       environmentVarShrink: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
     };
@@ -535,6 +876,7 @@ export class DescribeEaisRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -544,6 +886,7 @@ export class DescribeEaisRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
     };
   }
@@ -556,6 +899,7 @@ export class DescribeEaisRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
     };
   }
@@ -734,6 +1078,192 @@ export class DetachEaiResponse extends $tea.Model {
   }
 }
 
+export class GetInstanceMetricsRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  metricType?: string;
+  startTime?: string;
+  timeStep?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      metricType: 'MetricType',
+      startTime: 'StartTime',
+      timeStep: 'TimeStep',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      metricType: 'string',
+      startTime: 'string',
+      timeStep: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponseBody extends $tea.Model {
+  instanceId?: string;
+  podMetrics?: GetInstanceMetricsResponseBodyPodMetrics[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      podMetrics: 'PodMetrics',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      podMetrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetrics },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInstanceMetricsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceMetricsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEciRequestEciContainer extends $tea.Model {
+  arg?: string;
+  command?: string;
+  image?: string;
+  name?: string;
+  volumes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arg: 'Arg',
+      command: 'Command',
+      image: 'Image',
+      name: 'Name',
+      volumes: 'Volumes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arg: 'string',
+      command: 'string',
+      image: 'string',
+      name: 'string',
+      volumes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEciRequestEci extends $tea.Model {
+  container?: CreateEaiEciRequestEciContainer;
+  eipId?: string;
+  name?: string;
+  type?: string;
+  volume?: string;
+  static names(): { [key: string]: string } {
+    return {
+      container: 'Container',
+      eipId: 'EipId',
+      name: 'Name',
+      type: 'Type',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      container: CreateEaiEciRequestEciContainer,
+      eipId: 'string',
+      name: 'string',
+      type: 'string',
+      volume: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEaiEcsRequestEcs extends $tea.Model {
+  imageId?: string;
+  internetMaxBandwidthIn?: string;
+  internetMaxBandwidthOut?: string;
+  name?: string;
+  password?: string;
+  systemDiskCategory?: string;
+  systemDiskSize?: number;
+  type?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      name: 'Name',
+      password: 'Password',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskSize: 'SystemDiskSize',
+      type: 'Type',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      internetMaxBandwidthIn: 'string',
+      internetMaxBandwidthOut: 'string',
+      name: 'string',
+      password: 'string',
+      systemDiskCategory: 'string',
+      systemDiskSize: 'number',
+      type: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEaiJupyterRequestEnvironmentVar extends $tea.Model {
   key?: string;
   value?: string;
@@ -809,6 +1339,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
   instanceType?: string;
   jupyterUrl?: string;
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string;
   startTime?: string;
   status?: string;
@@ -828,6 +1359,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
       instanceType: 'InstanceType',
       jupyterUrl: 'JupyterUrl',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       startTime: 'StartTime',
       status: 'Status',
@@ -850,6 +1382,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
       instanceType: 'string',
       jupyterUrl: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       startTime: 'string',
       status: 'string',
@@ -919,6 +1452,50 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model {
+  time?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
+  metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
+  podId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+      podId: 'PodId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
+      podId: 'string',
     };
   }
 
@@ -1040,6 +1617,43 @@ export default class Client extends OpenApi {
     return await this.attachEaiWithOptions(request, runtime);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
   async createEaiWithOptions(request: CreateEaiRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1057,6 +1671,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.securityGroupId)) {
@@ -1089,6 +1707,14 @@ export default class Client extends OpenApi {
     return await this.createEaiWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateEaiAllRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEaiAllResponse
+   */
+  // Deprecated
   async createEaiAllWithOptions(request: CreateEaiAllRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiAllResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1152,6 +1778,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1169,9 +1799,142 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEaiAllResponse>(await this.callApi(params, req, runtime), new CreateEaiAllResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateEaiAllRequest
+    * @return CreateEaiAllResponse
+   */
+  // Deprecated
   async createEaiAll(request: CreateEaiAllRequest): Promise<CreateEaiAllResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEaiAllWithOptions(request, runtime);
+  }
+
+  async createEaiEciWithOptions(tmpReq: CreateEaiEciRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiEciResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEaiEciShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.eci)) {
+      request.eciShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eci, "Eci", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eaisName)) {
+      query["EaisName"] = request.eaisName;
+    }
+
+    if (!Util.isUnset(request.eaisType)) {
+      query["EaisType"] = request.eaisType;
+    }
+
+    if (!Util.isUnset(request.eciShrink)) {
+      query["Eci"] = request.eciShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEaiEci",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEaiEciResponse>(await this.callApi(params, req, runtime), new CreateEaiEciResponse({}));
+  }
+
+  async createEaiEci(request: CreateEaiEciRequest): Promise<CreateEaiEciResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEaiEciWithOptions(request, runtime);
+  }
+
+  async createEaiEcsWithOptions(tmpReq: CreateEaiEcsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiEcsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateEaiEcsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ecs)) {
+      request.ecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecs, "Ecs", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eaisName)) {
+      query["EaisName"] = request.eaisName;
+    }
+
+    if (!Util.isUnset(request.eaisType)) {
+      query["EaisType"] = request.eaisType;
+    }
+
+    if (!Util.isUnset(request.ecsShrink)) {
+      query["Ecs"] = request.ecsShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEaiEcs",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEaiEcsResponse>(await this.callApi(params, req, runtime), new CreateEaiEcsResponse({}));
+  }
+
+  async createEaiEcs(request: CreateEaiEcsRequest): Promise<CreateEaiEcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEaiEcsWithOptions(request, runtime);
   }
 
   async createEaiJupyterWithOptions(tmpReq: CreateEaiJupyterRequest, runtime: $Util.RuntimeOptions): Promise<CreateEaiJupyterResponse> {
@@ -1197,6 +1960,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.securityGroupId)) {
@@ -1330,6 +2097,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -1408,6 +2179,51 @@ export default class Client extends OpenApi {
   async detachEai(request: DetachEaiRequest): Promise<DetachEaiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachEaiWithOptions(request, runtime);
+  }
+
+  async getInstanceMetricsWithOptions(request: GetInstanceMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.timeStep)) {
+      query["TimeStep"] = request.timeStep;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstanceMetrics",
+      version: "2019-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
+  }
+
+  async getInstanceMetrics(request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInstanceMetricsWithOptions(request, runtime);
   }
 
 }
