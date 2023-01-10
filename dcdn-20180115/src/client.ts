@@ -24749,6 +24749,13 @@ export default class Client extends OpenApi {
     return await this.describeDcdnWafServiceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafSpecInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafSpecInfoResponse
+   */
   async describeDcdnWafSpecInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafSpecInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -24765,6 +24772,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafSpecInfoResponse({}));
   }
 
+  /**
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @return DescribeDcdnWafSpecInfoResponse
+   */
   async describeDcdnWafSpecInfo(): Promise<DescribeDcdnWafSpecInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafSpecInfoWithOptions(runtime);
@@ -26035,6 +26047,13 @@ export default class Client extends OpenApi {
     return await this.tagDcdnResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this API operation up to 100 times per second per account.
+    *
+    * @param request UntagDcdnResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagDcdnResourcesResponse
+   */
   async untagDcdnResourcesWithOptions(request: UntagDcdnResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagDcdnResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26071,6 +26090,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagDcdnResourcesResponse>(await this.callApi(params, req, runtime), new UntagDcdnResourcesResponse({}));
   }
 
+  /**
+    * >  You can call this API operation up to 100 times per second per account.
+    *
+    * @param request UntagDcdnResourcesRequest
+    * @return UntagDcdnResourcesResponse
+   */
   async untagDcdnResources(request: UntagDcdnResourcesRequest): Promise<UntagDcdnResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagDcdnResourcesWithOptions(request, runtime);
