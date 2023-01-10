@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
-import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
@@ -72,10 +71,12 @@ export class GetProductInfoByIdsResponseBody extends $tea.Model {
 
 export class GetProductInfoByIdsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetProductInfoByIdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -83,6 +84,7 @@ export class GetProductInfoByIdsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetProductInfoByIdsResponseBody,
     };
   }
@@ -139,11 +141,11 @@ export class SearchByPicRequest extends $tea.Model {
 }
 
 export class SearchByPicAdvanceRequest extends $tea.Model {
-  picContentObject: Readable;
   categoryId?: number;
   crop?: boolean;
   fields?: string;
   num?: number;
+  picContentObject?: Readable;
   pid?: string;
   region?: string;
   relationId?: number;
@@ -151,11 +153,11 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
   userType?: number;
   static names(): { [key: string]: string } {
     return {
-      picContentObject: 'PicContentObject',
       categoryId: 'CategoryId',
       crop: 'Crop',
       fields: 'Fields',
       num: 'Num',
+      picContentObject: 'PicContent',
       pid: 'Pid',
       region: 'Region',
       relationId: 'RelationId',
@@ -166,11 +168,11 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      picContentObject: 'Readable',
       categoryId: 'number',
       crop: 'boolean',
       fields: 'string',
       num: 'number',
+      picContentObject: 'Readable',
       pid: 'string',
       region: 'string',
       relationId: 'number',
@@ -220,10 +222,12 @@ export class SearchByPicResponseBody extends $tea.Model {
 
 export class SearchByPicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchByPicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -231,6 +235,7 @@ export class SearchByPicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchByPicResponseBody,
     };
   }
@@ -322,10 +327,12 @@ export class SearchByUrlResponseBody extends $tea.Model {
 
 export class SearchByUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchByUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -333,6 +340,7 @@ export class SearchByUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchByUrlResponseBody,
     };
   }
@@ -1044,8 +1052,21 @@ export default class Client extends OpenApi {
 
   async getProductInfoByIdsWithOptions(request: GetProductInfoByIdsRequest, runtime: $Util.RuntimeOptions): Promise<GetProductInfoByIdsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.itemIds)) {
+      body["ItemIds"] = request.itemIds;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      body["Pid"] = request.pid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetProductInfoByIds",
@@ -1069,10 +1090,50 @@ export default class Client extends OpenApi {
   async searchByPicWithOptions(request: SearchByPicRequest, runtime: $Util.RuntimeOptions): Promise<SearchByPicResponse> {
     Util.validateModel(request);
     let query = { };
-    query["UserType"] = request.userType;
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.num)) {
+      body["Num"] = request.num;
+    }
+
+    if (!Util.isUnset(request.picContent)) {
+      body["PicContent"] = request.picContent;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      body["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.relationId)) {
+      body["RelationId"] = request.relationId;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      body["Start"] = request.start;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SearchByPic",
@@ -1108,7 +1169,7 @@ export default class Client extends OpenApi {
       credentialType = "access_key";
     }
 
-    let authConfig = new $RPC.Config({
+    let authConfig = new $OpenApi.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -1139,28 +1200,28 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(request, searchByPicReq);
     if (!Util.isUnset(request.picContentObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
+        filename: authResponse.body.objectKey,
         content: request.picContentObject,
         contentType: "",
       });
       ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
         file: fileObj,
         successActionStatus: "201",
       });
       uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
+        bucketName: authResponse.body.bucket,
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      searchByPicReq.picContent = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      searchByPicReq.picContent = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
     }
 
     let searchByPicResp = await this.searchByPicWithOptions(searchByPicReq, runtime);
@@ -1170,10 +1231,50 @@ export default class Client extends OpenApi {
   async searchByUrlWithOptions(request: SearchByUrlRequest, runtime: $Util.RuntimeOptions): Promise<SearchByUrlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["UserType"] = request.userType;
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.num)) {
+      body["Num"] = request.num;
+    }
+
+    if (!Util.isUnset(request.picUrl)) {
+      body["PicUrl"] = request.picUrl;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      body["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.relationId)) {
+      body["RelationId"] = request.relationId;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      body["Start"] = request.start;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SearchByUrl",
