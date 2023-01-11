@@ -286,6 +286,597 @@ export class BeeBotChatResponse extends $tea.Model {
   }
 }
 
+export class ChatappBindWabaRequest extends $tea.Model {
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappBindWabaResponseBody extends $tea.Model {
+  code?: string;
+  data?: ChatappBindWabaResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ChatappBindWabaResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappBindWabaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappBindWabaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappBindWabaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappEmbedSignUpRequest extends $tea.Model {
+  inputToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputToken: 'InputToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappEmbedSignUpResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  wabas?: ChatappEmbedSignUpResponseBodyWabas[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      wabas: 'Wabas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      wabas: { 'type': 'array', 'itemType': ChatappEmbedSignUpResponseBodyWabas },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappEmbedSignUpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappEmbedSignUpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappEmbedSignUpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationRegisterRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationRegisterResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationRegisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappMigrationRegisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappMigrationRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationVerifiedRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  verifyCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+      verifyCode: 'VerifyCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+      verifyCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
+  code?: string;
+  data?: ChatappMigrationVerifiedResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ChatappMigrationVerifiedResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationVerifiedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappMigrationVerifiedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappMigrationVerifiedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappPhoneNumberRegisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappPhoneNumberRegisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappPhoneNumberRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberRequest extends $tea.Model {
+  custSpaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  phoneNumbers?: ChatappSyncPhoneNumberResponseBodyPhoneNumbers[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      phoneNumbers: 'PhoneNumbers',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      phoneNumbers: { 'type': 'array', 'itemType': ChatappSyncPhoneNumberResponseBodyPhoneNumbers },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappSyncPhoneNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappSyncPhoneNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappVerifyAndRegisterRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  verifyCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+      verifyCode: 'VerifyCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+      verifyCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappVerifyAndRegisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChatappVerifyAndRegisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatappVerifyAndRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappMigrationInitiateRequest extends $tea.Model {
+  countryCode?: string;
+  custSpaceId?: string;
+  mobileNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      countryCode: 'CountryCode',
+      custSpaceId: 'CustSpaceId',
+      mobileNumber: 'MobileNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countryCode: 'string',
+      custSpaceId: 'string',
+      mobileNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateChatappMigrationInitiateResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateChatappMigrationInitiateResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappMigrationInitiateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateChatappMigrationInitiateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateChatappMigrationInitiateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequest extends $tea.Model {
   category?: string;
   components?: CreateChatappTemplateRequestComponents[];
@@ -587,6 +1178,312 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
   }
 }
 
+export class GetChatappVerifyCodeRequest extends $tea.Model {
+  custSpaceId?: string;
+  locale?: string;
+  method?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      locale: 'Locale',
+      method: 'Method',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      locale: 'string',
+      method: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappVerifyCodeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappVerifyCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetChatappVerifyCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatappVerifyCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationVerifyCodeRequest extends $tea.Model {
+  custSpaceId?: string;
+  locale?: string;
+  method?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      locale: 'Locale',
+      method: 'Method',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      locale: 'string',
+      method: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMigrationVerifyCodeResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMigrationVerifyCodeResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationVerifyCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMigrationVerifyCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMigrationVerifyCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneNumberVerificationStatusRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneNumberVerificationStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPhoneNumberVerificationStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPhoneNumberVerificationStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneNumberVerificationStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPhoneNumberVerificationStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPhoneNumberVerificationStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsvGetAppIdRequest extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsvGetAppIdResponseBody extends $tea.Model {
+  appId?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsvGetAppIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: IsvGetAppIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: IsvGetAppIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChatappTemplateRequest extends $tea.Model {
   auditStatus?: string;
   custSpaceId?: string;
@@ -841,6 +1738,136 @@ export class ModifyChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
+  address?: string;
+  custSpaceId?: string;
+  description?: string;
+  email?: string;
+  phoneNumber?: string;
+  profilePictureUrl?: string;
+  vertical?: string;
+  websites?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      custSpaceId: 'CustSpaceId',
+      description: 'Description',
+      email: 'Email',
+      phoneNumber: 'PhoneNumber',
+      profilePictureUrl: 'ProfilePictureUrl',
+      vertical: 'Vertical',
+      websites: 'Websites',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      custSpaceId: 'string',
+      description: 'string',
+      email: 'string',
+      phoneNumber: 'string',
+      profilePictureUrl: 'string',
+      vertical: 'string',
+      websites: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
+  address?: string;
+  custSpaceId?: string;
+  description?: string;
+  email?: string;
+  phoneNumber?: string;
+  profilePictureUrl?: string;
+  vertical?: string;
+  websitesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      custSpaceId: 'CustSpaceId',
+      description: 'Description',
+      email: 'Email',
+      phoneNumber: 'PhoneNumber',
+      profilePictureUrl: 'ProfilePictureUrl',
+      vertical: 'Vertical',
+      websitesShrink: 'Websites',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      custSpaceId: 'string',
+      description: 'string',
+      email: 'string',
+      phoneNumber: 'string',
+      profilePictureUrl: 'string',
+      vertical: 'string',
+      websitesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPhoneBusinessProfileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyPhoneBusinessProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPhoneBusinessProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryChatappBindWabaRequest extends $tea.Model {
   custSpaceId?: string;
   isvCode?: string;
@@ -983,6 +2010,156 @@ export class QueryChatappPhoneNumbersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryChatappPhoneNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneBusinessProfileRequest extends $tea.Model {
+  custSpaceId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryPhoneBusinessProfileResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryPhoneBusinessProfileResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneBusinessProfileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryPhoneBusinessProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryPhoneBusinessProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWabaBusinessInfoRequest extends $tea.Model {
+  custSpaceId?: string;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryWabaBusinessInfoResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryWabaBusinessInfoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWabaBusinessInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryWabaBusinessInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryWabaBusinessInfoResponseBody,
     };
   }
 
@@ -1347,6 +2524,168 @@ export class SendChatappMessageResponse extends $tea.Model {
   }
 }
 
+export class UpdateAccountWebhookRequest extends $tea.Model {
+  custSpaceId?: string;
+  httpFlag?: string;
+  queueFlag?: string;
+  statusCallbackUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      httpFlag: 'HttpFlag',
+      queueFlag: 'QueueFlag',
+      statusCallbackUrl: 'StatusCallbackUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      httpFlag: 'string',
+      queueFlag: 'string',
+      statusCallbackUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountWebhookResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountWebhookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAccountWebhookResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAccountWebhookResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneWebhookRequest extends $tea.Model {
+  custSpaceId?: string;
+  httpFlag?: string;
+  phoneNumber?: string;
+  queueFlag?: string;
+  statusCallbackUrl?: string;
+  upCallbackUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      httpFlag: 'HttpFlag',
+      phoneNumber: 'PhoneNumber',
+      queueFlag: 'QueueFlag',
+      statusCallbackUrl: 'StatusCallbackUrl',
+      upCallbackUrl: 'UpCallbackUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      httpFlag: 'string',
+      phoneNumber: 'string',
+      queueFlag: 'string',
+      statusCallbackUrl: 'string',
+      upCallbackUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneWebhookResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneWebhookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePhoneWebhookResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePhoneWebhookResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BeeBotAssociateResponseBodyDataAssociate extends $tea.Model {
   meta?: string;
   title?: string;
@@ -1623,6 +2962,158 @@ export class BeeBotChatResponseBodyData extends $tea.Model {
   }
 }
 
+export class ChatappBindWabaResponseBodyData extends $tea.Model {
+  custSpaceId?: string;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappEmbedSignUpResponseBodyWabas extends $tea.Model {
+  accountReviewStatus?: string;
+  currency?: string;
+  id?: string;
+  messageTemplateNamespace?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountReviewStatus: 'AccountReviewStatus',
+      currency: 'Currency',
+      id: 'Id',
+      messageTemplateNamespace: 'MessageTemplateNamespace',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountReviewStatus: 'string',
+      currency: 'string',
+      id: 'string',
+      messageTemplateNamespace: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationVerifiedResponseBodyData extends $tea.Model {
+  id?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
+  codeVerificationStatus?: string;
+  messagingLimitTier?: string;
+  nameStatus?: string;
+  newNameStatus?: string;
+  phoneNumber?: string;
+  qualityRating?: string;
+  status?: string;
+  statusCallbackUrl?: string;
+  statusQueue?: string;
+  upCallbackUrl?: string;
+  upQueue?: string;
+  verifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      messagingLimitTier: 'MessagingLimitTier',
+      nameStatus: 'NameStatus',
+      newNameStatus: 'NewNameStatus',
+      phoneNumber: 'PhoneNumber',
+      qualityRating: 'QualityRating',
+      status: 'Status',
+      statusCallbackUrl: 'StatusCallbackUrl',
+      statusQueue: 'StatusQueue',
+      upCallbackUrl: 'UpCallbackUrl',
+      upQueue: 'UpQueue',
+      verifiedName: 'VerifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      messagingLimitTier: 'string',
+      nameStatus: 'string',
+      newNameStatus: 'string',
+      phoneNumber: 'string',
+      qualityRating: 'string',
+      status: 'string',
+      statusCallbackUrl: 'string',
+      statusQueue: 'string',
+      upCallbackUrl: 'string',
+      upQueue: 'string',
+      verifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
+  id?: string;
+  phoneNumber?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   phoneNumber?: string;
   text?: string;
@@ -1810,6 +3301,53 @@ export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
       language: 'string',
       name: 'string',
       templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationVerifyCodeResponseBodyData extends $tea.Model {
+  id?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneNumberVerificationStatusResponseBodyData extends $tea.Model {
+  codeVerificationStatus?: string;
+  id?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      id: 'string',
+      phoneNumber: 'string',
     };
   }
 
@@ -2044,6 +3582,68 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   }
 }
 
+export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
+  address?: string;
+  description?: string;
+  email?: string;
+  profilePictureUrl?: string;
+  vertical?: string;
+  websites?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      description: 'Description',
+      email: 'Email',
+      profilePictureUrl: 'ProfilePictureUrl',
+      vertical: 'Vertical',
+      websites: 'Websites',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      description: 'string',
+      email: 'string',
+      profilePictureUrl: 'string',
+      vertical: 'string',
+      websites: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
+  businessId?: string;
+  businessName?: string;
+  verificationStatus?: string;
+  vertical?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessId: 'BusinessId',
+      businessName: 'BusinessName',
+      verificationStatus: 'VerificationStatus',
+      vertical: 'Vertical',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessId: 'string',
+      businessName: 'string',
+      verificationStatus: 'string',
+      vertical: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   payload?: string[];
   templateParams?: { [key: string]: string };
@@ -2256,6 +3856,270 @@ export default class Client extends OpenApi {
     return await this.beeBotChatWithOptions(request, runtime);
   }
 
+  async chatappBindWabaWithOptions(request: ChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<ChatappBindWabaResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.wabaId)) {
+      body["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappBindWaba",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
+  }
+
+  async chatappBindWaba(request: ChatappBindWabaRequest): Promise<ChatappBindWabaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappBindWabaWithOptions(request, runtime);
+  }
+
+  async chatappEmbedSignUpWithOptions(request: ChatappEmbedSignUpRequest, runtime: $Util.RuntimeOptions): Promise<ChatappEmbedSignUpResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inputToken)) {
+      body["InputToken"] = request.inputToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappEmbedSignUp",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
+  }
+
+  async chatappEmbedSignUp(request: ChatappEmbedSignUpRequest): Promise<ChatappEmbedSignUpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappEmbedSignUpWithOptions(request, runtime);
+  }
+
+  async chatappMigrationRegisterWithOptions(request: ChatappMigrationRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationRegisterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappMigrationRegister",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
+  }
+
+  async chatappMigrationRegister(request: ChatappMigrationRegisterRequest): Promise<ChatappMigrationRegisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappMigrationRegisterWithOptions(request, runtime);
+  }
+
+  async chatappMigrationVerifiedWithOptions(request: ChatappMigrationVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationVerifiedResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.verifyCode)) {
+      query["VerifyCode"] = request.verifyCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappMigrationVerified",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
+  }
+
+  async chatappMigrationVerified(request: ChatappMigrationVerifiedRequest): Promise<ChatappMigrationVerifiedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappMigrationVerifiedWithOptions(request, runtime);
+  }
+
+  async chatappPhoneNumberRegisterWithOptions(request: ChatappPhoneNumberRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberRegisterResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappPhoneNumberRegister",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
+  }
+
+  async chatappPhoneNumberRegister(request: ChatappPhoneNumberRegisterRequest): Promise<ChatappPhoneNumberRegisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappPhoneNumberRegisterWithOptions(request, runtime);
+  }
+
+  async chatappSyncPhoneNumberWithOptions(request: ChatappSyncPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ChatappSyncPhoneNumberResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappSyncPhoneNumber",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
+  }
+
+  async chatappSyncPhoneNumber(request: ChatappSyncPhoneNumberRequest): Promise<ChatappSyncPhoneNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappSyncPhoneNumberWithOptions(request, runtime);
+  }
+
+  async chatappVerifyAndRegisterWithOptions(request: ChatappVerifyAndRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappVerifyAndRegisterResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.verifyCode)) {
+      body["VerifyCode"] = request.verifyCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatappVerifyAndRegister",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
+  }
+
+  async chatappVerifyAndRegister(request: ChatappVerifyAndRegisterRequest): Promise<ChatappVerifyAndRegisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatappVerifyAndRegisterWithOptions(request, runtime);
+  }
+
+  async createChatappMigrationInitiateWithOptions(request: CreateChatappMigrationInitiateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappMigrationInitiateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.countryCode)) {
+      query["CountryCode"] = request.countryCode;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.mobileNumber)) {
+      query["MobileNumber"] = request.mobileNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateChatappMigrationInitiate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
+  }
+
+  async createChatappMigrationInitiate(request: CreateChatappMigrationInitiateRequest): Promise<CreateChatappMigrationInitiateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createChatappMigrationInitiateWithOptions(request, runtime);
+  }
+
   /**
     * ### QPS limit
     * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -2460,6 +4324,150 @@ export default class Client extends OpenApi {
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
+  async getChatappVerifyCodeWithOptions(request: GetChatappVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappVerifyCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      body["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      body["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatappVerifyCode",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
+  }
+
+  async getChatappVerifyCode(request: GetChatappVerifyCodeRequest): Promise<GetChatappVerifyCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatappVerifyCodeWithOptions(request, runtime);
+  }
+
+  async getMigrationVerifyCodeWithOptions(request: GetMigrationVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationVerifyCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      query["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      query["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMigrationVerifyCode",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
+  }
+
+  async getMigrationVerifyCode(request: GetMigrationVerifyCodeRequest): Promise<GetMigrationVerifyCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMigrationVerifyCodeWithOptions(request, runtime);
+  }
+
+  async getPhoneNumberVerificationStatusWithOptions(request: GetPhoneNumberVerificationStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneNumberVerificationStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPhoneNumberVerificationStatus",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
+  }
+
+  async getPhoneNumberVerificationStatus(request: GetPhoneNumberVerificationStatusRequest): Promise<GetPhoneNumberVerificationStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPhoneNumberVerificationStatusWithOptions(request, runtime);
+  }
+
+  async isvGetAppIdWithOptions(request: IsvGetAppIdRequest, runtime: $Util.RuntimeOptions): Promise<IsvGetAppIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "IsvGetAppId",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
+  }
+
+  async isvGetAppId(request: IsvGetAppIdRequest): Promise<IsvGetAppIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.isvGetAppIdWithOptions(request, runtime);
+  }
+
   /**
     * ### QPS limit
     * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
@@ -2597,6 +4605,69 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  async modifyPhoneBusinessProfileWithOptions(tmpReq: ModifyPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhoneBusinessProfileResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyPhoneBusinessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.websites)) {
+      request.websitesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.websites, "Websites", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.profilePictureUrl)) {
+      query["ProfilePictureUrl"] = request.profilePictureUrl;
+    }
+
+    if (!Util.isUnset(request.vertical)) {
+      query["Vertical"] = request.vertical;
+    }
+
+    if (!Util.isUnset(request.websitesShrink)) {
+      query["Websites"] = request.websitesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPhoneBusinessProfile",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
+  }
+
+  async modifyPhoneBusinessProfile(request: ModifyPhoneBusinessProfileRequest): Promise<ModifyPhoneBusinessProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPhoneBusinessProfileWithOptions(request, runtime);
+  }
+
   /**
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -2687,6 +4758,72 @@ export default class Client extends OpenApi {
   async queryChatappPhoneNumbers(request: QueryChatappPhoneNumbersRequest): Promise<QueryChatappPhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
+  }
+
+  async queryPhoneBusinessProfileWithOptions(request: QueryPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneBusinessProfileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryPhoneBusinessProfile",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
+  }
+
+  async queryPhoneBusinessProfile(request: QueryPhoneBusinessProfileRequest): Promise<QueryPhoneBusinessProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryPhoneBusinessProfileWithOptions(request, runtime);
+  }
+
+  async queryWabaBusinessInfoWithOptions(request: QueryWabaBusinessInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryWabaBusinessInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryWabaBusinessInfo",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
+  }
+
+  async queryWabaBusinessInfo(request: QueryWabaBusinessInfoRequest): Promise<QueryWabaBusinessInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryWabaBusinessInfoWithOptions(request, runtime);
   }
 
   /**
@@ -2907,6 +5044,96 @@ export default class Client extends OpenApi {
   async sendChatappMessage(request: SendChatappMessageRequest): Promise<SendChatappMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendChatappMessageWithOptions(request, runtime);
+  }
+
+  async updateAccountWebhookWithOptions(request: UpdateAccountWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountWebhookResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.httpFlag)) {
+      query["HttpFlag"] = request.httpFlag;
+    }
+
+    if (!Util.isUnset(request.queueFlag)) {
+      query["QueueFlag"] = request.queueFlag;
+    }
+
+    if (!Util.isUnset(request.statusCallbackUrl)) {
+      query["StatusCallbackUrl"] = request.statusCallbackUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAccountWebhook",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
+  }
+
+  async updateAccountWebhook(request: UpdateAccountWebhookRequest): Promise<UpdateAccountWebhookResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAccountWebhookWithOptions(request, runtime);
+  }
+
+  async updatePhoneWebhookWithOptions(request: UpdatePhoneWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneWebhookResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.httpFlag)) {
+      query["HttpFlag"] = request.httpFlag;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.queueFlag)) {
+      query["QueueFlag"] = request.queueFlag;
+    }
+
+    if (!Util.isUnset(request.statusCallbackUrl)) {
+      query["StatusCallbackUrl"] = request.statusCallbackUrl;
+    }
+
+    if (!Util.isUnset(request.upCallbackUrl)) {
+      query["UpCallbackUrl"] = request.upCallbackUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePhoneWebhook",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
+  }
+
+  async updatePhoneWebhook(request: UpdatePhoneWebhookRequest): Promise<UpdatePhoneWebhookResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePhoneWebhookWithOptions(request, runtime);
   }
 
 }
