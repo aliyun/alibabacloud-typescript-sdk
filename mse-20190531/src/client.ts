@@ -1812,8 +1812,8 @@ export class CloneNacosConfigResponse extends $tea.Model {
 export class CreateApplicationRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
-  extraInfo?: string;
   language?: string;
+  namespace?: string;
   region?: string;
   sentinelEnable?: string;
   source?: string;
@@ -1822,8 +1822,8 @@ export class CreateApplicationRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       appName: 'AppName',
-      extraInfo: 'ExtraInfo',
       language: 'Language',
+      namespace: 'Namespace',
       region: 'Region',
       sentinelEnable: 'SentinelEnable',
       source: 'Source',
@@ -1835,8 +1835,8 @@ export class CreateApplicationRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appName: 'string',
-      extraInfo: 'string',
       language: 'string',
+      namespace: 'string',
       region: 'string',
       sentinelEnable: 'string',
       source: 'string',
@@ -14977,16 +14977,20 @@ export class UpdateImageResponse extends $tea.Model {
 export class UpdateMessageQueueRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
+  appName?: string;
   enable?: boolean;
   filterSide?: string;
+  namespace?: string;
   region?: string;
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
+      appName: 'AppName',
       enable: 'Enable',
       filterSide: 'FilterSide',
+      namespace: 'Namespace',
       region: 'Region',
       tags: 'Tags',
     };
@@ -14996,8 +15000,10 @@ export class UpdateMessageQueueRouteRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appId: 'string',
+      appName: 'string',
       enable: 'boolean',
       filterSide: 'string',
+      namespace: 'string',
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
@@ -15011,16 +15017,20 @@ export class UpdateMessageQueueRouteRequest extends $tea.Model {
 export class UpdateMessageQueueRouteShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
+  appName?: string;
   enable?: boolean;
   filterSide?: string;
+  namespace?: string;
   region?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
+      appName: 'AppName',
       enable: 'Enable',
       filterSide: 'FilterSide',
+      namespace: 'Namespace',
       region: 'Region',
       tagsShrink: 'Tags',
     };
@@ -15030,8 +15040,10 @@ export class UpdateMessageQueueRouteShrinkRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appId: 'string',
+      appName: 'string',
       enable: 'boolean',
       filterSide: 'string',
+      namespace: 'string',
       region: 'string',
       tagsShrink: 'string',
     };
@@ -16951,11 +16963,13 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
   extraInfo?: string;
   language?: string;
   licenseKey?: string;
+  namespace?: string;
   regionId?: string;
   source?: string;
   status?: number;
   updateTime?: number;
   userId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -16964,11 +16978,13 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
       extraInfo: 'ExtraInfo',
       language: 'Language',
       licenseKey: 'LicenseKey',
+      namespace: 'Namespace',
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
       updateTime: 'UpdateTime',
       userId: 'UserId',
+      version: 'Version',
     };
   }
 
@@ -16980,11 +16996,13 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
       extraInfo: 'string',
       language: 'string',
       licenseKey: 'string',
+      namespace: 'string',
       regionId: 'string',
       source: 'string',
       status: 'number',
       updateTime: 'number',
       userId: 'string',
+      version: 'string',
     };
   }
 
@@ -24955,12 +24973,12 @@ export default class Client extends OpenApi {
       query["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.extraInfo)) {
-      query["ExtraInfo"] = request.extraInfo;
-    }
-
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -25168,6 +25186,14 @@ export default class Client extends OpenApi {
     return await this.createEngineNamespaceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+    *
+    * @param request CreateMseServiceApplicationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateMseServiceApplicationResponse
+   */
+  // Deprecated
   async createMseServiceApplicationWithOptions(request: CreateMseServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateMseServiceApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25224,6 +25250,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMseServiceApplicationResponse>(await this.callApi(params, req, runtime), new CreateMseServiceApplicationResponse({}));
   }
 
+  /**
+    * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
+    *
+    * @param request CreateMseServiceApplicationRequest
+    * @return CreateMseServiceApplicationResponse
+   */
+  // Deprecated
   async createMseServiceApplication(request: CreateMseServiceApplicationRequest): Promise<CreateMseServiceApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMseServiceApplicationWithOptions(request, runtime);
@@ -31253,12 +31286,20 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
     if (!Util.isUnset(request.enable)) {
       query["Enable"] = request.enable;
     }
 
     if (!Util.isUnset(request.filterSide)) {
       query["FilterSide"] = request.filterSide;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!Util.isUnset(request.region)) {
