@@ -880,11 +880,13 @@ export class ListInstancesResponse extends $tea.Model {
 
 export class ListTopicsRequest extends $tea.Model {
   filter?: string;
+  messageTypes?: string[];
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
+      messageTypes: 'messageTypes',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -893,6 +895,35 @@ export class ListTopicsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicsShrinkRequest extends $tea.Model {
+  filter?: string;
+  messageTypesShrink?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      messageTypesShrink: 'messageTypes',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      messageTypesShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -1236,10 +1267,12 @@ export class UpdateTopicResponse extends $tea.Model {
 }
 
 export class CreateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
+  deadLetterTargetTopic?: string;
   maxRetryTimes?: number;
   retryPolicy?: string;
   static names(): { [key: string]: string } {
     return {
+      deadLetterTargetTopic: 'deadLetterTargetTopic',
       maxRetryTimes: 'maxRetryTimes',
       retryPolicy: 'retryPolicy',
     };
@@ -1247,6 +1280,7 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deadLetterTargetTopic: 'string',
       maxRetryTimes: 'number',
       retryPolicy: 'string',
     };
@@ -1358,10 +1392,12 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
 }
 
 export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $tea.Model {
+  deadLetterTargetTopic?: string;
   maxRetryTimes?: number;
   retryPolicy?: string;
   static names(): { [key: string]: string } {
     return {
+      deadLetterTargetTopic: 'deadLetterTargetTopic',
       maxRetryTimes: 'maxRetryTimes',
       retryPolicy: 'retryPolicy',
     };
@@ -1369,6 +1405,7 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      deadLetterTargetTopic: 'string',
       maxRetryTimes: 'number',
       retryPolicy: 'string',
     };
@@ -2510,11 +2547,21 @@ export default class Client extends OpenApi {
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
-  async listTopicsWithOptions(instanceId: string, request: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
-    Util.validateModel(request);
+  async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTopicsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.messageTypes)) {
+      request.messageTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messageTypes, "messageTypes", "simple");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.filter)) {
       query["filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.messageTypesShrink)) {
+      query["messageTypes"] = request.messageTypesShrink;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
