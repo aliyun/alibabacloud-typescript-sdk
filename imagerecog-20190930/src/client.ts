@@ -7,7 +7,6 @@ import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import Array from '@alicloud/darabonba-array';
 import Number from '@darabonba/number';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
@@ -2585,7 +2584,7 @@ export default class Client extends OpenApi {
     let recognizeLogoReq = new RecognizeLogoRequest({ });
     OpenApiUtil.convert(request, recognizeLogoReq);
     if (!Util.isUnset(request.tasks)) {
-      let i : number = 0;
+      let i0 : number = 0;
 
       for (let item0 of request.tasks) {
         if (!Util.isUnset(item0.imageURLObject)) {
@@ -2611,9 +2610,9 @@ export default class Client extends OpenApi {
             header: ossHeader,
           });
           await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : RecognizeLogoRequestTasks = recognizeLogoReq.tasks[i];
+          let tmp : RecognizeLogoRequestTasks = recognizeLogoReq.tasks[i0];
           tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i = Number.ltoi(Number.add(Number.itol(i), Number.itol(1)));
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
         }
 
       }
