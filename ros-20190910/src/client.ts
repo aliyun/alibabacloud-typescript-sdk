@@ -8,6 +8,78 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CancelStackOperationRequest extends $tea.Model {
+  allowedStackOperations?: string[];
+  cancelType?: string;
+  regionId?: string;
+  stackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedStackOperations: 'AllowedStackOperations',
+      cancelType: 'CancelType',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedStackOperations: { 'type': 'array', 'itemType': 'string' },
+      cancelType: 'string',
+      regionId: 'string',
+      stackId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelStackOperationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelStackOperationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelStackOperationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelStackOperationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelUpdateStackRequest extends $tea.Model {
   cancelType?: string;
   regionId?: string;
@@ -8411,6 +8483,28 @@ export class GetTemplateParameterConstraintsShrinkRequestParameters extends $tea
   }
 }
 
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources extends $tea.Model {
+  propertyName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyName: 'PropertyName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
   allowedValues?: string[];
   associationParameterNames?: string[];
@@ -8418,6 +8512,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   behaviorReason?: string;
   illegalValueByParameterConstraints?: any[];
   illegalValueByRules?: any[];
+  notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
   parameterKey?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -8428,6 +8523,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       behaviorReason: 'BehaviorReason',
       illegalValueByParameterConstraints: 'IllegalValueByParameterConstraints',
       illegalValueByRules: 'IllegalValueByRules',
+      notSupportResources: 'NotSupportResources',
       parameterKey: 'ParameterKey',
       type: 'Type',
     };
@@ -8441,6 +8537,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       behaviorReason: 'string',
       illegalValueByParameterConstraints: { 'type': 'array', 'itemType': 'any' },
       illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
+      notSupportResources: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources },
       parameterKey: 'string',
       type: 'string',
     };
@@ -10273,6 +10370,47 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async cancelStackOperationWithOptions(request: CancelStackOperationRequest, runtime: $Util.RuntimeOptions): Promise<CancelStackOperationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowedStackOperations)) {
+      query["AllowedStackOperations"] = request.allowedStackOperations;
+    }
+
+    if (!Util.isUnset(request.cancelType)) {
+      query["CancelType"] = request.cancelType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelStackOperation",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelStackOperationResponse>(await this.callApi(params, req, runtime), new CancelStackOperationResponse({}));
+  }
+
+  async cancelStackOperation(request: CancelStackOperationRequest): Promise<CancelStackOperationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelStackOperationWithOptions(request, runtime);
+  }
+
   async cancelUpdateStackWithOptions(request: CancelUpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpdateStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10625,8 +10763,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateStackGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.autoDeployment))) {
-      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
+    if (!Util.isUnset(tmpReq.autoDeployment)) {
+      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
     }
 
     let query = { };
@@ -10720,8 +10858,8 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
@@ -10856,16 +10994,16 @@ export default class Client extends OpenApi {
       request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.sourceResourceGroup))) {
-      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceResourceGroup), "SourceResourceGroup", "json");
+    if (!Util.isUnset(tmpReq.sourceResourceGroup)) {
+      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResourceGroup, "SourceResourceGroup", "json");
     }
 
     if (!Util.isUnset(tmpReq.sourceResources)) {
       request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.sourceTag))) {
-      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceTag), "SourceTag", "json");
+    if (!Util.isUnset(tmpReq.sourceTag)) {
+      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTag, "SourceTag", "json");
     }
 
     let query = { };
@@ -11054,8 +11192,8 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
@@ -13554,12 +13692,12 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.autoDeployment))) {
-      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
+    if (!Util.isUnset(tmpReq.autoDeployment)) {
+      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
@@ -13673,8 +13811,8 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.deploymentTargets)) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
@@ -13850,16 +13988,16 @@ export default class Client extends OpenApi {
       request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.sourceResourceGroup))) {
-      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceResourceGroup), "SourceResourceGroup", "json");
+    if (!Util.isUnset(tmpReq.sourceResourceGroup)) {
+      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResourceGroup, "SourceResourceGroup", "json");
     }
 
     if (!Util.isUnset(tmpReq.sourceResources)) {
       request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.sourceTag))) {
-      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceTag), "SourceTag", "json");
+    if (!Util.isUnset(tmpReq.sourceTag)) {
+      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTag, "SourceTag", "json");
     }
 
     let query = { };
