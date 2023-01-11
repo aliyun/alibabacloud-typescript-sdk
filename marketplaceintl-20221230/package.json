@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/marketplaceintl20221230",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
