@@ -940,6 +940,143 @@ export class GetCardFlowInfoResponse extends $tea.Model {
   }
 }
 
+export class GetCardLatestFlowRequest extends $tea.Model {
+  iccid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardLatestFlowResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardLatestFlowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardLatestFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardLatestFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCardStatusStatisticsResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCardStatusStatisticsResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardStatusStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardStatusStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCredentialPoolStatisticsRequest extends $tea.Model {
   credentialNO?: string;
   date?: string;
@@ -1010,6 +1147,271 @@ export class GetCredentialPoolStatisticsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCredentialPoolStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperateResultRequest extends $tea.Model {
+  apiProduct?: string;
+  resId?: string;
+  serialNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      resId: 'ResId',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      resId: 'string',
+      serialNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperateResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetOperateResultResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetOperateResultResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperateResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOperateResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOperateResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealNameStatusRequest extends $tea.Model {
+  iccid?: string;
+  listMsisdns?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      listMsisdns: 'ListMsisdns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      listMsisdns: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealNameStatusShrinkRequest extends $tea.Model {
+  iccid?: string;
+  listMsisdnsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      listMsisdnsShrink: 'ListMsisdns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      listMsisdnsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealNameStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetRealNameStatusResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetRealNameStatusResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealNameStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRealNameStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRealNameStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSimCardStateDistributionRequest extends $tea.Model {
+  credentialNO?: string;
+  date?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialNO: 'CredentialNO',
+      date: 'Date',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialNO: 'string',
+      date: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSimCardStateDistributionResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSimCardStateDistributionResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSimCardStateDistributionResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSimCardStateDistributionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSimCardStateDistributionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSimCardStateDistributionResponseBody,
     };
   }
 
@@ -2486,6 +2888,326 @@ export class GetCardFlowInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCardStatusStatisticsResponseBodyDataErrorStopStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataExhaustStopStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataExpireStopStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataFlowOutStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataManageStopStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataRiskWaringStatisticsDTO extends $tea.Model {
+  leftFlowPercentageWarnCount?: number;
+  stopCount?: number;
+  waringTotalCount?: number;
+  warningCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      leftFlowPercentageWarnCount: 'LeftFlowPercentageWarnCount',
+      stopCount: 'StopCount',
+      waringTotalCount: 'WaringTotalCount',
+      warningCount: 'WarningCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      leftFlowPercentageWarnCount: 'number',
+      stopCount: 'number',
+      waringTotalCount: 'number',
+      warningCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataSingCardPeriodLeftFlowWarnDTO extends $tea.Model {
+  lessFlowPercentage10Count?: number;
+  lessFlowPercentage30Count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lessFlowPercentage10Count: 'LessFlowPercentage10Count',
+      lessFlowPercentage30Count: 'LessFlowPercentage30Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lessFlowPercentage10Count: 'number',
+      lessFlowPercentage30Count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataUnbindResumeStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyDataWeekWarnStatisticsDTO extends $tea.Model {
+  poolCount?: number;
+  sameFlowCardCount?: number;
+  singleCardCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolCount: 'PoolCount',
+      sameFlowCardCount: 'SameFlowCardCount',
+      singleCardCount: 'SingleCardCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolCount: 'number',
+      sameFlowCardCount: 'number',
+      singleCardCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardStatusStatisticsResponseBodyData extends $tea.Model {
+  errorStopStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataErrorStopStatisticsDTO;
+  exhaustStopStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataExhaustStopStatisticsDTO;
+  expireStopStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataExpireStopStatisticsDTO;
+  flowOutStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataFlowOutStatisticsDTO;
+  manageStopStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataManageStopStatisticsDTO;
+  riskWaringStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataRiskWaringStatisticsDTO;
+  singCardPeriodLeftFlowWarnDTO?: GetCardStatusStatisticsResponseBodyDataSingCardPeriodLeftFlowWarnDTO;
+  unCertifiedStopStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO;
+  unbindResumeStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataUnbindResumeStatisticsDTO;
+  weekWarnStatisticsDTO?: GetCardStatusStatisticsResponseBodyDataWeekWarnStatisticsDTO;
+  static names(): { [key: string]: string } {
+    return {
+      errorStopStatisticsDTO: 'ErrorStopStatisticsDTO',
+      exhaustStopStatisticsDTO: 'ExhaustStopStatisticsDTO',
+      expireStopStatisticsDTO: 'ExpireStopStatisticsDTO',
+      flowOutStatisticsDTO: 'FlowOutStatisticsDTO',
+      manageStopStatisticsDTO: 'ManageStopStatisticsDTO',
+      riskWaringStatisticsDTO: 'RiskWaringStatisticsDTO',
+      singCardPeriodLeftFlowWarnDTO: 'SingCardPeriodLeftFlowWarnDTO',
+      unCertifiedStopStatisticsDTO: 'UnCertifiedStopStatisticsDTO',
+      unbindResumeStatisticsDTO: 'UnbindResumeStatisticsDTO',
+      weekWarnStatisticsDTO: 'WeekWarnStatisticsDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorStopStatisticsDTO: GetCardStatusStatisticsResponseBodyDataErrorStopStatisticsDTO,
+      exhaustStopStatisticsDTO: GetCardStatusStatisticsResponseBodyDataExhaustStopStatisticsDTO,
+      expireStopStatisticsDTO: GetCardStatusStatisticsResponseBodyDataExpireStopStatisticsDTO,
+      flowOutStatisticsDTO: GetCardStatusStatisticsResponseBodyDataFlowOutStatisticsDTO,
+      manageStopStatisticsDTO: GetCardStatusStatisticsResponseBodyDataManageStopStatisticsDTO,
+      riskWaringStatisticsDTO: GetCardStatusStatisticsResponseBodyDataRiskWaringStatisticsDTO,
+      singCardPeriodLeftFlowWarnDTO: GetCardStatusStatisticsResponseBodyDataSingCardPeriodLeftFlowWarnDTO,
+      unCertifiedStopStatisticsDTO: GetCardStatusStatisticsResponseBodyDataUnCertifiedStopStatisticsDTO,
+      unbindResumeStatisticsDTO: GetCardStatusStatisticsResponseBodyDataUnbindResumeStatisticsDTO,
+      weekWarnStatisticsDTO: GetCardStatusStatisticsResponseBodyDataWeekWarnStatisticsDTO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
   cardActiveNum?: number;
   cardTotalNum?: number;
@@ -2539,6 +3261,90 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
       poolOutUsed: 'string',
       poolUsed: 'string',
       smsUsed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOperateResultResponseBodyData extends $tea.Model {
+  operateType?: string;
+  result?: boolean;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operateType: 'OperateType',
+      result: 'Result',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateType: 'string',
+      result: 'boolean',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealNameStatusResponseBodyData extends $tea.Model {
+  desc?: string;
+  realNameStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      realNameStatus: 'RealNameStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      realNameStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSimCardStateDistributionResponseBodyData extends $tea.Model {
+  cardCount?: number;
+  destoryedCount?: number;
+  shutDownCount?: number;
+  stopCount?: number;
+  testCount?: number;
+  unusedCount?: number;
+  usingCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cardCount: 'CardCount',
+      destoryedCount: 'DestoryedCount',
+      shutDownCount: 'ShutDownCount',
+      stopCount: 'StopCount',
+      testCount: 'TestCount',
+      unusedCount: 'UnusedCount',
+      usingCount: 'UsingCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCount: 'number',
+      destoryedCount: 'number',
+      shutDownCount: 'number',
+      stopCount: 'number',
+      testCount: 'number',
+      unusedCount: 'number',
+      usingCount: 'number',
     };
   }
 
@@ -3476,6 +4282,56 @@ export default class Client extends OpenApi {
     return await this.getCardFlowInfoWithOptions(request, runtime);
   }
 
+  async getCardLatestFlowWithOptions(request: GetCardLatestFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetCardLatestFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCardLatestFlow",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardLatestFlowResponse>(await this.callApi(params, req, runtime), new GetCardLatestFlowResponse({}));
+  }
+
+  async getCardLatestFlow(request: GetCardLatestFlowRequest): Promise<GetCardLatestFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardLatestFlowWithOptions(request, runtime);
+  }
+
+  async getCardStatusStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCardStatusStatisticsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetCardStatusStatistics",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardStatusStatisticsResponse>(await this.callApi(params, req, runtime), new GetCardStatusStatisticsResponse({}));
+  }
+
+  async getCardStatusStatistics(): Promise<GetCardStatusStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardStatusStatisticsWithOptions(runtime);
+  }
+
   async getCredentialPoolStatisticsWithOptions(request: GetCredentialPoolStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetCredentialPoolStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3507,6 +4363,115 @@ export default class Client extends OpenApi {
   async getCredentialPoolStatistics(request: GetCredentialPoolStatisticsRequest): Promise<GetCredentialPoolStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCredentialPoolStatisticsWithOptions(request, runtime);
+  }
+
+  async getOperateResultWithOptions(request: GetOperateResultRequest, runtime: $Util.RuntimeOptions): Promise<GetOperateResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiProduct)) {
+      query["ApiProduct"] = request.apiProduct;
+    }
+
+    if (!Util.isUnset(request.resId)) {
+      query["ResId"] = request.resId;
+    }
+
+    if (!Util.isUnset(request.serialNo)) {
+      query["SerialNo"] = request.serialNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOperateResult",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOperateResultResponse>(await this.callApi(params, req, runtime), new GetOperateResultResponse({}));
+  }
+
+  async getOperateResult(request: GetOperateResultRequest): Promise<GetOperateResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOperateResultWithOptions(request, runtime);
+  }
+
+  async getRealNameStatusWithOptions(tmpReq: GetRealNameStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetRealNameStatusResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetRealNameStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.listMsisdns)) {
+      request.listMsisdnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listMsisdns, "ListMsisdns", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    if (!Util.isUnset(request.listMsisdnsShrink)) {
+      query["ListMsisdns"] = request.listMsisdnsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRealNameStatus",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRealNameStatusResponse>(await this.callApi(params, req, runtime), new GetRealNameStatusResponse({}));
+  }
+
+  async getRealNameStatus(request: GetRealNameStatusRequest): Promise<GetRealNameStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRealNameStatusWithOptions(request, runtime);
+  }
+
+  async getSimCardStateDistributionWithOptions(request: GetSimCardStateDistributionRequest, runtime: $Util.RuntimeOptions): Promise<GetSimCardStateDistributionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.credentialNO)) {
+      query["CredentialNO"] = request.credentialNO;
+    }
+
+    if (!Util.isUnset(request.date)) {
+      query["Date"] = request.date;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSimCardStateDistribution",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSimCardStateDistributionResponse>(await this.callApi(params, req, runtime), new GetSimCardStateDistributionResponse({}));
+  }
+
+  async getSimCardStateDistribution(request: GetSimCardStateDistributionRequest): Promise<GetSimCardStateDistributionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSimCardStateDistributionWithOptions(request, runtime);
   }
 
   async listCardInfoWithOptions(request: ListCardInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListCardInfoResponse> {
