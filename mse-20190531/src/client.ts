@@ -2562,6 +2562,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
   enableRules?: boolean;
   entryRule?: string;
   entryRules?: CreateOrUpdateSwimmingLaneRequestEntryRules[];
+  gatewaySwimmingLaneRouteJson?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson;
   gmtCreate?: string;
   gmtModified?: string;
   groupId?: number;
@@ -2580,6 +2581,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       enableRules: 'EnableRules',
       entryRule: 'EntryRule',
       entryRules: 'EntryRules',
+      gatewaySwimmingLaneRouteJson: 'GatewaySwimmingLaneRouteJson',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       groupId: 'GroupId',
@@ -2601,6 +2603,74 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       enableRules: 'boolean',
       entryRule: 'string',
       entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRules },
+      gatewaySwimmingLaneRouteJson: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson,
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      groupId: 'number',
+      id: 'number',
+      licenseKey: 'string',
+      name: 'string',
+      regionId: 'string',
+      source: 'string',
+      status: 'number',
+      tag: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  enable?: boolean;
+  enableRules?: boolean;
+  entryRule?: string;
+  entryRules?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRules[];
+  gatewaySwimmingLaneRouteJsonShrink?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  groupId?: number;
+  id?: number;
+  licenseKey?: string;
+  name?: string;
+  regionId?: string;
+  source?: string;
+  status?: number;
+  tag?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      enable: 'Enable',
+      enableRules: 'EnableRules',
+      entryRule: 'EntryRule',
+      entryRules: 'EntryRules',
+      gatewaySwimmingLaneRouteJsonShrink: 'GatewaySwimmingLaneRouteJson',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      groupId: 'GroupId',
+      id: 'Id',
+      licenseKey: 'LicenseKey',
+      name: 'Name',
+      regionId: 'RegionId',
+      source: 'Source',
+      status: 'Status',
+      tag: 'Tag',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      enable: 'boolean',
+      enableRules: 'boolean',
+      entryRule: 'string',
+      entryRules: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneShrinkRequestEntryRules },
+      gatewaySwimmingLaneRouteJsonShrink: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       groupId: 'number',
@@ -17202,6 +17272,142 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
   }
 }
 
+export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions extends $tea.Model {
+  cond?: string;
+  name?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'Cond',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson extends $tea.Model {
+  conditions?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions[];
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  routeIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      routeIdList: 'RouteIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions },
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      routeIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends $tea.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'Cond',
+      datum: 'Datum',
+      divisor: 'Divisor',
+      name: 'Name',
+      nameList: 'NameList',
+      operator: 'Operator',
+      rate: 'Rate',
+      remainder: 'Remainder',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $tea.Model {
+  condition?: string;
+  enable?: boolean;
+  path?: string;
+  paths?: string[];
+  priority?: number;
+  restItems?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      enable: 'Enable',
+      path: 'Path',
+      paths: 'Paths',
+      priority: 'Priority',
+      restItems: 'RestItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      enable: 'boolean',
+      path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateZnodeResponseBodyData extends $tea.Model {
   data?: string;
   dir?: boolean;
@@ -25502,8 +25708,14 @@ export default class Client extends OpenApi {
     return await this.createNacosServiceWithOptions(request, runtime);
   }
 
-  async createOrUpdateSwimmingLaneWithOptions(request: CreateOrUpdateSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneResponse> {
-    Util.validateModel(request);
+  async createOrUpdateSwimmingLaneWithOptions(tmpReq: CreateOrUpdateSwimmingLaneRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSwimmingLaneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateOrUpdateSwimmingLaneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.gatewaySwimmingLaneRouteJson)) {
+      request.gatewaySwimmingLaneRouteJsonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gatewaySwimmingLaneRouteJson, "GatewaySwimmingLaneRouteJson", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -25523,6 +25735,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.entryRules)) {
       query["EntryRules"] = request.entryRules;
+    }
+
+    if (!Util.isUnset(request.gatewaySwimmingLaneRouteJsonShrink)) {
+      query["GatewaySwimmingLaneRouteJson"] = request.gatewaySwimmingLaneRouteJsonShrink;
     }
 
     if (!Util.isUnset(request.gmtCreate)) {
