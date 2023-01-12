@@ -730,6 +730,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
   ipSetConfig?: CreateAcceleratorRequestIpSetConfig;
   name?: string;
   pricingCycle?: string;
+  promotionOptionNo?: string;
   regionId?: string;
   resourceGroupId?: string;
   spec?: string;
@@ -745,6 +746,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       ipSetConfig: 'IpSetConfig',
       name: 'Name',
       pricingCycle: 'PricingCycle',
+      promotionOptionNo: 'PromotionOptionNo',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
@@ -763,6 +765,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       ipSetConfig: CreateAcceleratorRequestIpSetConfig,
       name: 'string',
       pricingCycle: 'string',
+      promotionOptionNo: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       spec: 'string',
@@ -1018,6 +1021,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
   clientToken?: string;
   duration?: string;
   pricingCycle?: string;
+  promotionOptionNo?: string;
   ratio?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -1037,6 +1041,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       clientToken: 'ClientToken',
       duration: 'Duration',
       pricingCycle: 'PricingCycle',
+      promotionOptionNo: 'PromotionOptionNo',
       ratio: 'Ratio',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -1059,6 +1064,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       clientToken: 'string',
       duration: 'string',
       pricingCycle: 'string',
+      promotionOptionNo: 'string',
       ratio: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -1376,9 +1382,12 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
   autoRenewDuration?: number;
   autoUseCoupon?: string;
   bandwidthBillingType?: string;
+  chargeType?: string;
   clientToken?: string;
+  dryRun?: boolean;
   duration?: number;
   pricingCycle?: string;
+  promotionOptionNo?: string;
   regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
@@ -1388,9 +1397,12 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       autoRenewDuration: 'AutoRenewDuration',
       autoUseCoupon: 'AutoUseCoupon',
       bandwidthBillingType: 'BandwidthBillingType',
+      chargeType: 'ChargeType',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       duration: 'Duration',
       pricingCycle: 'PricingCycle',
+      promotionOptionNo: 'PromotionOptionNo',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -1403,9 +1415,12 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
       autoRenewDuration: 'number',
       autoUseCoupon: 'string',
       bandwidthBillingType: 'string',
+      chargeType: 'string',
       clientToken: 'string',
+      dryRun: 'boolean',
       duration: 'number',
       pricingCycle: 'string',
+      promotionOptionNo: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
     };
@@ -2115,6 +2130,75 @@ export class CreateCustomRoutingEndpointsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCustomRoutingEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainRequest extends $tea.Model {
+  acceleratorIds?: string[];
+  domain?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorIds: 'AcceleratorIds',
+      domain: 'Domain',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorIds: { 'type': 'array', 'itemType': 'string' },
+      domain: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDomainResponseBody,
     };
   }
 
@@ -3677,6 +3761,75 @@ export class DeleteCustomRoutingEndpointsResponse extends $tea.Model {
   }
 }
 
+export class DeleteDomainAcceleratorRelationRequest extends $tea.Model {
+  acceleratorIds?: string[];
+  domain?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorIds: 'AcceleratorIds',
+      domain: 'Domain',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorIds: { 'type': 'array', 'itemType': 'string' },
+      domain: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainAcceleratorRelationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainAcceleratorRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDomainAcceleratorRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDomainAcceleratorRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEndpointGroupRequest extends $tea.Model {
   acceleratorId?: string;
   clientToken?: string;
@@ -4206,6 +4359,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   basicBandwidthPackage?: DescribeAcceleratorResponseBodyBasicBandwidthPackage;
   cenId?: string;
   createTime?: number;
+  crossBorderMode?: string;
   crossDomainBandwidthPackage?: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage;
   crossPrivateState?: string;
   ddosId?: string;
@@ -4229,6 +4383,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       basicBandwidthPackage: 'BasicBandwidthPackage',
       cenId: 'CenId',
       createTime: 'CreateTime',
+      crossBorderMode: 'CrossBorderMode',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       crossPrivateState: 'CrossPrivateState',
       ddosId: 'DdosId',
@@ -4255,6 +4410,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       basicBandwidthPackage: DescribeAcceleratorResponseBodyBasicBandwidthPackage,
       cenId: 'string',
       createTime: 'number',
+      crossBorderMode: 'string',
       crossDomainBandwidthPackage: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage,
       crossPrivateState: 'string',
       ddosId: 'string',
@@ -4685,11 +4841,181 @@ export class DescribeBandwidthPackageAutoRenewAttributeResponse extends $tea.Mod
   }
 }
 
+export class DescribeCommodityRequest extends $tea.Model {
+  commodityCode?: string;
+  orderType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      orderType: 'OrderType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      orderType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponseBody extends $tea.Model {
+  commodityCode?: string;
+  commodityName?: string;
+  components?: DescribeCommodityResponseBodyComponents[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      commodityName: 'CommodityName',
+      components: 'Components',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityName: 'string',
+      components: { 'type': 'array', 'itemType': DescribeCommodityResponseBodyComponents },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCommodityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCommodityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceRequest extends $tea.Model {
+  orders?: DescribeCommodityPriceRequestOrders[];
+  promotionOptionNo?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orders: 'Orders',
+      promotionOptionNo: 'PromotionOptionNo',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orders: { 'type': 'array', 'itemType': DescribeCommodityPriceRequestOrders },
+      promotionOptionNo: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBody extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  orderDetails?: DescribeCommodityPriceResponseBodyOrderDetails[];
+  originalPrice?: number;
+  promotions?: DescribeCommodityPriceResponseBodyPromotions[];
+  requestId?: string;
+  ruleDetails?: DescribeCommodityPriceResponseBodyRuleDetails[];
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      orderDetails: 'OrderDetails',
+      originalPrice: 'OriginalPrice',
+      promotions: 'Promotions',
+      requestId: 'RequestId',
+      ruleDetails: 'RuleDetails',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      orderDetails: { 'type': 'array', 'itemType': DescribeCommodityPriceResponseBodyOrderDetails },
+      originalPrice: 'number',
+      promotions: { 'type': 'array', 'itemType': DescribeCommodityPriceResponseBodyPromotions },
+      requestId: 'string',
+      ruleDetails: { 'type': 'array', 'itemType': DescribeCommodityPriceResponseBodyRuleDetails },
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCommodityPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCommodityPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomRoutingEndPointTrafficPolicyRequest extends $tea.Model {
+  endpointId?: string;
   policyId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      endpointId: 'EndpointId',
       policyId: 'PolicyId',
       regionId: 'RegionId',
     };
@@ -4697,6 +5023,7 @@ export class DescribeCustomRoutingEndPointTrafficPolicyRequest extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      endpointId: 'string',
       policyId: 'string',
       regionId: 'string',
     };
@@ -4717,6 +5044,7 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
   policyId?: string;
   portRanges?: DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges[];
   requestId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
@@ -4728,6 +5056,7 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
       policyId: 'PolicyId',
       portRanges: 'PortRanges',
       requestId: 'RequestId',
+      state: 'State',
     };
   }
 
@@ -4742,6 +5071,7 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
       policyId: 'string',
       portRanges: { 'type': 'array', 'itemType': DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges },
       requestId: 'string',
+      state: 'string',
     };
   }
 
@@ -4776,10 +5106,12 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponse extends $tea.Mod
 }
 
 export class DescribeCustomRoutingEndpointRequest extends $tea.Model {
+  endpointGroup?: string;
   endpointId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      endpointGroup: 'EndpointGroup',
       endpointId: 'EndpointId',
       regionId: 'RegionId',
     };
@@ -4787,6 +5119,7 @@ export class DescribeCustomRoutingEndpointRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endpointGroup: 'string',
       endpointId: 'string',
       regionId: 'string',
     };
@@ -4804,6 +5137,7 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
   endpointId?: string;
   listenerId?: string;
   requestId?: string;
+  state?: string;
   trafficToEndpointPolicy?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -4814,6 +5148,7 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
       endpointId: 'EndpointId',
       listenerId: 'ListenerId',
       requestId: 'RequestId',
+      state: 'State',
       trafficToEndpointPolicy: 'TrafficToEndpointPolicy',
       type: 'Type',
     };
@@ -4827,6 +5162,7 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
       endpointId: 'string',
       listenerId: 'string',
       requestId: 'string',
+      state: 'string',
       trafficToEndpointPolicy: 'string',
       type: 'string',
     };
@@ -4972,10 +5308,12 @@ export class DescribeCustomRoutingEndpointGroupResponse extends $tea.Model {
 
 export class DescribeCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
   destinationId?: string;
+  endpointGroupId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       destinationId: 'DestinationId',
+      endpointGroupId: 'EndpointGroupId',
       regionId: 'RegionId',
     };
   }
@@ -4983,6 +5321,7 @@ export class DescribeCustomRoutingEndpointGroupDestinationsRequest extends $tea.
   static types(): { [key: string]: any } {
     return {
       destinationId: 'string',
+      endpointGroupId: 'string',
       regionId: 'string',
     };
   }
@@ -5000,6 +5339,7 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
   listenerId?: string;
   protocols?: string[];
   requestId?: string;
+  state?: string;
   toPort?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5010,6 +5350,7 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
       listenerId: 'ListenerId',
       protocols: 'Protocols',
       requestId: 'RequestId',
+      state: 'State',
       toPort: 'ToPort',
     };
   }
@@ -5023,6 +5364,7 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
       listenerId: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      state: 'string',
       toPort: 'number',
     };
   }
@@ -6830,6 +7172,144 @@ export class GetHealthStatusResponse extends $tea.Model {
   }
 }
 
+export class GetInvalidDomainCountRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInvalidDomainCountResponseBody extends $tea.Model {
+  invalidDomainCount?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invalidDomainCount: 'InvalidDomainCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDomainCount: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInvalidDomainCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetInvalidDomainCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInvalidDomainCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpsetsBandwidthLimitRequest extends $tea.Model {
+  acceleratorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpsetsBandwidthLimitResponseBody extends $tea.Model {
+  bandwidthAllocationType?: string;
+  bandwidthLimit?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthAllocationType: 'BandwidthAllocationType',
+      bandwidthLimit: 'BandwidthLimit',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthAllocationType: 'string',
+      bandwidthLimit: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpsetsBandwidthLimitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetIpsetsBandwidthLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIpsetsBandwidthLimitResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSpareIpRequest extends $tea.Model {
   acceleratorId?: string;
   clientToken?: string;
@@ -8093,6 +8573,78 @@ export class ListBusiRegionsResponse extends $tea.Model {
   }
 }
 
+export class ListCommonAreasRequest extends $tea.Model {
+  ipVersion?: string;
+  isEpg?: boolean;
+  isIpSet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ipVersion: 'IpVersion',
+      isEpg: 'IsEpg',
+      isIpSet: 'IsIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipVersion: 'string',
+      isEpg: 'boolean',
+      isIpSet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonAreasResponseBody extends $tea.Model {
+  areas?: ListCommonAreasResponseBodyAreas[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      areas: 'Areas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areas: { 'type': 'array', 'itemType': ListCommonAreasResponseBodyAreas },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonAreasResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCommonAreasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCommonAreasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomRoutingEndpointGroupDestinationsRequest extends $tea.Model {
   acceleratorId?: string;
   endpointGroupId?: string;
@@ -8645,6 +9197,96 @@ export class ListCustomRoutingPortMappingsByDestinationResponse extends $tea.Mod
   }
 }
 
+export class ListDomainsRequest extends $tea.Model {
+  acceleratorId?: string;
+  domain?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      domain: 'Domain',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      domain: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBody extends $tea.Model {
+  domains?: ListDomainsResponseBodyDomains[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': ListDomainsResponseBodyDomains },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEndpointGroupsRequest extends $tea.Model {
   acceleratorId?: string;
   accessLogSwitch?: string;
@@ -8913,6 +9555,75 @@ export class ListIpSetsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIpSetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIspTypesRequest extends $tea.Model {
+  acceleratorType?: string;
+  businessRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      businessRegionId: 'BusinessRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      businessRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIspTypesResponseBody extends $tea.Model {
+  ispTypeList?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ispTypeList: 'IspTypeList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispTypeList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIspTypesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIspTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIspTypesResponseBody,
     };
   }
 
@@ -9330,6 +10041,72 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCrossPrivatePermissionRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCrossPrivatePermissionResponseBody extends $tea.Model {
+  crossPrivatePermission?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossPrivatePermission: 'CrossPrivatePermission',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossPrivatePermission: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCrossPrivatePermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCrossPrivatePermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCrossPrivatePermissionResponseBody,
     };
   }
 
@@ -10622,6 +11399,78 @@ export class UpdateBasicIpSetResponse extends $tea.Model {
   }
 }
 
+export class UpdateCrossPrivateStateRequest extends $tea.Model {
+  acceleratorId?: string;
+  crossPrivateState?: boolean;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      crossPrivateState: 'CrossPrivateState',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      crossPrivateState: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCrossPrivateStateResponseBody extends $tea.Model {
+  crossPrivateState?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crossPrivateState: 'CrossPrivateState',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossPrivateState: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCrossPrivateStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateCrossPrivateStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCrossPrivateStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCustomRoutingEndpointGroupAttributeRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
@@ -10914,6 +11763,147 @@ export class UpdateCustomRoutingEndpointsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateCustomRoutingEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainRequest extends $tea.Model {
+  domain?: string;
+  regionId?: string;
+  targetDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      regionId: 'RegionId',
+      targetDomain: 'TargetDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      regionId: 'string',
+      targetDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainStateRequest extends $tea.Model {
+  domain?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainStateResponseBody extends $tea.Model {
+  domain?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDomainStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDomainStateResponseBody,
     };
   }
 
@@ -12803,6 +13793,323 @@ export class DescribeBandwidthPackageResponseBodyTags extends $tea.Model {
   }
 }
 
+export class DescribeCommodityResponseBodyComponentsPropertiesPropertyValueList extends $tea.Model {
+  orderIndex?: number;
+  text?: string;
+  tips?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderIndex: 'OrderIndex',
+      text: 'Text',
+      tips: 'Tips',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderIndex: 'number',
+      text: 'string',
+      tips: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponseBodyComponentsProperties extends $tea.Model {
+  code?: string;
+  name?: string;
+  propertyValueList?: DescribeCommodityResponseBodyComponentsPropertiesPropertyValueList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      propertyValueList: 'PropertyValueList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      propertyValueList: { 'type': 'array', 'itemType': DescribeCommodityResponseBodyComponentsPropertiesPropertyValueList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponseBodyComponents extends $tea.Model {
+  componentCode?: string;
+  componentName?: string;
+  properties?: DescribeCommodityResponseBodyComponentsProperties[];
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      componentName: 'ComponentName',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      componentName: 'string',
+      properties: { 'type': 'array', 'itemType': DescribeCommodityResponseBodyComponentsProperties },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceRequestOrdersComponentsProperties extends $tea.Model {
+  code?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceRequestOrdersComponents extends $tea.Model {
+  componentCode?: string;
+  properties?: DescribeCommodityPriceRequestOrdersComponentsProperties[];
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      properties: { 'type': 'array', 'itemType': DescribeCommodityPriceRequestOrdersComponentsProperties },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceRequestOrders extends $tea.Model {
+  chargeType?: string;
+  commodityCode?: string;
+  components?: DescribeCommodityPriceRequestOrdersComponents[];
+  duration?: number;
+  orderType?: string;
+  pricingCycle?: string;
+  quantity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      components: 'Components',
+      duration: 'Duration',
+      orderType: 'OrderType',
+      pricingCycle: 'PricingCycle',
+      quantity: 'Quantity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      components: { 'type': 'array', 'itemType': DescribeCommodityPriceRequestOrdersComponents },
+      duration: 'number',
+      orderType: 'string',
+      pricingCycle: 'string',
+      quantity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBodyOrderDetailsModuleDetails extends $tea.Model {
+  discountPrice?: number;
+  moduleCode?: string;
+  moduleName?: string;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discountPrice: 'DiscountPrice',
+      moduleCode: 'ModuleCode',
+      moduleName: 'ModuleName',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountPrice: 'number',
+      moduleCode: 'string',
+      moduleName: 'string',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBodyOrderDetailsPromDetails extends $tea.Model {
+  finalPromFee?: number;
+  optionCode?: string;
+  promType?: string;
+  promotionId?: string;
+  promotionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      promType: 'PromType',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finalPromFee: 'number',
+      optionCode: 'string',
+      promType: 'string',
+      promotionId: 'string',
+      promotionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBodyOrderDetails extends $tea.Model {
+  commodityCode?: string;
+  commodityName?: string;
+  discountPrice?: number;
+  moduleDetails?: DescribeCommodityPriceResponseBodyOrderDetailsModuleDetails[];
+  originalPrice?: number;
+  promDetails?: DescribeCommodityPriceResponseBodyOrderDetailsPromDetails[];
+  quantity?: number;
+  ruleIds?: number[];
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      commodityName: 'CommodityName',
+      discountPrice: 'DiscountPrice',
+      moduleDetails: 'ModuleDetails',
+      originalPrice: 'OriginalPrice',
+      promDetails: 'PromDetails',
+      quantity: 'Quantity',
+      ruleIds: 'RuleIds',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityName: 'string',
+      discountPrice: 'number',
+      moduleDetails: { 'type': 'array', 'itemType': DescribeCommodityPriceResponseBodyOrderDetailsModuleDetails },
+      originalPrice: 'number',
+      promDetails: { 'type': 'array', 'itemType': DescribeCommodityPriceResponseBodyOrderDetailsPromDetails },
+      quantity: 'number',
+      ruleIds: { 'type': 'array', 'itemType': 'number' },
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBodyPromotions extends $tea.Model {
+  canPromFee?: number;
+  optionCode?: string;
+  promotionName?: string;
+  promotionOptionNo?: string;
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      canPromFee: 'CanPromFee',
+      optionCode: 'OptionCode',
+      promotionName: 'PromotionName',
+      promotionOptionNo: 'PromotionOptionNo',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canPromFee: 'number',
+      optionCode: 'string',
+      promotionName: 'string',
+      promotionOptionNo: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityPriceResponseBodyRuleDetails extends $tea.Model {
+  ruleId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges extends $tea.Model {
   fromPort?: number;
   toPort?: number;
@@ -13411,6 +14718,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   basicBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
   cenId?: string;
   createTime?: number;
+  crossBorderMode?: string;
   crossDomainBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
   ddosId?: string;
   description?: string;
@@ -13434,6 +14742,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       basicBandwidthPackage: 'BasicBandwidthPackage',
       cenId: 'CenId',
       createTime: 'CreateTime',
+      crossBorderMode: 'CrossBorderMode',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       ddosId: 'DdosId',
       description: 'Description',
@@ -13460,6 +14769,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       basicBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
       cenId: 'string',
       createTime: 'number',
+      crossBorderMode: 'string',
       crossDomainBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
       ddosId: 'string',
       description: 'string',
@@ -14219,6 +15529,53 @@ export class ListBusiRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class ListCommonAreasResponseBodyAreasRegionList extends $tea.Model {
+  localName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonAreasResponseBodyAreas extends $tea.Model {
+  areaId?: string;
+  localName?: string;
+  regionList?: ListCommonAreasResponseBodyAreasRegionList[];
+  static names(): { [key: string]: string } {
+    return {
+      areaId: 'AreaId',
+      localName: 'LocalName',
+      regionList: 'RegionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      areaId: 'string',
+      localName: 'string',
+      regionList: { 'type': 'array', 'itemType': ListCommonAreasResponseBodyAreasRegionList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations extends $tea.Model {
   acceleratorId?: string;
   destinationId?: string;
@@ -14523,6 +15880,53 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBodyPortMappings 
       listenerId: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
       vswitch: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBodyDomainsAccelerators extends $tea.Model {
+  acceleratorId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBodyDomains extends $tea.Model {
+  accelerators?: ListDomainsResponseBodyDomainsAccelerators[];
+  domain?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerators: 'Accelerators',
+      domain: 'Domain',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerators: { 'type': 'array', 'itemType': ListDomainsResponseBodyDomainsAccelerators },
+      domain: 'string',
+      state: 'string',
     };
   }
 
@@ -15894,6 +17298,16 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+    *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
+    *     *   If an ACL is in the **active** state, the IP entries are added.
+    * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request AddEntriesToAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddEntriesToAclResponse
+   */
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15934,11 +17348,30 @@ export default class Client extends OpenApi {
     return $tea.cast<AddEntriesToAclResponse>(await this.callApi(params, req, runtime), new AddEntriesToAclResponse({}));
   }
 
+  /**
+    * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+    *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
+    *     *   If an ACL is in the **active** state, the IP entries are added.
+    * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request AddEntriesToAclRequest
+    * @return AddEntriesToAclResponse
+   */
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addEntriesToAclWithOptions(request, runtime);
   }
 
+  /**
+    * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+    *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+    * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AssociateAclsWithListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateAclsWithListenerResponse
+   */
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15983,11 +17416,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateAclsWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAclsWithListenerResponse({}));
   }
 
+  /**
+    * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+    *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+    * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AssociateAclsWithListenerRequest
+    * @return AssociateAclsWithListenerResponse
+   */
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateAclsWithListenerWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can associate additional certificates with only HTTPS listeners.
+    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+    * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AssociateAdditionalCertificatesWithListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateAdditionalCertificatesWithListenerResponse
+   */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16028,11 +17481,36 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
   }
 
+  /**
+    * *   You can associate additional certificates with only HTTPS listeners.
+    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+    * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AssociateAdditionalCertificatesWithListenerRequest
+    * @return AssociateAdditionalCertificatesWithListenerResponse
+   */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateAdditionalCertificatesWithListenerWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   When you call this operation, the system checks whether the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos. In this case, the following rules apply to the GA instance:
+    *     *   If the GA instance does not assume the service-linked role AliyunServiceRoleForGaAntiDdos, the system automatically creates the service-linked role and attaches the policy AliyunServiceRolePolicyForGaAntiDdos to the service-linked role. This allows GA to access the Anti-DDoS Pro/Premium instance.
+    *     *   If the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos, the system does not create the service-linked role again.
+    *     For more information, see [AliyunServiceRoleForGaAntiDdos](~~186805~~).
+    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+    * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+    *
+    * @param request AttachDdosToAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachDdosToAcceleratorResponse
+   */
   async attachDdosToAcceleratorWithOptions(request: AttachDdosToAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<AttachDdosToAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16069,11 +17547,35 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDdosToAcceleratorResponse>(await this.callApi(params, req, runtime), new AttachDdosToAcceleratorResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   When you call this operation, the system checks whether the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos. In this case, the following rules apply to the GA instance:
+    *     *   If the GA instance does not assume the service-linked role AliyunServiceRoleForGaAntiDdos, the system automatically creates the service-linked role and attaches the policy AliyunServiceRolePolicyForGaAntiDdos to the service-linked role. This allows GA to access the Anti-DDoS Pro/Premium instance.
+    *     *   If the GA instance assumes the service-linked role AliyunServiceRoleForGaAntiDdos, the system does not create the service-linked role again.
+    *     For more information, see [AliyunServiceRoleForGaAntiDdos](~~186805~~).
+    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+    * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+    *
+    * @param request AttachDdosToAcceleratorRequest
+    * @return AttachDdosToAcceleratorResponse
+   */
   async attachDdosToAccelerator(request: AttachDdosToAcceleratorRequest): Promise<AttachDdosToAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDdosToAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+    * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AttachLogStoreToEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachLogStoreToEndpointGroupResponse
+   */
   async attachLogStoreToEndpointGroupWithOptions(request: AttachLogStoreToEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachLogStoreToEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16126,11 +17628,30 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachLogStoreToEndpointGroupResponse>(await this.callApi(params, req, runtime), new AttachLogStoreToEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+    * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request AttachLogStoreToEndpointGroupRequest
+    * @return AttachLogStoreToEndpointGroupResponse
+   */
   async attachLogStoreToEndpointGroup(request: AttachLogStoreToEndpointGroupRequest): Promise<AttachLogStoreToEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachLogStoreToEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+    *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+    * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+    *
+    * @param request BandwidthPackageAddAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BandwidthPackageAddAcceleratorResponse
+   */
   async bandwidthPackageAddAcceleratorWithOptions(request: BandwidthPackageAddAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageAddAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16163,11 +17684,30 @@ export default class Client extends OpenApi {
     return $tea.cast<BandwidthPackageAddAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageAddAcceleratorResponse({}));
   }
 
+  /**
+    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+    *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+    * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+    *
+    * @param request BandwidthPackageAddAcceleratorRequest
+    * @return BandwidthPackageAddAcceleratorResponse
+   */
   async bandwidthPackageAddAccelerator(request: BandwidthPackageAddAcceleratorRequest): Promise<BandwidthPackageAddAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bandwidthPackageAddAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to disassociate.
+    *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+    * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+    *
+    * @param request BandwidthPackageRemoveAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BandwidthPackageRemoveAcceleratorResponse
+   */
   async bandwidthPackageRemoveAcceleratorWithOptions(request: BandwidthPackageRemoveAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16200,11 +17740,27 @@ export default class Client extends OpenApi {
     return $tea.cast<BandwidthPackageRemoveAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageRemoveAcceleratorResponse({}));
   }
 
+  /**
+    * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to disassociate.
+    *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+    * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+    *
+    * @param request BandwidthPackageRemoveAcceleratorRequest
+    * @return BandwidthPackageRemoveAcceleratorResponse
+   */
   async bandwidthPackageRemoveAccelerator(request: BandwidthPackageRemoveAcceleratorRequest): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bandwidthPackageRemoveAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request ChangeResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16245,11 +17801,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+    * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request ChangeResourceGroupRequest
+    * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+    *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+    * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request ConfigEndpointProbeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfigEndpointProbeResponse
+   */
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16302,11 +17874,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigEndpointProbeResponse>(await this.callApi(params, req, runtime), new ConfigEndpointProbeResponse({}));
   }
 
+  /**
+    * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+    *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+    * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request ConfigEndpointProbeRequest
+    * @return ConfigEndpointProbeResponse
+   */
   async configEndpointProbe(request: ConfigEndpointProbeRequest): Promise<ConfigEndpointProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configEndpointProbeWithOptions(request, runtime);
   }
 
+  /**
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+    * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+    *
+    * @param request CreateAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAcceleratorResponse
+   */
   async createAcceleratorWithOptions(request: CreateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16338,7 +17928,7 @@ export default class Client extends OpenApi {
       query["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset($tea.toMap(request.ipSetConfig))) {
+    if (!Util.isUnset(request.ipSetConfig)) {
       query["IpSetConfig"] = request.ipSetConfig;
     }
 
@@ -16348,6 +17938,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pricingCycle)) {
       query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -16379,11 +17973,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAcceleratorResponse>(await this.callApi(params, req, runtime), new CreateAcceleratorResponse({}));
   }
 
+  /**
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+    * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+    *
+    * @param request CreateAcceleratorRequest
+    * @return CreateAcceleratorResponse
+   */
   async createAccelerator(request: CreateAcceleratorRequest): Promise<CreateAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
+    * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+    * *   If the ACL is in the **active** state, the ACL is created.
+    *
+    * @param request CreateAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAclResponse
+   */
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16432,11 +18043,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAclResponse>(await this.callApi(params, req, runtime), new CreateAclResponse({}));
   }
 
+  /**
+    * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
+    * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+    * *   If the ACL is in the **active** state, the ACL is created.
+    *
+    * @param request CreateAclRequest
+    * @return CreateAclResponse
+   */
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAclWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between the client and origin server and checks the availability of the origin.
+    * Before you call this operation, take note of the following items:
+    * *   **CreateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns the ID of an origin probing task, but the origin probing task is still being created in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the state of the origin probing task.
+    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. In this case, you can only perform query operations.
+    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateApplicationMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateApplicationMonitorResponse
+   */
   async createApplicationMonitorWithOptions(request: CreateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16501,11 +18132,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationMonitorResponse>(await this.callApi(params, req, runtime), new CreateApplicationMonitorResponse({}));
   }
 
+  /**
+    * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between the client and origin server and checks the availability of the origin.
+    * Before you call this operation, take note of the following items:
+    * *   **CreateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns the ID of an origin probing task, but the origin probing task is still being created in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the state of the origin probing task.
+    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. In this case, you can only perform query operations.
+    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateApplicationMonitorRequest
+    * @return CreateApplicationMonitorResponse
+   */
   async createApplicationMonitor(request: CreateApplicationMonitorRequest): Promise<CreateApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+    * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+    * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+    * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+    * When you call this operation, take note of the following items:
+    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+    *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+    * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBandwidthPackageResponse
+   */
   async createBandwidthPackageWithOptions(request: CreateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16561,6 +18218,10 @@ export default class Client extends OpenApi {
       query["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!Util.isUnset(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
     if (!Util.isUnset(request.ratio)) {
       query["Ratio"] = request.ratio;
     }
@@ -16594,11 +18255,35 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new CreateBandwidthPackageResponse({}));
   }
 
+  /**
+    * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+    * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+    * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+    * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+    * When you call this operation, take note of the following items:
+    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+    *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+    * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBandwidthPackageRequest
+    * @return CreateBandwidthPackageResponse
+   */
   async createBandwidthPackage(request: CreateBandwidthPackageRequest): Promise<CreateBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
+    *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+    *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+    * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicAccelerateIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicAccelerateIpResponse
+   */
   async createBasicAccelerateIpWithOptions(request: CreateBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16635,11 +18320,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpResponse({}));
   }
 
+  /**
+    * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
+    *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+    *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+    * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicAccelerateIpRequest
+    * @return CreateBasicAccelerateIpResponse
+   */
   async createBasicAccelerateIp(request: CreateBasicAccelerateIpRequest): Promise<CreateBasicAccelerateIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicAccelerateIpWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+    *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+    *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
+    * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicAccelerateIpEndpointRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicAccelerateIpEndpointRelationResponse
+   */
   async createBasicAccelerateIpEndpointRelationWithOptions(request: CreateBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16680,11 +18384,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicAccelerateIpEndpointRelationResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpEndpointRelationResponse({}));
   }
 
+  /**
+    * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+    *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+    *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
+    * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicAccelerateIpEndpointRelationRequest
+    * @return CreateBasicAccelerateIpEndpointRelationResponse
+   */
   async createBasicAccelerateIpEndpointRelation(request: CreateBasicAccelerateIpEndpointRelationRequest): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicAccelerateIpEndpointRelationWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+    *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+    *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+    * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicAccelerateIpEndpointRelationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicAccelerateIpEndpointRelationsResponse
+   */
   async createBasicAccelerateIpEndpointRelationsWithOptions(request: CreateBasicAccelerateIpEndpointRelationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16721,11 +18444,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicAccelerateIpEndpointRelationsResponse>(await this.callApi(params, req, runtime), new CreateBasicAccelerateIpEndpointRelationsResponse({}));
   }
 
+  /**
+    * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+    *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+    *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+    * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicAccelerateIpEndpointRelationsRequest
+    * @return CreateBasicAccelerateIpEndpointRelationsResponse
+   */
   async createBasicAccelerateIpEndpointRelations(request: CreateBasicAccelerateIpEndpointRelationsRequest): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicAccelerateIpEndpointRelationsWithOptions(request, runtime);
   }
 
+  /**
+    * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
+    * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+    * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
+    * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+    *
+    * @param request CreateBasicAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicAcceleratorResponse
+   */
   async createBasicAcceleratorWithOptions(request: CreateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16749,8 +18491,16 @@ export default class Client extends OpenApi {
       query["BandwidthBillingType"] = request.bandwidthBillingType;
     }
 
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.duration)) {
@@ -16759,6 +18509,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pricingCycle)) {
       query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -16786,11 +18540,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new CreateBasicAcceleratorResponse({}));
   }
 
+  /**
+    * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
+    * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+    * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
+    * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+    *
+    * @param request CreateBasicAcceleratorRequest
+    * @return CreateBasicAcceleratorResponse
+   */
   async createBasicAccelerator(request: CreateBasicAcceleratorRequest): Promise<CreateBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
+    *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint is in the **active** state, the endpoint is created.
+    * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+    *
+    * @param request CreateBasicEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicEndpointResponse
+   */
   async createBasicEndpointWithOptions(request: CreateBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16851,11 +18624,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicEndpointResponse>(await this.callApi(params, req, runtime), new CreateBasicEndpointResponse({}));
   }
 
+  /**
+    * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
+    *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint is in the **active** state, the endpoint is created.
+    * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+    *
+    * @param request CreateBasicEndpointRequest
+    * @return CreateBasicEndpointResponse
+   */
   async createBasicEndpoint(request: CreateBasicEndpointRequest): Promise<CreateBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
+    * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
+    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicEndpointGroupResponse
+   */
   async createBasicEndpointGroupWithOptions(request: CreateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16912,11 +18707,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new CreateBasicEndpointGroupResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
+    * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
+    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicEndpointGroupRequest
+    * @return CreateBasicEndpointGroupResponse
+   */
   async createBasicEndpointGroup(request: CreateBasicEndpointGroupRequest): Promise<CreateBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
+    *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
+    *     *   If all endpoints are in the **active** state, the endpoints are created.
+    * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicEndpointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicEndpointsResponse
+   */
   async createBasicEndpointsWithOptions(request: CreateBasicEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16957,11 +18774,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicEndpointsResponse>(await this.callApi(params, req, runtime), new CreateBasicEndpointsResponse({}));
   }
 
+  /**
+    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
+    *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
+    *     *   If all endpoints are in the **active** state, the endpoints are created.
+    * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request CreateBasicEndpointsRequest
+    * @return CreateBasicEndpointsResponse
+   */
   async createBasicEndpoints(request: CreateBasicEndpointsRequest): Promise<CreateBasicEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+    * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateBasicIpSetResponse
+   */
   async createBasicIpSetWithOptions(request: CreateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17006,11 +18844,42 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBasicIpSetResponse>(await this.callApi(params, req, runtime), new CreateBasicIpSetResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+    * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateBasicIpSetRequest
+    * @return CreateBasicIpSetResponse
+   */
   async createBasicIpSet(request: CreateBasicIpSetRequest): Promise<CreateBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBasicIpSetWithOptions(request, runtime);
   }
 
+  /**
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.  
+    * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items: 
+    * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
+    *     
+    *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
+    * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    *
+    * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+   */
   async createCustomRoutingEndpointGroupDestinationsWithOptions(request: CreateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17051,11 +18920,52 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointGroupDestinationsResponse({}));
   }
 
+  /**
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.  
+    * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items: 
+    * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
+    *     
+    *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
+    * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    *
+    * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
+    * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+   */
   async createCustomRoutingEndpointGroupDestinations(request: CreateCustomRoutingEndpointGroupDestinationsRequest): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
+  /**
+    * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.  
+    * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+    * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).  
+    * When you call this operation, take note of the following items:
+    * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+    *     
+    *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+    *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+    * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    *
+    * @param request CreateCustomRoutingEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomRoutingEndpointGroupsResponse
+   */
   async createCustomRoutingEndpointGroupsWithOptions(request: CreateCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17100,11 +19010,53 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointGroupsResponse({}));
   }
 
+  /**
+    * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.  
+    * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+    * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).  
+    * When you call this operation, take note of the following items:
+    * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+    *     
+    *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+    *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+    * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    *
+    * @param request CreateCustomRoutingEndpointGroupsRequest
+    * @return CreateCustomRoutingEndpointGroupsResponse
+   */
   async createCustomRoutingEndpointGroups(request: CreateCustomRoutingEndpointGroupsRequest): Promise<CreateCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomRoutingEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.  
+    * When you call this operation, take note of the following items:
+    * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group. 
+    *     
+    *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
+    * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+    *
+    * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async createCustomRoutingEndpointTrafficPoliciesWithOptions(request: CreateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17141,11 +19093,51 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointTrafficPoliciesResponse({}));
   }
 
+  /**
+    * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.  
+    * When you call this operation, take note of the following items:
+    * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group. 
+    *     
+    *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
+    * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+    *
+    * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
+    * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async createCustomRoutingEndpointTrafficPolicies(request: CreateCustomRoutingEndpointTrafficPoliciesRequest): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches. 
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items: 
+    * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group. 
+    *    
+    *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    *
+    * @param request CreateCustomRoutingEndpointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCustomRoutingEndpointsResponse
+   */
   async createCustomRoutingEndpointsWithOptions(request: CreateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17182,11 +19174,98 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new CreateCustomRoutingEndpointsResponse({}));
   }
 
+  /**
+    * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches. 
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items: 
+    * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group. 
+    *    
+    *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ## Prerequisites
+    * The following operations are complete before you call this operation:
+    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
+    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
+    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    *
+    * @param request CreateCustomRoutingEndpointsRequest
+    * @return CreateCustomRoutingEndpointsResponse
+   */
   async createCustomRoutingEndpoints(request: CreateCustomRoutingEndpointsRequest): Promise<CreateCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+    * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+    * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+    * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+    * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request CreateDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDomainResponse
+   */
+  async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorIds)) {
+      query["AcceleratorIds"] = request.acceleratorIds;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDomain",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
+  }
+
+  /**
+    * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+    * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+    * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+    * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+    * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request CreateDomainRequest
+    * @return CreateDomainResponse
+   */
+  async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDomainWithOptions(request, runtime);
+  }
+
+  /**
+    * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
+    *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+    * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEndpointGroupResponse
+   */
   async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17279,11 +19358,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEndpointGroupResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
+    *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+    * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateEndpointGroupRequest
+    * @return CreateEndpointGroupResponse
+   */
   async createEndpointGroup(request: CreateEndpointGroupRequest): Promise<CreateEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) to query the state of an endpoint group.
+    *     *   If an endpoint group is in the **init** state, the endpoint group is being created. In this case, you can perform only query operations.
+    *     *   If all endpoint groups are in the **active**, endpoint groups are created.
+    * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEndpointGroupsResponse
+   */
   async createEndpointGroupsWithOptions(request: CreateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17328,11 +19426,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupsResponse({}));
   }
 
+  /**
+    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) to query the state of an endpoint group.
+    *     *   If an endpoint group is in the **init** state, the endpoint group is being created. In this case, you can perform only query operations.
+    *     *   If all endpoint groups are in the **active**, endpoint groups are created.
+    * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateEndpointGroupsRequest
+    * @return CreateEndpointGroupsResponse
+   */
   async createEndpointGroups(request: CreateEndpointGroupsRequest): Promise<CreateEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
+    * When you call this operation, take note of the following items:
+    * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
+    *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+    *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+    * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateForwardingRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateForwardingRulesResponse
+   */
   async createForwardingRulesWithOptions(request: CreateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17373,11 +19492,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateForwardingRulesResponse>(await this.callApi(params, req, runtime), new CreateForwardingRulesResponse({}));
   }
 
+  /**
+    * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
+    * When you call this operation, take note of the following items:
+    * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
+    *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+    *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+    * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request CreateForwardingRulesRequest
+    * @return CreateForwardingRulesResponse
+   */
   async createForwardingRules(request: CreateForwardingRulesRequest): Promise<CreateForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createForwardingRulesWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+    *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+    *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+    * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateIpSetsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateIpSetsResponse
+   */
   async createIpSetsWithOptions(request: CreateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17414,11 +19554,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIpSetsResponse>(await this.callApi(params, req, runtime), new CreateIpSetsResponse({}));
   }
 
+  /**
+    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+    *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+    *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+    * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request CreateIpSetsRequest
+    * @return CreateIpSetsResponse
+   */
   async createIpSets(request: CreateIpSetsRequest): Promise<CreateIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpSetsWithOptions(request, runtime);
   }
 
+  /**
+    * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
+    * Before you call this operation, take note of the following limits:
+    * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+    *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
+    *     *   If a listener is in the **active** state, the listener is created.
+    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+    *
+    * @param request CreateListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateListenerResponse
+   */
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17478,7 +19639,7 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
-    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+    if (!Util.isUnset(request.XForwardedForConfig)) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
@@ -17499,11 +19660,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateListenerResponse>(await this.callApi(params, req, runtime), new CreateListenerResponse({}));
   }
 
+  /**
+    * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
+    * Before you call this operation, take note of the following limits:
+    * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+    *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
+    *     *   If a listener is in the **active** state, the listener is created.
+    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+    *
+    * @param request CreateListenerRequest
+    * @return CreateListenerResponse
+   */
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createListenerWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
+    * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request CreateSpareIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSpareIpsResponse
+   */
   async createSpareIpsWithOptions(request: CreateSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17544,11 +19726,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSpareIpsResponse>(await this.callApi(params, req, runtime), new CreateSpareIpsResponse({}));
   }
 
+  /**
+    * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
+    * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request CreateSpareIpsRequest
+    * @return CreateSpareIpsResponse
+   */
   async createSpareIps(request: CreateSpareIpsRequest): Promise<CreateSpareIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSpareIpsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Subscription GA instances cannot be deleted.
+    * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **deleting** state, it indicates that the GA instance is being deleted. In this case, you can perform only query operations.
+    *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+    *
+    * @param request DeleteAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAcceleratorResponse
+   */
   async deleteAcceleratorWithOptions(request: DeleteAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17577,11 +19779,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAcceleratorResponse>(await this.callApi(params, req, runtime), new DeleteAcceleratorResponse({}));
   }
 
+  /**
+    * *   Subscription GA instances cannot be deleted.
+    * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **deleting** state, it indicates that the GA instance is being deleted. In this case, you can perform only query operations.
+    *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+    *
+    * @param request DeleteAcceleratorRequest
+    * @return DeleteAcceleratorResponse
+   */
   async deleteAccelerator(request: DeleteAcceleratorRequest): Promise<DeleteAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
+    * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
+    * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
+    *
+    * @param request DeleteAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAclResponse
+   */
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17618,11 +19839,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAclResponse>(await this.callApi(params, req, runtime), new DeleteAclResponse({}));
   }
 
+  /**
+    * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
+    * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
+    * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
+    *
+    * @param request DeleteAclRequest
+    * @return DeleteAclResponse
+   */
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAclWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
+    *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+    *     <!---->
+    *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+    * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteApplicationMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApplicationMonitorResponse
+   */
   async deleteApplicationMonitorWithOptions(request: DeleteApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17655,11 +19895,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DeleteApplicationMonitorResponse({}));
   }
 
+  /**
+    * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
+    *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+    *     <!---->
+    *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+    * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteApplicationMonitorRequest
+    * @return DeleteApplicationMonitorResponse
+   */
   async deleteApplicationMonitor(request: DeleteApplicationMonitorRequest): Promise<DeleteApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+    *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
+    * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *
+    * @param request DeleteBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBandwidthPackageResponse
+   */
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17692,11 +19954,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteBandwidthPackageResponse({}));
   }
 
+  /**
+    * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+    *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
+    * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *
+    * @param request DeleteBandwidthPackageRequest
+    * @return DeleteBandwidthPackageResponse
+   */
   async deleteBandwidthPackage(request: DeleteBandwidthPackageRequest): Promise<DeleteBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
+    *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+    *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
+    * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicAccelerateIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicAccelerateIpResponse
+   */
   async deleteBasicAccelerateIpWithOptions(request: DeleteBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17729,11 +20012,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new DeleteBasicAccelerateIpResponse({}));
   }
 
+  /**
+    * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
+    *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+    *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
+    * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicAccelerateIpRequest
+    * @return DeleteBasicAccelerateIpResponse
+   */
   async deleteBasicAccelerateIp(request: DeleteBasicAccelerateIpRequest): Promise<DeleteBasicAccelerateIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicAccelerateIpWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+    *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+    *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
+    * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicAccelerateIpEndpointRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicAccelerateIpEndpointRelationResponse
+   */
   async deleteBasicAccelerateIpEndpointRelationWithOptions(request: DeleteBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17774,11 +20076,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicAccelerateIpEndpointRelationResponse>(await this.callApi(params, req, runtime), new DeleteBasicAccelerateIpEndpointRelationResponse({}));
   }
 
+  /**
+    * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+    *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+    *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
+    * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicAccelerateIpEndpointRelationRequest
+    * @return DeleteBasicAccelerateIpEndpointRelationResponse
+   */
   async deleteBasicAccelerateIpEndpointRelation(request: DeleteBasicAccelerateIpEndpointRelationRequest): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicAccelerateIpEndpointRelationWithOptions(request, runtime);
   }
 
+  /**
+    * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
+    * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+    * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+    *
+    * @param request DeleteBasicAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicAcceleratorResponse
+   */
   async deleteBasicAcceleratorWithOptions(request: DeleteBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17807,11 +20127,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new DeleteBasicAcceleratorResponse({}));
   }
 
+  /**
+    * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
+    * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+    * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+    *
+    * @param request DeleteBasicAcceleratorRequest
+    * @return DeleteBasicAcceleratorResponse
+   */
   async deleteBasicAccelerator(request: DeleteBasicAcceleratorRequest): Promise<DeleteBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
+    *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+    * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicEndpointResponse
+   */
   async deleteBasicEndpointWithOptions(request: DeleteBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17848,11 +20186,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicEndpointResponse>(await this.callApi(params, req, runtime), new DeleteBasicEndpointResponse({}));
   }
 
+  /**
+    * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
+    *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+    * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    *
+    * @param request DeleteBasicEndpointRequest
+    * @return DeleteBasicEndpointResponse
+   */
   async deleteBasicEndpoint(request: DeleteBasicEndpointRequest): Promise<DeleteBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DeleteBasicEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicEndpointGroupResponse
+   */
   async deleteBasicEndpointGroupWithOptions(request: DeleteBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17881,11 +20238,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new DeleteBasicEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DeleteBasicEndpointGroupRequest
+    * @return DeleteBasicEndpointGroupResponse
+   */
   async deleteBasicEndpointGroup(request: DeleteBasicEndpointGroupRequest): Promise<DeleteBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
+    * *   The **DeleteBasicIpSet** cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *
+    * @param request DeleteBasicIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBasicIpSetResponse
+   */
   async deleteBasicIpSetWithOptions(request: DeleteBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17918,11 +20294,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBasicIpSetResponse>(await this.callApi(params, req, runtime), new DeleteBasicIpSetResponse({}));
   }
 
+  /**
+    * *   **DeleteBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
+    * *   The **DeleteBasicIpSet** cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *
+    * @param request DeleteBasicIpSetRequest
+    * @return DeleteBasicIpSetResponse
+   */
   async deleteBasicIpSet(request: DeleteBasicIpSetRequest): Promise<DeleteBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBasicIpSetWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+    * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+   */
   async deleteCustomRoutingEndpointGroupDestinationsWithOptions(request: DeleteCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17963,11 +20358,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointGroupDestinationsResponse({}));
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+    * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
+    * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+   */
   async deleteCustomRoutingEndpointGroupDestinations(request: DeleteCustomRoutingEndpointGroupDestinationsRequest): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+    *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+    * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCustomRoutingEndpointGroupsResponse
+   */
   async deleteCustomRoutingEndpointGroupsWithOptions(request: DeleteCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18008,11 +20422,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomRoutingEndpointGroupsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointGroupsResponse({}));
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+    *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+    * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointGroupsRequest
+    * @return DeleteCustomRoutingEndpointGroupsResponse
+   */
   async deleteCustomRoutingEndpointGroups(request: DeleteCustomRoutingEndpointGroupsRequest): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomRoutingEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
+    *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+    * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18049,11 +20482,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointTrafficPoliciesResponse({}));
   }
 
+  /**
+    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
+    *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+    * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
+    * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async deleteCustomRoutingEndpointTrafficPolicies(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
+    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+    * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteCustomRoutingEndpointsResponse
+   */
   async deleteCustomRoutingEndpointsWithOptions(request: DeleteCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18090,11 +20542,80 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoutingEndpointsResponse({}));
   }
 
+  /**
+    * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
+    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+    * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request DeleteCustomRoutingEndpointsRequest
+    * @return DeleteCustomRoutingEndpointsResponse
+   */
   async deleteCustomRoutingEndpoints(request: DeleteCustomRoutingEndpointsRequest): Promise<DeleteCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request DeleteDomainAcceleratorRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDomainAcceleratorRelationResponse
+   */
+  async deleteDomainAcceleratorRelationWithOptions(request: DeleteDomainAcceleratorRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainAcceleratorRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorIds)) {
+      query["AcceleratorIds"] = request.acceleratorIds;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainAcceleratorRelation",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainAcceleratorRelationResponse>(await this.callApi(params, req, runtime), new DeleteDomainAcceleratorRelationResponse({}));
+  }
+
+  /**
+    * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request DeleteDomainAcceleratorRelationRequest
+    * @return DeleteDomainAcceleratorRelationResponse
+   */
+  async deleteDomainAcceleratorRelation(request: DeleteDomainAcceleratorRelationRequest): Promise<DeleteDomainAcceleratorRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDomainAcceleratorRelationWithOptions(request, runtime);
+  }
+
+  /**
+    * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteEndpointGroupResponse
+   */
   async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18127,11 +20648,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEndpointGroupResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteEndpointGroupRequest
+    * @return DeleteEndpointGroupResponse
+   */
   async deleteEndpointGroup(request: DeleteEndpointGroupRequest): Promise<DeleteEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteEndpointGroupsResponse
+   */
   async deleteEndpointGroupsWithOptions(request: DeleteEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18168,11 +20708,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEndpointGroupsResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupsResponse({}));
   }
 
+  /**
+    * *   **DeleteEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteEndpointGroupsRequest
+    * @return DeleteEndpointGroupsResponse
+   */
   async deleteEndpointGroups(request: DeleteEndpointGroupsRequest): Promise<DeleteEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+    *     *   If the forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+    *     *   If the forwarding rule cannot be queried, the forwarding rule is deleted.
+    * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteForwardingRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteForwardingRulesResponse
+   */
   async deleteForwardingRulesWithOptions(request: DeleteForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18213,11 +20772,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteForwardingRulesResponse>(await this.callApi(params, req, runtime), new DeleteForwardingRulesResponse({}));
   }
 
+  /**
+    * *   **DeleteForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+    *     *   If the forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+    *     *   If the forwarding rule cannot be queried, the forwarding rule is deleted.
+    * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteForwardingRulesRequest
+    * @return DeleteForwardingRulesResponse
+   */
   async deleteForwardingRules(request: DeleteForwardingRulesRequest): Promise<DeleteForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteForwardingRulesWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+    * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpSetResponse
+   */
   async deleteIpSetWithOptions(request: DeleteIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18254,11 +20832,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpSetResponse>(await this.callApi(params, req, runtime), new DeleteIpSetResponse({}));
   }
 
+  /**
+    * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+    * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteIpSetRequest
+    * @return DeleteIpSetResponse
+   */
   async deleteIpSet(request: DeleteIpSetRequest): Promise<DeleteIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpSetWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+    * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteIpSetsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteIpSetsResponse
+   */
   async deleteIpSetsWithOptions(request: DeleteIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18287,11 +20884,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIpSetsResponse>(await this.callApi(params, req, runtime), new DeleteIpSetsResponse({}));
   }
 
+  /**
+    * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
+    * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteIpSetsRequest
+    * @return DeleteIpSetsResponse
+   */
   async deleteIpSets(request: DeleteIpSetsRequest): Promise<DeleteIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpSetsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+    *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can perform only query operations.
+    *     *   If the listener cannot be queried, it indicates that the listener is deleted.
+    * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteListenerResponse
+   */
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18324,11 +20940,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteListenerResponse>(await this.callApi(params, req, runtime), new DeleteListenerResponse({}));
   }
 
+  /**
+    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+    *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can perform only query operations.
+    *     *   If the listener cannot be queried, it indicates that the listener is deleted.
+    * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DeleteListenerRequest
+    * @return DeleteListenerResponse
+   */
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteListenerWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
+    * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DeleteSpareIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSpareIpsResponse
+   */
   async deleteSpareIpsWithOptions(request: DeleteSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18369,6 +21004,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSpareIpsResponse>(await this.callApi(params, req, runtime), new DeleteSpareIpsResponse({}));
   }
 
+  /**
+    * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
+    * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DeleteSpareIpsRequest
+    * @return DeleteSpareIpsResponse
+   */
   async deleteSpareIps(request: DeleteSpareIpsRequest): Promise<DeleteSpareIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSpareIpsWithOptions(request, runtime);
@@ -18543,9 +21187,87 @@ export default class Client extends OpenApi {
     return await this.describeBandwidthPackageAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  async describeCommodityWithOptions(request: DescribeCommodityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommodity",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommodityResponse>(await this.callApi(params, req, runtime), new DescribeCommodityResponse({}));
+  }
+
+  async describeCommodity(request: DescribeCommodityRequest): Promise<DescribeCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommodityWithOptions(request, runtime);
+  }
+
+  async describeCommodityPriceWithOptions(request: DescribeCommodityPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orders)) {
+      query["Orders"] = request.orders;
+    }
+
+    if (!Util.isUnset(request.promotionOptionNo)) {
+      query["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommodityPrice",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommodityPriceResponse>(await this.callApi(params, req, runtime), new DescribeCommodityPriceResponse({}));
+  }
+
+  async describeCommodityPrice(request: DescribeCommodityPriceRequest): Promise<DescribeCommodityPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommodityPriceWithOptions(request, runtime);
+  }
+
   async describeCustomRoutingEndPointTrafficPolicyWithOptions(request: DescribeCustomRoutingEndPointTrafficPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndPointTrafficPolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
     if (!Util.isUnset(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
@@ -18579,6 +21301,10 @@ export default class Client extends OpenApi {
   async describeCustomRoutingEndpointWithOptions(request: DescribeCustomRoutingEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endpointGroup)) {
+      query["EndpointGroup"] = request.endpointGroup;
+    }
+
     if (!Util.isUnset(request.endpointId)) {
       query["EndpointId"] = request.endpointId;
     }
@@ -18647,6 +21373,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.destinationId)) {
       query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -18741,6 +21471,13 @@ export default class Client extends OpenApi {
     return await this.describeIpSetWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+    *
+    * @param request DescribeListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeListenerResponse
+   */
   async describeListenerWithOptions(request: DescribeListenerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18769,6 +21506,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeListenerResponse>(await this.callApi(params, req, runtime), new DescribeListenerResponse({}));
   }
 
+  /**
+    * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+    *
+    * @param request DescribeListenerRequest
+    * @return DescribeListenerResponse
+   */
   async describeListener(request: DescribeListenerRequest): Promise<DescribeListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeListenerWithOptions(request, runtime);
@@ -18803,6 +21546,16 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+    * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DetachDdosFromAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachDdosFromAcceleratorResponse
+   */
   async detachDdosFromAcceleratorWithOptions(request: DetachDdosFromAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DetachDdosFromAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18831,11 +21584,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDdosFromAcceleratorResponse>(await this.callApi(params, req, runtime), new DetachDdosFromAcceleratorResponse({}));
   }
 
+  /**
+    * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+    * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request DetachDdosFromAcceleratorRequest
+    * @return DetachDdosFromAcceleratorResponse
+   */
   async detachDdosFromAccelerator(request: DetachDdosFromAcceleratorRequest): Promise<DetachDdosFromAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDdosFromAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+    *     <!---->
+    *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+    * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DetachLogStoreFromEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachLogStoreFromEndpointGroupResponse
+   */
   async detachLogStoreFromEndpointGroupWithOptions(request: DetachLogStoreFromEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachLogStoreFromEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18876,6 +21649,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachLogStoreFromEndpointGroupResponse>(await this.callApi(params, req, runtime), new DetachLogStoreFromEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+    *     <!---->
+    *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+    * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DetachLogStoreFromEndpointGroupRequest
+    * @return DetachLogStoreFromEndpointGroupResponse
+   */
   async detachLogStoreFromEndpointGroup(request: DetachLogStoreFromEndpointGroupRequest): Promise<DetachLogStoreFromEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachLogStoreFromEndpointGroupWithOptions(request, runtime);
@@ -18955,6 +21738,16 @@ export default class Client extends OpenApi {
     return await this.disableApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
+    *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+    * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DissociateAclsFromListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DissociateAclsFromListenerResponse
+   */
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18995,11 +21788,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateAclsFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAclsFromListenerResponse({}));
   }
 
+  /**
+    * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
+    *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+    * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request DissociateAclsFromListenerRequest
+    * @return DissociateAclsFromListenerResponse
+   */
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateAclsFromListenerWithOptions(request, runtime);
   }
 
+  /**
+    * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
+    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+    * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+    *
+    * @param request DissociateAdditionalCertificatesFromListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DissociateAdditionalCertificatesFromListenerResponse
+   */
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19040,6 +21852,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateAdditionalCertificatesFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAdditionalCertificatesFromListenerResponse({}));
   }
 
+  /**
+    * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
+    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+    * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+    *
+    * @param request DissociateAdditionalCertificatesFromListenerRequest
+    * @return DissociateAdditionalCertificatesFromListenerResponse
+   */
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateAdditionalCertificatesFromListenerWithOptions(request, runtime);
@@ -19421,6 +22242,68 @@ export default class Client extends OpenApi {
   async getHealthStatus(request: GetHealthStatusRequest): Promise<GetHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHealthStatusWithOptions(request, runtime);
+  }
+
+  async getInvalidDomainCountWithOptions(request: GetInvalidDomainCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInvalidDomainCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInvalidDomainCount",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInvalidDomainCountResponse>(await this.callApi(params, req, runtime), new GetInvalidDomainCountResponse({}));
+  }
+
+  async getInvalidDomainCount(request: GetInvalidDomainCountRequest): Promise<GetInvalidDomainCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInvalidDomainCountWithOptions(request, runtime);
+  }
+
+  async getIpsetsBandwidthLimitWithOptions(request: GetIpsetsBandwidthLimitRequest, runtime: $Util.RuntimeOptions): Promise<GetIpsetsBandwidthLimitResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIpsetsBandwidthLimit",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIpsetsBandwidthLimitResponse>(await this.callApi(params, req, runtime), new GetIpsetsBandwidthLimitResponse({}));
+  }
+
+  async getIpsetsBandwidthLimit(request: GetIpsetsBandwidthLimitRequest): Promise<GetIpsetsBandwidthLimitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIpsetsBandwidthLimitWithOptions(request, runtime);
   }
 
   async getSpareIpWithOptions(request: GetSpareIpRequest, runtime: $Util.RuntimeOptions): Promise<GetSpareIpResponse> {
@@ -20102,6 +22985,43 @@ export default class Client extends OpenApi {
     return await this.listBusiRegionsWithOptions(request, runtime);
   }
 
+  async listCommonAreasWithOptions(request: ListCommonAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonAreasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!Util.isUnset(request.isEpg)) {
+      query["IsEpg"] = request.isEpg;
+    }
+
+    if (!Util.isUnset(request.isIpSet)) {
+      query["IsIpSet"] = request.isIpSet;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCommonAreas",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommonAreasResponse>(await this.callApi(params, req, runtime), new ListCommonAreasResponse({}));
+  }
+
+  async listCommonAreas(request: ListCommonAreasRequest): Promise<ListCommonAreasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCommonAreasWithOptions(request, runtime);
+  }
+
   async listCustomRoutingEndpointGroupDestinationsWithOptions(request: ListCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20318,6 +23238,13 @@ export default class Client extends OpenApi {
     return await this.listCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+    *
+    * @param request ListCustomRoutingPortMappingsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCustomRoutingPortMappingsResponse
+   */
   async listCustomRoutingPortMappingsWithOptions(request: ListCustomRoutingPortMappingsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingPortMappingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20362,6 +23289,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingPortMappingsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingPortMappingsResponse({}));
   }
 
+  /**
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+    *
+    * @param request ListCustomRoutingPortMappingsRequest
+    * @return ListCustomRoutingPortMappingsResponse
+   */
   async listCustomRoutingPortMappings(request: ListCustomRoutingPortMappingsRequest): Promise<ListCustomRoutingPortMappingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingPortMappingsWithOptions(request, runtime);
@@ -20410,6 +23343,55 @@ export default class Client extends OpenApi {
   async listCustomRoutingPortMappingsByDestination(request: ListCustomRoutingPortMappingsByDestinationRequest): Promise<ListCustomRoutingPortMappingsByDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingPortMappingsByDestinationWithOptions(request, runtime);
+  }
+
+  async listDomainsWithOptions(request: ListDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDomains",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDomainsResponse>(await this.callApi(params, req, runtime), new ListDomainsResponse({}));
+  }
+
+  async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDomainsWithOptions(request, runtime);
   }
 
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
@@ -20473,6 +23455,13 @@ export default class Client extends OpenApi {
     return await this.listEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+    *
+    * @param request ListForwardingRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListForwardingRulesResponse
+   */
   async listForwardingRulesWithOptions(request: ListForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20521,6 +23510,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListForwardingRulesResponse>(await this.callApi(params, req, runtime), new ListForwardingRulesResponse({}));
   }
 
+  /**
+    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+    *
+    * @param request ListForwardingRulesRequest
+    * @return ListForwardingRulesResponse
+   */
   async listForwardingRules(request: ListForwardingRulesRequest): Promise<ListForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listForwardingRulesWithOptions(request, runtime);
@@ -20565,6 +23560,39 @@ export default class Client extends OpenApi {
   async listIpSets(request: ListIpSetsRequest): Promise<ListIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpSetsWithOptions(request, runtime);
+  }
+
+  async listIspTypesWithOptions(request: ListIspTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListIspTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorType)) {
+      query["AcceleratorType"] = request.acceleratorType;
+    }
+
+    if (!Util.isUnset(request.businessRegionId)) {
+      query["BusinessRegionId"] = request.businessRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIspTypes",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIspTypesResponse>(await this.callApi(params, req, runtime), new ListIspTypesResponse({}));
+  }
+
+  async listIspTypes(request: ListIspTypesRequest): Promise<ListIspTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIspTypesWithOptions(request, runtime);
   }
 
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
@@ -20616,6 +23644,13 @@ export default class Client extends OpenApi {
     return await this.listListenerCertificatesWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+    *
+    * @param request ListListenersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListListenersResponse
+   */
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20652,6 +23687,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenersResponse>(await this.callApi(params, req, runtime), new ListListenersResponse({}));
   }
 
+  /**
+    * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+    *
+    * @param request ListListenersRequest
+    * @return ListListenersResponse
+   */
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersWithOptions(request, runtime);
@@ -20698,6 +23739,13 @@ export default class Client extends OpenApi {
     return await this.listSpareIpsWithOptions(request, runtime);
   }
 
+  /**
+    * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+    *
+    * @param request ListSystemSecurityPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSystemSecurityPoliciesResponse
+   */
   async listSystemSecurityPoliciesWithOptions(request: ListSystemSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20730,6 +23778,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemSecurityPoliciesResponse>(await this.callApi(params, req, runtime), new ListSystemSecurityPoliciesResponse({}));
   }
 
+  /**
+    * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+    *
+    * @param request ListSystemSecurityPoliciesRequest
+    * @return ListSystemSecurityPoliciesResponse
+   */
   async listSystemSecurityPolicies(request: ListSystemSecurityPoliciesRequest): Promise<ListSystemSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemSecurityPoliciesWithOptions(request, runtime);
@@ -20784,6 +23838,45 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  async queryCrossPrivatePermissionWithOptions(request: QueryCrossPrivatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<QueryCrossPrivatePermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCrossPrivatePermission",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCrossPrivatePermissionResponse>(await this.callApi(params, req, runtime), new QueryCrossPrivatePermissionResponse({}));
+  }
+
+  async queryCrossPrivatePermission(request: QueryCrossPrivatePermissionRequest): Promise<QueryCrossPrivatePermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCrossPrivatePermissionWithOptions(request, runtime);
+  }
+
+  /**
+    * *   The **RemoveEntriesFromAcl** operation is asynchronous. After you send a request, the system returns the request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+    *     *   If an ACL is in the **configuring** state, the IP entries are being deleted. In this case, you can perform only query operations.
+    *     *   If an ACL is in the **active** state, the IP entries are deleted.
+    * *   You cannot repeatedly call the **RemoveEntriesFromAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request RemoveEntriesFromAclRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveEntriesFromAclResponse
+   */
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20824,11 +23917,32 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveEntriesFromAclResponse>(await this.callApi(params, req, runtime), new RemoveEntriesFromAclResponse({}));
   }
 
+  /**
+    * *   The **RemoveEntriesFromAcl** operation is asynchronous. After you send a request, the system returns the request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
+    *     *   If an ACL is in the **configuring** state, the IP entries are being deleted. In this case, you can perform only query operations.
+    *     *   If an ACL is in the **active** state, the IP entries are deleted.
+    * *   You cannot repeatedly call the **RemoveEntriesFromAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+    *
+    * @param request RemoveEntriesFromAclRequest
+    * @return RemoveEntriesFromAclResponse
+   */
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeEntriesFromAclWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+    * *   The GA instance continues to forward network traffic.
+    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+    * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request ReplaceBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReplaceBandwidthPackageResponse
+   */
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20865,11 +23979,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ReplaceBandwidthPackageResponse>(await this.callApi(params, req, runtime), new ReplaceBandwidthPackageResponse({}));
   }
 
+  /**
+    * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+    * *   The GA instance continues to forward network traffic.
+    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+    * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request ReplaceBandwidthPackageRequest
+    * @return ReplaceBandwidthPackageResponse
+   */
   async replaceBandwidthPackage(request: ReplaceBandwidthPackageRequest): Promise<ReplaceBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.replaceBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+    * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20910,6 +24042,12 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
@@ -20964,6 +24102,16 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the GA instance is modified.
+    * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAcceleratorResponse
+   */
   async updateAcceleratorWithOptions(request: UpdateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21016,11 +24164,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAcceleratorResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorResponse({}));
   }
 
+  /**
+    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the GA instance is modified.
+    * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorRequest
+    * @return UpdateAcceleratorResponse
+   */
   async updateAccelerator(request: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+    * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorAutoRenewAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAcceleratorAutoRenewAttributeResponse
+   */
   async updateAcceleratorAutoRenewAttributeWithOptions(request: UpdateAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21069,11 +24233,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAcceleratorAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorAutoRenewAttributeResponse({}));
   }
 
+  /**
+    * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorAutoRenewAttributeRequest
+    * @return UpdateAcceleratorAutoRenewAttributeResponse
+   */
   async updateAcceleratorAutoRenewAttribute(request: UpdateAcceleratorAutoRenewAttributeRequest): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification modification to a GA instance. When you call this operation to confirm the specification modification to a GA instance, take note of the following items:
+    * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+    * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorConfirmRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAcceleratorConfirmResponse
+   */
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21102,6 +24283,16 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAcceleratorConfirmResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorConfirmResponse({}));
   }
 
+  /**
+    * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification modification to a GA instance. When you call this operation to confirm the specification modification to a GA instance, take note of the following items:
+    * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+    * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateAcceleratorConfirmRequest
+    * @return UpdateAcceleratorConfirmResponse
+   */
   async updateAcceleratorConfirm(request: UpdateAcceleratorConfirmRequest): Promise<UpdateAcceleratorConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorConfirmWithOptions(request, runtime);
@@ -21152,6 +24343,17 @@ export default class Client extends OpenApi {
     return await this.updateAclAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can call this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
+    * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
+    *     *   If the certificate that you want to replace is in the **updating** state, it indicates that the additional certificate is being replaced for the HTTP listener. In this case, you can perform only query operations.
+    *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
+    * *   The **UpdateAdditionalCertificateWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateAdditionalCertificateWithListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAdditionalCertificateWithListenerResponse
+   */
   async updateAdditionalCertificateWithListenerWithOptions(request: UpdateAdditionalCertificateWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAdditionalCertificateWithListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21200,11 +24402,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAdditionalCertificateWithListenerResponse>(await this.callApi(params, req, runtime), new UpdateAdditionalCertificateWithListenerResponse({}));
   }
 
+  /**
+    * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can call this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
+    * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
+    *     *   If the certificate that you want to replace is in the **updating** state, it indicates that the additional certificate is being replaced for the HTTP listener. In this case, you can perform only query operations.
+    *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
+    * *   The **UpdateAdditionalCertificateWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateAdditionalCertificateWithListenerRequest
+    * @return UpdateAdditionalCertificateWithListenerResponse
+   */
   async updateAdditionalCertificateWithListener(request: UpdateAdditionalCertificateWithListenerRequest): Promise<UpdateAdditionalCertificateWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAdditionalCertificateWithListenerWithOptions(request, runtime);
   }
 
+  /**
+    * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
+    * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+    * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+    *
+    * @param request UpdateApplicationMonitorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateApplicationMonitorResponse
+   */
   async updateApplicationMonitorWithOptions(request: UpdateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21269,11 +24490,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationMonitorResponse>(await this.callApi(params, req, runtime), new UpdateApplicationMonitorResponse({}));
   }
 
+  /**
+    * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
+    * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+    * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+    *
+    * @param request UpdateApplicationMonitorRequest
+    * @return UpdateApplicationMonitorResponse
+   */
   async updateApplicationMonitor(request: UpdateApplicationMonitorRequest): Promise<UpdateApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+    *
+    * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+   */
   async updateBandwidthPackagaAutoRenewAttributeWithOptions(request: UpdateBandwidthPackagaAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackagaAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21322,11 +24558,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBandwidthPackagaAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new UpdateBandwidthPackagaAutoRenewAttributeResponse({}));
   }
 
+  /**
+    * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+    *
+    * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
+    * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+   */
   async updateBandwidthPackagaAutoRenewAttribute(request: UpdateBandwidthPackagaAutoRenewAttributeRequest): Promise<UpdateBandwidthPackagaAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBandwidthPackagaAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   **UpdateBandwidthPackage** is a synchronous operation when it is called to modify the configurations excluding the bandwidth value of a bandwidth plan. The new configurations take effect immediately after the operation is performed.
+    * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query whether the bandwidth plan is modified.
+    *     *   If the parameter settings of the bandwidth plan remain unchanged, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+    *     *   If the parameter settings of the bandwidth plan change, it indicates that the bandwidth plan is modified.
+    * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is associated with a GA instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance and determine whether its associated bandwidth plan is modified.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the bandwidth plan is modified.
+    * *   The **UpdateBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *
+    * @param request UpdateBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateBandwidthPackageResponse
+   */
   async updateBandwidthPackageWithOptions(request: UpdateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21379,6 +24636,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new UpdateBandwidthPackageResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   **UpdateBandwidthPackage** is a synchronous operation when it is called to modify the configurations excluding the bandwidth value of a bandwidth plan. The new configurations take effect immediately after the operation is performed.
+    * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query whether the bandwidth plan is modified.
+    *     *   If the parameter settings of the bandwidth plan remain unchanged, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+    *     *   If the parameter settings of the bandwidth plan change, it indicates that the bandwidth plan is modified.
+    * *   **UpdateBandwidthPackage** is an asynchronous operation when it is called to modify the configurations including the bandwidth value of a bandwidth plan that is associated with a GA instance. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of the GA instance and determine whether its associated bandwidth plan is modified.
+    *     *   If the GA instance is in the **configuring** state, it indicates that the bandwidth plan is being modified. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, it indicates that the bandwidth plan is modified.
+    * *   The **UpdateBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *
+    * @param request UpdateBandwidthPackageRequest
+    * @return UpdateBandwidthPackageResponse
+   */
   async updateBandwidthPackage(request: UpdateBandwidthPackageRequest): Promise<UpdateBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBandwidthPackageWithOptions(request, runtime);
@@ -21474,6 +24745,16 @@ export default class Client extends OpenApi {
     return await this.updateBasicEndpointWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
+    *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *
+    * @param request UpdateBasicEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateBasicEndpointGroupResponse
+   */
   async updateBasicEndpointGroupWithOptions(request: UpdateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21526,11 +24807,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new UpdateBasicEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
+    *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *
+    * @param request UpdateBasicEndpointGroupRequest
+    * @return UpdateBasicEndpointGroupResponse
+   */
   async updateBasicEndpointGroup(request: UpdateBasicEndpointGroupRequest): Promise<UpdateBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
+    * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+    *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
+    *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
+    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+    *
+    * @param request UpdateBasicIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateBasicIpSetResponse
+   */
   async updateBasicIpSetWithOptions(request: UpdateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21567,9 +24869,57 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBasicIpSetResponse>(await this.callApi(params, req, runtime), new UpdateBasicIpSetResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following limits:
+    * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
+    * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+    *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
+    *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
+    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+    *
+    * @param request UpdateBasicIpSetRequest
+    * @return UpdateBasicIpSetResponse
+   */
   async updateBasicIpSet(request: UpdateBasicIpSetRequest): Promise<UpdateBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicIpSetWithOptions(request, runtime);
+  }
+
+  async updateCrossPrivateStateWithOptions(request: UpdateCrossPrivateStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCrossPrivateStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.crossPrivateState)) {
+      query["CrossPrivateState"] = request.crossPrivateState;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCrossPrivateState",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCrossPrivateStateResponse>(await this.callApi(params, req, runtime), new UpdateCrossPrivateStateResponse({}));
+  }
+
+  async updateCrossPrivateState(request: UpdateCrossPrivateStateRequest): Promise<UpdateCrossPrivateStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCrossPrivateStateWithOptions(request, runtime);
   }
 
   async updateCustomRoutingEndpointGroupAttributeWithOptions(request: UpdateCustomRoutingEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
@@ -21617,6 +24967,16 @@ export default class Client extends OpenApi {
     return await this.updateCustomRoutingEndpointGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
+    *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+    * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+   */
   async updateCustomRoutingEndpointGroupDestinationsWithOptions(request: UpdateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21657,11 +25017,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointGroupDestinationsResponse({}));
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
+    *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+    * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
+    * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+   */
   async updateCustomRoutingEndpointGroupDestinations(request: UpdateCustomRoutingEndpointGroupDestinationsRequest): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom routing listener to check whether access policies of traffic are modified for endpoints in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, access policies of traffic are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, access policies of traffic are modified for endpoints in the endpoint group.
+    * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async updateCustomRoutingEndpointTrafficPoliciesWithOptions(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21698,11 +25077,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointTrafficPoliciesResponse({}));
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom routing listener to check whether access policies of traffic are modified for endpoints in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, access policies of traffic are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, access policies of traffic are modified for endpoints in the endpoint group.
+    * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
+    * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async updateCustomRoutingEndpointTrafficPolicies(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+    *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+    * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCustomRoutingEndpointsResponse
+   */
   async updateCustomRoutingEndpointsWithOptions(request: UpdateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21739,11 +25137,100 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointsResponse({}));
   }
 
+  /**
+    * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+    *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+    * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateCustomRoutingEndpointsRequest
+    * @return UpdateCustomRoutingEndpointsResponse
+   */
   async updateCustomRoutingEndpoints(request: UpdateCustomRoutingEndpointsRequest): Promise<UpdateCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
+  async updateDomainWithOptions(request: UpdateDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.targetDomain)) {
+      query["TargetDomain"] = request.targetDomain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDomain",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainResponse>(await this.callApi(params, req, runtime), new UpdateDomainResponse({}));
+  }
+
+  async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDomainWithOptions(request, runtime);
+  }
+
+  async updateDomainStateWithOptions(request: UpdateDomainStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainState",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainStateResponse>(await this.callApi(params, req, runtime), new UpdateDomainStateResponse({}));
+  }
+
+  async updateDomainState(request: UpdateDomainStateRequest): Promise<UpdateDomainStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDomainStateWithOptions(request, runtime);
+  }
+
+  /**
+    * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateEndpointGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateEndpointGroupResponse
+   */
   async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21828,6 +25315,15 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEndpointGroupResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupResponse({}));
   }
 
+  /**
+    * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateEndpointGroupRequest
+    * @return UpdateEndpointGroupResponse
+   */
   async updateEndpointGroup(request: UpdateEndpointGroupRequest): Promise<UpdateEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEndpointGroupWithOptions(request, runtime);
@@ -21878,6 +25374,16 @@ export default class Client extends OpenApi {
     return await this.updateEndpointGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
+    * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateEndpointGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateEndpointGroupsResponse
+   */
   async updateEndpointGroupsWithOptions(request: UpdateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21918,11 +25424,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupsResponse({}));
   }
 
+  /**
+    * *   **UpdateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the state of an endpoint group.
+    *     *   If the endpoint group is in the **updating** state, the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active**, the configuration of the endpoint group is modified.
+    * *   The **UpdateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateEndpointGroupsRequest
+    * @return UpdateEndpointGroupsResponse
+   */
   async updateEndpointGroups(request: UpdateEndpointGroupsRequest): Promise<UpdateEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+    *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+    *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+    * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateForwardingRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateForwardingRulesResponse
+   */
   async updateForwardingRulesWithOptions(request: UpdateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21963,11 +25488,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateForwardingRulesResponse>(await this.callApi(params, req, runtime), new UpdateForwardingRulesResponse({}));
   }
 
+  /**
+    * *   **UpdateForwardingRules** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of a forwarding rule.
+    *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+    *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+    * *   The **UpdateForwardingRules** operation cannot be repeatedly called to modify forwarding rules for the same Global Accelerator (GA) instance within a specific period of time.
+    *
+    * @param request UpdateForwardingRulesRequest
+    * @return UpdateForwardingRulesResponse
+   */
   async updateForwardingRules(request: UpdateForwardingRulesRequest): Promise<UpdateForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateForwardingRulesWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+    * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateIpSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateIpSetResponse
+   */
   async updateIpSetWithOptions(request: UpdateIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22004,11 +25548,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIpSetResponse>(await this.callApi(params, req, runtime), new UpdateIpSetResponse({}));
   }
 
+  /**
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+    * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateIpSetRequest
+    * @return UpdateIpSetResponse
+   */
   async updateIpSet(request: UpdateIpSetRequest): Promise<UpdateIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpSetWithOptions(request, runtime);
   }
 
+  /**
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+    * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateIpSetsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateIpSetsResponse
+   */
   async updateIpSetsWithOptions(request: UpdateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22037,11 +25600,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIpSetsResponse>(await this.callApi(params, req, runtime), new UpdateIpSetsResponse({}));
   }
 
+  /**
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
+    * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateIpSetsRequest
+    * @return UpdateIpSetsResponse
+   */
   async updateIpSets(request: UpdateIpSetsRequest): Promise<UpdateIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIpSetsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can be called to modify the configurations such as protocol and ports of a listener to meet your business requirements.
+    * When you call this operation, take note of the following items:
+    * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+    *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+    * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateListenerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateListenerResponse
+   */
   async updateListenerWithOptions(request: UpdateListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22093,7 +25677,7 @@ export default class Client extends OpenApi {
       query["SecurityPolicyId"] = request.securityPolicyId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+    if (!Util.isUnset(request.XForwardedForConfig)) {
       query["XForwardedForConfig"] = request.XForwardedForConfig;
     }
 
@@ -22114,6 +25698,17 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateListenerResponse>(await this.callApi(params, req, runtime), new UpdateListenerResponse({}));
   }
 
+  /**
+    * This operation can be called to modify the configurations such as protocol and ports of a listener to meet your business requirements.
+    * When you call this operation, take note of the following items:
+    * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener.
+    *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+    *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+    * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+    *
+    * @param request UpdateListenerRequest
+    * @return UpdateListenerResponse
+   */
   async updateListener(request: UpdateListenerRequest): Promise<UpdateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateListenerWithOptions(request, runtime);
