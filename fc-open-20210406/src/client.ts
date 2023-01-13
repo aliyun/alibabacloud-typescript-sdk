@@ -1620,6 +1620,25 @@ export class VendorConfig extends $tea.Model {
   }
 }
 
+export class WAFConfig extends $tea.Model {
+  enableWAF?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableWAF: 'enableWAF',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableWAF: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClaimGPUInstanceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
@@ -1908,6 +1927,7 @@ export class CreateCustomDomainRequest extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       certConfig: 'certConfig',
@@ -1915,6 +1935,7 @@ export class CreateCustomDomainRequest extends $tea.Model {
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -1925,6 +1946,7 @@ export class CreateCustomDomainRequest extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -1943,6 +1965,7 @@ export class CreateCustomDomainResponseBody extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
@@ -1954,6 +1977,7 @@ export class CreateCustomDomainResponseBody extends $tea.Model {
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -1968,6 +1992,7 @@ export class CreateCustomDomainResponseBody extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -3547,6 +3572,7 @@ export class GetCustomDomainResponseBody extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
@@ -3558,6 +3584,7 @@ export class GetCustomDomainResponseBody extends $tea.Model {
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -3572,6 +3599,7 @@ export class GetCustomDomainResponseBody extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -7578,12 +7606,14 @@ export class UpdateCustomDomainRequest extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       certConfig: 'certConfig',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -7593,6 +7623,7 @@ export class UpdateCustomDomainRequest extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -7611,6 +7642,7 @@ export class UpdateCustomDomainResponseBody extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
@@ -7622,6 +7654,7 @@ export class UpdateCustomDomainResponseBody extends $tea.Model {
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -7636,6 +7669,7 @@ export class UpdateCustomDomainResponseBody extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -8291,6 +8325,7 @@ export class ListCustomDomainsResponseBodyCustomDomains extends $tea.Model {
   protocol?: string;
   routeConfig?: RouteConfig;
   tlsConfig?: TLSConfig;
+  wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
@@ -8302,6 +8337,7 @@ export class ListCustomDomainsResponseBodyCustomDomains extends $tea.Model {
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
+      wafConfig: 'wafConfig',
     };
   }
 
@@ -8316,6 +8352,7 @@ export class ListCustomDomainsResponseBodyCustomDomains extends $tea.Model {
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,
+      wafConfig: WAFConfig,
     };
   }
 
@@ -8902,6 +8939,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tlsConfig)) {
       body["tlsConfig"] = request.tlsConfig;
+    }
+
+    if (!Util.isUnset(request.wafConfig)) {
+      body["wafConfig"] = request.wafConfig;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -12289,6 +12330,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tlsConfig)) {
       body["tlsConfig"] = request.tlsConfig;
+    }
+
+    if (!Util.isUnset(request.wafConfig)) {
+      body["wafConfig"] = request.wafConfig;
     }
 
     let realHeaders : {[key: string ]: string} = { };
