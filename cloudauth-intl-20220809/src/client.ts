@@ -92,8 +92,94 @@ export class CheckResultResponse extends $tea.Model {
   }
 }
 
+export class FaceCompareRequest extends $tea.Model {
+  merchantBizId?: string;
+  sourceFacePicture?: string;
+  sourceFacePictureUrl?: string;
+  targetFacePicture?: string;
+  targetFacePictureUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      merchantBizId: 'MerchantBizId',
+      sourceFacePicture: 'SourceFacePicture',
+      sourceFacePictureUrl: 'SourceFacePictureUrl',
+      targetFacePicture: 'TargetFacePicture',
+      targetFacePictureUrl: 'TargetFacePictureUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      merchantBizId: 'string',
+      sourceFacePicture: 'string',
+      sourceFacePictureUrl: 'string',
+      targetFacePicture: 'string',
+      targetFacePictureUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceCompareResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: FaceCompareResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: FaceCompareResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceCompareResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FaceCompareResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FaceCompareResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeRequest extends $tea.Model {
   docType?: string;
+  facePictureBase64?: string;
+  facePictureUrl?: string;
   flowType?: string;
   merchantBizId?: string;
   merchantUserId?: string;
@@ -107,6 +193,8 @@ export class InitializeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       docType: 'DocType',
+      facePictureBase64: 'FacePictureBase64',
+      facePictureUrl: 'FacePictureUrl',
       flowType: 'FlowType',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
@@ -123,6 +211,8 @@ export class InitializeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       docType: 'string',
+      facePictureBase64: 'string',
+      facePictureUrl: 'string',
       flowType: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
@@ -200,6 +290,8 @@ export class CheckResultResponseBodyResult extends $tea.Model {
   extFaceInfo?: string;
   extIdInfo?: string;
   extRiskInfo?: string;
+  passed?: string;
+  subCode?: string;
   static names(): { [key: string]: string } {
     return {
       ekycResult: 'EkycResult',
@@ -207,6 +299,8 @@ export class CheckResultResponseBodyResult extends $tea.Model {
       extFaceInfo: 'ExtFaceInfo',
       extIdInfo: 'ExtIdInfo',
       extRiskInfo: 'ExtRiskInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
     };
   }
 
@@ -217,6 +311,33 @@ export class CheckResultResponseBodyResult extends $tea.Model {
       extFaceInfo: 'string',
       extIdInfo: 'string',
       extRiskInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceCompareResponseBodyResult extends $tea.Model {
+  faceComparisonScore?: number;
+  passed?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceComparisonScore: 'FaceComparisonScore',
+      passed: 'Passed',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceComparisonScore: 'number',
+      passed: 'string',
+      transactionId: 'string',
     };
   }
 
@@ -315,11 +436,64 @@ export default class Client extends OpenApi {
     return await this.checkResultWithOptions(request, runtime);
   }
 
+  async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.sourceFacePicture)) {
+      query["SourceFacePicture"] = request.sourceFacePicture;
+    }
+
+    if (!Util.isUnset(request.sourceFacePictureUrl)) {
+      query["SourceFacePictureUrl"] = request.sourceFacePictureUrl;
+    }
+
+    if (!Util.isUnset(request.targetFacePicture)) {
+      query["TargetFacePicture"] = request.targetFacePicture;
+    }
+
+    if (!Util.isUnset(request.targetFacePictureUrl)) {
+      query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FaceCompare",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FaceCompareResponse>(await this.callApi(params, req, runtime), new FaceCompareResponse({}));
+  }
+
+  async faceCompare(request: FaceCompareRequest): Promise<FaceCompareResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.faceCompareWithOptions(request, runtime);
+  }
+
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.docType)) {
       query["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.facePictureBase64)) {
+      query["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!Util.isUnset(request.facePictureUrl)) {
+      query["FacePictureUrl"] = request.facePictureUrl;
     }
 
     if (!Util.isUnset(request.flowType)) {
