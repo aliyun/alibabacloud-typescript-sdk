@@ -26877,19 +26877,23 @@ export class GetQualityEntityResponseBodyData extends $tea.Model {
 
 export class GetQualityFollowerResponseBodyData extends $tea.Model {
   alarmMode?: number;
+  createTime?: number;
   entityId?: string;
   follower?: string;
   followerAccountName?: string;
   id?: number;
+  modifyTime?: number;
   projectName?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
       alarmMode: 'AlarmMode',
+      createTime: 'CreateTime',
       entityId: 'EntityId',
       follower: 'Follower',
       followerAccountName: 'FollowerAccountName',
       id: 'Id',
+      modifyTime: 'ModifyTime',
       projectName: 'ProjectName',
       tableName: 'TableName',
     };
@@ -26898,10 +26902,12 @@ export class GetQualityFollowerResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmMode: 'number',
+      createTime: 'number',
       entityId: 'string',
       follower: 'string',
       followerAccountName: 'string',
       id: 'number',
+      modifyTime: 'number',
       projectName: 'string',
       tableName: 'string',
     };
@@ -26926,6 +26932,7 @@ export class GetQualityRuleResponseBodyData extends $tea.Model {
   methodName?: string;
   onDuty?: string;
   onDutyAccountName?: string;
+  openSwitch?: boolean;
   operator?: string;
   predictType?: number;
   property?: string;
@@ -26951,6 +26958,7 @@ export class GetQualityRuleResponseBodyData extends $tea.Model {
       methodName: 'MethodName',
       onDuty: 'OnDuty',
       onDutyAccountName: 'OnDutyAccountName',
+      openSwitch: 'OpenSwitch',
       operator: 'Operator',
       predictType: 'PredictType',
       property: 'Property',
@@ -26979,6 +26987,7 @@ export class GetQualityRuleResponseBodyData extends $tea.Model {
       methodName: 'string',
       onDuty: 'string',
       onDutyAccountName: 'string',
+      openSwitch: 'boolean',
       operator: 'string',
       predictType: 'number',
       property: 'string',
@@ -31811,6 +31820,7 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $tea.Mod
   matchExpression?: string;
   methodName?: string;
   op?: string;
+  open?: boolean;
   projectName?: string;
   property?: string;
   referenceValue?: ListQualityResultsByRuleResponseBodyDataRuleChecksReferenceValue[];
@@ -31854,6 +31864,7 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $tea.Mod
       matchExpression: 'MatchExpression',
       methodName: 'MethodName',
       op: 'Op',
+      open: 'Open',
       projectName: 'ProjectName',
       property: 'Property',
       referenceValue: 'ReferenceValue',
@@ -31900,6 +31911,7 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $tea.Mod
       matchExpression: 'string',
       methodName: 'string',
       op: 'string',
+      open: 'boolean',
       projectName: 'string',
       property: 'string',
       referenceValue: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseBodyDataRuleChecksReferenceValue },
