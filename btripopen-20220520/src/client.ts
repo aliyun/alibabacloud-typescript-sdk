@@ -3803,6 +3803,333 @@ export class FlightBillSettlementQueryResponse extends $tea.Model {
   }
 }
 
+export class FlightCancelOrderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCancelOrderRequest extends $tea.Model {
+  disOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCancelOrderResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightCancelOrderResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightCancelOrderResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCancelOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightCancelOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightCancelOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderRequest extends $tea.Model {
+  arrAirportCode?: string;
+  arrCityCode?: string;
+  autoPay?: number;
+  buyerName?: string;
+  buyerUniqueKey?: string;
+  contactInfo?: FlightCreateOrderRequestContactInfo;
+  depAirportCode?: string;
+  depCityCode?: string;
+  depDate?: string;
+  disOrderId?: string;
+  orderAttr?: { [key: string]: any };
+  orderParams?: string;
+  otaItemId?: string;
+  price?: number;
+  receiptAddress?: string;
+  receiptTarget?: number;
+  receiptTitle?: string;
+  travelerInfoList?: FlightCreateOrderRequestTravelerInfoList[];
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrAirportCode: 'arr_airport_code',
+      arrCityCode: 'arr_city_code',
+      autoPay: 'auto_pay',
+      buyerName: 'buyer_name',
+      buyerUniqueKey: 'buyer_unique_key',
+      contactInfo: 'contact_info',
+      depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
+      depDate: 'dep_date',
+      disOrderId: 'dis_order_id',
+      orderAttr: 'order_attr',
+      orderParams: 'order_params',
+      otaItemId: 'ota_item_id',
+      price: 'price',
+      receiptAddress: 'receipt_address',
+      receiptTarget: 'receipt_target',
+      receiptTitle: 'receipt_title',
+      travelerInfoList: 'traveler_info_list',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrAirportCode: 'string',
+      arrCityCode: 'string',
+      autoPay: 'number',
+      buyerName: 'string',
+      buyerUniqueKey: 'string',
+      contactInfo: FlightCreateOrderRequestContactInfo,
+      depAirportCode: 'string',
+      depCityCode: 'string',
+      depDate: 'string',
+      disOrderId: 'string',
+      orderAttr: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      orderParams: 'string',
+      otaItemId: 'string',
+      price: 'number',
+      receiptAddress: 'string',
+      receiptTarget: 'number',
+      receiptTitle: 'string',
+      travelerInfoList: { 'type': 'array', 'itemType': FlightCreateOrderRequestTravelerInfoList },
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderShrinkRequest extends $tea.Model {
+  arrAirportCode?: string;
+  arrCityCode?: string;
+  autoPay?: number;
+  buyerName?: string;
+  buyerUniqueKey?: string;
+  contactInfoShrink?: string;
+  depAirportCode?: string;
+  depCityCode?: string;
+  depDate?: string;
+  disOrderId?: string;
+  orderAttrShrink?: string;
+  orderParams?: string;
+  otaItemId?: string;
+  price?: number;
+  receiptAddress?: string;
+  receiptTarget?: number;
+  receiptTitle?: string;
+  travelerInfoListShrink?: string;
+  tripType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrAirportCode: 'arr_airport_code',
+      arrCityCode: 'arr_city_code',
+      autoPay: 'auto_pay',
+      buyerName: 'buyer_name',
+      buyerUniqueKey: 'buyer_unique_key',
+      contactInfoShrink: 'contact_info',
+      depAirportCode: 'dep_airport_code',
+      depCityCode: 'dep_city_code',
+      depDate: 'dep_date',
+      disOrderId: 'dis_order_id',
+      orderAttrShrink: 'order_attr',
+      orderParams: 'order_params',
+      otaItemId: 'ota_item_id',
+      price: 'price',
+      receiptAddress: 'receipt_address',
+      receiptTarget: 'receipt_target',
+      receiptTitle: 'receipt_title',
+      travelerInfoListShrink: 'traveler_info_list',
+      tripType: 'trip_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrAirportCode: 'string',
+      arrCityCode: 'string',
+      autoPay: 'number',
+      buyerName: 'string',
+      buyerUniqueKey: 'string',
+      contactInfoShrink: 'string',
+      depAirportCode: 'string',
+      depCityCode: 'string',
+      depDate: 'string',
+      disOrderId: 'string',
+      orderAttrShrink: 'string',
+      orderParams: 'string',
+      otaItemId: 'string',
+      price: 'number',
+      receiptAddress: 'string',
+      receiptTarget: 'number',
+      receiptTitle: 'string',
+      travelerInfoListShrink: 'string',
+      tripType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightCreateOrderResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightCreateOrderResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightCreateOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightCreateOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightExceedApplyQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -3895,6 +4222,106 @@ export class FlightExceedApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightExceedApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoRequest extends $tea.Model {
+  disOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightOrderDetailInfoResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightOrderDetailInfoResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightOrderDetailInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightOrderDetailInfoResponseBody,
     };
   }
 
@@ -4131,6 +4558,580 @@ export class FlightOrderQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightOrderQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderRequest extends $tea.Model {
+  corpPayPrice?: number;
+  disOrderId?: string;
+  extra?: { [key: string]: string };
+  personalPayPrice?: number;
+  totalPayPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpPayPrice: 'corp_pay_price',
+      disOrderId: 'dis_order_id',
+      extra: 'extra',
+      personalPayPrice: 'personal_pay_price',
+      totalPayPrice: 'total_pay_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpPayPrice: 'number',
+      disOrderId: 'string',
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      personalPayPrice: 'number',
+      totalPayPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderShrinkRequest extends $tea.Model {
+  corpPayPrice?: number;
+  disOrderId?: string;
+  extraShrink?: string;
+  personalPayPrice?: number;
+  totalPayPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpPayPrice: 'corp_pay_price',
+      disOrderId: 'dis_order_id',
+      extraShrink: 'extra',
+      personalPayPrice: 'personal_pay_price',
+      totalPayPrice: 'total_pay_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpPayPrice: 'number',
+      disOrderId: 'string',
+      extraShrink: 'string',
+      personalPayPrice: 'number',
+      totalPayPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightPayOrderResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightPayOrderResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightPayOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightPayOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyRequest extends $tea.Model {
+  corpRefundPrice?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  displayRefundMoney?: string;
+  extra?: { [key: string]: string };
+  isVoluntary?: number;
+  itemUnitIds?: string;
+  passengerSegmentInfoList?: FlightRefundApplyRequestPassengerSegmentInfoList[];
+  personalRefundPrice?: number;
+  reasonDetail?: string;
+  reasonType?: number;
+  refundVoucherInfo?: string[];
+  sessionId?: string;
+  totalRefundPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpRefundPrice: 'corp_refund_price',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      displayRefundMoney: 'display_refund_money',
+      extra: 'extra',
+      isVoluntary: 'is_voluntary',
+      itemUnitIds: 'item_unit_ids',
+      passengerSegmentInfoList: 'passenger_segment_info_list',
+      personalRefundPrice: 'personal_refund_price',
+      reasonDetail: 'reason_detail',
+      reasonType: 'reason_type',
+      refundVoucherInfo: 'refund_voucher_info',
+      sessionId: 'session_id',
+      totalRefundPrice: 'total_refund_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpRefundPrice: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      displayRefundMoney: 'string',
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      isVoluntary: 'number',
+      itemUnitIds: 'string',
+      passengerSegmentInfoList: { 'type': 'array', 'itemType': FlightRefundApplyRequestPassengerSegmentInfoList },
+      personalRefundPrice: 'number',
+      reasonDetail: 'string',
+      reasonType: 'number',
+      refundVoucherInfo: { 'type': 'array', 'itemType': 'string' },
+      sessionId: 'string',
+      totalRefundPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyShrinkRequest extends $tea.Model {
+  corpRefundPrice?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  displayRefundMoney?: string;
+  extraShrink?: string;
+  isVoluntary?: number;
+  itemUnitIds?: string;
+  passengerSegmentInfoListShrink?: string;
+  personalRefundPrice?: number;
+  reasonDetail?: string;
+  reasonType?: number;
+  refundVoucherInfoShrink?: string;
+  sessionId?: string;
+  totalRefundPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpRefundPrice: 'corp_refund_price',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      displayRefundMoney: 'display_refund_money',
+      extraShrink: 'extra',
+      isVoluntary: 'is_voluntary',
+      itemUnitIds: 'item_unit_ids',
+      passengerSegmentInfoListShrink: 'passenger_segment_info_list',
+      personalRefundPrice: 'personal_refund_price',
+      reasonDetail: 'reason_detail',
+      reasonType: 'reason_type',
+      refundVoucherInfoShrink: 'refund_voucher_info',
+      sessionId: 'session_id',
+      totalRefundPrice: 'total_refund_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpRefundPrice: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      displayRefundMoney: 'string',
+      extraShrink: 'string',
+      isVoluntary: 'number',
+      itemUnitIds: 'string',
+      passengerSegmentInfoListShrink: 'string',
+      personalRefundPrice: 'number',
+      reasonDetail: 'string',
+      reasonType: 'number',
+      refundVoucherInfoShrink: 'string',
+      sessionId: 'string',
+      totalRefundPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightRefundApplyResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightRefundApplyResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightRefundApplyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightRefundApplyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailRequest extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightRefundDetailResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightRefundDetailResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightRefundDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightRefundDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalRequest extends $tea.Model {
+  disOrderId?: string;
+  isVoluntary?: string;
+  passengerSegmentInfoList?: FlightRefundPreCalRequestPassengerSegmentInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      isVoluntary: 'is_voluntary',
+      passengerSegmentInfoList: 'passenger_segment_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      isVoluntary: 'string',
+      passengerSegmentInfoList: { 'type': 'array', 'itemType': FlightRefundPreCalRequestPassengerSegmentInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalShrinkRequest extends $tea.Model {
+  disOrderId?: string;
+  isVoluntary?: string;
+  passengerSegmentInfoListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      isVoluntary: 'is_voluntary',
+      passengerSegmentInfoListShrink: 'passenger_segment_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      isVoluntary: 'string',
+      passengerSegmentInfoListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: FlightRefundPreCalResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: FlightRefundPreCalResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FlightRefundPreCalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FlightRefundPreCalResponseBody,
     };
   }
 
@@ -5977,6 +6978,789 @@ export class SyncSingleUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SyncSingleUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyRequest extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  isVoluntary?: number;
+  modifyFlightInfoList?: TicketChangingApplyRequestModifyFlightInfoList[];
+  otaItemId?: string;
+  reason?: string;
+  sessionId?: string;
+  whetherRetry?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      isVoluntary: 'is_voluntary',
+      modifyFlightInfoList: 'modify_flight_info_list',
+      otaItemId: 'ota_item_id',
+      reason: 'reason',
+      sessionId: 'session_id',
+      whetherRetry: 'whether_retry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      isVoluntary: 'number',
+      modifyFlightInfoList: { 'type': 'array', 'itemType': TicketChangingApplyRequestModifyFlightInfoList },
+      otaItemId: 'string',
+      reason: 'string',
+      sessionId: 'string',
+      whetherRetry: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyShrinkRequest extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  isVoluntary?: number;
+  modifyFlightInfoListShrink?: string;
+  otaItemId?: string;
+  reason?: string;
+  sessionId?: string;
+  whetherRetry?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      isVoluntary: 'is_voluntary',
+      modifyFlightInfoListShrink: 'modify_flight_info_list',
+      otaItemId: 'ota_item_id',
+      reason: 'reason',
+      sessionId: 'session_id',
+      whetherRetry: 'whether_retry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      isVoluntary: 'number',
+      modifyFlightInfoListShrink: 'string',
+      otaItemId: 'string',
+      reason: 'string',
+      sessionId: 'string',
+      whetherRetry: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingApplyResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingApplyResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingApplyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingApplyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingCancelHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingCancelRequest extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingCancelResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingCancelResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingCancelResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingCancelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingCancelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailRequest extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingDetailResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingDetailResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryRequest extends $tea.Model {
+  arrCity?: string;
+  depCity?: string;
+  disOrderId?: string;
+  isVoluntary?: number;
+  modifyDepartDate?: string;
+  modifyFlightNo?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      depCity: 'dep_city',
+      disOrderId: 'dis_order_id',
+      isVoluntary: 'is_voluntary',
+      modifyDepartDate: 'modify_depart_date',
+      modifyFlightNo: 'modify_flight_no',
+      sessionId: 'session_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      depCity: 'string',
+      disOrderId: 'string',
+      isVoluntary: 'number',
+      modifyDepartDate: 'string',
+      modifyFlightNo: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingEnquiryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingEnquiryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingEnquiryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingEnquiryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListRequest extends $tea.Model {
+  arrCity?: string;
+  depCity?: string;
+  depDate?: string;
+  disOrderId?: string;
+  isVoluntary?: number;
+  travelerInfoList?: TicketChangingFlightListRequestTravelerInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      depCity: 'dep_city',
+      depDate: 'dep_date',
+      disOrderId: 'dis_order_id',
+      isVoluntary: 'is_voluntary',
+      travelerInfoList: 'traveler_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      depCity: 'string',
+      depDate: 'string',
+      disOrderId: 'string',
+      isVoluntary: 'number',
+      travelerInfoList: { 'type': 'array', 'itemType': TicketChangingFlightListRequestTravelerInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListShrinkRequest extends $tea.Model {
+  arrCity?: string;
+  depCity?: string;
+  depDate?: string;
+  disOrderId?: string;
+  isVoluntary?: number;
+  travelerInfoListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      depCity: 'dep_city',
+      depDate: 'dep_date',
+      disOrderId: 'dis_order_id',
+      isVoluntary: 'is_voluntary',
+      travelerInfoListShrink: 'traveler_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      depCity: 'string',
+      depDate: 'string',
+      disOrderId: 'string',
+      isVoluntary: 'number',
+      travelerInfoListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingFlightListResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingFlightListResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingFlightListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingFlightListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayRequest extends $tea.Model {
+  corpPayPrice?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  extra?: { [key: string]: string };
+  personalPayPrice?: number;
+  totalPayPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpPayPrice: 'corp_pay_price',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      extra: 'extra',
+      personalPayPrice: 'personal_pay_price',
+      totalPayPrice: 'total_pay_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpPayPrice: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      personalPayPrice: 'number',
+      totalPayPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayShrinkRequest extends $tea.Model {
+  corpPayPrice?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  extraShrink?: string;
+  personalPayPrice?: number;
+  totalPayPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      corpPayPrice: 'corp_pay_price',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      extraShrink: 'extra',
+      personalPayPrice: 'personal_pay_price',
+      totalPayPrice: 'total_pay_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpPayPrice: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      extraShrink: 'string',
+      personalPayPrice: 'number',
+      totalPayPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TicketChangingPayResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TicketChangingPayResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TicketChangingPayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TicketChangingPayResponseBody,
     };
   }
 
@@ -10022,6 +11806,145 @@ export class FlightBillSettlementQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class FlightCancelOrderResponseBodyModule extends $tea.Model {
+  cancelTime?: string;
+  failCode?: string;
+  failReason?: string;
+  orderStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cancelTime: 'cancel_time',
+      failCode: 'fail_code',
+      failReason: 'fail_reason',
+      orderStatus: 'order_status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelTime: 'string',
+      failCode: 'string',
+      failReason: 'string',
+      orderStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderRequestContactInfo extends $tea.Model {
+  contactEmail?: string;
+  contactName?: string;
+  contactPhone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactEmail: 'contact_email',
+      contactName: 'contact_name',
+      contactPhone: 'contact_phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactEmail: 'string',
+      contactName: 'string',
+      contactPhone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderRequestTravelerInfoList extends $tea.Model {
+  birthday?: string;
+  certNation?: string;
+  certNo?: string;
+  certType?: string;
+  certValidDate?: string;
+  name?: string;
+  outUserId?: string;
+  phone?: string;
+  sex?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthday: 'birthday',
+      certNation: 'cert_nation',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      certValidDate: 'cert_valid_date',
+      name: 'name',
+      outUserId: 'out_user_id',
+      phone: 'phone',
+      sex: 'sex',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthday: 'string',
+      certNation: 'string',
+      certNo: 'string',
+      certType: 'string',
+      certValidDate: 'string',
+      name: 'string',
+      outUserId: 'string',
+      phone: 'string',
+      sex: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightCreateOrderResponseBodyModule extends $tea.Model {
+  alipayTradeNo?: string;
+  btripOrderId?: number;
+  disOrderId?: string;
+  lastPayTime?: string;
+  orderStatus?: number;
+  payStatus?: number;
+  paymentPrice?: number;
+  totalPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeNo: 'alipay_trade_no',
+      btripOrderId: 'btrip_order_id',
+      disOrderId: 'dis_order_id',
+      lastPayTime: 'last_pay_time',
+      orderStatus: 'order_status',
+      payStatus: 'pay_status',
+      paymentPrice: 'payment_price',
+      totalPrice: 'total_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeNo: 'string',
+      btripOrderId: 'number',
+      disOrderId: 'string',
+      lastPayTime: 'string',
+      orderStatus: 'number',
+      payStatus: 'number',
+      paymentPrice: 'number',
+      totalPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extends $tea.Model {
   arrCity?: string;
   arrCityName?: string;
@@ -10121,6 +12044,268 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
       thirdpartApplyId: 'string',
       thirdpartCorpId: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponseBodyModuleFlightInfoList extends $tea.Model {
+  airlineCode?: string;
+  airlineName?: string;
+  airlineSimpleName?: string;
+  arrAirport?: string;
+  arrAirportCode?: string;
+  arrAirportCodeName?: string;
+  arrCity?: string;
+  arrCityCode?: string;
+  arrTerminal?: string;
+  arrTime?: string;
+  baggage?: string;
+  buildPrice?: number;
+  cabin?: string;
+  cabinClass?: string;
+  carrier?: string;
+  depAirport?: string;
+  depAirportCode?: string;
+  depAirportCodeName?: string;
+  depCity?: string;
+  depCityCode?: string;
+  depTerminal?: string;
+  depTime?: string;
+  flightNo?: string;
+  lastCabin?: string;
+  lastFlightNo?: string;
+  meal?: string;
+  oilPrice?: number;
+  segmentType?: number;
+  stopArrTime?: string;
+  stopCity?: string;
+  stopDepTime?: string;
+  ticketPrice?: number;
+  tuigaiqianInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      airlineName: 'airline_name',
+      airlineSimpleName: 'airline_simple_name',
+      arrAirport: 'arr_airport',
+      arrAirportCode: 'arr_airport_code',
+      arrAirportCodeName: 'arr_airport_code_name',
+      arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
+      arrTerminal: 'arr_terminal',
+      arrTime: 'arr_time',
+      baggage: 'baggage',
+      buildPrice: 'build_price',
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      carrier: 'carrier',
+      depAirport: 'dep_airport',
+      depAirportCode: 'dep_airport_code',
+      depAirportCodeName: 'dep_airport_code_name',
+      depCity: 'dep_city',
+      depCityCode: 'dep_city_code',
+      depTerminal: 'dep_terminal',
+      depTime: 'dep_time',
+      flightNo: 'flight_no',
+      lastCabin: 'last_cabin',
+      lastFlightNo: 'last_flight_no',
+      meal: 'meal',
+      oilPrice: 'oil_price',
+      segmentType: 'segment_type',
+      stopArrTime: 'stop_arr_time',
+      stopCity: 'stop_city',
+      stopDepTime: 'stop_dep_time',
+      ticketPrice: 'ticket_price',
+      tuigaiqianInfo: 'tuigaiqian_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      airlineName: 'string',
+      airlineSimpleName: 'string',
+      arrAirport: 'string',
+      arrAirportCode: 'string',
+      arrAirportCodeName: 'string',
+      arrCity: 'string',
+      arrCityCode: 'string',
+      arrTerminal: 'string',
+      arrTime: 'string',
+      baggage: 'string',
+      buildPrice: 'number',
+      cabin: 'string',
+      cabinClass: 'string',
+      carrier: 'string',
+      depAirport: 'string',
+      depAirportCode: 'string',
+      depAirportCodeName: 'string',
+      depCity: 'string',
+      depCityCode: 'string',
+      depTerminal: 'string',
+      depTime: 'string',
+      flightNo: 'string',
+      lastCabin: 'string',
+      lastFlightNo: 'string',
+      meal: 'string',
+      oilPrice: 'number',
+      segmentType: 'number',
+      stopArrTime: 'string',
+      stopCity: 'string',
+      stopDepTime: 'string',
+      ticketPrice: 'number',
+      tuigaiqianInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponseBodyModuleTicketInfoList extends $tea.Model {
+  openTicketStatus?: string;
+  pnrCode?: string;
+  ticketNo?: string;
+  ticketStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openTicketStatus: 'open_ticket_status',
+      pnrCode: 'pnr_code',
+      ticketNo: 'ticket_no',
+      ticketStatus: 'ticket_status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openTicketStatus: 'string',
+      pnrCode: 'string',
+      ticketNo: 'string',
+      ticketStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponseBodyModuleTravelerInfoList extends $tea.Model {
+  birthDate?: string;
+  certNo?: string;
+  certType?: string;
+  openTicketStatus?: number;
+  passengerName?: string;
+  passengerType?: string;
+  phone?: string;
+  ticketNo?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthDate: 'birth_date',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      openTicketStatus: 'open_ticket_status',
+      passengerName: 'passenger_name',
+      passengerType: 'passenger_type',
+      phone: 'phone',
+      ticketNo: 'ticket_no',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthDate: 'string',
+      certNo: 'string',
+      certType: 'string',
+      openTicketStatus: 'number',
+      passengerName: 'string',
+      passengerType: 'string',
+      phone: 'string',
+      ticketNo: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderDetailInfoResponseBodyModule extends $tea.Model {
+  alipayTradeNo?: string;
+  bookUserId?: string;
+  btripOrderId?: number;
+  contactName?: string;
+  contactPhone?: string;
+  disOrderId?: string;
+  extra?: string;
+  flightInfoList?: FlightOrderDetailInfoResponseBodyModuleFlightInfoList[];
+  lastPayTime?: string;
+  payStatus?: number;
+  payTime?: string;
+  promotionPrice?: number;
+  settleAmount?: number;
+  settleType?: number;
+  status?: number;
+  ticketInfoList?: FlightOrderDetailInfoResponseBodyModuleTicketInfoList[];
+  totalBuildPrice?: number;
+  totalOilPrice?: number;
+  totalOrderPrice?: number;
+  travelerInfoList?: FlightOrderDetailInfoResponseBodyModuleTravelerInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeNo: 'alipay_trade_no',
+      bookUserId: 'book_user_id',
+      btripOrderId: 'btrip_order_id',
+      contactName: 'contact_name',
+      contactPhone: 'contact_phone',
+      disOrderId: 'dis_order_id',
+      extra: 'extra',
+      flightInfoList: 'flight_info_list',
+      lastPayTime: 'last_pay_time',
+      payStatus: 'pay_status',
+      payTime: 'pay_time',
+      promotionPrice: 'promotion_price',
+      settleAmount: 'settle_amount',
+      settleType: 'settle_type',
+      status: 'status',
+      ticketInfoList: 'ticket_info_list',
+      totalBuildPrice: 'total_build_price',
+      totalOilPrice: 'total_oil_price',
+      totalOrderPrice: 'total_order_price',
+      travelerInfoList: 'traveler_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeNo: 'string',
+      bookUserId: 'string',
+      btripOrderId: 'number',
+      contactName: 'string',
+      contactPhone: 'string',
+      disOrderId: 'string',
+      extra: 'string',
+      flightInfoList: { 'type': 'array', 'itemType': FlightOrderDetailInfoResponseBodyModuleFlightInfoList },
+      lastPayTime: 'string',
+      payStatus: 'number',
+      payTime: 'string',
+      promotionPrice: 'number',
+      settleAmount: 'number',
+      settleType: 'number',
+      status: 'number',
+      ticketInfoList: { 'type': 'array', 'itemType': FlightOrderDetailInfoResponseBodyModuleTicketInfoList },
+      totalBuildPrice: 'number',
+      totalOilPrice: 'number',
+      totalOrderPrice: 'number',
+      travelerInfoList: { 'type': 'array', 'itemType': FlightOrderDetailInfoResponseBodyModuleTravelerInfoList },
     };
   }
 
@@ -10882,6 +13067,294 @@ export class FlightOrderQueryResponseBodyModule extends $tea.Model {
       orderBaseInfo: FlightOrderQueryResponseBodyModuleOrderBaseInfo,
       passengerInfoList: { 'type': 'array', 'itemType': FlightOrderQueryResponseBodyModulePassengerInfoList },
       priceInfoList: { 'type': 'array', 'itemType': FlightOrderQueryResponseBodyModulePriceInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightPayOrderResponseBodyModule extends $tea.Model {
+  actualPayPrice?: number;
+  alipayTradeNo?: string;
+  lastPayTime?: string;
+  payStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actualPayPrice: 'actual_pay_price',
+      alipayTradeNo: 'alipay_trade_no',
+      lastPayTime: 'last_pay_time',
+      payStatus: 'pay_status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualPayPrice: 'number',
+      alipayTradeNo: 'string',
+      lastPayTime: 'string',
+      payStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyRequestPassengerSegmentInfoList extends $tea.Model {
+  flightNo?: string;
+  passengerName?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flightNo: 'flight_no',
+      passengerName: 'passenger_name',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightNo: 'string',
+      passengerName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundApplyResponseBodyModule extends $tea.Model {
+  disOrderId?: string;
+  disSubOrderId?: string;
+  refundApplyId?: number;
+  refundFee?: number;
+  refundMoney?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      refundApplyId: 'refund_apply_id',
+      refundFee: 'refund_fee',
+      refundMoney: 'refund_money',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      refundApplyId: 'number',
+      refundFee: 'number',
+      refundMoney: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailResponseBodyModuleRefundFeeList extends $tea.Model {
+  alipayTradeNo?: string;
+  refundFee?: number;
+  refundPrice?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeNo: 'alipay_trade_no',
+      refundFee: 'refund_fee',
+      refundPrice: 'refund_price',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeNo: 'string',
+      refundFee: 'number',
+      refundPrice: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundDetailResponseBodyModule extends $tea.Model {
+  btripOrderId?: number;
+  btripSubOrderId?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  isVoluntary?: number;
+  reason?: string;
+  refundFee?: number;
+  refundFeeList?: FlightRefundDetailResponseBodyModuleRefundFeeList[];
+  refundPrice?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      btripOrderId: 'btrip_order_id',
+      btripSubOrderId: 'btrip_sub_order_id',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      isVoluntary: 'is_voluntary',
+      reason: 'reason',
+      refundFee: 'refund_fee',
+      refundFeeList: 'refund_fee_list',
+      refundPrice: 'refund_price',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripOrderId: 'number',
+      btripSubOrderId: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      isVoluntary: 'number',
+      reason: 'string',
+      refundFee: 'number',
+      refundFeeList: { 'type': 'array', 'itemType': FlightRefundDetailResponseBodyModuleRefundFeeList },
+      refundPrice: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalRequestPassengerSegmentInfoList extends $tea.Model {
+  flightNo?: string;
+  passengerName?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flightNo: 'flight_no',
+      passengerName: 'passenger_name',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightNo: 'string',
+      passengerName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalResponseBodyModuleMultiRefundCalList extends $tea.Model {
+  canApplyRefund?: boolean;
+  name?: string;
+  preRefundMoney?: number;
+  refundFee?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canApplyRefund: 'can_apply_refund',
+      name: 'name',
+      preRefundMoney: 'pre_refund_money',
+      refundFee: 'refund_fee',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canApplyRefund: 'boolean',
+      name: 'string',
+      preRefundMoney: 'number',
+      refundFee: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalResponseBodyModuleReturnReason extends $tea.Model {
+  extendDesc?: string;
+  person?: number;
+  reasonCode?: number;
+  reasonShow?: string;
+  reasonType?: number;
+  volunteer?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extendDesc: 'extend_desc',
+      person: 'person',
+      reasonCode: 'reason_code',
+      reasonShow: 'reason_show',
+      reasonType: 'reason_type',
+      volunteer: 'volunteer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendDesc: 'string',
+      person: 'number',
+      reasonCode: 'number',
+      reasonShow: 'string',
+      reasonType: 'number',
+      volunteer: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightRefundPreCalResponseBodyModule extends $tea.Model {
+  flightChange?: boolean;
+  itemUnitId?: string;
+  multiRefundCalList?: FlightRefundPreCalResponseBodyModuleMultiRefundCalList[];
+  preRefundMoney?: number;
+  refundFee?: number;
+  returnReason?: FlightRefundPreCalResponseBodyModuleReturnReason[];
+  sessionId?: string;
+  tips?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flightChange: 'flight_change',
+      itemUnitId: 'item_unit_id',
+      multiRefundCalList: 'multi_refund_cal_list',
+      preRefundMoney: 'pre_refund_money',
+      refundFee: 'refund_fee',
+      returnReason: 'return_reason',
+      sessionId: 'session_id',
+      tips: 'tips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightChange: 'boolean',
+      itemUnitId: 'string',
+      multiRefundCalList: { 'type': 'array', 'itemType': FlightRefundPreCalResponseBodyModuleMultiRefundCalList },
+      preRefundMoney: 'number',
+      refundFee: 'number',
+      returnReason: { 'type': 'array', 'itemType': FlightRefundPreCalResponseBodyModuleReturnReason },
+      sessionId: 'string',
+      tips: 'string',
     };
   }
 
@@ -12102,6 +14575,1006 @@ export class MonthBillGetResponseBodyModule extends $tea.Model {
       endDate: 'string',
       startDate: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyRequestModifyFlightInfoListPassengerInfoList extends $tea.Model {
+  originFlightNo?: string;
+  outUserId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originFlightNo: 'origin_flight_no',
+      outUserId: 'out_user_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originFlightNo: 'string',
+      outUserId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyRequestModifyFlightInfoList extends $tea.Model {
+  arrCity?: string;
+  cabin?: string;
+  depCity?: string;
+  depDate?: string;
+  flightNo?: string;
+  passengerInfoList?: TicketChangingApplyRequestModifyFlightInfoListPassengerInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      cabin: 'cabin',
+      depCity: 'dep_city',
+      depDate: 'dep_date',
+      flightNo: 'flight_no',
+      passengerInfoList: 'passenger_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      cabin: 'string',
+      depCity: 'string',
+      depDate: 'string',
+      flightNo: 'string',
+      passengerInfoList: { 'type': 'array', 'itemType': TicketChangingApplyRequestModifyFlightInfoListPassengerInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingApplyResponseBodyModule extends $tea.Model {
+  bookingChangedTotalFee?: number;
+  bookingOriginTotalFee?: number;
+  bookingPriceChanged?: boolean;
+  btripOrderId?: number;
+  btripSubOrderId?: number;
+  canPay?: boolean;
+  changeFee?: number;
+  deadlineTime?: string;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  maxRetryTimes?: number;
+  nextRetryInterval?: number;
+  retry?: boolean;
+  retryClientTips?: string;
+  status?: number;
+  upgradeFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bookingChangedTotalFee: 'booking_changed_total_fee',
+      bookingOriginTotalFee: 'booking_origin_total_fee',
+      bookingPriceChanged: 'booking_price_changed',
+      btripOrderId: 'btrip_order_id',
+      btripSubOrderId: 'btrip_sub_order_id',
+      canPay: 'can_pay',
+      changeFee: 'change_fee',
+      deadlineTime: 'deadline_time',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      maxRetryTimes: 'max_retry_times',
+      nextRetryInterval: 'next_retry_interval',
+      retry: 'retry',
+      retryClientTips: 'retry_client_tips',
+      status: 'status',
+      upgradeFee: 'upgrade_fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookingChangedTotalFee: 'number',
+      bookingOriginTotalFee: 'number',
+      bookingPriceChanged: 'boolean',
+      btripOrderId: 'number',
+      btripSubOrderId: 'number',
+      canPay: 'boolean',
+      changeFee: 'number',
+      deadlineTime: 'string',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      maxRetryTimes: 'number',
+      nextRetryInterval: 'number',
+      retry: 'boolean',
+      retryClientTips: 'string',
+      status: 'number',
+      upgradeFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingCancelResponseBodyModule extends $tea.Model {
+  cancelTime?: string;
+  disSubOrderId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cancelTime: 'cancel_time',
+      disSubOrderId: 'dis_sub_order_id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelTime: 'string',
+      disSubOrderId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailResponseBodyModuleFlightInfoList extends $tea.Model {
+  airlineCode?: string;
+  airlineName?: string;
+  airlineSimpleName?: string;
+  arrAirport?: string;
+  arrAirportCode?: string;
+  arrAirportCodeName?: string;
+  arrCity?: string;
+  arrCityCode?: string;
+  arrTerminal?: string;
+  arrTime?: string;
+  baggage?: string;
+  buildPrice?: number;
+  cabin?: string;
+  cabinClass?: string;
+  carrier?: string;
+  depAirport?: string;
+  depAirportCode?: string;
+  depAirportCodeName?: string;
+  depCity?: string;
+  depCityCode?: string;
+  depTerminal?: string;
+  depTime?: string;
+  flightNo?: string;
+  lastCabin?: string;
+  lastFlightNo?: string;
+  meal?: string;
+  oilPrice?: number;
+  segmentType?: number;
+  stopArrTime?: string;
+  stopCity?: string;
+  stopDepTime?: string;
+  ticketPrice?: number;
+  tuigaiqianInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      airlineName: 'airline_name',
+      airlineSimpleName: 'airline_simple_name',
+      arrAirport: 'arr_airport',
+      arrAirportCode: 'arr_airport_code',
+      arrAirportCodeName: 'arr_airport_code_name',
+      arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
+      arrTerminal: 'arr_terminal',
+      arrTime: 'arr_time',
+      baggage: 'baggage',
+      buildPrice: 'build_price',
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      carrier: 'carrier',
+      depAirport: 'dep_airport',
+      depAirportCode: 'dep_airport_code',
+      depAirportCodeName: 'dep_airport_code_name',
+      depCity: 'dep_city',
+      depCityCode: 'dep_city_code',
+      depTerminal: 'dep_terminal',
+      depTime: 'dep_time',
+      flightNo: 'flight_no',
+      lastCabin: 'last_cabin',
+      lastFlightNo: 'last_flight_no',
+      meal: 'meal',
+      oilPrice: 'oil_price',
+      segmentType: 'segment_type',
+      stopArrTime: 'stop_arr_time',
+      stopCity: 'stop_city',
+      stopDepTime: 'stop_dep_time',
+      ticketPrice: 'ticket_price',
+      tuigaiqianInfo: 'tuigaiqian_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      airlineName: 'string',
+      airlineSimpleName: 'string',
+      arrAirport: 'string',
+      arrAirportCode: 'string',
+      arrAirportCodeName: 'string',
+      arrCity: 'string',
+      arrCityCode: 'string',
+      arrTerminal: 'string',
+      arrTime: 'string',
+      baggage: 'string',
+      buildPrice: 'number',
+      cabin: 'string',
+      cabinClass: 'string',
+      carrier: 'string',
+      depAirport: 'string',
+      depAirportCode: 'string',
+      depAirportCodeName: 'string',
+      depCity: 'string',
+      depCityCode: 'string',
+      depTerminal: 'string',
+      depTime: 'string',
+      flightNo: 'string',
+      lastCabin: 'string',
+      lastFlightNo: 'string',
+      meal: 'string',
+      oilPrice: 'number',
+      segmentType: 'number',
+      stopArrTime: 'string',
+      stopCity: 'string',
+      stopDepTime: 'string',
+      ticketPrice: 'number',
+      tuigaiqianInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailResponseBodyModuleTravelerInfoList extends $tea.Model {
+  birthDate?: string;
+  certNo?: string;
+  certType?: string;
+  openTicketStatus?: number;
+  passengerName?: string;
+  passengerType?: string;
+  phone?: string;
+  ticketNo?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      birthDate: 'birth_date',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      openTicketStatus: 'open_ticket_status',
+      passengerName: 'passenger_name',
+      passengerType: 'passenger_type',
+      phone: 'phone',
+      ticketNo: 'ticket_no',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthDate: 'string',
+      certNo: 'string',
+      certType: 'string',
+      openTicketStatus: 'number',
+      passengerName: 'string',
+      passengerType: 'string',
+      phone: 'string',
+      ticketNo: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingDetailResponseBodyModule extends $tea.Model {
+  alipayTradeNo?: string;
+  btripOrderId?: number;
+  btripSubOrderId?: number;
+  disOrderId?: string;
+  disSubOrderId?: string;
+  extra?: string;
+  flightInfoList?: TicketChangingDetailResponseBodyModuleFlightInfoList[];
+  lastPayTime?: string;
+  payStatus?: number;
+  payTime?: string;
+  settlePrice?: number;
+  settleType?: number;
+  status?: number;
+  totalChangePrice?: number;
+  totalPrice?: number;
+  totalUpgradePrice?: number;
+  travelerInfoList?: TicketChangingDetailResponseBodyModuleTravelerInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      alipayTradeNo: 'alipay_trade_no',
+      btripOrderId: 'btrip_order_id',
+      btripSubOrderId: 'btrip_sub_order_id',
+      disOrderId: 'dis_order_id',
+      disSubOrderId: 'dis_sub_order_id',
+      extra: 'extra',
+      flightInfoList: 'flight_info_list',
+      lastPayTime: 'last_pay_time',
+      payStatus: 'pay_status',
+      payTime: 'pay_time',
+      settlePrice: 'settle_price',
+      settleType: 'settle_type',
+      status: 'status',
+      totalChangePrice: 'total_change_price',
+      totalPrice: 'total_price',
+      totalUpgradePrice: 'total_upgrade_price',
+      travelerInfoList: 'traveler_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alipayTradeNo: 'string',
+      btripOrderId: 'number',
+      btripSubOrderId: 'number',
+      disOrderId: 'string',
+      disSubOrderId: 'string',
+      extra: 'string',
+      flightInfoList: { 'type': 'array', 'itemType': TicketChangingDetailResponseBodyModuleFlightInfoList },
+      lastPayTime: 'string',
+      payStatus: 'number',
+      payTime: 'string',
+      settlePrice: 'number',
+      settleType: 'number',
+      status: 'number',
+      totalChangePrice: 'number',
+      totalPrice: 'number',
+      totalUpgradePrice: 'number',
+      travelerInfoList: { 'type': 'array', 'itemType': TicketChangingDetailResponseBodyModuleTravelerInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo extends $tea.Model {
+  airlineCode?: string;
+  airlineName?: string;
+  airlineSimpleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      airlineName: 'airline_name',
+      airlineSimpleName: 'airline_simple_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      airlineName: 'string',
+      airlineSimpleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  cityCode?: string;
+  cityName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList extends $tea.Model {
+  passengerType?: number;
+  ticketPrice?: number;
+  upgradeFee?: number;
+  upgradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerType: 'passenger_type',
+      ticketPrice: 'ticket_price',
+      upgradeFee: 'upgrade_fee',
+      upgradePrice: 'upgrade_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerType: 'number',
+      ticketPrice: 'number',
+      upgradeFee: 'number',
+      upgradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinDesc?: string;
+  cabinDiscount?: number;
+  childCabin?: string;
+  leftNum?: string;
+  modifyPriceList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList[];
+  otaItemid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinDesc: 'cabin_desc',
+      cabinDiscount: 'cabin_discount',
+      childCabin: 'child_cabin',
+      leftNum: 'left_num',
+      modifyPriceList: 'modify_price_list',
+      otaItemid: 'ota_itemid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinDesc: 'string',
+      cabinDiscount: 'number',
+      childCabin: 'string',
+      leftNum: 'string',
+      modifyPriceList: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList },
+      otaItemid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  cityCode?: string;
+  cityName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice extends $tea.Model {
+  passengerType?: number;
+  ticketPrice?: number;
+  upgradeFee?: number;
+  upgradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerType: 'passenger_type',
+      ticketPrice: 'ticket_price',
+      upgradeFee: 'upgrade_fee',
+      upgradePrice: 'upgrade_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerType: 'number',
+      ticketPrice: 'number',
+      upgradeFee: 'number',
+      upgradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoList extends $tea.Model {
+  airlineInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo;
+  arrAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo;
+  cabinList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList[];
+  carrierAirline?: string;
+  carrierNo?: string;
+  depAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo;
+  depCityCode?: string;
+  flightNo?: string;
+  isShare?: boolean;
+  lowestCabin?: string;
+  lowestCabinClass?: string;
+  lowestCabinDesc?: string;
+  lowestCabinNum?: string;
+  lowestCabinPrice?: TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice[];
+  modifyFlightArrTime?: string;
+  modifyFlightDepDate?: string;
+  modifyFlightDepTime?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineInfo: 'airline_info',
+      arrAirportInfo: 'arr_airport_info',
+      cabinList: 'cabin_list',
+      carrierAirline: 'carrier_airline',
+      carrierNo: 'carrier_no',
+      depAirportInfo: 'dep_airport_info',
+      depCityCode: 'dep_city_code',
+      flightNo: 'flight_no',
+      isShare: 'is_share',
+      lowestCabin: 'lowest_cabin',
+      lowestCabinClass: 'lowest_cabin_class',
+      lowestCabinDesc: 'lowest_cabin_desc',
+      lowestCabinNum: 'lowest_cabin_num',
+      lowestCabinPrice: 'lowest_cabin_price',
+      modifyFlightArrTime: 'modify_flight_arr_time',
+      modifyFlightDepDate: 'modify_flight_dep_date',
+      modifyFlightDepTime: 'modify_flight_dep_time',
+      sessionId: 'session_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineInfo: TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo,
+      arrAirportInfo: TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo,
+      cabinList: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList },
+      carrierAirline: 'string',
+      carrierNo: 'string',
+      depAirportInfo: TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo,
+      depCityCode: 'string',
+      flightNo: 'string',
+      isShare: 'boolean',
+      lowestCabin: 'string',
+      lowestCabinClass: 'string',
+      lowestCabinDesc: 'string',
+      lowestCabinNum: 'string',
+      lowestCabinPrice: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice },
+      modifyFlightArrTime: 'string',
+      modifyFlightDepDate: 'string',
+      modifyFlightDepTime: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModule extends $tea.Model {
+  flightInfoList?: TicketChangingEnquiryResponseBodyModuleFlightInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      flightInfoList: 'flight_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightInfoList: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListRequestTravelerInfoList extends $tea.Model {
+  arrCity?: string;
+  depCity?: string;
+  name?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrCity: 'arr_city',
+      depCity: 'dep_city',
+      name: 'name',
+      type: 'type',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrCity: 'string',
+      depCity: 'string',
+      name: 'string',
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListAirlineInfo extends $tea.Model {
+  airlineCode?: string;
+  airlineName?: string;
+  airlineSimpleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineCode: 'airline_code',
+      airlineName: 'airline_name',
+      airlineSimpleName: 'airline_simple_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineCode: 'string',
+      airlineName: 'string',
+      airlineSimpleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListArrAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  cityCode?: string;
+  cityName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListCabinListModifyPriceList extends $tea.Model {
+  passengerType?: number;
+  ticketPrice?: number;
+  upgradeFee?: number;
+  upgradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerType: 'passenger_type',
+      ticketPrice: 'ticket_price',
+      upgradeFee: 'upgrade_fee',
+      upgradePrice: 'upgrade_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerType: 'number',
+      ticketPrice: 'number',
+      upgradeFee: 'number',
+      upgradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListCabinList extends $tea.Model {
+  cabin?: string;
+  cabinClass?: string;
+  cabinDesc?: string;
+  cabinDiscount?: number;
+  childCabin?: string;
+  leftNum?: string;
+  modifyPriceList?: TicketChangingFlightListResponseBodyModuleFlightInfoListCabinListModifyPriceList[];
+  otaItemid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      cabinDesc: 'cabin_desc',
+      cabinDiscount: 'cabin_discount',
+      childCabin: 'child_cabin',
+      leftNum: 'left_num',
+      modifyPriceList: 'modify_price_list',
+      otaItemid: 'ota_itemid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cabin: 'string',
+      cabinClass: 'string',
+      cabinDesc: 'string',
+      cabinDiscount: 'number',
+      childCabin: 'string',
+      leftNum: 'string',
+      modifyPriceList: { 'type': 'array', 'itemType': TicketChangingFlightListResponseBodyModuleFlightInfoListCabinListModifyPriceList },
+      otaItemid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListDepAirportInfo extends $tea.Model {
+  airportCode?: string;
+  airportName?: string;
+  cityCode?: string;
+  cityName?: string;
+  terminal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airportCode: 'airport_code',
+      airportName: 'airport_name',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      terminal: 'terminal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airportCode: 'string',
+      airportName: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+      terminal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoListLowestCabinPrice extends $tea.Model {
+  passengerType?: number;
+  ticketPrice?: number;
+  upgradeFee?: number;
+  upgradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerType: 'passenger_type',
+      ticketPrice: 'ticket_price',
+      upgradeFee: 'upgrade_fee',
+      upgradePrice: 'upgrade_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerType: 'number',
+      ticketPrice: 'number',
+      upgradeFee: 'number',
+      upgradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModuleFlightInfoList extends $tea.Model {
+  airlineInfo?: TicketChangingFlightListResponseBodyModuleFlightInfoListAirlineInfo;
+  arrAirportInfo?: TicketChangingFlightListResponseBodyModuleFlightInfoListArrAirportInfo;
+  cabinList?: TicketChangingFlightListResponseBodyModuleFlightInfoListCabinList[];
+  carrierAirline?: string;
+  carrierNo?: string;
+  depAirportInfo?: TicketChangingFlightListResponseBodyModuleFlightInfoListDepAirportInfo;
+  flightNo?: string;
+  flightSize?: string;
+  flightType?: string;
+  isProtocol?: boolean;
+  isShare?: boolean;
+  isStop?: boolean;
+  lowestCabin?: string;
+  lowestCabinClass?: string;
+  lowestCabinDesc?: string;
+  lowestCabinNum?: string;
+  lowestCabinPrice?: TicketChangingFlightListResponseBodyModuleFlightInfoListLowestCabinPrice[];
+  mealDesc?: string;
+  modifyFlightArrTime?: string;
+  modifyFlightDepDate?: string;
+  modifyFlightDepTime?: string;
+  sessionId?: string;
+  stopArrTime?: string;
+  stopCity?: string;
+  stopDepTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      airlineInfo: 'airline_info',
+      arrAirportInfo: 'arr_airport_info',
+      cabinList: 'cabin_list',
+      carrierAirline: 'carrier_airline',
+      carrierNo: 'carrier_no',
+      depAirportInfo: 'dep_airport_info',
+      flightNo: 'flight_no',
+      flightSize: 'flight_size',
+      flightType: 'flight_type',
+      isProtocol: 'is_protocol',
+      isShare: 'is_share',
+      isStop: 'is_stop',
+      lowestCabin: 'lowest_cabin',
+      lowestCabinClass: 'lowest_cabin_class',
+      lowestCabinDesc: 'lowest_cabin_desc',
+      lowestCabinNum: 'lowest_cabin_num',
+      lowestCabinPrice: 'lowest_cabin_price',
+      mealDesc: 'meal_desc',
+      modifyFlightArrTime: 'modify_flight_arr_time',
+      modifyFlightDepDate: 'modify_flight_dep_date',
+      modifyFlightDepTime: 'modify_flight_dep_time',
+      sessionId: 'session_id',
+      stopArrTime: 'stop_arr_time',
+      stopCity: 'stop_city',
+      stopDepTime: 'stop_dep_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      airlineInfo: TicketChangingFlightListResponseBodyModuleFlightInfoListAirlineInfo,
+      arrAirportInfo: TicketChangingFlightListResponseBodyModuleFlightInfoListArrAirportInfo,
+      cabinList: { 'type': 'array', 'itemType': TicketChangingFlightListResponseBodyModuleFlightInfoListCabinList },
+      carrierAirline: 'string',
+      carrierNo: 'string',
+      depAirportInfo: TicketChangingFlightListResponseBodyModuleFlightInfoListDepAirportInfo,
+      flightNo: 'string',
+      flightSize: 'string',
+      flightType: 'string',
+      isProtocol: 'boolean',
+      isShare: 'boolean',
+      isStop: 'boolean',
+      lowestCabin: 'string',
+      lowestCabinClass: 'string',
+      lowestCabinDesc: 'string',
+      lowestCabinNum: 'string',
+      lowestCabinPrice: { 'type': 'array', 'itemType': TicketChangingFlightListResponseBodyModuleFlightInfoListLowestCabinPrice },
+      mealDesc: 'string',
+      modifyFlightArrTime: 'string',
+      modifyFlightDepDate: 'string',
+      modifyFlightDepTime: 'string',
+      sessionId: 'string',
+      stopArrTime: 'string',
+      stopCity: 'string',
+      stopDepTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingFlightListResponseBodyModule extends $tea.Model {
+  flightInfoList?: TicketChangingFlightListResponseBodyModuleFlightInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      flightInfoList: 'flight_info_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flightInfoList: { 'type': 'array', 'itemType': TicketChangingFlightListResponseBodyModuleFlightInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingPayResponseBodyModule extends $tea.Model {
+  canRetry?: boolean;
+  payPrice?: number;
+  payStatus?: number;
+  payTime?: string;
+  tradeNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canRetry: 'can_retry',
+      payPrice: 'pay_price',
+      payStatus: 'pay_status',
+      payTime: 'pay_time',
+      tradeNo: 'trade_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canRetry: 'boolean',
+      payPrice: 'number',
+      payStatus: 'number',
+      payTime: 'string',
+      tradeNo: 'string',
     };
   }
 
@@ -15166,6 +18639,172 @@ export default class Client extends OpenApi {
     return await this.flightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  async flightCancelOrderWithOptions(request: FlightCancelOrderRequest, headers: FlightCancelOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightCancelOrderResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightCancelOrder",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/order/action/cancel`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightCancelOrderResponse>(await this.callApi(params, req, runtime), new FlightCancelOrderResponse({}));
+  }
+
+  async flightCancelOrder(request: FlightCancelOrderRequest): Promise<FlightCancelOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightCancelOrderHeaders({ });
+    return await this.flightCancelOrderWithOptions(request, headers, runtime);
+  }
+
+  async flightCreateOrderWithOptions(tmpReq: FlightCreateOrderRequest, headers: FlightCreateOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightCreateOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FlightCreateOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contactInfo)) {
+      request.contactInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactInfo, "contact_info", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.orderAttr)) {
+      request.orderAttrShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderAttr, "order_attr", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.travelerInfoList)) {
+      request.travelerInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerInfoList, "traveler_info_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrAirportCode)) {
+      body["arr_airport_code"] = request.arrAirportCode;
+    }
+
+    if (!Util.isUnset(request.arrCityCode)) {
+      body["arr_city_code"] = request.arrCityCode;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      body["auto_pay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.buyerName)) {
+      body["buyer_name"] = request.buyerName;
+    }
+
+    if (!Util.isUnset(request.buyerUniqueKey)) {
+      body["buyer_unique_key"] = request.buyerUniqueKey;
+    }
+
+    if (!Util.isUnset(request.contactInfoShrink)) {
+      body["contact_info"] = request.contactInfoShrink;
+    }
+
+    if (!Util.isUnset(request.depAirportCode)) {
+      body["dep_airport_code"] = request.depAirportCode;
+    }
+
+    if (!Util.isUnset(request.depCityCode)) {
+      body["dep_city_code"] = request.depCityCode;
+    }
+
+    if (!Util.isUnset(request.depDate)) {
+      body["dep_date"] = request.depDate;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.orderAttrShrink)) {
+      body["order_attr"] = request.orderAttrShrink;
+    }
+
+    if (!Util.isUnset(request.orderParams)) {
+      body["order_params"] = request.orderParams;
+    }
+
+    if (!Util.isUnset(request.otaItemId)) {
+      body["ota_item_id"] = request.otaItemId;
+    }
+
+    if (!Util.isUnset(request.price)) {
+      body["price"] = request.price;
+    }
+
+    if (!Util.isUnset(request.receiptAddress)) {
+      body["receipt_address"] = request.receiptAddress;
+    }
+
+    if (!Util.isUnset(request.receiptTarget)) {
+      body["receipt_target"] = request.receiptTarget;
+    }
+
+    if (!Util.isUnset(request.receiptTitle)) {
+      body["receipt_title"] = request.receiptTitle;
+    }
+
+    if (!Util.isUnset(request.travelerInfoListShrink)) {
+      body["traveler_info_list"] = request.travelerInfoListShrink;
+    }
+
+    if (!Util.isUnset(request.tripType)) {
+      body["trip_type"] = request.tripType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightCreateOrder",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/order/action/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightCreateOrderResponse>(await this.callApi(params, req, runtime), new FlightCreateOrderResponse({}));
+  }
+
+  async flightCreateOrder(request: FlightCreateOrderRequest): Promise<FlightCreateOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightCreateOrderHeaders({ });
+    return await this.flightCreateOrderWithOptions(request, headers, runtime);
+  }
+
   async flightExceedApplyQueryWithOptions(request: FlightExceedApplyQueryRequest, headers: FlightExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15204,6 +18843,46 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightExceedApplyQueryHeaders({ });
     return await this.flightExceedApplyQueryWithOptions(request, headers, runtime);
+  }
+
+  async flightOrderDetailInfoWithOptions(request: FlightOrderDetailInfoRequest, headers: FlightOrderDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderDetailInfoResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightOrderDetailInfo",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/order/action/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightOrderDetailInfoResponse>(await this.callApi(params, req, runtime), new FlightOrderDetailInfoResponse({}));
+  }
+
+  async flightOrderDetailInfo(request: FlightOrderDetailInfoRequest): Promise<FlightOrderDetailInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightOrderDetailInfoHeaders({ });
+    return await this.flightOrderDetailInfoWithOptions(request, headers, runtime);
   }
 
   async flightOrderListQueryWithOptions(request: FlightOrderListQueryRequest, headers: FlightOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderListQueryResponse> {
@@ -15328,6 +19007,272 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOrderQueryHeaders({ });
     return await this.flightOrderQueryWithOptions(request, headers, runtime);
+  }
+
+  async flightPayOrderWithOptions(tmpReq: FlightPayOrderRequest, headers: FlightPayOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightPayOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FlightPayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "extra", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpPayPrice)) {
+      body["corp_pay_price"] = request.corpPayPrice;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.extraShrink)) {
+      body["extra"] = request.extraShrink;
+    }
+
+    if (!Util.isUnset(request.personalPayPrice)) {
+      body["personal_pay_price"] = request.personalPayPrice;
+    }
+
+    if (!Util.isUnset(request.totalPayPrice)) {
+      body["total_pay_price"] = request.totalPayPrice;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightPayOrder",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/order/action/pay`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightPayOrderResponse>(await this.callApi(params, req, runtime), new FlightPayOrderResponse({}));
+  }
+
+  async flightPayOrder(request: FlightPayOrderRequest): Promise<FlightPayOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightPayOrderHeaders({ });
+    return await this.flightPayOrderWithOptions(request, headers, runtime);
+  }
+
+  async flightRefundApplyWithOptions(tmpReq: FlightRefundApplyRequest, headers: FlightRefundApplyHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundApplyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FlightRefundApplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "extra", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.passengerSegmentInfoList)) {
+      request.passengerSegmentInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentInfoList, "passenger_segment_info_list", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.refundVoucherInfo)) {
+      request.refundVoucherInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.refundVoucherInfo, "refund_voucher_info", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpRefundPrice)) {
+      body["corp_refund_price"] = request.corpRefundPrice;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      body["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    if (!Util.isUnset(request.displayRefundMoney)) {
+      body["display_refund_money"] = request.displayRefundMoney;
+    }
+
+    if (!Util.isUnset(request.extraShrink)) {
+      body["extra"] = request.extraShrink;
+    }
+
+    if (!Util.isUnset(request.isVoluntary)) {
+      body["is_voluntary"] = request.isVoluntary;
+    }
+
+    if (!Util.isUnset(request.itemUnitIds)) {
+      body["item_unit_ids"] = request.itemUnitIds;
+    }
+
+    if (!Util.isUnset(request.passengerSegmentInfoListShrink)) {
+      body["passenger_segment_info_list"] = request.passengerSegmentInfoListShrink;
+    }
+
+    if (!Util.isUnset(request.personalRefundPrice)) {
+      body["personal_refund_price"] = request.personalRefundPrice;
+    }
+
+    if (!Util.isUnset(request.reasonDetail)) {
+      body["reason_detail"] = request.reasonDetail;
+    }
+
+    if (!Util.isUnset(request.reasonType)) {
+      body["reason_type"] = request.reasonType;
+    }
+
+    if (!Util.isUnset(request.refundVoucherInfoShrink)) {
+      body["refund_voucher_info"] = request.refundVoucherInfoShrink;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["session_id"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.totalRefundPrice)) {
+      body["total_refund_price"] = request.totalRefundPrice;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightRefundApply",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/refund/action/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightRefundApplyResponse>(await this.callApi(params, req, runtime), new FlightRefundApplyResponse({}));
+  }
+
+  async flightRefundApply(request: FlightRefundApplyRequest): Promise<FlightRefundApplyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightRefundApplyHeaders({ });
+    return await this.flightRefundApplyWithOptions(request, headers, runtime);
+  }
+
+  async flightRefundDetailWithOptions(request: FlightRefundDetailRequest, headers: FlightRefundDetailHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundDetailResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      query["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightRefundDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/refund/action/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightRefundDetailResponse>(await this.callApi(params, req, runtime), new FlightRefundDetailResponse({}));
+  }
+
+  async flightRefundDetail(request: FlightRefundDetailRequest): Promise<FlightRefundDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightRefundDetailHeaders({ });
+    return await this.flightRefundDetailWithOptions(request, headers, runtime);
+  }
+
+  async flightRefundPreCalWithOptions(tmpReq: FlightRefundPreCalRequest, headers: FlightRefundPreCalHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundPreCalResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FlightRefundPreCalShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.passengerSegmentInfoList)) {
+      request.passengerSegmentInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.passengerSegmentInfoList, "passenger_segment_info_list", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.isVoluntary)) {
+      query["is_voluntary"] = request.isVoluntary;
+    }
+
+    if (!Util.isUnset(request.passengerSegmentInfoListShrink)) {
+      query["passenger_segment_info_list"] = request.passengerSegmentInfoListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FlightRefundPreCal",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/refund/action/pre-cal`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FlightRefundPreCalResponse>(await this.callApi(params, req, runtime), new FlightRefundPreCalResponse({}));
+  }
+
+  async flightRefundPreCal(request: FlightRefundPreCalRequest): Promise<FlightRefundPreCalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FlightRefundPreCalHeaders({ });
+    return await this.flightRefundPreCalWithOptions(request, headers, runtime);
   }
 
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
@@ -16190,6 +20135,364 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SyncSingleUserHeaders({ });
     return await this.syncSingleUserWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingApplyWithOptions(tmpReq: TicketChangingApplyRequest, headers: TicketChangingApplyHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingApplyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TicketChangingApplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.modifyFlightInfoList)) {
+      request.modifyFlightInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modifyFlightInfoList, "modify_flight_info_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      body["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    if (!Util.isUnset(request.isVoluntary)) {
+      body["is_voluntary"] = request.isVoluntary;
+    }
+
+    if (!Util.isUnset(request.modifyFlightInfoListShrink)) {
+      body["modify_flight_info_list"] = request.modifyFlightInfoListShrink;
+    }
+
+    if (!Util.isUnset(request.otaItemId)) {
+      body["ota_item_id"] = request.otaItemId;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      body["reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["session_id"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.whetherRetry)) {
+      body["whether_retry"] = request.whetherRetry;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingApply",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/ticket-changing/action/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingApplyResponse>(await this.callApi(params, req, runtime), new TicketChangingApplyResponse({}));
+  }
+
+  async ticketChangingApply(request: TicketChangingApplyRequest): Promise<TicketChangingApplyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingApplyHeaders({ });
+    return await this.ticketChangingApplyWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingCancelWithOptions(request: TicketChangingCancelRequest, headers: TicketChangingCancelHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingCancelResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      query["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingCancel",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/ticket-changing/action/cancel`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingCancelResponse>(await this.callApi(params, req, runtime), new TicketChangingCancelResponse({}));
+  }
+
+  async ticketChangingCancel(request: TicketChangingCancelRequest): Promise<TicketChangingCancelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingCancelHeaders({ });
+    return await this.ticketChangingCancelWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingDetailWithOptions(request: TicketChangingDetailRequest, headers: TicketChangingDetailHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingDetailResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      query["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/ticket-changing/action/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingDetailResponse>(await this.callApi(params, req, runtime), new TicketChangingDetailResponse({}));
+  }
+
+  async ticketChangingDetail(request: TicketChangingDetailRequest): Promise<TicketChangingDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingDetailHeaders({ });
+    return await this.ticketChangingDetailWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingEnquiryWithOptions(request: TicketChangingEnquiryRequest, headers: TicketChangingEnquiryHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingEnquiryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrCity)) {
+      query["arr_city"] = request.arrCity;
+    }
+
+    if (!Util.isUnset(request.depCity)) {
+      query["dep_city"] = request.depCity;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.isVoluntary)) {
+      query["is_voluntary"] = request.isVoluntary;
+    }
+
+    if (!Util.isUnset(request.modifyDepartDate)) {
+      query["modify_depart_date"] = request.modifyDepartDate;
+    }
+
+    if (!Util.isUnset(request.modifyFlightNo)) {
+      query["modify_flight_no"] = request.modifyFlightNo;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["session_id"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingEnquiry",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/ticket-changing/action/enquiry`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingEnquiryResponse>(await this.callApi(params, req, runtime), new TicketChangingEnquiryResponse({}));
+  }
+
+  async ticketChangingEnquiry(request: TicketChangingEnquiryRequest): Promise<TicketChangingEnquiryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingEnquiryHeaders({ });
+    return await this.ticketChangingEnquiryWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingFlightListWithOptions(tmpReq: TicketChangingFlightListRequest, headers: TicketChangingFlightListHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingFlightListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TicketChangingFlightListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.travelerInfoList)) {
+      request.travelerInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerInfoList, "traveler_info_list", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrCity)) {
+      query["arr_city"] = request.arrCity;
+    }
+
+    if (!Util.isUnset(request.depCity)) {
+      query["dep_city"] = request.depCity;
+    }
+
+    if (!Util.isUnset(request.depDate)) {
+      query["dep_date"] = request.depDate;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      query["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.isVoluntary)) {
+      query["is_voluntary"] = request.isVoluntary;
+    }
+
+    if (!Util.isUnset(request.travelerInfoListShrink)) {
+      query["traveler_info_list"] = request.travelerInfoListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingFlightList",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/huge/dtb-flight/v1/ticket-changing-flight/action/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingFlightListResponse>(await this.callApi(params, req, runtime), new TicketChangingFlightListResponse({}));
+  }
+
+  async ticketChangingFlightList(request: TicketChangingFlightListRequest): Promise<TicketChangingFlightListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingFlightListHeaders({ });
+    return await this.ticketChangingFlightListWithOptions(request, headers, runtime);
+  }
+
+  async ticketChangingPayWithOptions(tmpReq: TicketChangingPayRequest, headers: TicketChangingPayHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingPayResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TicketChangingPayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "extra", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpPayPrice)) {
+      body["corp_pay_price"] = request.corpPayPrice;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.disSubOrderId)) {
+      body["dis_sub_order_id"] = request.disSubOrderId;
+    }
+
+    if (!Util.isUnset(request.extraShrink)) {
+      body["extra"] = request.extraShrink;
+    }
+
+    if (!Util.isUnset(request.personalPayPrice)) {
+      body["personal_pay_price"] = request.personalPayPrice;
+    }
+
+    if (!Util.isUnset(request.totalPayPrice)) {
+      body["total_pay_price"] = request.totalPayPrice;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TicketChangingPay",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-flight/v1/ticket-changing/action/pay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TicketChangingPayResponse>(await this.callApi(params, req, runtime), new TicketChangingPayResponse({}));
+  }
+
+  async ticketChangingPay(request: TicketChangingPayRequest): Promise<TicketChangingPayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TicketChangingPayHeaders({ });
+    return await this.ticketChangingPayWithOptions(request, headers, runtime);
   }
 
   async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
