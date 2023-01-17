@@ -106,7 +106,6 @@ export class AddFCTriggerRequest extends $tea.Model {
   eventMetaVersion?: string;
   functionARN?: string;
   notes?: string;
-  ownerId?: number;
   roleARN?: string;
   sourceARN?: string;
   triggerARN?: string;
@@ -116,7 +115,6 @@ export class AddFCTriggerRequest extends $tea.Model {
       eventMetaVersion: 'EventMetaVersion',
       functionARN: 'FunctionARN',
       notes: 'Notes',
-      ownerId: 'OwnerId',
       roleARN: 'RoleARN',
       sourceARN: 'SourceARN',
       triggerARN: 'TriggerARN',
@@ -129,7 +127,6 @@ export class AddFCTriggerRequest extends $tea.Model {
       eventMetaVersion: 'string',
       functionARN: 'string',
       notes: 'string',
-      ownerId: 'number',
       roleARN: 'string',
       sourceARN: 'string',
       triggerARN: 'string',
@@ -741,7 +738,6 @@ export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
   email?: string;
   organization?: string;
   organizationUnit?: string;
-  ownerId?: number;
   SANs?: string;
   state?: string;
   static names(): { [key: string]: string } {
@@ -752,7 +748,6 @@ export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
       email: 'Email',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
-      ownerId: 'OwnerId',
       SANs: 'SANs',
       state: 'State',
     };
@@ -766,7 +761,6 @@ export class CreateCdnCertificateSigningRequestRequest extends $tea.Model {
       email: 'string',
       organization: 'string',
       organizationUnit: 'string',
-      ownerId: 'number',
       SANs: 'string',
       state: 'string',
     };
@@ -834,7 +828,6 @@ export class CreateCdnDeliverTaskRequest extends $tea.Model {
   deliver?: string;
   domainName?: string;
   name?: string;
-  ownerId?: number;
   reports?: string;
   schedule?: string;
   static names(): { [key: string]: string } {
@@ -842,7 +835,6 @@ export class CreateCdnDeliverTaskRequest extends $tea.Model {
       deliver: 'Deliver',
       domainName: 'DomainName',
       name: 'Name',
-      ownerId: 'OwnerId',
       reports: 'Reports',
       schedule: 'Schedule',
     };
@@ -853,7 +845,6 @@ export class CreateCdnDeliverTaskRequest extends $tea.Model {
       deliver: 'string',
       domainName: 'string',
       name: 'string',
-      ownerId: 'number',
       reports: 'string',
       schedule: 'string',
     };
@@ -913,12 +904,10 @@ export class CreateCdnDeliverTaskResponse extends $tea.Model {
 
 export class CreateCdnSubTaskRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   reportIds?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
       reportIds: 'ReportIds',
     };
   }
@@ -926,7 +915,6 @@ export class CreateCdnSubTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
       reportIds: 'string',
     };
   }
@@ -981,12 +969,10 @@ export class CreateCdnSubTaskResponse extends $tea.Model {
 }
 
 export class CreateIllegalUrlExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   taskName?: string;
   timePoint?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       taskName: 'TaskName',
       timePoint: 'TimePoint',
     };
@@ -994,7 +980,6 @@ export class CreateIllegalUrlExportTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       taskName: 'string',
       timePoint: 'string',
     };
@@ -1055,14 +1040,12 @@ export class CreateIllegalUrlExportTaskResponse extends $tea.Model {
 export class CreateRealTimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
   logstore?: string;
-  ownerId?: number;
   project?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       logstore: 'Logstore',
-      ownerId: 'OwnerId',
       project: 'Project',
       region: 'Region',
     };
@@ -1072,7 +1055,6 @@ export class CreateRealTimeLogDeliveryRequest extends $tea.Model {
     return {
       domain: 'string',
       logstore: 'string',
-      ownerId: 'number',
       project: 'string',
       region: 'string',
     };
@@ -1132,7 +1114,6 @@ export class CreateUsageDetailDataExportTaskRequest extends $tea.Model {
   endTime?: string;
   group?: string;
   language?: string;
-  ownerId?: number;
   startTime?: string;
   taskName?: string;
   type?: string;
@@ -1142,7 +1123,6 @@ export class CreateUsageDetailDataExportTaskRequest extends $tea.Model {
       endTime: 'EndTime',
       group: 'Group',
       language: 'Language',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
       taskName: 'TaskName',
       type: 'Type',
@@ -1155,7 +1135,6 @@ export class CreateUsageDetailDataExportTaskRequest extends $tea.Model {
       endTime: 'string',
       group: 'string',
       language: 'string',
-      ownerId: 'number',
       startTime: 'string',
       taskName: 'string',
       type: 'string',
@@ -1223,14 +1202,12 @@ export class CreateUsageDetailDataExportTaskResponse extends $tea.Model {
 export class CreateUserUsageDataExportTaskRequest extends $tea.Model {
   endTime?: string;
   language?: string;
-  ownerId?: number;
   startTime?: string;
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       language: 'Language',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
       taskName: 'TaskName',
     };
@@ -1240,7 +1217,6 @@ export class CreateUserUsageDataExportTaskRequest extends $tea.Model {
     return {
       endTime: 'string',
       language: 'string',
-      ownerId: 'number',
       startTime: 'string',
       taskName: 'string',
     };
@@ -1306,18 +1282,15 @@ export class CreateUserUsageDataExportTaskResponse extends $tea.Model {
 
 export class DeleteCdnDeliverTaskRequest extends $tea.Model {
   deliverId?: number;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       deliverId: 'DeliverId',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deliverId: 'number',
-      ownerId: 'number',
     };
   }
 
@@ -1439,25 +1412,6 @@ export class DeleteCdnDomainResponse extends $tea.Model {
   }
 }
 
-export class DeleteCdnSubTaskRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteCdnSubTaskResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1503,18 +1457,15 @@ export class DeleteCdnSubTaskResponse extends $tea.Model {
 }
 
 export class DeleteFCTriggerRequest extends $tea.Model {
-  ownerId?: number;
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       triggerARN: 'TriggerARN',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       triggerARN: 'string',
     };
   }
@@ -1570,13 +1521,11 @@ export class DeleteFCTriggerResponse extends $tea.Model {
 
 export class DeleteRealTimeLogLogstoreRequest extends $tea.Model {
   logstore?: string;
-  ownerId?: number;
   project?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       logstore: 'Logstore',
-      ownerId: 'OwnerId',
       project: 'Project',
       region: 'Region',
     };
@@ -1585,7 +1534,6 @@ export class DeleteRealTimeLogLogstoreRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       logstore: 'string',
-      ownerId: 'number',
       project: 'string',
       region: 'string',
     };
@@ -1643,14 +1591,12 @@ export class DeleteRealTimeLogLogstoreResponse extends $tea.Model {
 export class DeleteRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
   logstore?: string;
-  ownerId?: number;
   project?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       logstore: 'Logstore',
-      ownerId: 'OwnerId',
       project: 'Project',
       region: 'Region',
     };
@@ -1660,7 +1606,6 @@ export class DeleteRealtimeLogDeliveryRequest extends $tea.Model {
     return {
       domain: 'string',
       logstore: 'string',
-      ownerId: 'number',
       project: 'string',
       region: 'string',
     };
@@ -1860,18 +1805,15 @@ export class DeleteSpecificStagingConfigResponse extends $tea.Model {
 }
 
 export class DeleteUsageDetailDataExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       taskId: 'string',
     };
   }
@@ -1926,18 +1868,15 @@ export class DeleteUsageDetailDataExportTaskResponse extends $tea.Model {
 }
 
 export class DeleteUserUsageDataExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       taskId: 'string',
     };
   }
@@ -1993,18 +1932,15 @@ export class DeleteUserUsageDataExportTaskResponse extends $tea.Model {
 
 export class DescribeBlockedRegionsRequest extends $tea.Model {
   language?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       language: 'Language',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       language: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -2214,12 +2150,10 @@ export class DescribeCdnCertificateListResponse extends $tea.Model {
 }
 
 export class DescribeCdnDeletedDomainsRequest extends $tea.Model {
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -2227,7 +2161,6 @@ export class DescribeCdnDeletedDomainsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2669,12 +2602,10 @@ export class DescribeCdnDomainLogsResponse extends $tea.Model {
 export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
   domainName?: string;
   functionNames?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       functionNames: 'FunctionNames',
-      ownerId: 'OwnerId',
     };
   }
 
@@ -2682,7 +2613,6 @@ export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
     return {
       domainName: 'string',
       functionNames: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -2743,13 +2673,11 @@ export class DescribeCdnDomainStagingConfigResponse extends $tea.Model {
 
 export class DescribeCdnHttpsDomainListRequest extends $tea.Model {
   keyword?: string;
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -2758,7 +2686,6 @@ export class DescribeCdnHttpsDomainListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       keyword: 'string',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2969,7 +2896,6 @@ export class DescribeCdnReportRequest extends $tea.Model {
   endTime?: string;
   httpCode?: string;
   isOverseas?: string;
-  ownerId?: number;
   reportId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -2979,7 +2905,6 @@ export class DescribeCdnReportRequest extends $tea.Model {
       endTime: 'EndTime',
       httpCode: 'HttpCode',
       isOverseas: 'IsOverseas',
-      ownerId: 'OwnerId',
       reportId: 'ReportId',
       startTime: 'StartTime',
     };
@@ -2992,7 +2917,6 @@ export class DescribeCdnReportRequest extends $tea.Model {
       endTime: 'string',
       httpCode: 'string',
       isOverseas: 'string',
-      ownerId: 'number',
       reportId: 'number',
       startTime: 'string',
     };
@@ -3051,18 +2975,15 @@ export class DescribeCdnReportResponse extends $tea.Model {
 }
 
 export class DescribeCdnReportListRequest extends $tea.Model {
-  ownerId?: number;
   reportId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       reportId: 'ReportId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       reportId: 'number',
     };
   }
@@ -3368,25 +3289,6 @@ export class DescribeCdnServiceResponse extends $tea.Model {
   }
 }
 
-export class DescribeCdnSubListRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeCdnSubListResponseBody extends $tea.Model {
   content?: string;
   requestId?: string;
@@ -3436,12 +3338,10 @@ export class DescribeCdnSubListResponse extends $tea.Model {
 
 export class DescribeCdnUserBillHistoryRequest extends $tea.Model {
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -3449,7 +3349,6 @@ export class DescribeCdnUserBillHistoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -3510,14 +3409,12 @@ export class DescribeCdnUserBillPredictionRequest extends $tea.Model {
   area?: string;
   dimension?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
       dimension: 'Dimension',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -3527,7 +3424,6 @@ export class DescribeCdnUserBillPredictionRequest extends $tea.Model {
       area: 'string',
       dimension: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -3595,12 +3491,10 @@ export class DescribeCdnUserBillPredictionResponse extends $tea.Model {
 
 export class DescribeCdnUserBillTypeRequest extends $tea.Model {
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -3608,7 +3502,6 @@ export class DescribeCdnUserBillTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -3988,13 +3881,11 @@ export class DescribeCdnUserResourcePackageResponse extends $tea.Model {
 
 export class DescribeCdnWafDomainRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -4003,7 +3894,6 @@ export class DescribeCdnWafDomainRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
     };
@@ -4066,18 +3956,15 @@ export class DescribeCdnWafDomainResponse extends $tea.Model {
 
 export class DescribeCertificateInfoByIDRequest extends $tea.Model {
   certId?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       certId: 'CertId',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certId: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -4135,18 +4022,15 @@ export class DescribeCertificateInfoByIDResponse extends $tea.Model {
 
 export class DescribeCustomLogConfigRequest extends $tea.Model {
   configId?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configId: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -4589,7 +4473,6 @@ export class DescribeDomainBpsDataByTimeStampResponse extends $tea.Model {
 export class DescribeDomainCcActivityLogRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   ruleName?: string;
@@ -4600,7 +4483,6 @@ export class DescribeDomainCcActivityLogRequest extends $tea.Model {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       ruleName: 'RuleName',
@@ -4614,7 +4496,6 @@ export class DescribeDomainCcActivityLogRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       ruleName: 'string',
@@ -4825,18 +4706,15 @@ export class DescribeDomainCnameResponse extends $tea.Model {
 
 export class DescribeDomainCustomLogConfigRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -6769,18 +6647,15 @@ export class DescribeDomainRealTimeTrafficDataResponse extends $tea.Model {
 
 export class DescribeDomainRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -7295,14 +7170,12 @@ export class DescribeDomainSrcQpsDataResponse extends $tea.Model {
 export class DescribeDomainSrcTopUrlVisitRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   sortBy?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
     };
@@ -7312,7 +7185,6 @@ export class DescribeDomainSrcTopUrlVisitRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       sortBy: 'string',
       startTime: 'string',
     };
@@ -7483,7 +7355,6 @@ export class DescribeDomainTopClientIpVisitRequest extends $tea.Model {
   endTime?: string;
   limit?: string;
   locationNameEn?: string;
-  ownerId?: number;
   sortBy?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -7492,7 +7363,6 @@ export class DescribeDomainTopClientIpVisitRequest extends $tea.Model {
       endTime: 'EndTime',
       limit: 'Limit',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
     };
@@ -7504,7 +7374,6 @@ export class DescribeDomainTopClientIpVisitRequest extends $tea.Model {
       endTime: 'string',
       limit: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       sortBy: 'string',
       startTime: 'string',
     };
@@ -7565,14 +7434,12 @@ export class DescribeDomainTopClientIpVisitResponse extends $tea.Model {
 export class DescribeDomainTopReferVisitRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   sortBy?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
     };
@@ -7582,7 +7449,6 @@ export class DescribeDomainTopReferVisitRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       sortBy: 'string',
       startTime: 'string',
     };
@@ -8200,13 +8066,11 @@ export class DescribeDomainsUsageByDayResponse extends $tea.Model {
 
 export class DescribeEsExceptionDataRequest extends $tea.Model {
   endTime?: string;
-  ownerId?: number;
   ruleId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       ruleId: 'RuleId',
       startTime: 'StartTime',
     };
@@ -8215,7 +8079,6 @@ export class DescribeEsExceptionDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      ownerId: 'number',
       ruleId: 'string',
       startTime: 'string',
     };
@@ -8275,13 +8138,11 @@ export class DescribeEsExceptionDataResponse extends $tea.Model {
 
 export class DescribeEsExecuteDataRequest extends $tea.Model {
   endTime?: string;
-  ownerId?: number;
   ruleId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       ruleId: 'RuleId',
       startTime: 'StartTime',
     };
@@ -8290,7 +8151,6 @@ export class DescribeEsExecuteDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      ownerId: 'number',
       ruleId: 'string',
       startTime: 'string',
     };
@@ -8349,18 +8209,15 @@ export class DescribeEsExecuteDataResponse extends $tea.Model {
 }
 
 export class DescribeFCTriggerRequest extends $tea.Model {
-  ownerId?: number;
   triggerARN?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       triggerARN: 'TriggerARN',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       triggerARN: 'string',
     };
   }
@@ -8418,18 +8275,15 @@ export class DescribeFCTriggerResponse extends $tea.Model {
 }
 
 export class DescribeIllegalUrlExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       taskId: 'string',
     };
   }
@@ -8569,18 +8423,15 @@ export class DescribeIpInfoResponse extends $tea.Model {
 
 export class DescribeIpStatusRequest extends $tea.Model {
   ips?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       ips: 'Ips',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ips: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -8711,6 +8562,75 @@ export class DescribeL2VipsByDomainResponse extends $tea.Model {
   }
 }
 
+export class DescribePreloadDetailByIdRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreloadDetailByIdResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: number;
+  urlDetails?: DescribePreloadDetailByIdResponseBodyUrlDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      urlDetails: 'UrlDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      urlDetails: { 'type': 'array', 'itemType': DescribePreloadDetailByIdResponseBodyUrlDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreloadDetailByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePreloadDetailByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePreloadDetailByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
   domainNames?: string;
   endTime?: string;
@@ -8796,7 +8716,6 @@ export class DescribeRealtimeDeliveryAccRequest extends $tea.Model {
   endTime?: string;
   interval?: string;
   logStore?: string;
-  ownerId?: number;
   project?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -8804,7 +8723,6 @@ export class DescribeRealtimeDeliveryAccRequest extends $tea.Model {
       endTime: 'EndTime',
       interval: 'Interval',
       logStore: 'LogStore',
-      ownerId: 'OwnerId',
       project: 'Project',
       startTime: 'StartTime',
     };
@@ -8815,7 +8733,6 @@ export class DescribeRealtimeDeliveryAccRequest extends $tea.Model {
       endTime: 'string',
       interval: 'string',
       logStore: 'string',
-      ownerId: 'number',
       project: 'string',
       startTime: 'string',
     };
@@ -9155,25 +9072,6 @@ export class DescribeRefreshTasksResponse extends $tea.Model {
   }
 }
 
-export class DescribeStagingIpRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeStagingIpResponseBody extends $tea.Model {
   IPV4s?: DescribeStagingIpResponseBodyIPV4s;
   requestId?: string;
@@ -9299,13 +9197,11 @@ export class DescribeTagResourcesResponse extends $tea.Model {
 export class DescribeTopDomainsByFlowRequest extends $tea.Model {
   endTime?: string;
   limit?: number;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       limit: 'Limit',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -9314,7 +9210,6 @@ export class DescribeTopDomainsByFlowRequest extends $tea.Model {
     return {
       endTime: 'string',
       limit: 'number',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -9375,25 +9270,6 @@ export class DescribeTopDomainsByFlowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTopDomainsByFlowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserCertificateExpireCountRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
     };
   }
 
@@ -9641,25 +9517,6 @@ export class DescribeUserDomainsResponse extends $tea.Model {
   }
 }
 
-export class DescribeUserTagsRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUserTagsResponseBody extends $tea.Model {
   requestId?: string;
   tags?: DescribeUserTagsResponseBodyTags[];
@@ -9708,12 +9565,10 @@ export class DescribeUserTagsResponse extends $tea.Model {
 }
 
 export class DescribeUserUsageDataExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   pageNumber?: string;
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -9721,7 +9576,6 @@ export class DescribeUserUsageDataExportTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       pageNumber: 'string',
       pageSize: 'string',
     };
@@ -9780,12 +9634,10 @@ export class DescribeUserUsageDataExportTaskResponse extends $tea.Model {
 }
 
 export class DescribeUserUsageDetailDataExportTaskRequest extends $tea.Model {
-  ownerId?: number;
   pageNumber?: string;
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -9793,7 +9645,6 @@ export class DescribeUserUsageDetailDataExportTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       pageNumber: 'string',
       pageSize: 'string',
     };
@@ -9928,18 +9779,15 @@ export class DescribeUserVipsByDomainResponse extends $tea.Model {
 
 export class DescribeVerifyContentRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -9997,18 +9845,15 @@ export class DescribeVerifyContentResponse extends $tea.Model {
 
 export class DisableRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -10063,18 +9908,15 @@ export class DisableRealtimeLogDeliveryResponse extends $tea.Model {
 
 export class EnableRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -10129,18 +9971,15 @@ export class EnableRealtimeLogDeliveryResponse extends $tea.Model {
 
 export class ListDomainsByLogConfigIdRequest extends $tea.Model {
   configId?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configId: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -10199,12 +10038,10 @@ export class ListDomainsByLogConfigIdResponse extends $tea.Model {
 export class ListFCTriggerRequest extends $tea.Model {
   eventMetaName?: string;
   eventMetaVersion?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       eventMetaName: 'EventMetaName',
       eventMetaVersion: 'EventMetaVersion',
-      ownerId: 'OwnerId',
     };
   }
 
@@ -10212,7 +10049,6 @@ export class ListFCTriggerRequest extends $tea.Model {
     return {
       eventMetaName: 'string',
       eventMetaVersion: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -10270,13 +10106,11 @@ export class ListFCTriggerResponse extends $tea.Model {
 
 export class ListRealtimeLogDeliveryDomainsRequest extends $tea.Model {
   logstore?: string;
-  ownerId?: number;
   project?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       logstore: 'Logstore',
-      ownerId: 'OwnerId',
       project: 'Project',
       region: 'Region',
     };
@@ -10285,7 +10119,6 @@ export class ListRealtimeLogDeliveryDomainsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       logstore: 'string',
-      ownerId: 'number',
       project: 'string',
       region: 'string',
     };
@@ -10343,25 +10176,6 @@ export class ListRealtimeLogDeliveryDomainsResponse extends $tea.Model {
   }
 }
 
-export class ListRealtimeLogDeliveryInfosRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListRealtimeLogDeliveryInfosResponseBody extends $tea.Model {
   content?: ListRealtimeLogDeliveryInfosResponseBodyContent;
   requestId?: string;
@@ -10401,25 +10215,6 @@ export class ListRealtimeLogDeliveryInfosResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListRealtimeLogDeliveryInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserCustomLogConfigRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
     };
   }
 
@@ -10555,12 +10350,10 @@ export class ModifyCdnDomainResponse extends $tea.Model {
 
 export class ModifyCdnDomainSchdmByPropertyRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   property?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
       property: 'Property',
     };
   }
@@ -10568,7 +10361,6 @@ export class ModifyCdnDomainSchdmByPropertyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
       property: 'string',
     };
   }
@@ -10625,14 +10417,12 @@ export class ModifyCdnDomainSchdmByPropertyResponse extends $tea.Model {
 export class ModifyRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
   logstore?: string;
-  ownerId?: number;
   project?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       logstore: 'Logstore',
-      ownerId: 'OwnerId',
       project: 'Project',
       region: 'Region',
     };
@@ -10642,7 +10432,6 @@ export class ModifyRealtimeLogDeliveryRequest extends $tea.Model {
     return {
       domain: 'string',
       logstore: 'string',
-      ownerId: 'number',
       project: 'string',
       region: 'string',
     };
@@ -10768,18 +10557,15 @@ export class OpenCdnServiceResponse extends $tea.Model {
 
 export class PublishStagingConfigToProductionRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -10838,6 +10624,7 @@ export class PushObjectCacheRequest extends $tea.Model {
   objectPath?: string;
   ownerId?: number;
   securityToken?: string;
+  withHeader?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
@@ -10845,6 +10632,7 @@ export class PushObjectCacheRequest extends $tea.Model {
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
       securityToken: 'SecurityToken',
+      withHeader: 'WithHeader',
     };
   }
 
@@ -10855,6 +10643,7 @@ export class PushObjectCacheRequest extends $tea.Model {
       objectPath: 'string',
       ownerId: 'number',
       securityToken: 'string',
+      withHeader: 'string',
     };
   }
 
@@ -10987,18 +10776,15 @@ export class RefreshObjectCachesResponse extends $tea.Model {
 
 export class RollbackStagingConfigRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -11053,12 +10839,10 @@ export class RollbackStagingConfigResponse extends $tea.Model {
 
 export class SetCdnDomainCSRCertificateRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   serverCertificate?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
       serverCertificate: 'ServerCertificate',
     };
   }
@@ -11066,7 +10850,6 @@ export class SetCdnDomainCSRCertificateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
       serverCertificate: 'string',
     };
   }
@@ -11198,12 +10981,10 @@ export class SetCdnDomainSMCertificateResponse extends $tea.Model {
 export class SetCdnDomainStagingConfigRequest extends $tea.Model {
   domainName?: string;
   functions?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       functions: 'Functions',
-      ownerId: 'OwnerId',
     };
   }
 
@@ -11211,7 +10992,6 @@ export class SetCdnDomainStagingConfigRequest extends $tea.Model {
     return {
       domainName: 'string',
       functions: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -11437,7 +11217,6 @@ export class SetWaitingRoomConfigRequest extends $tea.Model {
   domainName?: string;
   gapTime?: number;
   maxTimeWait?: number;
-  ownerId?: number;
   waitUri?: string;
   waitUrl?: string;
   static names(): { [key: string]: string } {
@@ -11446,7 +11225,6 @@ export class SetWaitingRoomConfigRequest extends $tea.Model {
       domainName: 'DomainName',
       gapTime: 'GapTime',
       maxTimeWait: 'MaxTimeWait',
-      ownerId: 'OwnerId',
       waitUri: 'WaitUri',
       waitUrl: 'WaitUrl',
     };
@@ -11458,7 +11236,6 @@ export class SetWaitingRoomConfigRequest extends $tea.Model {
       domainName: 'string',
       gapTime: 'number',
       maxTimeWait: 'number',
-      ownerId: 'number',
       waitUri: 'string',
       waitUrl: 'string',
     };
@@ -11652,13 +11429,11 @@ export class StopCdnDomainResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
-  ownerId?: number;
   resourceId?: string[];
   resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
@@ -11667,7 +11442,6 @@ export class TagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
@@ -11725,14 +11499,12 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class UntagResourcesRequest extends $tea.Model {
   all?: boolean;
-  ownerId?: number;
   resourceId?: string[];
   resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
       all: 'All',
-      ownerId: 'OwnerId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tagKey: 'TagKey',
@@ -11742,7 +11514,6 @@ export class UntagResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       all: 'boolean',
-      ownerId: 'number',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
@@ -11803,7 +11574,6 @@ export class UpdateCdnDeliverTaskRequest extends $tea.Model {
   deliverId?: number;
   domainName?: string;
   name?: string;
-  ownerId?: number;
   reports?: string;
   schedule?: string;
   static names(): { [key: string]: string } {
@@ -11812,7 +11582,6 @@ export class UpdateCdnDeliverTaskRequest extends $tea.Model {
       deliverId: 'DeliverId',
       domainName: 'DomainName',
       name: 'Name',
-      ownerId: 'OwnerId',
       reports: 'Reports',
       schedule: 'Schedule',
     };
@@ -11824,7 +11593,6 @@ export class UpdateCdnDeliverTaskRequest extends $tea.Model {
       deliverId: 'number',
       domainName: 'string',
       name: 'string',
-      ownerId: 'number',
       reports: 'string',
       schedule: 'string',
     };
@@ -11882,14 +11650,12 @@ export class UpdateCdnDeliverTaskResponse extends $tea.Model {
 export class UpdateCdnSubTaskRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   reportIds?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       reportIds: 'ReportIds',
       startTime: 'StartTime',
     };
@@ -11899,7 +11665,6 @@ export class UpdateCdnSubTaskRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       reportIds: 'string',
       startTime: 'string',
     };
@@ -11957,7 +11722,6 @@ export class UpdateCdnSubTaskResponse extends $tea.Model {
 export class UpdateFCTriggerRequest extends $tea.Model {
   functionARN?: string;
   notes?: string;
-  ownerId?: number;
   roleARN?: string;
   sourceARN?: string;
   triggerARN?: string;
@@ -11965,7 +11729,6 @@ export class UpdateFCTriggerRequest extends $tea.Model {
     return {
       functionARN: 'FunctionARN',
       notes: 'Notes',
-      ownerId: 'OwnerId',
       roleARN: 'RoleARN',
       sourceARN: 'SourceARN',
       triggerARN: 'TriggerARN',
@@ -11976,7 +11739,6 @@ export class UpdateFCTriggerRequest extends $tea.Model {
     return {
       functionARN: 'string',
       notes: 'string',
-      ownerId: 'number',
       roleARN: 'string',
       sourceARN: 'string',
       triggerARN: 'string',
@@ -16193,10 +15955,29 @@ export class DescribeDomainsUsageByDayResponseBodyUsageTotal extends $tea.Model 
   }
 }
 
+export class DescribeEsExceptionDataResponseBodyContentsPoints extends $tea.Model {
+  points?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      points: 'Points',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      points: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
   columns?: string[];
   name?: string;
-  points?: string[];
+  points?: DescribeEsExceptionDataResponseBodyContentsPoints[];
   static names(): { [key: string]: string } {
     return {
       columns: 'Columns',
@@ -16209,7 +15990,7 @@ export class DescribeEsExceptionDataResponseBodyContents extends $tea.Model {
     return {
       columns: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
-      points: { 'type': 'array', 'itemType': 'string' },
+      points: { 'type': 'array', 'itemType': DescribeEsExceptionDataResponseBodyContentsPoints },
     };
   }
 
@@ -16310,6 +16091,71 @@ export class DescribeL2VipsByDomainResponseBodyVips extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       vip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreloadDetailByIdResponseBodyUrlDetailsUrls extends $tea.Model {
+  description?: string;
+  success?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      success: 'Success',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      success: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreloadDetailByIdResponseBodyUrlDetails extends $tea.Model {
+  creationTime?: string;
+  domain?: string;
+  endTime?: string;
+  process?: string;
+  retCode?: string;
+  status?: string;
+  taskId?: string;
+  urls?: DescribePreloadDetailByIdResponseBodyUrlDetailsUrls[];
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      domain: 'Domain',
+      endTime: 'EndTime',
+      process: 'Process',
+      retCode: 'RetCode',
+      status: 'Status',
+      taskId: 'TaskId',
+      urls: 'Urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      domain: 'string',
+      endTime: 'string',
+      process: 'string',
+      retCode: 'string',
+      status: 'string',
+      taskId: 'string',
+      urls: { 'type': 'array', 'itemType': DescribePreloadDetailByIdResponseBodyUrlDetailsUrls },
     };
   }
 
@@ -17394,10 +17240,6 @@ export default class Client extends OpenApi {
   async addFCTriggerWithOptions(request: AddFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<AddFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.triggerARN)) {
       query["TriggerARN"] = request.triggerARN;
     }
@@ -17946,10 +17788,6 @@ export default class Client extends OpenApi {
       query["OrganizationUnit"] = request.organizationUnit;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.SANs)) {
       query["SANs"] = request.SANs;
     }
@@ -17995,11 +17833,6 @@ export default class Client extends OpenApi {
    */
   async createCdnDeliverTaskWithOptions(request: CreateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnDeliverTaskResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.deliver)) {
       body["Deliver"] = request.deliver;
@@ -18022,7 +17855,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -18060,11 +17892,6 @@ export default class Client extends OpenApi {
    */
   async createCdnSubTaskWithOptions(request: CreateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnSubTaskResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.domainName)) {
       body["DomainName"] = request.domainName;
@@ -18075,7 +17902,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -18116,10 +17942,6 @@ export default class Client extends OpenApi {
   async createIllegalUrlExportTaskWithOptions(request: CreateIllegalUrlExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateIllegalUrlExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
@@ -18223,10 +18045,6 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -18287,10 +18105,6 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -18340,10 +18154,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.deliverId)) {
       query["DeliverId"] = request.deliverId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18435,16 +18245,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DeleteCdnSubTaskResponse
    */
-  async deleteCdnSubTaskWithOptions(request: DeleteCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnSubTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async deleteCdnSubTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<DeleteCdnSubTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DeleteCdnSubTask",
       version: "2018-05-10",
@@ -18462,21 +18264,16 @@ export default class Client extends OpenApi {
   /**
     * >  You can call this API operation up to three times per second per account.
     *
-    * @param request DeleteCdnSubTaskRequest
     * @return DeleteCdnSubTaskResponse
    */
-  async deleteCdnSubTask(request: DeleteCdnSubTaskRequest): Promise<DeleteCdnSubTaskResponse> {
+  async deleteCdnSubTask(): Promise<DeleteCdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteCdnSubTaskWithOptions(request, runtime);
+    return await this.deleteCdnSubTaskWithOptions(runtime);
   }
 
   async deleteFCTriggerWithOptions(request: DeleteFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.triggerARN)) {
       query["TriggerARN"] = request.triggerARN;
     }
@@ -18697,10 +18494,6 @@ export default class Client extends OpenApi {
   async deleteUsageDetailDataExportTaskWithOptions(request: DeleteUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -18743,10 +18536,6 @@ export default class Client extends OpenApi {
   async deleteUserUsageDataExportTaskWithOptions(request: DeleteUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -18927,10 +18716,6 @@ export default class Client extends OpenApi {
   async describeCdnDeletedDomainsWithOptions(request: DescribeCdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeletedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -19255,10 +19040,6 @@ export default class Client extends OpenApi {
       query["FunctionNames"] = request.functionNames;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19299,10 +19080,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.keyword)) {
       query["Keyword"] = request.keyword;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -19456,10 +19233,6 @@ export default class Client extends OpenApi {
       query["IsOverseas"] = request.isOverseas;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.reportId)) {
       query["ReportId"] = request.reportId;
     }
@@ -19507,10 +19280,6 @@ export default class Client extends OpenApi {
   async describeCdnReportListWithOptions(request: DescribeCdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnReportListResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.reportId)) {
       query["ReportId"] = request.reportId;
     }
@@ -19698,16 +19467,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeCdnSubListResponse
    */
-  async describeCdnSubListWithOptions(request: DescribeCdnSubListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSubListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeCdnSubListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCdnSubListResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeCdnSubList",
       version: "2018-05-10",
@@ -19726,12 +19487,11 @@ export default class Client extends OpenApi {
     * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
     * - You can call this API operation up to three times per second per account.
     *
-    * @param request DescribeCdnSubListRequest
     * @return DescribeCdnSubListResponse
    */
-  async describeCdnSubList(request: DescribeCdnSubListRequest): Promise<DescribeCdnSubListResponse> {
+  async describeCdnSubList(): Promise<DescribeCdnSubListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeCdnSubListWithOptions(request, runtime);
+    return await this.describeCdnSubListWithOptions(runtime);
   }
 
   /**
@@ -19747,10 +19507,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -19814,10 +19570,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -19861,10 +19613,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -20098,10 +19846,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -20543,10 +20287,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -22506,10 +22246,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -22651,10 +22387,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -22713,10 +22445,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.sortBy)) {
@@ -23174,10 +22902,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
@@ -23226,10 +22950,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.ruleId)) {
@@ -23304,10 +23024,6 @@ export default class Client extends OpenApi {
   async describeIllegalUrlExportTaskWithOptions(request: DescribeIllegalUrlExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIllegalUrlExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -23473,6 +23189,35 @@ export default class Client extends OpenApi {
     return await this.describeL2VipsByDomainWithOptions(request, runtime);
   }
 
+  async describePreloadDetailByIdWithOptions(request: DescribePreloadDetailByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribePreloadDetailByIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePreloadDetailById",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePreloadDetailByIdResponse>(await this.callApi(params, req, runtime), new DescribePreloadDetailByIdResponse({}));
+  }
+
+  async describePreloadDetailById(request: DescribePreloadDetailByIdRequest): Promise<DescribePreloadDetailByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePreloadDetailByIdWithOptions(request, runtime);
+  }
+
   /**
     * *   The data is collected every 5 minutes.
     * *   The maximum number of times that each user can call this operation per second is 20.
@@ -23557,10 +23302,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.logStore)) {
       query["LogStore"] = request.logStore;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.project)) {
@@ -23796,16 +23537,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeStagingIpResponse
    */
-  async describeStagingIpWithOptions(request: DescribeStagingIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStagingIpResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeStagingIpWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeStagingIpResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeStagingIp",
       version: "2018-05-10",
@@ -23823,12 +23556,11 @@ export default class Client extends OpenApi {
   /**
     * >  The maximum number of times that each user can call this operation per second is 30.
     *
-    * @param request DescribeStagingIpRequest
     * @return DescribeStagingIpResponse
    */
-  async describeStagingIp(request: DescribeStagingIpRequest): Promise<DescribeStagingIpResponse> {
+  async describeStagingIp(): Promise<DescribeStagingIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeStagingIpWithOptions(request, runtime);
+    return await this.describeStagingIpWithOptions(runtime);
   }
 
   /**
@@ -23905,10 +23637,6 @@ export default class Client extends OpenApi {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -23950,16 +23678,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeUserCertificateExpireCountResponse
    */
-  async describeUserCertificateExpireCountWithOptions(request: DescribeUserCertificateExpireCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserCertificateExpireCountResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeUserCertificateExpireCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserCertificateExpireCountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeUserCertificateExpireCount",
       version: "2018-05-10",
@@ -23977,12 +23697,11 @@ export default class Client extends OpenApi {
   /**
     * >  The maximum number of times that each user can call this operation per second is 100.
     *
-    * @param request DescribeUserCertificateExpireCountRequest
     * @return DescribeUserCertificateExpireCountResponse
    */
-  async describeUserCertificateExpireCount(request: DescribeUserCertificateExpireCountRequest): Promise<DescribeUserCertificateExpireCountResponse> {
+  async describeUserCertificateExpireCount(): Promise<DescribeUserCertificateExpireCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUserCertificateExpireCountWithOptions(request, runtime);
+    return await this.describeUserCertificateExpireCountWithOptions(runtime);
   }
 
   /**
@@ -24144,16 +23863,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeUserTagsResponse
    */
-  async describeUserTagsWithOptions(request: DescribeUserTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserTagsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeUserTagsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserTagsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeUserTags",
       version: "2018-05-10",
@@ -24171,12 +23882,11 @@ export default class Client extends OpenApi {
   /**
     * >  The maximum number of times that each user can call this operation per second is 100.
     *
-    * @param request DescribeUserTagsRequest
     * @return DescribeUserTagsResponse
    */
-  async describeUserTags(request: DescribeUserTagsRequest): Promise<DescribeUserTagsResponse> {
+  async describeUserTags(): Promise<DescribeUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUserTagsWithOptions(request, runtime);
+    return await this.describeUserTagsWithOptions(runtime);
   }
 
   /**
@@ -24189,10 +23899,6 @@ export default class Client extends OpenApi {
   async describeUserUsageDataExportTaskWithOptions(request: DescribeUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -24240,10 +23946,6 @@ export default class Client extends OpenApi {
   async describeUserUsageDetailDataExportTaskWithOptions(request: DescribeUserUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -24331,10 +24033,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24562,12 +24260,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return ListRealtimeLogDeliveryInfosResponse
    */
-  async listRealtimeLogDeliveryInfosWithOptions(request: ListRealtimeLogDeliveryInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeLogDeliveryInfosResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async listRealtimeLogDeliveryInfosWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRealtimeLogDeliveryInfosResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "ListRealtimeLogDeliveryInfos",
       version: "2018-05-10",
@@ -24585,12 +24279,11 @@ export default class Client extends OpenApi {
   /**
     * >  The maximum number of times that each user can call this operation per second is 100.
     *
-    * @param request ListRealtimeLogDeliveryInfosRequest
     * @return ListRealtimeLogDeliveryInfosResponse
    */
-  async listRealtimeLogDeliveryInfos(request: ListRealtimeLogDeliveryInfosRequest): Promise<ListRealtimeLogDeliveryInfosResponse> {
+  async listRealtimeLogDeliveryInfos(): Promise<ListRealtimeLogDeliveryInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRealtimeLogDeliveryInfosWithOptions(request, runtime);
+    return await this.listRealtimeLogDeliveryInfosWithOptions(runtime);
   }
 
   /**
@@ -24600,12 +24293,8 @@ export default class Client extends OpenApi {
     * @param runtime runtime options for this request RuntimeOptions
     * @return ListUserCustomLogConfigResponse
    */
-  async listUserCustomLogConfigWithOptions(request: ListUserCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListUserCustomLogConfigResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async listUserCustomLogConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListUserCustomLogConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "ListUserCustomLogConfig",
       version: "2018-05-10",
@@ -24623,12 +24312,11 @@ export default class Client extends OpenApi {
   /**
     * >  The maximum number of times that each user can call this operation per second is 100.
     *
-    * @param request ListUserCustomLogConfigRequest
     * @return ListUserCustomLogConfigResponse
    */
-  async listUserCustomLogConfig(request: ListUserCustomLogConfigRequest): Promise<ListUserCustomLogConfigResponse> {
+  async listUserCustomLogConfig(): Promise<ListUserCustomLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listUserCustomLogConfigWithOptions(request, runtime);
+    return await this.listUserCustomLogConfigWithOptions(runtime);
   }
 
   /**
@@ -24705,10 +24393,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.property)) {
@@ -24847,10 +24531,6 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24917,6 +24597,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.withHeader)) {
+      query["WithHeader"] = request.withHeader;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25047,10 +24731,6 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25091,10 +24771,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.serverCertificate)) {
@@ -25203,10 +24879,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.functions)) {
       query["Functions"] = request.functions;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25388,10 +25060,6 @@ export default class Client extends OpenApi {
       query["MaxTimeWait"] = request.maxTimeWait;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.waitUri)) {
       query["WaitUri"] = request.waitUri;
     }
@@ -25542,10 +25210,6 @@ export default class Client extends OpenApi {
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -25600,10 +25264,6 @@ export default class Client extends OpenApi {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -25653,11 +25313,6 @@ export default class Client extends OpenApi {
    */
   async updateCdnDeliverTaskWithOptions(request: UpdateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnDeliverTaskResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.deliver)) {
       body["Deliver"] = request.deliver;
@@ -25684,7 +25339,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -25721,11 +25375,6 @@ export default class Client extends OpenApi {
    */
   async updateCdnSubTaskWithOptions(request: UpdateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnSubTaskResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.domainName)) {
       body["DomainName"] = request.domainName;
@@ -25744,7 +25393,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -25775,10 +25423,6 @@ export default class Client extends OpenApi {
   async updateFCTriggerWithOptions(request: UpdateFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.triggerARN)) {
       query["TriggerARN"] = request.triggerARN;
     }
