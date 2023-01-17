@@ -9463,10 +9463,8 @@ export class UpdateProjectRequest extends $tea.Model {
   datasetMaxRelationCount?: number;
   datasetMaxTotalFileSize?: number;
   description?: string;
-  engineConcurrency?: number;
   projectMaxDatasetCount?: number;
   projectName?: string;
-  projectQueriesPerSecond?: number;
   serviceRole?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
@@ -9477,10 +9475,8 @@ export class UpdateProjectRequest extends $tea.Model {
       datasetMaxRelationCount: 'DatasetMaxRelationCount',
       datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
       description: 'Description',
-      engineConcurrency: 'EngineConcurrency',
       projectMaxDatasetCount: 'ProjectMaxDatasetCount',
       projectName: 'ProjectName',
-      projectQueriesPerSecond: 'ProjectQueriesPerSecond',
       serviceRole: 'ServiceRole',
       templateId: 'TemplateId',
     };
@@ -9494,10 +9490,8 @@ export class UpdateProjectRequest extends $tea.Model {
       datasetMaxRelationCount: 'number',
       datasetMaxTotalFileSize: 'number',
       description: 'string',
-      engineConcurrency: 'number',
       projectMaxDatasetCount: 'number',
       projectName: 'string',
-      projectQueriesPerSecond: 'number',
       serviceRole: 'string',
       templateId: 'string',
     };
@@ -14874,20 +14868,12 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.engineConcurrency)) {
-      query["EngineConcurrency"] = request.engineConcurrency;
-    }
-
     if (!Util.isUnset(request.projectMaxDatasetCount)) {
       query["ProjectMaxDatasetCount"] = request.projectMaxDatasetCount;
     }
 
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.projectQueriesPerSecond)) {
-      query["ProjectQueriesPerSecond"] = request.projectQueriesPerSecond;
     }
 
     if (!Util.isUnset(request.serviceRole)) {
