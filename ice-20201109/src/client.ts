@@ -380,6 +380,84 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
   }
 }
 
+export class CancelDNAJobRequest extends $tea.Model {
+  jobId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDNAJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelDNAJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelDNAJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelDNAJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelFavoritePublicMediaRequest extends $tea.Model {
   mediaIds?: string;
   static names(): { [key: string]: string } {
@@ -579,6 +657,90 @@ export class CreateCustomTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCustomTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNADBRequest extends $tea.Model {
+  description?: string;
+  model?: string;
+  name?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      model: 'Model',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      model: 'string',
+      name: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNADBResponseBody extends $tea.Model {
+  DBInfo?: CreateDNADBResponseBodyDBInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInfo: 'DBInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInfo: CreateDNADBResponseBodyDBInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNADBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDNADBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDNADBResponseBody,
     };
   }
 
@@ -1316,6 +1478,159 @@ export class DeleteCustomTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCustomTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNADBRequest extends $tea.Model {
+  DBId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBId: 'DBId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNADBResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNADBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDNADBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDNADBResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNAFilesRequest extends $tea.Model {
+  DBId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  primaryKeys?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBId: 'DBId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      primaryKeys: 'PrimaryKeys',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      primaryKeys: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNAFilesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNAFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDNAFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDNAFilesResponseBody,
     };
   }
 
@@ -6278,6 +6593,72 @@ export class GetUrlUploadInfosResponse extends $tea.Model {
   }
 }
 
+export class GetWorkflowTaskRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  workflowTask?: GetWorkflowTaskResponseBodyWorkflowTask;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      workflowTask: 'WorkflowTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      workflowTask: GetWorkflowTaskResponseBodyWorkflowTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWorkflowTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkflowTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
   businessType?: string;
   entityId?: string;
@@ -6426,6 +6807,171 @@ export class ListCustomTemplatesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCustomTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNADBRequest extends $tea.Model {
+  DBIds?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBIds: 'DBIds',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBIds: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNADBResponseBody extends $tea.Model {
+  DBList?: ListDNADBResponseBodyDBList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBList: 'DBList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBList: { 'type': 'array', 'itemType': ListDNADBResponseBodyDBList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNADBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDNADBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDNADBResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNAFilesRequest extends $tea.Model {
+  DBId?: string;
+  nextPageToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBId: 'DBId',
+      nextPageToken: 'NextPageToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBId: 'string',
+      nextPageToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNAFilesResponseBody extends $tea.Model {
+  fileList?: ListDNAFilesResponseBodyFileList[];
+  nextPageToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileList: 'FileList',
+      nextPageToken: 'NextPageToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileList: { 'type': 'array', 'itemType': ListDNAFilesResponseBodyFileList },
+      nextPageToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNAFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDNAFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDNAFilesResponseBody,
     };
   }
 
@@ -8123,6 +8669,84 @@ export class ListTranscodeJobsResponse extends $tea.Model {
   }
 }
 
+export class QueryDNAJobListRequest extends $tea.Model {
+  jobIds?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobIds: 'JobIds',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobIds: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDNAJobListResponseBody extends $tea.Model {
+  jobList?: QueryDNAJobListResponseBodyJobList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobList: 'JobList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobList: { 'type': 'array', 'itemType': QueryDNAJobListResponseBodyJobList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDNAJobListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDNAJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDNAJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryIProductionJobRequest extends $tea.Model {
   clientToken?: string;
   jobId?: string;
@@ -9371,6 +9995,78 @@ export class SetEventCallbackResponse extends $tea.Model {
   }
 }
 
+export class StartWorkflowRequest extends $tea.Model {
+  taskInput?: string;
+  userData?: string;
+  workflowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskInput: 'TaskInput',
+      userData: 'UserData',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskInput: 'string',
+      userData: 'string',
+      workflowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitASRJobRequest extends $tea.Model {
   description?: string;
   duration?: string;
@@ -9534,6 +10230,151 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAudioProduceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDNAJobRequest extends $tea.Model {
+  config?: string;
+  DBId?: string;
+  input?: SubmitDNAJobRequestInput;
+  ownerAccount?: string;
+  ownerId?: number;
+  pipelineId?: string;
+  primaryKey?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      DBId: 'DBId',
+      input: 'Input',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pipelineId: 'PipelineId',
+      primaryKey: 'PrimaryKey',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      DBId: 'string',
+      input: SubmitDNAJobRequestInput,
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pipelineId: 'string',
+      primaryKey: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDNAJobShrinkRequest extends $tea.Model {
+  config?: string;
+  DBId?: string;
+  inputShrink?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pipelineId?: string;
+  primaryKey?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      DBId: 'DBId',
+      inputShrink: 'Input',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pipelineId: 'PipelineId',
+      primaryKey: 'PrimaryKey',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateId: 'TemplateId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      DBId: 'string',
+      inputShrink: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pipelineId: 'string',
+      primaryKey: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateId: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDNAJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDNAJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitDNAJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDNAJobResponseBody,
     };
   }
 
@@ -12885,6 +13726,37 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
       templateName: 'string',
       type: 'number',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNADBResponseBodyDBInfo extends $tea.Model {
+  DBId?: string;
+  description?: string;
+  model?: string;
+  name?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBId: 'DBId',
+      description: 'Description',
+      model: 'Model',
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBId: 'string',
+      description: 'string',
+      model: 'string',
+      name: 'string',
+      status: 'string',
     };
   }
 
@@ -18555,6 +19427,74 @@ export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
   }
 }
 
+export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model {
+  createTime?: string;
+  modifiedTime?: string;
+  name?: string;
+  status?: string;
+  type?: string;
+  workflowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      status: 'Status',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      modifiedTime: 'string',
+      name: 'string',
+      status: 'string',
+      type: 'string',
+      workflowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
+  createTime?: string;
+  finishTime?: string;
+  status?: string;
+  taskId?: string;
+  taskInput?: string;
+  workflow?: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskInput: 'TaskInput',
+      workflow: 'Workflow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      finishTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskInput: 'string',
+      workflow: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.Model {
   optionChineseName?: string;
   optionEnglishName?: string;
@@ -18649,6 +19589,84 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
       templateName: 'string',
       type: 'number',
       typeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNADBResponseBodyDBList extends $tea.Model {
+  DBId?: string;
+  description?: string;
+  model?: number;
+  name?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBId: 'DBId',
+      description: 'Description',
+      model: 'Model',
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBId: 'string',
+      description: 'string',
+      model: 'number',
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNAFilesResponseBodyFileListInputFile extends $tea.Model {
+  bucket?: string;
+  location?: string;
+  object?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      location: 'Location',
+      object: 'Object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      location: 'string',
+      object: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNAFilesResponseBodyFileList extends $tea.Model {
+  inputFile?: ListDNAFilesResponseBodyFileListInputFile;
+  primaryKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputFile: 'InputFile',
+      primaryKey: 'PrimaryKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputFile: ListDNAFilesResponseBodyFileListInputFile,
+      primaryKey: 'string',
     };
   }
 
@@ -21198,6 +22216,80 @@ export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
   }
 }
 
+export class QueryDNAJobListResponseBodyJobListInput extends $tea.Model {
+  media?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDNAJobListResponseBodyJobList extends $tea.Model {
+  code?: string;
+  config?: string;
+  creationTime?: string;
+  DBId?: string;
+  DNAResult?: string;
+  finishTime?: string;
+  id?: string;
+  input?: QueryDNAJobListResponseBodyJobListInput;
+  message?: string;
+  primaryKey?: string;
+  status?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      config: 'Config',
+      creationTime: 'CreationTime',
+      DBId: 'DBId',
+      DNAResult: 'DNAResult',
+      finishTime: 'FinishTime',
+      id: 'Id',
+      input: 'Input',
+      message: 'Message',
+      primaryKey: 'PrimaryKey',
+      status: 'Status',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      config: 'string',
+      creationTime: 'string',
+      DBId: 'string',
+      DNAResult: 'string',
+      finishTime: 'string',
+      id: 'string',
+      input: QueryDNAJobListResponseBodyJobListInput,
+      message: 'string',
+      primaryKey: 'string',
+      status: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryIProductionJobResponseBodyInput extends $tea.Model {
   media?: string;
   type?: string;
@@ -22914,6 +24006,28 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Mode
       favorite: 'boolean',
       mediaInfo: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo,
       remainingAuthTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDNAJobRequestInput extends $tea.Model {
+  media?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
     };
   }
 
@@ -27187,6 +28301,51 @@ export default class Client extends OpenApi {
     return await this.batchGetMediaInfosWithOptions(request, runtime);
   }
 
+  async cancelDNAJobWithOptions(request: CancelDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelDNAJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelDNAJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDNAJobResponse>(await this.callApi(params, req, runtime), new CancelDNAJobResponse({}));
+  }
+
+  async cancelDNAJob(request: CancelDNAJobRequest): Promise<CancelDNAJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelDNAJobWithOptions(request, runtime);
+  }
+
   async cancelFavoritePublicMediaWithOptions(request: CancelFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<CancelFavoritePublicMediaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27288,6 +28447,59 @@ export default class Client extends OpenApi {
   async createCustomTemplate(request: CreateCustomTemplateRequest): Promise<CreateCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomTemplateWithOptions(request, runtime);
+  }
+
+  async createDNADBWithOptions(request: CreateDNADBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDNADBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDNADB",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDNADBResponse>(await this.callApi(params, req, runtime), new CreateDNADBResponse({}));
+  }
+
+  async createDNADB(request: CreateDNADBRequest): Promise<CreateDNADBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDNADBWithOptions(request, runtime);
   }
 
   async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
@@ -27665,6 +28877,100 @@ export default class Client extends OpenApi {
   async deleteCustomTemplate(request: DeleteCustomTemplateRequest): Promise<DeleteCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomTemplateWithOptions(request, runtime);
+  }
+
+  async deleteDNADBWithOptions(request: DeleteDNADBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNADBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBId)) {
+      query["DBId"] = request.DBId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDNADB",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDNADBResponse>(await this.callApi(params, req, runtime), new DeleteDNADBResponse({}));
+  }
+
+  async deleteDNADB(request: DeleteDNADBRequest): Promise<DeleteDNADBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDNADBWithOptions(request, runtime);
+  }
+
+  async deleteDNAFilesWithOptions(request: DeleteDNAFilesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNAFilesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBId)) {
+      query["DBId"] = request.DBId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.primaryKeys)) {
+      query["PrimaryKeys"] = request.primaryKeys;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDNAFiles",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDNAFilesResponse>(await this.callApi(params, req, runtime), new DeleteDNAFilesResponse({}));
+  }
+
+  async deleteDNAFiles(request: DeleteDNAFilesRequest): Promise<DeleteDNAFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDNAFilesWithOptions(request, runtime);
   }
 
   async deleteEditingProjectMaterialsWithOptions(request: DeleteEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectMaterialsResponse> {
@@ -30011,6 +31317,35 @@ export default class Client extends OpenApi {
     return await this.getUrlUploadInfosWithOptions(request, runtime);
   }
 
+  async getWorkflowTaskWithOptions(request: GetWorkflowTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkflowTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWorkflowTask",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkflowTaskResponse>(await this.callApi(params, req, runtime), new GetWorkflowTaskResponse({}));
+  }
+
+  async getWorkflowTask(request: GetWorkflowTaskRequest): Promise<GetWorkflowTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWorkflowTaskWithOptions(request, runtime);
+  }
+
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30095,6 +31430,104 @@ export default class Client extends OpenApi {
   async listCustomTemplates(request: ListCustomTemplatesRequest): Promise<ListCustomTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomTemplatesWithOptions(request, runtime);
+  }
+
+  async listDNADBWithOptions(request: ListDNADBRequest, runtime: $Util.RuntimeOptions): Promise<ListDNADBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBIds)) {
+      query["DBIds"] = request.DBIds;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDNADB",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDNADBResponse>(await this.callApi(params, req, runtime), new ListDNADBResponse({}));
+  }
+
+  async listDNADB(request: ListDNADBRequest): Promise<ListDNADBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDNADBWithOptions(request, runtime);
+  }
+
+  async listDNAFilesWithOptions(request: ListDNAFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListDNAFilesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBId)) {
+      query["DBId"] = request.DBId;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDNAFiles",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDNAFilesResponse>(await this.callApi(params, req, runtime), new ListDNAFilesResponse({}));
+  }
+
+  async listDNAFiles(request: ListDNAFilesRequest): Promise<ListDNAFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDNAFilesWithOptions(request, runtime);
   }
 
   async listDynamicImageJobsWithOptions(request: ListDynamicImageJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicImageJobsResponse> {
@@ -30896,6 +32329,51 @@ export default class Client extends OpenApi {
     return await this.listTranscodeJobsWithOptions(request, runtime);
   }
 
+  async queryDNAJobListWithOptions(request: QueryDNAJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDNAJobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobIds)) {
+      query["JobIds"] = request.jobIds;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDNAJobList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDNAJobListResponse>(await this.callApi(params, req, runtime), new QueryDNAJobListResponse({}));
+  }
+
+  async queryDNAJobList(request: QueryDNAJobListRequest): Promise<QueryDNAJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDNAJobListWithOptions(request, runtime);
+  }
+
   async queryIProductionJobWithOptions(request: QueryIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryIProductionJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31575,6 +33053,43 @@ export default class Client extends OpenApi {
     return await this.setEventCallbackWithOptions(request, runtime);
   }
 
+  async startWorkflowWithOptions(request: StartWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskInput)) {
+      query["TaskInput"] = request.taskInput;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartWorkflow",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
+  }
+
+  async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startWorkflowWithOptions(request, runtime);
+  }
+
   async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31675,6 +33190,81 @@ export default class Client extends OpenApi {
   async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAudioProduceJobWithOptions(request, runtime);
+  }
+
+  async submitDNAJobWithOptions(tmpReq: SubmitDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDNAJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitDNAJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.DBId)) {
+      query["DBId"] = request.DBId;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pipelineId)) {
+      query["PipelineId"] = request.pipelineId;
+    }
+
+    if (!Util.isUnset(request.primaryKey)) {
+      query["PrimaryKey"] = request.primaryKey;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDNAJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDNAJobResponse>(await this.callApi(params, req, runtime), new SubmitDNAJobResponse({}));
+  }
+
+  async submitDNAJob(request: SubmitDNAJobRequest): Promise<SubmitDNAJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDNAJobWithOptions(request, runtime);
   }
 
   async submitDynamicChartJobWithOptions(request: SubmitDynamicChartJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicChartJobResponse> {
