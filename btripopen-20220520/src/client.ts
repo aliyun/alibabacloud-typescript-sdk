@@ -15833,6 +15833,7 @@ export class FlightSearchListResponseBodyModuleFlightList extends $tea.Model {
   airlineInfo?: FlightSearchListResponseBodyModuleFlightListAirlineInfo;
   arrAirportInfo?: FlightSearchListResponseBodyModuleFlightListArrAirportInfo;
   arrDate?: string;
+  basicCabinPrice?: number;
   buildPrice?: number;
   cabin?: string;
   cabinClass?: string;
@@ -15877,6 +15878,7 @@ export class FlightSearchListResponseBodyModuleFlightList extends $tea.Model {
       airlineInfo: 'airline_info',
       arrAirportInfo: 'arr_airport_info',
       arrDate: 'arr_date',
+      basicCabinPrice: 'basic_cabin_price',
       buildPrice: 'build_price',
       cabin: 'cabin',
       cabinClass: 'cabin_class',
@@ -15924,6 +15926,7 @@ export class FlightSearchListResponseBodyModuleFlightList extends $tea.Model {
       airlineInfo: FlightSearchListResponseBodyModuleFlightListAirlineInfo,
       arrAirportInfo: FlightSearchListResponseBodyModuleFlightListArrAirportInfo,
       arrDate: 'string',
+      basicCabinPrice: 'number',
       buildPrice: 'number',
       cabin: 'string',
       cabinClass: 'string',
