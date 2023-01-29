@@ -780,10 +780,12 @@ export class DeleteAutoSnapshotPolicyResponse extends $tea.Model {
 }
 
 export class DeleteDbfsRequest extends $tea.Model {
+  force?: boolean;
   fsId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       fsId: 'FsId',
       regionId: 'RegionId',
     };
@@ -791,6 +793,7 @@ export class DeleteDbfsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       fsId: 'string',
       regionId: 'string',
     };
@@ -1395,6 +1398,75 @@ export class GetServiceLinkedRoleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetServiceLinkedRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSnapshotLinkRequest extends $tea.Model {
+  linkId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      linkId: 'LinkId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      linkId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSnapshotLinkResponseBody extends $tea.Model {
+  data?: GetSnapshotLinkResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetSnapshotLinkResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSnapshotLinkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSnapshotLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSnapshotLinkResponseBody,
     };
   }
 
@@ -2013,6 +2085,93 @@ export class ListSnapshotResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSnapshotLinksRequest extends $tea.Model {
+  filterKey?: string;
+  filterValue?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterKey: 'FilterKey',
+      filterValue: 'FilterValue',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterKey: 'string',
+      filterValue: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSnapshotLinksResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  snapshotLinks?: ListSnapshotLinksResponseBodySnapshotLinks[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      snapshotLinks: 'SnapshotLinks',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      snapshotLinks: { 'type': 'array', 'itemType': ListSnapshotLinksResponseBodySnapshotLinks },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSnapshotLinksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSnapshotLinksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSnapshotLinksResponseBody,
     };
   }
 
@@ -2753,7 +2912,7 @@ export class GetDbfsResponseBodyDBFSInfoSnapshotInfo extends $tea.Model {
       linkId: 'LinkId',
       policyId: 'PolicyId',
       snapshotCount: 'SnapshotCount',
-      totalSize: 'totalSize',
+      totalSize: 'TotalSize',
     };
   }
 
@@ -2890,6 +3049,68 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
   }
 }
 
+export class GetSnapshotLinkResponseBodyDataEcsList extends $tea.Model {
+  ecsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsId: 'EcsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSnapshotLinkResponseBodyData extends $tea.Model {
+  category?: string;
+  ecsList?: GetSnapshotLinkResponseBodyDataEcsList[];
+  fsId?: string;
+  fsName?: string;
+  linkId?: string;
+  snapshotCount?: number;
+  sourceSize?: number;
+  status?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      ecsList: 'EcsList',
+      fsId: 'FsId',
+      fsName: 'FsName',
+      linkId: 'LinkId',
+      snapshotCount: 'SnapshotCount',
+      sourceSize: 'SourceSize',
+      status: 'Status',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      ecsList: { 'type': 'array', 'itemType': GetSnapshotLinkResponseBodyDataEcsList },
+      fsId: 'string',
+      fsName: 'string',
+      linkId: 'string',
+      snapshotCount: 'number',
+      sourceSize: 'number',
+      status: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAutoSnapshotPoliciesResponseBodySnapshotPolicies extends $tea.Model {
   accountId?: string;
   appliedDbfsNumber?: number;
@@ -2947,44 +3168,7 @@ export class ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList extends $tea.
   fsName?: string;
   regionId?: string;
   sizeG?: number;
-  snapshotCount?: string;
-  status?: string;
-  totalSize?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fsId: 'FsId',
-      fsName: 'FsName',
-      regionId: 'RegionId',
-      sizeG: 'SizeG',
-      snapshotCount: 'SnapshotCount',
-      status: 'Status',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fsId: 'string',
-      fsName: 'string',
-      regionId: 'string',
-      sizeG: 'number',
-      snapshotCount: 'string',
-      status: 'string',
-      totalSize: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList extends $tea.Model {
-  fsId?: string;
-  fsName?: string;
-  regionId?: string;
-  sizeG?: number;
-  snapshotCount?: string;
+  snapshotCount?: number;
   status?: string;
   totalSize?: number;
   static names(): { [key: string]: string } {
@@ -3005,7 +3189,44 @@ export class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList extends $te
       fsName: 'string',
       regionId: 'string',
       sizeG: 'number',
-      snapshotCount: 'string',
+      snapshotCount: 'number',
+      status: 'string',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList extends $tea.Model {
+  fsId?: string;
+  fsName?: string;
+  regionId?: string;
+  sizeG?: number;
+  snapshotCount?: number;
+  status?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fsId: 'FsId',
+      fsName: 'FsName',
+      regionId: 'RegionId',
+      sizeG: 'SizeG',
+      snapshotCount: 'SnapshotCount',
+      status: 'Status',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fsId: 'string',
+      fsName: 'string',
+      regionId: 'string',
+      sizeG: 'number',
+      snapshotCount: 'number',
       status: 'string',
       totalSize: 'number',
     };
@@ -3319,6 +3540,65 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
       sourceFsSize: 'number',
       sourceFsStripeWidth: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSnapshotLinksResponseBodySnapshotLinksEcsList extends $tea.Model {
+  ecsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsId: 'EcsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSnapshotLinksResponseBodySnapshotLinks extends $tea.Model {
+  ecsList?: ListSnapshotLinksResponseBodySnapshotLinksEcsList[];
+  fsId?: string;
+  fsName?: string;
+  linkId?: string;
+  snapshotCount?: number;
+  sourceSize?: number;
+  status?: string;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ecsList: 'EcsList',
+      fsId: 'FsId',
+      fsName: 'FsName',
+      linkId: 'LinkId',
+      snapshotCount: 'SnapshotCount',
+      sourceSize: 'SourceSize',
+      status: 'Status',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsList: { 'type': 'array', 'itemType': ListSnapshotLinksResponseBodySnapshotLinksEcsList },
+      fsId: 'string',
+      fsName: 'string',
+      linkId: 'string',
+      snapshotCount: 'number',
+      sourceSize: 'number',
+      status: 'string',
+      totalSize: 'number',
     };
   }
 
@@ -3827,6 +4107,10 @@ export default class Client extends OpenApi {
   async deleteDbfsWithOptions(request: DeleteDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDbfsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.fsId)) {
       query["FsId"] = request.fsId;
     }
@@ -4127,6 +4411,31 @@ export default class Client extends OpenApi {
   async getServiceLinkedRole(request: GetServiceLinkedRoleRequest): Promise<GetServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceLinkedRoleWithOptions(request, runtime);
+  }
+
+  async getSnapshotLinkWithOptions(request: GetSnapshotLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetSnapshotLinkResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSnapshotLink",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSnapshotLinkResponse>(await this.callApi(params, req, runtime), new GetSnapshotLinkResponse({}));
+  }
+
+  async getSnapshotLink(request: GetSnapshotLinkRequest): Promise<GetSnapshotLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSnapshotLinkWithOptions(request, runtime);
   }
 
   async listAutoSnapshotPoliciesWithOptions(request: ListAutoSnapshotPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListAutoSnapshotPoliciesResponse> {
@@ -4474,6 +4783,51 @@ export default class Client extends OpenApi {
   async listSnapshot(request: ListSnapshotRequest): Promise<ListSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSnapshotWithOptions(request, runtime);
+  }
+
+  async listSnapshotLinksWithOptions(request: ListSnapshotLinksRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotLinksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filterKey)) {
+      query["FilterKey"] = request.filterKey;
+    }
+
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSnapshotLinks",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSnapshotLinksResponse>(await this.callApi(params, req, runtime), new ListSnapshotLinksResponse({}));
+  }
+
+  async listSnapshotLinks(request: ListSnapshotLinksRequest): Promise<ListSnapshotLinksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSnapshotLinksWithOptions(request, runtime);
   }
 
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
