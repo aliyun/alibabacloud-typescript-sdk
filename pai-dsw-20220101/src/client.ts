@@ -724,6 +724,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   instanceShutdownTimer?: GetInstanceResponseBodyInstanceShutdownTimer;
+  instanceSnapshotList?: GetInstanceResponseBodyInstanceSnapshotList[];
   instanceUrl?: string;
   jupyterlabUrl?: string;
   labels?: GetInstanceResponseBodyLabels[];
@@ -765,6 +766,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceSnapshotList: 'InstanceSnapshotList',
       instanceUrl: 'InstanceUrl',
       jupyterlabUrl: 'JupyterlabUrl',
       labels: 'Labels',
@@ -809,6 +811,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       instanceShutdownTimer: GetInstanceResponseBodyInstanceShutdownTimer,
+      instanceSnapshotList: { 'type': 'array', 'itemType': GetInstanceResponseBodyInstanceSnapshotList },
       instanceUrl: 'string',
       jupyterlabUrl: 'string',
       labels: { 'type': 'array', 'itemType': GetInstanceResponseBodyLabels },
@@ -2286,6 +2289,49 @@ export class GetInstanceResponseBodyInstanceShutdownTimer extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyInstanceSnapshotList extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  repositoryUrl?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyLabels extends $tea.Model {
   key?: string;
   value?: string;
@@ -2314,7 +2360,10 @@ export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
   imageId?: string;
   imageName?: string;
   imageUrl?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
   repositoryUrl?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       gmtCreateTime: 'GmtCreateTime',
@@ -2322,7 +2371,10 @@ export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
       repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
     };
   }
 
@@ -2333,7 +2385,10 @@ export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
       imageId: 'string',
       imageName: 'string',
       imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
       repositoryUrl: 'string',
+      status: 'string',
     };
   }
 
@@ -2705,6 +2760,49 @@ export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $te
   }
 }
 
+export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  repositoryUrl?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesLabels extends $tea.Model {
   key?: string;
   value?: string;
@@ -2733,7 +2831,10 @@ export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model
   imageId?: string;
   imageName?: string;
   imageUrl?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
   repositoryUrl?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       gmtCreateTime: 'GmtCreateTime',
@@ -2741,7 +2842,10 @@ export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
       repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
     };
   }
 
@@ -2752,7 +2856,10 @@ export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model
       imageId: 'string',
       imageName: 'string',
       imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
       repositoryUrl: 'string',
+      status: 'string',
     };
   }
 
@@ -2833,6 +2940,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   instanceShutdownTimer?: ListInstancesResponseBodyInstancesInstanceShutdownTimer;
+  instanceSnapshotList?: ListInstancesResponseBodyInstancesInstanceSnapshotList[];
   instanceUrl?: string;
   jupyterlabUrl?: string;
   labels?: ListInstancesResponseBodyInstancesLabels[];
@@ -2869,6 +2977,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceSnapshotList: 'InstanceSnapshotList',
       instanceUrl: 'InstanceUrl',
       jupyterlabUrl: 'JupyterlabUrl',
       labels: 'Labels',
@@ -2908,6 +3017,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       instanceShutdownTimer: ListInstancesResponseBodyInstancesInstanceShutdownTimer,
+      instanceSnapshotList: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesInstanceSnapshotList },
       instanceUrl: 'string',
       jupyterlabUrl: 'string',
       labels: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesLabels },
