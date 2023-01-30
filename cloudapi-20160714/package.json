@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudapi20160714",
-  "version": "2.2.13",
+  "version": "2.2.14",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.5",
     "@alicloud/openapi-client": "^0.4.4",
-    "@alicloud/openapi-util": "^0.3.0",
+    "@alicloud/openapi-util": "^0.3.1",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
