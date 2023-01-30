@@ -1019,6 +1019,90 @@ export class ImageScore extends $tea.Model {
   }
 }
 
+export class Input extends $tea.Model {
+  OSS?: InputOSS;
+  static names(): { [key: string]: string } {
+    return {
+      OSS: 'OSS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OSS: InputOSS,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InputFile extends $tea.Model {
+  contentType?: string;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  figures?: InputFileFigures[];
+  fileHash?: string;
+  mediaType?: string;
+  OSSURI?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      figures: 'Figures',
+      fileHash: 'FileHash',
+      mediaType: 'MediaType',
+      OSSURI: 'OSSURI',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      figures: { 'type': 'array', 'itemType': InputFileFigures },
+      fileHash: 'string',
+      mediaType: 'string',
+      OSSURI: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InputOSS extends $tea.Model {
+  bucket?: string;
+  matchExpressions?: string[];
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      matchExpressions: 'MatchExpressions',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      matchExpressions: { 'type': 'array', 'itemType': 'string' },
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class KdtreeOption extends $tea.Model {
   compressionLevel?: number;
   libraryName?: string;
@@ -5227,6 +5311,72 @@ export class CreateVideoModerationTaskResponse extends $tea.Model {
   }
 }
 
+export class DeleteBatchRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBindingRequest extends $tea.Model {
   cleanup?: boolean;
   datasetName?: string;
@@ -5627,6 +5777,72 @@ export class DeleteStoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTriggerRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTriggerResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTriggerResponseBody,
     };
   }
 
@@ -8743,6 +8959,138 @@ export class RemoveStoryFilesResponse extends $tea.Model {
   }
 }
 
+export class ResumeBatchRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResumeBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResumeBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTriggerRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTriggerResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResumeTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResumeTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchImageFigureClusterRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   datasetName?: string;
@@ -9058,6 +9406,250 @@ export class SimpleQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SimpleQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendBatchRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SuspendBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SuspendBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTriggerRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTriggerResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SuspendTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SuspendTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchRequest extends $tea.Model {
+  actions?: UpdateBatchRequestActions[];
+  id?: string;
+  input?: Input;
+  notification?: UpdateBatchRequestNotification;
+  projectName?: string;
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      id: 'Id',
+      input: 'Input',
+      notification: 'Notification',
+      projectName: 'ProjectName',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': UpdateBatchRequestActions },
+      id: 'string',
+      input: Input,
+      notification: UpdateBatchRequestNotification,
+      projectName: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchShrinkRequest extends $tea.Model {
+  actionsShrink?: string;
+  id?: string;
+  inputShrink?: string;
+  notificationShrink?: string;
+  projectName?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionsShrink: 'Actions',
+      id: 'Id',
+      inputShrink: 'Input',
+      notificationShrink: 'Notification',
+      projectName: 'ProjectName',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionsShrink: 'string',
+      id: 'string',
+      inputShrink: 'string',
+      notificationShrink: 'string',
+      projectName: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBatchResponseBody,
     };
   }
 
@@ -9667,6 +10259,118 @@ export class UpdateStoryResponse extends $tea.Model {
   }
 }
 
+export class UpdateTriggerRequest extends $tea.Model {
+  actions?: UpdateTriggerRequestActions[];
+  id?: string;
+  input?: Input;
+  notification?: UpdateTriggerRequestNotification;
+  projectName?: string;
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      id: 'Id',
+      input: 'Input',
+      notification: 'Notification',
+      projectName: 'ProjectName',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': UpdateTriggerRequestActions },
+      id: 'string',
+      input: Input,
+      notification: UpdateTriggerRequestNotification,
+      projectName: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerShrinkRequest extends $tea.Model {
+  actionsShrink?: string;
+  id?: string;
+  inputShrink?: string;
+  notificationShrink?: string;
+  projectName?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionsShrink: 'Actions',
+      id: 'Id',
+      inputShrink: 'Input',
+      notificationShrink: 'Notification',
+      projectName: 'ProjectName',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionsShrink: 'string',
+      id: 'string',
+      inputShrink: 'string',
+      notificationShrink: 'string',
+      projectName: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClusterForReqCoverFigures extends $tea.Model {
   figureId?: string;
   static names(): { [key: string]: string } {
@@ -9769,6 +10473,31 @@ export class FigureClusterForReqCover extends $tea.Model {
 }
 
 export class FileForReqFigures extends $tea.Model {
+  figureClusterId?: string;
+  figureId?: string;
+  figureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureClusterId: 'FigureClusterId',
+      figureId: 'FigureId',
+      figureType: 'FigureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureClusterId: 'string',
+      figureId: 'string',
+      figureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InputFileFigures extends $tea.Model {
   figureClusterId?: string;
   figureId?: string;
   figureType?: string;
@@ -10848,6 +11577,50 @@ export class SimpleQueryResponseBodyAggregations extends $tea.Model {
   }
 }
 
+export class UpdateBatchRequestActions extends $tea.Model {
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchRequestNotification extends $tea.Model {
+  endpoint?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStoryRequestCover extends $tea.Model {
   URI?: string;
   static names(): { [key: string]: string } {
@@ -10859,6 +11632,50 @@ export class UpdateStoryRequestCover extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerRequestActions extends $tea.Model {
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTriggerRequestNotification extends $tea.Model {
+  endpoint?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topic: 'string',
     };
   }
 
@@ -12747,6 +13564,39 @@ export default class Client extends OpenApi {
     return await this.createVideoModerationTaskWithOptions(request, runtime);
   }
 
+  async deleteBatchWithOptions(request: DeleteBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBatchResponse>(await this.callApi(params, req, runtime), new DeleteBatchResponse({}));
+  }
+
+  async deleteBatch(request: DeleteBatchRequest): Promise<DeleteBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBatchWithOptions(request, runtime);
+  }
+
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12961,6 +13811,39 @@ export default class Client extends OpenApi {
   async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStoryWithOptions(request, runtime);
+  }
+
+  async deleteTriggerWithOptions(request: DeleteTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
+  }
+
+  async deleteTrigger(request: DeleteTriggerRequest): Promise<DeleteTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTriggerWithOptions(request, runtime);
   }
 
   async detachOSSBucketWithOptions(request: DetachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<DetachOSSBucketResponse> {
@@ -14472,6 +15355,72 @@ export default class Client extends OpenApi {
     return await this.removeStoryFilesWithOptions(request, runtime);
   }
 
+  async resumeBatchWithOptions(request: ResumeBatchRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeBatchResponse>(await this.callApi(params, req, runtime), new ResumeBatchResponse({}));
+  }
+
+  async resumeBatch(request: ResumeBatchRequest): Promise<ResumeBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeBatchWithOptions(request, runtime);
+  }
+
+  async resumeTriggerWithOptions(request: ResumeTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTriggerResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeTriggerResponse>(await this.callApi(params, req, runtime), new ResumeTriggerResponse({}));
+  }
+
+  async resumeTrigger(request: ResumeTriggerRequest): Promise<ResumeTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeTriggerWithOptions(request, runtime);
+  }
+
   async searchImageFigureClusterWithOptions(tmpReq: SearchImageFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<SearchImageFigureClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchImageFigureClusterShrinkRequest({ });
@@ -14637,6 +15586,139 @@ export default class Client extends OpenApi {
   async simpleQuery(request: SimpleQueryRequest): Promise<SimpleQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.simpleQueryWithOptions(request, runtime);
+  }
+
+  async suspendBatchWithOptions(request: SuspendBatchRequest, runtime: $Util.RuntimeOptions): Promise<SuspendBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SuspendBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SuspendBatchResponse>(await this.callApi(params, req, runtime), new SuspendBatchResponse({}));
+  }
+
+  async suspendBatch(request: SuspendBatchRequest): Promise<SuspendBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendBatchWithOptions(request, runtime);
+  }
+
+  async suspendTriggerWithOptions(request: SuspendTriggerRequest, runtime: $Util.RuntimeOptions): Promise<SuspendTriggerResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SuspendTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SuspendTriggerResponse>(await this.callApi(params, req, runtime), new SuspendTriggerResponse({}));
+  }
+
+  async suspendTrigger(request: SuspendTriggerRequest): Promise<SuspendTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendTriggerWithOptions(request, runtime);
+  }
+
+  async updateBatchWithOptions(tmpReq: UpdateBatchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateBatchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.actions)) {
+      request.actionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actions, "Actions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actionsShrink)) {
+      body["Actions"] = request.actionsShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBatchResponse>(await this.callApi(params, req, runtime), new UpdateBatchResponse({}));
+  }
+
+  async updateBatch(request: UpdateBatchRequest): Promise<UpdateBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBatchWithOptions(request, runtime);
   }
 
   async updateDatasetWithOptions(request: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
@@ -14967,6 +16049,73 @@ export default class Client extends OpenApi {
   async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStoryWithOptions(request, runtime);
+  }
+
+  async updateTriggerWithOptions(tmpReq: UpdateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTriggerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.actions)) {
+      request.actionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actions, "Actions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actionsShrink)) {
+      body["Actions"] = request.actionsShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
+  }
+
+  async updateTrigger(request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTriggerWithOptions(request, runtime);
   }
 
 }
