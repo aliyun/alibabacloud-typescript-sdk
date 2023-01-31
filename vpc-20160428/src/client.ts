@@ -595,6 +595,7 @@ export class AddIPv6TranslatorAclListEntryResponse extends $tea.Model {
 
 export class AddPublicIpAddressPoolCidrBlockRequest extends $tea.Model {
   cidrBlock?: string;
+  cidrMask?: number;
   clientToken?: string;
   dryRun?: boolean;
   ownerAccount?: string;
@@ -606,6 +607,7 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
+      cidrMask: 'CidrMask',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
@@ -620,6 +622,7 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cidrBlock: 'string',
+      cidrMask: 'number',
       clientToken: 'string',
       dryRun: 'boolean',
       ownerAccount: 'string',
@@ -1431,6 +1434,7 @@ export class AssociateEipAddressRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
@@ -1445,6 +1449,7 @@ export class AssociateEipAddressRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -1462,6 +1467,7 @@ export class AssociateEipAddressRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      vpcId: 'string',
     };
   }
 
@@ -1506,6 +1512,93 @@ export class AssociateEipAddressResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AssociateEipAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateEipAddressBatchRequest extends $tea.Model {
+  bindedInstanceId?: string;
+  bindedInstanceType?: string;
+  clientToken?: string;
+  instanceIds?: string[];
+  mode?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bindedInstanceId: 'BindedInstanceId',
+      bindedInstanceType: 'BindedInstanceType',
+      clientToken: 'ClientToken',
+      instanceIds: 'InstanceIds',
+      mode: 'Mode',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindedInstanceId: 'string',
+      bindedInstanceType: 'string',
+      clientToken: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      mode: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateEipAddressBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateEipAddressBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AssociateEipAddressBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateEipAddressBatchResponseBody,
     };
   }
 
@@ -2633,6 +2726,78 @@ export class CancelPhysicalConnectionResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckCanAllocateVpcPrivateIpAddressRequest extends $tea.Model {
   ipVersion?: string;
   ownerAccount?: string;
@@ -3209,6 +3374,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
   description?: string;
   ipVersion?: string;
   isFakeAsn?: boolean;
+  localAsn?: number;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3216,6 +3382,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  routeQuota?: number;
   routerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3224,6 +3391,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
       description: 'Description',
       ipVersion: 'IpVersion',
       isFakeAsn: 'IsFakeAsn',
+      localAsn: 'LocalAsn',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -3231,6 +3399,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      routeQuota: 'RouteQuota',
       routerId: 'RouterId',
     };
   }
@@ -3242,6 +3411,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
       description: 'string',
       ipVersion: 'string',
       isFakeAsn: 'boolean',
+      localAsn: 'number',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3249,6 +3419,7 @@ export class CreateBgpGroupRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      routeQuota: 'number',
       routerId: 'string',
     };
   }
@@ -3621,7 +3792,6 @@ export class CreateCustomerGatewayResponse extends $tea.Model {
 }
 
 export class CreateDhcpOptionsSetRequest extends $tea.Model {
-  bootFileName?: string;
   clientToken?: string;
   dhcpOptionsSetDescription?: string;
   dhcpOptionsSetName?: string;
@@ -3635,10 +3805,8 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  TFTPServerName?: string;
   static names(): { [key: string]: string } {
     return {
-      bootFileName: 'BootFileName',
       clientToken: 'ClientToken',
       dhcpOptionsSetDescription: 'DhcpOptionsSetDescription',
       dhcpOptionsSetName: 'DhcpOptionsSetName',
@@ -3652,13 +3820,11 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      TFTPServerName: 'TFTPServerName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bootFileName: 'string',
       clientToken: 'string',
       dhcpOptionsSetDescription: 'string',
       dhcpOptionsSetName: 'string',
@@ -3672,7 +3838,6 @@ export class CreateDhcpOptionsSetRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      TFTPServerName: 'string',
     };
   }
 
@@ -3852,6 +4017,7 @@ export class CreateFlowLogRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   resourceType?: string;
+  trafficPath?: string[];
   trafficType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3867,6 +4033,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       resourceType: 'ResourceType',
+      trafficPath: 'TrafficPath',
       trafficType: 'TrafficType',
     };
   }
@@ -3885,6 +4052,7 @@ export class CreateFlowLogRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       resourceType: 'string',
+      trafficPath: { 'type': 'array', 'itemType': 'string' },
       trafficType: 'string',
     };
   }
@@ -4970,7 +5138,6 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  spec?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4982,7 +5149,6 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      spec: 'Spec',
       vpcId: 'VpcId',
     };
   }
@@ -4997,7 +5163,6 @@ export class CreateIpv6GatewayRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      spec: 'string',
       vpcId: 'string',
     };
   }
@@ -5074,6 +5239,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
   resourceOwnerId?: number;
   securityProtectionEnabled?: boolean;
   spec?: string;
+  tag?: CreateNatGatewayRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -5097,6 +5263,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionEnabled: 'SecurityProtectionEnabled',
       spec: 'Spec',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -5123,6 +5290,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
       resourceOwnerId: 'number',
       securityProtectionEnabled: 'boolean',
       spec: 'string',
+      tag: { 'type': 'array', 'itemType': CreateNatGatewayRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -5493,6 +5661,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
   portType?: string;
   redundantPhysicalConnectionId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   type?: string;
@@ -5511,6 +5680,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
       portType: 'PortType',
       redundantPhysicalConnectionId: 'RedundantPhysicalConnectionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       type: 'Type',
@@ -5532,6 +5702,7 @@ export class CreatePhysicalConnectionRequest extends $tea.Model {
       portType: 'string',
       redundantPhysicalConnectionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       type: 'string',
@@ -5641,15 +5812,18 @@ export class CreatePhysicalConnectionOccupancyOrderRequest extends $tea.Model {
 }
 
 export class CreatePhysicalConnectionOccupancyOrderResponseBody extends $tea.Model {
+  data?: CreatePhysicalConnectionOccupancyOrderResponseBodyData;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: CreatePhysicalConnectionOccupancyOrderResponseBodyData,
       requestId: 'string',
     };
   }
@@ -5792,6 +5966,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -5804,6 +5979,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -5819,6 +5995,7 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -5832,10 +6009,12 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
 export class CreatePublicIpAddressPoolResponseBody extends $tea.Model {
   pulbicIpAddressPoolId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       pulbicIpAddressPoolId: 'PulbicIpAddressPoolId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5843,6 +6022,7 @@ export class CreatePublicIpAddressPoolResponseBody extends $tea.Model {
     return {
       pulbicIpAddressPoolId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5868,6 +6048,96 @@ export class CreatePublicIpAddressPoolResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePublicIpAddressPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteEntriesRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeEntries?: CreateRouteEntriesRequestRouteEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeEntries: 'RouteEntries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeEntries: { 'type': 'array', 'itemType': CreateRouteEntriesRequestRouteEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteEntriesResponseBody extends $tea.Model {
+  failedCount?: number;
+  failedRouteEntries?: CreateRouteEntriesResponseBodyFailedRouteEntries[];
+  requestId?: string;
+  routeEntryIds?: string[];
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedRouteEntries: 'FailedRouteEntries',
+      requestId: 'RequestId',
+      routeEntryIds: 'RouteEntryIds',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedRouteEntries: { 'type': 'array', 'itemType': CreateRouteEntriesResponseBodyFailedRouteEntries },
+      requestId: 'string',
+      routeEntryIds: { 'type': 'array', 'itemType': 'string' },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteEntriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRouteEntriesResponseBody,
     };
   }
 
@@ -6079,6 +6349,7 @@ export class CreateRouterInterfaceRequest extends $tea.Model {
   autoPay?: boolean;
   clientToken?: string;
   description?: string;
+  fastLinkMode?: boolean;
   healthCheckSourceIp?: string;
   healthCheckTargetIp?: string;
   instanceChargeType?: string;
@@ -6106,6 +6377,7 @@ export class CreateRouterInterfaceRequest extends $tea.Model {
       autoPay: 'AutoPay',
       clientToken: 'ClientToken',
       description: 'Description',
+      fastLinkMode: 'FastLinkMode',
       healthCheckSourceIp: 'HealthCheckSourceIp',
       healthCheckTargetIp: 'HealthCheckTargetIp',
       instanceChargeType: 'InstanceChargeType',
@@ -6136,6 +6408,7 @@ export class CreateRouterInterfaceRequest extends $tea.Model {
       autoPay: 'boolean',
       clientToken: 'string',
       description: 'string',
+      fastLinkMode: 'boolean',
       healthCheckSourceIp: 'string',
       healthCheckTargetIp: 'string',
       instanceChargeType: 'string',
@@ -7272,6 +7545,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
   orderMode?: string;
   physicalConnectionId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   spec?: string;
   token?: string;
   vlanId?: number;
@@ -7284,6 +7558,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
       orderMode: 'OrderMode',
       physicalConnectionId: 'PhysicalConnectionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       token: 'Token',
       vlanId: 'VlanId',
@@ -7299,6 +7574,7 @@ export class CreateVirtualPhysicalConnectionRequest extends $tea.Model {
       orderMode: 'string',
       physicalConnectionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       token: 'string',
       vlanId: 'number',
@@ -7591,9 +7867,10 @@ export class CreateVpcPrefixListRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   prefixListDescription?: string;
-  prefixListEntrys?: CreateVpcPrefixListRequestPrefixListEntrys[];
+  prefixListEntries?: CreateVpcPrefixListRequestPrefixListEntries[];
   prefixListName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -7605,9 +7882,10 @@ export class CreateVpcPrefixListRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       prefixListDescription: 'PrefixListDescription',
-      prefixListEntrys: 'PrefixListEntrys',
+      prefixListEntries: 'PrefixListEntries',
       prefixListName: 'PrefixListName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -7622,9 +7900,10 @@ export class CreateVpcPrefixListRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       prefixListDescription: 'string',
-      prefixListEntrys: { 'type': 'array', 'itemType': CreateVpcPrefixListRequestPrefixListEntrys },
+      prefixListEntries: { 'type': 'array', 'itemType': CreateVpcPrefixListRequestPrefixListEntries },
       prefixListName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -7638,10 +7917,12 @@ export class CreateVpcPrefixListRequest extends $tea.Model {
 export class CreateVpcPrefixListResponseBody extends $tea.Model {
   prefixListId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       prefixListId: 'PrefixListId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7649,6 +7930,7 @@ export class CreateVpcPrefixListResponseBody extends $tea.Model {
     return {
       prefixListId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8154,6 +8436,7 @@ export class CreateVpnPbrRouteEntryRequest extends $tea.Model {
   overlayMode?: string;
   ownerAccount?: string;
   ownerId?: number;
+  priority?: number;
   publishVpc?: boolean;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -8170,6 +8453,7 @@ export class CreateVpnPbrRouteEntryRequest extends $tea.Model {
       overlayMode: 'OverlayMode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      priority: 'Priority',
       publishVpc: 'PublishVpc',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -8189,6 +8473,7 @@ export class CreateVpnPbrRouteEntryRequest extends $tea.Model {
       overlayMode: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      priority: 'number',
       publishVpc: 'boolean',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -8210,6 +8495,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $tea.Model {
   description?: string;
   nextHop?: string;
   overlayMode?: string;
+  priority?: number;
   requestId?: string;
   routeDest?: string;
   routeSource?: string;
@@ -8222,6 +8508,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $tea.Model {
       description: 'Description',
       nextHop: 'NextHop',
       overlayMode: 'OverlayMode',
+      priority: 'Priority',
       requestId: 'RequestId',
       routeDest: 'RouteDest',
       routeSource: 'RouteSource',
@@ -8237,6 +8524,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $tea.Model {
       description: 'string',
       nextHop: 'string',
       overlayMode: 'string',
+      priority: 'number',
       requestId: 'string',
       routeDest: 'string',
       routeSource: 'string',
@@ -10682,6 +10970,93 @@ export class DeletePublicIpAddressPoolCidrBlockResponse extends $tea.Model {
   }
 }
 
+export class DeleteRouteEntriesRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeEntries?: DeleteRouteEntriesRequestRouteEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeEntries: 'RouteEntries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeEntries: { 'type': 'array', 'itemType': DeleteRouteEntriesRequestRouteEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteEntriesResponseBody extends $tea.Model {
+  failedCount?: number;
+  failedRouteEntries?: DeleteRouteEntriesResponseBodyFailedRouteEntries[];
+  requestId?: string;
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedRouteEntries: 'FailedRouteEntries',
+      requestId: 'RequestId',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedRouteEntries: { 'type': 'array', 'itemType': DeleteRouteEntriesResponseBodyFailedRouteEntries },
+      requestId: 'string',
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteEntriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRouteEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRouteEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRouteEntryRequest extends $tea.Model {
   destinationCidrBlock?: string;
   nextHopId?: string;
@@ -12263,6 +12638,7 @@ export class DeleteVpnPbrRouteEntryRequest extends $tea.Model {
   overlayMode?: string;
   ownerAccount?: string;
   ownerId?: number;
+  priority?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -12277,6 +12653,7 @@ export class DeleteVpnPbrRouteEntryRequest extends $tea.Model {
       overlayMode: 'OverlayMode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      priority: 'Priority',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -12294,6 +12671,7 @@ export class DeleteVpnPbrRouteEntryRequest extends $tea.Model {
       overlayMode: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      priority: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -13229,6 +13607,96 @@ export class DescribeCustomerGatewaysResponse extends $tea.Model {
   }
 }
 
+export class DescribeEcGrantRelationRequest extends $tea.Model {
+  instanceId?: string;
+  instanceType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEcGrantRelationResponseBody extends $tea.Model {
+  count?: number;
+  ecGrantRelations?: DescribeEcGrantRelationResponseBodyEcGrantRelations[];
+  page?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      ecGrantRelations: 'EcGrantRelations',
+      page: 'Page',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      ecGrantRelations: { 'type': 'array', 'itemType': DescribeEcGrantRelationResponseBodyEcGrantRelations },
+      page: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEcGrantRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEcGrantRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEcGrantRelationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEipAddressesRequest extends $tea.Model {
   filter?: DescribeEipAddressesRequestFilter[];
   allocationId?: string;
@@ -14015,6 +14483,8 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
   instanceType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -14026,6 +14496,8 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
       instanceType: 'InstanceType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -14040,6 +14512,8 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
       instanceType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -15019,7 +15493,6 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
   name?: string;
   regionId?: string;
   requestId?: string;
-  spec?: string;
   status?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -15033,7 +15506,6 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
-      spec: 'Spec',
       status: 'Status',
       vpcId: 'VpcId',
     };
@@ -15050,7 +15522,6 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $tea.Model {
       name: 'string',
       regionId: 'string',
       requestId: 'string',
-      spec: 'string',
       status: 'string',
       vpcId: 'string',
     };
@@ -15599,6 +16070,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tags?: DescribePhysicalConnectionsRequestTags[];
@@ -15612,6 +16084,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
@@ -15628,6 +16101,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: { 'type': 'array', 'itemType': DescribePhysicalConnectionsRequestTags },
@@ -15804,6 +16278,7 @@ export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
+  productType?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -15811,6 +16286,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      productType: 'ProductType',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -15821,6 +16297,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      productType: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -15879,6 +16356,7 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeRouteEntryListRequest extends $tea.Model {
+  destCidrBlockList?: string[];
   destinationCidrBlock?: string;
   ipVersion?: string;
   maxResult?: number;
@@ -15894,8 +16372,10 @@ export class DescribeRouteEntryListRequest extends $tea.Model {
   routeEntryName?: string;
   routeEntryType?: string;
   routeTableId?: string;
+  serviceType?: string;
   static names(): { [key: string]: string } {
     return {
+      destCidrBlockList: 'DestCidrBlockList',
       destinationCidrBlock: 'DestinationCidrBlock',
       ipVersion: 'IpVersion',
       maxResult: 'MaxResult',
@@ -15911,11 +16391,13 @@ export class DescribeRouteEntryListRequest extends $tea.Model {
       routeEntryName: 'RouteEntryName',
       routeEntryType: 'RouteEntryType',
       routeTableId: 'RouteTableId',
+      serviceType: 'ServiceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      destCidrBlockList: { 'type': 'array', 'itemType': 'string' },
       destinationCidrBlock: 'string',
       ipVersion: 'string',
       maxResult: 'number',
@@ -15931,6 +16413,7 @@ export class DescribeRouteEntryListRequest extends $tea.Model {
       routeEntryName: 'string',
       routeEntryType: 'string',
       routeTableId: 'string',
+      serviceType: 'string',
     };
   }
 
@@ -17024,6 +17507,294 @@ export class DescribeSslVpnServersResponse extends $tea.Model {
   }
 }
 
+export class DescribeTagKeysRequest extends $tea.Model {
+  keyword?: string;
+  maxResult?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResult: 'MaxResult',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResult: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagKeys?: DescribeTagKeysResponseBodyTagKeys;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagKeys: DescribeTagKeysResponseBodyTagKeys,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTagKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysForExpressConnectRequest extends $tea.Model {
+  keyword?: string;
+  maxResult?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResult: 'MaxResult',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResult: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysForExpressConnectResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagKeys?: DescribeTagKeysForExpressConnectResponseBodyTagKeys;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagKeys: DescribeTagKeysForExpressConnectResponseBodyTagKeys,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysForExpressConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTagKeysForExpressConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTagKeysForExpressConnectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsRequest extends $tea.Model {
+  maxResult?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: DescribeTagsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResult: 'MaxResult',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResult: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeTagsRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: DescribeTagsResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: DescribeTagsResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVRoutersRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -17578,6 +18349,7 @@ export class DescribeVcoRouteEntriesResponse extends $tea.Model {
 
 export class DescribeVirtualBorderRoutersRequest extends $tea.Model {
   filter?: DescribeVirtualBorderRoutersRequestFilter[];
+  includeCrossAccountVbr?: boolean;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
@@ -17587,6 +18359,7 @@ export class DescribeVirtualBorderRoutersRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      includeCrossAccountVbr: 'IncludeCrossAccountVbr',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -17599,6 +18372,7 @@ export class DescribeVirtualBorderRoutersRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       filter: { 'type': 'array', 'itemType': DescribeVirtualBorderRoutersRequestFilter },
+      includeCrossAccountVbr: 'boolean',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
@@ -18287,6 +19061,114 @@ export class DescribeVpnConnectionResponse extends $tea.Model {
   }
 }
 
+export class DescribeVpnConnectionLogsRequest extends $tea.Model {
+  from?: number;
+  minutePeriod?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  to?: number;
+  vpnConnectionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      minutePeriod: 'MinutePeriod',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      to: 'To',
+      vpnConnectionId: 'VpnConnectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      minutePeriod: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      to: 'number',
+      vpnConnectionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionLogsResponseBody extends $tea.Model {
+  count?: number;
+  data?: DescribeVpnConnectionLogsResponseBodyData;
+  isCompleted?: boolean;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      data: 'Data',
+      isCompleted: 'IsCompleted',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      data: DescribeVpnConnectionLogsResponseBodyData,
+      isCompleted: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVpnConnectionLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpnConnectionLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnConnectionsRequest extends $tea.Model {
   customerGatewayId?: string;
   ownerAccount?: string;
@@ -18533,6 +19415,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   internetIp?: string;
   ipsecVpn?: string;
   name?: string;
+  networkType?: string;
   requestId?: string;
   reservationData?: DescribeVpnGatewayResponseBodyReservationData;
   spec?: string;
@@ -18557,6 +19440,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       internetIp: 'InternetIp',
       ipsecVpn: 'IpsecVpn',
       name: 'Name',
+      networkType: 'NetworkType',
       requestId: 'RequestId',
       reservationData: 'ReservationData',
       spec: 'Spec',
@@ -18584,6 +19468,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       internetIp: 'string',
       ipsecVpn: 'string',
       name: 'string',
+      networkType: 'string',
       requestId: 'string',
       reservationData: DescribeVpnGatewayResponseBodyReservationData,
       spec: 'string',
@@ -19209,6 +20094,87 @@ export class DetachDhcpOptionsSetFromVpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachDhcpOptionsSetFromVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnGatewayRequest extends $tea.Model {
+  clientToken?: string;
+  IPsecExtendInfo?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      IPsecExtendInfo: 'IPsecExtendInfo',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      IPsecExtendInfo: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnGatewayResponseBody extends $tea.Model {
+  diagnoseId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseId: 'DiagnoseId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DiagnoseVpnGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DiagnoseVpnGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DiagnoseVpnGatewayResponseBody,
     };
   }
 
@@ -20972,6 +21938,192 @@ export class GetVpcPrefixListEntriesResponse extends $tea.Model {
   }
 }
 
+export class GetVpcRouteEntrySummaryRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeEntryType?: string;
+  routeTableId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeEntryType: 'RouteEntryType',
+      routeTableId: 'RouteTableId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeEntryType: 'string',
+      routeTableId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpcRouteEntrySummaryResponseBody extends $tea.Model {
+  requestId?: string;
+  routeEntrySummarys?: GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeEntrySummarys: 'RouteEntrySummarys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeEntrySummarys: { 'type': 'array', 'itemType': GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpcRouteEntrySummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVpcRouteEntrySummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpcRouteEntrySummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpnGatewayDiagnoseResultRequest extends $tea.Model {
+  clientToken?: string;
+  diagnoseId?: string;
+  regionId?: string;
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diagnoseId: 'DiagnoseId',
+      regionId: 'RegionId',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diagnoseId: 'string',
+      regionId: 'string',
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpnGatewayDiagnoseResultResponseBody extends $tea.Model {
+  beginTime?: string;
+  diagnoseId?: string;
+  diagnoseResult?: GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult[];
+  finishTime?: string;
+  finishedCount?: number;
+  requestId?: string;
+  resourceInstanceId?: string;
+  resourceType?: string;
+  totalCount?: number;
+  vpnGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      diagnoseId: 'DiagnoseId',
+      diagnoseResult: 'DiagnoseResult',
+      finishTime: 'FinishTime',
+      finishedCount: 'FinishedCount',
+      requestId: 'RequestId',
+      resourceInstanceId: 'ResourceInstanceId',
+      resourceType: 'ResourceType',
+      totalCount: 'TotalCount',
+      vpnGatewayId: 'VpnGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'string',
+      diagnoseId: 'string',
+      diagnoseResult: { 'type': 'array', 'itemType': GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult },
+      finishTime: 'string',
+      finishedCount: 'number',
+      requestId: 'string',
+      resourceInstanceId: 'string',
+      resourceType: 'string',
+      totalCount: 'number',
+      vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpnGatewayDiagnoseResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVpnGatewayDiagnoseResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVpnGatewayDiagnoseResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GrantInstanceToCenRequest extends $tea.Model {
   cenId?: string;
   cenOwnerId?: number;
@@ -21054,6 +22206,184 @@ export class GrantInstanceToCenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GrantInstanceToCenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantInstanceToVbrRequest extends $tea.Model {
+  grantType?: string;
+  instanceId?: string;
+  regionId?: string;
+  vbrInstanceIds?: string[];
+  vbrOwnerUid?: number;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantType: 'GrantType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      vbrInstanceIds: 'VbrInstanceIds',
+      vbrOwnerUid: 'VbrOwnerUid',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      vbrInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      vbrOwnerUid: 'number',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantInstanceToVbrShrinkRequest extends $tea.Model {
+  grantType?: string;
+  instanceId?: string;
+  regionId?: string;
+  vbrInstanceIdsShrink?: string;
+  vbrOwnerUid?: number;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantType: 'GrantType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      vbrInstanceIdsShrink: 'VbrInstanceIds',
+      vbrOwnerUid: 'VbrOwnerUid',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      vbrInstanceIdsShrink: 'string',
+      vbrOwnerUid: 'number',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantInstanceToVbrResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantInstanceToVbrResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GrantInstanceToVbrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantInstanceToVbrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBusinessAccessPointsRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBusinessAccessPointsResponseBody extends $tea.Model {
+  businessAccessPoints?: ListBusinessAccessPointsResponseBodyBusinessAccessPoints[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessAccessPoints: 'BusinessAccessPoints',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessAccessPoints: { 'type': 'array', 'itemType': ListBusinessAccessPointsResponseBodyBusinessAccessPoints },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBusinessAccessPointsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBusinessAccessPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBusinessAccessPointsResponseBody,
     };
   }
 
@@ -21447,6 +22777,152 @@ export class ListGatewayRouteTableEntriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGatewayRouteTableEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGeographicSubRegionsResponseBody extends $tea.Model {
+  count?: number;
+  geographicSubRegions?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      geographicSubRegions: 'GeographicSubRegions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      geographicSubRegions: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGeographicSubRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGeographicSubRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGeographicSubRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpsecServerLogsRequest extends $tea.Model {
+  from?: number;
+  ipsecServerId?: string;
+  minutePeriod?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      ipsecServerId: 'IpsecServerId',
+      minutePeriod: 'MinutePeriod',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      ipsecServerId: 'string',
+      minutePeriod: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpsecServerLogsResponseBody extends $tea.Model {
+  count?: number;
+  data?: string[];
+  isCompleted?: boolean;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      data: 'Data',
+      isCompleted: 'IsCompleted',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      data: { 'type': 'array', 'itemType': 'string' },
+      isCompleted: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpsecServerLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIpsecServerLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIpsecServerLogsResponseBody,
     };
   }
 
@@ -21874,8 +23350,10 @@ export class ListPrefixListsRequest extends $tea.Model {
   prefixListIds?: string[];
   prefixListName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: ListPrefixListsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -21885,8 +23363,10 @@ export class ListPrefixListsRequest extends $tea.Model {
       prefixListIds: 'PrefixListIds',
       prefixListName: 'PrefixListName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -21899,8 +23379,10 @@ export class ListPrefixListsRequest extends $tea.Model {
       prefixListIds: { 'type': 'array', 'itemType': 'string' },
       prefixListName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': ListPrefixListsRequestTags },
     };
   }
 
@@ -22077,9 +23559,11 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
   ownerId?: number;
   publicIpAddressPoolIds?: string[];
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   status?: string;
+  tags?: ListPublicIpAddressPoolsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       dryRun: 'DryRun',
@@ -22091,9 +23575,11 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
       ownerId: 'OwnerId',
       publicIpAddressPoolIds: 'PublicIpAddressPoolIds',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -22108,9 +23594,11 @@ export class ListPublicIpAddressPoolsRequest extends $tea.Model {
       ownerId: 'number',
       publicIpAddressPoolIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsRequestTags },
     };
   }
 
@@ -22583,6 +24071,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
   nextToken?: string;
   physicalConnectionId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   tags?: ListVirtualPhysicalConnectionsRequestTags[];
   virtualPhysicalConnectionAliUids?: string[];
   virtualPhysicalConnectionBusinessStatus?: string;
@@ -22596,6 +24085,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
       nextToken: 'NextToken',
       physicalConnectionId: 'PhysicalConnectionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       virtualPhysicalConnectionAliUids: 'VirtualPhysicalConnectionAliUids',
       virtualPhysicalConnectionBusinessStatus: 'VirtualPhysicalConnectionBusinessStatus',
@@ -22612,6 +24102,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
       nextToken: 'string',
       physicalConnectionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListVirtualPhysicalConnectionsRequestTags },
       virtualPhysicalConnectionAliUids: { 'type': 'array', 'itemType': 'string' },
       virtualPhysicalConnectionBusinessStatus: 'string',
@@ -22970,6 +24461,7 @@ export class ListVpnCertificateAssociationsResponse extends $tea.Model {
 export class ModifyBgpGroupAttributeRequest extends $tea.Model {
   authKey?: string;
   bgpGroupId?: string;
+  clearAuthKey?: boolean;
   clientToken?: string;
   description?: string;
   isFakeAsn?: boolean;
@@ -22984,6 +24476,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
     return {
       authKey: 'AuthKey',
       bgpGroupId: 'BgpGroupId',
+      clearAuthKey: 'ClearAuthKey',
       clientToken: 'ClientToken',
       description: 'Description',
       isFakeAsn: 'IsFakeAsn',
@@ -23001,6 +24494,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
     return {
       authKey: 'string',
       bgpGroupId: 'string',
+      clearAuthKey: 'boolean',
       clientToken: 'string',
       description: 'string',
       isFakeAsn: 'boolean',
@@ -25123,6 +26617,7 @@ export class ModifyIpv6InternetBandwidthResponse extends $tea.Model {
 
 export class ModifyNatGatewayAttributeRequest extends $tea.Model {
   description?: string;
+  eipBindMode?: string;
   icmpReplyEnabled?: boolean;
   name?: string;
   natGatewayId?: string;
@@ -25134,6 +26629,7 @@ export class ModifyNatGatewayAttributeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      eipBindMode: 'EipBindMode',
       icmpReplyEnabled: 'IcmpReplyEnabled',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
@@ -25148,6 +26644,7 @@ export class ModifyNatGatewayAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      eipBindMode: 'string',
       icmpReplyEnabled: 'boolean',
       name: 'string',
       natGatewayId: 'string',
@@ -26970,6 +28467,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
   autoConfigRoute?: boolean;
   bgpConfig?: string;
   clientToken?: string;
+  customerGatewayId?: string;
   effectImmediately?: boolean;
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
@@ -26991,6 +28489,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       autoConfigRoute: 'AutoConfigRoute',
       bgpConfig: 'BgpConfig',
       clientToken: 'ClientToken',
+      customerGatewayId: 'CustomerGatewayId',
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
@@ -27015,6 +28514,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       autoConfigRoute: 'boolean',
       bgpConfig: 'string',
       clientToken: 'string',
+      customerGatewayId: 'string',
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
@@ -27437,6 +28937,207 @@ export class ModifyVpnGatewayAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyVpnPbrRouteEntryAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  newPriority?: number;
+  newWeight?: number;
+  nextHop?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  priority?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeDest?: string;
+  routeSource?: string;
+  vpnGatewayId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      newPriority: 'NewPriority',
+      newWeight: 'NewWeight',
+      nextHop: 'NextHop',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeDest: 'RouteDest',
+      routeSource: 'RouteSource',
+      vpnGatewayId: 'VpnGatewayId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      newPriority: 'number',
+      newWeight: 'number',
+      nextHop: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      priority: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeDest: 'string',
+      routeSource: 'string',
+      vpnGatewayId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnPbrRouteEntryAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnPbrRouteEntryAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyVpnPbrRouteEntryAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyVpnPbrRouteEntryAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnPbrRouteEntryPriorityRequest extends $tea.Model {
+  clientToken?: string;
+  newPriority?: number;
+  nextHop?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  priority?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  routeDest?: string;
+  routeSource?: string;
+  vpnGatewayId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      newPriority: 'NewPriority',
+      nextHop: 'NextHop',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      priority: 'Priority',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      routeDest: 'RouteDest',
+      routeSource: 'RouteSource',
+      vpnGatewayId: 'VpnGatewayId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      newPriority: 'number',
+      nextHop: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      priority: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      routeDest: 'string',
+      routeSource: 'string',
+      vpnGatewayId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnPbrRouteEntryPriorityResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnPbrRouteEntryPriorityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyVpnPbrRouteEntryPriorityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyVpnPbrRouteEntryPriorityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyVpnPbrRouteEntryWeightRequest extends $tea.Model {
   clientToken?: string;
   newWeight?: number;
@@ -27444,6 +29145,7 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $tea.Model {
   overlayMode?: string;
   ownerAccount?: string;
   ownerId?: number;
+  priority?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -27459,6 +29161,7 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $tea.Model {
       overlayMode: 'OverlayMode',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      priority: 'Priority',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -27477,6 +29180,7 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $tea.Model {
       overlayMode: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      priority: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -28949,6 +30653,211 @@ export class RevokeInstanceFromCenResponse extends $tea.Model {
   }
 }
 
+export class RevokeInstanceFromVbrRequest extends $tea.Model {
+  grantType?: string;
+  instanceId?: string;
+  regionId?: string;
+  vbrInstanceIds?: string[];
+  vbrOwnerUid?: string;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantType: 'GrantType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      vbrInstanceIds: 'VbrInstanceIds',
+      vbrOwnerUid: 'VbrOwnerUid',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      vbrInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      vbrOwnerUid: 'string',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeInstanceFromVbrShrinkRequest extends $tea.Model {
+  grantType?: string;
+  instanceId?: string;
+  regionId?: string;
+  vbrInstanceIdsShrink?: string;
+  vbrOwnerUid?: string;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grantType: 'GrantType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      vbrInstanceIdsShrink: 'VbrInstanceIds',
+      vbrOwnerUid: 'VbrOwnerUid',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      vbrInstanceIdsShrink: 'string',
+      vbrOwnerUid: 'string',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeInstanceFromVbrResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeInstanceFromVbrResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RevokeInstanceFromVbrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeInstanceFromVbrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetHighDefinitionMonitorLogStatusRequest extends $tea.Model {
+  instanceId?: string;
+  instanceType?: string;
+  logProject?: string;
+  logStore?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+      logProject: 'string',
+      logStore: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetHighDefinitionMonitorLogStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetHighDefinitionMonitorLogStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetHighDefinitionMonitorLogStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetHighDefinitionMonitorLogStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -29880,6 +31789,7 @@ export class UnassociateRouteTableResponse extends $tea.Model {
 }
 
 export class UnassociateVpcCidrBlockRequest extends $tea.Model {
+  IPv6CidrBlock?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -29889,6 +31799,7 @@ export class UnassociateVpcCidrBlockRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      IPv6CidrBlock: 'IPv6CidrBlock',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -29901,6 +31812,7 @@ export class UnassociateVpcCidrBlockRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      IPv6CidrBlock: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -30048,7 +31960,6 @@ export class UntagResourcesForExpressConnectResponse extends $tea.Model {
 }
 
 export class UpdateDhcpOptionsSetAttributeRequest extends $tea.Model {
-  bootFileName?: string;
   clientToken?: string;
   dhcpOptionsSetDescription?: string;
   dhcpOptionsSetId?: string;
@@ -30063,10 +31974,8 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  TFTPServerName?: string;
   static names(): { [key: string]: string } {
     return {
-      bootFileName: 'BootFileName',
       clientToken: 'ClientToken',
       dhcpOptionsSetDescription: 'DhcpOptionsSetDescription',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
@@ -30081,13 +31990,11 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      TFTPServerName: 'TFTPServerName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bootFileName: 'string',
       clientToken: 'string',
       dhcpOptionsSetDescription: 'string',
       dhcpOptionsSetId: 'string',
@@ -30102,7 +32009,6 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      TFTPServerName: 'string',
     };
   }
 
@@ -31283,6 +33189,93 @@ export class UpdateVpcGatewayEndpointAttributeResponse extends $tea.Model {
   }
 }
 
+export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends $tea.Model {
+  clientToken?: string;
+  natGatewayId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      natGatewayId: 'NatGatewayId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceUid: 'ResourceUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      natGatewayId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends $tea.Model {
+  quota?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quota: 'Quota',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quota: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyPhysicalConnectionLOARequestPMInfo extends $tea.Model {
   PMCertificateNo?: string;
   PMCertificateType?: string;
@@ -31328,6 +33321,28 @@ export class AssociateNetworkAclRequestResource extends $tea.Model {
     return {
       resourceId: 'string',
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -31595,6 +33610,90 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $tea.Model 
   }
 }
 
+export class CreatePhysicalConnectionOccupancyOrderResponseBodyData extends $tea.Model {
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteEntriesRequestRouteEntries extends $tea.Model {
+  describption?: string;
+  dstCidrBlock?: string;
+  ipVersion?: number;
+  name?: string;
+  nextHop?: string;
+  nextHopType?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      describption: 'Describption',
+      dstCidrBlock: 'DstCidrBlock',
+      ipVersion: 'IpVersion',
+      name: 'Name',
+      nextHop: 'NextHop',
+      nextHopType: 'NextHopType',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      describption: 'string',
+      dstCidrBlock: 'string',
+      ipVersion: 'number',
+      name: 'string',
+      nextHop: 'string',
+      nextHopType: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $tea.Model {
+  dstCidrBlock?: string;
+  failedCode?: string;
+  failedMessage?: string;
+  nextHop?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCidrBlock: 'DstCidrBlock',
+      failedCode: 'FailedCode',
+      failedMessage: 'FailedMessage',
+      nextHop: 'NextHop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCidrBlock: 'string',
+      failedCode: 'string',
+      failedMessage: 'string',
+      nextHop: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRouteEntryRequestNextHopList extends $tea.Model {
   nextHopId?: string;
   nextHopType?: string;
@@ -31806,7 +33905,7 @@ export class CreateTrafficMirrorFilterRulesResponseBodyIngressRules extends $tea
   }
 }
 
-export class CreateVpcPrefixListRequestPrefixListEntrys extends $tea.Model {
+export class CreateVpcPrefixListRequestPrefixListEntries extends $tea.Model {
   cidr?: string;
   description?: string;
   static names(): { [key: string]: string } {
@@ -31820,6 +33919,65 @@ export class CreateVpcPrefixListRequestPrefixListEntrys extends $tea.Model {
     return {
       cidr: 'string',
       description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteEntriesRequestRouteEntries extends $tea.Model {
+  dstCidrBlock?: string;
+  nextHop?: string;
+  routeEntryId?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCidrBlock: 'DstCidrBlock',
+      nextHop: 'NextHop',
+      routeEntryId: 'RouteEntryId',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCidrBlock: 'string',
+      nextHop: 'string',
+      routeEntryId: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $tea.Model {
+  dstCidrBlock?: string;
+  failedCode?: string;
+  failedMessage?: string;
+  nextHop?: string;
+  routeEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCidrBlock: 'DstCidrBlock',
+      failedCode: 'FailedCode',
+      failedMessage: 'FailedMessage',
+      nextHop: 'NextHop',
+      routeEntryId: 'RouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCidrBlock: 'string',
+      failedCode: 'string',
+      failedMessage: 'string',
+      nextHop: 'string',
+      routeEntryId: 'string',
     };
   }
 
@@ -32401,6 +34559,52 @@ export class DescribeCustomerGatewaysResponseBodyCustomerGateways extends $tea.M
   }
 }
 
+export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $tea.Model {
+  aliUid?: number;
+  gmtCreate?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceRouterId?: string;
+  regionNo?: string;
+  status?: string;
+  vbrInstanceId?: string;
+  vbrOwnerUid?: number;
+  vbrRegionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      gmtCreate: 'GmtCreate',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceRouterId: 'InstanceRouterId',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      vbrInstanceId: 'VbrInstanceId',
+      vbrOwnerUid: 'VbrOwnerUid',
+      vbrRegionNo: 'VbrRegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      gmtCreate: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceRouterId: 'string',
+      regionNo: 'string',
+      status: 'string',
+      vbrInstanceId: 'string',
+      vbrOwnerUid: 'number',
+      vbrRegionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEipAddressesRequestFilter extends $tea.Model {
   key?: string;
   value?: string;
@@ -32415,25 +34619,6 @@ export class DescribeEipAddressesRequestFilter extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEipAddressesResponseBodyEipAddressesEipAddressAvailableRegions extends $tea.Model {
-  availableRegion?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      availableRegion: 'AvailableRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableRegion: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -32543,7 +34728,6 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddressTags extends 
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea.Model {
   allocationId?: string;
   allocationTime?: string;
-  availableRegions?: DescribeEipAddressesResponseBodyEipAddressesEipAddressAvailableRegions;
   bandwidth?: string;
   bandwidthPackageBandwidth?: string;
   bandwidthPackageId?: string;
@@ -32578,11 +34762,12 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
   serviceManaged?: number;
   status?: string;
   tags?: DescribeEipAddressesResponseBodyEipAddressesEipAddressTags;
+  vpcId?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
       allocationTime: 'AllocationTime',
-      availableRegions: 'AvailableRegions',
       bandwidth: 'Bandwidth',
       bandwidthPackageBandwidth: 'BandwidthPackageBandwidth',
       bandwidthPackageId: 'BandwidthPackageId',
@@ -32617,6 +34802,8 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       serviceManaged: 'ServiceManaged',
       status: 'Status',
       tags: 'Tags',
+      vpcId: 'VpcId',
+      zone: 'Zone',
     };
   }
 
@@ -32624,7 +34811,6 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
     return {
       allocationId: 'string',
       allocationTime: 'string',
-      availableRegions: DescribeEipAddressesResponseBodyEipAddressesEipAddressAvailableRegions,
       bandwidth: 'string',
       bandwidthPackageBandwidth: 'string',
       bandwidthPackageId: 'string',
@@ -32659,6 +34845,8 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $tea
       serviceManaged: 'number',
       status: 'string',
       tags: DescribeEipAddressesResponseBodyEipAddressesEipAddressTags,
+      vpcId: 'string',
+      zone: 'string',
     };
   }
 
@@ -32842,6 +35030,25 @@ export class DescribeEipSegmentResponseBodyEipSegments extends $tea.Model {
   }
 }
 
+export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath extends $tea.Model {
+  trafficPathList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      trafficPathList: 'trafficPathList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trafficPathList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   aggregationInterval?: number;
   businessStatus?: string;
@@ -32854,7 +35061,9 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   regionId?: string;
   resourceId?: string;
   resourceType?: string;
+  serviceType?: string;
   status?: string;
+  trafficPath?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath;
   trafficType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32869,7 +35078,9 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      serviceType: 'ServiceType',
       status: 'Status',
+      trafficPath: 'TrafficPath',
       trafficType: 'TrafficType',
     };
   }
@@ -32887,7 +35098,9 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       regionId: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      serviceType: 'string',
       status: 'string',
+      trafficPath: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath,
       trafficType: 'string',
     };
   }
@@ -33764,7 +35977,6 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
   ipv6GatewayId?: string;
   name?: string;
   regionId?: string;
-  spec?: string;
   status?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -33777,7 +35989,6 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
       regionId: 'RegionId',
-      spec: 'Spec',
       status: 'Status',
       vpcId: 'VpcId',
     };
@@ -33793,7 +36004,6 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $te
       ipv6GatewayId: 'string',
       name: 'string',
       regionId: 'string',
-      spec: 'string',
       status: 'string',
       vpcId: 'string',
     };
@@ -34756,6 +36966,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
   reservationActiveTime?: string;
   reservationInternetChargeType?: string;
   reservationOrderType?: string;
+  resourceGroupId?: string;
   spec?: string;
   status?: string;
   type?: string;
@@ -34792,6 +37003,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       reservationActiveTime: 'ReservationActiveTime',
       reservationInternetChargeType: 'ReservationInternetChargeType',
       reservationOrderType: 'ReservationOrderType',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
       type: 'Type',
@@ -34831,6 +37043,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       reservationActiveTime: 'string',
       reservationInternetChargeType: 'string',
       reservationOrderType: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
       type: 'string',
@@ -34995,6 +37208,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
   routeEntryId?: string;
   routeEntryName?: string;
   routeTableId?: string;
+  serviceType?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -35007,6 +37221,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
       routeEntryId: 'RouteEntryId',
       routeEntryName: 'RouteEntryName',
       routeTableId: 'RouteTableId',
+      serviceType: 'ServiceType',
       status: 'Status',
       type: 'Type',
     };
@@ -35022,6 +37237,7 @@ export class DescribeRouteEntryListResponseBodyRouteEntrysRouteEntry extends $te
       routeEntryId: 'string',
       routeEntryName: 'string',
       routeTableId: 'string',
+      serviceType: 'string',
       status: 'string',
       type: 'string',
     };
@@ -35819,6 +38035,151 @@ export class DescribeSslVpnServersResponseBodySslVpnServers extends $tea.Model {
   }
 }
 
+export class DescribeTagKeysResponseBodyTagKeysTagKey extends $tea.Model {
+  tagKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysResponseBodyTagKeys extends $tea.Model {
+  tagKey?: DescribeTagKeysResponseBodyTagKeysTagKey[];
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: { 'type': 'array', 'itemType': DescribeTagKeysResponseBodyTagKeysTagKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysForExpressConnectResponseBodyTagKeysTagKey extends $tea.Model {
+  tagKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagKeysForExpressConnectResponseBodyTagKeys extends $tea.Model {
+  tagKey?: DescribeTagKeysForExpressConnectResponseBodyTagKeysTagKey[];
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: { 'type': 'array', 'itemType': DescribeTagKeysForExpressConnectResponseBodyTagKeysTagKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBodyTagResourcesTagResource extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBodyTagResources extends $tea.Model {
+  tagResource?: DescribeTagsResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVRoutersResponseBodyVRoutersVRouterRouteTableIds extends $tea.Model {
   routeTableId?: string[];
   static names(): { [key: string]: string } {
@@ -36259,6 +38620,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
   activationTime?: string;
   associatedCens?: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeAssociatedCens;
   associatedPhysicalConnections?: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeAssociatedPhysicalConnections;
+  bandwidth?: number;
   circuitCode?: string;
   cloudBoxInstanceId?: string;
   creationTime?: string;
@@ -36295,6 +38657,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       activationTime: 'ActivationTime',
       associatedCens: 'AssociatedCens',
       associatedPhysicalConnections: 'AssociatedPhysicalConnections',
+      bandwidth: 'Bandwidth',
       circuitCode: 'CircuitCode',
       cloudBoxInstanceId: 'CloudBoxInstanceId',
       creationTime: 'CreationTime',
@@ -36334,6 +38697,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       activationTime: 'string',
       associatedCens: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeAssociatedCens,
       associatedPhysicalConnections: DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeAssociatedPhysicalConnections,
+      bandwidth: 'number',
       circuitCode: 'string',
       cloudBoxInstanceId: 'string',
       creationTime: 'string',
@@ -37163,6 +39527,25 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $tea.Model {
   }
 }
 
+export class DescribeVpnConnectionLogsResponseBodyData extends $tea.Model {
+  logs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig extends $tea.Model {
   ikeAuthAlg?: string;
   ikeEncAlg?: string;
@@ -37318,6 +39701,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
   enableDpd?: boolean;
   enableNatTraversal?: boolean;
   ikeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig;
+  internetIp?: string;
   ipsecConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig;
   localSubnet?: string;
   name?: string;
@@ -37344,6 +39728,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
       ikeConfig: 'IkeConfig',
+      internetIp: 'InternetIp',
       ipsecConfig: 'IpsecConfig',
       localSubnet: 'LocalSubnet',
       name: 'Name',
@@ -37373,6 +39758,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnection exten
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
       ikeConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig,
+      internetIp: 'string',
       ipsecConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig,
       localSubnet: 'string',
       name: 'string',
@@ -37731,6 +40117,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGateways extends $tea.Model {
 export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRouteEntry extends $tea.Model {
   createTime?: number;
   nextHop?: string;
+  priority?: number;
   routeDest?: string;
   routeSource?: string;
   state?: string;
@@ -37740,6 +40127,7 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRoute
     return {
       createTime: 'CreateTime',
       nextHop: 'NextHop',
+      priority: 'Priority',
       routeDest: 'RouteDest',
       routeSource: 'RouteSource',
       state: 'State',
@@ -37752,6 +40140,7 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRoute
     return {
       createTime: 'number',
       nextHop: 'string',
+      priority: 'number',
       routeDest: 'string',
       routeSource: 'string',
       state: 'string',
@@ -38040,31 +40429,25 @@ export class GetDhcpOptionsSetResponseBodyAssociateVpcs extends $tea.Model {
 }
 
 export class GetDhcpOptionsSetResponseBodyDhcpOptions extends $tea.Model {
-  bootFileName?: string;
   domainName?: string;
   domainNameServers?: string;
   ipv6LeaseTime?: string;
   leaseTime?: string;
-  TFTPServerName?: string;
   static names(): { [key: string]: string } {
     return {
-      bootFileName: 'BootFileName',
       domainName: 'DomainName',
       domainNameServers: 'DomainNameServers',
       ipv6LeaseTime: 'Ipv6LeaseTime',
       leaseTime: 'LeaseTime',
-      TFTPServerName: 'TFTPServerName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bootFileName: 'string',
       domainName: 'string',
       domainNameServers: 'string',
       ipv6LeaseTime: 'string',
       leaseTime: 'string',
-      TFTPServerName: 'string',
     };
   }
 
@@ -38271,16 +40654,20 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
   ownerId?: string;
   prefixListId?: string;
   reason?: string;
+  regionId?: string;
   resourceId?: string;
   resourceType?: string;
+  resourceUid?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       prefixListId: 'PrefixListId',
       reason: 'Reason',
+      regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      resourceUid: 'ResourceUid',
       status: 'Status',
     };
   }
@@ -38290,8 +40677,10 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
       ownerId: 'string',
       prefixListId: 'string',
       reason: 'string',
+      regionId: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      resourceUid: 'string',
       status: 'string',
     };
   }
@@ -38305,11 +40694,13 @@ export class GetVpcPrefixListEntriesResponseBodyPrefixListEntry extends $tea.Mod
   cidr?: string;
   description?: string;
   prefixListId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       cidr: 'Cidr',
       description: 'Description',
       prefixListId: 'PrefixListId',
+      regionId: 'RegionId',
     };
   }
 
@@ -38318,6 +40709,113 @@ export class GetVpcPrefixListEntriesResponseBodyPrefixListEntry extends $tea.Mod
       cidr: 'string',
       description: 'string',
       prefixListId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys extends $tea.Model {
+  count?: number;
+  routeEntryType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      routeEntryType: 'RouteEntryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      routeEntryType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys extends $tea.Model {
+  entrySummarys?: GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys[];
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entrySummarys: 'EntrySummarys',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entrySummarys: { 'type': 'array', 'itemType': GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys },
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $tea.Model {
+  diagnoseName?: string;
+  diagnoseResultDescription?: string;
+  diagnoseResultLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseName: 'DiagnoseName',
+      diagnoseResultDescription: 'DiagnoseResultDescription',
+      diagnoseResultLevel: 'DiagnoseResultLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseName: 'string',
+      diagnoseResultDescription: 'string',
+      diagnoseResultLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $tea.Model {
+  accessPointId?: string;
+  accessPointName?: string;
+  cloudBoxInstanceIds?: string;
+  latitude?: number;
+  longitude?: number;
+  supportLineOperator?: string;
+  supportPortTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPointId: 'AccessPointId',
+      accessPointName: 'AccessPointName',
+      cloudBoxInstanceIds: 'CloudBoxInstanceIds',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      supportLineOperator: 'SupportLineOperator',
+      supportPortTypes: 'SupportPortTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPointId: 'string',
+      accessPointName: 'string',
+      cloudBoxInstanceIds: 'string',
+      latitude: 'number',
+      longitude: 'number',
+      supportLineOperator: 'string',
+      supportPortTypes: 'string',
     };
   }
 
@@ -38421,6 +40919,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $tea.Model {
   fullNatEntryId?: string;
   fullNatEntryName?: string;
   fullNatEntryStatus?: string;
+  fullNatTableId?: string;
   ipProtocol?: string;
   natIp?: string;
   natIpPort?: string;
@@ -38435,6 +40934,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $tea.Model {
       fullNatEntryId: 'FullNatEntryId',
       fullNatEntryName: 'FullNatEntryName',
       fullNatEntryStatus: 'FullNatEntryStatus',
+      fullNatTableId: 'FullNatTableId',
       ipProtocol: 'IpProtocol',
       natIp: 'NatIp',
       natIpPort: 'NatIpPort',
@@ -38452,11 +40952,40 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $tea.Model {
       fullNatEntryId: 'string',
       fullNatEntryName: 'string',
       fullNatEntryStatus: 'string',
+      fullNatTableId: 'string',
       ipProtocol: 'string',
       natIp: 'string',
       natIpPort: 'string',
       networkInterfaceId: 'string',
       networkInterfaceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops extends $tea.Model {
+  enabled?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  weight?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      weight: 'string',
     };
   }
 
@@ -38471,6 +41000,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   name?: string;
   nextHopId?: string;
   nextHopType?: string;
+  nextHops?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops[];
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38479,6 +41009,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
       name: 'Name',
       nextHopId: 'NextHopId',
       nextHopType: 'NextHopType',
+      nextHops: 'NextHops',
       status: 'Status',
     };
   }
@@ -38490,6 +41021,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
       name: 'string',
       nextHopId: 'string',
       nextHopType: 'string',
+      nextHops: { 'type': 'array', 'itemType': ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops },
       status: 'string',
     };
   }
@@ -38754,6 +41286,50 @@ export class ListNatIpsResponseBodyNatIps extends $tea.Model {
   }
 }
 
+export class ListPrefixListsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrefixListsResponseBodyPrefixListsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
   cidrBlocks?: string[];
   creationTime?: string;
@@ -38764,8 +41340,11 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
   prefixListId?: string;
   prefixListName?: string;
   prefixListStatus?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   shareType?: string;
   status?: string;
+  tags?: ListPrefixListsResponseBodyPrefixListsTags[];
   static names(): { [key: string]: string } {
     return {
       cidrBlocks: 'CidrBlocks',
@@ -38777,8 +41356,11 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
       prefixListId: 'PrefixListId',
       prefixListName: 'PrefixListName',
       prefixListStatus: 'PrefixListStatus',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -38793,8 +41375,11 @@ export class ListPrefixListsResponseBodyPrefixLists extends $tea.Model {
       prefixListId: 'string',
       prefixListName: 'string',
       prefixListStatus: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListPrefixListsResponseBodyPrefixListsTags },
     };
   }
 
@@ -38837,29 +41422,42 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   }
 }
 
-export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListPublicIpCidrBlockList extends $tea.Model {
-  cidrBlock?: string;
-  creationTime?: string;
-  status?: string;
-  totalIpNum?: number;
-  usedIpNum?: number;
+export class ListPublicIpAddressPoolsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      cidrBlock: 'CidrBlock',
-      creationTime: 'CreationTime',
-      status: 'Status',
-      totalIpNum: 'TotalIpNum',
-      usedIpNum: 'UsedIpNum',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cidrBlock: 'string',
-      creationTime: 'string',
-      status: 'string',
-      totalIpNum: 'number',
-      usedIpNum: 'number',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -38874,13 +41472,15 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
   ipAddressRemaining?: boolean;
   isp?: string;
   name?: string;
+  ownerId?: number;
   publicIpAddressPoolId?: string;
-  publicIpCidrBlockList?: ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListPublicIpCidrBlockList[];
   regionId?: string;
+  resourceGroupId?: string;
+  shareType?: string;
   status?: string;
+  tags?: ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags[];
   totalIpNum?: number;
   usedIpNum?: number;
-  userType?: boolean;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
@@ -38888,13 +41488,15 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       ipAddressRemaining: 'IpAddressRemaining',
       isp: 'Isp',
       name: 'Name',
+      ownerId: 'OwnerId',
       publicIpAddressPoolId: 'PublicIpAddressPoolId',
-      publicIpCidrBlockList: 'PublicIpCidrBlockList',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
       status: 'Status',
+      tags: 'Tags',
       totalIpNum: 'TotalIpNum',
       usedIpNum: 'UsedIpNum',
-      userType: 'UserType',
     };
   }
 
@@ -38905,13 +41507,15 @@ export class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList extends
       ipAddressRemaining: 'boolean',
       isp: 'string',
       name: 'string',
+      ownerId: 'number',
       publicIpAddressPoolId: 'string',
-      publicIpCidrBlockList: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListPublicIpCidrBlockList },
       regionId: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags },
       totalIpNum: 'number',
       usedIpNum: 'number',
-      userType: 'boolean',
     };
   }
 
@@ -39292,6 +41896,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   portType?: string;
   productType?: string;
   redundantPhysicalConnectionId?: string;
+  resourceGroupId?: string;
   spec?: string;
   status?: string;
   type?: string;
@@ -39323,6 +41928,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
       portType: 'PortType',
       productType: 'ProductType',
       redundantPhysicalConnectionId: 'RedundantPhysicalConnectionId',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
       type: 'Type',
@@ -39357,6 +41963,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
       portType: 'string',
       productType: 'string',
       redundantPhysicalConnectionId: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
       type: 'string',
@@ -39594,6 +42201,7 @@ export class ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck extends $tea
   dip?: string;
   enable?: string;
   interval?: number;
+  policy?: string;
   retry?: number;
   sip?: string;
   static names(): { [key: string]: string } {
@@ -39601,6 +42209,7 @@ export class ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck extends $tea
       dip: 'Dip',
       enable: 'Enable',
       interval: 'Interval',
+      policy: 'Policy',
       retry: 'Retry',
       sip: 'Sip',
     };
@@ -39611,6 +42220,7 @@ export class ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck extends $tea
       dip: 'string',
       enable: 'string',
       interval: 'number',
+      policy: 'string',
       retry: 'number',
       sip: 'string',
     };
@@ -40406,6 +43016,10 @@ export default class Client extends OpenApi {
       query["CidrBlock"] = request.cidrBlock;
     }
 
+    if (!Util.isUnset(request.cidrMask)) {
+      query["CidrMask"] = request.cidrMask;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -41070,6 +43684,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -41090,6 +43708,71 @@ export default class Client extends OpenApi {
   async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateEipAddressWithOptions(request, runtime);
+  }
+
+  async associateEipAddressBatchWithOptions(request: AssociateEipAddressBatchRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressBatchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bindedInstanceId)) {
+      query["BindedInstanceId"] = request.bindedInstanceId;
+    }
+
+    if (!Util.isUnset(request.bindedInstanceType)) {
+      query["BindedInstanceType"] = request.bindedInstanceType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateEipAddressBatch",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateEipAddressBatchResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressBatchResponse({}));
+  }
+
+  async associateEipAddressBatch(request: AssociateEipAddressBatchRequest): Promise<AssociateEipAddressBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateEipAddressBatchWithOptions(request, runtime);
   }
 
   async associateGlobalAccelerationInstanceWithOptions(request: AssociateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AssociateGlobalAccelerationInstanceResponse> {
@@ -41881,6 +44564,47 @@ export default class Client extends OpenApi {
     return await this.cancelPhysicalConnectionWithOptions(request, runtime);
   }
 
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
   async checkCanAllocateVpcPrivateIpAddressWithOptions(request: CheckCanAllocateVpcPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<CheckCanAllocateVpcPrivateIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42279,6 +45003,10 @@ export default class Client extends OpenApi {
       query["IsFakeAsn"] = request.isFakeAsn;
     }
 
+    if (!Util.isUnset(request.localAsn)) {
+      query["LocalAsn"] = request.localAsn;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -42305,6 +45033,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeQuota)) {
+      query["RouteQuota"] = request.routeQuota;
     }
 
     if (!Util.isUnset(request.routerId)) {
@@ -42559,10 +45291,6 @@ export default class Client extends OpenApi {
   async createDhcpOptionsSetWithOptions(request: CreateDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDhcpOptionsSetResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.bootFileName)) {
-      query["BootFileName"] = request.bootFileName;
-    }
-
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -42613,10 +45341,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.TFTPServerName)) {
-      query["TFTPServerName"] = request.TFTPServerName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -42779,6 +45503,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.trafficPath)) {
+      query["TrafficPath"] = request.trafficPath;
     }
 
     if (!Util.isUnset(request.trafficType)) {
@@ -43584,10 +46312,6 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.spec)) {
-      query["Spec"] = request.spec;
-    }
-
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -43691,6 +46415,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.spec)) {
       query["Spec"] = request.spec;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -43993,6 +46721,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -44208,6 +46940,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -44236,6 +46972,59 @@ export default class Client extends OpenApi {
   async createPublicIpAddressPool(request: CreatePublicIpAddressPoolRequest): Promise<CreatePublicIpAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublicIpAddressPoolWithOptions(request, runtime);
+  }
+
+  async createRouteEntriesWithOptions(request: CreateRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeEntries)) {
+      query["RouteEntries"] = request.routeEntries;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRouteEntries",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRouteEntriesResponse>(await this.callApi(params, req, runtime), new CreateRouteEntriesResponse({}));
+  }
+
+  async createRouteEntries(request: CreateRouteEntriesRequest): Promise<CreateRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRouteEntriesWithOptions(request, runtime);
   }
 
   async createRouteEntryWithOptions(request: CreateRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntryResponse> {
@@ -44405,6 +47194,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fastLinkMode)) {
+      query["FastLinkMode"] = request.fastLinkMode;
     }
 
     if (!Util.isUnset(request.healthCheckSourceIp)) {
@@ -45314,6 +48107,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.spec)) {
       query["Spec"] = request.spec;
     }
@@ -45541,8 +48338,8 @@ export default class Client extends OpenApi {
       query["PrefixListDescription"] = request.prefixListDescription;
     }
 
-    if (!Util.isUnset(request.prefixListEntrys)) {
-      query["PrefixListEntrys"] = request.prefixListEntrys;
+    if (!Util.isUnset(request.prefixListEntries)) {
+      query["PrefixListEntries"] = request.prefixListEntries;
     }
 
     if (!Util.isUnset(request.prefixListName)) {
@@ -45551,6 +48348,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -45956,6 +48757,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!Util.isUnset(request.publishVpc)) {
@@ -47613,6 +50418,59 @@ export default class Client extends OpenApi {
     return await this.deletePublicIpAddressPoolCidrBlockWithOptions(request, runtime);
   }
 
+  async deleteRouteEntriesWithOptions(request: DeleteRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeEntries)) {
+      query["RouteEntries"] = request.routeEntries;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRouteEntries",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRouteEntriesResponse>(await this.callApi(params, req, runtime), new DeleteRouteEntriesResponse({}));
+  }
+
+  async deleteRouteEntries(request: DeleteRouteEntriesRequest): Promise<DeleteRouteEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRouteEntriesWithOptions(request, runtime);
+  }
+
   async deleteRouteEntryWithOptions(request: DeleteRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48683,6 +51541,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -49286,6 +52148,51 @@ export default class Client extends OpenApi {
     return await this.describeCustomerGatewaysWithOptions(request, runtime);
   }
 
+  async describeEcGrantRelationWithOptions(request: DescribeEcGrantRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEcGrantRelationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.vbrRegionNo)) {
+      query["VbrRegionNo"] = request.vbrRegionNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEcGrantRelation",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEcGrantRelationResponse>(await this.callApi(params, req, runtime), new DescribeEcGrantRelationResponse({}));
+  }
+
+  async describeEcGrantRelation(request: DescribeEcGrantRelationRequest): Promise<DescribeEcGrantRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEcGrantRelationWithOptions(request, runtime);
+  }
+
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49866,6 +52773,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -50931,6 +53846,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -51037,6 +53956,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -51070,6 +53993,10 @@ export default class Client extends OpenApi {
   async describeRouteEntryListWithOptions(request: DescribeRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteEntryListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.destCidrBlockList)) {
+      query["DestCidrBlockList"] = request.destCidrBlockList;
+    }
+
     if (!Util.isUnset(request.destinationCidrBlock)) {
       query["DestinationCidrBlock"] = request.destinationCidrBlock;
     }
@@ -51132,6 +54059,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.routeTableId)) {
       query["RouteTableId"] = request.routeTableId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -51729,6 +54660,201 @@ export default class Client extends OpenApi {
     return await this.describeSslVpnServersWithOptions(request, runtime);
   }
 
+  async describeTagKeysWithOptions(request: DescribeTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTagKeys",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagKeysResponse>(await this.callApi(params, req, runtime), new DescribeTagKeysResponse({}));
+  }
+
+  async describeTagKeys(request: DescribeTagKeysRequest): Promise<DescribeTagKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTagKeysWithOptions(request, runtime);
+  }
+
+  async describeTagKeysForExpressConnectWithOptions(request: DescribeTagKeysForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysForExpressConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTagKeysForExpressConnect",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagKeysForExpressConnectResponse>(await this.callApi(params, req, runtime), new DescribeTagKeysForExpressConnectResponse({}));
+  }
+
+  async describeTagKeysForExpressConnect(request: DescribeTagKeysForExpressConnectRequest): Promise<DescribeTagKeysForExpressConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTagKeysForExpressConnectWithOptions(request, runtime);
+  }
+
+  async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTags",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+  }
+
+  async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTagsWithOptions(request, runtime);
+  }
+
   async describeVRoutersWithOptions(request: DescribeVRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVRoutersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52055,6 +55181,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.includeCrossAccountVbr)) {
+      query["IncludeCrossAccountVbr"] = request.includeCrossAccountVbr;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -52406,6 +55536,75 @@ export default class Client extends OpenApi {
   async describeVpnConnection(request: DescribeVpnConnectionRequest): Promise<DescribeVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnConnectionWithOptions(request, runtime);
+  }
+
+  async describeVpnConnectionLogsWithOptions(request: DescribeVpnConnectionLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.minutePeriod)) {
+      query["MinutePeriod"] = request.minutePeriod;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.vpnConnectionId)) {
+      query["VpnConnectionId"] = request.vpnConnectionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpnConnectionLogs",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpnConnectionLogsResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionLogsResponse({}));
+  }
+
+  async describeVpnConnectionLogs(request: DescribeVpnConnectionLogsRequest): Promise<DescribeVpnConnectionLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpnConnectionLogsWithOptions(request, runtime);
   }
 
   async describeVpnConnectionsWithOptions(request: DescribeVpnConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionsResponse> {
@@ -52963,6 +56162,68 @@ export default class Client extends OpenApi {
   async detachDhcpOptionsSetFromVpc(request: DetachDhcpOptionsSetFromVpcRequest): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDhcpOptionsSetFromVpcWithOptions(request, runtime);
+  }
+
+  /**
+    * VPN网关发起诊断
+    *
+    * @param request DiagnoseVpnGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DiagnoseVpnGatewayResponse
+   */
+  async diagnoseVpnGatewayWithOptions(request: DiagnoseVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DiagnoseVpnGatewayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.IPsecExtendInfo)) {
+      query["IPsecExtendInfo"] = request.IPsecExtendInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DiagnoseVpnGateway",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DiagnoseVpnGatewayResponse>(await this.callApi(params, req, runtime), new DiagnoseVpnGatewayResponse({}));
+  }
+
+  /**
+    * VPN网关发起诊断
+    *
+    * @param request DiagnoseVpnGatewayRequest
+    * @return DiagnoseVpnGatewayResponse
+   */
+  async diagnoseVpnGateway(request: DiagnoseVpnGatewayRequest): Promise<DiagnoseVpnGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.diagnoseVpnGatewayWithOptions(request, runtime);
   }
 
   async disableNatGatewayEcsMetricWithOptions(request: DisableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<DisableNatGatewayEcsMetricResponse> {
@@ -53993,6 +57254,117 @@ export default class Client extends OpenApi {
     return await this.getVpcPrefixListEntriesWithOptions(request, runtime);
   }
 
+  async getVpcRouteEntrySummaryWithOptions(request: GetVpcRouteEntrySummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcRouteEntrySummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeEntryType)) {
+      query["RouteEntryType"] = request.routeEntryType;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVpcRouteEntrySummary",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpcRouteEntrySummaryResponse>(await this.callApi(params, req, runtime), new GetVpcRouteEntrySummaryResponse({}));
+  }
+
+  async getVpcRouteEntrySummary(request: GetVpcRouteEntrySummaryRequest): Promise<GetVpcRouteEntrySummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVpcRouteEntrySummaryWithOptions(request, runtime);
+  }
+
+  /**
+    * 查询VPN网关一键诊断结果
+    *
+    * @param request GetVpnGatewayDiagnoseResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetVpnGatewayDiagnoseResultResponse
+   */
+  async getVpnGatewayDiagnoseResultWithOptions(request: GetVpnGatewayDiagnoseResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVpnGatewayDiagnoseResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.diagnoseId)) {
+      query["DiagnoseId"] = request.diagnoseId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVpnGatewayDiagnoseResult",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpnGatewayDiagnoseResultResponse>(await this.callApi(params, req, runtime), new GetVpnGatewayDiagnoseResultResponse({}));
+  }
+
+  /**
+    * 查询VPN网关一键诊断结果
+    *
+    * @param request GetVpnGatewayDiagnoseResultRequest
+    * @return GetVpnGatewayDiagnoseResultResponse
+   */
+  async getVpnGatewayDiagnoseResult(request: GetVpnGatewayDiagnoseResultRequest): Promise<GetVpnGatewayDiagnoseResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVpnGatewayDiagnoseResultWithOptions(request, runtime);
+  }
+
   async grantInstanceToCenWithOptions(request: GrantInstanceToCenRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54056,6 +57428,94 @@ export default class Client extends OpenApi {
   async grantInstanceToCen(request: GrantInstanceToCenRequest): Promise<GrantInstanceToCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantInstanceToCenWithOptions(request, runtime);
+  }
+
+  async grantInstanceToVbrWithOptions(tmpReq: GrantInstanceToVbrRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToVbrResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GrantInstanceToVbrShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.vbrInstanceIds)) {
+      request.vbrInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vbrInstanceIds, "VbrInstanceIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.grantType)) {
+      query["GrantType"] = request.grantType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vbrInstanceIdsShrink)) {
+      query["VbrInstanceIds"] = request.vbrInstanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.vbrOwnerUid)) {
+      query["VbrOwnerUid"] = request.vbrOwnerUid;
+    }
+
+    if (!Util.isUnset(request.vbrRegionNo)) {
+      query["VbrRegionNo"] = request.vbrRegionNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantInstanceToVbr",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantInstanceToVbrResponse>(await this.callApi(params, req, runtime), new GrantInstanceToVbrResponse({}));
+  }
+
+  async grantInstanceToVbr(request: GrantInstanceToVbrRequest): Promise<GrantInstanceToVbrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantInstanceToVbrWithOptions(request, runtime);
+  }
+
+  async listBusinessAccessPointsWithOptions(request: ListBusinessAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessAccessPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBusinessAccessPoints",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBusinessAccessPointsResponse>(await this.callApi(params, req, runtime), new ListBusinessAccessPointsResponse({}));
+  }
+
+  async listBusinessAccessPoints(request: ListBusinessAccessPointsRequest): Promise<ListBusinessAccessPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBusinessAccessPointsWithOptions(request, runtime);
   }
 
   async listDhcpOptionsSetsWithOptions(request: ListDhcpOptionsSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDhcpOptionsSetsResponse> {
@@ -54320,6 +57780,80 @@ export default class Client extends OpenApi {
   async listGatewayRouteTableEntries(request: ListGatewayRouteTableEntriesRequest): Promise<ListGatewayRouteTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayRouteTableEntriesWithOptions(request, runtime);
+  }
+
+  async listGeographicSubRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListGeographicSubRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListGeographicSubRegions",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGeographicSubRegionsResponse>(await this.callApi(params, req, runtime), new ListGeographicSubRegionsResponse({}));
+  }
+
+  async listGeographicSubRegions(): Promise<ListGeographicSubRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGeographicSubRegionsWithOptions(runtime);
+  }
+
+  async listIpsecServerLogsWithOptions(request: ListIpsecServerLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpsecServerLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.ipsecServerId)) {
+      query["IpsecServerId"] = request.ipsecServerId;
+    }
+
+    if (!Util.isUnset(request.minutePeriod)) {
+      query["MinutePeriod"] = request.minutePeriod;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIpsecServerLogs",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIpsecServerLogsResponse>(await this.callApi(params, req, runtime), new ListIpsecServerLogsResponse({}));
+  }
+
+  async listIpsecServerLogs(request: ListIpsecServerLogsRequest): Promise<ListIpsecServerLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIpsecServerLogsWithOptions(request, runtime);
   }
 
   async listIpsecServersWithOptions(request: ListIpsecServersRequest, runtime: $Util.RuntimeOptions): Promise<ListIpsecServersResponse> {
@@ -54610,6 +58144,13 @@ export default class Client extends OpenApi {
     return await this.listNatIpsWithOptions(request, runtime);
   }
 
+  /**
+    * **
+    *
+    * @param request ListPrefixListsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListPrefixListsResponse
+   */
   async listPrefixListsWithOptions(request: ListPrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrefixListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54641,12 +58182,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -54666,6 +58215,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrefixListsResponse>(await this.callApi(params, req, runtime), new ListPrefixListsResponse({}));
   }
 
+  /**
+    * **
+    *
+    * @param request ListPrefixListsRequest
+    * @return ListPrefixListsResponse
+   */
   async listPrefixLists(request: ListPrefixListsRequest): Promise<ListPrefixListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrefixListsWithOptions(request, runtime);
@@ -54775,6 +58330,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -54785,6 +58344,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -55108,6 +58671,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.tags)) {
       query["Tags"] = request.tags;
     }
@@ -55334,6 +58901,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bgpGroupId)) {
       query["BgpGroupId"] = request.bgpGroupId;
+    }
+
+    if (!Util.isUnset(request.clearAuthKey)) {
+      query["ClearAuthKey"] = request.clearAuthKey;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -56872,6 +60443,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.eipBindMode)) {
+      query["EipBindMode"] = request.eipBindMode;
+    }
+
     if (!Util.isUnset(request.icmpReplyEnabled)) {
       query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
     }
@@ -58231,6 +61806,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.customerGatewayId)) {
+      query["CustomerGatewayId"] = request.customerGatewayId;
+    }
+
     if (!Util.isUnset(request.effectImmediately)) {
       query["EffectImmediately"] = request.effectImmediately;
     }
@@ -58483,6 +62062,164 @@ export default class Client extends OpenApi {
     return await this.modifyVpnGatewayAttributeWithOptions(request, runtime);
   }
 
+  async modifyVpnPbrRouteEntryAttributeWithOptions(request: ModifyVpnPbrRouteEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.newPriority)) {
+      query["NewPriority"] = request.newPriority;
+    }
+
+    if (!Util.isUnset(request.newWeight)) {
+      query["NewWeight"] = request.newWeight;
+    }
+
+    if (!Util.isUnset(request.nextHop)) {
+      query["NextHop"] = request.nextHop;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeDest)) {
+      query["RouteDest"] = request.routeDest;
+    }
+
+    if (!Util.isUnset(request.routeSource)) {
+      query["RouteSource"] = request.routeSource;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyVpnPbrRouteEntryAttribute",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVpnPbrRouteEntryAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryAttributeResponse({}));
+  }
+
+  async modifyVpnPbrRouteEntryAttribute(request: ModifyVpnPbrRouteEntryAttributeRequest): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyVpnPbrRouteEntryAttributeWithOptions(request, runtime);
+  }
+
+  async modifyVpnPbrRouteEntryPriorityWithOptions(request: ModifyVpnPbrRouteEntryPriorityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.newPriority)) {
+      query["NewPriority"] = request.newPriority;
+    }
+
+    if (!Util.isUnset(request.nextHop)) {
+      query["NextHop"] = request.nextHop;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeDest)) {
+      query["RouteDest"] = request.routeDest;
+    }
+
+    if (!Util.isUnset(request.routeSource)) {
+      query["RouteSource"] = request.routeSource;
+    }
+
+    if (!Util.isUnset(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyVpnPbrRouteEntryPriority",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVpnPbrRouteEntryPriorityResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryPriorityResponse({}));
+  }
+
+  async modifyVpnPbrRouteEntryPriority(request: ModifyVpnPbrRouteEntryPriorityRequest): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyVpnPbrRouteEntryPriorityWithOptions(request, runtime);
+  }
+
   async modifyVpnPbrRouteEntryWeightWithOptions(request: ModifyVpnPbrRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58508,6 +62245,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -59501,6 +63242,126 @@ export default class Client extends OpenApi {
     return await this.revokeInstanceFromCenWithOptions(request, runtime);
   }
 
+  async revokeInstanceFromVbrWithOptions(tmpReq: RevokeInstanceFromVbrRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromVbrResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RevokeInstanceFromVbrShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.vbrInstanceIds)) {
+      request.vbrInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vbrInstanceIds, "VbrInstanceIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.grantType)) {
+      query["GrantType"] = request.grantType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vbrInstanceIdsShrink)) {
+      query["VbrInstanceIds"] = request.vbrInstanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.vbrOwnerUid)) {
+      query["VbrOwnerUid"] = request.vbrOwnerUid;
+    }
+
+    if (!Util.isUnset(request.vbrRegionNo)) {
+      query["VbrRegionNo"] = request.vbrRegionNo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeInstanceFromVbr",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeInstanceFromVbrResponse>(await this.callApi(params, req, runtime), new RevokeInstanceFromVbrResponse({}));
+  }
+
+  async revokeInstanceFromVbr(request: RevokeInstanceFromVbrRequest): Promise<RevokeInstanceFromVbrResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeInstanceFromVbrWithOptions(request, runtime);
+  }
+
+  async setHighDefinitionMonitorLogStatusWithOptions(request: SetHighDefinitionMonitorLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetHighDefinitionMonitorLogStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.logProject)) {
+      query["LogProject"] = request.logProject;
+    }
+
+    if (!Util.isUnset(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetHighDefinitionMonitorLogStatus",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetHighDefinitionMonitorLogStatusResponse>(await this.callApi(params, req, runtime), new SetHighDefinitionMonitorLogStatusResponse({}));
+  }
+
+  async setHighDefinitionMonitorLogStatus(request: SetHighDefinitionMonitorLogStatusRequest): Promise<SetHighDefinitionMonitorLogStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setHighDefinitionMonitorLogStatusWithOptions(request, runtime);
+  }
+
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60147,6 +64008,10 @@ export default class Client extends OpenApi {
   async unassociateVpcCidrBlockWithOptions(request: UnassociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateVpcCidrBlockResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.IPv6CidrBlock)) {
+      query["IPv6CidrBlock"] = request.IPv6CidrBlock;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -60265,10 +64130,6 @@ export default class Client extends OpenApi {
   async updateDhcpOptionsSetAttributeWithOptions(request: UpdateDhcpOptionsSetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDhcpOptionsSetAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.bootFileName)) {
-      query["BootFileName"] = request.bootFileName;
-    }
-
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -60323,10 +64184,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.TFTPServerName)) {
-      query["TFTPServerName"] = request.TFTPServerName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -61189,6 +65046,63 @@ export default class Client extends OpenApi {
   async updateVpcGatewayEndpointAttribute(request: UpdateVpcGatewayEndpointAttributeRequest): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcGatewayEndpointAttributeWithOptions(request, runtime);
+  }
+
+  async vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest, runtime: $Util.RuntimeOptions): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VpcDescribeVpcNatGatewayNetworkInterfaceQuota",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse>(await this.callApi(params, req, runtime), new VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse({}));
+  }
+
+  async vpcDescribeVpcNatGatewayNetworkInterfaceQuota(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request, runtime);
   }
 
 }
