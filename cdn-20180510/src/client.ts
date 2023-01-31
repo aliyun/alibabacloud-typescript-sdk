@@ -8893,18 +8893,15 @@ export class DescribeRefreshQuotaResponse extends $tea.Model {
 }
 
 export class DescribeRefreshTaskByIdRequest extends $tea.Model {
-  ownerId?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       taskId: 'string',
     };
   }
@@ -21833,7 +21830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * >  You can call this API operation up to 100 times per second per account.
     *
     * @param request DescribeDomainRealtimeLogDeliveryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21860,7 +21857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * >  You can call this API operation up to 100 times per second per account.
     *
     * @param request DescribeDomainRealtimeLogDeliveryRequest
     * @return DescribeDomainRealtimeLogDeliveryResponse
@@ -23399,10 +23396,6 @@ export default class Client extends OpenApi {
   async describeRefreshTaskByIdWithOptions(request: DescribeRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshTaskByIdResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
