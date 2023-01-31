@@ -24465,6 +24465,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
   isFakeAsn?: boolean;
+  localAsn?: number;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -24472,6 +24473,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  routeQuota?: number;
   static names(): { [key: string]: string } {
     return {
       authKey: 'AuthKey',
@@ -24480,6 +24482,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       isFakeAsn: 'IsFakeAsn',
+      localAsn: 'LocalAsn',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -24487,6 +24490,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      routeQuota: 'RouteQuota',
     };
   }
 
@@ -24498,6 +24502,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
       clientToken: 'string',
       description: 'string',
       isFakeAsn: 'boolean',
+      localAsn: 'number',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -24505,6 +24510,7 @@ export class ModifyBgpGroupAttributeRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      routeQuota: 'number',
     };
   }
 
@@ -58919,6 +58925,10 @@ export default class Client extends OpenApi {
       query["IsFakeAsn"] = request.isFakeAsn;
     }
 
+    if (!Util.isUnset(request.localAsn)) {
+      query["LocalAsn"] = request.localAsn;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -58945,6 +58955,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeQuota)) {
+      query["RouteQuota"] = request.routeQuota;
     }
 
     let req = new $OpenApi.OpenApiRequest({
