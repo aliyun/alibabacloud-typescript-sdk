@@ -2071,6 +2071,124 @@ export class SegmentOARResponse extends $tea.Model {
   }
 }
 
+export class TargetVolumeSegmentRequest extends $tea.Model {
+  cancerType?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  targetVolumeType?: string;
+  URLList?: TargetVolumeSegmentRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      cancerType: 'CancerType',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      targetVolumeType: 'TargetVolumeType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancerType: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      targetVolumeType: 'string',
+      URLList: { 'type': 'array', 'itemType': TargetVolumeSegmentRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentAdvanceRequest extends $tea.Model {
+  cancerType?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  targetVolumeType?: string;
+  URLList?: TargetVolumeSegmentAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      cancerType: 'CancerType',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      targetVolumeType: 'TargetVolumeType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancerType: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      targetVolumeType: 'string',
+      URLList: { 'type': 'array', 'itemType': TargetVolumeSegmentAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentResponseBody extends $tea.Model {
+  data?: TargetVolumeSegmentResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: TargetVolumeSegmentResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TargetVolumeSegmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TargetVolumeSegmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateMedRequest extends $tea.Model {
   fromLanguage?: string;
   text?: string;
@@ -4274,6 +4392,63 @@ export class SegmentOARAdvanceRequestURLList extends $tea.Model {
 }
 
 export class SegmentOARResponseBodyData extends $tea.Model {
+  resultURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVolumeSegmentResponseBodyData extends $tea.Model {
   resultURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6580,6 +6755,138 @@ export default class Client extends OpenApi {
 
     let segmentOARResp = await this.segmentOARWithOptions(segmentOARReq, runtime);
     return segmentOARResp;
+  }
+
+  async targetVolumeSegmentWithOptions(request: TargetVolumeSegmentRequest, runtime: $Util.RuntimeOptions): Promise<TargetVolumeSegmentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cancerType)) {
+      body["CancerType"] = request.cancerType;
+    }
+
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.targetVolumeType)) {
+      body["TargetVolumeType"] = request.targetVolumeType;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TargetVolumeSegment",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TargetVolumeSegmentResponse>(await this.callApi(params, req, runtime), new TargetVolumeSegmentResponse({}));
+  }
+
+  async targetVolumeSegment(request: TargetVolumeSegmentRequest): Promise<TargetVolumeSegmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.targetVolumeSegmentWithOptions(request, runtime);
+  }
+
+  async targetVolumeSegmentAdvance(request: TargetVolumeSegmentAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<TargetVolumeSegmentResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let targetVolumeSegmentReq = new TargetVolumeSegmentRequest({ });
+    OpenApiUtil.convert(request, targetVolumeSegmentReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : TargetVolumeSegmentRequestURLList = targetVolumeSegmentReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let targetVolumeSegmentResp = await this.targetVolumeSegmentWithOptions(targetVolumeSegmentReq, runtime);
+    return targetVolumeSegmentResp;
   }
 
   async translateMedWithOptions(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
