@@ -243,6 +243,8 @@ export class AddNodesRequest extends $tea.Model {
   clientToken?: string;
   clusterId?: string;
   computeEnableHt?: boolean;
+  computeSpotDuration?: number;
+  computeSpotInterruptionBehavior?: string;
   computeSpotPriceLimit?: string;
   computeSpotStrategy?: string;
   count?: number;
@@ -275,6 +277,8 @@ export class AddNodesRequest extends $tea.Model {
       clientToken: 'ClientToken',
       clusterId: 'ClusterId',
       computeEnableHt: 'ComputeEnableHt',
+      computeSpotDuration: 'ComputeSpotDuration',
+      computeSpotInterruptionBehavior: 'ComputeSpotInterruptionBehavior',
       computeSpotPriceLimit: 'ComputeSpotPriceLimit',
       computeSpotStrategy: 'ComputeSpotStrategy',
       count: 'Count',
@@ -310,6 +314,8 @@ export class AddNodesRequest extends $tea.Model {
       clientToken: 'string',
       clusterId: 'string',
       computeEnableHt: 'boolean',
+      computeSpotDuration: 'number',
+      computeSpotInterruptionBehavior: 'string',
       computeSpotPriceLimit: 'string',
       computeSpotStrategy: 'string',
       count: 'number',
@@ -528,10 +534,12 @@ export class AddSecurityGroupResponse extends $tea.Model {
 }
 
 export class AddUsersRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   user?: AddUsersRequestUser[];
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       user: 'User',
     };
@@ -539,6 +547,7 @@ export class AddUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       user: { 'type': 'array', 'itemType': AddUsersRequestUser },
     };
@@ -2355,10 +2364,12 @@ export class DeleteSecurityGroupResponse extends $tea.Model {
 }
 
 export class DeleteUsersRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   user?: DeleteUsersRequestUser[];
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       user: 'User',
     };
@@ -2366,6 +2377,7 @@ export class DeleteUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       user: { 'type': 'array', 'itemType': DeleteUsersRequestUser },
     };
@@ -3306,10 +3318,12 @@ export class DescribeImagePriceResponse extends $tea.Model {
 }
 
 export class DescribeJobRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       jobId: 'JobId',
     };
@@ -3317,6 +3331,7 @@ export class DescribeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       jobId: 'string',
     };
@@ -7719,6 +7734,8 @@ export class ModifyClusterAttributesRequest extends $tea.Model {
   imageId?: string;
   imageOwnerAlias?: string;
   name?: string;
+  ramNodeTypes?: string[];
+  ramRoleName?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -7726,6 +7743,8 @@ export class ModifyClusterAttributesRequest extends $tea.Model {
       imageId: 'ImageId',
       imageOwnerAlias: 'ImageOwnerAlias',
       name: 'Name',
+      ramNodeTypes: 'RamNodeTypes',
+      ramRoleName: 'RamRoleName',
     };
   }
 
@@ -7736,6 +7755,8 @@ export class ModifyClusterAttributesRequest extends $tea.Model {
       imageId: 'string',
       imageOwnerAlias: 'string',
       name: 'string',
+      ramNodeTypes: { 'type': 'array', 'itemType': 'string' },
+      ramRoleName: 'string',
     };
   }
 
@@ -7942,10 +7963,12 @@ export class ModifyImageGatewayConfigResponse extends $tea.Model {
 }
 
 export class ModifyUserGroupsRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   user?: ModifyUserGroupsRequestUser[];
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       user: 'User',
     };
@@ -7953,6 +7976,7 @@ export class ModifyUserGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       user: { 'type': 'array', 'itemType': ModifyUserGroupsRequestUser },
     };
@@ -8008,10 +8032,12 @@ export class ModifyUserGroupsResponse extends $tea.Model {
 }
 
 export class ModifyUserPasswordsRequest extends $tea.Model {
+  async?: boolean;
   clusterId?: string;
   user?: ModifyUserPasswordsRequestUser[];
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       clusterId: 'ClusterId',
       user: 'User',
     };
@@ -8019,6 +8045,7 @@ export class ModifyUserPasswordsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       clusterId: 'string',
       user: { 'type': 'array', 'itemType': ModifyUserPasswordsRequestUser },
     };
@@ -11530,6 +11557,8 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
   onPremiseInfo?: DescribeClusterResponseBodyClusterInfoOnPremiseInfo;
   osTag?: string;
   postInstallScripts?: DescribeClusterResponseBodyClusterInfoPostInstallScripts;
+  ramNodeTypes?: string;
+  ramRoleName?: string;
   regionId?: string;
   remoteDirectory?: string;
   sccClusterId?: string;
@@ -11564,6 +11593,8 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       onPremiseInfo: 'OnPremiseInfo',
       osTag: 'OsTag',
       postInstallScripts: 'PostInstallScripts',
+      ramNodeTypes: 'RamNodeTypes',
+      ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       remoteDirectory: 'RemoteDirectory',
       sccClusterId: 'SccClusterId',
@@ -11601,6 +11632,8 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       onPremiseInfo: DescribeClusterResponseBodyClusterInfoOnPremiseInfo,
       osTag: 'string',
       postInstallScripts: DescribeClusterResponseBodyClusterInfoPostInstallScripts,
+      ramNodeTypes: 'string',
+      ramRoleName: 'string',
       regionId: 'string',
       remoteDirectory: 'string',
       sccClusterId: 'string',
@@ -12287,6 +12320,8 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks extends $tea
 export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypesInstanceTypeInfo extends $tea.Model {
   hostNamePrefix?: string;
   instanceType?: string;
+  spotDuration?: number;
+  spotInterruptionBehavior?: string;
   spotPriceLimit?: number;
   spotStrategy?: string;
   vSwitchId?: string;
@@ -12295,6 +12330,8 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypesInstanceT
     return {
       hostNamePrefix: 'HostNamePrefix',
       instanceType: 'InstanceType',
+      spotDuration: 'SpotDuration',
+      spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       vSwitchId: 'VSwitchId',
@@ -12306,6 +12343,8 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypesInstanceT
     return {
       hostNamePrefix: 'string',
       instanceType: 'string',
+      spotDuration: 'number',
+      spotInterruptionBehavior: 'string',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       vSwitchId: 'string',
@@ -15888,6 +15927,8 @@ export class SetAutoScaleConfigRequestQueuesDataDisks extends $tea.Model {
 
 export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
   instanceType?: string;
+  spotDuration?: number;
+  spotInterruptionBehavior?: string;
   spotPriceLimit?: number;
   spotStrategy?: string;
   vSwitchId?: string;
@@ -15895,6 +15936,8 @@ export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceType: 'InstanceType',
+      spotDuration: 'SpotDuration',
+      spotInterruptionBehavior: 'SpotInterruptionBehavior',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       vSwitchId: 'VSwitchId',
@@ -15905,6 +15948,8 @@ export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceType: 'string',
+      spotDuration: 'number',
+      spotInterruptionBehavior: 'string',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
       vSwitchId: 'string',
@@ -17316,6 +17361,13 @@ export default class Client extends OpenApi {
     return await this.describeNFSClientStatusWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request DescribePriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePriceResponse
+   */
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17336,6 +17388,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request DescribePriceRequest
+    * @return DescribePriceResponse
+   */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
