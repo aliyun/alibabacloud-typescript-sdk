@@ -2240,12 +2240,14 @@ export class GetFeatureDetailsRequest extends $tea.Model {
 export class GetFeatureDetailsResponseBody extends $tea.Model {
   requestId?: string;
   resourceCleaner?: GetFeatureDetailsResponseBodyResourceCleaner;
+  templateParameterConstraints?: GetFeatureDetailsResponseBodyTemplateParameterConstraints;
   templateScratch?: GetFeatureDetailsResponseBodyTemplateScratch;
   terraform?: GetFeatureDetailsResponseBodyTerraform;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       resourceCleaner: 'ResourceCleaner',
+      templateParameterConstraints: 'TemplateParameterConstraints',
       templateScratch: 'TemplateScratch',
       terraform: 'Terraform',
     };
@@ -2255,6 +2257,7 @@ export class GetFeatureDetailsResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       resourceCleaner: GetFeatureDetailsResponseBodyResourceCleaner,
+      templateParameterConstraints: GetFeatureDetailsResponseBodyTemplateParameterConstraints,
       templateScratch: GetFeatureDetailsResponseBodyTemplateScratch,
       terraform: GetFeatureDetailsResponseBodyTerraform,
     };
@@ -5882,6 +5885,7 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateStackRequest extends $tea.Model {
   clientToken?: string;
   disableRollback?: boolean;
+  dryRun?: boolean;
   parallelism?: number;
   parameters?: UpdateStackRequestParameters[];
   ramRoleName?: string;
@@ -5904,6 +5908,7 @@ export class UpdateStackRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       disableRollback: 'DisableRollback',
+      dryRun: 'DryRun',
       parallelism: 'Parallelism',
       parameters: 'Parameters',
       ramRoleName: 'RamRoleName',
@@ -5929,6 +5934,7 @@ export class UpdateStackRequest extends $tea.Model {
     return {
       clientToken: 'string',
       disableRollback: 'boolean',
+      dryRun: 'boolean',
       parallelism: 'number',
       parameters: { 'type': 'array', 'itemType': UpdateStackRequestParameters },
       ramRoleName: 'string',
@@ -5956,10 +5962,12 @@ export class UpdateStackRequest extends $tea.Model {
 }
 
 export class UpdateStackResponseBody extends $tea.Model {
+  dryRunResult?: UpdateStackResponseBodyDryRunResult;
   requestId?: string;
   stackId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRunResult: 'DryRunResult',
       requestId: 'RequestId',
       stackId: 'StackId',
     };
@@ -5967,6 +5975,7 @@ export class UpdateStackResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRunResult: UpdateStackResponseBodyDryRunResult,
       requestId: 'string',
       stackId: 'string',
     };
@@ -6667,6 +6676,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
   requestId?: string;
   resourceTypes?: ValidateTemplateResponseBodyResourceTypes;
   resources?: ValidateTemplateResponseBodyResources[];
+  updateInfo?: ValidateTemplateResponseBodyUpdateInfo;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -6675,6 +6685,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceTypes: 'ResourceTypes',
       resources: 'Resources',
+      updateInfo: 'UpdateInfo',
     };
   }
 
@@ -6686,6 +6697,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
       requestId: 'string',
       resourceTypes: ValidateTemplateResponseBodyResourceTypes,
       resources: { 'type': 'array', 'itemType': ValidateTemplateResponseBodyResources },
+      updateInfo: ValidateTemplateResponseBodyUpdateInfo,
     };
   }
 
@@ -7430,6 +7442,47 @@ export class GetFeatureDetailsResponseBodyResourceCleaner extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes extends $tea.Model {
+  properties?: string[];
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      properties: 'Properties',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      properties: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateParameterConstraints extends $tea.Model {
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes },
     };
   }
 
@@ -8505,6 +8558,31 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotS
   }
 }
 
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $tea.Model {
+  errorMessage?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
   allowedValues?: string[];
   associationParameterNames?: string[];
@@ -8514,6 +8592,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   illegalValueByRules?: any[];
   notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
   parameterKey?: string;
+  queryErrors?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8525,6 +8604,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       illegalValueByRules: 'IllegalValueByRules',
       notSupportResources: 'NotSupportResources',
       parameterKey: 'ParameterKey',
+      queryErrors: 'QueryErrors',
       type: 'Type',
     };
   }
@@ -8539,6 +8619,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
       illegalValueByRules: { 'type': 'array', 'itemType': 'any' },
       notSupportResources: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources },
       parameterKey: 'string',
+      queryErrors: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors },
       type: 'string',
     };
   }
@@ -10033,6 +10114,43 @@ export class UpdateStackRequestTags extends $tea.Model {
   }
 }
 
+export class UpdateStackResponseBodyDryRunResult extends $tea.Model {
+  parametersAllowedToBeModified?: string[];
+  parametersCauseInterruptionIfModified?: string[];
+  parametersConditionallyAllowedToBeModified?: string[];
+  parametersConditionallyCauseInterruptionIfModified?: string[];
+  parametersNotAllowedToBeModified?: string[];
+  parametersUncertainlyAllowedToBeModified?: string[];
+  parametersUncertainlyCauseInterruptionIfModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
+      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStackGroupRequestAutoDeployment extends $tea.Model {
   enabled?: boolean;
   retainStacksOnAccountRemoval?: boolean;
@@ -10339,6 +10457,43 @@ export class ValidateTemplateResponseBodyResources extends $tea.Model {
       logicalResourceIdPattern: 'string',
       resourcePath: 'string',
       resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTemplateResponseBodyUpdateInfo extends $tea.Model {
+  parametersAllowedToBeModified?: string[];
+  parametersCauseInterruptionIfModified?: string[];
+  parametersConditionallyAllowedToBeModified?: string[];
+  parametersConditionallyCauseInterruptionIfModified?: string[];
+  parametersNotAllowedToBeModified?: string[];
+  parametersUncertainlyAllowedToBeModified?: string[];
+  parametersUncertainlyCauseInterruptionIfModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersCauseInterruptionIfModified: 'ParametersCauseInterruptionIfModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersConditionallyCauseInterruptionIfModified: 'ParametersConditionallyCauseInterruptionIfModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+      parametersUncertainlyAllowedToBeModified: 'ParametersUncertainlyAllowedToBeModified',
+      parametersUncertainlyCauseInterruptionIfModified: 'ParametersUncertainlyCauseInterruptionIfModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersUncertainlyCauseInterruptionIfModified: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -13588,6 +13743,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disableRollback)) {
       query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.parallelism)) {
