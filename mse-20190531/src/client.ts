@@ -13241,6 +13241,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
   clusterSpecification?: string;
   instanceCount?: number;
   instanceId?: string;
+  mseVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -13248,6 +13249,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
       clusterSpecification: 'ClusterSpecification',
       instanceCount: 'InstanceCount',
       instanceId: 'InstanceId',
+      mseVersion: 'MseVersion',
     };
   }
 
@@ -13258,6 +13260,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
       clusterSpecification: 'string',
       instanceCount: 'number',
       instanceId: 'string',
+      mseVersion: 'string',
     };
   }
 
@@ -13269,6 +13272,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
 export class UpdateClusterSpecResponseBody extends $tea.Model {
   code?: number;
   data?: string;
+  errorCode?: string;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -13277,6 +13281,7 @@ export class UpdateClusterSpecResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
+      errorCode: 'ErrorCode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -13288,6 +13293,7 @@ export class UpdateClusterSpecResponseBody extends $tea.Model {
     return {
       code: 'number',
       data: 'string',
+      errorCode: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -20394,6 +20400,7 @@ export class ListEngineNamespacesResponseBodyData extends $tea.Model {
   namespaceShowName?: string;
   quota?: number;
   serviceCount?: string;
+  sourceType?: string;
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20403,6 +20410,7 @@ export class ListEngineNamespacesResponseBodyData extends $tea.Model {
       namespaceShowName: 'NamespaceShowName',
       quota: 'Quota',
       serviceCount: 'ServiceCount',
+      sourceType: 'SourceType',
       type: 'Type',
     };
   }
@@ -20415,6 +20423,7 @@ export class ListEngineNamespacesResponseBodyData extends $tea.Model {
       namespaceShowName: 'string',
       quota: 'number',
       serviceCount: 'string',
+      sourceType: 'string',
       type: 'number',
     };
   }
@@ -30564,6 +30573,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
