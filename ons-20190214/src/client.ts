@@ -4,32 +4,33 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ListTagResourcesRequest extends $tea.Model {
   instanceId?: string;
-  resourceType?: string;
   nextToken?: string;
-  tag?: ListTagResourcesRequestTag[];
   resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      resourceType: 'ResourceType',
       nextToken: 'NextToken',
-      tag: 'Tag',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      resourceType: 'string',
       nextToken: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
 
@@ -65,10 +66,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -76,6 +79,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -86,21 +90,21 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class OnsConsumerAccumulateRequest extends $tea.Model {
-  groupId?: string;
   detail?: boolean;
+  groupId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
       detail: 'Detail',
+      groupId: 'GroupId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
       detail: 'boolean',
+      groupId: 'string',
       instanceId: 'string',
     };
   }
@@ -111,19 +115,19 @@ export class OnsConsumerAccumulateRequest extends $tea.Model {
 }
 
 export class OnsConsumerAccumulateResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsConsumerAccumulateResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsConsumerAccumulateResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -134,10 +138,12 @@ export class OnsConsumerAccumulateResponseBody extends $tea.Model {
 
 export class OnsConsumerAccumulateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsConsumerAccumulateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -145,6 +151,7 @@ export class OnsConsumerAccumulateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsConsumerAccumulateResponseBody,
     };
   }
@@ -177,19 +184,19 @@ export class OnsConsumerGetConnectionRequest extends $tea.Model {
 }
 
 export class OnsConsumerGetConnectionResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsConsumerGetConnectionResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsConsumerGetConnectionResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -200,10 +207,12 @@ export class OnsConsumerGetConnectionResponseBody extends $tea.Model {
 
 export class OnsConsumerGetConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsConsumerGetConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -211,6 +220,7 @@ export class OnsConsumerGetConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsConsumerGetConnectionResponseBody,
     };
   }
@@ -222,27 +232,27 @@ export class OnsConsumerGetConnectionResponse extends $tea.Model {
 
 export class OnsConsumerResetOffsetRequest extends $tea.Model {
   groupId?: string;
+  instanceId?: string;
+  resetTimestamp?: number;
   topic?: string;
   type?: number;
-  resetTimestamp?: number;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      resetTimestamp: 'ResetTimestamp',
       topic: 'Topic',
       type: 'Type',
-      resetTimestamp: 'ResetTimestamp',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      instanceId: 'string',
+      resetTimestamp: 'number',
       topic: 'string',
       type: 'number',
-      resetTimestamp: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -272,10 +282,12 @@ export class OnsConsumerResetOffsetResponseBody extends $tea.Model {
 
 export class OnsConsumerResetOffsetResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsConsumerResetOffsetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -283,6 +295,7 @@ export class OnsConsumerResetOffsetResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsConsumerResetOffsetResponseBody,
     };
   }
@@ -293,25 +306,25 @@ export class OnsConsumerResetOffsetResponse extends $tea.Model {
 }
 
 export class OnsConsumerStatusRequest extends $tea.Model {
-  groupId?: string;
   detail?: boolean;
-  needJstack?: boolean;
+  groupId?: string;
   instanceId?: string;
+  needJstack?: boolean;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
       detail: 'Detail',
-      needJstack: 'NeedJstack',
+      groupId: 'GroupId',
       instanceId: 'InstanceId',
+      needJstack: 'NeedJstack',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
       detail: 'boolean',
-      needJstack: 'boolean',
+      groupId: 'string',
       instanceId: 'string',
+      needJstack: 'boolean',
     };
   }
 
@@ -321,19 +334,19 @@ export class OnsConsumerStatusRequest extends $tea.Model {
 }
 
 export class OnsConsumerStatusResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsConsumerStatusResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsConsumerStatusResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -344,10 +357,12 @@ export class OnsConsumerStatusResponseBody extends $tea.Model {
 
 export class OnsConsumerStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsConsumerStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -355,6 +370,7 @@ export class OnsConsumerStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsConsumerStatusResponseBody,
     };
   }
@@ -366,21 +382,21 @@ export class OnsConsumerStatusResponse extends $tea.Model {
 
 export class OnsConsumerTimeSpanRequest extends $tea.Model {
   groupId?: string;
-  topic?: string;
   instanceId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
-      topic: 'Topic',
       instanceId: 'InstanceId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
-      topic: 'string',
       instanceId: 'string',
+      topic: 'string',
     };
   }
 
@@ -390,19 +406,19 @@ export class OnsConsumerTimeSpanRequest extends $tea.Model {
 }
 
 export class OnsConsumerTimeSpanResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsConsumerTimeSpanResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsConsumerTimeSpanResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -413,10 +429,12 @@ export class OnsConsumerTimeSpanResponseBody extends $tea.Model {
 
 export class OnsConsumerTimeSpanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsConsumerTimeSpanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -424,6 +442,7 @@ export class OnsConsumerTimeSpanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsConsumerTimeSpanResponseBody,
     };
   }
@@ -434,22 +453,22 @@ export class OnsConsumerTimeSpanResponse extends $tea.Model {
 }
 
 export class OnsDLQMessageGetByIdRequest extends $tea.Model {
-  msgId?: string;
   groupId?: string;
   instanceId?: string;
+  msgId?: string;
   static names(): { [key: string]: string } {
     return {
-      msgId: 'MsgId',
       groupId: 'GroupId',
       instanceId: 'InstanceId',
+      msgId: 'MsgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      msgId: 'string',
       groupId: 'string',
       instanceId: 'string',
+      msgId: 'string',
     };
   }
 
@@ -459,19 +478,19 @@ export class OnsDLQMessageGetByIdRequest extends $tea.Model {
 }
 
 export class OnsDLQMessageGetByIdResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsDLQMessageGetByIdResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsDLQMessageGetByIdResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -482,10 +501,12 @@ export class OnsDLQMessageGetByIdResponseBody extends $tea.Model {
 
 export class OnsDLQMessageGetByIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsDLQMessageGetByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -493,6 +514,7 @@ export class OnsDLQMessageGetByIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsDLQMessageGetByIdResponseBody,
     };
   }
@@ -503,34 +525,34 @@ export class OnsDLQMessageGetByIdResponse extends $tea.Model {
 }
 
 export class OnsDLQMessagePageQueryByGroupIdRequest extends $tea.Model {
-  groupId?: string;
   beginTime?: number;
-  endTime?: number;
-  taskId?: string;
   currentPage?: number;
-  pageSize?: number;
+  endTime?: number;
+  groupId?: string;
   instanceId?: string;
+  pageSize?: number;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
       beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      taskId: 'TaskId',
       currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
+      endTime: 'EndTime',
+      groupId: 'GroupId',
       instanceId: 'InstanceId',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
       beginTime: 'number',
-      endTime: 'number',
-      taskId: 'string',
       currentPage: 'number',
-      pageSize: 'number',
+      endTime: 'number',
+      groupId: 'string',
       instanceId: 'string',
+      pageSize: 'number',
+      taskId: 'string',
     };
   }
 
@@ -540,19 +562,19 @@ export class OnsDLQMessagePageQueryByGroupIdRequest extends $tea.Model {
 }
 
 export class OnsDLQMessagePageQueryByGroupIdResponseBody extends $tea.Model {
-  requestId?: string;
   msgFoundDo?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       msgFoundDo: 'MsgFoundDo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       msgFoundDo: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo,
+      requestId: 'string',
     };
   }
 
@@ -563,10 +585,12 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBody extends $tea.Model {
 
 export class OnsDLQMessagePageQueryByGroupIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsDLQMessagePageQueryByGroupIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -574,6 +598,7 @@ export class OnsDLQMessagePageQueryByGroupIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsDLQMessagePageQueryByGroupIdResponseBody,
     };
   }
@@ -584,22 +609,22 @@ export class OnsDLQMessagePageQueryByGroupIdResponse extends $tea.Model {
 }
 
 export class OnsDLQMessageResendByIdRequest extends $tea.Model {
-  msgId?: string;
   groupId?: string;
   instanceId?: string;
+  msgId?: string;
   static names(): { [key: string]: string } {
     return {
-      msgId: 'MsgId',
       groupId: 'GroupId',
       instanceId: 'InstanceId',
+      msgId: 'MsgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      msgId: 'string',
       groupId: 'string',
       instanceId: 'string',
+      msgId: 'string',
     };
   }
 
@@ -609,19 +634,19 @@ export class OnsDLQMessageResendByIdRequest extends $tea.Model {
 }
 
 export class OnsDLQMessageResendByIdResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsDLQMessageResendByIdResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsDLQMessageResendByIdResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -632,10 +657,12 @@ export class OnsDLQMessageResendByIdResponseBody extends $tea.Model {
 
 export class OnsDLQMessageResendByIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsDLQMessageResendByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -643,6 +670,7 @@ export class OnsDLQMessageResendByIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsDLQMessageResendByIdResponseBody,
     };
   }
@@ -654,21 +682,21 @@ export class OnsDLQMessageResendByIdResponse extends $tea.Model {
 
 export class OnsGroupConsumerUpdateRequest extends $tea.Model {
   groupId?: string;
-  readEnable?: boolean;
   instanceId?: string;
+  readEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
-      readEnable: 'ReadEnable',
       instanceId: 'InstanceId',
+      readEnable: 'ReadEnable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
-      readEnable: 'boolean',
       instanceId: 'string',
+      readEnable: 'boolean',
     };
   }
 
@@ -698,10 +726,12 @@ export class OnsGroupConsumerUpdateResponseBody extends $tea.Model {
 
 export class OnsGroupConsumerUpdateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsGroupConsumerUpdateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -709,6 +739,7 @@ export class OnsGroupConsumerUpdateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsGroupConsumerUpdateResponseBody,
     };
   }
@@ -720,24 +751,24 @@ export class OnsGroupConsumerUpdateResponse extends $tea.Model {
 
 export class OnsGroupCreateRequest extends $tea.Model {
   groupId?: string;
-  remark?: string;
-  instanceId?: string;
   groupType?: string;
+  instanceId?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
-      remark: 'Remark',
-      instanceId: 'InstanceId',
       groupType: 'GroupType',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
-      remark: 'string',
-      instanceId: 'string',
       groupType: 'string',
+      instanceId: 'string',
+      remark: 'string',
     };
   }
 
@@ -767,10 +798,12 @@ export class OnsGroupCreateResponseBody extends $tea.Model {
 
 export class OnsGroupCreateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsGroupCreateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -778,6 +811,7 @@ export class OnsGroupCreateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsGroupCreateResponseBody,
     };
   }
@@ -830,10 +864,12 @@ export class OnsGroupDeleteResponseBody extends $tea.Model {
 
 export class OnsGroupDeleteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsGroupDeleteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -841,6 +877,7 @@ export class OnsGroupDeleteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsGroupDeleteResponseBody,
     };
   }
@@ -851,24 +888,24 @@ export class OnsGroupDeleteResponse extends $tea.Model {
 }
 
 export class OnsGroupListRequest extends $tea.Model {
-  instanceId?: string;
   groupId?: string;
   groupType?: string;
+  instanceId?: string;
   tag?: OnsGroupListRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       groupId: 'GroupId',
       groupType: 'GroupType',
+      instanceId: 'InstanceId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       groupId: 'string',
       groupType: 'string',
+      instanceId: 'string',
       tag: { 'type': 'array', 'itemType': OnsGroupListRequestTag },
     };
   }
@@ -879,19 +916,19 @@ export class OnsGroupListRequest extends $tea.Model {
 }
 
 export class OnsGroupListResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsGroupListResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsGroupListResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -902,10 +939,12 @@ export class OnsGroupListResponseBody extends $tea.Model {
 
 export class OnsGroupListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsGroupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -913,6 +952,7 @@ export class OnsGroupListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsGroupListResponseBody,
     };
   }
@@ -923,19 +963,19 @@ export class OnsGroupListResponse extends $tea.Model {
 }
 
 export class OnsGroupSubDetailRequest extends $tea.Model {
-  instanceId?: string;
   groupId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       groupId: 'GroupId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       groupId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -945,19 +985,19 @@ export class OnsGroupSubDetailRequest extends $tea.Model {
 }
 
 export class OnsGroupSubDetailResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsGroupSubDetailResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsGroupSubDetailResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -968,10 +1008,12 @@ export class OnsGroupSubDetailResponseBody extends $tea.Model {
 
 export class OnsGroupSubDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsGroupSubDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -979,6 +1021,7 @@ export class OnsGroupSubDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsGroupSubDetailResponseBody,
     };
   }
@@ -1031,10 +1074,12 @@ export class OnsInstanceBaseInfoResponseBody extends $tea.Model {
 
 export class OnsInstanceBaseInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsInstanceBaseInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1042,6 +1087,7 @@ export class OnsInstanceBaseInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsInstanceBaseInfoResponseBody,
     };
   }
@@ -1052,19 +1098,19 @@ export class OnsInstanceBaseInfoResponse extends $tea.Model {
 }
 
 export class OnsInstanceCreateRequest extends $tea.Model {
-  remark?: string;
   instanceName?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
-      remark: 'Remark',
       instanceName: 'InstanceName',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      remark: 'string',
       instanceName: 'string',
+      remark: 'string',
     };
   }
 
@@ -1074,19 +1120,19 @@ export class OnsInstanceCreateRequest extends $tea.Model {
 }
 
 export class OnsInstanceCreateResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsInstanceCreateResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsInstanceCreateResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1097,10 +1143,12 @@ export class OnsInstanceCreateResponseBody extends $tea.Model {
 
 export class OnsInstanceCreateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsInstanceCreateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1108,6 +1156,7 @@ export class OnsInstanceCreateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsInstanceCreateResponseBody,
     };
   }
@@ -1157,10 +1206,12 @@ export class OnsInstanceDeleteResponseBody extends $tea.Model {
 
 export class OnsInstanceDeleteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsInstanceDeleteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1168,6 +1219,7 @@ export class OnsInstanceDeleteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsInstanceDeleteResponseBody,
     };
   }
@@ -1197,19 +1249,19 @@ export class OnsInstanceInServiceListRequest extends $tea.Model {
 }
 
 export class OnsInstanceInServiceListResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsInstanceInServiceListResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsInstanceInServiceListResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1220,10 +1272,12 @@ export class OnsInstanceInServiceListResponseBody extends $tea.Model {
 
 export class OnsInstanceInServiceListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsInstanceInServiceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1231,6 +1285,7 @@ export class OnsInstanceInServiceListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsInstanceInServiceListResponseBody,
     };
   }
@@ -1241,22 +1296,22 @@ export class OnsInstanceInServiceListResponse extends $tea.Model {
 }
 
 export class OnsInstanceUpdateRequest extends $tea.Model {
-  remark?: string;
-  instanceName?: string;
   instanceId?: string;
+  instanceName?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
-      remark: 'Remark',
-      instanceName: 'InstanceName',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      remark: 'string',
-      instanceName: 'string',
       instanceId: 'string',
+      instanceName: 'string',
+      remark: 'string',
     };
   }
 
@@ -1286,10 +1341,12 @@ export class OnsInstanceUpdateResponseBody extends $tea.Model {
 
 export class OnsInstanceUpdateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsInstanceUpdateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1297,6 +1354,7 @@ export class OnsInstanceUpdateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsInstanceUpdateResponseBody,
     };
   }
@@ -1306,23 +1364,95 @@ export class OnsInstanceUpdateResponse extends $tea.Model {
   }
 }
 
-export class OnsMessageGetByKeyRequest extends $tea.Model {
-  topic?: string;
-  key?: string;
+export class OnsMessageDetailRequest extends $tea.Model {
   instanceId?: string;
+  msgId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      key: 'Key',
       instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      key: 'string',
       instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailResponseBody extends $tea.Model {
+  data?: OnsMessageDetailResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsMessageDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OnsMessageDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessageDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyRequest extends $tea.Model {
+  instanceId?: string;
+  key?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      key: 'Key',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      key: 'string',
+      topic: 'string',
     };
   }
 
@@ -1332,19 +1462,19 @@ export class OnsMessageGetByKeyRequest extends $tea.Model {
 }
 
 export class OnsMessageGetByKeyResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsMessageGetByKeyResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsMessageGetByKeyResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1355,10 +1485,12 @@ export class OnsMessageGetByKeyResponseBody extends $tea.Model {
 
 export class OnsMessageGetByKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsMessageGetByKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1366,6 +1498,7 @@ export class OnsMessageGetByKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsMessageGetByKeyResponseBody,
     };
   }
@@ -1376,22 +1509,22 @@ export class OnsMessageGetByKeyResponse extends $tea.Model {
 }
 
 export class OnsMessageGetByMsgIdRequest extends $tea.Model {
+  instanceId?: string;
   msgId?: string;
   topic?: string;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       msgId: 'MsgId',
       topic: 'Topic',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       msgId: 'string',
       topic: 'string',
-      instanceId: 'string',
     };
   }
 
@@ -1401,19 +1534,19 @@ export class OnsMessageGetByMsgIdRequest extends $tea.Model {
 }
 
 export class OnsMessageGetByMsgIdResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsMessageGetByMsgIdResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsMessageGetByMsgIdResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1424,10 +1557,12 @@ export class OnsMessageGetByMsgIdResponseBody extends $tea.Model {
 
 export class OnsMessageGetByMsgIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsMessageGetByMsgIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1435,6 +1570,7 @@ export class OnsMessageGetByMsgIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsMessageGetByMsgIdResponseBody,
     };
   }
@@ -1445,34 +1581,34 @@ export class OnsMessageGetByMsgIdResponse extends $tea.Model {
 }
 
 export class OnsMessagePageQueryByTopicRequest extends $tea.Model {
-  topic?: string;
   beginTime?: number;
-  endTime?: number;
-  taskId?: string;
   currentPage?: number;
-  pageSize?: number;
+  endTime?: number;
   instanceId?: string;
+  pageSize?: number;
+  taskId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      taskId: 'TaskId',
       currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
+      endTime: 'EndTime',
       instanceId: 'InstanceId',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       beginTime: 'number',
-      endTime: 'number',
-      taskId: 'string',
       currentPage: 'number',
-      pageSize: 'number',
+      endTime: 'number',
       instanceId: 'string',
+      pageSize: 'number',
+      taskId: 'string',
+      topic: 'string',
     };
   }
 
@@ -1482,19 +1618,19 @@ export class OnsMessagePageQueryByTopicRequest extends $tea.Model {
 }
 
 export class OnsMessagePageQueryByTopicResponseBody extends $tea.Model {
-  requestId?: string;
   msgFoundDo?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       msgFoundDo: 'MsgFoundDo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       msgFoundDo: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo,
+      requestId: 'string',
     };
   }
 
@@ -1505,10 +1641,12 @@ export class OnsMessagePageQueryByTopicResponseBody extends $tea.Model {
 
 export class OnsMessagePageQueryByTopicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsMessagePageQueryByTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1516,6 +1654,7 @@ export class OnsMessagePageQueryByTopicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsMessagePageQueryByTopicResponseBody,
     };
   }
@@ -1526,28 +1665,28 @@ export class OnsMessagePageQueryByTopicResponse extends $tea.Model {
 }
 
 export class OnsMessagePushRequest extends $tea.Model {
-  groupId?: string;
   clientId?: string;
+  groupId?: string;
+  instanceId?: string;
   msgId?: string;
   topic?: string;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
       clientId: 'ClientId',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
       msgId: 'MsgId',
       topic: 'Topic',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
       clientId: 'string',
+      groupId: 'string',
+      instanceId: 'string',
       msgId: 'string',
       topic: 'string',
-      instanceId: 'string',
     };
   }
 
@@ -1577,10 +1716,12 @@ export class OnsMessagePushResponseBody extends $tea.Model {
 
 export class OnsMessagePushResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsMessagePushResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1588,6 +1729,7 @@ export class OnsMessagePushResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsMessagePushResponseBody,
     };
   }
@@ -1597,98 +1739,23 @@ export class OnsMessagePushResponse extends $tea.Model {
   }
 }
 
-export class OnsMessageSendRequest extends $tea.Model {
-  topic?: string;
-  tag?: string;
-  key?: string;
-  message?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      topic: 'Topic',
-      tag: 'Tag',
-      key: 'Key',
-      message: 'Message',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      topic: 'string',
-      tag: 'string',
-      key: 'string',
-      message: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageSendResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageSendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMessageSendResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMessageSendResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OnsMessageTraceRequest extends $tea.Model {
-  topic?: string;
-  msgId?: string;
   instanceId?: string;
+  msgId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      msgId: 'MsgId',
       instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      msgId: 'string',
       instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
     };
   }
 
@@ -1698,19 +1765,19 @@ export class OnsMessageTraceRequest extends $tea.Model {
 }
 
 export class OnsMessageTraceResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsMessageTraceResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsMessageTraceResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1721,10 +1788,12 @@ export class OnsMessageTraceResponseBody extends $tea.Model {
 
 export class OnsMessageTraceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsMessageTraceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1732,6 +1801,7 @@ export class OnsMessageTraceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsMessageTraceResponseBody,
     };
   }
@@ -1741,572 +1811,20 @@ export class OnsMessageTraceResponse extends $tea.Model {
   }
 }
 
-export class OnsMqttGroupIdCreateRequest extends $tea.Model {
-  topic?: string;
-  groupId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      topic: 'Topic',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      topic: 'string',
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdCreateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdCreateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttGroupIdCreateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttGroupIdCreateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdDeleteRequest extends $tea.Model {
-  groupId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdDeleteResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdDeleteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttGroupIdDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttGroupIdDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdListRequest extends $tea.Model {
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdListResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: OnsMqttGroupIdListResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: OnsMqttGroupIdListResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttGroupIdListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttGroupIdListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdRequest extends $tea.Model {
-  clientId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdResponseBody extends $tea.Model {
-  requestId?: string;
-  mqttClientInfoDo?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mqttClientInfoDo: 'MqttClientInfoDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mqttClientInfoDo: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttQueryClientByClientIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttQueryClientByClientIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByGroupIdRequest extends $tea.Model {
-  groupId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByGroupIdResponseBody extends $tea.Model {
-  requestId?: string;
-  mqttClientSetDo?: OnsMqttQueryClientByGroupIdResponseBodyMqttClientSetDo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mqttClientSetDo: 'MqttClientSetDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mqttClientSetDo: OnsMqttQueryClientByGroupIdResponseBodyMqttClientSetDo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByGroupIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttQueryClientByGroupIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttQueryClientByGroupIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByTopicRequest extends $tea.Model {
-  parentTopic?: string;
-  subTopic?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parentTopic: 'ParentTopic',
-      subTopic: 'SubTopic',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parentTopic: 'string',
-      subTopic: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByTopicResponseBody extends $tea.Model {
-  requestId?: string;
-  mqttClientSetDo?: OnsMqttQueryClientByTopicResponseBodyMqttClientSetDo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mqttClientSetDo: 'MqttClientSetDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mqttClientSetDo: OnsMqttQueryClientByTopicResponseBodyMqttClientSetDo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttQueryClientByTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttQueryClientByTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineRequest extends $tea.Model {
-  groupId?: string;
-  beginTime?: number;
-  endTime?: number;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      beginTime: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: OnsMqttQueryHistoryOnlineResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: OnsMqttQueryHistoryOnlineResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttQueryHistoryOnlineResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttQueryHistoryOnlineResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendRequest extends $tea.Model {
-  tpsType?: string;
-  transType?: string;
-  parentTopic?: string;
-  subTopic?: string;
-  msgType?: string;
-  qos?: number;
-  beginTime?: number;
-  endTime?: number;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tpsType: 'TpsType',
-      transType: 'TransType',
-      parentTopic: 'ParentTopic',
-      subTopic: 'SubTopic',
-      msgType: 'MsgType',
-      qos: 'Qos',
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tpsType: 'string',
-      transType: 'string',
-      parentTopic: 'string',
-      subTopic: 'string',
-      msgType: 'string',
-      qos: 'number',
-      beginTime: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: OnsMqttQueryMsgTransTrendResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: OnsMqttQueryMsgTransTrendResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsMqttQueryMsgTransTrendResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsMqttQueryMsgTransTrendResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OnsRegionListResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsRegionListResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsRegionListResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2317,10 +1835,12 @@ export class OnsRegionListResponseBody extends $tea.Model {
 
 export class OnsRegionListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsRegionListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2328,6 +1848,7 @@ export class OnsRegionListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsRegionListResponseBody,
     };
   }
@@ -2338,25 +1859,25 @@ export class OnsRegionListResponse extends $tea.Model {
 }
 
 export class OnsTopicCreateRequest extends $tea.Model {
-  topic?: string;
+  instanceId?: string;
   messageType?: number;
   remark?: string;
-  instanceId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
+      instanceId: 'InstanceId',
       messageType: 'MessageType',
       remark: 'Remark',
-      instanceId: 'InstanceId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
+      instanceId: 'string',
       messageType: 'number',
       remark: 'string',
-      instanceId: 'string',
+      topic: 'string',
     };
   }
 
@@ -2386,10 +1907,12 @@ export class OnsTopicCreateResponseBody extends $tea.Model {
 
 export class OnsTopicCreateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicCreateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2397,6 +1920,7 @@ export class OnsTopicCreateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicCreateResponseBody,
     };
   }
@@ -2407,19 +1931,19 @@ export class OnsTopicCreateResponse extends $tea.Model {
 }
 
 export class OnsTopicDeleteRequest extends $tea.Model {
-  topic?: string;
   instanceId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       instanceId: 'InstanceId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       instanceId: 'string',
+      topic: 'string',
     };
   }
 
@@ -2449,10 +1973,12 @@ export class OnsTopicDeleteResponseBody extends $tea.Model {
 
 export class OnsTopicDeleteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicDeleteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2460,6 +1986,7 @@ export class OnsTopicDeleteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicDeleteResponseBody,
     };
   }
@@ -2470,22 +1997,25 @@ export class OnsTopicDeleteResponse extends $tea.Model {
 }
 
 export class OnsTopicListRequest extends $tea.Model {
-  topic?: string;
   instanceId?: string;
   tag?: OnsTopicListRequestTag[];
+  topic?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       instanceId: 'InstanceId',
       tag: 'Tag',
+      topic: 'Topic',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       instanceId: 'string',
       tag: { 'type': 'array', 'itemType': OnsTopicListRequestTag },
+      topic: 'string',
+      userId: 'string',
     };
   }
 
@@ -2495,19 +2025,19 @@ export class OnsTopicListRequest extends $tea.Model {
 }
 
 export class OnsTopicListResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsTopicListResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsTopicListResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2518,10 +2048,12 @@ export class OnsTopicListResponseBody extends $tea.Model {
 
 export class OnsTopicListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2529,6 +2061,7 @@ export class OnsTopicListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicListResponseBody,
     };
   }
@@ -2539,19 +2072,19 @@ export class OnsTopicListResponse extends $tea.Model {
 }
 
 export class OnsTopicStatusRequest extends $tea.Model {
-  topic?: string;
   instanceId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       instanceId: 'InstanceId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       instanceId: 'string',
+      topic: 'string',
     };
   }
 
@@ -2561,19 +2094,19 @@ export class OnsTopicStatusRequest extends $tea.Model {
 }
 
 export class OnsTopicStatusResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsTopicStatusResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsTopicStatusResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2584,10 +2117,12 @@ export class OnsTopicStatusResponseBody extends $tea.Model {
 
 export class OnsTopicStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2595,6 +2130,7 @@ export class OnsTopicStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicStatusResponseBody,
     };
   }
@@ -2627,19 +2163,19 @@ export class OnsTopicSubDetailRequest extends $tea.Model {
 }
 
 export class OnsTopicSubDetailResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsTopicSubDetailResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsTopicSubDetailResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2650,10 +2186,12 @@ export class OnsTopicSubDetailResponseBody extends $tea.Model {
 
 export class OnsTopicSubDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicSubDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2661,6 +2199,7 @@ export class OnsTopicSubDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicSubDetailResponseBody,
     };
   }
@@ -2671,22 +2210,22 @@ export class OnsTopicSubDetailResponse extends $tea.Model {
 }
 
 export class OnsTopicUpdateRequest extends $tea.Model {
-  topic?: string;
-  perm?: number;
   instanceId?: string;
+  perm?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      perm: 'Perm',
       instanceId: 'InstanceId',
+      perm: 'Perm',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      perm: 'number',
       instanceId: 'string',
+      perm: 'number',
+      topic: 'string',
     };
   }
 
@@ -2716,10 +2255,12 @@ export class OnsTopicUpdateResponseBody extends $tea.Model {
 
 export class OnsTopicUpdateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTopicUpdateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2727,6 +2268,7 @@ export class OnsTopicUpdateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTopicUpdateResponseBody,
     };
   }
@@ -2779,10 +2321,12 @@ export class OnsTraceGetResultResponseBody extends $tea.Model {
 
 export class OnsTraceGetResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTraceGetResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2790,6 +2334,7 @@ export class OnsTraceGetResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTraceGetResultResponseBody,
     };
   }
@@ -2800,28 +2345,28 @@ export class OnsTraceGetResultResponse extends $tea.Model {
 }
 
 export class OnsTraceQueryByMsgIdRequest extends $tea.Model {
-  topic?: string;
-  msgId?: string;
   beginTime?: number;
   endTime?: number;
   instanceId?: string;
+  msgId?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      msgId: 'MsgId',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      msgId: 'string',
       beginTime: 'number',
       endTime: 'number',
       instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
     };
   }
 
@@ -2831,19 +2376,19 @@ export class OnsTraceQueryByMsgIdRequest extends $tea.Model {
 }
 
 export class OnsTraceQueryByMsgIdResponseBody extends $tea.Model {
-  requestId?: string;
   queryId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       queryId: 'QueryId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       queryId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2854,10 +2399,12 @@ export class OnsTraceQueryByMsgIdResponseBody extends $tea.Model {
 
 export class OnsTraceQueryByMsgIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTraceQueryByMsgIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2865,6 +2412,7 @@ export class OnsTraceQueryByMsgIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTraceQueryByMsgIdResponseBody,
     };
   }
@@ -2875,28 +2423,28 @@ export class OnsTraceQueryByMsgIdResponse extends $tea.Model {
 }
 
 export class OnsTraceQueryByMsgKeyRequest extends $tea.Model {
-  topic?: string;
-  msgKey?: string;
   beginTime?: number;
   endTime?: number;
   instanceId?: string;
+  msgKey?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      msgKey: 'MsgKey',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      msgKey: 'MsgKey',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      msgKey: 'string',
       beginTime: 'number',
       endTime: 'number',
       instanceId: 'string',
+      msgKey: 'string',
+      topic: 'string',
     };
   }
 
@@ -2906,19 +2454,19 @@ export class OnsTraceQueryByMsgKeyRequest extends $tea.Model {
 }
 
 export class OnsTraceQueryByMsgKeyResponseBody extends $tea.Model {
-  requestId?: string;
   queryId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       queryId: 'QueryId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       queryId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2929,10 +2477,12 @@ export class OnsTraceQueryByMsgKeyResponseBody extends $tea.Model {
 
 export class OnsTraceQueryByMsgKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTraceQueryByMsgKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2940,6 +2490,7 @@ export class OnsTraceQueryByMsgKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTraceQueryByMsgKeyResponseBody,
     };
   }
@@ -2950,34 +2501,34 @@ export class OnsTraceQueryByMsgKeyResponse extends $tea.Model {
 }
 
 export class OnsTrendGroupOutputTpsRequest extends $tea.Model {
-  groupId?: string;
-  topic?: string;
   beginTime?: number;
   endTime?: number;
-  type?: number;
+  groupId?: string;
   instanceId?: string;
   period?: number;
+  topic?: string;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      topic: 'Topic',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
-      type: 'Type',
+      groupId: 'GroupId',
       instanceId: 'InstanceId',
       period: 'Period',
+      topic: 'Topic',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
-      topic: 'string',
       beginTime: 'number',
       endTime: 'number',
-      type: 'number',
+      groupId: 'string',
       instanceId: 'string',
       period: 'number',
+      topic: 'string',
+      type: 'number',
     };
   }
 
@@ -2987,19 +2538,19 @@ export class OnsTrendGroupOutputTpsRequest extends $tea.Model {
 }
 
 export class OnsTrendGroupOutputTpsResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsTrendGroupOutputTpsResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsTrendGroupOutputTpsResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -3010,10 +2561,12 @@ export class OnsTrendGroupOutputTpsResponseBody extends $tea.Model {
 
 export class OnsTrendGroupOutputTpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTrendGroupOutputTpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3021,6 +2574,7 @@ export class OnsTrendGroupOutputTpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTrendGroupOutputTpsResponseBody,
     };
   }
@@ -3031,31 +2585,31 @@ export class OnsTrendGroupOutputTpsResponse extends $tea.Model {
 }
 
 export class OnsTrendTopicInputTpsRequest extends $tea.Model {
-  topic?: string;
   beginTime?: number;
   endTime?: number;
-  type?: number;
   instanceId?: string;
   period?: number;
+  topic?: string;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
-      type: 'Type',
       instanceId: 'InstanceId',
       period: 'Period',
+      topic: 'Topic',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       beginTime: 'number',
       endTime: 'number',
-      type: 'number',
       instanceId: 'string',
       period: 'number',
+      topic: 'string',
+      type: 'number',
     };
   }
 
@@ -3065,19 +2619,19 @@ export class OnsTrendTopicInputTpsRequest extends $tea.Model {
 }
 
 export class OnsTrendTopicInputTpsResponseBody extends $tea.Model {
-  requestId?: string;
   data?: OnsTrendTopicInputTpsResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: OnsTrendTopicInputTpsResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -3088,10 +2642,12 @@ export class OnsTrendTopicInputTpsResponseBody extends $tea.Model {
 
 export class OnsTrendTopicInputTpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OnsTrendTopicInputTpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3099,6 +2655,7 @@ export class OnsTrendTopicInputTpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OnsTrendTopicInputTpsResponseBody,
     };
   }
@@ -3108,170 +2665,20 @@ export class OnsTrendTopicInputTpsResponse extends $tea.Model {
   }
 }
 
-export class OnsWarnCreateRequest extends $tea.Model {
-  groupId?: string;
-  topic?: string;
-  threshold?: string;
-  contacts?: string;
-  delayTime?: string;
-  blockTime?: string;
-  alertTime?: string;
-  level?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      topic: 'Topic',
-      threshold: 'Threshold',
-      contacts: 'Contacts',
-      delayTime: 'DelayTime',
-      blockTime: 'BlockTime',
-      alertTime: 'AlertTime',
-      level: 'Level',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      topic: 'string',
-      threshold: 'string',
-      contacts: 'string',
-      delayTime: 'string',
-      blockTime: 'string',
-      alertTime: 'string',
-      level: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsWarnCreateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsWarnCreateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsWarnCreateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsWarnCreateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsWarnDeleteRequest extends $tea.Model {
-  groupId?: string;
-  topic?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      topic: 'Topic',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      topic: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsWarnDeleteResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsWarnDeleteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OnsWarnDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OnsWarnDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OpenOnsServiceResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3282,10 +2689,12 @@ export class OpenOnsServiceResponseBody extends $tea.Model {
 
 export class OpenOnsServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenOnsServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3293,6 +2702,7 @@ export class OpenOnsServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenOnsServiceResponseBody,
     };
   }
@@ -3304,24 +2714,24 @@ export class OpenOnsServiceResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   instanceId?: string;
+  resourceId?: string[];
   resourceType?: string;
   tag?: TagResourcesRequestTag[];
-  resourceId?: string[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
-      resourceId: 'ResourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-      resourceId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3351,10 +2761,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3362,6 +2774,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -3372,27 +2785,27 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  instanceId?: string;
-  resourceType?: string;
   all?: boolean;
+  instanceId?: string;
   resourceId?: string[];
+  resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      resourceType: 'ResourceType',
       all: 'All',
+      instanceId: 'InstanceId',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      resourceType: 'string',
       all: 'boolean',
+      instanceId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -3423,10 +2836,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3434,6 +2849,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -3466,28 +2882,28 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  resourceType?: string;
   instanceId?: string;
-  tagValue?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       instanceId: 'InstanceId',
-      tagValue: 'TagValue',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       instanceId: 'string',
-      tagValue: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -3498,24 +2914,24 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
 export class OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
   delayTime?: number;
-  totalDiff?: number;
   lastTimestamp?: number;
   topic?: string;
+  totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
       delayTime: 'DelayTime',
-      totalDiff: 'TotalDiff',
       lastTimestamp: 'LastTimestamp',
       topic: 'Topic',
+      totalDiff: 'TotalDiff',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       delayTime: 'number',
-      totalDiff: 'number',
       lastTimestamp: 'number',
       topic: 'string',
+      totalDiff: 'number',
     };
   }
 
@@ -3546,18 +2962,18 @@ export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea
 export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
   consumeTps?: number;
   delayTime?: number;
-  lastTimestamp?: number;
-  totalDiff?: number;
-  online?: boolean;
   detailInTopicList?: OnsConsumerAccumulateResponseBodyDataDetailInTopicList;
+  lastTimestamp?: number;
+  online?: boolean;
+  totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
       consumeTps: 'ConsumeTps',
       delayTime: 'DelayTime',
-      lastTimestamp: 'LastTimestamp',
-      totalDiff: 'TotalDiff',
-      online: 'Online',
       detailInTopicList: 'DetailInTopicList',
+      lastTimestamp: 'LastTimestamp',
+      online: 'Online',
+      totalDiff: 'TotalDiff',
     };
   }
 
@@ -3565,10 +2981,10 @@ export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
     return {
       consumeTps: 'number',
       delayTime: 'number',
-      lastTimestamp: 'number',
-      totalDiff: 'number',
-      online: 'boolean',
       detailInTopicList: OnsConsumerAccumulateResponseBodyDataDetailInTopicList,
+      lastTimestamp: 'number',
+      online: 'boolean',
+      totalDiff: 'number',
     };
   }
 
@@ -3578,25 +2994,25 @@ export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
 }
 
 export class OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo extends $tea.Model {
-  version?: string;
   clientAddr?: string;
-  language?: string;
   clientId?: string;
+  language?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'Version',
       clientAddr: 'ClientAddr',
-      language: 'Language',
       clientId: 'ClientId',
+      language: 'Language',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
       clientAddr: 'string',
-      language: 'string',
       clientId: 'string',
+      language: 'string',
+      version: 'string',
     };
   }
 
@@ -3644,28 +3060,28 @@ export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
 }
 
 export class OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo extends $tea.Model {
+  clientAddr?: string;
+  clientId?: string;
+  language?: string;
   remoteIP?: string;
   version?: string;
-  clientAddr?: string;
-  language?: string;
-  clientId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientAddr: 'ClientAddr',
+      clientId: 'ClientId',
+      language: 'Language',
       remoteIP: 'RemoteIP',
       version: 'Version',
-      clientAddr: 'ClientAddr',
-      language: 'Language',
-      clientId: 'ClientId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientAddr: 'string',
+      clientId: 'string',
+      language: 'string',
       remoteIP: 'string',
       version: 'string',
-      clientAddr: 'string',
-      language: 'string',
-      clientId: 'string',
     };
   }
 
@@ -3693,32 +3109,92 @@ export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo extends $tea.Model {
-  groupId?: string;
-  rt?: number;
-  topic?: string;
-  failedCountPerHour?: number;
-  okTps?: number;
-  failedTps?: number;
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList extends $tea.Model {
+  track?: string[];
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      rt: 'Rt',
-      topic: 'Topic',
-      failedCountPerHour: 'FailedCountPerHour',
-      okTps: 'OkTps',
-      failedTps: 'FailedTps',
+      track: 'Track',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      track: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo extends $tea.Model {
+  thread?: string;
+  trackList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList;
+  static names(): { [key: string]: string } {
+    return {
+      thread: 'Thread',
+      trackList: 'TrackList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      thread: 'string',
+      trackList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack extends $tea.Model {
+  threadTrackDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo[];
+  static names(): { [key: string]: string } {
+    return {
+      threadTrackDo: 'ThreadTrackDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      threadTrackDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo extends $tea.Model {
+  failedCountPerHour?: number;
+  failedTps?: number;
+  groupId?: string;
+  okTps?: number;
+  rt?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedCountPerHour: 'FailedCountPerHour',
+      failedTps: 'FailedTps',
+      groupId: 'GroupId',
+      okTps: 'OkTps',
+      rt: 'Rt',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCountPerHour: 'number',
+      failedTps: 'number',
       groupId: 'string',
+      okTps: 'number',
       rt: 'number',
       topic: 'string',
-      failedCountPerHour: 'number',
-      okTps: 'number',
-      failedTps: 'number',
     };
   }
 
@@ -3768,14 +3244,14 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
 export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData extends $tea.Model {
   subString?: string;
   subVersion?: number;
-  topic?: string;
   tagsSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
       subString: 'SubString',
       subVersion: 'SubVersion',
-      topic: 'Topic',
       tagsSet: 'TagsSet',
+      topic: 'Topic',
     };
   }
 
@@ -3783,8 +3259,8 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     return {
       subString: 'string',
       subVersion: 'number',
-      topic: 'string',
       tagsSet: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet,
+      topic: 'string',
     };
   }
 
@@ -3812,110 +3288,50 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList extends $tea.Model {
-  track?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      track: 'Track',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      track: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo extends $tea.Model {
-  trackList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList;
-  thread?: string;
-  static names(): { [key: string]: string } {
-    return {
-      trackList: 'TrackList',
-      thread: 'Thread',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trackList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList,
-      thread: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack extends $tea.Model {
-  threadTrackDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo[];
-  static names(): { [key: string]: string } {
-    return {
-      threadTrackDo: 'ThreadTrackDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      threadTrackDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo extends $tea.Model {
-  consumeModel?: string;
-  runningDataList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList;
-  subscriptionSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet;
-  jstack?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack;
-  lastTimeStamp?: number;
-  startTimeStamp?: number;
-  language?: string;
   clientId?: string;
   connection?: string;
-  version?: string;
+  consumeModel?: string;
   consumeType?: string;
+  jstack?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack;
+  language?: string;
+  lastTimeStamp?: number;
+  runningDataList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList;
+  startTimeStamp?: number;
+  subscriptionSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet;
   threadCount?: number;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      consumeModel: 'ConsumeModel',
-      runningDataList: 'RunningDataList',
-      subscriptionSet: 'SubscriptionSet',
-      jstack: 'Jstack',
-      lastTimeStamp: 'LastTimeStamp',
-      startTimeStamp: 'StartTimeStamp',
-      language: 'Language',
       clientId: 'ClientId',
       connection: 'Connection',
-      version: 'Version',
+      consumeModel: 'ConsumeModel',
       consumeType: 'ConsumeType',
+      jstack: 'Jstack',
+      language: 'Language',
+      lastTimeStamp: 'LastTimeStamp',
+      runningDataList: 'RunningDataList',
+      startTimeStamp: 'StartTimeStamp',
+      subscriptionSet: 'SubscriptionSet',
       threadCount: 'ThreadCount',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      consumeModel: 'string',
-      runningDataList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList,
-      subscriptionSet: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet,
-      jstack: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack,
-      lastTimeStamp: 'number',
-      startTimeStamp: 'number',
-      language: 'string',
       clientId: 'string',
       connection: 'string',
-      version: 'string',
+      consumeModel: 'string',
       consumeType: 'string',
+      jstack: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack,
+      language: 'string',
+      lastTimeStamp: 'number',
+      runningDataList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList,
+      startTimeStamp: 'number',
+      subscriptionSet: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet,
       threadCount: 'number',
+      version: 'string',
     };
   }
 
@@ -3945,24 +3361,24 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends
 
 export class OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
   delayTime?: number;
-  totalDiff?: number;
   lastTimestamp?: number;
   topic?: string;
+  totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
       delayTime: 'DelayTime',
-      totalDiff: 'TotalDiff',
       lastTimestamp: 'LastTimestamp',
       topic: 'Topic',
+      totalDiff: 'TotalDiff',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       delayTime: 'number',
-      totalDiff: 'number',
       lastTimestamp: 'number',
       topic: 'string',
+      totalDiff: 'number',
     };
   }
 
@@ -3991,49 +3407,49 @@ export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Mod
 }
 
 export class OnsConsumerStatusResponseBodyData extends $tea.Model {
-  consumeTps?: number;
-  consumeModel?: string;
   connectionSet?: OnsConsumerStatusResponseBodyDataConnectionSet;
-  totalDiff?: number;
+  consumeModel?: string;
+  consumeTps?: number;
   consumerConnectionInfoList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList;
-  instanceId?: string;
-  detailInTopicList?: OnsConsumerStatusResponseBodyDataDetailInTopicList;
-  subscriptionSame?: boolean;
   delayTime?: number;
+  detailInTopicList?: OnsConsumerStatusResponseBodyDataDetailInTopicList;
+  instanceId?: string;
   lastTimestamp?: number;
   online?: boolean;
   rebalanceOK?: boolean;
+  subscriptionSame?: boolean;
+  totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
-      consumeTps: 'ConsumeTps',
-      consumeModel: 'ConsumeModel',
       connectionSet: 'ConnectionSet',
-      totalDiff: 'TotalDiff',
+      consumeModel: 'ConsumeModel',
+      consumeTps: 'ConsumeTps',
       consumerConnectionInfoList: 'ConsumerConnectionInfoList',
-      instanceId: 'InstanceId',
-      detailInTopicList: 'DetailInTopicList',
-      subscriptionSame: 'SubscriptionSame',
       delayTime: 'DelayTime',
+      detailInTopicList: 'DetailInTopicList',
+      instanceId: 'InstanceId',
       lastTimestamp: 'LastTimestamp',
       online: 'Online',
       rebalanceOK: 'RebalanceOK',
+      subscriptionSame: 'SubscriptionSame',
+      totalDiff: 'TotalDiff',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      consumeTps: 'number',
-      consumeModel: 'string',
       connectionSet: OnsConsumerStatusResponseBodyDataConnectionSet,
-      totalDiff: 'number',
+      consumeModel: 'string',
+      consumeTps: 'number',
       consumerConnectionInfoList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList,
-      instanceId: 'string',
-      detailInTopicList: OnsConsumerStatusResponseBodyDataDetailInTopicList,
-      subscriptionSame: 'boolean',
       delayTime: 'number',
+      detailInTopicList: OnsConsumerStatusResponseBodyDataDetailInTopicList,
+      instanceId: 'string',
       lastTimestamp: 'number',
       online: 'boolean',
       rebalanceOK: 'boolean',
+      subscriptionSame: 'boolean',
+      totalDiff: 'number',
     };
   }
 
@@ -4043,28 +3459,28 @@ export class OnsConsumerStatusResponseBodyData extends $tea.Model {
 }
 
 export class OnsConsumerTimeSpanResponseBodyData extends $tea.Model {
-  maxTimeStamp?: number;
   consumeTimeStamp?: number;
-  topic?: string;
-  minTimeStamp?: number;
   instanceId?: string;
+  maxTimeStamp?: number;
+  minTimeStamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      maxTimeStamp: 'MaxTimeStamp',
       consumeTimeStamp: 'ConsumeTimeStamp',
-      topic: 'Topic',
-      minTimeStamp: 'MinTimeStamp',
       instanceId: 'InstanceId',
+      maxTimeStamp: 'MaxTimeStamp',
+      minTimeStamp: 'MinTimeStamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxTimeStamp: 'number',
       consumeTimeStamp: 'number',
-      topic: 'string',
-      minTimeStamp: 'number',
       instanceId: 'string',
+      maxTimeStamp: 'number',
+      minTimeStamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -4074,19 +3490,19 @@ export class OnsConsumerTimeSpanResponseBodyData extends $tea.Model {
 }
 
 export class OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -4115,46 +3531,46 @@ export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model
 }
 
 export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
-  storeSize?: number;
-  reconsumeTimes?: number;
-  storeTimestamp?: number;
-  instanceId?: string;
-  msgId?: string;
-  storeHost?: string;
-  topic?: string;
-  propertyList?: OnsDLQMessageGetByIdResponseBodyDataPropertyList;
-  bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsDLQMessageGetByIdResponseBodyDataPropertyList;
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      storeSize: 'StoreSize',
-      reconsumeTimes: 'ReconsumeTimes',
-      storeTimestamp: 'StoreTimestamp',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      storeHost: 'StoreHost',
-      topic: 'Topic',
-      propertyList: 'PropertyList',
-      bornTimestamp: 'BornTimestamp',
       bodyCRC: 'BodyCRC',
       bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storeSize: 'number',
-      reconsumeTimes: 'number',
-      storeTimestamp: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      storeHost: 'string',
-      topic: 'string',
-      propertyList: OnsDLQMessageGetByIdResponseBodyDataPropertyList,
-      bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: OnsDLQMessageGetByIdResponseBodyDataPropertyList,
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -4164,19 +3580,19 @@ export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
 }
 
 export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -4205,46 +3621,46 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOn
 }
 
 export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
-  storeSize?: number;
-  reconsumeTimes?: number;
-  storeTimestamp?: number;
-  instanceId?: string;
-  msgId?: string;
-  storeHost?: string;
-  topic?: string;
-  propertyList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
-  bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      storeSize: 'StoreSize',
-      reconsumeTimes: 'ReconsumeTimes',
-      storeTimestamp: 'StoreTimestamp',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      storeHost: 'StoreHost',
-      topic: 'Topic',
-      propertyList: 'PropertyList',
-      bornTimestamp: 'BornTimestamp',
       bodyCRC: 'BodyCRC',
       bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storeSize: 'number',
-      reconsumeTimes: 'number',
-      storeTimestamp: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      storeHost: 'string',
-      topic: 'string',
-      propertyList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
-      bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -4274,14 +3690,14 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList e
 
 export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.Model {
   currentPage?: number;
-  msgFoundList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList;
   maxPageCount?: number;
+  msgFoundList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
-      msgFoundList: 'MsgFoundList',
       maxPageCount: 'MaxPageCount',
+      msgFoundList: 'MsgFoundList',
       taskId: 'TaskId',
     };
   }
@@ -4289,8 +3705,8 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      msgFoundList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList,
       maxPageCount: 'number',
+      msgFoundList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList,
       taskId: 'string',
     };
   }
@@ -4383,40 +3799,40 @@ export class OnsGroupListResponseBodyDataSubscribeInfoDoTags extends $tea.Model 
 }
 
 export class OnsGroupListResponseBodyDataSubscribeInfoDo extends $tea.Model {
-  owner?: string;
-  updateTime?: number;
-  independentNaming?: boolean;
-  groupId?: string;
-  remark?: string;
   createTime?: number;
-  tags?: OnsGroupListResponseBodyDataSubscribeInfoDoTags;
-  instanceId?: string;
+  groupId?: string;
   groupType?: string;
+  independentNaming?: boolean;
+  instanceId?: string;
+  owner?: string;
+  remark?: string;
+  tags?: OnsGroupListResponseBodyDataSubscribeInfoDoTags;
+  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
-      owner: 'Owner',
-      updateTime: 'UpdateTime',
-      independentNaming: 'IndependentNaming',
-      groupId: 'GroupId',
-      remark: 'Remark',
       createTime: 'CreateTime',
-      tags: 'Tags',
-      instanceId: 'InstanceId',
+      groupId: 'GroupId',
       groupType: 'GroupType',
+      independentNaming: 'IndependentNaming',
+      instanceId: 'InstanceId',
+      owner: 'Owner',
+      remark: 'Remark',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      owner: 'string',
-      updateTime: 'number',
-      independentNaming: 'boolean',
-      groupId: 'string',
-      remark: 'string',
       createTime: 'number',
-      tags: OnsGroupListResponseBodyDataSubscribeInfoDoTags,
-      instanceId: 'string',
+      groupId: 'string',
       groupType: 'string',
+      independentNaming: 'boolean',
+      instanceId: 'string',
+      owner: 'string',
+      remark: 'string',
+      tags: OnsGroupListResponseBodyDataSubscribeInfoDoTags,
+      updateTime: 'number',
     };
   }
 
@@ -4486,25 +3902,25 @@ export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.
 }
 
 export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
-  subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataList;
   groupId?: string;
   messageModel?: string;
   online?: boolean;
+  subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataList;
   static names(): { [key: string]: string } {
     return {
-      subscriptionDataList: 'SubscriptionDataList',
       groupId: 'GroupId',
       messageModel: 'MessageModel',
       online: 'Online',
+      subscriptionDataList: 'SubscriptionDataList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subscriptionDataList: OnsGroupSubDetailResponseBodyDataSubscriptionDataList,
       groupId: 'string',
       messageModel: 'string',
       online: 'boolean',
+      subscriptionDataList: OnsGroupSubDetailResponseBodyDataSubscriptionDataList,
     };
   }
 
@@ -4514,25 +3930,28 @@ export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
 }
 
 export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints extends $tea.Model {
-  tcpEndpoint?: string;
-  httpInternetEndpoint?: string;
   httpInternalEndpoint?: string;
+  httpInternetEndpoint?: string;
   httpInternetSecureEndpoint?: string;
+  tcpEndpoint?: string;
+  tcpInternetEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
-      tcpEndpoint: 'TcpEndpoint',
-      httpInternetEndpoint: 'HttpInternetEndpoint',
       httpInternalEndpoint: 'HttpInternalEndpoint',
+      httpInternetEndpoint: 'HttpInternetEndpoint',
       httpInternetSecureEndpoint: 'HttpInternetSecureEndpoint',
+      tcpEndpoint: 'TcpEndpoint',
+      tcpInternetEndpoint: 'TcpInternetEndpoint',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tcpEndpoint: 'string',
-      httpInternetEndpoint: 'string',
       httpInternalEndpoint: 'string',
+      httpInternetEndpoint: 'string',
       httpInternetSecureEndpoint: 'string',
+      tcpEndpoint: 'string',
+      tcpInternetEndpoint: 'string',
     };
   }
 
@@ -4542,43 +3961,52 @@ export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints extends $t
 }
 
 export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfo extends $tea.Model {
+  createTime?: string;
   endpoints?: OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints;
   independentNaming?: boolean;
-  maxTps?: number;
-  remark?: string;
-  instanceName?: string;
-  releaseTime?: number;
-  topicCapacity?: number;
-  instanceStatus?: number;
   instanceId?: string;
+  instanceName?: string;
+  instanceStatus?: number;
   instanceType?: number;
+  maxTps?: number;
+  releaseTime?: number;
+  remark?: string;
+  topicCapacity?: number;
+  spInstanceId?: string;
+  spInstanceType?: number;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       endpoints: 'Endpoints',
       independentNaming: 'IndependentNaming',
-      maxTps: 'MaxTps',
-      remark: 'Remark',
-      instanceName: 'InstanceName',
-      releaseTime: 'ReleaseTime',
-      topicCapacity: 'TopicCapacity',
-      instanceStatus: 'InstanceStatus',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
+      maxTps: 'MaxTps',
+      releaseTime: 'ReleaseTime',
+      remark: 'Remark',
+      topicCapacity: 'TopicCapacity',
+      spInstanceId: 'spInstanceId',
+      spInstanceType: 'spInstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       endpoints: OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints,
       independentNaming: 'boolean',
-      maxTps: 'number',
-      remark: 'string',
-      instanceName: 'string',
-      releaseTime: 'number',
-      topicCapacity: 'number',
-      instanceStatus: 'number',
       instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'number',
       instanceType: 'number',
+      maxTps: 'number',
+      releaseTime: 'number',
+      remark: 'string',
+      topicCapacity: 'number',
+      spInstanceId: 'string',
+      spInstanceType: 'number',
     };
   }
 
@@ -4673,34 +4101,37 @@ export class OnsInstanceInServiceListResponseBodyDataInstanceVOTags extends $tea
 }
 
 export class OnsInstanceInServiceListResponseBodyDataInstanceVO extends $tea.Model {
+  createTime?: number;
   independentNaming?: boolean;
-  instanceName?: string;
-  releaseTime?: number;
-  instanceStatus?: number;
-  tags?: OnsInstanceInServiceListResponseBodyDataInstanceVOTags;
   instanceId?: string;
+  instanceName?: string;
+  instanceStatus?: number;
   instanceType?: number;
+  releaseTime?: number;
+  tags?: OnsInstanceInServiceListResponseBodyDataInstanceVOTags;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       independentNaming: 'IndependentNaming',
-      instanceName: 'InstanceName',
-      releaseTime: 'ReleaseTime',
-      instanceStatus: 'InstanceStatus',
-      tags: 'Tags',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
+      releaseTime: 'ReleaseTime',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'number',
       independentNaming: 'boolean',
-      instanceName: 'string',
-      releaseTime: 'number',
-      instanceStatus: 'number',
-      tags: OnsInstanceInServiceListResponseBodyDataInstanceVOTags,
       instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'number',
       instanceType: 'number',
+      releaseTime: 'number',
+      tags: OnsInstanceInServiceListResponseBodyDataInstanceVOTags,
     };
   }
 
@@ -4728,20 +4159,97 @@ export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
-  value?: string;
+export class OnsMessageDetailResponseBodyDataPropertyList extends $tea.Model {
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailResponseBodyData extends $tea.Model {
+  body?: string;
+  bodyCRC?: number;
+  bodyStr?: string;
+  bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsMessageDetailResponseBodyDataPropertyList[];
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      bodyCRC: 'BodyCRC',
+      bodyStr: 'BodyStr',
+      bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      bodyCRC: 'number',
+      bodyStr: 'string',
+      bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: { 'type': 'array', 'itemType': OnsMessageDetailResponseBodyDataPropertyList },
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
     };
   }
 
@@ -4770,46 +4278,46 @@ export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList exte
 }
 
 export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo extends $tea.Model {
-  storeSize?: number;
-  reconsumeTimes?: number;
-  storeTimestamp?: number;
-  instanceId?: string;
-  msgId?: string;
-  storeHost?: string;
-  topic?: string;
-  propertyList?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList;
-  bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList;
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      storeSize: 'StoreSize',
-      reconsumeTimes: 'ReconsumeTimes',
-      storeTimestamp: 'StoreTimestamp',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      storeHost: 'StoreHost',
-      topic: 'Topic',
-      propertyList: 'PropertyList',
-      bornTimestamp: 'BornTimestamp',
       bodyCRC: 'BodyCRC',
       bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storeSize: 'number',
-      reconsumeTimes: 'number',
-      storeTimestamp: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      storeHost: 'string',
-      topic: 'string',
-      propertyList: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList,
-      bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList,
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -4838,19 +4346,19 @@ export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
 }
 
 export class OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -4879,46 +4387,46 @@ export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model
 }
 
 export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
-  storeSize?: number;
-  reconsumeTimes?: number;
-  storeTimestamp?: number;
-  instanceId?: string;
-  msgId?: string;
-  storeHost?: string;
-  topic?: string;
-  propertyList?: OnsMessageGetByMsgIdResponseBodyDataPropertyList;
-  bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsMessageGetByMsgIdResponseBodyDataPropertyList;
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      storeSize: 'StoreSize',
-      reconsumeTimes: 'ReconsumeTimes',
-      storeTimestamp: 'StoreTimestamp',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      storeHost: 'StoreHost',
-      topic: 'Topic',
-      propertyList: 'PropertyList',
-      bornTimestamp: 'BornTimestamp',
       bodyCRC: 'BodyCRC',
       bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storeSize: 'number',
-      reconsumeTimes: 'number',
-      storeTimestamp: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      storeHost: 'string',
-      topic: 'string',
-      propertyList: OnsMessageGetByMsgIdResponseBodyDataPropertyList,
-      bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: OnsMessageGetByMsgIdResponseBodyDataPropertyList,
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -4928,19 +4436,19 @@ export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
 }
 
 export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -4969,46 +4477,46 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRest
 }
 
 export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
-  storeSize?: number;
-  reconsumeTimes?: number;
-  storeTimestamp?: number;
-  instanceId?: string;
-  msgId?: string;
-  storeHost?: string;
-  topic?: string;
-  propertyList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
-  bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
+  bornTimestamp?: number;
+  instanceId?: string;
+  msgId?: string;
+  propertyList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
+  reconsumeTimes?: number;
+  storeHost?: string;
+  storeSize?: number;
+  storeTimestamp?: number;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      storeSize: 'StoreSize',
-      reconsumeTimes: 'ReconsumeTimes',
-      storeTimestamp: 'StoreTimestamp',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      storeHost: 'StoreHost',
-      topic: 'Topic',
-      propertyList: 'PropertyList',
-      bornTimestamp: 'BornTimestamp',
       bodyCRC: 'BodyCRC',
       bornHost: 'BornHost',
+      bornTimestamp: 'BornTimestamp',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      propertyList: 'PropertyList',
+      reconsumeTimes: 'ReconsumeTimes',
+      storeHost: 'StoreHost',
+      storeSize: 'StoreSize',
+      storeTimestamp: 'StoreTimestamp',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      storeSize: 'number',
-      reconsumeTimes: 'number',
-      storeTimestamp: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      storeHost: 'string',
-      topic: 'string',
-      propertyList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
-      bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
+      bornTimestamp: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      propertyList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
+      reconsumeTimes: 'number',
+      storeHost: 'string',
+      storeSize: 'number',
+      storeTimestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -5038,14 +4546,14 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extend
 
 export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model {
   currentPage?: number;
-  msgFoundList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList;
   maxPageCount?: number;
+  msgFoundList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
-      msgFoundList: 'MsgFoundList',
       maxPageCount: 'MaxPageCount',
+      msgFoundList: 'MsgFoundList',
       taskId: 'TaskId',
     };
   }
@@ -5053,8 +4561,8 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      msgFoundList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList,
       maxPageCount: 'number',
+      msgFoundList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList,
       taskId: 'string',
     };
   }
@@ -5065,22 +4573,22 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model
 }
 
 export class OnsMessageTraceResponseBodyDataMessageTrack extends $tea.Model {
-  trackType?: string;
   consumerGroup?: string;
   instanceId?: string;
+  trackType?: string;
   static names(): { [key: string]: string } {
     return {
-      trackType: 'TrackType',
       consumerGroup: 'ConsumerGroup',
       instanceId: 'InstanceId',
+      trackType: 'TrackType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      trackType: 'string',
       consumerGroup: 'string',
       instanceId: 'string',
+      trackType: 'string',
     };
   }
 
@@ -5108,321 +4616,20 @@ export class OnsMessageTraceResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo extends $tea.Model {
-  updateTime?: number;
-  independentNaming?: boolean;
-  groupId?: string;
-  createTime?: number;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      independentNaming: 'IndependentNaming',
-      groupId: 'GroupId',
-      createTime: 'CreateTime',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'number',
-      independentNaming: 'boolean',
-      groupId: 'string',
-      createTime: 'number',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttGroupIdListResponseBodyData extends $tea.Model {
-  mqttGroupIdDo?: OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo[];
-  static names(): { [key: string]: string } {
-    return {
-      mqttGroupIdDo: 'MqttGroupIdDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mqttGroupIdDo: { 'type': 'array', 'itemType': OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo extends $tea.Model {
-  subTopic?: string;
-  parentTopic?: string;
-  qos?: number;
-  static names(): { [key: string]: string } {
-    return {
-      subTopic: 'SubTopic',
-      parentTopic: 'ParentTopic',
-      qos: 'Qos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subTopic: 'string',
-      parentTopic: 'string',
-      qos: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData extends $tea.Model {
-  subscriptionDo?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo[];
-  static names(): { [key: string]: string } {
-    return {
-      subscriptionDo: 'SubscriptionDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subscriptionDo: { 'type': 'array', 'itemType': OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDo extends $tea.Model {
-  online?: boolean;
-  lastTouch?: number;
-  socketChannel?: string;
-  clientId?: string;
-  subScriptonData?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData;
-  static names(): { [key: string]: string } {
-    return {
-      online: 'Online',
-      lastTouch: 'LastTouch',
-      socketChannel: 'SocketChannel',
-      clientId: 'ClientId',
-      subScriptonData: 'SubScriptonData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      online: 'boolean',
-      lastTouch: 'number',
-      socketChannel: 'string',
-      clientId: 'string',
-      subScriptonData: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByGroupIdResponseBodyMqttClientSetDo extends $tea.Model {
-  onlineCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      onlineCount: 'OnlineCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      onlineCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryClientByTopicResponseBodyMqttClientSetDo extends $tea.Model {
-  onlineCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      onlineCount: 'OnlineCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      onlineCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineResponseBodyDataRecords extends $tea.Model {
-  statsDataDo?: OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo[];
-  static names(): { [key: string]: string } {
-    return {
-      statsDataDo: 'StatsDataDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statsDataDo: { 'type': 'array', 'itemType': OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryHistoryOnlineResponseBodyData extends $tea.Model {
-  records?: OnsMqttQueryHistoryOnlineResponseBodyDataRecords;
-  XUnit?: string;
-  YUnit?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      records: 'Records',
-      XUnit: 'XUnit',
-      YUnit: 'YUnit',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      records: OnsMqttQueryHistoryOnlineResponseBodyDataRecords,
-      XUnit: 'string',
-      YUnit: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendResponseBodyDataRecords extends $tea.Model {
-  statsDataDo?: OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo[];
-  static names(): { [key: string]: string } {
-    return {
-      statsDataDo: 'StatsDataDo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statsDataDo: { 'type': 'array', 'itemType': OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMqttQueryMsgTransTrendResponseBodyData extends $tea.Model {
-  records?: OnsMqttQueryMsgTransTrendResponseBodyDataRecords;
-  XUnit?: string;
-  YUnit?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      records: 'Records',
-      XUnit: 'XUnit',
-      YUnit: 'YUnit',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      records: OnsMqttQueryMsgTransTrendResponseBodyDataRecords,
-      XUnit: 'string',
-      YUnit: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OnsRegionListResponseBodyDataRegionDo extends $tea.Model {
-  regionName?: string;
   onsRegionId?: string;
+  regionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionName: 'RegionName',
       onsRegionId: 'OnsRegionId',
+      regionName: 'RegionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionName: 'string',
       onsRegionId: 'string',
+      regionName: 'string',
     };
   }
 
@@ -5514,43 +4721,46 @@ export class OnsTopicListResponseBodyDataPublishInfoDoTags extends $tea.Model {
 }
 
 export class OnsTopicListResponseBodyDataPublishInfoDo extends $tea.Model {
-  messageType?: number;
-  relationName?: string;
-  owner?: string;
-  independentNaming?: boolean;
-  remark?: string;
-  relation?: number;
   createTime?: number;
-  topic?: string;
-  tags?: OnsTopicListResponseBodyDataPublishInfoDoTags;
+  independentNaming?: boolean;
   instanceId?: string;
+  messageType?: number;
+  owner?: string;
+  relation?: number;
+  relationName?: string;
+  remark?: string;
+  serviceStatus?: number;
+  tags?: OnsTopicListResponseBodyDataPublishInfoDoTags;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      messageType: 'MessageType',
-      relationName: 'RelationName',
-      owner: 'Owner',
-      independentNaming: 'IndependentNaming',
-      remark: 'Remark',
-      relation: 'Relation',
       createTime: 'CreateTime',
-      topic: 'Topic',
-      tags: 'Tags',
+      independentNaming: 'IndependentNaming',
       instanceId: 'InstanceId',
+      messageType: 'MessageType',
+      owner: 'Owner',
+      relation: 'Relation',
+      relationName: 'RelationName',
+      remark: 'Remark',
+      serviceStatus: 'ServiceStatus',
+      tags: 'Tags',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageType: 'number',
-      relationName: 'string',
-      owner: 'string',
-      independentNaming: 'boolean',
-      remark: 'string',
-      relation: 'number',
       createTime: 'number',
-      topic: 'string',
-      tags: OnsTopicListResponseBodyDataPublishInfoDoTags,
+      independentNaming: 'boolean',
       instanceId: 'string',
+      messageType: 'number',
+      owner: 'string',
+      relation: 'number',
+      relationName: 'string',
+      remark: 'string',
+      serviceStatus: 'number',
+      tags: OnsTopicListResponseBodyDataPublishInfoDoTags,
+      topic: 'string',
     };
   }
 
@@ -5579,21 +4789,21 @@ export class OnsTopicListResponseBodyData extends $tea.Model {
 }
 
 export class OnsTopicStatusResponseBodyData extends $tea.Model {
-  perm?: number;
   lastTimeStamp?: number;
+  perm?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      perm: 'Perm',
       lastTimeStamp: 'LastTimeStamp',
+      perm: 'Perm',
       totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      perm: 'number',
       lastTimeStamp: 'number',
+      perm: 'number',
       totalCount: 'number',
     };
   }
@@ -5670,31 +4880,31 @@ export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
 }
 
 export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo extends $tea.Model {
-  status?: string;
-  subTime?: number;
-  reconsumeTimes?: number;
-  subGroupName?: string;
   clientHost?: string;
   costTime?: number;
+  reconsumeTimes?: number;
+  status?: string;
+  subGroupName?: string;
+  subTime?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      subTime: 'SubTime',
-      reconsumeTimes: 'ReconsumeTimes',
-      subGroupName: 'SubGroupName',
       clientHost: 'ClientHost',
       costTime: 'CostTime',
+      reconsumeTimes: 'ReconsumeTimes',
+      status: 'Status',
+      subGroupName: 'SubGroupName',
+      subTime: 'SubTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      subTime: 'number',
-      reconsumeTimes: 'number',
-      subGroupName: 'string',
       clientHost: 'string',
       costTime: 'number',
+      reconsumeTimes: 'number',
+      status: 'string',
+      subGroupName: 'string',
+      subTime: 'number',
     };
   }
 
@@ -5770,43 +4980,43 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList ex
 }
 
 export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo extends $tea.Model {
-  status?: string;
-  msgKey?: string;
-  pubTime?: number;
-  subList?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList;
-  topic?: string;
-  costTime?: number;
-  tag?: string;
-  msgId?: string;
-  pubGroupName?: string;
   bornHost?: string;
+  costTime?: number;
+  msgId?: string;
+  msgKey?: string;
+  pubGroupName?: string;
+  pubTime?: number;
+  status?: string;
+  subList?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList;
+  tag?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      msgKey: 'MsgKey',
-      pubTime: 'PubTime',
-      subList: 'SubList',
-      topic: 'Topic',
-      costTime: 'CostTime',
-      tag: 'Tag',
-      msgId: 'MsgId',
-      pubGroupName: 'PubGroupName',
       bornHost: 'BornHost',
+      costTime: 'CostTime',
+      msgId: 'MsgId',
+      msgKey: 'MsgKey',
+      pubGroupName: 'PubGroupName',
+      pubTime: 'PubTime',
+      status: 'Status',
+      subList: 'SubList',
+      tag: 'Tag',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      msgKey: 'string',
-      pubTime: 'number',
-      subList: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList,
-      topic: 'string',
-      costTime: 'number',
-      tag: 'string',
-      msgId: 'string',
-      pubGroupName: 'string',
       bornHost: 'string',
+      costTime: 'number',
+      msgId: 'string',
+      msgKey: 'string',
+      pubGroupName: 'string',
+      pubTime: 'number',
+      status: 'string',
+      subList: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList,
+      tag: 'string',
+      topic: 'string',
     };
   }
 
@@ -5835,43 +5045,43 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model 
 }
 
 export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
-  status?: string;
-  msgKey?: string;
-  updateTime?: number;
   createTime?: number;
-  topic?: string;
-  userId?: string;
   instanceId?: string;
   msgId?: string;
-  traceList?: OnsTraceGetResultResponseBodyTraceDataTraceList;
+  msgKey?: string;
   queryId?: string;
+  status?: string;
+  topic?: string;
+  traceList?: OnsTraceGetResultResponseBodyTraceDataTraceList;
+  updateTime?: number;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      msgKey: 'MsgKey',
-      updateTime: 'UpdateTime',
       createTime: 'CreateTime',
-      topic: 'Topic',
-      userId: 'UserId',
       instanceId: 'InstanceId',
       msgId: 'MsgId',
-      traceList: 'TraceList',
+      msgKey: 'MsgKey',
       queryId: 'QueryId',
+      status: 'Status',
+      topic: 'Topic',
+      traceList: 'TraceList',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      msgKey: 'string',
-      updateTime: 'number',
       createTime: 'number',
-      topic: 'string',
-      userId: 'string',
       instanceId: 'string',
       msgId: 'string',
-      traceList: OnsTraceGetResultResponseBodyTraceDataTraceList,
+      msgKey: 'string',
       queryId: 'string',
+      status: 'string',
+      topic: 'string',
+      traceList: OnsTraceGetResultResponseBodyTraceDataTraceList,
+      updateTime: 'number',
+      userId: 'string',
     };
   }
 
@@ -5881,19 +5091,19 @@ export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
 }
 
 export class OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
-  y?: number;
   x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
-      y: 'Y',
       x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      y: 'number',
       x: 'number',
+      y: 'number',
     };
   }
 
@@ -5923,24 +5133,24 @@ export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
 
 export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
   records?: OnsTrendGroupOutputTpsResponseBodyDataRecords;
+  title?: string;
   XUnit?: string;
   YUnit?: string;
-  title?: string;
   static names(): { [key: string]: string } {
     return {
       records: 'Records',
+      title: 'Title',
       XUnit: 'XUnit',
       YUnit: 'YUnit',
-      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       records: OnsTrendGroupOutputTpsResponseBodyDataRecords,
+      title: 'string',
       XUnit: 'string',
       YUnit: 'string',
-      title: 'string',
     };
   }
 
@@ -5950,19 +5160,19 @@ export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
 }
 
 export class OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
-  y?: number;
   x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
-      y: 'Y',
       x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      y: 'number',
       x: 'number',
+      y: 'number',
     };
   }
 
@@ -5992,24 +5202,24 @@ export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
 
 export class OnsTrendTopicInputTpsResponseBodyData extends $tea.Model {
   records?: OnsTrendTopicInputTpsResponseBodyDataRecords;
+  title?: string;
   XUnit?: string;
   YUnit?: string;
-  title?: string;
   static names(): { [key: string]: string } {
     return {
       records: 'Records',
+      title: 'Title',
       XUnit: 'XUnit',
       YUnit: 'YUnit',
-      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       records: OnsTrendTopicInputTpsResponseBodyDataRecords,
+      title: 'string',
       XUnit: 'string',
       YUnit: 'string',
-      title: 'string',
     };
   }
 
@@ -6095,645 +5305,2150 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you call the **ListTagResources** operation, specify at least one of the following parameters in the request: **Tag.N.Key** and **ResourceId.N**. You can specify a resource ID to query all tags that are attached to the specified resource. You can also specify a tag key to query the tag value and the resource to which the tag is attached.
+    * *   If you include the **Tag.N.Key** parameter in a request, you can obtain the tag value and the ID of the resource to which the tag is attached.********
+    * *   If you include the **ResourceId.N** parameter in a request, you can obtain the keys and values of all tags that are attached to the specified resource.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you call the **ListTagResources** operation, specify at least one of the following parameters in the request: **Tag.N.Key** and **ResourceId.N**. You can specify a resource ID to query all tags that are attached to the specified resource. You can also specify a tag key to query the tag value and the resource to which the tag is attached.
+    * *   If you include the **Tag.N.Key** parameter in a request, you can obtain the tag value and the ID of the resource to which the tag is attached.********
+    * *   If you include the **ResourceId.N** parameter in a request, you can obtain the keys and values of all tags that are attached to the specified resource.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation in scenarios in which you want to know the message consumption progress of a specified consumer group in production environments. You can obtain the information about message consumption and consumption latency based on the returned information. This operation returns the total number of accumulated messages in all topics to which the specified consumer group subscribes and the number of accumulated messages in each topic.
+    *
+    * @param request OnsConsumerAccumulateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsConsumerAccumulateResponse
+   */
   async onsConsumerAccumulateWithOptions(request: OnsConsumerAccumulateRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerAccumulateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsConsumerAccumulateResponse>(await this.doRPCRequest("OnsConsumerAccumulate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsConsumerAccumulateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsConsumerAccumulate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsConsumerAccumulateResponse>(await this.callApi(params, req, runtime), new OnsConsumerAccumulateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation in scenarios in which you want to know the message consumption progress of a specified consumer group in production environments. You can obtain the information about message consumption and consumption latency based on the returned information. This operation returns the total number of accumulated messages in all topics to which the specified consumer group subscribes and the number of accumulated messages in each topic.
+    *
+    * @param request OnsConsumerAccumulateRequest
+    * @return OnsConsumerAccumulateResponse
+   */
   async onsConsumerAccumulate(request: OnsConsumerAccumulateRequest): Promise<OnsConsumerAccumulateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsConsumerAccumulateWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When messages are accumulated in a topic, you can call this operation to check whether a consumer is online.
+    *
+    * @param request OnsConsumerGetConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsConsumerGetConnectionResponse
+   */
   async onsConsumerGetConnectionWithOptions(request: OnsConsumerGetConnectionRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerGetConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsConsumerGetConnectionResponse>(await this.doRPCRequest("OnsConsumerGetConnection", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsConsumerGetConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsConsumerGetConnection",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsConsumerGetConnectionResponse>(await this.callApi(params, req, runtime), new OnsConsumerGetConnectionResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When messages are accumulated in a topic, you can call this operation to check whether a consumer is online.
+    *
+    * @param request OnsConsumerGetConnectionRequest
+    * @return OnsConsumerGetConnectionResponse
+   */
   async onsConsumerGetConnection(request: OnsConsumerGetConnectionRequest): Promise<OnsConsumerGetConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsConsumerGetConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to clear accumulated messages or reset the consumption progress. You can use one of the following methods to clear accumulated messages:
+    * *   Clear all accumulated messages in a specified topic.
+    * *   Clear the messages that were published to the specified topic before a specified point in time.
+    *
+    * @param request OnsConsumerResetOffsetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsConsumerResetOffsetResponse
+   */
   async onsConsumerResetOffsetWithOptions(request: OnsConsumerResetOffsetRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerResetOffsetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.resetTimestamp)) {
+      query["ResetTimestamp"] = request.resetTimestamp;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsConsumerResetOffsetResponse>(await this.doRPCRequest("OnsConsumerResetOffset", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsConsumerResetOffsetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsConsumerResetOffset",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsConsumerResetOffsetResponse>(await this.callApi(params, req, runtime), new OnsConsumerResetOffsetResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to clear accumulated messages or reset the consumption progress. You can use one of the following methods to clear accumulated messages:
+    * *   Clear all accumulated messages in a specified topic.
+    * *   Clear the messages that were published to the specified topic before a specified point in time.
+    *
+    * @param request OnsConsumerResetOffsetRequest
+    * @return OnsConsumerResetOffsetResponse
+   */
   async onsConsumerResetOffset(request: OnsConsumerResetOffsetRequest): Promise<OnsConsumerResetOffsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsConsumerResetOffsetWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation in scenarios in which consumers are online and messages are accumulated. You can troubleshoot errors based on the information that is returned by this operation. You can check whether all consumers in the consumer group subscribe to the same topics and tags, and whether load balancing is performed as expected. You can also obtain the information about thread stack traces of online consumers.
+    * *   This operation uses multiple backend operations to query and aggregate data. The system requires a long period of time to process a request. We recommend that you do not frequently call this operation.
+    *
+    * @param request OnsConsumerStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsConsumerStatusResponse
+   */
   async onsConsumerStatusWithOptions(request: OnsConsumerStatusRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.needJstack)) {
+      query["NeedJstack"] = request.needJstack;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsConsumerStatusResponse>(await this.doRPCRequest("OnsConsumerStatus", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsConsumerStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsConsumerStatus",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsConsumerStatusResponse>(await this.callApi(params, req, runtime), new OnsConsumerStatusResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation in scenarios in which consumers are online and messages are accumulated. You can troubleshoot errors based on the information that is returned by this operation. You can check whether all consumers in the consumer group subscribe to the same topics and tags, and whether load balancing is performed as expected. You can also obtain the information about thread stack traces of online consumers.
+    * *   This operation uses multiple backend operations to query and aggregate data. The system requires a long period of time to process a request. We recommend that you do not frequently call this operation.
+    *
+    * @param request OnsConsumerStatusRequest
+    * @return OnsConsumerStatusResponse
+   */
   async onsConsumerStatus(request: OnsConsumerStatusRequest): Promise<OnsConsumerStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsConsumerStatusWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to query the earliest point in time when a message was published to a specified topic and the most recent point in time when a message was published to the specified topic. You can also obtain the most recent point in time when a message in the topic was consumed. This operation is usually used with the \\*\\*OnsConsumerAccumulate\\*\\* operation to display the overview of the consumption progress.
+    *
+    * @param request OnsConsumerTimeSpanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsConsumerTimeSpanResponse
+   */
   async onsConsumerTimeSpanWithOptions(request: OnsConsumerTimeSpanRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerTimeSpanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsConsumerTimeSpanResponse>(await this.doRPCRequest("OnsConsumerTimeSpan", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsConsumerTimeSpanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsConsumerTimeSpan",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsConsumerTimeSpanResponse>(await this.callApi(params, req, runtime), new OnsConsumerTimeSpanResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to query the earliest point in time when a message was published to a specified topic and the most recent point in time when a message was published to the specified topic. You can also obtain the most recent point in time when a message in the topic was consumed. This operation is usually used with the \\*\\*OnsConsumerAccumulate\\*\\* operation to display the overview of the consumption progress.
+    *
+    * @param request OnsConsumerTimeSpanRequest
+    * @return OnsConsumerTimeSpanResponse
+   */
   async onsConsumerTimeSpan(request: OnsConsumerTimeSpanRequest): Promise<OnsConsumerTimeSpanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsConsumerTimeSpanWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * This operation uses the exact match method to query a dead-letter message based on the message ID. You can obtain the message ID that is required to query the information about a dead-letter message from the SendResult parameter that is returned after the message is sent. You can also obtain the message ID by calling the OnsDLQMessagePageQueryByGroupId operation to query multiple messages at a time. The queried information about the dead-letter message includes the point in time when the message is stored, the message body, and attributes such as the message tag and the message key.
+    *
+    * @param request OnsDLQMessageGetByIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsDLQMessageGetByIdResponse
+   */
   async onsDLQMessageGetByIdWithOptions(request: OnsDLQMessageGetByIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessageGetByIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsDLQMessageGetByIdResponse>(await this.doRPCRequest("OnsDLQMessageGetById", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsDLQMessageGetByIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsDLQMessageGetById",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsDLQMessageGetByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageGetByIdResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * This operation uses the exact match method to query a dead-letter message based on the message ID. You can obtain the message ID that is required to query the information about a dead-letter message from the SendResult parameter that is returned after the message is sent. You can also obtain the message ID by calling the OnsDLQMessagePageQueryByGroupId operation to query multiple messages at a time. The queried information about the dead-letter message includes the point in time when the message is stored, the message body, and attributes such as the message tag and the message key.
+    *
+    * @param request OnsDLQMessageGetByIdRequest
+    * @return OnsDLQMessageGetByIdResponse
+   */
   async onsDLQMessageGetById(request: OnsDLQMessageGetByIdRequest): Promise<OnsDLQMessageGetByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsDLQMessageGetByIdWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If you do not know the ID of the dead-letter message that you want to query, you can call this operation to query all dead-letter messages that are sent to a specified consumer group within a specified time range. The results are returned by page.
+    * *   We recommend that you specify a short time range to query dead-letter messages in this method. If you specify a long time range, a large number of dead-letter messages are returned. In this case, you cannot find the dead-letter message that you want to query in an efficient manner. You can perform the following steps to query dead-letter messages:
+    *     1.  Perform a paged query by specifying the group ID, start time, end time, and number of entries to return on each page. If matched messages are found, the information about the dead-letter messages on the first page, total number of pages, and task ID are returned by default.
+    *     2.  Specify the task ID and a page number to call this operation again to query the dead-letter messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+    *
+    * @param request OnsDLQMessagePageQueryByGroupIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsDLQMessagePageQueryByGroupIdResponse
+   */
   async onsDLQMessagePageQueryByGroupIdWithOptions(request: OnsDLQMessagePageQueryByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessagePageQueryByGroupIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsDLQMessagePageQueryByGroupIdResponse>(await this.doRPCRequest("OnsDLQMessagePageQueryByGroupId", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsDLQMessagePageQueryByGroupIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsDLQMessagePageQueryByGroupId",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsDLQMessagePageQueryByGroupIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessagePageQueryByGroupIdResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If you do not know the ID of the dead-letter message that you want to query, you can call this operation to query all dead-letter messages that are sent to a specified consumer group within a specified time range. The results are returned by page.
+    * *   We recommend that you specify a short time range to query dead-letter messages in this method. If you specify a long time range, a large number of dead-letter messages are returned. In this case, you cannot find the dead-letter message that you want to query in an efficient manner. You can perform the following steps to query dead-letter messages:
+    *     1.  Perform a paged query by specifying the group ID, start time, end time, and number of entries to return on each page. If matched messages are found, the information about the dead-letter messages on the first page, total number of pages, and task ID are returned by default.
+    *     2.  Specify the task ID and a page number to call this operation again to query the dead-letter messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+    *
+    * @param request OnsDLQMessagePageQueryByGroupIdRequest
+    * @return OnsDLQMessagePageQueryByGroupIdResponse
+   */
   async onsDLQMessagePageQueryByGroupId(request: OnsDLQMessagePageQueryByGroupIdRequest): Promise<OnsDLQMessagePageQueryByGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsDLQMessagePageQueryByGroupIdWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   After the number of retries to send a message to a consumer group for consumption reaches the upper limit and the message is not consumed by a consumer in the group, the message is added to the dead-letter queue of the consumer group. The message is a dead-letter message. After you resend the dead-letter message to the consumer group for consumption and the message fails to be consumed again after the maximum number of retries, a dead-letter message with the same message ID is added to the dead-letter queue. You can view the details of the dead-letter message on the Dead-letter Queues page in the Message Queue for Apache RocketMQ console or by calling the API operations that are used to query dead-letter messages. You can obtain the number of consumption failures for a message based on the number of dead-letter messages with the same message ID in the dead-letter queue.
+    * *   A dead-letter message is a message that fails to be consumed after the number of consumption retries reaches the upper limit. Generally, dead-letter messages are produced because of incorrect consumption logic. We recommend that you troubleshoot the consumption failures and then call this operation to send the message to the consumer group for consumption again.
+    * *   Message Queue for Apache RocketMQ does not manage the status of dead-letter messages based on the consumption status of the dead-letter messages. After you call this operation to send a dead-letter message to a consumer group and the message is consumed, Message Queue for Apache RocketMQ does not remove the dead-letter message from the dead-letter queue. You must manage dead-letter messages and determine whether to send a dead-letter message to a consumer group for consumption. This way, you do not resend and reconsume the messages that are consumed.
+    *
+    * @param request OnsDLQMessageResendByIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsDLQMessageResendByIdResponse
+   */
   async onsDLQMessageResendByIdWithOptions(request: OnsDLQMessageResendByIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessageResendByIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsDLQMessageResendByIdResponse>(await this.doRPCRequest("OnsDLQMessageResendById", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsDLQMessageResendByIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsDLQMessageResendById",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsDLQMessageResendByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageResendByIdResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   After the number of retries to send a message to a consumer group for consumption reaches the upper limit and the message is not consumed by a consumer in the group, the message is added to the dead-letter queue of the consumer group. The message is a dead-letter message. After you resend the dead-letter message to the consumer group for consumption and the message fails to be consumed again after the maximum number of retries, a dead-letter message with the same message ID is added to the dead-letter queue. You can view the details of the dead-letter message on the Dead-letter Queues page in the Message Queue for Apache RocketMQ console or by calling the API operations that are used to query dead-letter messages. You can obtain the number of consumption failures for a message based on the number of dead-letter messages with the same message ID in the dead-letter queue.
+    * *   A dead-letter message is a message that fails to be consumed after the number of consumption retries reaches the upper limit. Generally, dead-letter messages are produced because of incorrect consumption logic. We recommend that you troubleshoot the consumption failures and then call this operation to send the message to the consumer group for consumption again.
+    * *   Message Queue for Apache RocketMQ does not manage the status of dead-letter messages based on the consumption status of the dead-letter messages. After you call this operation to send a dead-letter message to a consumer group and the message is consumed, Message Queue for Apache RocketMQ does not remove the dead-letter message from the dead-letter queue. You must manage dead-letter messages and determine whether to send a dead-letter message to a consumer group for consumption. This way, you do not resend and reconsume the messages that are consumed.
+    *
+    * @param request OnsDLQMessageResendByIdRequest
+    * @return OnsDLQMessageResendByIdResponse
+   */
   async onsDLQMessageResendById(request: OnsDLQMessageResendByIdRequest): Promise<OnsDLQMessageResendByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsDLQMessageResendByIdWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to configure the permissions for a consumer group to read messages based on a specified region of Message Queue for Apache RocketMQ and a specified group ID. You can call this operation in scenarios in which you want to forbid consumers in a specific group from reading messages.
+    *
+    * @param request OnsGroupConsumerUpdateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsGroupConsumerUpdateResponse
+   */
   async onsGroupConsumerUpdateWithOptions(request: OnsGroupConsumerUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupConsumerUpdateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.readEnable)) {
+      query["ReadEnable"] = request.readEnable;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsGroupConsumerUpdateResponse>(await this.doRPCRequest("OnsGroupConsumerUpdate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsGroupConsumerUpdateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsGroupConsumerUpdate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsGroupConsumerUpdateResponse>(await this.callApi(params, req, runtime), new OnsGroupConsumerUpdateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to configure the permissions for a consumer group to read messages based on a specified region of Message Queue for Apache RocketMQ and a specified group ID. You can call this operation in scenarios in which you want to forbid consumers in a specific group from reading messages.
+    *
+    * @param request OnsGroupConsumerUpdateRequest
+    * @return OnsGroupConsumerUpdateResponse
+   */
   async onsGroupConsumerUpdate(request: OnsGroupConsumerUpdateRequest): Promise<OnsGroupConsumerUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsGroupConsumerUpdateWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you release a new application or implement new business logic, you need new consumer groups. You can call this operation to create a consumer group.
+    *
+    * @param request OnsGroupCreateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsGroupCreateResponse
+   */
   async onsGroupCreateWithOptions(request: OnsGroupCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupCreateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsGroupCreateResponse>(await this.doRPCRequest("OnsGroupCreate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsGroupCreateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsGroupCreate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsGroupCreateResponse>(await this.callApi(params, req, runtime), new OnsGroupCreateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you release a new application or implement new business logic, you need new consumer groups. You can call this operation to create a consumer group.
+    *
+    * @param request OnsGroupCreateRequest
+    * @return OnsGroupCreateResponse
+   */
   async onsGroupCreate(request: OnsGroupCreateRequest): Promise<OnsGroupCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsGroupCreateWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   After you delete a group, the consumers in the group immediately stop receiving messages. Exercise caution when you call this operation.
+    * You can call this operation to delete a group when you need to deallocate the resources of the group. For example, after an application is brought offline, you can delete the groups that are used for the application. After you delete a group, the backend of Message Queue for Apache RocketMQ deallocates the resources of the group. The system requires a long period of time to deallocate the resources. We recommend that you do not create a group that uses the same name as a deleted group immediately after you delete the group. If the system fails to delete the specified group, troubleshoot the issue based on the error code.
+    *
+    * @param request OnsGroupDeleteRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsGroupDeleteResponse
+   */
   async onsGroupDeleteWithOptions(request: OnsGroupDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupDeleteResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsGroupDeleteResponse>(await this.doRPCRequest("OnsGroupDelete", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsGroupDeleteResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsGroupDelete",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsGroupDeleteResponse>(await this.callApi(params, req, runtime), new OnsGroupDeleteResponse({}));
   }
 
+  /**
+    * > 
+    * *   The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   After you delete a group, the consumers in the group immediately stop receiving messages. Exercise caution when you call this operation.
+    * You can call this operation to delete a group when you need to deallocate the resources of the group. For example, after an application is brought offline, you can delete the groups that are used for the application. After you delete a group, the backend of Message Queue for Apache RocketMQ deallocates the resources of the group. The system requires a long period of time to deallocate the resources. We recommend that you do not create a group that uses the same name as a deleted group immediately after you delete the group. If the system fails to delete the specified group, troubleshoot the issue based on the error code.
+    *
+    * @param request OnsGroupDeleteRequest
+    * @return OnsGroupDeleteResponse
+   */
   async onsGroupDelete(request: OnsGroupDeleteRequest): Promise<OnsGroupDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsGroupDeleteWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsGroupListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsGroupListResponse
+   */
   async onsGroupListWithOptions(request: OnsGroupListRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsGroupListResponse>(await this.doRPCRequest("OnsGroupList", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsGroupListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsGroupList",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsGroupListResponse>(await this.callApi(params, req, runtime), new OnsGroupListResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsGroupListRequest
+    * @return OnsGroupListResponse
+   */
   async onsGroupList(request: OnsGroupListRequest): Promise<OnsGroupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsGroupListWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsGroupSubDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsGroupSubDetailResponse
+   */
   async onsGroupSubDetailWithOptions(request: OnsGroupSubDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupSubDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsGroupSubDetailResponse>(await this.doRPCRequest("OnsGroupSubDetail", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsGroupSubDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsGroupSubDetail",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsGroupSubDetailResponse>(await this.callApi(params, req, runtime), new OnsGroupSubDetailResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsGroupSubDetailRequest
+    * @return OnsGroupSubDetailResponse
+   */
   async onsGroupSubDetail(request: OnsGroupSubDetailRequest): Promise<OnsGroupSubDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsGroupSubDetailWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * To send and receive messages, a client must be connected to a Message Queue for Apache RocketMQ instance by using an endpoint. You can call this operation to query the endpoints of the instance.
+    *
+    * @param request OnsInstanceBaseInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsInstanceBaseInfoResponse
+   */
   async onsInstanceBaseInfoWithOptions(request: OnsInstanceBaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceBaseInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsInstanceBaseInfoResponse>(await this.doRPCRequest("OnsInstanceBaseInfo", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsInstanceBaseInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsInstanceBaseInfo",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsInstanceBaseInfoResponse>(await this.callApi(params, req, runtime), new OnsInstanceBaseInfoResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * To send and receive messages, a client must be connected to a Message Queue for Apache RocketMQ instance by using an endpoint. You can call this operation to query the endpoints of the instance.
+    *
+    * @param request OnsInstanceBaseInfoRequest
+    * @return OnsInstanceBaseInfoResponse
+   */
   async onsInstanceBaseInfo(request: OnsInstanceBaseInfoRequest): Promise<OnsInstanceBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsInstanceBaseInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * An instance is a virtual machine (VM) that can be used to store information about the topics and groups of Message Queue for Apache RocketMQ. You can call this operation when you need to create service resources for the business that you want to launch. Take note of the following points when you call this operation:
+    * *   A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+    * *   This operation can be called to create only a Standard Edition instance. You can use the Message Queue for Apache RocketMQ console to create Standard Edition instances and Enterprise Platinum Edition instances. For information about how to create Message Queue for Apache RocketMQ instances, see [Manage instances](~~200153~~).
+    *
+    * @param request OnsInstanceCreateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsInstanceCreateResponse
+   */
   async onsInstanceCreateWithOptions(request: OnsInstanceCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceCreateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsInstanceCreateResponse>(await this.doRPCRequest("OnsInstanceCreate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsInstanceCreateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsInstanceCreate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsInstanceCreateResponse>(await this.callApi(params, req, runtime), new OnsInstanceCreateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * An instance is a virtual machine (VM) that can be used to store information about the topics and groups of Message Queue for Apache RocketMQ. You can call this operation when you need to create service resources for the business that you want to launch. Take note of the following points when you call this operation:
+    * *   A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+    * *   This operation can be called to create only a Standard Edition instance. You can use the Message Queue for Apache RocketMQ console to create Standard Edition instances and Enterprise Platinum Edition instances. For information about how to create Message Queue for Apache RocketMQ instances, see [Manage instances](~~200153~~).
+    *
+    * @param request OnsInstanceCreateRequest
+    * @return OnsInstanceCreateResponse
+   */
   async onsInstanceCreate(request: OnsInstanceCreateRequest): Promise<OnsInstanceCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsInstanceCreateWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation when you need to reclaim resources. For example, after you unpublish an application, you can reclaim the resources that were used for the application. An instance can be deleted only when the instance does not contain topics and groups.
+    * *   After an instance is deleted, the instance cannot be recovered. Exercise caution when you call this operation.
+    *
+    * @param request OnsInstanceDeleteRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsInstanceDeleteResponse
+   */
   async onsInstanceDeleteWithOptions(request: OnsInstanceDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceDeleteResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsInstanceDeleteResponse>(await this.doRPCRequest("OnsInstanceDelete", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsInstanceDeleteResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsInstanceDelete",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsInstanceDeleteResponse>(await this.callApi(params, req, runtime), new OnsInstanceDeleteResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation when you need to reclaim resources. For example, after you unpublish an application, you can reclaim the resources that were used for the application. An instance can be deleted only when the instance does not contain topics and groups.
+    * *   After an instance is deleted, the instance cannot be recovered. Exercise caution when you call this operation.
+    *
+    * @param request OnsInstanceDeleteRequest
+    * @return OnsInstanceDeleteResponse
+   */
   async onsInstanceDelete(request: OnsInstanceDeleteRequest): Promise<OnsInstanceDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsInstanceDeleteWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsInstanceInServiceListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsInstanceInServiceListResponse
+   */
   async onsInstanceInServiceListWithOptions(request: OnsInstanceInServiceListRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceInServiceListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsInstanceInServiceListResponse>(await this.doRPCRequest("OnsInstanceInServiceList", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsInstanceInServiceListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsInstanceInServiceList",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsInstanceInServiceListResponse>(await this.callApi(params, req, runtime), new OnsInstanceInServiceListResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request OnsInstanceInServiceListRequest
+    * @return OnsInstanceInServiceListResponse
+   */
   async onsInstanceInServiceList(request: OnsInstanceInServiceListRequest): Promise<OnsInstanceInServiceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsInstanceInServiceListWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+    *
+    * @param request OnsInstanceUpdateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsInstanceUpdateResponse
+   */
   async onsInstanceUpdateWithOptions(request: OnsInstanceUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceUpdateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsInstanceUpdateResponse>(await this.doRPCRequest("OnsInstanceUpdate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsInstanceUpdateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsInstanceUpdate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsInstanceUpdateResponse>(await this.callApi(params, req, runtime), new OnsInstanceUpdateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * A maximum of eight Message Queue for Apache RocketMQ instances can be deployed in each region.
+    *
+    * @param request OnsInstanceUpdateRequest
+    * @return OnsInstanceUpdateResponse
+   */
   async onsInstanceUpdate(request: OnsInstanceUpdateRequest): Promise<OnsInstanceUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsInstanceUpdateWithOptions(request, runtime);
   }
 
-  async onsMessageGetByKeyWithOptions(request: OnsMessageGetByKeyRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageGetByKeyResponse> {
+  async onsMessageDetailWithOptions(request: OnsMessageDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageDetailResponse> {
     Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsMessageGetByKeyResponse>(await this.doRPCRequest("OnsMessageGetByKey", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessageGetByKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsMessageDetail",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessageDetailResponse>(await this.callApi(params, req, runtime), new OnsMessageDetailResponse({}));
   }
 
+  async onsMessageDetail(request: OnsMessageDetailRequest): Promise<OnsMessageDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.onsMessageDetailWithOptions(request, runtime);
+  }
+
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   This operation uses the fuzzy match method to query messages based on a specified message key. The same message key may be used by multiple messages. Therefore, the returned result may contain the information about multiple messages.
+    * *   This operation can be used in scenarios in which you cannot obtain the IDs of the messages that you want to query. You can perform the following steps to query the information about messages:
+    *     1.  Call this operation to query message IDs.
+    *     2.  Call the **OnsMessageGetByMsgId** operation to query the details of a specified message. The OnsMessageGetByMsgId operation uses the exact match method. For more information about the **OnsMessageGetByMsgId** operation, see [OnsMessageGetByMsgId](~~29607~~).
+    *
+    * @param request OnsMessageGetByKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsMessageGetByKeyResponse
+   */
+  async onsMessageGetByKeyWithOptions(request: OnsMessageGetByKeyRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageGetByKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OnsMessageGetByKey",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessageGetByKeyResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByKeyResponse({}));
+  }
+
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   This operation uses the fuzzy match method to query messages based on a specified message key. The same message key may be used by multiple messages. Therefore, the returned result may contain the information about multiple messages.
+    * *   This operation can be used in scenarios in which you cannot obtain the IDs of the messages that you want to query. You can perform the following steps to query the information about messages:
+    *     1.  Call this operation to query message IDs.
+    *     2.  Call the **OnsMessageGetByMsgId** operation to query the details of a specified message. The OnsMessageGetByMsgId operation uses the exact match method. For more information about the **OnsMessageGetByMsgId** operation, see [OnsMessageGetByMsgId](~~29607~~).
+    *
+    * @param request OnsMessageGetByKeyRequest
+    * @return OnsMessageGetByKeyResponse
+   */
   async onsMessageGetByKey(request: OnsMessageGetByKeyRequest): Promise<OnsMessageGetByKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsMessageGetByKeyWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If a message is not consumed as expected, you can call this operation to query the information about the message for troubleshooting.
+    * *   This operation uses the exact match method to query a message based on the message ID. You can obtain the message ID from the SendResult parameter that is returned after the message is sent. You must store the returned information after each message is sent. The queried information about a message includes the point in time when the message was sent, the broker on which the message is stored, and the attributes of the message such as the message key and tag.
+    *
+    * @param request OnsMessageGetByMsgIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsMessageGetByMsgIdResponse
+   */
   async onsMessageGetByMsgIdWithOptions(request: OnsMessageGetByMsgIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageGetByMsgIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsMessageGetByMsgIdResponse>(await this.doRPCRequest("OnsMessageGetByMsgId", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessageGetByMsgIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsMessageGetByMsgId",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessageGetByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByMsgIdResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If a message is not consumed as expected, you can call this operation to query the information about the message for troubleshooting.
+    * *   This operation uses the exact match method to query a message based on the message ID. You can obtain the message ID from the SendResult parameter that is returned after the message is sent. You must store the returned information after each message is sent. The queried information about a message includes the point in time when the message was sent, the broker on which the message is stored, and the attributes of the message such as the message key and tag.
+    *
+    * @param request OnsMessageGetByMsgIdRequest
+    * @return OnsMessageGetByMsgIdResponse
+   */
   async onsMessageGetByMsgId(request: OnsMessageGetByMsgIdRequest): Promise<OnsMessageGetByMsgIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsMessageGetByMsgIdWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If you do not know the message ID or message key of a message that you want to query, you can call this operation to query all messages that are stored in a topic within a specified time range. The results are displayed by page.
+    * *   We recommend that you specify a short time range to query messages. If you specify a long time range, a large number of messages are returned. In this case, you cannot find the message that you want to query in an efficient manner. You can perform the following steps to query messages:
+    *     1.  Perform a paged query by specifying the topic, start time, end time, and number of entries to return on each page. If the topic contains messages, the information about the messages on the first page, total number of pages, and task ID are returned by default.
+    *     2.  Specify the task ID and a page number to call this operation again to query the messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+    *
+    * @param request OnsMessagePageQueryByTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsMessagePageQueryByTopicResponse
+   */
   async onsMessagePageQueryByTopicWithOptions(request: OnsMessagePageQueryByTopicRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessagePageQueryByTopicResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsMessagePageQueryByTopicResponse>(await this.doRPCRequest("OnsMessagePageQueryByTopic", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessagePageQueryByTopicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsMessagePageQueryByTopic",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessagePageQueryByTopicResponse>(await this.callApi(params, req, runtime), new OnsMessagePageQueryByTopicResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   If you do not know the message ID or message key of a message that you want to query, you can call this operation to query all messages that are stored in a topic within a specified time range. The results are displayed by page.
+    * *   We recommend that you specify a short time range to query messages. If you specify a long time range, a large number of messages are returned. In this case, you cannot find the message that you want to query in an efficient manner. You can perform the following steps to query messages:
+    *     1.  Perform a paged query by specifying the topic, start time, end time, and number of entries to return on each page. If the topic contains messages, the information about the messages on the first page, total number of pages, and task ID are returned by default.
+    *     2.  Specify the task ID and a page number to call this operation again to query the messages on the specified page. In this query, the BeginTime, EndTime, and PageSize parameters do not take effect. By default, the system uses the values of these parameters that you specified in the request when you created the specified query task.
+    *
+    * @param request OnsMessagePageQueryByTopicRequest
+    * @return OnsMessagePageQueryByTopicResponse
+   */
   async onsMessagePageQueryByTopic(request: OnsMessagePageQueryByTopicRequest): Promise<OnsMessagePageQueryByTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsMessagePageQueryByTopicWithOptions(request, runtime);
   }
 
+  /**
+    * ## Note
+    * This operation can be used to check whether messages in a specified topic can be consumed by consumers in a specified consumer group. This operation obtains the body of the message that is specified by the MsgId parameter, re-encapsulates the message body to produce a new message, and then pushes the new message to a specified consumer. The content of the message that is sent to the consumer is the same as the content of the original message. They are not the same message because they use different message IDs.
+    *
+    * @param request OnsMessagePushRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsMessagePushResponse
+   */
   async onsMessagePushWithOptions(request: OnsMessagePushRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessagePushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsMessagePushResponse>(await this.doRPCRequest("OnsMessagePush", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessagePushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsMessagePush",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessagePushResponse>(await this.callApi(params, req, runtime), new OnsMessagePushResponse({}));
   }
 
+  /**
+    * ## Note
+    * This operation can be used to check whether messages in a specified topic can be consumed by consumers in a specified consumer group. This operation obtains the body of the message that is specified by the MsgId parameter, re-encapsulates the message body to produce a new message, and then pushes the new message to a specified consumer. The content of the message that is sent to the consumer is the same as the content of the original message. They are not the same message because they use different message IDs.
+    *
+    * @param request OnsMessagePushRequest
+    * @return OnsMessagePushResponse
+   */
   async onsMessagePush(request: OnsMessagePushRequest): Promise<OnsMessagePushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsMessagePushWithOptions(request, runtime);
   }
 
-  async onsMessageSendWithOptions(request: OnsMessageSendRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageSendResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMessageSendResponse>(await this.doRPCRequest("OnsMessageSend", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessageSendResponse({}));
-  }
-
-  async onsMessageSend(request: OnsMessageSendRequest): Promise<OnsMessageSendResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMessageSendWithOptions(request, runtime);
-  }
-
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation to check whether a specified message is consumed. If the message is not consumed, you can troubleshoot the issue based on the returned information.
+    * *   This operation queries information based on the built-in offset mechanism of Message Queue for Apache RocketMQ. In most cases, the results are correct. If you have reset the consumer offset or cleared accumulated messages, the results may not be correct.
+    *
+    * @param request OnsMessageTraceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsMessageTraceResponse
+   */
   async onsMessageTraceWithOptions(request: OnsMessageTraceRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageTraceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsMessageTraceResponse>(await this.doRPCRequest("OnsMessageTrace", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMessageTraceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsMessageTrace",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsMessageTraceResponse>(await this.callApi(params, req, runtime), new OnsMessageTraceResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * *   You can call this operation to check whether a specified message is consumed. If the message is not consumed, you can troubleshoot the issue based on the returned information.
+    * *   This operation queries information based on the built-in offset mechanism of Message Queue for Apache RocketMQ. In most cases, the results are correct. If you have reset the consumer offset or cleared accumulated messages, the results may not be correct.
+    *
+    * @param request OnsMessageTraceRequest
+    * @return OnsMessageTraceResponse
+   */
   async onsMessageTrace(request: OnsMessageTraceRequest): Promise<OnsMessageTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsMessageTraceWithOptions(request, runtime);
   }
 
-  async onsMqttGroupIdCreateWithOptions(request: OnsMqttGroupIdCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttGroupIdCreateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttGroupIdCreateResponse>(await this.doRPCRequest("OnsMqttGroupIdCreate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttGroupIdCreateResponse({}));
-  }
-
-  async onsMqttGroupIdCreate(request: OnsMqttGroupIdCreateRequest): Promise<OnsMqttGroupIdCreateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttGroupIdCreateWithOptions(request, runtime);
-  }
-
-  async onsMqttGroupIdDeleteWithOptions(request: OnsMqttGroupIdDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttGroupIdDeleteResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttGroupIdDeleteResponse>(await this.doRPCRequest("OnsMqttGroupIdDelete", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttGroupIdDeleteResponse({}));
-  }
-
-  async onsMqttGroupIdDelete(request: OnsMqttGroupIdDeleteRequest): Promise<OnsMqttGroupIdDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttGroupIdDeleteWithOptions(request, runtime);
-  }
-
-  async onsMqttGroupIdListWithOptions(request: OnsMqttGroupIdListRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttGroupIdListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttGroupIdListResponse>(await this.doRPCRequest("OnsMqttGroupIdList", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttGroupIdListResponse({}));
-  }
-
-  async onsMqttGroupIdList(request: OnsMqttGroupIdListRequest): Promise<OnsMqttGroupIdListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttGroupIdListWithOptions(request, runtime);
-  }
-
-  async onsMqttQueryClientByClientIdWithOptions(request: OnsMqttQueryClientByClientIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttQueryClientByClientIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttQueryClientByClientIdResponse>(await this.doRPCRequest("OnsMqttQueryClientByClientId", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttQueryClientByClientIdResponse({}));
-  }
-
-  async onsMqttQueryClientByClientId(request: OnsMqttQueryClientByClientIdRequest): Promise<OnsMqttQueryClientByClientIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttQueryClientByClientIdWithOptions(request, runtime);
-  }
-
-  async onsMqttQueryClientByGroupIdWithOptions(request: OnsMqttQueryClientByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttQueryClientByGroupIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttQueryClientByGroupIdResponse>(await this.doRPCRequest("OnsMqttQueryClientByGroupId", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttQueryClientByGroupIdResponse({}));
-  }
-
-  async onsMqttQueryClientByGroupId(request: OnsMqttQueryClientByGroupIdRequest): Promise<OnsMqttQueryClientByGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttQueryClientByGroupIdWithOptions(request, runtime);
-  }
-
-  async onsMqttQueryClientByTopicWithOptions(request: OnsMqttQueryClientByTopicRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttQueryClientByTopicResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttQueryClientByTopicResponse>(await this.doRPCRequest("OnsMqttQueryClientByTopic", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttQueryClientByTopicResponse({}));
-  }
-
-  async onsMqttQueryClientByTopic(request: OnsMqttQueryClientByTopicRequest): Promise<OnsMqttQueryClientByTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttQueryClientByTopicWithOptions(request, runtime);
-  }
-
-  async onsMqttQueryHistoryOnlineWithOptions(request: OnsMqttQueryHistoryOnlineRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttQueryHistoryOnlineResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttQueryHistoryOnlineResponse>(await this.doRPCRequest("OnsMqttQueryHistoryOnline", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttQueryHistoryOnlineResponse({}));
-  }
-
-  async onsMqttQueryHistoryOnline(request: OnsMqttQueryHistoryOnlineRequest): Promise<OnsMqttQueryHistoryOnlineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttQueryHistoryOnlineWithOptions(request, runtime);
-  }
-
-  async onsMqttQueryMsgTransTrendWithOptions(request: OnsMqttQueryMsgTransTrendRequest, runtime: $Util.RuntimeOptions): Promise<OnsMqttQueryMsgTransTrendResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsMqttQueryMsgTransTrendResponse>(await this.doRPCRequest("OnsMqttQueryMsgTransTrend", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsMqttQueryMsgTransTrendResponse({}));
-  }
-
-  async onsMqttQueryMsgTransTrend(request: OnsMqttQueryMsgTransTrendRequest): Promise<OnsMqttQueryMsgTransTrendResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsMqttQueryMsgTransTrendWithOptions(request, runtime);
-  }
-
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you use an SDK to access and manage a Message Queue for Apache RocketMQ instance, you must sequentially specify the information about two regions. You can query the information about the second region by calling the \\*\\*OnsRegionList\\*\\* operation. You must apply for a public endpoint in the following scenarios:
+    * *   Connect your application to Message Queue for Apache RocketMQ: Select the nearest API gateway endpoint based on the region where your application is deployed, and enter the corresponding **region ID**. The **regionId** is used to access Alibaba Cloud API Gateway because Message Queue for Apache RocketMQ instances provide API services by using the OpenAPI Explorer platform, which is also called POP.
+    * *   Access a region to manage its resources: Specify a region where you want to manage Message Queue for Apache RocketMQ resources and enter the region ID. You can query the region ID by calling the **OnsRegionList** operation.
+    *
+    * @param request OnsRegionListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsRegionListResponse
+   */
   async onsRegionListWithOptions(runtime: $Util.RuntimeOptions): Promise<OnsRegionListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<OnsRegionListResponse>(await this.doRPCRequest("OnsRegionList", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsRegionListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsRegionList",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsRegionListResponse>(await this.callApi(params, req, runtime), new OnsRegionListResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you use an SDK to access and manage a Message Queue for Apache RocketMQ instance, you must sequentially specify the information about two regions. You can query the information about the second region by calling the \\*\\*OnsRegionList\\*\\* operation. You must apply for a public endpoint in the following scenarios:
+    * *   Connect your application to Message Queue for Apache RocketMQ: Select the nearest API gateway endpoint based on the region where your application is deployed, and enter the corresponding **region ID**. The **regionId** is used to access Alibaba Cloud API Gateway because Message Queue for Apache RocketMQ instances provide API services by using the OpenAPI Explorer platform, which is also called POP.
+    * *   Access a region to manage its resources: Specify a region where you want to manage Message Queue for Apache RocketMQ resources and enter the region ID. You can query the region ID by calling the **OnsRegionList** operation.
+    *
+    * @return OnsRegionListResponse
+   */
   async onsRegionList(): Promise<OnsRegionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsRegionListWithOptions(runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you want to release a new application or expand your business, you can call this operation to create a topic based on your business requirements.
+    *
+    * @param request OnsTopicCreateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicCreateResponse
+   */
   async onsTopicCreateWithOptions(request: OnsTopicCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicCreateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicCreateResponse>(await this.doRPCRequest("OnsTopicCreate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicCreateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicCreate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicCreateResponse>(await this.callApi(params, req, runtime), new OnsTopicCreateResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * When you want to release a new application or expand your business, you can call this operation to create a topic based on your business requirements.
+    *
+    * @param request OnsTopicCreateRequest
+    * @return OnsTopicCreateResponse
+   */
   async onsTopicCreate(request: OnsTopicCreateRequest): Promise<OnsTopicCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicCreateWithOptions(request, runtime);
   }
 
+  /**
+    * >  The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur. - After you delete the topic, the publishing and subscription relationships that are constructed based on the topic are cleared. Exercise caution when you call this operation.
+    * You can call this operation to delete a topic when you need to reclaim the resources from the topic. For example, after an application is brought offline, you can delete the topics that are used for the application. After you delete a topic, the backend of Message Queue for Apache RocketMQ reclaims the resources from the topic. The system requires a long period of time to reclaim the resources. After you delete a topic, we recommend that you do not create a topic that uses the same name as the deleted topic within a short period of time. If the system fails to delete the specified topic, troubleshoot the issue based on the error code.
+    *
+    * @param request OnsTopicDeleteRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicDeleteResponse
+   */
   async onsTopicDeleteWithOptions(request: OnsTopicDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicDeleteResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicDeleteResponse>(await this.doRPCRequest("OnsTopicDelete", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicDeleteResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicDelete",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicDeleteResponse>(await this.callApi(params, req, runtime), new OnsTopicDeleteResponse({}));
   }
 
+  /**
+    * >  The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur. - After you delete the topic, the publishing and subscription relationships that are constructed based on the topic are cleared. Exercise caution when you call this operation.
+    * You can call this operation to delete a topic when you need to reclaim the resources from the topic. For example, after an application is brought offline, you can delete the topics that are used for the application. After you delete a topic, the backend of Message Queue for Apache RocketMQ reclaims the resources from the topic. The system requires a long period of time to reclaim the resources. After you delete a topic, we recommend that you do not create a topic that uses the same name as the deleted topic within a short period of time. If the system fails to delete the specified topic, troubleshoot the issue based on the error code.
+    *
+    * @param request OnsTopicDeleteRequest
+    * @return OnsTopicDeleteResponse
+   */
   async onsTopicDelete(request: OnsTopicDeleteRequest): Promise<OnsTopicDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicDeleteWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * This operation returns the basic information about topics and does not return the details of topics.
+    *
+    * @param request OnsTopicListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicListResponse
+   */
   async onsTopicListWithOptions(request: OnsTopicListRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicListResponse>(await this.doRPCRequest("OnsTopicList", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicList",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicListResponse>(await this.callApi(params, req, runtime), new OnsTopicListResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * This operation returns the basic information about topics and does not return the details of topics.
+    *
+    * @param request OnsTopicListRequest
+    * @return OnsTopicListResponse
+   */
   async onsTopicList(request: OnsTopicListRequest): Promise<OnsTopicListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicListWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can determine the resource usage of a topic based on the information that is returned by this operation. The returned information includes the total number of messages in the topic and the most recent point in time when a message was published to the topic.
+    *
+    * @param request OnsTopicStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicStatusResponse
+   */
   async onsTopicStatusWithOptions(request: OnsTopicStatusRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicStatusResponse>(await this.doRPCRequest("OnsTopicStatus", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicStatus",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicStatusResponse>(await this.callApi(params, req, runtime), new OnsTopicStatusResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can determine the resource usage of a topic based on the information that is returned by this operation. The returned information includes the total number of messages in the topic and the most recent point in time when a message was published to the topic.
+    *
+    * @param request OnsTopicStatusRequest
+    * @return OnsTopicStatusResponse
+   */
   async onsTopicStatus(request: OnsTopicStatusRequest): Promise<OnsTopicStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicStatusWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to query the online consumer groups that subscribe to a specified topic. If all consumers in a group are offline, the information about the group is not returned.
+    *
+    * @param request OnsTopicSubDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicSubDetailResponse
+   */
   async onsTopicSubDetailWithOptions(request: OnsTopicSubDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicSubDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicSubDetailResponse>(await this.doRPCRequest("OnsTopicSubDetail", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicSubDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicSubDetail",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicSubDetailResponse>(await this.callApi(params, req, runtime), new OnsTopicSubDetailResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to query the online consumer groups that subscribe to a specified topic. If all consumers in a group are offline, the information about the group is not returned.
+    *
+    * @param request OnsTopicSubDetailRequest
+    * @return OnsTopicSubDetailResponse
+   */
   async onsTopicSubDetail(request: OnsTopicSubDetailRequest): Promise<OnsTopicSubDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicSubDetailWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise system risks may occur.
+    * You can call this operation to forbid read or write operations on a specific topic.
+    *
+    * @param request OnsTopicUpdateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTopicUpdateResponse
+   */
+  // Deprecated
   async onsTopicUpdateWithOptions(request: OnsTopicUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicUpdateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.perm)) {
+      query["Perm"] = request.perm;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTopicUpdateResponse>(await this.doRPCRequest("OnsTopicUpdate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTopicUpdateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTopicUpdate",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTopicUpdateResponse>(await this.callApi(params, req, runtime), new OnsTopicUpdateResponse({}));
   }
 
+  /**
+    * @deprecated
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise system risks may occur.
+    * You can call this operation to forbid read or write operations on a specific topic.
+    *
+    * @param request OnsTopicUpdateRequest
+    * @return OnsTopicUpdateResponse
+   */
+  // Deprecated
   async onsTopicUpdate(request: OnsTopicUpdateRequest): Promise<OnsTopicUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTopicUpdateWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   Before you call this operation to query the details of the trace of a message, you must create a task to query the trace of the message based on the message ID or message key and obtains the task ID. Then, you can call this operation to query the details of the message trace based on the task ID. You can call the [OnsTraceQueryByMsgId](~~59830~~) operation or the [OnsTraceQueryByMsgKey](~~59831~~) operation to create a task to query the trace of the message and obtain the task ID from the **QueryId** response parameter.
+    * *   A trace query task is time-consuming. If you call this operation to query the details immediately after you create a trace query task, the results may be empty. In this case, we recommend that you try again later.
+    *
+    * @param request OnsTraceGetResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTraceGetResultResponse
+   */
   async onsTraceGetResultWithOptions(request: OnsTraceGetResultRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceGetResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTraceGetResultResponse>(await this.doRPCRequest("OnsTraceGetResult", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTraceGetResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTraceGetResult",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTraceGetResultResponse>(await this.callApi(params, req, runtime), new OnsTraceGetResultResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   Before you call this operation to query the details of the trace of a message, you must create a task to query the trace of the message based on the message ID or message key and obtains the task ID. Then, you can call this operation to query the details of the message trace based on the task ID. You can call the [OnsTraceQueryByMsgId](~~59830~~) operation or the [OnsTraceQueryByMsgKey](~~59831~~) operation to create a task to query the trace of the message and obtain the task ID from the **QueryId** response parameter.
+    * *   A trace query task is time-consuming. If you call this operation to query the details immediately after you create a trace query task, the results may be empty. In this case, we recommend that you try again later.
+    *
+    * @param request OnsTraceGetResultRequest
+    * @return OnsTraceGetResultResponse
+   */
   async onsTraceGetResult(request: OnsTraceGetResultRequest): Promise<OnsTraceGetResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTraceGetResultWithOptions(request, runtime);
   }
 
+  /**
+    * ## Note
+    * If you want to query the trace of a message based on the message ID, you can call this operation to create a query task. After you obtain the task ID, you can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+    *
+    * @param request OnsTraceQueryByMsgIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTraceQueryByMsgIdResponse
+   */
   async onsTraceQueryByMsgIdWithOptions(request: OnsTraceQueryByMsgIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceQueryByMsgIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgId)) {
+      query["MsgId"] = request.msgId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTraceQueryByMsgIdResponse>(await this.doRPCRequest("OnsTraceQueryByMsgId", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTraceQueryByMsgIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTraceQueryByMsgId",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTraceQueryByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgIdResponse({}));
   }
 
+  /**
+    * ## Note
+    * If you want to query the trace of a message based on the message ID, you can call this operation to create a query task. After you obtain the task ID, you can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+    *
+    * @param request OnsTraceQueryByMsgIdRequest
+    * @return OnsTraceQueryByMsgIdResponse
+   */
   async onsTraceQueryByMsgId(request: OnsTraceQueryByMsgIdRequest): Promise<OnsTraceQueryByMsgIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTraceQueryByMsgIdWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * If you obtain the key of a message and want to query the trace of the message, you can call this operation to create a query task. After you obtain the task ID, you can call the OnsTraceGetResult operation to query the details of the message trace based on the task ID.
+    *
+    * @param request OnsTraceQueryByMsgKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTraceQueryByMsgKeyResponse
+   */
   async onsTraceQueryByMsgKeyWithOptions(request: OnsTraceQueryByMsgKeyRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceQueryByMsgKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.msgKey)) {
+      query["MsgKey"] = request.msgKey;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTraceQueryByMsgKeyResponse>(await this.doRPCRequest("OnsTraceQueryByMsgKey", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTraceQueryByMsgKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTraceQueryByMsgKey",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTraceQueryByMsgKeyResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgKeyResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * If you obtain the key of a message and want to query the trace of the message, you can call this operation to create a query task. After you obtain the task ID, you can call the OnsTraceGetResult operation to query the details of the message trace based on the task ID.
+    *
+    * @param request OnsTraceQueryByMsgKeyRequest
+    * @return OnsTraceQueryByMsgKeyResponse
+   */
   async onsTraceQueryByMsgKey(request: OnsTraceQueryByMsgKeyRequest): Promise<OnsTraceQueryByMsgKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTraceQueryByMsgKeyWithOptions(request, runtime);
   }
 
+  /**
+    * ## Note
+    * You can call this operation to query the following statistics that are collected in the production environment:
+    * *   The number of messages that are consumed during each sampling period
+    * *   The transactions per second (TPS) for message consumption during each sampling period
+    * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are consumed during each sampling period because the statistics of TPS may not show a clear change trend.
+    *
+    * @param request OnsTrendGroupOutputTpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTrendGroupOutputTpsResponse
+   */
   async onsTrendGroupOutputTpsWithOptions(request: OnsTrendGroupOutputTpsRequest, runtime: $Util.RuntimeOptions): Promise<OnsTrendGroupOutputTpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTrendGroupOutputTpsResponse>(await this.doRPCRequest("OnsTrendGroupOutputTps", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTrendGroupOutputTpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTrendGroupOutputTps",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTrendGroupOutputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendGroupOutputTpsResponse({}));
   }
 
+  /**
+    * ## Note
+    * You can call this operation to query the following statistics that are collected in the production environment:
+    * *   The number of messages that are consumed during each sampling period
+    * *   The transactions per second (TPS) for message consumption during each sampling period
+    * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are consumed during each sampling period because the statistics of TPS may not show a clear change trend.
+    *
+    * @param request OnsTrendGroupOutputTpsRequest
+    * @return OnsTrendGroupOutputTpsResponse
+   */
   async onsTrendGroupOutputTps(request: OnsTrendGroupOutputTpsRequest): Promise<OnsTrendGroupOutputTpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTrendGroupOutputTpsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Note
+    * You can call this operation to query the statistics of messages that are published to a specified topic in the production environment. You can obtain the number of messages that are published to the topic or the transactions per second (TPS) for message publishing during each sampling period within a specified time range.
+    * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are published to the topic during each sampling period because the statistics of TPS may not show a clear change trend.
+    *
+    * @param request OnsTrendTopicInputTpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OnsTrendTopicInputTpsResponse
+   */
   async onsTrendTopicInputTpsWithOptions(request: OnsTrendTopicInputTpsRequest, runtime: $Util.RuntimeOptions): Promise<OnsTrendTopicInputTpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OnsTrendTopicInputTpsResponse>(await this.doRPCRequest("OnsTrendTopicInputTps", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsTrendTopicInputTpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OnsTrendTopicInputTps",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OnsTrendTopicInputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendTopicInputTpsResponse({}));
   }
 
+  /**
+    * ## Note
+    * You can call this operation to query the statistics of messages that are published to a specified topic in the production environment. You can obtain the number of messages that are published to the topic or the transactions per second (TPS) for message publishing during each sampling period within a specified time range.
+    * >  If your application publishes a small number of messages and does not publish messages at a specific interval, we recommend that you query the number of messages that are published to the topic during each sampling period because the statistics of TPS may not show a clear change trend.
+    *
+    * @param request OnsTrendTopicInputTpsRequest
+    * @return OnsTrendTopicInputTpsResponse
+   */
   async onsTrendTopicInputTps(request: OnsTrendTopicInputTpsRequest): Promise<OnsTrendTopicInputTpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.onsTrendTopicInputTpsWithOptions(request, runtime);
   }
 
-  async onsWarnCreateWithOptions(request: OnsWarnCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsWarnCreateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsWarnCreateResponse>(await this.doRPCRequest("OnsWarnCreate", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsWarnCreateResponse({}));
-  }
-
-  async onsWarnCreate(request: OnsWarnCreateRequest): Promise<OnsWarnCreateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsWarnCreateWithOptions(request, runtime);
-  }
-
-  async onsWarnDeleteWithOptions(request: OnsWarnDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsWarnDeleteResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OnsWarnDeleteResponse>(await this.doRPCRequest("OnsWarnDelete", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OnsWarnDeleteResponse({}));
-  }
-
-  async onsWarnDelete(request: OnsWarnDeleteRequest): Promise<OnsWarnDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.onsWarnDeleteWithOptions(request, runtime);
-  }
-
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation when you use Message Queue for Apache RocketMQ for the first time. You can use Message Queue for Apache RocketMQ only after this service is activated.
+    * The Message Queue for Apache RocketMQ service can be activated only in the China (Hangzhou) region. Service activation is not billed.
+    *
+    * @param request OpenOnsServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenOnsServiceResponse
+   */
   async openOnsServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenOnsServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<OpenOnsServiceResponse>(await this.doRPCRequest("OpenOnsService", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new OpenOnsServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenOnsService",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenOnsServiceResponse>(await this.callApi(params, req, runtime), new OpenOnsServiceResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation when you use Message Queue for Apache RocketMQ for the first time. You can use Message Queue for Apache RocketMQ only after this service is activated.
+    * The Message Queue for Apache RocketMQ service can be activated only in the China (Hangzhou) region. Service activation is not billed.
+    *
+    * @return OpenOnsServiceResponse
+   */
   async openOnsService(): Promise<OpenOnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openOnsServiceWithOptions(runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to attach tags to a source. You can use tags to classify resources in Message Queue for Apache RocketMQ. This can help you aggregate and search resources in an efficient manner.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    * You can call this operation to attach tags to a source. You can use tags to classify resources in Message Queue for Apache RocketMQ. This can help you aggregate and search resources in an efficient manner.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2019-02-14", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-02-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * > : The API operations that are provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
