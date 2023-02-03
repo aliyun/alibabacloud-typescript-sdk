@@ -820,6 +820,199 @@ export class GenerateDynamicImageResponse extends $tea.Model {
   }
 }
 
+export class GenerateImageWithTextRequest extends $tea.Model {
+  number?: number;
+  resolution?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      resolution: 'Resolution',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'number',
+      resolution: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextResponseBody extends $tea.Model {
+  data?: GenerateImageWithTextResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GenerateImageWithTextResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateImageWithTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateImageWithTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextAndImageRequest extends $tea.Model {
+  aspectRatioMode?: string;
+  number?: number;
+  refImageUrl?: string;
+  resolution?: string;
+  similarity?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aspectRatioMode: 'AspectRatioMode',
+      number: 'Number',
+      refImageUrl: 'RefImageUrl',
+      resolution: 'Resolution',
+      similarity: 'Similarity',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aspectRatioMode: 'string',
+      number: 'number',
+      refImageUrl: 'string',
+      resolution: 'string',
+      similarity: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextAndImageAdvanceRequest extends $tea.Model {
+  aspectRatioMode?: string;
+  number?: number;
+  refImageUrlObject?: Readable;
+  resolution?: string;
+  similarity?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aspectRatioMode: 'AspectRatioMode',
+      number: 'Number',
+      refImageUrlObject: 'RefImageUrl',
+      resolution: 'Resolution',
+      similarity: 'Similarity',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aspectRatioMode: 'string',
+      number: 'number',
+      refImageUrlObject: 'Readable',
+      resolution: 'string',
+      similarity: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextAndImageResponseBody extends $tea.Model {
+  data?: GenerateImageWithTextAndImageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GenerateImageWithTextAndImageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextAndImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateImageWithTextAndImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateImageWithTextAndImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncJobResultRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
@@ -2025,6 +2218,44 @@ export class GenerateDynamicImageResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextResponseBodyData extends $tea.Model {
+  imageUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imageUrls: 'ImageUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateImageWithTextAndImageResponseBodyData extends $tea.Model {
+  imageUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imageUrls: 'ImageUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3376,6 +3607,166 @@ export default class Client extends OpenApi {
 
     let generateDynamicImageResp = await this.generateDynamicImageWithOptions(generateDynamicImageReq, runtime);
     return generateDynamicImageResp;
+  }
+
+  async generateImageWithTextWithOptions(request: GenerateImageWithTextRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageWithTextResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.resolution)) {
+      body["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateImageWithText",
+      version: "2019-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateImageWithTextResponse>(await this.callApi(params, req, runtime), new GenerateImageWithTextResponse({}));
+  }
+
+  async generateImageWithText(request: GenerateImageWithTextRequest): Promise<GenerateImageWithTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateImageWithTextWithOptions(request, runtime);
+  }
+
+  async generateImageWithTextAndImageWithOptions(request: GenerateImageWithTextAndImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageWithTextAndImageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aspectRatioMode)) {
+      body["AspectRatioMode"] = request.aspectRatioMode;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.refImageUrl)) {
+      body["RefImageUrl"] = request.refImageUrl;
+    }
+
+    if (!Util.isUnset(request.resolution)) {
+      body["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.similarity)) {
+      body["Similarity"] = request.similarity;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateImageWithTextAndImage",
+      version: "2019-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateImageWithTextAndImageResponse>(await this.callApi(params, req, runtime), new GenerateImageWithTextAndImageResponse({}));
+  }
+
+  async generateImageWithTextAndImage(request: GenerateImageWithTextAndImageRequest): Promise<GenerateImageWithTextAndImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateImageWithTextAndImageWithOptions(request, runtime);
+  }
+
+  async generateImageWithTextAndImageAdvance(request: GenerateImageWithTextAndImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageWithTextAndImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let generateImageWithTextAndImageReq = new GenerateImageWithTextAndImageRequest({ });
+    OpenApiUtil.convert(request, generateImageWithTextAndImageReq);
+    if (!Util.isUnset(request.refImageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.refImageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      generateImageWithTextAndImageReq.refImageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let generateImageWithTextAndImageResp = await this.generateImageWithTextAndImageWithOptions(generateImageWithTextAndImageReq, runtime);
+    return generateImageWithTextAndImageResp;
   }
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
