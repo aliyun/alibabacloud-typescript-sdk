@@ -920,6 +920,103 @@ export class CompareFaceResponse extends $tea.Model {
   }
 }
 
+export class CompareFaceWithMaskRequest extends $tea.Model {
+  imageURLA?: string;
+  imageURLB?: string;
+  qualityScoreThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLA: 'ImageURLA',
+      imageURLB: 'ImageURLB',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLA: 'string',
+      imageURLB: 'string',
+      qualityScoreThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceWithMaskAdvanceRequest extends $tea.Model {
+  imageURLAObject?: Readable;
+  imageURLBObject?: Readable;
+  qualityScoreThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLAObject: 'ImageURLA',
+      imageURLBObject: 'ImageURLB',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLAObject: 'Readable',
+      imageURLBObject: 'Readable',
+      qualityScoreThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceWithMaskResponseBody extends $tea.Model {
+  data?: CompareFaceWithMaskResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CompareFaceWithMaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceWithMaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CompareFaceWithMaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CompareFaceWithMaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountCrowdRequest extends $tea.Model {
   imageURL?: string;
   isShow?: boolean;
@@ -1791,6 +1888,91 @@ export class DetectIPCPedestrianResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetectIPCPedestrianResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceRequest extends $tea.Model {
+  tasks?: DetectInfraredLivingFaceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': DetectInfraredLivingFaceRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceAdvanceRequest extends $tea.Model {
+  tasks?: DetectInfraredLivingFaceAdvanceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': DetectInfraredLivingFaceAdvanceRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponseBody extends $tea.Model {
+  data?: DetectInfraredLivingFaceResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DetectInfraredLivingFaceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectInfraredLivingFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectInfraredLivingFaceResponseBody,
     };
   }
 
@@ -5672,6 +5854,55 @@ export class CompareFaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class CompareFaceWithMaskResponseBodyData extends $tea.Model {
+  confidence?: number;
+  isMaskA?: number;
+  isMaskB?: number;
+  landmarksAList?: number[];
+  landmarksBList?: number[];
+  messageTips?: string;
+  qualityScoreA?: number;
+  qualityScoreB?: number;
+  rectAList?: number[];
+  rectBList?: number[];
+  thresholds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      isMaskA: 'IsMaskA',
+      isMaskB: 'IsMaskB',
+      landmarksAList: 'LandmarksAList',
+      landmarksBList: 'LandmarksBList',
+      messageTips: 'MessageTips',
+      qualityScoreA: 'QualityScoreA',
+      qualityScoreB: 'QualityScoreB',
+      rectAList: 'RectAList',
+      rectBList: 'RectBList',
+      thresholds: 'Thresholds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      isMaskA: 'number',
+      isMaskB: 'number',
+      landmarksAList: { 'type': 'array', 'itemType': 'number' },
+      landmarksBList: { 'type': 'array', 'itemType': 'number' },
+      messageTips: 'string',
+      qualityScoreA: 'number',
+      qualityScoreB: 'number',
+      rectAList: { 'type': 'array', 'itemType': 'number' },
+      rectBList: { 'type': 'array', 'itemType': 'number' },
+      thresholds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountCrowdResponseBodyData extends $tea.Model {
   hotMap?: string;
   peopleNumber?: number;
@@ -5936,6 +6167,147 @@ export class DetectIPCPedestrianResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageInfoList: { 'type': 'array', 'itemType': DetectIPCPedestrianResponseBodyDataImageInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceRequestTasks extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceAdvanceRequestTasks extends $tea.Model {
+  imageURLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponseBodyDataElementsResultsRect extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponseBodyDataElementsResults extends $tea.Model {
+  label?: string;
+  messageTips?: string;
+  rate?: number;
+  rect?: DetectInfraredLivingFaceResponseBodyDataElementsResultsRect;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      messageTips: 'MessageTips',
+      rate: 'Rate',
+      rect: 'Rect',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      messageTips: 'string',
+      rate: 'number',
+      rect: DetectInfraredLivingFaceResponseBodyDataElementsResultsRect,
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponseBodyDataElements extends $tea.Model {
+  faceNumber?: number;
+  imageURL?: string;
+  results?: DetectInfraredLivingFaceResponseBodyDataElementsResults[];
+  static names(): { [key: string]: string } {
+    return {
+      faceNumber: 'FaceNumber',
+      imageURL: 'ImageURL',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceNumber: 'number',
+      imageURL: 'string',
+      results: { 'type': 'array', 'itemType': DetectInfraredLivingFaceResponseBodyDataElementsResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectInfraredLivingFaceResponseBodyData extends $tea.Model {
+  elements?: DetectInfraredLivingFaceResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': DetectInfraredLivingFaceResponseBodyDataElements },
     };
   }
 
@@ -9304,6 +9676,143 @@ export default class Client extends OpenApi {
     return compareFaceResp;
   }
 
+  async compareFaceWithMaskWithOptions(request: CompareFaceWithMaskRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceWithMaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURLA)) {
+      body["ImageURLA"] = request.imageURLA;
+    }
+
+    if (!Util.isUnset(request.imageURLB)) {
+      body["ImageURLB"] = request.imageURLB;
+    }
+
+    if (!Util.isUnset(request.qualityScoreThreshold)) {
+      body["QualityScoreThreshold"] = request.qualityScoreThreshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CompareFaceWithMask",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompareFaceWithMaskResponse>(await this.callApi(params, req, runtime), new CompareFaceWithMaskResponse({}));
+  }
+
+  async compareFaceWithMask(request: CompareFaceWithMaskRequest): Promise<CompareFaceWithMaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.compareFaceWithMaskWithOptions(request, runtime);
+  }
+
+  async compareFaceWithMaskAdvance(request: CompareFaceWithMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceWithMaskResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let compareFaceWithMaskReq = new CompareFaceWithMaskRequest({ });
+    OpenApiUtil.convert(request, compareFaceWithMaskReq);
+    if (!Util.isUnset(request.imageURLAObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLAObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      compareFaceWithMaskReq.imageURLA = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!Util.isUnset(request.imageURLBObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageURLBObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      compareFaceWithMaskReq.imageURLB = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let compareFaceWithMaskResp = await this.compareFaceWithMaskWithOptions(compareFaceWithMaskReq, runtime);
+    return compareFaceWithMaskResp;
+  }
+
   async countCrowdWithOptions(request: CountCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10105,6 +10614,118 @@ export default class Client extends OpenApi {
 
     let detectIPCPedestrianResp = await this.detectIPCPedestrianWithOptions(detectIPCPedestrianReq, runtime);
     return detectIPCPedestrianResp;
+  }
+
+  async detectInfraredLivingFaceWithOptions(request: DetectInfraredLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectInfraredLivingFaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tasks)) {
+      body["Tasks"] = request.tasks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectInfraredLivingFace",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectInfraredLivingFaceResponse>(await this.callApi(params, req, runtime), new DetectInfraredLivingFaceResponse({}));
+  }
+
+  async detectInfraredLivingFace(request: DetectInfraredLivingFaceRequest): Promise<DetectInfraredLivingFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectInfraredLivingFaceWithOptions(request, runtime);
+  }
+
+  async detectInfraredLivingFaceAdvance(request: DetectInfraredLivingFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectInfraredLivingFaceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectInfraredLivingFaceReq = new DetectInfraredLivingFaceRequest({ });
+    OpenApiUtil.convert(request, detectInfraredLivingFaceReq);
+    if (!Util.isUnset(request.tasks)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.tasks) {
+        if (!Util.isUnset(item0.imageURLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.imageURLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : DetectInfraredLivingFaceRequestTasks = detectInfraredLivingFaceReq.tasks[i0];
+          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let detectInfraredLivingFaceResp = await this.detectInfraredLivingFaceWithOptions(detectInfraredLivingFaceReq, runtime);
+    return detectInfraredLivingFaceResp;
   }
 
   async detectLivingFaceWithOptions(request: DetectLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLivingFaceResponse> {
