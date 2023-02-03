@@ -224,6 +224,78 @@ export class AddFavoritePublicMediaResponse extends $tea.Model {
   }
 }
 
+export class AddMediaMarksRequest extends $tea.Model {
+  mediaId?: string;
+  mediaMarks?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarks: 'MediaMarks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarks: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMediaMarksResponseBody extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMediaMarksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddMediaMarksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMediaMarksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddTemplateRequest extends $tea.Model {
   config?: string;
   coverUrl?: string;
@@ -2259,6 +2331,78 @@ export class DeleteMediaInfosResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMediaInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaMarksRequest extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaMarksResponseBody extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaMarksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMediaMarksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaMarksResponseBody,
     };
   }
 
@@ -5687,6 +5831,78 @@ export class GetMediaInfoJobResponse extends $tea.Model {
   }
 }
 
+export class GetMediaMarksRequest extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaMarksResponseBody extends $tea.Model {
+  mediaId?: string;
+  mediaMarks?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarks: 'MediaMarks',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarks: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaMarksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMediaMarksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaMarksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaProducingJobRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
@@ -6447,6 +6663,75 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTemplateMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParamsRequest extends $tea.Model {
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParamsResponseBody extends $tea.Model {
+  paramList?: GetTemplateParamsResponseBodyParamList[];
+  requestId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramList: 'ParamList',
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramList: { 'type': 'array', 'itemType': GetTemplateParamsResponseBodyParamList },
+      requestId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParamsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTemplateParamsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTemplateParamsResponseBody,
     };
   }
 
@@ -7988,6 +8273,78 @@ export class ListMediaInfoJobsResponse extends $tea.Model {
   }
 }
 
+export class ListMediaMarksRequest extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaMarksResponseBody extends $tea.Model {
+  mediaId?: string;
+  mediaMarks?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarks: 'MediaMarks',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarks: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaMarksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMediaMarksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMediaMarksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPackageJobsRequest extends $tea.Model {
   endOfCreateTime?: string;
   jobId?: string;
@@ -9371,8 +9728,8 @@ export class RegisterMediaStreamResponse extends $tea.Model {
 export class SearchEditingProjectRequest extends $tea.Model {
   createSource?: string;
   endTime?: string;
-  maxResults?: number;
-  nextToken?: string;
+  pageNo?: number;
+  pageSize?: number;
   projectType?: string;
   sortBy?: string;
   startTime?: string;
@@ -9382,8 +9739,8 @@ export class SearchEditingProjectRequest extends $tea.Model {
     return {
       createSource: 'CreateSource',
       endTime: 'EndTime',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
       projectType: 'ProjectType',
       sortBy: 'SortBy',
       startTime: 'StartTime',
@@ -9396,8 +9753,8 @@ export class SearchEditingProjectRequest extends $tea.Model {
     return {
       createSource: 'string',
       endTime: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
       projectType: 'string',
       sortBy: 'string',
       startTime: 'string',
@@ -12847,6 +13204,78 @@ export class UpdateMediaInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMediaInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaMarksRequest extends $tea.Model {
+  mediaId?: string;
+  mediaMarks?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarks: 'MediaMarks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarks: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaMarksResponseBody extends $tea.Model {
+  mediaId?: string;
+  mediaMarkIds?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      mediaMarkIds: 'MediaMarkIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      mediaMarkIds: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaMarksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMediaMarksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaMarksResponseBody,
     };
   }
 
@@ -17711,6 +18140,37 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
       relatedMediaids: 'string',
       status: 'string',
       templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParamsResponseBodyParamList extends $tea.Model {
+  content?: string;
+  coverUrl?: string;
+  key?: string;
+  mediaUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      coverUrl: 'CoverUrl',
+      key: 'Key',
+      mediaUrl: 'MediaUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      coverUrl: 'string',
+      key: 'string',
+      mediaUrl: 'string',
       type: 'string',
     };
   }
@@ -28211,6 +28671,39 @@ export default class Client extends OpenApi {
     return await this.addFavoritePublicMediaWithOptions(request, runtime);
   }
 
+  async addMediaMarksWithOptions(request: AddMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaMarksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaMarks)) {
+      query["MediaMarks"] = request.mediaMarks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMediaMarks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMediaMarksResponse>(await this.callApi(params, req, runtime), new AddMediaMarksResponse({}));
+  }
+
+  async addMediaMarks(request: AddMediaMarksRequest): Promise<AddMediaMarksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMediaMarksWithOptions(request, runtime);
+  }
+
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29266,6 +29759,39 @@ export default class Client extends OpenApi {
   async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMediaInfosWithOptions(request, runtime);
+  }
+
+  async deleteMediaMarksWithOptions(request: DeleteMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaMarksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaMarkIds)) {
+      query["MediaMarkIds"] = request.mediaMarkIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMediaMarks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMediaMarksResponse>(await this.callApi(params, req, runtime), new DeleteMediaMarksResponse({}));
+  }
+
+  async deleteMediaMarks(request: DeleteMediaMarksRequest): Promise<DeleteMediaMarksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMediaMarksWithOptions(request, runtime);
   }
 
   async deletePipelineWithOptions(request: DeletePipelineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
@@ -30916,6 +31442,39 @@ export default class Client extends OpenApi {
     return await this.getMediaInfoJobWithOptions(request, runtime);
   }
 
+  async getMediaMarksWithOptions(request: GetMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaMarksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaMarkIds)) {
+      query["MediaMarkIds"] = request.mediaMarkIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMediaMarks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMediaMarksResponse>(await this.callApi(params, req, runtime), new GetMediaMarksResponse({}));
+  }
+
+  async getMediaMarks(request: GetMediaMarksRequest): Promise<GetMediaMarksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMediaMarksWithOptions(request, runtime);
+  }
+
   async getMediaProducingJobWithOptions(request: GetMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaProducingJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31253,6 +31812,31 @@ export default class Client extends OpenApi {
   async getTemplateMaterials(request: GetTemplateMaterialsRequest): Promise<GetTemplateMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateMaterialsWithOptions(request, runtime);
+  }
+
+  async getTemplateParamsWithOptions(request: GetTemplateParamsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParamsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemplateParams",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateParamsResponse>(await this.callApi(params, req, runtime), new GetTemplateParamsResponse({}));
+  }
+
+  async getTemplateParams(request: GetTemplateParamsRequest): Promise<GetTemplateParamsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateParamsWithOptions(request, runtime);
   }
 
   async getTranscodeJobWithOptions(request: GetTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeJobResponse> {
@@ -31959,6 +32543,39 @@ export default class Client extends OpenApi {
   async listMediaInfoJobs(request: ListMediaInfoJobsRequest): Promise<ListMediaInfoJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMediaInfoJobsWithOptions(request, runtime);
+  }
+
+  async listMediaMarksWithOptions(request: ListMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaMarksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaMarkIds)) {
+      query["MediaMarkIds"] = request.mediaMarkIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMediaMarks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMediaMarksResponse>(await this.callApi(params, req, runtime), new ListMediaMarksResponse({}));
+  }
+
+  async listMediaMarks(request: ListMediaMarksRequest): Promise<ListMediaMarksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMediaMarksWithOptions(request, runtime);
   }
 
   async listPackageJobsWithOptions(request: ListPackageJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListPackageJobsResponse> {
@@ -32720,12 +33337,12 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.projectType)) {
@@ -34674,6 +35291,39 @@ export default class Client extends OpenApi {
   async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMediaInfoWithOptions(request, runtime);
+  }
+
+  async updateMediaMarksWithOptions(request: UpdateMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaMarksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaMarks)) {
+      query["MediaMarks"] = request.mediaMarks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMediaMarks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMediaMarksResponse>(await this.callApi(params, req, runtime), new UpdateMediaMarksResponse({}));
+  }
+
+  async updateMediaMarks(request: UpdateMediaMarksRequest): Promise<UpdateMediaMarksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMediaMarksWithOptions(request, runtime);
   }
 
   async updatePipelineWithOptions(request: UpdatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
