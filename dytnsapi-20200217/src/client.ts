@@ -8,6 +8,93 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DescribeEmptyNumberRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmptyNumberResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeEmptyNumberResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeEmptyNumberResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmptyNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeEmptyNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEmptyNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEmptyNumberDetectRequest extends $tea.Model {
   encryptType?: string;
   ownerId?: number;
@@ -1577,6 +1664,28 @@ export class TwoElementsVerificationResponse extends $tea.Model {
   }
 }
 
+export class DescribeEmptyNumberResponseBodyData extends $tea.Model {
+  number?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEmptyNumberDetectResponseBodyData extends $tea.Model {
   number?: string;
   status?: string;
@@ -2027,6 +2136,55 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async describeEmptyNumberWithOptions(request: DescribeEmptyNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmptyNumberResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEmptyNumber",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEmptyNumberResponse>(await this.callApi(params, req, runtime), new DescribeEmptyNumberResponse({}));
+  }
+
+  async describeEmptyNumber(request: DescribeEmptyNumberRequest): Promise<DescribeEmptyNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEmptyNumberWithOptions(request, runtime);
   }
 
   async describeEmptyNumberDetectWithOptions(request: DescribeEmptyNumberDetectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmptyNumberDetectResponse> {
