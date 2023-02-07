@@ -856,6 +856,37 @@ export class TaskExec extends $tea.Model {
   }
 }
 
+export class TaskInvocation extends $tea.Model {
+  invocationID?: string;
+  invocationTarget?: string;
+  output?: { [key: string]: any };
+  requestID?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      invocationID: 'invocationID',
+      invocationTarget: 'invocationTarget',
+      output: 'output',
+      requestID: 'requestID',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invocationID: 'string',
+      invocationTarget: 'string',
+      output: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestID: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TaskSpec extends $tea.Model {
   context?: Context;
   templateName?: string;
@@ -880,11 +911,13 @@ export class TaskSpec extends $tea.Model {
 
 export class TaskStatus extends $tea.Model {
   executionDetails?: string[];
+  invocations?: TaskInvocation[];
   phase?: string;
   statusGeneration?: number;
   static names(): { [key: string]: string } {
     return {
       executionDetails: 'executionDetails',
+      invocations: 'invocations',
       phase: 'phase',
       statusGeneration: 'statusGeneration',
     };
@@ -893,6 +926,7 @@ export class TaskStatus extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       executionDetails: { 'type': 'array', 'itemType': 'string' },
+      invocations: { 'type': 'array', 'itemType': TaskInvocation },
       phase: 'string',
       statusGeneration: 'number',
     };
@@ -2737,6 +2771,31 @@ export class ResumeTaskResponse extends $tea.Model {
   }
 }
 
+export class RetryTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Task;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Task,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartPipelineResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2926,12 +2985,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async cancelTask(name: string): Promise<CancelTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.cancelTaskWithOptions(name, headers, runtime);
-  }
-
   async cancelTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -2950,10 +3003,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
-  async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
+  async cancelTask(name: string): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createApplicationWithOptions(request, headers, runtime);
+    return await this.cancelTaskWithOptions(name, headers, runtime);
   }
 
   async createApplicationWithOptions(request: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
@@ -2979,7 +3032,7 @@ export default class Client extends OpenApi {
       body["parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset($tea.toMap(request.repoSource))) {
+    if (!Util.isUnset(request.repoSource)) {
       body["repoSource"] = request.repoSource;
     }
 
@@ -2991,7 +3044,7 @@ export default class Client extends OpenApi {
       body["template"] = request.template;
     }
 
-    if (!Util.isUnset($tea.toMap(request.trigger))) {
+    if (!Util.isUnset(request.trigger)) {
       body["trigger"] = request.trigger;
     }
 
@@ -3013,17 +3066,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
-  async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
+  async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createPipelineWithOptions(request, headers, runtime);
+    return await this.createApplicationWithOptions(request, headers, runtime);
   }
 
   async createPipelineWithOptions(request: CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreatePipeline",
@@ -3039,17 +3092,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
   }
 
-  async createPipelineTemplate(request: CreatePipelineTemplateRequest): Promise<CreatePipelineTemplateResponse> {
+  async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createPipelineTemplateWithOptions(request, headers, runtime);
+    return await this.createPipelineWithOptions(request, headers, runtime);
   }
 
   async createPipelineTemplateWithOptions(request: CreatePipelineTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineTemplateResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreatePipelineTemplate",
@@ -3065,10 +3118,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePipelineTemplateResponse>(await this.callApi(params, req, runtime), new CreatePipelineTemplateResponse({}));
   }
 
-  async createRelease(appName: string, request: CreateReleaseRequest): Promise<CreateReleaseResponse> {
+  async createPipelineTemplate(request: CreatePipelineTemplateRequest): Promise<CreatePipelineTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createReleaseWithOptions(appName, request, headers, runtime);
+    return await this.createPipelineTemplateWithOptions(request, headers, runtime);
   }
 
   async createReleaseWithOptions(appName: string, request: CreateReleaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateReleaseResponse> {
@@ -3096,17 +3149,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateReleaseResponse>(await this.callApi(params, req, runtime), new CreateReleaseResponse({}));
   }
 
-  async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
+  async createRelease(appName: string, request: CreateReleaseRequest): Promise<CreateReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTaskWithOptions(request, headers, runtime);
+    return await this.createReleaseWithOptions(appName, request, headers, runtime);
   }
 
   async createTaskWithOptions(request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTask",
@@ -3122,17 +3175,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
-  async createTaskTemplate(request: CreateTaskTemplateRequest): Promise<CreateTaskTemplateResponse> {
+  async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTaskTemplateWithOptions(request, headers, runtime);
+    return await this.createTaskWithOptions(request, headers, runtime);
   }
 
   async createTaskTemplateWithOptions(request: CreateTaskTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskTemplateResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTaskTemplate",
@@ -3148,10 +3201,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskTemplateResponse>(await this.callApi(params, req, runtime), new CreateTaskTemplateResponse({}));
   }
 
-  async deleteApplication(name: string): Promise<DeleteApplicationResponse> {
+  async createTaskTemplate(request: CreateTaskTemplateRequest): Promise<CreateTaskTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteApplicationWithOptions(name, headers, runtime);
+    return await this.createTaskTemplateWithOptions(request, headers, runtime);
   }
 
   async deleteApplicationWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
@@ -3172,10 +3225,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
-  async deleteEnvironment(name: string): Promise<DeleteEnvironmentResponse> {
+  async deleteApplication(name: string): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteEnvironmentWithOptions(name, headers, runtime);
+    return await this.deleteApplicationWithOptions(name, headers, runtime);
   }
 
   async deleteEnvironmentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
@@ -3196,10 +3249,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentResponse({}));
   }
 
-  async deletePipelineTemplate(name: string): Promise<DeletePipelineTemplateResponse> {
+  async deleteEnvironment(name: string): Promise<DeleteEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePipelineTemplateWithOptions(name, headers, runtime);
+    return await this.deleteEnvironmentWithOptions(name, headers, runtime);
   }
 
   async deletePipelineTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineTemplateResponse> {
@@ -3220,10 +3273,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelineTemplateResponse>(await this.callApi(params, req, runtime), new DeletePipelineTemplateResponse({}));
   }
 
-  async deleteTaskTemplate(name: string): Promise<DeleteTaskTemplateResponse> {
+  async deletePipelineTemplate(name: string): Promise<DeletePipelineTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTaskTemplateWithOptions(name, headers, runtime);
+    return await this.deletePipelineTemplateWithOptions(name, headers, runtime);
   }
 
   async deleteTaskTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTaskTemplateResponse> {
@@ -3244,10 +3297,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTaskTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTaskTemplateResponse({}));
   }
 
-  async deleteTemplate(name: string, request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
+  async deleteTaskTemplate(name: string): Promise<DeleteTaskTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTemplateWithOptions(name, request, headers, runtime);
+    return await this.deleteTaskTemplateWithOptions(name, headers, runtime);
   }
 
   async deleteTemplateWithOptions(name: string, request: DeleteTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
@@ -3275,10 +3328,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
-  async getApplication(name: string): Promise<GetApplicationResponse> {
+  async deleteTemplate(name: string, request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getApplicationWithOptions(name, headers, runtime);
+    return await this.deleteTemplateWithOptions(name, request, headers, runtime);
   }
 
   async getApplicationWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
@@ -3299,10 +3352,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
-  async getEnvironment(name: string): Promise<GetEnvironmentResponse> {
+  async getApplication(name: string): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEnvironmentWithOptions(name, headers, runtime);
+    return await this.getApplicationWithOptions(name, headers, runtime);
   }
 
   async getEnvironmentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEnvironmentResponse> {
@@ -3323,10 +3376,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEnvironmentResponse>(await this.callApi(params, req, runtime), new GetEnvironmentResponse({}));
   }
 
-  async getPipeline(name: string): Promise<GetPipelineResponse> {
+  async getEnvironment(name: string): Promise<GetEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPipelineWithOptions(name, headers, runtime);
+    return await this.getEnvironmentWithOptions(name, headers, runtime);
   }
 
   async getPipelineWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
@@ -3347,10 +3400,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPipelineResponse>(await this.callApi(params, req, runtime), new GetPipelineResponse({}));
   }
 
-  async getPipelineTemplate(name: string): Promise<GetPipelineTemplateResponse> {
+  async getPipeline(name: string): Promise<GetPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPipelineTemplateWithOptions(name, headers, runtime);
+    return await this.getPipelineWithOptions(name, headers, runtime);
   }
 
   async getPipelineTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineTemplateResponse> {
@@ -3371,10 +3424,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPipelineTemplateResponse>(await this.callApi(params, req, runtime), new GetPipelineTemplateResponse({}));
   }
 
-  async getRelease(appName: string, versionId: string): Promise<GetReleaseResponse> {
+  async getPipelineTemplate(name: string): Promise<GetPipelineTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getReleaseWithOptions(appName, versionId, headers, runtime);
+    return await this.getPipelineTemplateWithOptions(name, headers, runtime);
   }
 
   async getReleaseWithOptions(appName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetReleaseResponse> {
@@ -3395,10 +3448,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetReleaseResponse>(await this.callApi(params, req, runtime), new GetReleaseResponse({}));
   }
 
-  async getService(name: string): Promise<GetServiceResponse> {
+  async getRelease(appName: string, versionId: string): Promise<GetReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceWithOptions(name, headers, runtime);
+    return await this.getReleaseWithOptions(appName, versionId, headers, runtime);
   }
 
   async getServiceWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
@@ -3419,10 +3472,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
   }
 
-  async getTask(name: string): Promise<GetTaskResponse> {
+  async getService(name: string): Promise<GetServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskWithOptions(name, headers, runtime);
+    return await this.getServiceWithOptions(name, headers, runtime);
   }
 
   async getTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
@@ -3443,10 +3496,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
   }
 
-  async getTaskTemplate(name: string): Promise<GetTaskTemplateResponse> {
+  async getTask(name: string): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskTemplateWithOptions(name, headers, runtime);
+    return await this.getTaskWithOptions(name, headers, runtime);
   }
 
   async getTaskTemplateWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskTemplateResponse> {
@@ -3467,10 +3520,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskTemplateResponse>(await this.callApi(params, req, runtime), new GetTaskTemplateResponse({}));
   }
 
-  async getTemplate(name: string, request: GetTemplateRequest): Promise<GetTemplateResponse> {
+  async getTaskTemplate(name: string): Promise<GetTaskTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTemplateWithOptions(name, request, headers, runtime);
+    return await this.getTaskTemplateWithOptions(name, headers, runtime);
   }
 
   async getTemplateWithOptions(name: string, request: GetTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
@@ -3498,10 +3551,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
-  async listEnvironmentRevisions(request: ListEnvironmentRevisionsRequest): Promise<ListEnvironmentRevisionsResponse> {
+  async getTemplate(name: string, request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEnvironmentRevisionsWithOptions(request, headers, runtime);
+    return await this.getTemplateWithOptions(name, request, headers, runtime);
   }
 
   async listEnvironmentRevisionsWithOptions(request: ListEnvironmentRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentRevisionsResponse> {
@@ -3529,10 +3582,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentRevisionsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentRevisionsResponse({}));
   }
 
-  async listEnvironments(): Promise<ListEnvironmentsResponse> {
+  async listEnvironmentRevisions(request: ListEnvironmentRevisionsRequest): Promise<ListEnvironmentRevisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listEnvironmentsWithOptions(headers, runtime);
+    return await this.listEnvironmentRevisionsWithOptions(request, headers, runtime);
   }
 
   async listEnvironmentsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentsResponse> {
@@ -3553,10 +3606,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentsResponse({}));
   }
 
-  async listPipelineTemplates(request: ListPipelineTemplatesRequest): Promise<ListPipelineTemplatesResponse> {
+  async listEnvironments(): Promise<ListEnvironmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelineTemplatesWithOptions(request, headers, runtime);
+    return await this.listEnvironmentsWithOptions(headers, runtime);
   }
 
   async listPipelineTemplatesWithOptions(tmpReq: ListPipelineTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineTemplatesResponse> {
@@ -3590,10 +3643,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelineTemplatesResponse>(await this.callApi(params, req, runtime), new ListPipelineTemplatesResponse({}));
   }
 
-  async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
+  async listPipelineTemplates(request: ListPipelineTemplatesRequest): Promise<ListPipelineTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPipelinesWithOptions(request, headers, runtime);
+    return await this.listPipelineTemplatesWithOptions(request, headers, runtime);
   }
 
   async listPipelinesWithOptions(tmpReq: ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
@@ -3627,10 +3680,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
   }
 
-  async listServiceRevisions(request: ListServiceRevisionsRequest): Promise<ListServiceRevisionsResponse> {
+  async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServiceRevisionsWithOptions(request, headers, runtime);
+    return await this.listPipelinesWithOptions(request, headers, runtime);
   }
 
   async listServiceRevisionsWithOptions(request: ListServiceRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceRevisionsResponse> {
@@ -3658,10 +3711,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceRevisionsResponse>(await this.callApi(params, req, runtime), new ListServiceRevisionsResponse({}));
   }
 
-  async listServices(): Promise<ListServicesResponse> {
+  async listServiceRevisions(request: ListServiceRevisionsRequest): Promise<ListServiceRevisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServicesWithOptions(headers, runtime);
+    return await this.listServiceRevisionsWithOptions(request, headers, runtime);
   }
 
   async listServicesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
@@ -3682,10 +3735,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
-  async listTaskTemplates(request: ListTaskTemplatesRequest): Promise<ListTaskTemplatesResponse> {
+  async listServices(): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTaskTemplatesWithOptions(request, headers, runtime);
+    return await this.listServicesWithOptions(headers, runtime);
   }
 
   async listTaskTemplatesWithOptions(tmpReq: ListTaskTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaskTemplatesResponse> {
@@ -3719,10 +3772,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskTemplatesResponse>(await this.callApi(params, req, runtime), new ListTaskTemplatesResponse({}));
   }
 
-  async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
+  async listTaskTemplates(request: ListTaskTemplatesRequest): Promise<ListTaskTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTasksWithOptions(request, headers, runtime);
+    return await this.listTaskTemplatesWithOptions(request, headers, runtime);
   }
 
   async listTasksWithOptions(tmpReq: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
@@ -3756,10 +3809,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
-  async listTemplateRevisions(request: ListTemplateRevisionsRequest): Promise<ListTemplateRevisionsResponse> {
+  async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTemplateRevisionsWithOptions(request, headers, runtime);
+    return await this.listTasksWithOptions(request, headers, runtime);
   }
 
   async listTemplateRevisionsWithOptions(request: ListTemplateRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTemplateRevisionsResponse> {
@@ -3791,10 +3844,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplateRevisionsResponse>(await this.callApi(params, req, runtime), new ListTemplateRevisionsResponse({}));
   }
 
-  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+  async listTemplateRevisions(request: ListTemplateRevisionsRequest): Promise<ListTemplateRevisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTemplatesWithOptions(request, headers, runtime);
+    return await this.listTemplateRevisionsWithOptions(request, headers, runtime);
   }
 
   async listTemplatesWithOptions(request: ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
@@ -3822,17 +3875,17 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
-  async putEnvironment(name: string, request: PutEnvironmentRequest): Promise<PutEnvironmentResponse> {
+  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putEnvironmentWithOptions(name, request, headers, runtime);
+    return await this.listTemplatesWithOptions(request, headers, runtime);
   }
 
   async putEnvironmentWithOptions(name: string, request: PutEnvironmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutEnvironmentResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutEnvironment",
@@ -3848,10 +3901,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutEnvironmentResponse>(await this.callApi(params, req, runtime), new PutEnvironmentResponse({}));
   }
 
-  async putPipelineStatus(name: string, request: PutPipelineStatusRequest): Promise<PutPipelineStatusResponse> {
+  async putEnvironment(name: string, request: PutEnvironmentRequest): Promise<PutEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putPipelineStatusWithOptions(name, request, headers, runtime);
+    return await this.putEnvironmentWithOptions(name, request, headers, runtime);
   }
 
   async putPipelineStatusWithOptions(name: string, request: PutPipelineStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutPipelineStatusResponse> {
@@ -3864,7 +3917,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutPipelineStatus",
@@ -3880,10 +3933,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutPipelineStatusResponse>(await this.callApi(params, req, runtime), new PutPipelineStatusResponse({}));
   }
 
-  async putPipelineTemplate(name: string, request: PutPipelineTemplateRequest): Promise<PutPipelineTemplateResponse> {
+  async putPipelineStatus(name: string, request: PutPipelineStatusRequest): Promise<PutPipelineStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putPipelineTemplateWithOptions(name, request, headers, runtime);
+    return await this.putPipelineStatusWithOptions(name, request, headers, runtime);
   }
 
   async putPipelineTemplateWithOptions(name: string, request: PutPipelineTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutPipelineTemplateResponse> {
@@ -3896,7 +3949,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutPipelineTemplate",
@@ -3912,17 +3965,17 @@ export default class Client extends OpenApi {
     return $tea.cast<PutPipelineTemplateResponse>(await this.callApi(params, req, runtime), new PutPipelineTemplateResponse({}));
   }
 
-  async putService(name: string, request: PutServiceRequest): Promise<PutServiceResponse> {
+  async putPipelineTemplate(name: string, request: PutPipelineTemplateRequest): Promise<PutPipelineTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putServiceWithOptions(name, request, headers, runtime);
+    return await this.putPipelineTemplateWithOptions(name, request, headers, runtime);
   }
 
   async putServiceWithOptions(name: string, request: PutServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutServiceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutService",
@@ -3938,10 +3991,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutServiceResponse>(await this.callApi(params, req, runtime), new PutServiceResponse({}));
   }
 
-  async putTaskStatus(name: string, request: PutTaskStatusRequest): Promise<PutTaskStatusResponse> {
+  async putService(name: string, request: PutServiceRequest): Promise<PutServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putTaskStatusWithOptions(name, request, headers, runtime);
+    return await this.putServiceWithOptions(name, request, headers, runtime);
   }
 
   async putTaskStatusWithOptions(name: string, request: PutTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTaskStatusResponse> {
@@ -3954,7 +4007,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutTaskStatus",
@@ -3970,10 +4023,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutTaskStatusResponse>(await this.callApi(params, req, runtime), new PutTaskStatusResponse({}));
   }
 
-  async putTaskTemplate(name: string, request: PutTaskTemplateRequest): Promise<PutTaskTemplateResponse> {
+  async putTaskStatus(name: string, request: PutTaskStatusRequest): Promise<PutTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putTaskTemplateWithOptions(name, request, headers, runtime);
+    return await this.putTaskStatusWithOptions(name, request, headers, runtime);
   }
 
   async putTaskTemplateWithOptions(name: string, request: PutTaskTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTaskTemplateResponse> {
@@ -3986,7 +4039,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutTaskTemplate",
@@ -4002,10 +4055,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutTaskTemplateResponse>(await this.callApi(params, req, runtime), new PutTaskTemplateResponse({}));
   }
 
-  async putTemplate(name: string, request: PutTemplateRequest): Promise<PutTemplateResponse> {
+  async putTaskTemplate(name: string, request: PutTaskTemplateRequest): Promise<PutTaskTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putTemplateWithOptions(name, request, headers, runtime);
+    return await this.putTaskTemplateWithOptions(name, request, headers, runtime);
   }
 
   async putTemplateWithOptions(name: string, request: PutTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutTemplateResponse> {
@@ -4018,7 +4071,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "PutTemplate",
@@ -4034,10 +4087,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutTemplateResponse>(await this.callApi(params, req, runtime), new PutTemplateResponse({}));
   }
 
-  async resumeTask(name: string): Promise<ResumeTaskResponse> {
+  async putTemplate(name: string, request: PutTemplateRequest): Promise<PutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.resumeTaskWithOptions(name, headers, runtime);
+    return await this.putTemplateWithOptions(name, request, headers, runtime);
   }
 
   async resumeTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeTaskResponse> {
@@ -4058,10 +4111,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeTaskResponse>(await this.callApi(params, req, runtime), new ResumeTaskResponse({}));
   }
 
-  async startPipeline(name: string): Promise<StartPipelineResponse> {
+  async resumeTask(name: string): Promise<ResumeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startPipelineWithOptions(name, headers, runtime);
+    return await this.resumeTaskWithOptions(name, headers, runtime);
+  }
+
+  async retryTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryTaskResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryTask",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/tasks/${OpenApiUtil.getEncodeParam(name)}/retry`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryTaskResponse>(await this.callApi(params, req, runtime), new RetryTaskResponse({}));
+  }
+
+  async retryTask(name: string): Promise<RetryTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retryTaskWithOptions(name, headers, runtime);
   }
 
   async startPipelineWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartPipelineResponse> {
@@ -4082,10 +4159,10 @@ export default class Client extends OpenApi {
     return $tea.cast<StartPipelineResponse>(await this.callApi(params, req, runtime), new StartPipelineResponse({}));
   }
 
-  async startTask(name: string): Promise<StartTaskResponse> {
+  async startPipeline(name: string): Promise<StartPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startTaskWithOptions(name, headers, runtime);
+    return await this.startPipelineWithOptions(name, headers, runtime);
   }
 
   async startTaskWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTaskResponse> {
@@ -4106,17 +4183,17 @@ export default class Client extends OpenApi {
     return $tea.cast<StartTaskResponse>(await this.callApi(params, req, runtime), new StartTaskResponse({}));
   }
 
-  async updateApplication(name: string, request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+  async startTask(name: string): Promise<StartTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateApplicationWithOptions(name, request, headers, runtime);
+    return await this.startTaskWithOptions(name, headers, runtime);
   }
 
   async updateApplicationWithOptions(name: string, request: UpdateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateApplication",
@@ -4130,6 +4207,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+  }
+
+  async updateApplication(name: string, request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApplicationWithOptions(name, request, headers, runtime);
   }
 
 }
