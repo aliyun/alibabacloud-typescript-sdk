@@ -8,6 +8,99 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
   consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
   deliveryOrderType?: string;
@@ -792,11 +885,13 @@ export class ListInstancesRequest extends $tea.Model {
   filter?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -805,6 +900,7 @@ export class ListInstancesRequest extends $tea.Model {
       filter: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1903,6 +1999,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
   regionId?: string;
   releaseTime?: string;
   remark?: string;
+  resourceGroupId?: string;
   seriesCode?: string;
   serviceCode?: string;
   startTime?: string;
@@ -1923,6 +2020,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       regionId: 'regionId',
       releaseTime: 'releaseTime',
       remark: 'remark',
+      resourceGroupId: 'resourceGroupId',
       seriesCode: 'seriesCode',
       serviceCode: 'serviceCode',
       startTime: 'startTime',
@@ -1946,6 +2044,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       regionId: 'string',
       releaseTime: 'string',
       remark: 'string',
+      resourceGroupId: 'string',
       seriesCode: 'string',
       serviceCode: 'string',
       startTime: 'string',
@@ -2059,10 +2158,12 @@ export class ListTopicsResponseBodyData extends $tea.Model {
 }
 
 export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
+  deadLetterTargetTopic?: string;
   maxRetryTimes?: number;
   retryPolicy?: string;
   static names(): { [key: string]: string } {
     return {
+      deadLetterTargetTopic: 'deadLetterTargetTopic',
       maxRetryTimes: 'maxRetryTimes',
       retryPolicy: 'retryPolicy',
     };
@@ -2070,6 +2171,7 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deadLetterTargetTopic: 'string',
       maxRetryTimes: 'number',
       retryPolicy: 'string',
     };
@@ -2164,6 +2266,49 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["resourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/resourceGroup/change`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
 
   async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
@@ -2521,6 +2666,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
