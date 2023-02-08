@@ -1513,6 +1513,154 @@ export class UpdateAdxCreativeContentResponse extends $tea.Model {
   }
 }
 
+export class VerifyAdvertisingRequest extends $tea.Model {
+  app?: VerifyAdvertisingRequestApp;
+  dealtype?: number;
+  device?: VerifyAdvertisingRequestDevice;
+  ext?: { [key: string]: any };
+  id?: string;
+  imp?: VerifyAdvertisingRequestImp[];
+  test?: number;
+  user?: VerifyAdvertisingRequestUser;
+  verifyad?: VerifyAdvertisingRequestVerifyad[];
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      dealtype: 'Dealtype',
+      device: 'Device',
+      ext: 'Ext',
+      id: 'Id',
+      imp: 'Imp',
+      test: 'Test',
+      user: 'User',
+      verifyad: 'Verifyad',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: VerifyAdvertisingRequestApp,
+      dealtype: 'number',
+      device: VerifyAdvertisingRequestDevice,
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      imp: { 'type': 'array', 'itemType': VerifyAdvertisingRequestImp },
+      test: 'number',
+      user: VerifyAdvertisingRequestUser,
+      verifyad: { 'type': 'array', 'itemType': VerifyAdvertisingRequestVerifyad },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingShrinkRequest extends $tea.Model {
+  appShrink?: string;
+  dealtype?: number;
+  deviceShrink?: string;
+  extShrink?: string;
+  id?: string;
+  impShrink?: string;
+  test?: number;
+  userShrink?: string;
+  verifyadShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appShrink: 'App',
+      dealtype: 'Dealtype',
+      deviceShrink: 'Device',
+      extShrink: 'Ext',
+      id: 'Id',
+      impShrink: 'Imp',
+      test: 'Test',
+      userShrink: 'User',
+      verifyadShrink: 'Verifyad',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appShrink: 'string',
+      dealtype: 'number',
+      deviceShrink: 'string',
+      extShrink: 'string',
+      id: 'string',
+      impShrink: 'string',
+      test: 'number',
+      userShrink: 'string',
+      verifyadShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBody extends $tea.Model {
+  errorcode?: string;
+  errormsg?: string;
+  ext?: { [key: string]: string };
+  header?: VerifyAdvertisingResponseBodyHeader;
+  requestId?: string;
+  result?: VerifyAdvertisingResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorcode: 'Errorcode',
+      errormsg: 'Errormsg',
+      ext: 'Ext',
+      header: 'Header',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorcode: 'string',
+      errormsg: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      header: VerifyAdvertisingResponseBodyHeader,
+      requestId: 'string',
+      result: VerifyAdvertisingResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyAdvertisingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyAdvertisingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifySmsCodeRequest extends $tea.Model {
   code?: string;
   nowStamp?: number;
@@ -2555,27 +2703,35 @@ export class UpdateAdxCreativeContentRequestAdNativead extends $tea.Model {
 }
 
 export class UpdateAdxCreativeContentRequestAd extends $tea.Model {
+  bundle?: string[];
   clicks?: string[];
   crid?: string;
   enddate?: string;
   imps?: string[];
   interacttype?: number;
+  mediaIdList?: string[];
   nativead?: UpdateAdxCreativeContentRequestAdNativead[];
   op?: number;
   ostype?: string;
+  prereview?: boolean;
+  seat?: string;
   startdate?: string;
   template?: number;
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      bundle: 'Bundle',
       clicks: 'Clicks',
       crid: 'Crid',
       enddate: 'Enddate',
       imps: 'Imps',
       interacttype: 'Interacttype',
+      mediaIdList: 'MediaIdList',
       nativead: 'Nativead',
       op: 'Op',
       ostype: 'Ostype',
+      prereview: 'Prereview',
+      seat: 'Seat',
       startdate: 'Startdate',
       template: 'Template',
       type: 'Type',
@@ -2584,17 +2740,443 @@ export class UpdateAdxCreativeContentRequestAd extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bundle: { 'type': 'array', 'itemType': 'string' },
       clicks: { 'type': 'array', 'itemType': 'string' },
       crid: 'string',
       enddate: 'string',
       imps: { 'type': 'array', 'itemType': 'string' },
       interacttype: 'number',
+      mediaIdList: { 'type': 'array', 'itemType': 'string' },
       nativead: { 'type': 'array', 'itemType': UpdateAdxCreativeContentRequestAdNativead },
       op: 'number',
       ostype: 'string',
+      prereview: 'boolean',
+      seat: 'string',
       startdate: 'string',
       template: 'number',
       type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestApp extends $tea.Model {
+  ext?: { [key: string]: any };
+  mediaid?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      mediaid: 'Mediaid',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      mediaid: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestDeviceGeo extends $tea.Model {
+  city?: string;
+  district?: string;
+  lat?: number;
+  lon?: number;
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      district: 'District',
+      lat: 'Lat',
+      lon: 'Lon',
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      district: 'string',
+      lat: 'number',
+      lon: 'number',
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestDevice extends $tea.Model {
+  androidid?: string;
+  androidmd5?: string;
+  caid?: string;
+  carrier?: string;
+  connectiontype?: number;
+  devicetype?: number;
+  geo?: VerifyAdvertisingRequestDeviceGeo;
+  idfa?: string;
+  imei?: string;
+  imeimd5?: string;
+  ip?: string;
+  language?: string;
+  mac?: string;
+  macmd5?: string;
+  make?: string;
+  model?: string;
+  oaid?: string;
+  os?: string;
+  osv?: string;
+  ua?: string;
+  utdid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      androidid: 'Androidid',
+      androidmd5: 'Androidmd5',
+      caid: 'Caid',
+      carrier: 'Carrier',
+      connectiontype: 'Connectiontype',
+      devicetype: 'Devicetype',
+      geo: 'Geo',
+      idfa: 'Idfa',
+      imei: 'Imei',
+      imeimd5: 'Imeimd5',
+      ip: 'Ip',
+      language: 'Language',
+      mac: 'Mac',
+      macmd5: 'Macmd5',
+      make: 'Make',
+      model: 'Model',
+      oaid: 'Oaid',
+      os: 'Os',
+      osv: 'Osv',
+      ua: 'Ua',
+      utdid: 'Utdid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidid: 'string',
+      androidmd5: 'string',
+      caid: 'string',
+      carrier: 'string',
+      connectiontype: 'number',
+      devicetype: 'number',
+      geo: VerifyAdvertisingRequestDeviceGeo,
+      idfa: 'string',
+      imei: 'string',
+      imeimd5: 'string',
+      ip: 'string',
+      language: 'string',
+      mac: 'string',
+      macmd5: 'string',
+      make: 'string',
+      model: 'string',
+      oaid: 'string',
+      os: 'string',
+      osv: 'string',
+      ua: 'string',
+      utdid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestImp extends $tea.Model {
+  id?: string;
+  tagid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      tagid: 'Tagid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      tagid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestUser extends $tea.Model {
+  id?: string;
+  usertype?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      usertype: 'Usertype',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      usertype: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingRequestVerifyad extends $tea.Model {
+  id?: number;
+  seat?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      seat: 'Seat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      seat: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyHeader extends $tea.Model {
+  costTime?: number;
+  rpcId?: string;
+  traceId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      rpcId: 'RpcId',
+      traceId: 'TraceId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'number',
+      rpcId: 'string',
+      traceId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbidBidAdsIcon extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbidBidAdsImages extends $tea.Model {
+  desc?: string;
+  format?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      format: 'Format',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      format: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbidBidAdsTrackers extends $tea.Model {
+  imps?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imps: 'Imps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imps: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbidBidAds extends $tea.Model {
+  crid?: string;
+  crurl?: string;
+  icon?: VerifyAdvertisingResponseBodyResultSeatbidBidAdsIcon;
+  id?: string;
+  images?: VerifyAdvertisingResponseBodyResultSeatbidBidAdsImages[];
+  interacttype?: number;
+  labeltype?: string;
+  landingurls?: string[];
+  marketingtype?: string;
+  objective?: string;
+  price?: string;
+  seat?: string;
+  style?: string;
+  title?: string;
+  trackers?: VerifyAdvertisingResponseBodyResultSeatbidBidAdsTrackers;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crid: 'Crid',
+      crurl: 'Crurl',
+      icon: 'Icon',
+      id: 'Id',
+      images: 'Images',
+      interacttype: 'Interacttype',
+      labeltype: 'Labeltype',
+      landingurls: 'Landingurls',
+      marketingtype: 'Marketingtype',
+      objective: 'Objective',
+      price: 'Price',
+      seat: 'Seat',
+      style: 'Style',
+      title: 'Title',
+      trackers: 'Trackers',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crid: 'string',
+      crurl: 'string',
+      icon: VerifyAdvertisingResponseBodyResultSeatbidBidAdsIcon,
+      id: 'string',
+      images: { 'type': 'array', 'itemType': VerifyAdvertisingResponseBodyResultSeatbidBidAdsImages },
+      interacttype: 'number',
+      labeltype: 'string',
+      landingurls: { 'type': 'array', 'itemType': 'string' },
+      marketingtype: 'string',
+      objective: 'string',
+      price: 'string',
+      seat: 'string',
+      style: 'string',
+      title: 'string',
+      trackers: VerifyAdvertisingResponseBodyResultSeatbidBidAdsTrackers,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbidBid extends $tea.Model {
+  ads?: VerifyAdvertisingResponseBodyResultSeatbidBidAds[];
+  impid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ads: 'Ads',
+      impid: 'Impid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ads: { 'type': 'array', 'itemType': VerifyAdvertisingResponseBodyResultSeatbidBidAds },
+      impid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResultSeatbid extends $tea.Model {
+  bid?: VerifyAdvertisingResponseBodyResultSeatbidBid[];
+  static names(): { [key: string]: string } {
+    return {
+      bid: 'Bid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bid: { 'type': 'array', 'itemType': VerifyAdvertisingResponseBodyResultSeatbidBid },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyAdvertisingResponseBodyResult extends $tea.Model {
+  bidid?: string;
+  id?: string;
+  seatbid?: VerifyAdvertisingResponseBodyResultSeatbid[];
+  static names(): { [key: string]: string } {
+    return {
+      bidid: 'Bidid',
+      id: 'Id',
+      seatbid: 'Seatbid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bidid: 'string',
+      id: 'string',
+      seatbid: { 'type': 'array', 'itemType': VerifyAdvertisingResponseBodyResultSeatbid },
     };
   }
 
@@ -3058,12 +3640,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListAdvertisingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.app))) {
-      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.app), "App", "json");
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.device))) {
-      request.deviceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.device), "Device", "json");
+    if (!Util.isUnset(tmpReq.device)) {
+      request.deviceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.device, "Device", "json");
     }
 
     if (!Util.isUnset(tmpReq.ext)) {
@@ -3074,8 +3656,8 @@ export default class Client extends OpenApi {
       request.impShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imp, "Imp", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.user))) {
-      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.user), "User", "json");
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
     }
 
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3316,6 +3898,57 @@ export default class Client extends OpenApi {
   async updateAdxCreativeContent(request: UpdateAdxCreativeContentRequest): Promise<UpdateAdxCreativeContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAdxCreativeContentWithOptions(request, runtime);
+  }
+
+  async verifyAdvertisingWithOptions(tmpReq: VerifyAdvertisingRequest, runtime: $Util.RuntimeOptions): Promise<VerifyAdvertisingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new VerifyAdvertisingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.app)) {
+      request.appShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.app, "App", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.device)) {
+      request.deviceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.device, "Device", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.imp)) {
+      request.impShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imp, "Imp", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.user)) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.verifyad)) {
+      request.verifyadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verifyad, "Verifyad", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyAdvertising",
+      version: "2022-07-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyAdvertisingResponse>(await this.callApi(params, req, runtime), new VerifyAdvertisingResponse({}));
+  }
+
+  async verifyAdvertising(request: VerifyAdvertisingRequest): Promise<VerifyAdvertisingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyAdvertisingWithOptions(request, runtime);
   }
 
   async verifySmsCodeWithOptions(request: VerifySmsCodeRequest, runtime: $Util.RuntimeOptions): Promise<VerifySmsCodeResponse> {
