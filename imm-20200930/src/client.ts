@@ -389,6 +389,55 @@ export class CroppingSuggestion extends $tea.Model {
   }
 }
 
+export class DataIngestion extends $tea.Model {
+  actions?: DataIngestionActions[];
+  createTime?: string;
+  error?: string;
+  id?: string;
+  input?: Input;
+  marker?: string;
+  notification?: DataIngestionNotification;
+  state?: string;
+  statistic?: DataIngestionStatistic;
+  tags?: { [key: string]: any };
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      createTime: 'CreateTime',
+      error: 'Error',
+      id: 'Id',
+      input: 'Input',
+      marker: 'Marker',
+      notification: 'Notification',
+      state: 'State',
+      statistic: 'Statistic',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': DataIngestionActions },
+      createTime: 'string',
+      error: 'string',
+      id: 'string',
+      input: Input,
+      marker: 'string',
+      notification: DataIngestionNotification,
+      state: 'string',
+      statistic: DataIngestionStatistic,
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Dataset extends $tea.Model {
   bindCount?: number;
   createTime?: string;
@@ -1411,6 +1460,59 @@ export class Row extends $tea.Model {
     return {
       customLabels: { 'type': 'array', 'itemType': KeyValuePair },
       URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimilarImage extends $tea.Model {
+  imageScore?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageScore: 'ImageScore',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageScore: 'number',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimilarImageCluster extends $tea.Model {
+  createTime?: string;
+  customLabels?: { [key: string]: any };
+  files?: SimilarImage[];
+  objectId?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      customLabels: 'CustomLabels',
+      files: 'Files',
+      objectId: 'ObjectId',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      files: { 'type': 'array', 'itemType': SimilarImage },
+      objectId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -2749,6 +2851,121 @@ export class CreateArchiveFileInspectionTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateArchiveFileInspectionTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchRequest extends $tea.Model {
+  actions?: CreateBatchRequestActions[];
+  input?: Input;
+  notification?: CreateBatchRequestNotification;
+  projectName?: string;
+  serviceRole?: string;
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      input: 'Input',
+      notification: 'Notification',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': CreateBatchRequestActions },
+      input: Input,
+      notification: CreateBatchRequestNotification,
+      projectName: 'string',
+      serviceRole: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchShrinkRequest extends $tea.Model {
+  actionsShrink?: string;
+  inputShrink?: string;
+  notificationShrink?: string;
+  projectName?: string;
+  serviceRole?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionsShrink: 'Actions',
+      inputShrink: 'Input',
+      notificationShrink: 'Notification',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionsShrink: 'string',
+      inputShrink: 'string',
+      notificationShrink: 'string',
+      projectName: 'string',
+      serviceRole: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBatchResponseBody,
     };
   }
 
@@ -5051,6 +5268,121 @@ export class CreateStoryResponse extends $tea.Model {
   }
 }
 
+export class CreateTriggerRequest extends $tea.Model {
+  actions?: CreateTriggerRequestActions[];
+  input?: Input;
+  notification?: CreateTriggerRequestNotification;
+  projectName?: string;
+  serviceRole?: string;
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      input: 'Input',
+      notification: 'Notification',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': CreateTriggerRequestActions },
+      input: Input,
+      notification: CreateTriggerRequestNotification,
+      projectName: 'string',
+      serviceRole: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerShrinkRequest extends $tea.Model {
+  actionsShrink?: string;
+  inputShrink?: string;
+  notificationShrink?: string;
+  projectName?: string;
+  serviceRole?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionsShrink: 'Actions',
+      inputShrink: 'Input',
+      notificationShrink: 'Notification',
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionsShrink: 'string',
+      inputShrink: 'string',
+      notificationShrink: 'string',
+      projectName: 'string',
+      serviceRole: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyTopicName?: string;
@@ -7014,6 +7346,75 @@ export class GenerateWebofficeTokenResponse extends $tea.Model {
   }
 }
 
+export class GetBatchRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchResponseBody extends $tea.Model {
+  batch?: DataIngestion;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batch: 'Batch',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batch: DataIngestion,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBindingRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -7611,6 +8012,75 @@ export class GetTaskResponse extends $tea.Model {
   }
 }
 
+export class GetTriggerRequest extends $tea.Model {
+  id?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTriggerResponseBody extends $tea.Model {
+  requestId?: string;
+  trigger?: DataIngestion;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trigger: DataIngestion,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTriggerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTriggerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVideoLabelClassificationResultRequest extends $tea.Model {
   projectName?: string;
   taskId?: string;
@@ -7808,6 +8278,93 @@ export class IndexFileMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: IndexFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  state?: string;
+  tagSelector?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+      state: 'State',
+      tagSelector: 'TagSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+      state: 'string',
+      tagSelector: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchesResponseBody extends $tea.Model {
+  batches?: DataIngestion[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batches: 'Batches',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batches: { 'type': 'array', 'itemType': DataIngestion },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBatchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBatchesResponseBody,
     };
   }
 
@@ -8253,6 +8810,93 @@ export class ListTasksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  state?: string;
+  tagSelector?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+      state: 'State',
+      tagSelector: 'TagSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+      state: 'string',
+      tagSelector: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  triggers?: DataIngestion[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      triggers: 'Triggers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      triggers: { 'type': 'array', 'itemType': DataIngestion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTriggersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTriggersResponseBody,
     };
   }
 
@@ -10434,6 +11078,72 @@ export class CredentialConfigChain extends $tea.Model {
   }
 }
 
+export class DataIngestionActions extends $tea.Model {
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataIngestionNotification extends $tea.Model {
+  endpoint?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataIngestionStatistic extends $tea.Model {
+  submitFailure?: number;
+  submitSuccess?: number;
+  static names(): { [key: string]: string } {
+    return {
+      submitFailure: 'SubmitFailure',
+      submitSuccess: 'SubmitSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      submitFailure: 'number',
+      submitSuccess: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FigureClusterForReqCoverFigures extends $tea.Model {
   figureId?: string;
   static names(): { [key: string]: string } {
@@ -10670,6 +11380,50 @@ export class CompareImageFacesRequestSource extends $tea.Model {
     return {
       URI1: 'string',
       URI2: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchRequestActions extends $tea.Model {
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchRequestNotification extends $tea.Model {
+  endpoint?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topic: 'string',
     };
   }
 
@@ -11442,6 +12196,50 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
   }
 }
 
+export class CreateTriggerRequestActions extends $tea.Model {
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTriggerRequestNotification extends $tea.Model {
+  endpoint?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
   overallQualityScore?: number;
   static names(): { [key: string]: string } {
@@ -12133,6 +12931,73 @@ export default class Client extends OpenApi {
   async createArchiveFileInspectionTask(request: CreateArchiveFileInspectionTaskRequest): Promise<CreateArchiveFileInspectionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createArchiveFileInspectionTaskWithOptions(request, runtime);
+  }
+
+  async createBatchWithOptions(tmpReq: CreateBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateBatchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.actions)) {
+      request.actionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actions, "Actions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actionsShrink)) {
+      body["Actions"] = request.actionsShrink;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.serviceRole)) {
+      body["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBatchResponse>(await this.callApi(params, req, runtime), new CreateBatchResponse({}));
+  }
+
+  async createBatch(request: CreateBatchRequest): Promise<CreateBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBatchWithOptions(request, runtime);
   }
 
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
@@ -13426,6 +14291,73 @@ export default class Client extends OpenApi {
     return await this.createStoryWithOptions(request, runtime);
   }
 
+  async createTriggerWithOptions(tmpReq: CreateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTriggerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.actions)) {
+      request.actionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actions, "Actions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actionsShrink)) {
+      body["Actions"] = request.actionsShrink;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.serviceRole)) {
+      body["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
+  }
+
+  async createTrigger(request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTriggerWithOptions(request, runtime);
+  }
+
   async createVideoLabelClassificationTaskWithOptions(tmpReq: CreateVideoLabelClassificationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoLabelClassificationTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateVideoLabelClassificationTaskShrinkRequest({ });
@@ -14377,6 +15309,39 @@ export default class Client extends OpenApi {
     return await this.generateWebofficeTokenWithOptions(request, runtime);
   }
 
+  async getBatchWithOptions(request: GetBatchRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatch",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchResponse>(await this.callApi(params, req, runtime), new GetBatchResponse({}));
+  }
+
+  async getBatch(request: GetBatchRequest): Promise<GetBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchWithOptions(request, runtime);
+  }
+
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14661,6 +15626,39 @@ export default class Client extends OpenApi {
     return await this.getTaskWithOptions(request, runtime);
   }
 
+  async getTriggerWithOptions(request: GetTriggerRequest, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTrigger",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
+  }
+
+  async getTrigger(request: GetTriggerRequest): Promise<GetTriggerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTriggerWithOptions(request, runtime);
+  }
+
   async getVideoLabelClassificationResultWithOptions(request: GetVideoLabelClassificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoLabelClassificationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14743,6 +15741,59 @@ export default class Client extends OpenApi {
   async indexFileMeta(request: IndexFileMetaRequest): Promise<IndexFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.indexFileMetaWithOptions(request, runtime);
+  }
+
+  async listBatchesWithOptions(request: ListBatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tagSelector)) {
+      query["TagSelector"] = request.tagSelector;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBatches",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBatchesResponse>(await this.callApi(params, req, runtime), new ListBatchesResponse({}));
+  }
+
+  async listBatches(request: ListBatchesRequest): Promise<ListBatchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBatchesWithOptions(request, runtime);
   }
 
   async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
@@ -14970,6 +16021,59 @@ export default class Client extends OpenApi {
   async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTasksWithOptions(request, runtime);
+  }
+
+  async listTriggersWithOptions(request: ListTriggersRequest, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.tagSelector)) {
+      query["TagSelector"] = request.tagSelector;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTriggers",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
+  }
+
+  async listTriggers(request: ListTriggersRequest): Promise<ListTriggersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTriggersWithOptions(request, runtime);
   }
 
   async queryFigureClustersWithOptions(tmpReq: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
