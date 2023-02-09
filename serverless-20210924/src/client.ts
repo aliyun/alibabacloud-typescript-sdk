@@ -860,7 +860,7 @@ export class TaskInvocation extends $tea.Model {
   instanceID?: string;
   invocationID?: string;
   invocationTarget?: string;
-  output?: { [key: string]: any };
+  output?: string;
   requestID?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -879,7 +879,7 @@ export class TaskInvocation extends $tea.Model {
       instanceID: 'string',
       invocationID: 'string',
       invocationTarget: 'string',
-      output: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      output: 'string',
       requestID: 'string',
       status: 'string',
     };
