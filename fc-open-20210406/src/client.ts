@@ -991,6 +991,7 @@ export class PathConfig extends $tea.Model {
   methods?: string[];
   path?: string;
   qualifier?: string;
+  rewriteConfig?: RewriteConfig;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -998,6 +999,7 @@ export class PathConfig extends $tea.Model {
       methods: 'methods',
       path: 'path',
       qualifier: 'qualifier',
+      rewriteConfig: 'rewriteConfig',
       serviceName: 'serviceName',
     };
   }
@@ -1008,6 +1010,7 @@ export class PathConfig extends $tea.Model {
       methods: { 'type': 'array', 'itemType': 'string' },
       path: 'string',
       qualifier: 'string',
+      rewriteConfig: RewriteConfig,
       serviceName: 'string',
     };
   }
@@ -1131,6 +1134,31 @@ export class Resource extends $tea.Model {
     return {
       resourceArn: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RewriteConfig extends $tea.Model {
+  equalRules?: RewriteConfigEqualRules[];
+  regexRules?: RewriteConfigRegexRules[];
+  wildcardRules?: RewriteConfigWildcardRules[];
+  static names(): { [key: string]: string } {
+    return {
+      equalRules: 'equalRules',
+      regexRules: 'regexRules',
+      wildcardRules: 'wildcardRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      equalRules: { 'type': 'array', 'itemType': RewriteConfigEqualRules },
+      regexRules: { 'type': 'array', 'itemType': RewriteConfigRegexRules },
+      wildcardRules: { 'type': 'array', 'itemType': RewriteConfigWildcardRules },
     };
   }
 
@@ -2069,6 +2097,7 @@ export class CreateFunctionRequest extends $tea.Model {
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
   functionName?: string;
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -2093,6 +2122,7 @@ export class CreateFunctionRequest extends $tea.Model {
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionName: 'functionName',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -2120,6 +2150,7 @@ export class CreateFunctionRequest extends $tea.Model {
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionName: 'string',
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -2154,6 +2185,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -2182,6 +2214,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -2213,6 +2246,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -3695,6 +3729,7 @@ export class GetFunctionResponseBody extends $tea.Model {
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -3724,6 +3759,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -3756,6 +3792,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -7749,6 +7786,7 @@ export class UpdateFunctionRequest extends $tea.Model {
   description?: string;
   diskSize?: number;
   environmentVariables?: { [key: string]: string };
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -7772,6 +7810,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       description: 'description',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -7798,6 +7837,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       description: 'string',
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -7831,6 +7871,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -7859,6 +7900,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -7890,6 +7932,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -8275,6 +8318,72 @@ export class OSSMountConfigMountPoints extends $tea.Model {
   }
 }
 
+export class RewriteConfigEqualRules extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RewriteConfigRegexRules extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RewriteConfigWildcardRules extends $tea.Model {
+  match?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      replacement: 'replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: 'string',
+      replacement: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAliasesResponseBodyAliases extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
   aliasName?: string;
@@ -8439,6 +8548,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   environmentVariables?: { [key: string]: string };
   functionId?: string;
   functionName?: string;
+  gpuMemorySize?: number;
   handler?: string;
   initializationTimeout?: number;
   initializer?: string;
@@ -8465,6 +8575,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
       functionName: 'functionName',
+      gpuMemorySize: 'gpuMemorySize',
       handler: 'handler',
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
@@ -8494,6 +8605,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
       functionName: 'string',
+      gpuMemorySize: 'number',
       handler: 'string',
       initializationTimeout: 'number',
       initializer: 'string',
@@ -9031,6 +9143,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.functionName)) {
       body["functionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.gpuMemorySize)) {
+      body["gpuMemorySize"] = request.gpuMemorySize;
     }
 
     if (!Util.isUnset(request.handler)) {
@@ -12422,6 +12538,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentVariables)) {
       body["environmentVariables"] = request.environmentVariables;
+    }
+
+    if (!Util.isUnset(request.gpuMemorySize)) {
+      body["gpuMemorySize"] = request.gpuMemorySize;
     }
 
     if (!Util.isUnset(request.handler)) {
