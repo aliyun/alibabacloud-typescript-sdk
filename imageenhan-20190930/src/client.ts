@@ -729,6 +729,106 @@ export class ExtendImageStyleResponse extends $tea.Model {
   }
 }
 
+export class GenerateCartoonizedImageRequest extends $tea.Model {
+  imageType?: string;
+  imageUrl?: string;
+  index?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageType: 'ImageType',
+      imageUrl: 'ImageUrl',
+      index: 'Index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageType: 'string',
+      imageUrl: 'string',
+      index: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCartoonizedImageAdvanceRequest extends $tea.Model {
+  imageType?: string;
+  imageUrlObject?: Readable;
+  index?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageType: 'ImageType',
+      imageUrlObject: 'ImageUrl',
+      index: 'Index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageType: 'string',
+      imageUrlObject: 'Readable',
+      index: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCartoonizedImageResponseBody extends $tea.Model {
+  data?: GenerateCartoonizedImageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GenerateCartoonizedImageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCartoonizedImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateCartoonizedImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateCartoonizedImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateDynamicImageRequest extends $tea.Model {
   operation?: string;
   url?: string;
@@ -2207,6 +2307,25 @@ export class ExtendImageStyleResponseBodyData extends $tea.Model {
   }
 }
 
+export class GenerateCartoonizedImageResponseBodyData extends $tea.Model {
+  resultUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultUrl: 'ResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateDynamicImageResponseBodyData extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -3500,6 +3619,117 @@ export default class Client extends OpenApi {
 
     let extendImageStyleResp = await this.extendImageStyleWithOptions(extendImageStyleReq, runtime);
     return extendImageStyleResp;
+  }
+
+  async generateCartoonizedImageWithOptions(request: GenerateCartoonizedImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateCartoonizedImageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageType)) {
+      body["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.index)) {
+      body["Index"] = request.index;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateCartoonizedImage",
+      version: "2019-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateCartoonizedImageResponse>(await this.callApi(params, req, runtime), new GenerateCartoonizedImageResponse({}));
+  }
+
+  async generateCartoonizedImage(request: GenerateCartoonizedImageRequest): Promise<GenerateCartoonizedImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateCartoonizedImageWithOptions(request, runtime);
+  }
+
+  async generateCartoonizedImageAdvance(request: GenerateCartoonizedImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateCartoonizedImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let generateCartoonizedImageReq = new GenerateCartoonizedImageRequest({ });
+    OpenApiUtil.convert(request, generateCartoonizedImageReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      generateCartoonizedImageReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let generateCartoonizedImageResp = await this.generateCartoonizedImageWithOptions(generateCartoonizedImageReq, runtime);
+    return generateCartoonizedImageResp;
   }
 
   async generateDynamicImageWithOptions(request: GenerateDynamicImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDynamicImageResponse> {
