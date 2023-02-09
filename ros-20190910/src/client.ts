@@ -3430,6 +3430,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
   parametersKeyFilter?: string[];
   parametersOrder?: string[];
   regionId?: string;
+  stackId?: string;
   templateBody?: string;
   templateId?: string;
   templateURL?: string;
@@ -3441,6 +3442,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
       parametersKeyFilter: 'ParametersKeyFilter',
       parametersOrder: 'ParametersOrder',
       regionId: 'RegionId',
+      stackId: 'StackId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -3455,6 +3457,7 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
       parametersKeyFilter: { 'type': 'array', 'itemType': 'string' },
       parametersOrder: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      stackId: 'string',
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -3473,6 +3476,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
   parametersKeyFilterShrink?: string;
   parametersOrderShrink?: string;
   regionId?: string;
+  stackId?: string;
   templateBody?: string;
   templateId?: string;
   templateURL?: string;
@@ -3484,6 +3488,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
       parametersKeyFilterShrink: 'ParametersKeyFilter',
       parametersOrderShrink: 'ParametersOrder',
       regionId: 'RegionId',
+      stackId: 'StackId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -3498,6 +3503,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
       parametersKeyFilterShrink: 'string',
       parametersOrderShrink: 'string',
       regionId: 'string',
+      stackId: 'string',
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -9964,6 +9970,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
   action?: string;
   description?: string;
   logicalResourceId?: string;
+  physicalResourceId?: string;
   properties?: { [key: string]: any };
   replacement?: string;
   requiredBy?: string[];
@@ -9975,6 +9982,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
       action: 'Action',
       description: 'Description',
       logicalResourceId: 'LogicalResourceId',
+      physicalResourceId: 'PhysicalResourceId',
       properties: 'Properties',
       replacement: 'Replacement',
       requiredBy: 'RequiredBy',
@@ -9989,6 +9997,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
       action: 'string',
       description: 'string',
       logicalResourceId: 'string',
+      physicalResourceId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       replacement: 'string',
       requiredBy: { 'type': 'array', 'itemType': 'string' },
@@ -12366,6 +12375,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
     }
 
     if (!Util.isUnset(request.templateBody)) {
