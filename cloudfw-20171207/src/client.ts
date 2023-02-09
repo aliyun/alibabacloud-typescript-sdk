@@ -356,6 +356,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
   lang?: string;
   memberUid?: string;
   networkInstanceId?: string;
+  vSwitchId?: string;
   vpcFirewallName?: string;
   vpcRegion?: string;
   static names(): { [key: string]: string } {
@@ -365,6 +366,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
       lang: 'Lang',
       memberUid: 'MemberUid',
       networkInstanceId: 'NetworkInstanceId',
+      vSwitchId: 'VSwitchId',
       vpcFirewallName: 'VpcFirewallName',
       vpcRegion: 'VpcRegion',
     };
@@ -377,6 +379,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $tea.Model {
       lang: 'string',
       memberUid: 'string',
       networkInstanceId: 'string',
+      vSwitchId: 'string',
       vpcFirewallName: 'string',
       vpcRegion: 'string',
     };
@@ -426,6 +429,99 @@ export class CreateVpcFirewallCenConfigureResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateVpcFirewallCenConfigureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcFirewallConfigureRequest extends $tea.Model {
+  firewallSwitch?: string;
+  lang?: string;
+  localVpcCidrTableList?: string;
+  localVpcId?: string;
+  localVpcRegion?: string;
+  memberUid?: string;
+  peerVpcCidrTableList?: string;
+  peerVpcId?: string;
+  peerVpcRegion?: string;
+  vpcFirewallName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallSwitch: 'FirewallSwitch',
+      lang: 'Lang',
+      localVpcCidrTableList: 'LocalVpcCidrTableList',
+      localVpcId: 'LocalVpcId',
+      localVpcRegion: 'LocalVpcRegion',
+      memberUid: 'MemberUid',
+      peerVpcCidrTableList: 'PeerVpcCidrTableList',
+      peerVpcId: 'PeerVpcId',
+      peerVpcRegion: 'PeerVpcRegion',
+      vpcFirewallName: 'VpcFirewallName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallSwitch: 'string',
+      lang: 'string',
+      localVpcCidrTableList: 'string',
+      localVpcId: 'string',
+      localVpcRegion: 'string',
+      memberUid: 'string',
+      peerVpcCidrTableList: 'string',
+      peerVpcId: 'string',
+      peerVpcRegion: 'string',
+      vpcFirewallName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcFirewallConfigureResponseBody extends $tea.Model {
+  requestId?: string;
+  vpcFirewallId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vpcFirewallId: 'VpcFirewallId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vpcFirewallId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcFirewallConfigureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVpcFirewallConfigureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVpcFirewallConfigureResponseBody,
     };
   }
 
@@ -6525,6 +6621,10 @@ export default class Client extends OpenApi {
       query["NetworkInstanceId"] = request.networkInstanceId;
     }
 
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
     if (!Util.isUnset(request.vpcFirewallName)) {
       query["VpcFirewallName"] = request.vpcFirewallName;
     }
@@ -6561,6 +6661,88 @@ export default class Client extends OpenApi {
   async createVpcFirewallCenConfigure(request: CreateVpcFirewallCenConfigureRequest): Promise<CreateVpcFirewallCenConfigureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcFirewallCenConfigureWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call the CreateVpcFirewallConfigure operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [Limits on VPC firewalls](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).  
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVpcFirewallConfigureRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcFirewallConfigureResponse
+   */
+  async createVpcFirewallConfigureWithOptions(request: CreateVpcFirewallConfigureRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallConfigureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallSwitch)) {
+      query["FirewallSwitch"] = request.firewallSwitch;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.localVpcCidrTableList)) {
+      query["LocalVpcCidrTableList"] = request.localVpcCidrTableList;
+    }
+
+    if (!Util.isUnset(request.localVpcId)) {
+      query["LocalVpcId"] = request.localVpcId;
+    }
+
+    if (!Util.isUnset(request.localVpcRegion)) {
+      query["LocalVpcRegion"] = request.localVpcRegion;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.peerVpcCidrTableList)) {
+      query["PeerVpcCidrTableList"] = request.peerVpcCidrTableList;
+    }
+
+    if (!Util.isUnset(request.peerVpcId)) {
+      query["PeerVpcId"] = request.peerVpcId;
+    }
+
+    if (!Util.isUnset(request.peerVpcRegion)) {
+      query["PeerVpcRegion"] = request.peerVpcRegion;
+    }
+
+    if (!Util.isUnset(request.vpcFirewallName)) {
+      query["VpcFirewallName"] = request.vpcFirewallName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVpcFirewallConfigure",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVpcFirewallConfigureResponse>(await this.callApi(params, req, runtime), new CreateVpcFirewallConfigureResponse({}));
+  }
+
+  /**
+    * You can call the CreateVpcFirewallConfigure operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [Limits on VPC firewalls](https://www.alibabacloud.com/help/en/cloud-firewall/latest/vpc-firewall-limits).  
+    * ### Limits
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateVpcFirewallConfigureRequest
+    * @return CreateVpcFirewallConfigureResponse
+   */
+  async createVpcFirewallConfigure(request: CreateVpcFirewallConfigureRequest): Promise<CreateVpcFirewallConfigureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVpcFirewallConfigureWithOptions(request, runtime);
   }
 
   /**
@@ -8292,7 +8474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
@@ -8369,7 +8551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.  
+    * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
     * ## Limits
     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
