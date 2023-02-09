@@ -26414,10 +26414,12 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAcc
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList extends $tea.Model {
   columnComment?: string;
   columnName?: string;
+  securityLevel?: string;
   static names(): { [key: string]: string } {
     return {
       columnComment: 'ColumnComment',
       columnName: 'ColumnName',
+      securityLevel: 'SecurityLevel',
     };
   }
 
@@ -26425,6 +26427,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
     return {
       columnComment: 'string',
       columnName: 'string',
+      securityLevel: 'string',
     };
   }
 
