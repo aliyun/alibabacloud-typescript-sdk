@@ -14234,6 +14234,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoList extends $tea.Model {
   agentId?: number;
+  basicCabinPrice?: number;
   buildPrice?: number;
   cabin?: string;
   cabinClass?: string;
@@ -14260,6 +14261,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoList extends $
   static names(): { [key: string]: string } {
     return {
       agentId: 'agent_id',
+      basicCabinPrice: 'basic_cabin_price',
       buildPrice: 'build_price',
       cabin: 'cabin',
       cabinClass: 'cabin_class',
@@ -14289,6 +14291,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoList extends $
   static types(): { [key: string]: any } {
     return {
       agentId: 'number',
+      basicCabinPrice: 'number',
       buildPrice: 'number',
       cabin: 'string',
       cabinClass: 'string',
@@ -17645,6 +17648,475 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo
   }
 }
 
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription extends $tea.Model {
+  desc?: string;
+  icon?: string;
+  image?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      icon: 'icon',
+      image: 'image',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      icon: 'string',
+      image: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO extends $tea.Model {
+  image?: string;
+  largest?: string;
+  middle?: string;
+  smallest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'image',
+      largest: 'largest',
+      middle: 'middle',
+      smallest: 'smallest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      largest: 'string',
+      middle: 'string',
+      smallest: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes extends $tea.Model {
+  baggageDesc?: string[];
+  baggageSubContentType?: number;
+  description?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription;
+  imageDO?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO;
+  isHighlight?: boolean;
+  subTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baggageDesc: 'baggage_desc',
+      baggageSubContentType: 'baggage_sub_content_type',
+      description: 'description',
+      imageDO: 'imageDO',
+      isHighlight: 'is_highlight',
+      subTitle: 'subTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageDesc: { 'type': 'array', 'itemType': 'string' },
+      baggageSubContentType: 'number',
+      description: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription,
+      imageDO: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO,
+      isHighlight: 'boolean',
+      subTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents extends $tea.Model {
+  baggageDesc?: string;
+  icon?: string;
+  style?: number;
+  subTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baggageDesc: 'baggage_desc',
+      icon: 'icon',
+      style: 'style',
+      subTitle: 'sub_title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageDesc: 'string',
+      icon: 'string',
+      style: 'number',
+      subTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems extends $tea.Model {
+  attributes?: { [key: string]: any };
+  baggageSubContentVisualizes?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes[];
+  baggageSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents[];
+  content?: string;
+  isStruct?: boolean;
+  ptc?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'attributes',
+      baggageSubContentVisualizes: 'baggage_sub_content_visualizes',
+      baggageSubContents: 'baggage_sub_contents',
+      content: 'content',
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      baggageSubContentVisualizes: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes },
+      baggageSubContents: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents },
+      content: 'string',
+      isStruct: 'boolean',
+      ptc: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips extends $tea.Model {
+  logo?: string;
+  tipsDesc?: string;
+  tipsImage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logo: 'logo',
+      tipsDesc: 'tips_desc',
+      tipsImage: 'tips_image',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logo: 'string',
+      tipsDesc: 'string',
+      tipsImage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails extends $tea.Model {
+  baggageSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems[];
+  index?: number;
+  tableHead?: string;
+  tips?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baggageSubItems: 'baggage_sub_items',
+      index: 'index',
+      tableHead: 'table_head',
+      tips: 'tips',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageSubItems: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems },
+      index: 'number',
+      tableHead: 'string',
+      tips: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips,
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents extends $tea.Model {
+  content?: string;
+  icon?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      icon: 'icon',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      icon: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents extends $tea.Model {
+  feeDesc?: string;
+  feeRange?: string;
+  style?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feeDesc: 'fee_desc',
+      feeRange: 'fee_range',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeDesc: 'string',
+      feeRange: 'string',
+      style: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems extends $tea.Model {
+  content?: string;
+  isStruct?: boolean;
+  ptc?: string;
+  refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      refundSubContents: 'refund_sub_contents',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isStruct: 'boolean',
+      ptc: 'string',
+      refundSubContents: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails extends $tea.Model {
+  extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents[];
+  index?: number;
+  refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems[];
+  tableHead?: string;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extraContents: 'extra_contents',
+      index: 'index',
+      refundSubItems: 'refund_sub_items',
+      tableHead: 'table_head',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraContents: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents },
+      index: 'number',
+      refundSubItems: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems },
+      tableHead: 'string',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents extends $tea.Model {
+  content?: string;
+  icon?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      icon: 'icon',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      icon: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents extends $tea.Model {
+  feeDesc?: string;
+  feeRange?: string;
+  style?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feeDesc: 'fee_desc',
+      feeRange: 'fee_range',
+      style: 'style',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feeDesc: 'string',
+      feeRange: 'string',
+      style: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems extends $tea.Model {
+  content?: string;
+  isStruct?: boolean;
+  ptc?: string;
+  refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      isStruct: 'is_struct',
+      ptc: 'ptc',
+      refundSubContents: 'refund_sub_contents',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isStruct: 'boolean',
+      ptc: 'string',
+      refundSubContents: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails extends $tea.Model {
+  extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents[];
+  index?: number;
+  refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems[];
+  tableHead?: string;
+  title?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extraContents: 'extra_contents',
+      index: 'index',
+      refundSubItems: 'refund_sub_items',
+      tableHead: 'table_head',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraContents: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents },
+      index: 'number',
+      refundSubItems: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems },
+      tableHead: 'string',
+      title: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq extends $tea.Model {
+  baggageDetails?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails[];
+  changeDetails?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails[];
+  refundDetails?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      baggageDetails: 'baggage_details',
+      changeDetails: 'change_details',
+      refundDetails: 'refund_details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baggageDetails: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails },
+      changeDetails: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails },
+      refundDetails: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList extends $tea.Model {
   passengerType?: number;
   ticketPrice?: number;
@@ -17678,6 +18150,7 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList exte
   cabinClass?: string;
   cabinDesc?: string;
   cabinDiscount?: number;
+  changeOtaItemRuleRq?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq;
   childCabin?: string;
   leftNum?: string;
   modifyPriceList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList[];
@@ -17688,6 +18161,7 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList exte
       cabinClass: 'cabin_class',
       cabinDesc: 'cabin_desc',
       cabinDiscount: 'cabin_discount',
+      changeOtaItemRuleRq: 'change_ota_item_rule_rq',
       childCabin: 'child_cabin',
       leftNum: 'left_num',
       modifyPriceList: 'modify_price_list',
@@ -17701,6 +18175,7 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList exte
       cabinClass: 'string',
       cabinDesc: 'string',
       cabinDiscount: 'number',
+      changeOtaItemRuleRq: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq,
       childCabin: 'string',
       leftNum: 'string',
       modifyPriceList: { 'type': 'array', 'itemType': TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList },
