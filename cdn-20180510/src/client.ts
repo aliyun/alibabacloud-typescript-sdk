@@ -2229,18 +2229,15 @@ export class DescribeCdnDeletedDomainsResponse extends $tea.Model {
 
 export class DescribeCdnDeliverListRequest extends $tea.Model {
   deliverId?: number;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       deliverId: 'DeliverId',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deliverId: 'number',
-      ownerId: 'number',
     };
   }
 
@@ -2297,12 +2294,10 @@ export class DescribeCdnDeliverListResponse extends $tea.Model {
 }
 
 export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
-  ownerId?: number;
   SSLPub?: string;
   SSLStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       SSLPub: 'SSLPub',
       SSLStatus: 'SSLStatus',
     };
@@ -2310,7 +2305,6 @@ export class DescribeCdnDomainByCertificateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       SSLPub: 'string',
       SSLStatus: 'boolean',
     };
@@ -2521,7 +2515,6 @@ export class DescribeCdnDomainDetailResponse extends $tea.Model {
 export class DescribeCdnDomainLogsRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   startTime?: string;
@@ -2529,7 +2522,6 @@ export class DescribeCdnDomainLogsRequest extends $tea.Model {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startTime: 'StartTime',
@@ -2540,7 +2532,6 @@ export class DescribeCdnDomainLogsRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       startTime: 'string',
@@ -3560,18 +3551,15 @@ export class DescribeCdnUserBillTypeResponse extends $tea.Model {
 
 export class DescribeCdnUserConfigsRequest extends $tea.Model {
   functionName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       functionName: 'FunctionName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       functionName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -3629,14 +3617,12 @@ export class DescribeCdnUserConfigsResponse extends $tea.Model {
 
 export class DescribeCdnUserDomainsByFuncRequest extends $tea.Model {
   funcId?: number;
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       funcId: 'FuncId',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -3646,7 +3632,6 @@ export class DescribeCdnUserDomainsByFuncRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       funcId: 'number',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
@@ -4099,7 +4084,6 @@ export class DescribeDomainAverageResponseTimeRequest extends $tea.Model {
   interval?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   timeMerge?: string;
   static names(): { [key: string]: string } {
@@ -4110,7 +4094,6 @@ export class DescribeDomainAverageResponseTimeRequest extends $tea.Model {
       interval: 'Interval',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
       timeMerge: 'TimeMerge',
     };
@@ -4124,7 +4107,6 @@ export class DescribeDomainAverageResponseTimeRequest extends $tea.Model {
       interval: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
       timeMerge: 'string',
     };
@@ -4200,7 +4182,6 @@ export class DescribeDomainBpsDataRequest extends $tea.Model {
   interval?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4209,7 +4190,6 @@ export class DescribeDomainBpsDataRequest extends $tea.Model {
       interval: 'Interval',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -4221,7 +4201,6 @@ export class DescribeDomainBpsDataRequest extends $tea.Model {
       interval: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -4303,7 +4282,6 @@ export class DescribeDomainBpsDataByLayerRequest extends $tea.Model {
   ispNameEn?: string;
   layer?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4313,7 +4291,6 @@ export class DescribeDomainBpsDataByLayerRequest extends $tea.Model {
       ispNameEn: 'IspNameEn',
       layer: 'Layer',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -4326,7 +4303,6 @@ export class DescribeDomainBpsDataByLayerRequest extends $tea.Model {
       ispNameEn: 'string',
       layer: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -4390,14 +4366,12 @@ export class DescribeDomainBpsDataByTimeStampRequest extends $tea.Model {
   domainName?: string;
   ispNames?: string;
   locationNames?: string;
-  ownerId?: number;
   timePoint?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       ispNames: 'IspNames',
       locationNames: 'LocationNames',
-      ownerId: 'OwnerId',
       timePoint: 'TimePoint',
     };
   }
@@ -4407,7 +4381,6 @@ export class DescribeDomainBpsDataByTimeStampRequest extends $tea.Model {
       domainName: 'string',
       ispNames: 'string',
       locationNames: 'string',
-      ownerId: 'number',
       timePoint: 'string',
     };
   }
@@ -4568,18 +4541,15 @@ export class DescribeDomainCcActivityLogResponse extends $tea.Model {
 
 export class DescribeDomainCertificateInfoRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -4637,18 +4607,15 @@ export class DescribeDomainCertificateInfoResponse extends $tea.Model {
 
 export class DescribeDomainCnameRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -4786,7 +4753,6 @@ export class DescribeDomainDetailDataByLayerRequest extends $tea.Model {
   ispNameEn?: string;
   layer?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4796,7 +4762,6 @@ export class DescribeDomainDetailDataByLayerRequest extends $tea.Model {
       ispNameEn: 'IspNameEn',
       layer: 'Layer',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -4809,7 +4774,6 @@ export class DescribeDomainDetailDataByLayerRequest extends $tea.Model {
       ispNameEn: 'string',
       layer: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -4870,14 +4834,12 @@ export class DescribeDomainHitRateDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -4887,7 +4849,6 @@ export class DescribeDomainHitRateDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -4960,14 +4921,16 @@ export class DescribeDomainHttpCodeDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
+  ispNameEn?: string;
+  locationNameEn?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
       startTime: 'StartTime',
     };
   }
@@ -4977,7 +4940,8 @@ export class DescribeDomainHttpCodeDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
       startTime: 'string',
     };
   }
@@ -5053,7 +5017,6 @@ export class DescribeDomainHttpCodeDataByLayerRequest extends $tea.Model {
   ispNameEn?: string;
   layer?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5063,7 +5026,6 @@ export class DescribeDomainHttpCodeDataByLayerRequest extends $tea.Model {
       ispNameEn: 'IspNameEn',
       layer: 'Layer',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5076,7 +5038,6 @@ export class DescribeDomainHttpCodeDataByLayerRequest extends $tea.Model {
       ispNameEn: 'string',
       layer: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5139,13 +5100,11 @@ export class DescribeDomainHttpCodeDataByLayerResponse extends $tea.Model {
 export class DescribeDomainISPDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5154,7 +5113,6 @@ export class DescribeDomainISPDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5227,7 +5185,6 @@ export class DescribeDomainMax95BpsDataRequest extends $tea.Model {
   cycle?: string;
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   timePoint?: string;
   static names(): { [key: string]: string } {
@@ -5235,7 +5192,6 @@ export class DescribeDomainMax95BpsDataRequest extends $tea.Model {
       cycle: 'Cycle',
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
       timePoint: 'TimePoint',
     };
@@ -5246,7 +5202,6 @@ export class DescribeDomainMax95BpsDataRequest extends $tea.Model {
       cycle: 'string',
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
       timePoint: 'string',
     };
@@ -5322,13 +5277,11 @@ export class DescribeDomainMax95BpsDataResponse extends $tea.Model {
 export class DescribeDomainMultiUsageDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5337,7 +5290,6 @@ export class DescribeDomainMultiUsageDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5406,7 +5358,6 @@ export class DescribeDomainMultiUsageDataResponse extends $tea.Model {
 export class DescribeDomainPathDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
   path?: string;
@@ -5415,7 +5366,6 @@ export class DescribeDomainPathDataRequest extends $tea.Model {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       path: 'Path',
@@ -5427,7 +5377,6 @@ export class DescribeDomainPathDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       path: 'string',
@@ -5508,13 +5457,11 @@ export class DescribeDomainPathDataResponse extends $tea.Model {
 export class DescribeDomainPvDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5523,7 +5470,6 @@ export class DescribeDomainPvDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5598,7 +5544,6 @@ export class DescribeDomainQpsDataRequest extends $tea.Model {
   interval?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5607,7 +5552,6 @@ export class DescribeDomainQpsDataRequest extends $tea.Model {
       interval: 'Interval',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5619,7 +5563,6 @@ export class DescribeDomainQpsDataRequest extends $tea.Model {
       interval: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5695,7 +5638,6 @@ export class DescribeDomainQpsDataByLayerRequest extends $tea.Model {
   ispNameEn?: string;
   layer?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5705,7 +5647,6 @@ export class DescribeDomainQpsDataByLayerRequest extends $tea.Model {
       ispNameEn: 'IspNameEn',
       layer: 'Layer',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5718,7 +5659,6 @@ export class DescribeDomainQpsDataByLayerRequest extends $tea.Model {
       ispNameEn: 'string',
       layer: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5795,7 +5735,6 @@ export class DescribeDomainRealTimeBpsDataRequest extends $tea.Model {
   endTime?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5803,7 +5742,6 @@ export class DescribeDomainRealTimeBpsDataRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5814,7 +5752,6 @@ export class DescribeDomainRealTimeBpsDataRequest extends $tea.Model {
       endTime: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5874,13 +5811,11 @@ export class DescribeDomainRealTimeBpsDataResponse extends $tea.Model {
 export class DescribeDomainRealTimeByteHitRateDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5889,7 +5824,6 @@ export class DescribeDomainRealTimeByteHitRateDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -5954,7 +5888,6 @@ export class DescribeDomainRealTimeDetailDataRequest extends $tea.Model {
   locationNameEn?: string;
   merge?: string;
   mergeLocIsp?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5965,7 +5898,6 @@ export class DescribeDomainRealTimeDetailDataRequest extends $tea.Model {
       locationNameEn: 'LocationNameEn',
       merge: 'Merge',
       mergeLocIsp: 'MergeLocIsp',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -5979,7 +5911,6 @@ export class DescribeDomainRealTimeDetailDataRequest extends $tea.Model {
       locationNameEn: 'string',
       merge: 'string',
       mergeLocIsp: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6041,7 +5972,6 @@ export class DescribeDomainRealTimeHttpCodeDataRequest extends $tea.Model {
   endTime?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6049,7 +5979,6 @@ export class DescribeDomainRealTimeHttpCodeDataRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6060,7 +5989,6 @@ export class DescribeDomainRealTimeHttpCodeDataRequest extends $tea.Model {
       endTime: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6134,7 +6062,6 @@ export class DescribeDomainRealTimeQpsDataRequest extends $tea.Model {
   endTime?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6142,7 +6069,6 @@ export class DescribeDomainRealTimeQpsDataRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6153,7 +6079,6 @@ export class DescribeDomainRealTimeQpsDataRequest extends $tea.Model {
       endTime: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6213,13 +6138,11 @@ export class DescribeDomainRealTimeQpsDataResponse extends $tea.Model {
 export class DescribeDomainRealTimeReqHitRateDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6228,7 +6151,6 @@ export class DescribeDomainRealTimeReqHitRateDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6288,13 +6210,11 @@ export class DescribeDomainRealTimeReqHitRateDataResponse extends $tea.Model {
 export class DescribeDomainRealTimeSrcBpsDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6303,7 +6223,6 @@ export class DescribeDomainRealTimeSrcBpsDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6377,7 +6296,6 @@ export class DescribeDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model {
   endTime?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6385,7 +6303,6 @@ export class DescribeDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6396,7 +6313,6 @@ export class DescribeDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model {
       endTime: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6468,13 +6384,11 @@ export class DescribeDomainRealTimeSrcHttpCodeDataResponse extends $tea.Model {
 export class DescribeDomainRealTimeSrcTrafficDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6483,7 +6397,6 @@ export class DescribeDomainRealTimeSrcTrafficDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6557,7 +6470,6 @@ export class DescribeDomainRealTimeTrafficDataRequest extends $tea.Model {
   endTime?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6565,7 +6477,6 @@ export class DescribeDomainRealTimeTrafficDataRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6576,7 +6487,6 @@ export class DescribeDomainRealTimeTrafficDataRequest extends $tea.Model {
       endTime: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6723,13 +6633,11 @@ export class DescribeDomainRealtimeLogDeliveryResponse extends $tea.Model {
 export class DescribeDomainRegionDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6738,7 +6646,6 @@ export class DescribeDomainRegionDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6811,14 +6718,12 @@ export class DescribeDomainReqHitRateDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6828,7 +6733,6 @@ export class DescribeDomainReqHitRateDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6901,14 +6805,12 @@ export class DescribeDomainSrcBpsDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -6918,7 +6820,6 @@ export class DescribeDomainSrcBpsDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -6991,14 +6892,12 @@ export class DescribeDomainSrcHttpCodeDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7008,7 +6907,6 @@ export class DescribeDomainSrcHttpCodeDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -7081,14 +6979,12 @@ export class DescribeDomainSrcQpsDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7098,7 +6994,6 @@ export class DescribeDomainSrcQpsDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -7264,14 +7159,12 @@ export class DescribeDomainSrcTrafficDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7281,7 +7174,6 @@ export class DescribeDomainSrcTrafficDataRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -7515,14 +7407,12 @@ export class DescribeDomainTopReferVisitResponse extends $tea.Model {
 export class DescribeDomainTopUrlVisitRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   sortBy?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
     };
@@ -7532,7 +7422,6 @@ export class DescribeDomainTopUrlVisitRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       sortBy: 'string',
       startTime: 'string',
     };
@@ -7614,7 +7503,6 @@ export class DescribeDomainTrafficDataRequest extends $tea.Model {
   interval?: string;
   ispNameEn?: string;
   locationNameEn?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7623,7 +7511,6 @@ export class DescribeDomainTrafficDataRequest extends $tea.Model {
       interval: 'Interval',
       ispNameEn: 'IspNameEn',
       locationNameEn: 'LocationNameEn',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7635,7 +7522,6 @@ export class DescribeDomainTrafficDataRequest extends $tea.Model {
       interval: 'string',
       ispNameEn: 'string',
       locationNameEn: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -7711,7 +7597,6 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
   endTime?: string;
   field?: string;
   interval?: string;
-  ownerId?: number;
   startTime?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -7722,7 +7607,6 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
       endTime: 'EndTime',
       field: 'Field',
       interval: 'Interval',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
       type: 'Type',
     };
@@ -7736,7 +7620,6 @@ export class DescribeDomainUsageDataRequest extends $tea.Model {
       endTime: 'string',
       field: 'string',
       interval: 'string',
-      ownerId: 'number',
       startTime: 'string',
       type: 'string',
     };
@@ -7815,13 +7698,11 @@ export class DescribeDomainUsageDataResponse extends $tea.Model {
 export class DescribeDomainUvDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7830,7 +7711,6 @@ export class DescribeDomainUvDataRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -7977,13 +7857,11 @@ export class DescribeDomainsBySourceResponse extends $tea.Model {
 export class DescribeDomainsUsageByDayRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       endTime: 'EndTime',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -7992,7 +7870,6 @@ export class DescribeDomainsUsageByDayRequest extends $tea.Model {
     return {
       domainName: 'string',
       endTime: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -8636,7 +8513,6 @@ export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
   endTime?: string;
   ispNames?: string;
   locationNames?: string;
-  ownerId?: number;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8644,7 +8520,6 @@ export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
       endTime: 'EndTime',
       ispNames: 'IspNames',
       locationNames: 'LocationNames',
-      ownerId: 'OwnerId',
       startTime: 'StartTime',
     };
   }
@@ -8655,7 +8530,6 @@ export class DescribeRangeDataByLocateAndIspServiceRequest extends $tea.Model {
       endTime: 'string',
       ispNames: 'string',
       locationNames: 'string',
-      ownerId: 'number',
       startTime: 'string',
     };
   }
@@ -9117,13 +8991,11 @@ export class DescribeStagingIpResponse extends $tea.Model {
 }
 
 export class DescribeTagResourcesRequest extends $tea.Model {
-  ownerId?: number;
   resourceId?: string[];
   resourceType?: string;
   tag?: DescribeTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
@@ -9132,7 +9004,6 @@ export class DescribeTagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': DescribeTagResourcesRequestTag },
@@ -9702,12 +9573,10 @@ export class DescribeUserUsageDetailDataExportTaskResponse extends $tea.Model {
 export class DescribeUserVipsByDomainRequest extends $tea.Model {
   available?: string;
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       available: 'Available',
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
@@ -9715,7 +9584,6 @@ export class DescribeUserVipsByDomainRequest extends $tea.Model {
     return {
       available: 'string',
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -11793,12 +11661,10 @@ export class UpdateFCTriggerResponse extends $tea.Model {
 
 export class VerifyDomainOwnerRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   verifyType?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
       verifyType: 'VerifyType',
     };
   }
@@ -11806,7 +11672,6 @@ export class VerifyDomainOwnerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
       verifyType: 'string',
     };
   }
@@ -17146,10 +17011,10 @@ export default class Client extends OpenApi {
 
   /**
     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-    * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-    * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
-    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+    * *   For more information, see [Add a domain name](~~122181~~).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request AddCdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17221,10 +17086,10 @@ export default class Client extends OpenApi {
 
   /**
     * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-    * *   The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-    * *   You can add only one domain name to Alibaba Cloud CDN in each call. Each Alibaba Cloud account can add a maximum of 50 domain names to Alibaba Cloud CDN.
-    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review will be completed by the end of the next business day after you submit the application.
-    * *   The maximum number of times that each user can call this operation per second is 30.
+    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+    * *   For more information, see [Add a domain name](~~122181~~).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request AddCdnDomainRequest
     * @return AddCdnDomainResponse
@@ -17290,11 +17155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-    * - The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-    * - If the content from the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be completed by the end of the next business day after you submit the application.
-    * - You can specify multiple domain names (no more than 50) and separate them with commas (,).
-    * - The maximum number of times that each user can call this operation per second is 30.
+    * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
+    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+    * *   For more information, see [Add a domain name](~~122181~~).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchAddCdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17361,11 +17226,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
-    * - The domain name that you want to add has a valid Internet Content Provider (ICP) number.
-    * - If the content from the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be completed by the end of the next business day after you submit the application.
-    * - You can specify multiple domain names (no more than 50) and separate them with commas (,).
-    * - The maximum number of times that each user can call this operation per second is 30.
+    * *   You must activate Alibaba Cloud CDN before you can add a domain name to it. For more information, see [Activate Alibaba Cloud CDN](~~27272~~).
+    * *   If the acceleration region is Chinese Mainland Only or Global, you must apply for an ICP filing for the domain name.
+    * *   You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
+    * *   For more information, see [Add a domain name](~~122181~~).
+    * *   You can call this operation up to 30 times per second per account.
     *
     * @param request BatchAddCdnDomainRequest
     * @return BatchAddCdnDomainResponse
@@ -18763,10 +18628,6 @@ export default class Client extends OpenApi {
       query["DeliverId"] = request.deliverId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18805,10 +18666,6 @@ export default class Client extends OpenApi {
   async describeCdnDomainByCertificateWithOptions(request: DescribeCdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.SSLPub)) {
       query["SSLPub"] = request.SSLPub;
     }
@@ -18904,7 +18761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * The maximum number of times that each user can call this operation per second is 30.
     *
     * @param request DescribeCdnDomainDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18943,7 +18800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 30.
+    * The maximum number of times that each user can call this operation per second is 30.
     *
     * @param request DescribeCdnDomainDetailRequest
     * @return DescribeCdnDomainDetailResponse
@@ -18971,10 +18828,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -19652,10 +19505,6 @@ export default class Client extends OpenApi {
       query["FunctionName"] = request.functionName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19685,7 +19534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeCdnUserDomainsByFuncRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19696,10 +19545,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.funcId)) {
       query["FuncId"] = request.funcId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -19732,7 +19577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeCdnUserDomainsByFuncRequest
     * @return DescribeCdnUserDomainsByFuncResponse
@@ -19990,10 +19835,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -20069,10 +19910,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNameEn)) {
       query["LocationNameEn"] = request.locationNameEn;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -20157,10 +19994,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -20224,10 +20057,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNames)) {
       query["LocationNames"] = request.locationNames;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.timePoint)) {
@@ -20355,10 +20184,6 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20392,10 +20217,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -20542,10 +20363,6 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -20616,8 +20433,12 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -20702,10 +20523,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -20767,10 +20584,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -20819,10 +20632,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -20875,10 +20684,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -20987,10 +20792,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -21061,10 +20862,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNameEn)) {
       query["LocationNameEn"] = request.locationNameEn;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -21147,10 +20944,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNameEn)) {
       query["LocationNameEn"] = request.locationNameEn;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -21377,10 +21170,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -21559,10 +21348,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -21637,10 +21422,6 @@ export default class Client extends OpenApi {
       query["LocationNameEn"] = request.locationNameEn;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -21705,10 +21486,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -21783,10 +21560,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNameEn)) {
       query["LocationNameEn"] = request.locationNameEn;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -21888,10 +21661,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -21955,10 +21724,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.interval)) {
       query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -22031,10 +21796,6 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -22105,10 +21866,6 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -22177,10 +21934,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.interval)) {
       query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -22309,10 +22062,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.interval)) {
       query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -22504,10 +22253,6 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -22583,10 +22328,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationNameEn)) {
       query["LocationNameEn"] = request.locationNameEn;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -22671,10 +22412,6 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -22738,10 +22475,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -22846,10 +22579,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -23242,10 +22971,6 @@ export default class Client extends OpenApi {
       query["LocationNames"] = request.locationNames;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -23430,9 +23155,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * You can query the status of tasks by task ID or URL.
-    * * You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected within the last three days are returned.
-    * *   You can query data collected within the last three days.
+    * *   You can query the status of tasks by task ID or URL.
+    * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
+    * *   You can query data collected in the last 3 days.
     * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
     * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
     *
@@ -23509,9 +23234,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * You can query the status of tasks by task ID or URL.
-    * * You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected within the last three days are returned.
-    * *   You can query data collected within the last three days.
+    * *   You can query the status of tasks by task ID or URL.
+    * *   You can set both the **TaskId** and **ObjectPath** parameters. If you do not set the **TaskId** or **ObjectPath** parameter, data entries on the first page (20 entries) collected in the last 3 days are returned.
+    * *   You can query data collected in the last 3 days.
     * *   If auto CDN cache update is enabled in the Object Storage Service (OSS) console, you cannot call the DescribeRefreshTasks operation to query automatic refresh tasks in OSS.
     * *   You can call this operation up to 10 times per second per account. If you want to query tasks at a higher frequency, call the [DescribeRefreshTaskById](~~187709~~) operation. This operation allows you to query tasks by task ID.
     *
@@ -23557,7 +23282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 10.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request DescribeTagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23566,10 +23291,6 @@ export default class Client extends OpenApi {
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -23600,7 +23321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 10.
+    * > You can call this operation up to 10 times per second per account.
     *
     * @param request DescribeTagResourcesRequest
     * @return DescribeTagResourcesResponse
@@ -25472,10 +25193,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.verifyType)) {
