@@ -10,7 +10,7 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class PredictClassifierModelRequest extends $tea.Model {
   autoPrediction?: boolean;
-  classifierId?: string;
+  classifierId?: number;
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23,7 +23,7 @@ export class PredictClassifierModelRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPrediction: 'boolean',
-      classifierId: 'string',
+      classifierId: 'number',
       content: 'string',
     };
   }
@@ -169,18 +169,18 @@ export class PredictModelResponse extends $tea.Model {
 
 export class PredictTemplateModelRequest extends $tea.Model {
   content?: string;
-  projectId?: number;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
-      projectId: 'ProjectId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       content: 'string',
-      projectId: 'number',
+      taskId: 'number',
     };
   }
 
@@ -350,8 +350,8 @@ export default class Client extends OpenApi {
       query["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.projectId)) {
-      query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
