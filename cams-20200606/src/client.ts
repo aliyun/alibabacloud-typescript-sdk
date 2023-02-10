@@ -2176,10 +2176,13 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   fallBackId?: string;
   from?: string;
   isvCode?: string;
+  label?: string;
   language?: string;
   senderList?: SendChatappMassMessageRequestSenderList[];
+  tag?: string;
   taskId?: string;
   templateCode?: string;
+  ttl?: number;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
@@ -2189,10 +2192,13 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
+      label: 'Label',
       language: 'Language',
       senderList: 'SenderList',
+      tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      ttl: 'Ttl',
     };
   }
 
@@ -2205,10 +2211,13 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
+      label: 'string',
       language: 'string',
       senderList: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderList },
+      tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      ttl: 'number',
     };
   }
 
@@ -2225,10 +2234,13 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   fallBackId?: string;
   from?: string;
   isvCode?: string;
+  label?: string;
   language?: string;
   senderListShrink?: string;
+  tag?: string;
   taskId?: string;
   templateCode?: string;
+  ttl?: number;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
@@ -2238,10 +2250,13 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
+      label: 'Label',
       language: 'Language',
       senderListShrink: 'SenderList',
+      tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      ttl: 'Ttl',
     };
   }
 
@@ -2254,10 +2269,13 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
+      label: 'string',
       language: 'string',
       senderListShrink: 'string',
+      tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      ttl: 'number',
     };
   }
 
@@ -3856,6 +3874,13 @@ export default class Client extends OpenApi {
     return await this.beeBotChatWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappBindWabaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappBindWabaResponse
+   */
   async chatappBindWabaWithOptions(request: ChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<ChatappBindWabaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3880,11 +3905,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappBindWabaRequest
+    * @return ChatappBindWabaResponse
+   */
   async chatappBindWaba(request: ChatappBindWabaRequest): Promise<ChatappBindWabaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappBindWabaWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappEmbedSignUpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappEmbedSignUpResponse
+   */
   async chatappEmbedSignUpWithOptions(request: ChatappEmbedSignUpRequest, runtime: $Util.RuntimeOptions): Promise<ChatappEmbedSignUpResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3909,6 +3947,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappEmbedSignUpRequest
+    * @return ChatappEmbedSignUpResponse
+   */
   async chatappEmbedSignUp(request: ChatappEmbedSignUpRequest): Promise<ChatappEmbedSignUpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappEmbedSignUpWithOptions(request, runtime);
@@ -3984,6 +4028,13 @@ export default class Client extends OpenApi {
     return await this.chatappMigrationVerifiedWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappPhoneNumberRegisterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappPhoneNumberRegisterResponse
+   */
   async chatappPhoneNumberRegisterWithOptions(request: ChatappPhoneNumberRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberRegisterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4012,11 +4063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappPhoneNumberRegisterRequest
+    * @return ChatappPhoneNumberRegisterResponse
+   */
   async chatappPhoneNumberRegister(request: ChatappPhoneNumberRegisterRequest): Promise<ChatappPhoneNumberRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappPhoneNumberRegisterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappSyncPhoneNumberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappSyncPhoneNumberResponse
+   */
   async chatappSyncPhoneNumberWithOptions(request: ChatappSyncPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ChatappSyncPhoneNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4041,11 +4105,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappSyncPhoneNumberRequest
+    * @return ChatappSyncPhoneNumberResponse
+   */
   async chatappSyncPhoneNumber(request: ChatappSyncPhoneNumberRequest): Promise<ChatappSyncPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappSyncPhoneNumberWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappVerifyAndRegisterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappVerifyAndRegisterResponse
+   */
   async chatappVerifyAndRegisterWithOptions(request: ChatappVerifyAndRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappVerifyAndRegisterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4078,11 +4155,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappVerifyAndRegisterRequest
+    * @return ChatappVerifyAndRegisterResponse
+   */
   async chatappVerifyAndRegister(request: ChatappVerifyAndRegisterRequest): Promise<ChatappVerifyAndRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappVerifyAndRegisterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateChatappMigrationInitiateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateChatappMigrationInitiateResponse
+   */
   async createChatappMigrationInitiateWithOptions(request: CreateChatappMigrationInitiateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappMigrationInitiateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4115,6 +4205,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateChatappMigrationInitiateRequest
+    * @return CreateChatappMigrationInitiateResponse
+   */
   async createChatappMigrationInitiate(request: CreateChatappMigrationInitiateRequest): Promise<CreateChatappMigrationInitiateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createChatappMigrationInitiateWithOptions(request, runtime);
@@ -4324,6 +4420,13 @@ export default class Client extends OpenApi {
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappVerifyCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappVerifyCodeResponse
+   */
   async getChatappVerifyCodeWithOptions(request: GetChatappVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappVerifyCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4360,6 +4463,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappVerifyCodeRequest
+    * @return GetChatappVerifyCodeResponse
+   */
   async getChatappVerifyCode(request: GetChatappVerifyCodeRequest): Promise<GetChatappVerifyCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappVerifyCodeWithOptions(request, runtime);
@@ -4406,6 +4515,13 @@ export default class Client extends OpenApi {
     return await this.getMigrationVerifyCodeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPhoneNumberVerificationStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPhoneNumberVerificationStatusResponse
+   */
   async getPhoneNumberVerificationStatusWithOptions(request: GetPhoneNumberVerificationStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneNumberVerificationStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4434,11 +4550,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPhoneNumberVerificationStatusRequest
+    * @return GetPhoneNumberVerificationStatusResponse
+   */
   async getPhoneNumberVerificationStatus(request: GetPhoneNumberVerificationStatusRequest): Promise<GetPhoneNumberVerificationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhoneNumberVerificationStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request IsvGetAppIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return IsvGetAppIdResponse
+   */
   async isvGetAppIdWithOptions(request: IsvGetAppIdRequest, runtime: $Util.RuntimeOptions): Promise<IsvGetAppIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4463,6 +4592,12 @@ export default class Client extends OpenApi {
     return $tea.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request IsvGetAppIdRequest
+    * @return IsvGetAppIdResponse
+   */
   async isvGetAppId(request: IsvGetAppIdRequest): Promise<IsvGetAppIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.isvGetAppIdWithOptions(request, runtime);
@@ -4605,6 +4740,13 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq ModifyPhoneBusinessProfileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPhoneBusinessProfileResponse
+   */
   async modifyPhoneBusinessProfileWithOptions(tmpReq: ModifyPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhoneBusinessProfileResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyPhoneBusinessProfileShrinkRequest({ });
@@ -4663,6 +4805,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyPhoneBusinessProfileRequest
+    * @return ModifyPhoneBusinessProfileResponse
+   */
   async modifyPhoneBusinessProfile(request: ModifyPhoneBusinessProfileRequest): Promise<ModifyPhoneBusinessProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPhoneBusinessProfileWithOptions(request, runtime);
@@ -4760,6 +4908,13 @@ export default class Client extends OpenApi {
     return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryPhoneBusinessProfileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryPhoneBusinessProfileResponse
+   */
   async queryPhoneBusinessProfileWithOptions(request: QueryPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneBusinessProfileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4788,11 +4943,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryPhoneBusinessProfileRequest
+    * @return QueryPhoneBusinessProfileResponse
+   */
   async queryPhoneBusinessProfile(request: QueryPhoneBusinessProfileRequest): Promise<QueryPhoneBusinessProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPhoneBusinessProfileWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryWabaBusinessInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryWabaBusinessInfoResponse
+   */
   async queryWabaBusinessInfoWithOptions(request: QueryWabaBusinessInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryWabaBusinessInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4821,14 +4989,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request QueryWabaBusinessInfoRequest
+    * @return QueryWabaBusinessInfoResponse
+   */
   async queryWabaBusinessInfo(request: QueryWabaBusinessInfoRequest): Promise<QueryWabaBusinessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWabaBusinessInfoWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    * Can support up to 1,000 numbers per request.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param tmpReq SendChatappMassMessageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4871,6 +5045,10 @@ export default class Client extends OpenApi {
       body["IsvCode"] = request.isvCode;
     }
 
+    if (!Util.isUnset(request.label)) {
+      body["Label"] = request.label;
+    }
+
     if (!Util.isUnset(request.language)) {
       body["Language"] = request.language;
     }
@@ -4879,12 +5057,20 @@ export default class Client extends OpenApi {
       body["SenderList"] = request.senderListShrink;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
     if (!Util.isUnset(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      body["Ttl"] = request.ttl;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4905,8 +5091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    * Can support up to 1,000 numbers per request.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param request SendChatappMassMessageRequest
     * @return SendChatappMassMessageResponse
@@ -4917,7 +5103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq SendChatappMessageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5036,7 +5222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request SendChatappMessageRequest
     * @return SendChatappMessageResponse
@@ -5087,6 +5273,13 @@ export default class Client extends OpenApi {
     return await this.updateAccountWebhookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdatePhoneWebhookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdatePhoneWebhookResponse
+   */
   async updatePhoneWebhookWithOptions(request: UpdatePhoneWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneWebhookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5131,6 +5324,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdatePhoneWebhookRequest
+    * @return UpdatePhoneWebhookResponse
+   */
   async updatePhoneWebhook(request: UpdatePhoneWebhookRequest): Promise<UpdatePhoneWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePhoneWebhookWithOptions(request, runtime);
