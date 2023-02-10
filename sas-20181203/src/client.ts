@@ -955,14 +955,14 @@ export class CancelOnceTaskResponse extends $tea.Model {
 }
 
 export class ChangeCheckConfigRequest extends $tea.Model {
-  cycleDays?: number[];
   endTime?: number;
+  regionId?: string;
   standardIds?: number[];
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      cycleDays: 'CycleDays',
       endTime: 'EndTime',
+      regionId: 'RegionId',
       standardIds: 'StandardIds',
       startTime: 'StartTime',
     };
@@ -970,8 +970,8 @@ export class ChangeCheckConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      cycleDays: { 'type': 'array', 'itemType': 'number' },
       endTime: 'number',
+      regionId: 'string',
       standardIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'number',
     };
@@ -5796,12 +5796,16 @@ export class DescribeAllImageBaselineResponse extends $tea.Model {
 }
 
 export class DescribeAntiBruteForceRulesRequest extends $tea.Model {
+  currentPage?: number;
   id?: number;
+  pageSize?: string;
   resourceOwnerId?: number;
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      currentPage: 'CurrentPage',
       id: 'Id',
+      pageSize: 'PageSize',
       resourceOwnerId: 'ResourceOwnerId',
       sourceIp: 'SourceIp',
     };
@@ -5809,7 +5813,9 @@ export class DescribeAntiBruteForceRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      currentPage: 'number',
       id: 'number',
+      pageSize: 'string',
       resourceOwnerId: 'number',
       sourceIp: 'string',
     };
@@ -10394,6 +10400,93 @@ export class DescribeFrontVulPatchListResponse extends $tea.Model {
   }
 }
 
+export class DescribeGroupStructRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupStructResponseBody extends $tea.Model {
+  groupFather?: number;
+  groupFlag?: number;
+  groupId?: number;
+  groupIndex?: number;
+  groupLevel?: number;
+  groupName?: string;
+  groups?: string[];
+  machineNum?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupFather: 'GroupFather',
+      groupFlag: 'GroupFlag',
+      groupId: 'GroupId',
+      groupIndex: 'GroupIndex',
+      groupLevel: 'GroupLevel',
+      groupName: 'GroupName',
+      groups: 'Groups',
+      machineNum: 'MachineNum',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupFather: 'number',
+      groupFlag: 'number',
+      groupId: 'number',
+      groupIndex: 'number',
+      groupLevel: 'number',
+      groupName: 'string',
+      groups: { 'type': 'array', 'itemType': 'string' },
+      machineNum: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupStructResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGroupStructResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGroupStructResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGroupedContainerInstancesRequest extends $tea.Model {
   criteria?: string;
   currentPage?: number;
@@ -10762,7 +10855,9 @@ export class DescribeGroupedTagsResponse extends $tea.Model {
 
 export class DescribeGroupedVulRequest extends $tea.Model {
   aliasName?: string;
+  assetType?: string;
   attachTypes?: string;
+  containerFieldName?: string;
   currentPage?: number;
   dealed?: string;
   groupId?: string;
@@ -10770,12 +10865,15 @@ export class DescribeGroupedVulRequest extends $tea.Model {
   necessity?: string;
   pageSize?: number;
   searchTags?: string;
+  targetType?: string;
   type?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      assetType: 'AssetType',
       attachTypes: 'AttachTypes',
+      containerFieldName: 'ContainerFieldName',
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       groupId: 'GroupId',
@@ -10783,6 +10881,7 @@ export class DescribeGroupedVulRequest extends $tea.Model {
       necessity: 'Necessity',
       pageSize: 'PageSize',
       searchTags: 'SearchTags',
+      targetType: 'TargetType',
       type: 'Type',
       uuids: 'Uuids',
     };
@@ -10791,7 +10890,9 @@ export class DescribeGroupedVulRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      assetType: 'string',
       attachTypes: 'string',
+      containerFieldName: 'string',
       currentPage: 'number',
       dealed: 'string',
       groupId: 'string',
@@ -10799,6 +10900,7 @@ export class DescribeGroupedVulRequest extends $tea.Model {
       necessity: 'string',
       pageSize: 'number',
       searchTags: 'string',
+      targetType: 'string',
       type: 'string',
       uuids: 'string',
     };
@@ -23718,25 +23820,6 @@ export class GetBackupStorageCountResponse extends $tea.Model {
   }
 }
 
-export class GetCheckConfigRequest extends $tea.Model {
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCheckConfigResponseBody extends $tea.Model {
   cycleDays?: number[];
   endTime?: number;
@@ -24139,6 +24222,75 @@ export class GetClientUserDefineRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetClientUserDefineRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudAssetCriteriaRequest extends $tea.Model {
+  cloudAssetTypes?: GetCloudAssetCriteriaRequestCloudAssetTypes[];
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cloudAssetTypes: 'CloudAssetTypes',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudAssetTypes: { 'type': 'array', 'itemType': GetCloudAssetCriteriaRequestCloudAssetTypes },
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudAssetCriteriaResponseBody extends $tea.Model {
+  criteriaList?: GetCloudAssetCriteriaResponseBodyCriteriaList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      criteriaList: 'CriteriaList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      criteriaList: { 'type': 'array', 'itemType': GetCloudAssetCriteriaResponseBodyCriteriaList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudAssetCriteriaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCloudAssetCriteriaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCloudAssetCriteriaResponseBody,
     };
   }
 
@@ -27016,6 +27168,93 @@ export class ListClientUserDefineRulesResponse extends $tea.Model {
   }
 }
 
+export class ListCloudAssetInstancesRequest extends $tea.Model {
+  cloudAssetTypes?: ListCloudAssetInstancesRequestCloudAssetTypes[];
+  criteria?: string;
+  currentPage?: number;
+  logicalExp?: string;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cloudAssetTypes: 'CloudAssetTypes',
+      criteria: 'Criteria',
+      currentPage: 'CurrentPage',
+      logicalExp: 'LogicalExp',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudAssetTypes: { 'type': 'array', 'itemType': ListCloudAssetInstancesRequestCloudAssetTypes },
+      criteria: 'string',
+      currentPage: 'number',
+      logicalExp: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAssetInstancesResponseBody extends $tea.Model {
+  instances?: ListCloudAssetInstancesResponseBodyInstances[];
+  pageInfo?: ListCloudAssetInstancesResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListCloudAssetInstancesResponseBodyInstances },
+      pageInfo: ListCloudAssetInstancesResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAssetInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCloudAssetInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCloudAssetInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterCnnfStatusDetailRequest extends $tea.Model {
   clusterIds?: string[];
   static names(): { [key: string]: string } {
@@ -27754,6 +27993,72 @@ export class ListImageRiskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListImageRiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogResponseBody extends $tea.Model {
+  requestId?: string;
+  vendors?: ListInstanceCatalogResponseBodyVendors[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vendors: 'Vendors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendors: { 'type': 'array', 'itemType': ListInstanceCatalogResponseBodyVendors },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceCatalogResponseBody,
     };
   }
 
@@ -49263,6 +49568,56 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $te
   }
 }
 
+export class GetCloudAssetCriteriaRequestCloudAssetTypes extends $tea.Model {
+  assetSubType?: number;
+  assetType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetSubType: 'AssetSubType',
+      assetType: 'AssetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetSubType: 'number',
+      assetType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudAssetCriteriaResponseBodyCriteriaList extends $tea.Model {
+  multiValues?: string;
+  name?: string;
+  type?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      multiValues: 'MultiValues',
+      name: 'Name',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      multiValues: 'string',
+      name: 'string',
+      type: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCloudAssetDetailRequestCloudAssetInstances extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -50939,6 +51294,111 @@ export class ListClientUserDefineRulesResponseBodyUserDefineRuleList extends $te
   }
 }
 
+export class ListCloudAssetInstancesRequestCloudAssetTypes extends $tea.Model {
+  assetSubType?: number;
+  assetType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetSubType: 'AssetSubType',
+      assetType: 'AssetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetSubType: 'number',
+      assetType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAssetInstancesResponseBodyInstances extends $tea.Model {
+  alarmStatus?: string;
+  assetSubType?: string;
+  assetSubTypeName?: string;
+  assetType?: number;
+  assetTypeName?: string;
+  createdTime?: number;
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  regionId?: string;
+  riskStatus?: string;
+  securityInfo?: string;
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alarmStatus: 'AlarmStatus',
+      assetSubType: 'AssetSubType',
+      assetSubTypeName: 'AssetSubTypeName',
+      assetType: 'AssetType',
+      assetTypeName: 'AssetTypeName',
+      createdTime: 'CreatedTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      regionId: 'RegionId',
+      riskStatus: 'RiskStatus',
+      securityInfo: 'SecurityInfo',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmStatus: 'string',
+      assetSubType: 'string',
+      assetSubTypeName: 'string',
+      assetType: 'number',
+      assetTypeName: 'string',
+      createdTime: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      regionId: 'string',
+      riskStatus: 'string',
+      securityInfo: 'string',
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAssetInstancesResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterCnnfStatusDetailResponseBodyData extends $tea.Model {
   clusterId?: string;
   installed?: boolean;
@@ -51619,6 +52079,69 @@ export class ListImageRiskResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogResponseBodyVendorsInstanceTypesInstanceSubTypes extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogResponseBodyVendorsInstanceTypes extends $tea.Model {
+  instanceSubTypes?: ListInstanceCatalogResponseBodyVendorsInstanceTypesInstanceSubTypes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSubTypes: 'InstanceSubTypes',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSubTypes: { 'type': 'array', 'itemType': ListInstanceCatalogResponseBodyVendorsInstanceTypesInstanceSubTypes },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCatalogResponseBodyVendors extends $tea.Model {
+  instanceTypes?: ListInstanceCatalogResponseBodyVendorsInstanceTypes[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypes: 'InstanceTypes',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypes: { 'type': 'array', 'itemType': ListInstanceCatalogResponseBodyVendorsInstanceTypes },
+      name: 'string',
     };
   }
 
@@ -53732,12 +54255,12 @@ export default class Client extends OpenApi {
   async changeCheckConfigWithOptions(request: ChangeCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCheckConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.cycleDays)) {
-      query["CycleDays"] = request.cycleDays;
-    }
-
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.standardIds)) {
@@ -54682,13 +55205,6 @@ export default class Client extends OpenApi {
     return await this.createJenkinsImageRegistryWithOptions(request, runtime);
   }
 
-  /**
-    * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-    *
-    * @param request CreateOrUpdateAssetGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOrUpdateAssetGroupResponse
-   */
   async createOrUpdateAssetGroupWithOptions(request: CreateOrUpdateAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAssetGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54721,12 +55237,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateAssetGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateAssetGroupResponse({}));
   }
 
-  /**
-    * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-    *
-    * @param request CreateOrUpdateAssetGroupRequest
-    * @return CreateOrUpdateAssetGroupResponse
-   */
   async createOrUpdateAssetGroup(request: CreateOrUpdateAssetGroupRequest): Promise<CreateOrUpdateAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateAssetGroupWithOptions(request, runtime);
@@ -55272,13 +55782,6 @@ export default class Client extends OpenApi {
     return await this.deleteCycleTaskWithOptions(request, runtime);
   }
 
-  /**
-    * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-    *
-    * @param request DeleteGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGroupResponse
-   */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55307,12 +55810,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
-  /**
-    * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-    *
-    * @param request DeleteGroupRequest
-    * @return DeleteGroupResponse
-   */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
@@ -55690,13 +56187,6 @@ export default class Client extends OpenApi {
     return await this.deleteSuspEventNodeWithOptions(request, runtime);
   }
 
-  /**
-    * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-    *
-    * @param request DeleteTagWithUuidRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTagWithUuidResponse
-   */
   async deleteTagWithUuidWithOptions(request: DeleteTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagWithUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55725,12 +56215,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTagWithUuidResponse>(await this.callApi(params, req, runtime), new DeleteTagWithUuidResponse({}));
   }
 
-  /**
-    * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-    *
-    * @param request DeleteTagWithUuidRequest
-    * @return DeleteTagWithUuidResponse
-   */
   async deleteTagWithUuid(request: DeleteTagWithUuidRequest): Promise<DeleteTagWithUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTagWithUuidWithOptions(request, runtime);
@@ -56125,17 +56609,6 @@ export default class Client extends OpenApi {
     return await this.describeAlarmEventDetailWithOptions(request, runtime);
   }
 
-  /**
-    * The alert aggregation feature of Security Center analyzes the paths of alerts to aggregate multiple alerts generated on the intrusions that are launched from the same IP address or service, or on the same user.
-    * You can call the DescribeAlarmEventList or DescribeSuspEvents operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition and you turned on **Alert Association** on the **Feature Settings** page of the Security Center console, you can call the DescribeAlarmEventList operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition but you turned off **Alert Association** on the **Feature Settings** page of the Security Center console, you can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query alert events.
-    * *   If your Security Center does not run the Enterprise or Ultimate edition, you can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query alert events.
-    *
-    * @param request DescribeAlarmEventListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAlarmEventListResponse
-   */
   async describeAlarmEventListWithOptions(request: DescribeAlarmEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56244,16 +56717,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAlarmEventListResponse>(await this.callApi(params, req, runtime), new DescribeAlarmEventListResponse({}));
   }
 
-  /**
-    * The alert aggregation feature of Security Center analyzes the paths of alerts to aggregate multiple alerts generated on the intrusions that are launched from the same IP address or service, or on the same user.
-    * You can call the DescribeAlarmEventList or DescribeSuspEvents operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition and you turned on **Alert Association** on the **Feature Settings** page of the Security Center console, you can call the DescribeAlarmEventList operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition but you turned off **Alert Association** on the **Feature Settings** page of the Security Center console, you can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query alert events.
-    * *   If your Security Center does not run the Enterprise or Ultimate edition, you can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query alert events.
-    *
-    * @param request DescribeAlarmEventListRequest
-    * @return DescribeAlarmEventListResponse
-   */
   async describeAlarmEventList(request: DescribeAlarmEventListRequest): Promise<DescribeAlarmEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAlarmEventListWithOptions(request, runtime);
@@ -56386,8 +56849,16 @@ export default class Client extends OpenApi {
   async describeAntiBruteForceRulesWithOptions(request: DescribeAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntiBruteForceRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
@@ -56696,13 +57167,6 @@ export default class Client extends OpenApi {
     return await this.describeBackUpExportInfoWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-    *
-    * @param request DescribeBackupClientsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupClientsResponse
-   */
   async describeBackupClientsWithOptions(request: DescribeBackupClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupClientsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56727,12 +57191,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupClientsResponse>(await this.callApi(params, req, runtime), new DescribeBackupClientsResponse({}));
   }
 
-  /**
-    * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-    *
-    * @param request DescribeBackupClientsRequest
-    * @return DescribeBackupClientsResponse
-   */
   async describeBackupClients(request: DescribeBackupClientsRequest): Promise<DescribeBackupClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupClientsWithOptions(request, runtime);
@@ -56894,13 +57352,6 @@ export default class Client extends OpenApi {
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
-  /**
-    * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-    *
-    * @param request DescribeBackupRestoreCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupRestoreCountResponse
-   */
   async describeBackupRestoreCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -56917,11 +57368,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupRestoreCountResponse>(await this.callApi(params, req, runtime), new DescribeBackupRestoreCountResponse({}));
   }
 
-  /**
-    * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-    *
-    * @return DescribeBackupRestoreCountResponse
-   */
   async describeBackupRestoreCount(): Promise<DescribeBackupRestoreCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupRestoreCountWithOptions(runtime);
@@ -57361,13 +57807,6 @@ export default class Client extends OpenApi {
     return await this.describeClientConfStrategyWithOptions(request, runtime);
   }
 
-  /**
-    * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-    *
-    * @param request DescribeCloudCenterInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCloudCenterInstancesResponse
-   */
   async describeCloudCenterInstancesWithOptions(request: DescribeCloudCenterInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudCenterInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57424,12 +57863,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudCenterInstancesResponse>(await this.callApi(params, req, runtime), new DescribeCloudCenterInstancesResponse({}));
   }
 
-  /**
-    * You can search for assets by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-    *
-    * @param request DescribeCloudCenterInstancesRequest
-    * @return DescribeCloudCenterInstancesResponse
-   */
   async describeCloudCenterInstances(request: DescribeCloudCenterInstancesRequest): Promise<DescribeCloudCenterInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudCenterInstancesWithOptions(request, runtime);
@@ -57827,13 +58260,6 @@ export default class Client extends OpenApi {
     return await this.describeContainerInstancesWithOptions(request, runtime);
   }
 
-  /**
-    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-    *
-    * @param request DescribeContainerStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerStatisticsResponse
-   */
   async describeContainerStatisticsWithOptions(request: DescribeContainerStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57858,12 +58284,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeContainerStatisticsResponse({}));
   }
 
-  /**
-    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-    *
-    * @param request DescribeContainerStatisticsRequest
-    * @return DescribeContainerStatisticsResponse
-   */
   async describeContainerStatistics(request: DescribeContainerStatisticsRequest): Promise<DescribeContainerStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerStatisticsWithOptions(request, runtime);
@@ -58745,6 +59165,35 @@ export default class Client extends OpenApi {
     return await this.describeFrontVulPatchListWithOptions(request, runtime);
   }
 
+  async describeGroupStructWithOptions(request: DescribeGroupStructRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupStructResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupStruct",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupStructResponse>(await this.callApi(params, req, runtime), new DescribeGroupStructResponse({}));
+  }
+
+  async describeGroupStruct(request: DescribeGroupStructRequest): Promise<DescribeGroupStructResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGroupStructWithOptions(request, runtime);
+  }
+
   async describeGroupedContainerInstancesWithOptions(request: DescribeGroupedContainerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedContainerInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58980,8 +59429,16 @@ export default class Client extends OpenApi {
       query["AliasName"] = request.aliasName;
     }
 
+    if (!Util.isUnset(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
     if (!Util.isUnset(request.attachTypes)) {
       query["AttachTypes"] = request.attachTypes;
+    }
+
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
     }
 
     if (!Util.isUnset(request.currentPage)) {
@@ -59010,6 +59467,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.searchTags)) {
       query["SearchTags"] = request.searchTags;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -60160,14 +60621,6 @@ export default class Client extends OpenApi {
     return await this.describeImageSensitiveFileListWithOptions(request, runtime);
   }
 
-  /**
-    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-    * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-    *
-    * @param request DescribeImageStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeImageStatisticsResponse
-   */
   async describeImageStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -60184,12 +60637,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeImageStatisticsResponse({}));
   }
 
-  /**
-    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-    * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-    *
-    * @return DescribeImageStatisticsResponse
-   */
   async describeImageStatistics(): Promise<DescribeImageStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageStatisticsWithOptions(runtime);
@@ -60390,15 +60837,6 @@ export default class Client extends OpenApi {
     return await this.describeInstallCodeWithOptions(runtime);
   }
 
-  /**
-    * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * # Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstallCodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstallCodesResponse
-   */
   async describeInstallCodesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -60415,13 +60853,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstallCodesResponse>(await this.callApi(params, req, runtime), new DescribeInstallCodesResponse({}));
   }
 
-  /**
-    * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * # Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @return DescribeInstallCodesResponse
-   */
   async describeInstallCodes(): Promise<DescribeInstallCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstallCodesWithOptions(runtime);
@@ -61893,14 +62324,6 @@ export default class Client extends OpenApi {
     return await this.describeQuaraFileDownloadInfoWithOptions(request, runtime);
   }
 
-  /**
-    * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-    * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-    *
-    * @param request DescribeRestoreJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRestoreJobsResponse
-   */
   async describeRestoreJobsWithOptions(request: DescribeRestoreJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61937,13 +62360,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestoreJobsResponse>(await this.callApi(params, req, runtime), new DescribeRestoreJobsResponse({}));
   }
 
-  /**
-    * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-    * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-    *
-    * @param request DescribeRestoreJobsRequest
-    * @return DescribeRestoreJobsResponse
-   */
   async describeRestoreJobs(request: DescribeRestoreJobsRequest): Promise<DescribeRestoreJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreJobsWithOptions(request, runtime);
@@ -63270,17 +63686,6 @@ export default class Client extends OpenApi {
     return await this.describeSuspEventUserSettingWithOptions(request, runtime);
   }
 
-  /**
-    * The alert aggregation feature of Security Center analyzes the paths of alerts to aggregate multiple alerts generated on the intrusions that are launched from the same IP address or service, or on the same user.
-    * You can call the  [DescribeAlarmEventList](~~DescribeAlarmEventList~~) or [DescribeSuspEvents ](~~DescribeSuspEvents~~)  operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition and you enabled the alert aggregation feature in the Security Center console, you can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition but you did not enable the alert aggregation feature in the Security Center console, you can call the [DescribeSuspEvents ](~~DescribeSuspEvents~~) operation to query alert events.
-    * *   If your Security Center does not run the Enterprise or Ultimate edition, you can call the [DescribeSuspEvents ](~~DescribeSuspEvents~~) operation to query alert events.
-    *
-    * @param request DescribeSuspEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSuspEventsResponse
-   */
   async describeSuspEventsWithOptions(request: DescribeSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63427,16 +63832,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventsResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventsResponse({}));
   }
 
-  /**
-    * The alert aggregation feature of Security Center analyzes the paths of alerts to aggregate multiple alerts generated on the intrusions that are launched from the same IP address or service, or on the same user.
-    * You can call the  [DescribeAlarmEventList](~~DescribeAlarmEventList~~) or [DescribeSuspEvents ](~~DescribeSuspEvents~~)  operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition and you enabled the alert aggregation feature in the Security Center console, you can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to query alert events.
-    * *   If your Security Center runs the Enterprise or Ultimate edition but you did not enable the alert aggregation feature in the Security Center console, you can call the [DescribeSuspEvents ](~~DescribeSuspEvents~~) operation to query alert events.
-    * *   If your Security Center does not run the Enterprise or Ultimate edition, you can call the [DescribeSuspEvents ](~~DescribeSuspEvents~~) operation to query alert events.
-    *
-    * @param request DescribeSuspEventsRequest
-    * @return DescribeSuspEventsResponse
-   */
   async describeSuspEvents(request: DescribeSuspEventsRequest): Promise<DescribeSuspEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventsWithOptions(request, runtime);
@@ -63537,17 +63932,6 @@ export default class Client extends OpenApi {
     return await this.describeTargetWithOptions(request, runtime);
   }
 
-  /**
-    * # Usage notes
-    * You can call the DescribeTaskErrorLog operation to query the error logs that record tasks failed to fix image vulnerabilities. If a task fails to fix an image vulnerability, Security Center generates an error log. You can identify the cause of the failure based on the error log. 
-    * 
-    * # Limits
-    * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTaskErrorLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTaskErrorLogResponse
-   */
   async describeTaskErrorLogWithOptions(request: DescribeTaskErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTaskErrorLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63572,16 +63956,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskErrorLogResponse>(await this.callApi(params, req, runtime), new DescribeTaskErrorLogResponse({}));
   }
 
-  /**
-    * # Usage notes
-    * You can call the DescribeTaskErrorLog operation to query the error logs that record tasks failed to fix image vulnerabilities. If a task fails to fix an image vulnerability, Security Center generates an error log. You can identify the cause of the failure based on the error log. 
-    * 
-    * # Limits
-    * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTaskErrorLogRequest
-    * @return DescribeTaskErrorLogResponse
-   */
   async describeTaskErrorLog(request: DescribeTaskErrorLogRequest): Promise<DescribeTaskErrorLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTaskErrorLogWithOptions(request, runtime);
@@ -65358,17 +65732,6 @@ export default class Client extends OpenApi {
     return await this.execStrategyWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the operation to export the following check result lists:
-    * *   The list of servers on the Host page.
-    * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-    * *   The list of attack analysis data on the Attack Awareness page.
-    * *   The list of check results for AccessKey pair leaks on the AccessKey Leak page.
-    *
-    * @param request ExportRecordRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportRecordResponse
-   */
   async exportRecordWithOptions(request: ExportRecordRequest, runtime: $Util.RuntimeOptions): Promise<ExportRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65401,16 +65764,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportRecordResponse>(await this.callApi(params, req, runtime), new ExportRecordResponse({}));
   }
 
-  /**
-    * You can call the operation to export the following check result lists:
-    * *   The list of servers on the Host page.
-    * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-    * *   The list of attack analysis data on the Attack Awareness page.
-    * *   The list of check results for AccessKey pair leaks on the AccessKey Leak page.
-    *
-    * @param request ExportRecordRequest
-    * @return ExportRecordResponse
-   */
   async exportRecord(request: ExportRecordRequest): Promise<ExportRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportRecordWithOptions(request, runtime);
@@ -65513,16 +65866,6 @@ export default class Client extends OpenApi {
     return await this.exportSuspEventsWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-    * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ExportVulRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportVulResponse
-   */
   async exportVulWithOptions(request: ExportVulRequest, runtime: $Util.RuntimeOptions): Promise<ExportVulResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65583,15 +65926,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportVulResponse>(await this.callApi(params, req, runtime), new ExportVulResponse({}));
   }
 
-  /**
-    * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-    * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ExportVulRequest
-    * @return ExportVulResponse
-   */
   async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportVulWithOptions(request, runtime);
@@ -66016,16 +66350,8 @@ export default class Client extends OpenApi {
     return await this.getBackupStorageCountWithOptions(runtime);
   }
 
-  async getCheckConfigWithOptions(request: GetCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async getCheckConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCheckConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetCheckConfig",
       version: "2018-12-03",
@@ -66040,9 +66366,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckConfigResponse>(await this.callApi(params, req, runtime), new GetCheckConfigResponse({}));
   }
 
-  async getCheckConfig(request: GetCheckConfigRequest): Promise<GetCheckConfigResponse> {
+  async getCheckConfig(): Promise<GetCheckConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCheckConfigWithOptions(request, runtime);
+    return await this.getCheckConfigWithOptions(runtime);
   }
 
   async getCheckDetailWithOptions(request: GetCheckDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckDetailResponse> {
@@ -66204,6 +66530,39 @@ export default class Client extends OpenApi {
   async getClientUserDefineRule(request: GetClientUserDefineRuleRequest): Promise<GetClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClientUserDefineRuleWithOptions(request, runtime);
+  }
+
+  async getCloudAssetCriteriaWithOptions(request: GetCloudAssetCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetCriteriaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cloudAssetTypes)) {
+      query["CloudAssetTypes"] = request.cloudAssetTypes;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCloudAssetCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCloudAssetCriteriaResponse>(await this.callApi(params, req, runtime), new GetCloudAssetCriteriaResponse({}));
+  }
+
+  async getCloudAssetCriteria(request: GetCloudAssetCriteriaRequest): Promise<GetCloudAssetCriteriaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCloudAssetCriteriaWithOptions(request, runtime);
   }
 
   async getCloudAssetDetailWithOptions(request: GetCloudAssetDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetDetailResponse> {
@@ -66380,13 +66739,6 @@ export default class Client extends OpenApi {
     return await this.getFileDetectApiInvokeInfoWithOptions(runtime);
   }
 
-  /**
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request GetFileDetectResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFileDetectResultResponse
-   */
   async getFileDetectResultWithOptions(request: GetFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66419,12 +66771,6 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileDetectResultResponse>(await this.callApi(params, req, runtime), new GetFileDetectResultResponse({}));
   }
 
-  /**
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request GetFileDetectResultRequest
-    * @return GetFileDetectResultResponse
-   */
   async getFileDetectResult(request: GetFileDetectResultRequest): Promise<GetFileDetectResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileDetectResultWithOptions(request, runtime);
@@ -67122,13 +67468,6 @@ export default class Client extends OpenApi {
     return await this.installBackupClientWithOptions(request, runtime);
   }
 
-  /**
-    * >  Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-    *
-    * @param request InstallCloudMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallCloudMonitorResponse
-   */
   async installCloudMonitorWithOptions(request: InstallCloudMonitorRequest, runtime: $Util.RuntimeOptions): Promise<InstallCloudMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67169,12 +67508,6 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallCloudMonitorResponse>(await this.callApi(params, req, runtime), new InstallCloudMonitorResponse({}));
   }
 
-  /**
-    * >  Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-    *
-    * @param request InstallCloudMonitorRequest
-    * @return InstallCloudMonitorResponse
-   */
   async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCloudMonitorWithOptions(request, runtime);
@@ -67691,6 +68024,55 @@ export default class Client extends OpenApi {
     return await this.listClientUserDefineRulesWithOptions(request, runtime);
   }
 
+  async listCloudAssetInstancesWithOptions(request: ListCloudAssetInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudAssetInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cloudAssetTypes)) {
+      query["CloudAssetTypes"] = request.cloudAssetTypes;
+    }
+
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.logicalExp)) {
+      query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCloudAssetInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCloudAssetInstancesResponse>(await this.callApi(params, req, runtime), new ListCloudAssetInstancesResponse({}));
+  }
+
+  async listCloudAssetInstances(request: ListCloudAssetInstancesRequest): Promise<ListCloudAssetInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCloudAssetInstancesWithOptions(request, runtime);
+  }
+
   async listClusterCnnfStatusDetailWithOptions(request: ListClusterCnnfStatusDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterCnnfStatusDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68050,6 +68432,35 @@ export default class Client extends OpenApi {
   async listImageRisk(request: ListImageRiskRequest): Promise<ListImageRiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImageRiskWithOptions(request, runtime);
+  }
+
+  async listInstanceCatalogWithOptions(request: ListInstanceCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceCatalogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceCatalog",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceCatalogResponse>(await this.callApi(params, req, runtime), new ListInstanceCatalogResponse({}));
+  }
+
+  async listInstanceCatalog(request: ListInstanceCatalogRequest): Promise<ListInstanceCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceCatalogWithOptions(request, runtime);
   }
 
   async listInterceptionHistoryWithOptions(request: ListInterceptionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInterceptionHistoryResponse> {
@@ -68793,15 +69204,6 @@ export default class Client extends OpenApi {
     return await this.modifyAppVulScanCycleWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-    * ### Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAssetGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAssetGroupResponse
-   */
   async modifyAssetGroupWithOptions(request: ModifyAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68834,14 +69236,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAssetGroupResponse>(await this.callApi(params, req, runtime), new ModifyAssetGroupResponse({}));
   }
 
-  /**
-    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-    * ### Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAssetGroupRequest
-    * @return ModifyAssetGroupResponse
-   */
   async modifyAssetGroup(request: ModifyAssetGroupRequest): Promise<ModifyAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAssetGroupWithOptions(request, runtime);
@@ -68880,17 +69274,6 @@ export default class Client extends OpenApi {
     return await this.modifyAssetImportantWithOptions(request, runtime);
   }
 
-  /**
-    * # **Usage notes**
-    * You can call the ModifyAutoDelConfig operation to specify the number of days after which a detected vulnerability is automatically deleted. If you do not handle a detected vulnerability and the vulnerability is no longer detected in multiple subsequent detection, the vulnerability is automatically deleted from the Vulnerabilities page after the specified number of days. If vulnerabilities of the same type are detected, Security Center still generates alerts. 
-    * 
-    * # **Limits**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAutoDelConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAutoDelConfigResponse
-   */
   async modifyAutoDelConfigWithOptions(request: ModifyAutoDelConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoDelConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68915,16 +69298,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoDelConfigResponse>(await this.callApi(params, req, runtime), new ModifyAutoDelConfigResponse({}));
   }
 
-  /**
-    * # **Usage notes**
-    * You can call the ModifyAutoDelConfig operation to specify the number of days after which a detected vulnerability is automatically deleted. If you do not handle a detected vulnerability and the vulnerability is no longer detected in multiple subsequent detection, the vulnerability is automatically deleted from the Vulnerabilities page after the specified number of days. If vulnerabilities of the same type are detected, Security Center still generates alerts. 
-    * 
-    * # **Limits**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAutoDelConfigRequest
-    * @return ModifyAutoDelConfigResponse
-   */
   async modifyAutoDelConfig(request: ModifyAutoDelConfigRequest): Promise<ModifyAutoDelConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoDelConfigWithOptions(request, runtime);
@@ -69022,13 +69395,6 @@ export default class Client extends OpenApi {
     return await this.modifyBackupPolicyStatusWithOptions(request, runtime);
   }
 
-  /**
-    * Deleted logs cannot be restored. Before you call this operation to delete all logs and free up log storage, we recommend that you export and save your logs to your computer.
-    *
-    * @param request ModifyClearLogstoreStorageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyClearLogstoreStorageResponse
-   */
   async modifyClearLogstoreStorageWithOptions(request: ModifyClearLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClearLogstoreStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69065,12 +69431,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClearLogstoreStorageResponse>(await this.callApi(params, req, runtime), new ModifyClearLogstoreStorageResponse({}));
   }
 
-  /**
-    * Deleted logs cannot be restored. Before you call this operation to delete all logs and free up log storage, we recommend that you export and save your logs to your computer.
-    *
-    * @param request ModifyClearLogstoreStorageRequest
-    * @return ModifyClearLogstoreStorageResponse
-   */
   async modifyClearLogstoreStorage(request: ModifyClearLogstoreStorageRequest): Promise<ModifyClearLogstoreStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClearLogstoreStorageWithOptions(request, runtime);
@@ -69876,13 +70236,6 @@ export default class Client extends OpenApi {
     return await this.modifyNoticeConfigWithOptions(request, runtime);
   }
 
-  /**
-    * **Prerequisites** A service-linked role is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create service-linked roles and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the ModifyOpenLogShipper operation to activate Log Service.
-    *
-    * @param request ModifyOpenLogShipperRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyOpenLogShipperResponse
-   */
   async modifyOpenLogShipperWithOptions(request: ModifyOpenLogShipperRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOpenLogShipperResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69907,12 +70260,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyOpenLogShipperResponse>(await this.callApi(params, req, runtime), new ModifyOpenLogShipperResponse({}));
   }
 
-  /**
-    * **Prerequisites** A service-linked role is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create service-linked roles and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the ModifyOpenLogShipper operation to activate Log Service.
-    *
-    * @param request ModifyOpenLogShipperRequest
-    * @return ModifyOpenLogShipperResponse
-   */
   async modifyOpenLogShipper(request: ModifyOpenLogShipperRequest): Promise<ModifyOpenLogShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOpenLogShipperWithOptions(request, runtime);
@@ -70777,13 +71124,6 @@ export default class Client extends OpenApi {
     return await this.modifyWebLockCreateConfigWithOptions(request, runtime);
   }
 
-  /**
-    * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-    *
-    * @param request ModifyWebLockDeleteConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWebLockDeleteConfigResponse
-   */
   async modifyWebLockDeleteConfigWithOptions(request: ModifyWebLockDeleteConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockDeleteConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70820,12 +71160,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockDeleteConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockDeleteConfigResponse({}));
   }
 
-  /**
-    * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-    *
-    * @param request ModifyWebLockDeleteConfigRequest
-    * @return ModifyWebLockDeleteConfigResponse
-   */
   async modifyWebLockDeleteConfig(request: ModifyWebLockDeleteConfigRequest): Promise<ModifyWebLockDeleteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockDeleteConfigWithOptions(request, runtime);
@@ -71722,13 +72056,6 @@ export default class Client extends OpenApi {
     return await this.pauseClientWithOptions(request, runtime);
   }
 
-  /**
-    * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-    *
-    * @param request PublicCreateImageScanTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublicCreateImageScanTaskResponse
-   */
   async publicCreateImageScanTaskWithOptions(request: PublicCreateImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<PublicCreateImageScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71785,25 +72112,11 @@ export default class Client extends OpenApi {
     return $tea.cast<PublicCreateImageScanTaskResponse>(await this.callApi(params, req, runtime), new PublicCreateImageScanTaskResponse({}));
   }
 
-  /**
-    * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-    *
-    * @param request PublicCreateImageScanTaskRequest
-    * @return PublicCreateImageScanTaskResponse
-   */
   async publicCreateImageScanTask(request: PublicCreateImageScanTaskRequest): Promise<PublicCreateImageScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publicCreateImageScanTaskWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the PublicPreCheckImageScanTask operation to estimate the quota for container image scan to be consumed by the task. This ensures that you know the quota to be consumed before you perform the task. If the remaining quota for container image scan is less than the quota to be consumed by the task, you must purchase a sufficient quota. This prevents the task from being stopped due to an insufficient quota.
-    * If you do not specify the optional parameters when you call this operation, the total number of protected images and the quota for container image scan to be consumed by scanning all the protected images are queried. If you specify the optional parameters, the number of images that meet the specified conditions and the quota for container image scan to be consumed by scanning the images are queried.
-    *
-    * @param request PublicPreCheckImageScanTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublicPreCheckImageScanTaskResponse
-   */
   async publicPreCheckImageScanTaskWithOptions(request: PublicPreCheckImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<PublicPreCheckImageScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71860,13 +72173,6 @@ export default class Client extends OpenApi {
     return $tea.cast<PublicPreCheckImageScanTaskResponse>(await this.callApi(params, req, runtime), new PublicPreCheckImageScanTaskResponse({}));
   }
 
-  /**
-    * You can call the PublicPreCheckImageScanTask operation to estimate the quota for container image scan to be consumed by the task. This ensures that you know the quota to be consumed before you perform the task. If the remaining quota for container image scan is less than the quota to be consumed by the task, you must purchase a sufficient quota. This prevents the task from being stopped due to an insufficient quota.
-    * If you do not specify the optional parameters when you call this operation, the total number of protected images and the quota for container image scan to be consumed by scanning all the protected images are queried. If you specify the optional parameters, the number of images that meet the specified conditions and the quota for container image scan to be consumed by scanning the images are queried.
-    *
-    * @param request PublicPreCheckImageScanTaskRequest
-    * @return PublicPreCheckImageScanTaskResponse
-   */
   async publicPreCheckImageScanTask(request: PublicPreCheckImageScanTaskRequest): Promise<PublicPreCheckImageScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publicPreCheckImageScanTaskWithOptions(request, runtime);
@@ -71934,15 +72240,6 @@ export default class Client extends OpenApi {
     return await this.queryDiscoverDatabaseWithOptions(request, runtime);
   }
 
-  /**
-    * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request QueryGroupIdByGroupNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryGroupIdByGroupNameResponse
-   */
   async queryGroupIdByGroupNameWithOptions(request: QueryGroupIdByGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupIdByGroupNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71971,14 +72268,6 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGroupIdByGroupNameResponse>(await this.callApi(params, req, runtime), new QueryGroupIdByGroupNameResponse({}));
   }
 
-  /**
-    * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request QueryGroupIdByGroupNameRequest
-    * @return QueryGroupIdByGroupNameResponse
-   */
   async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
