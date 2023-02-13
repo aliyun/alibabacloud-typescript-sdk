@@ -728,6 +728,8 @@ export class ApplyAutoSnapshotPolicyResponse extends $tea.Model {
 export class AssignIpv6AddressesRequest extends $tea.Model {
   ipv6Address?: string[];
   ipv6AddressCount?: number;
+  ipv6Prefix?: string[];
+  ipv6PrefixCount?: number;
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -738,6 +740,8 @@ export class AssignIpv6AddressesRequest extends $tea.Model {
     return {
       ipv6Address: 'Ipv6Address',
       ipv6AddressCount: 'Ipv6AddressCount',
+      ipv6Prefix: 'Ipv6Prefix',
+      ipv6PrefixCount: 'Ipv6PrefixCount',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -751,6 +755,8 @@ export class AssignIpv6AddressesRequest extends $tea.Model {
     return {
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
+      ipv6Prefix: { 'type': 'array', 'itemType': 'string' },
+      ipv6PrefixCount: 'number',
       networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -766,11 +772,13 @@ export class AssignIpv6AddressesRequest extends $tea.Model {
 }
 
 export class AssignIpv6AddressesResponseBody extends $tea.Model {
+  ipv6PrefixSets?: AssignIpv6AddressesResponseBodyIpv6PrefixSets;
   ipv6Sets?: AssignIpv6AddressesResponseBodyIpv6Sets;
   networkInterfaceId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      ipv6PrefixSets: 'Ipv6PrefixSets',
       ipv6Sets: 'Ipv6Sets',
       networkInterfaceId: 'NetworkInterfaceId',
       requestId: 'RequestId',
@@ -779,6 +787,7 @@ export class AssignIpv6AddressesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipv6PrefixSets: AssignIpv6AddressesResponseBodyIpv6PrefixSets,
       ipv6Sets: AssignIpv6AddressesResponseBodyIpv6Sets,
       networkInterfaceId: 'string',
       requestId: 'string',
@@ -817,6 +826,8 @@ export class AssignIpv6AddressesResponse extends $tea.Model {
 
 export class AssignPrivateIpAddressesRequest extends $tea.Model {
   clientToken?: string;
+  ipv4Prefix?: string[];
+  ipv4PrefixCount?: number;
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -828,6 +839,8 @@ export class AssignPrivateIpAddressesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      ipv4Prefix: 'Ipv4Prefix',
+      ipv4PrefixCount: 'Ipv4PrefixCount',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -842,6 +855,8 @@ export class AssignPrivateIpAddressesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      ipv4Prefix: { 'type': 'array', 'itemType': 'string' },
+      ipv4PrefixCount: 'number',
       networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -1429,6 +1444,7 @@ export class AttachKeyPairResponse extends $tea.Model {
 
 export class AttachNetworkInterfaceRequest extends $tea.Model {
   instanceId?: string;
+  networkCardIndex?: number;
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1440,6 +1456,7 @@ export class AttachNetworkInterfaceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      networkCardIndex: 'NetworkCardIndex',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -1454,6 +1471,7 @@ export class AttachNetworkInterfaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      networkCardIndex: 'number',
       networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -2499,9 +2517,12 @@ export class CopyImageResponse extends $tea.Model {
 }
 
 export class CopySnapshotRequest extends $tea.Model {
+  arn?: CopySnapshotRequestArn[];
   destinationRegionId?: string;
   destinationSnapshotDescription?: string;
   destinationSnapshotName?: string;
+  encrypted?: boolean;
+  KMSKeyId?: string;
   ownerId?: number;
   regionId?: string;
   resourceGroupId?: string;
@@ -2512,9 +2533,12 @@ export class CopySnapshotRequest extends $tea.Model {
   tag?: CopySnapshotRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      arn: 'Arn',
       destinationRegionId: 'DestinationRegionId',
       destinationSnapshotDescription: 'DestinationSnapshotDescription',
       destinationSnapshotName: 'DestinationSnapshotName',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -2528,9 +2552,12 @@ export class CopySnapshotRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      arn: { 'type': 'array', 'itemType': CopySnapshotRequestArn },
       destinationRegionId: 'string',
       destinationSnapshotDescription: 'string',
       destinationSnapshotName: 'string',
+      encrypted: 'boolean',
+      KMSKeyId: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -2604,6 +2631,7 @@ export class CreateActivationRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateActivationRequestTag[];
   timeToLiveInHours?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2616,6 +2644,7 @@ export class CreateActivationRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       timeToLiveInHours: 'TimeToLiveInHours',
     };
   }
@@ -2631,6 +2660,7 @@ export class CreateActivationRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateActivationRequestTag },
       timeToLiveInHours: 'number',
     };
   }
@@ -2859,6 +2889,7 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  storageLocationArn?: string;
   tag?: CreateAutoSnapshotPolicyRequestTag[];
   targetCopyRegions?: string;
   autoSnapshotPolicyName?: string;
@@ -2874,6 +2905,7 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      storageLocationArn: 'StorageLocationArn',
       tag: 'Tag',
       targetCopyRegions: 'TargetCopyRegions',
       autoSnapshotPolicyName: 'autoSnapshotPolicyName',
@@ -2892,6 +2924,7 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      storageLocationArn: 'string',
       tag: { 'type': 'array', 'itemType': CreateAutoSnapshotPolicyRequestTag },
       targetCopyRegions: 'string',
       autoSnapshotPolicyName: 'string',
@@ -3079,6 +3112,7 @@ export class CreateCommandRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: CreateCommandRequestTag[];
   timeout?: number;
   type?: string;
   workingDir?: string;
@@ -3094,6 +3128,7 @@ export class CreateCommandRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       timeout: 'Timeout',
       type: 'Type',
       workingDir: 'WorkingDir',
@@ -3112,6 +3147,7 @@ export class CreateCommandRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateCommandRequestTag },
       timeout: 'number',
       type: 'string',
       workingDir: 'string',
@@ -3162,117 +3198,6 @@ export class CreateCommandResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCommandResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
-  capacity?: number;
-  category?: string;
-  clientToken?: string;
-  dedicatedBlockStorageClusterName?: string;
-  description?: string;
-  fromApp?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  period?: number;
-  periodUnit?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  type?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      category: 'Category',
-      clientToken: 'ClientToken',
-      dedicatedBlockStorageClusterName: 'DedicatedBlockStorageClusterName',
-      description: 'Description',
-      fromApp: 'FromApp',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      type: 'Type',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'number',
-      category: 'string',
-      clientToken: 'string',
-      dedicatedBlockStorageClusterName: 'string',
-      description: 'string',
-      fromApp: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      period: 'number',
-      periodUnit: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      type: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterResponseBody extends $tea.Model {
-  dedicatedBlockStorageClusterId?: string;
-  dedicatedBlockStorageClusterOrderId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
-      dedicatedBlockStorageClusterOrderId: 'DedicatedBlockStorageClusterOrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dedicatedBlockStorageClusterId: 'string',
-      dedicatedBlockStorageClusterOrderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedBlockStorageClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDedicatedBlockStorageClusterResponseBody,
     };
   }
 
@@ -4291,6 +4216,7 @@ export class CreateImageRequest extends $tea.Model {
   bootMode?: string;
   clientToken?: string;
   description?: string;
+  detectionStrategy?: string;
   diskDeviceMapping?: CreateImageRequestDiskDeviceMapping[];
   imageFamily?: string;
   imageName?: string;
@@ -4311,6 +4237,7 @@ export class CreateImageRequest extends $tea.Model {
       bootMode: 'BootMode',
       clientToken: 'ClientToken',
       description: 'Description',
+      detectionStrategy: 'DetectionStrategy',
       diskDeviceMapping: 'DiskDeviceMapping',
       imageFamily: 'ImageFamily',
       imageName: 'ImageName',
@@ -4334,6 +4261,7 @@ export class CreateImageRequest extends $tea.Model {
       bootMode: 'string',
       clientToken: 'string',
       description: 'string',
+      detectionStrategy: 'string',
       diskDeviceMapping: { 'type': 'array', 'itemType': CreateImageRequestDiskDeviceMapping },
       imageFamily: 'string',
       imageName: 'string',
@@ -5473,8 +5401,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
   instanceType?: string;
+  ipv4Prefix?: string[];
+  ipv4PrefixCount?: number;
   ipv6Address?: string[];
   ipv6AddressCount?: number;
+  ipv6Prefix?: string[];
+  ipv6PrefixCount?: number;
   networkInterfaceName?: string;
   networkInterfaceTrafficMode?: string;
   ownerAccount?: string;
@@ -5499,8 +5431,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       instanceType: 'InstanceType',
+      ipv4Prefix: 'Ipv4Prefix',
+      ipv4PrefixCount: 'Ipv4PrefixCount',
       ipv6Address: 'Ipv6Address',
       ipv6AddressCount: 'Ipv6AddressCount',
+      ipv6Prefix: 'Ipv6Prefix',
+      ipv6PrefixCount: 'Ipv6PrefixCount',
       networkInterfaceName: 'NetworkInterfaceName',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       ownerAccount: 'OwnerAccount',
@@ -5528,8 +5464,12 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
       clientToken: 'string',
       description: 'string',
       instanceType: 'string',
+      ipv4Prefix: { 'type': 'array', 'itemType': 'string' },
+      ipv4PrefixCount: 'number',
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
+      ipv6Prefix: { 'type': 'array', 'itemType': 'string' },
+      ipv6PrefixCount: 'number',
       networkInterfaceName: 'string',
       networkInterfaceTrafficMode: 'string',
       ownerAccount: 'string',
@@ -5558,6 +5498,8 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
 
 export class CreateNetworkInterfaceResponseBody extends $tea.Model {
   description?: string;
+  ipv4PrefixSets?: CreateNetworkInterfaceResponseBodyIpv4PrefixSets;
+  ipv6PrefixSets?: CreateNetworkInterfaceResponseBodyIpv6PrefixSets;
   ipv6Sets?: CreateNetworkInterfaceResponseBodyIpv6Sets;
   macAddress?: string;
   networkInterfaceId?: string;
@@ -5579,6 +5521,8 @@ export class CreateNetworkInterfaceResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      ipv4PrefixSets: 'Ipv4PrefixSets',
+      ipv6PrefixSets: 'Ipv6PrefixSets',
       ipv6Sets: 'Ipv6Sets',
       macAddress: 'MacAddress',
       networkInterfaceId: 'NetworkInterfaceId',
@@ -5603,6 +5547,8 @@ export class CreateNetworkInterfaceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      ipv4PrefixSets: CreateNetworkInterfaceResponseBodyIpv4PrefixSets,
+      ipv6PrefixSets: CreateNetworkInterfaceResponseBodyIpv6PrefixSets,
       ipv6Sets: CreateNetworkInterfaceResponseBodyIpv6Sets,
       macAddress: 'string',
       networkInterfaceId: 'string',
@@ -6391,6 +6337,7 @@ export class CreateSnapshotRequest extends $tea.Model {
   resourceOwnerId?: number;
   retentionDays?: number;
   snapshotName?: string;
+  storageLocationArn?: string;
   tag?: CreateSnapshotRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6407,6 +6354,7 @@ export class CreateSnapshotRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       retentionDays: 'RetentionDays',
       snapshotName: 'SnapshotName',
+      storageLocationArn: 'StorageLocationArn',
       tag: 'Tag',
     };
   }
@@ -6426,6 +6374,7 @@ export class CreateSnapshotRequest extends $tea.Model {
       resourceOwnerId: 'number',
       retentionDays: 'number',
       snapshotName: 'string',
+      storageLocationArn: 'string',
       tag: { 'type': 'array', 'itemType': CreateSnapshotRequestTag },
     };
   }
@@ -6496,6 +6445,7 @@ export class CreateSnapshotGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  storageLocationArn?: string;
   tag?: CreateSnapshotGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6512,6 +6462,7 @@ export class CreateSnapshotGroupRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      storageLocationArn: 'StorageLocationArn',
       tag: 'Tag',
     };
   }
@@ -6531,6 +6482,7 @@ export class CreateSnapshotGroupRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      storageLocationArn: 'string',
       tag: { 'type': 'array', 'itemType': CreateSnapshotGroupRequestTag },
     };
   }
@@ -10185,6 +10137,7 @@ export class DescribeActivationsRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeActivationsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       activationId: 'ActivationId',
@@ -10196,6 +10149,7 @@ export class DescribeActivationsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -10210,6 +10164,7 @@ export class DescribeActivationsRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeActivationsRequestTag },
     };
   }
 
@@ -11597,105 +11552,6 @@ export class DescribeCommandsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersRequest extends $tea.Model {
-  category?: string;
-  dedicatedBlockStorageClusterId?: string[];
-  maxResults?: number;
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  status?: string[];
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      status: 'Status',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      dedicatedBlockStorageClusterId: { 'type': 'array', 'itemType': 'string' },
-      maxResults: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      status: { 'type': 'array', 'itemType': 'string' },
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponseBody extends $tea.Model {
-  dedicatedBlockStorageClusters?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters;
-  nextToken?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dedicatedBlockStorageClusters: 'DedicatedBlockStorageClusters',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dedicatedBlockStorageClusters: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters,
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedBlockStorageClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDedicatedBlockStorageClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDedicatedHostAutoRenewRequest extends $tea.Model {
   dedicatedHostIds?: string;
   ownerAccount?: string;
@@ -11989,6 +11845,7 @@ export class DescribeDedicatedHostsRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  socketDetails?: string;
   status?: string;
   tag?: DescribeDedicatedHostsRequestTag[];
   zoneId?: string;
@@ -12007,6 +11864,7 @@ export class DescribeDedicatedHostsRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      socketDetails: 'SocketDetails',
       status: 'Status',
       tag: 'Tag',
       zoneId: 'ZoneId',
@@ -12028,6 +11886,7 @@ export class DescribeDedicatedHostsRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      socketDetails: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDedicatedHostsRequestTag },
       zoneId: 'string',
@@ -12575,6 +12434,108 @@ export class DescribeDiagnosticMetricsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDiagnosticReportAttributesRequest extends $tea.Model {
+  regionId?: string;
+  reportId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      reportId: 'ReportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      reportId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBody extends $tea.Model {
+  attributes?: string;
+  creationTime?: string;
+  endTime?: string;
+  finishedTime?: string;
+  metricResults?: DescribeDiagnosticReportAttributesResponseBodyMetricResults;
+  metricSetId?: string;
+  reportId?: string;
+  requestId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  severity?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      creationTime: 'CreationTime',
+      endTime: 'EndTime',
+      finishedTime: 'FinishedTime',
+      metricResults: 'MetricResults',
+      metricSetId: 'MetricSetId',
+      reportId: 'ReportId',
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      severity: 'Severity',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: 'string',
+      creationTime: 'string',
+      endTime: 'string',
+      finishedTime: 'string',
+      metricResults: DescribeDiagnosticReportAttributesResponseBodyMetricResults,
+      metricSetId: 'string',
+      reportId: 'string',
+      requestId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      severity: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosticReportAttributesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosticReportAttributesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiagnosticReportsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -12614,7 +12575,7 @@ export class DescribeDiagnosticReportsRequest extends $tea.Model {
 
 export class DescribeDiagnosticReportsResponseBody extends $tea.Model {
   nextToken?: string;
-  reports?: DescribeDiagnosticReportsResponseBodyReports[];
+  reports?: DescribeDiagnosticReportsResponseBodyReports;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12627,7 +12588,7 @@ export class DescribeDiagnosticReportsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nextToken: 'string',
-      reports: { 'type': 'array', 'itemType': DescribeDiagnosticReportsResponseBodyReports },
+      reports: DescribeDiagnosticReportsResponseBodyReports,
       requestId: 'string',
     };
   }
@@ -16412,6 +16373,7 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeInvocationResultsRequestTag[];
@@ -16428,6 +16390,7 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -16447,6 +16410,7 @@ export class DescribeInvocationResultsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeInvocationResultsRequestTag },
@@ -16520,6 +16484,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
   pageSize?: number;
   regionId?: string;
   repeatMode?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: DescribeInvocationsRequestTag[];
@@ -16540,6 +16505,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       repeatMode: 'RepeatMode',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -16563,6 +16529,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
       pageSize: 'number',
       regionId: 'string',
       repeatMode: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': DescribeInvocationsRequestTag },
@@ -17046,6 +17013,7 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeManagedInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       activationId: 'ActivationId',
@@ -17060,6 +17028,7 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -17077,6 +17046,7 @@ export class DescribeManagedInstancesRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeManagedInstancesRequestTag },
     };
   }
 
@@ -17287,6 +17257,8 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
   creationTime?: string;
   description?: string;
   instanceId?: string;
+  ipv4PrefixSets?: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets;
+  ipv6PrefixSets?: DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets;
   ipv6Sets?: DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets;
   macAddress?: string;
   networkInterfaceId?: string;
@@ -17317,6 +17289,8 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       creationTime: 'CreationTime',
       description: 'Description',
       instanceId: 'InstanceId',
+      ipv4PrefixSets: 'Ipv4PrefixSets',
+      ipv6PrefixSets: 'Ipv6PrefixSets',
       ipv6Sets: 'Ipv6Sets',
       macAddress: 'MacAddress',
       networkInterfaceId: 'NetworkInterfaceId',
@@ -17350,6 +17324,8 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       creationTime: 'string',
       description: 'string',
       instanceId: 'string',
+      ipv4PrefixSets: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets,
+      ipv6PrefixSets: DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets,
       ipv6Sets: DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets,
       macAddress: 'string',
       networkInterfaceId: 'string',
@@ -18127,6 +18103,7 @@ export class DescribePrefixListsResponse extends $tea.Model {
 
 export class DescribePriceRequest extends $tea.Model {
   dataDisk?: DescribePriceRequestDataDisk[];
+  schedulerOptions?: DescribePriceRequestSchedulerOptions;
   systemDisk?: DescribePriceRequestSystemDisk;
   amount?: number;
   assuranceTimes?: string;
@@ -18159,6 +18136,7 @@ export class DescribePriceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dataDisk: 'DataDisk',
+      schedulerOptions: 'SchedulerOptions',
       systemDisk: 'SystemDisk',
       amount: 'Amount',
       assuranceTimes: 'AssuranceTimes',
@@ -18194,6 +18172,7 @@ export class DescribePriceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataDisk: { 'type': 'array', 'itemType': DescribePriceRequestDataDisk },
+      schedulerOptions: DescribePriceRequestSchedulerOptions,
       systemDisk: DescribePriceRequestSystemDisk,
       amount: 'number',
       assuranceTimes: 'string',
@@ -18570,6 +18549,87 @@ export class DescribeRenewalPriceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRenewalPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReservedInstanceAutoRenewAttributeRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  reservedInstanceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      reservedInstanceId: 'ReservedInstanceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      reservedInstanceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReservedInstanceAutoRenewAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  reservedInstanceRenewAttributes?: DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributes;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      reservedInstanceRenewAttributes: 'ReservedInstanceRenewAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      reservedInstanceRenewAttributes: DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReservedInstanceAutoRenewAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeReservedInstanceAutoRenewAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeReservedInstanceAutoRenewAttributeResponseBody,
     };
   }
 
@@ -19436,8 +19496,10 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: DescribeSendFileResultsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -19448,8 +19510,10 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
     };
   }
 
@@ -19463,8 +19527,10 @@ export class DescribeSendFileResultsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeSendFileResultsRequestTag },
     };
   }
 
@@ -20916,6 +20982,7 @@ export class DescribeTasksRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceIds?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   startTime?: string;
@@ -20930,6 +20997,7 @@ export class DescribeTasksRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceIds: 'ResourceIds',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
@@ -20947,6 +21015,7 @@ export class DescribeTasksRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startTime: 'string',
@@ -23371,9 +23440,12 @@ export class InvokeCommandRequest extends $tea.Model {
   parameters?: { [key: string]: any };
   regionId?: string;
   repeatMode?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: InvokeCommandRequestTag[];
   timed?: boolean;
+  timeout?: number;
   username?: string;
   windowsPasswordName?: string;
   static names(): { [key: string]: string } {
@@ -23388,9 +23460,12 @@ export class InvokeCommandRequest extends $tea.Model {
       parameters: 'Parameters',
       regionId: 'RegionId',
       repeatMode: 'RepeatMode',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       timed: 'Timed',
+      timeout: 'Timeout',
       username: 'Username',
       windowsPasswordName: 'WindowsPasswordName',
     };
@@ -23408,9 +23483,12 @@ export class InvokeCommandRequest extends $tea.Model {
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       repeatMode: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': InvokeCommandRequestTag },
       timed: 'boolean',
+      timeout: 'number',
       username: 'string',
       windowsPasswordName: 'string',
     };
@@ -23432,9 +23510,12 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
   parametersShrink?: string;
   regionId?: string;
   repeatMode?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: InvokeCommandShrinkRequestTag[];
   timed?: boolean;
+  timeout?: number;
   username?: string;
   windowsPasswordName?: string;
   static names(): { [key: string]: string } {
@@ -23449,9 +23530,12 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
       repeatMode: 'RepeatMode',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       timed: 'Timed',
+      timeout: 'Timeout',
       username: 'Username',
       windowsPasswordName: 'WindowsPasswordName',
     };
@@ -23469,9 +23553,12 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       parametersShrink: 'string',
       regionId: 'string',
       repeatMode: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': InvokeCommandShrinkRequestTag },
       timed: 'boolean',
+      timeout: 'number',
       username: 'string',
       windowsPasswordName: 'string',
     };
@@ -26933,6 +27020,7 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
   httpPutResponseHopLimit?: number;
   httpTokens?: string;
   instanceId?: string;
+  instanceMetadataTags?: string;
   ownerId?: number;
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -26943,6 +27031,7 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
       httpPutResponseHopLimit: 'HttpPutResponseHopLimit',
       httpTokens: 'HttpTokens',
       instanceId: 'InstanceId',
+      instanceMetadataTags: 'InstanceMetadataTags',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -26956,6 +27045,7 @@ export class ModifyInstanceMetadataOptionsRequest extends $tea.Model {
       httpPutResponseHopLimit: 'number',
       httpTokens: 'string',
       instanceId: 'string',
+      instanceMetadataTags: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -28041,6 +28131,93 @@ export class ModifyReservedInstanceAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyReservedInstanceAutoRenewAttributeRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  period?: number;
+  periodUnit?: string;
+  regionId?: string;
+  renewalStatus?: string;
+  reservedInstanceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      renewalStatus: 'RenewalStatus',
+      reservedInstanceId: 'ReservedInstanceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      renewalStatus: 'string',
+      reservedInstanceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReservedInstanceAutoRenewAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReservedInstanceAutoRenewAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyReservedInstanceAutoRenewAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyReservedInstanceAutoRenewAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyReservedInstancesRequest extends $tea.Model {
   configuration?: ModifyReservedInstancesRequestConfiguration[];
   ownerAccount?: string;
@@ -28419,6 +28596,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  securityGroupRuleId?: string;
   sourceCidrIp?: string;
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
@@ -28443,6 +28621,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupRuleId: 'SecurityGroupRuleId',
       sourceCidrIp: 'SourceCidrIp',
       sourcePortRange: 'SourcePortRange',
     };
@@ -28470,6 +28649,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      securityGroupRuleId: 'string',
       sourceCidrIp: 'string',
       sourcePortRange: 'string',
     };
@@ -28625,6 +28805,7 @@ export class ModifySecurityGroupRuleRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  securityGroupRuleId?: string;
   sourceCidrIp?: string;
   sourceGroupId?: string;
   sourceGroupOwnerAccount?: string;
@@ -28649,6 +28830,7 @@ export class ModifySecurityGroupRuleRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupRuleId: 'SecurityGroupRuleId',
       sourceCidrIp: 'SourceCidrIp',
       sourceGroupId: 'SourceGroupId',
       sourceGroupOwnerAccount: 'SourceGroupOwnerAccount',
@@ -28676,6 +28858,7 @@ export class ModifySecurityGroupRuleRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      securityGroupRuleId: 'string',
       sourceCidrIp: 'string',
       sourceGroupId: 'string',
       sourceGroupOwnerAccount: 'string',
@@ -29518,6 +29701,8 @@ export class ModifyVpcAttributeResponse extends $tea.Model {
 }
 
 export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
   clientToken?: string;
   description?: string;
   instanceAmount?: number;
@@ -29538,6 +29723,8 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
       description: 'Description',
       instanceAmount: 'InstanceAmount',
@@ -29561,6 +29748,8 @@ export class PurchaseReservedInstancesOfferingRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
       clientToken: 'string',
       description: 'string',
       instanceAmount: 'number',
@@ -30562,31 +30751,25 @@ export class ReleaseEipAddressResponse extends $tea.Model {
 }
 
 export class ReleasePublicIpAddressRequest extends $tea.Model {
+  dryRun?: boolean;
   instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
   publicIpAddress?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
       publicIpAddress: 'PublicIpAddress',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
       publicIpAddress: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      regionId: 'string',
     };
   }
 
@@ -30596,15 +30779,18 @@ export class ReleasePublicIpAddressRequest extends $tea.Model {
 }
 
 export class ReleasePublicIpAddressResponseBody extends $tea.Model {
+  remainTimes?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      remainTimes: 'RemainTimes',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      remainTimes: 'string',
       requestId: 'string',
     };
   }
@@ -30982,6 +31168,8 @@ export class RenewInstanceResponse extends $tea.Model {
 }
 
 export class RenewReservedInstancesRequest extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
   clientToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -30993,6 +31181,8 @@ export class RenewReservedInstancesRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -31007,6 +31197,8 @@ export class RenewReservedInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
       clientToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -31077,10 +31269,14 @@ export class RenewReservedInstancesResponse extends $tea.Model {
 export class ReplaceSystemDiskRequest extends $tea.Model {
   systemDisk?: ReplaceSystemDiskRequestSystemDisk;
   architecture?: string;
+  arn?: ReplaceSystemDiskRequestArn[];
   clientToken?: string;
   diskId?: string;
+  encryptAlgorithm?: string;
+  encrypted?: boolean;
   imageId?: string;
   instanceId?: string;
+  KMSKeyId?: string;
   keyPairName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -31095,10 +31291,14 @@ export class ReplaceSystemDiskRequest extends $tea.Model {
     return {
       systemDisk: 'SystemDisk',
       architecture: 'Architecture',
+      arn: 'Arn',
       clientToken: 'ClientToken',
       diskId: 'DiskId',
+      encryptAlgorithm: 'EncryptAlgorithm',
+      encrypted: 'Encrypted',
       imageId: 'ImageId',
       instanceId: 'InstanceId',
+      KMSKeyId: 'KMSKeyId',
       keyPairName: 'KeyPairName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -31116,10 +31316,14 @@ export class ReplaceSystemDiskRequest extends $tea.Model {
     return {
       systemDisk: ReplaceSystemDiskRequestSystemDisk,
       architecture: 'string',
+      arn: { 'type': 'array', 'itemType': ReplaceSystemDiskRequestArn },
       clientToken: 'string',
       diskId: 'string',
+      encryptAlgorithm: 'string',
+      encrypted: 'boolean',
       imageId: 'string',
       instanceId: 'string',
+      KMSKeyId: 'string',
       keyPairName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -31554,6 +31758,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  securityGroupRuleId?: string[];
   sourceCidrIp?: string;
   sourceGroupId?: string;
   sourceGroupOwnerAccount?: string;
@@ -31579,6 +31784,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupRuleId: 'SecurityGroupRuleId',
       sourceCidrIp: 'SourceCidrIp',
       sourceGroupId: 'SourceGroupId',
       sourceGroupOwnerAccount: 'SourceGroupOwnerAccount',
@@ -31607,6 +31813,7 @@ export class RevokeSecurityGroupRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      securityGroupRuleId: { 'type': 'array', 'itemType': 'string' },
       sourceCidrIp: 'string',
       sourceGroupId: 'string',
       sourceGroupOwnerAccount: 'string',
@@ -31687,6 +31894,7 @@ export class RevokeSecurityGroupEgressRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  securityGroupRuleId?: string[];
   sourceCidrIp?: string;
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
@@ -31712,6 +31920,7 @@ export class RevokeSecurityGroupEgressRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupRuleId: 'SecurityGroupRuleId',
       sourceCidrIp: 'SourceCidrIp',
       sourcePortRange: 'SourcePortRange',
     };
@@ -31740,6 +31949,7 @@ export class RevokeSecurityGroupEgressRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      securityGroupRuleId: { 'type': 'array', 'itemType': 'string' },
       sourceCidrIp: 'string',
       sourcePortRange: 'string',
     };
@@ -31810,6 +32020,7 @@ export class RunCommandRequest extends $tea.Model {
   parameters?: { [key: string]: any };
   regionId?: string;
   repeatMode?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: RunCommandRequestTag[];
@@ -31836,6 +32047,7 @@ export class RunCommandRequest extends $tea.Model {
       parameters: 'Parameters',
       regionId: 'RegionId',
       repeatMode: 'RepeatMode',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -31865,6 +32077,7 @@ export class RunCommandRequest extends $tea.Model {
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       repeatMode: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': RunCommandRequestTag },
@@ -31898,6 +32111,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
   parametersShrink?: string;
   regionId?: string;
   repeatMode?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: RunCommandShrinkRequestTag[];
@@ -31924,6 +32138,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
       repeatMode: 'RepeatMode',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -31953,6 +32168,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       parametersShrink: 'string',
       regionId: 'string',
       repeatMode: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': RunCommandShrinkRequestTag },
@@ -32321,8 +32537,10 @@ export class SendFileRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tag?: SendFileRequestTag[];
   targetDir?: string;
   timeout?: number;
   static names(): { [key: string]: string } {
@@ -32339,8 +32557,10 @@ export class SendFileRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
       targetDir: 'TargetDir',
       timeout: 'Timeout',
     };
@@ -32360,8 +32580,10 @@ export class SendFileRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': SendFileRequestTag },
       targetDir: 'string',
       timeout: 'number',
     };
@@ -33360,6 +33582,7 @@ export class TerminateVirtualBorderRouterResponse extends $tea.Model {
 
 export class UnassignIpv6AddressesRequest extends $tea.Model {
   ipv6Address?: string[];
+  ipv6Prefix?: string[];
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -33369,6 +33592,7 @@ export class UnassignIpv6AddressesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ipv6Address: 'Ipv6Address',
+      ipv6Prefix: 'Ipv6Prefix',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -33381,6 +33605,7 @@ export class UnassignIpv6AddressesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
+      ipv6Prefix: { 'type': 'array', 'itemType': 'string' },
       networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -33440,6 +33665,7 @@ export class UnassignIpv6AddressesResponse extends $tea.Model {
 }
 
 export class UnassignPrivateIpAddressesRequest extends $tea.Model {
+  ipv4Prefix?: string[];
   networkInterfaceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -33449,6 +33675,7 @@ export class UnassignPrivateIpAddressesRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      ipv4Prefix: 'Ipv4Prefix',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -33461,6 +33688,7 @@ export class UnassignPrivateIpAddressesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipv4Prefix: { 'type': 'array', 'itemType': 'string' },
       networkInterfaceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -33863,6 +34091,25 @@ export class AllocateDedicatedHostsResponseBodyDedicatedHostIdSets extends $tea.
   }
 }
 
+export class AssignIpv6AddressesResponseBodyIpv6PrefixSets extends $tea.Model {
+  ipv6Prefix?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssignIpv6AddressesResponseBodyIpv6Sets extends $tea.Model {
   ipv6Address?: string[];
   static names(): { [key: string]: string } {
@@ -33874,6 +34121,25 @@ export class AssignIpv6AddressesResponseBodyIpv6Sets extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet extends $tea.Model {
+  ipv4Prefixes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefixes: 'Ipv4Prefixes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefixes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -33902,10 +34168,12 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetPr
 }
 
 export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet extends $tea.Model {
+  ipv4PrefixSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet;
   networkInterfaceId?: string;
   privateIpSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetPrivateIpSet;
   static names(): { [key: string]: string } {
     return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
       networkInterfaceId: 'NetworkInterfaceId',
       privateIpSet: 'PrivateIpSet',
     };
@@ -33913,6 +34181,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
 
   static types(): { [key: string]: any } {
     return {
+      ipv4PrefixSet: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetIpv4PrefixSet,
       networkInterfaceId: 'string',
       privateIpSet: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSetPrivateIpSet,
     };
@@ -34183,7 +34452,54 @@ export class CopyImageRequestTag extends $tea.Model {
   }
 }
 
+export class CopySnapshotRequestArn extends $tea.Model {
+  assumeRoleFor?: number;
+  roleType?: string;
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CopySnapshotRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateActivationRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -34446,15 +34762,29 @@ export class CreateAutoProvisioningGroupRequestDataDiskConfig extends $tea.Model
 }
 
 export class CreateAutoProvisioningGroupRequestLaunchTemplateConfig extends $tea.Model {
+  architectures?: string[];
+  burstablePerformance?: string;
+  cores?: number[];
+  excludedInstanceTypes?: string[];
+  instanceFamilyLevel?: string;
   instanceType?: string;
   maxPrice?: number;
+  maxQuantity?: number;
+  memories?: number[];
   priority?: number;
   vSwitchId?: string;
   weightedCapacity?: number;
   static names(): { [key: string]: string } {
     return {
+      architectures: 'Architectures',
+      burstablePerformance: 'BurstablePerformance',
+      cores: 'Cores',
+      excludedInstanceTypes: 'ExcludedInstanceTypes',
+      instanceFamilyLevel: 'InstanceFamilyLevel',
       instanceType: 'InstanceType',
       maxPrice: 'MaxPrice',
+      maxQuantity: 'MaxQuantity',
+      memories: 'Memories',
       priority: 'Priority',
       vSwitchId: 'VSwitchId',
       weightedCapacity: 'WeightedCapacity',
@@ -34463,8 +34793,15 @@ export class CreateAutoProvisioningGroupRequestLaunchTemplateConfig extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      architectures: { 'type': 'array', 'itemType': 'string' },
+      burstablePerformance: 'string',
+      cores: { 'type': 'array', 'itemType': 'number' },
+      excludedInstanceTypes: { 'type': 'array', 'itemType': 'string' },
+      instanceFamilyLevel: 'string',
       instanceType: 'string',
       maxPrice: 'number',
+      maxQuantity: 'number',
+      memories: { 'type': 'array', 'itemType': 'number' },
       priority: 'number',
       vSwitchId: 'string',
       weightedCapacity: 'number',
@@ -34612,6 +34949,28 @@ export class CreateCapacityReservationRequestPrivatePoolOptions extends $tea.Mod
 }
 
 export class CreateCapacityReservationRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommandRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -35043,6 +35402,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $tea.Model {
   deleteWithInstance?: boolean;
   description?: string;
   diskName?: string;
+  encrypted?: string;
   iops?: number;
   performanceLevel?: string;
   provisionedIops?: number;
@@ -35055,6 +35415,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $tea.Model {
       deleteWithInstance: 'DeleteWithInstance',
       description: 'Description',
       diskName: 'DiskName',
+      encrypted: 'Encrypted',
       iops: 'Iops',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
@@ -35070,6 +35431,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $tea.Model {
       deleteWithInstance: 'boolean',
       description: 'string',
       diskName: 'string',
+      encrypted: 'string',
       iops: 'number',
       performanceLevel: 'string',
       provisionedIops: 'number',
@@ -35225,6 +35587,7 @@ export class CreateLaunchTemplateVersionRequestSystemDisk extends $tea.Model {
   deleteWithInstance?: boolean;
   description?: string;
   diskName?: string;
+  encrypted?: string;
   iops?: number;
   performanceLevel?: string;
   provisionedIops?: number;
@@ -35237,6 +35600,7 @@ export class CreateLaunchTemplateVersionRequestSystemDisk extends $tea.Model {
       deleteWithInstance: 'DeleteWithInstance',
       description: 'Description',
       diskName: 'DiskName',
+      encrypted: 'Encrypted',
       iops: 'Iops',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
@@ -35252,6 +35616,7 @@ export class CreateLaunchTemplateVersionRequestSystemDisk extends $tea.Model {
       deleteWithInstance: 'boolean',
       description: 'string',
       diskName: 'string',
+      encrypted: 'string',
       iops: 'number',
       performanceLevel: 'string',
       provisionedIops: 'number',
@@ -35455,6 +35820,82 @@ export class CreateNetworkInterfaceRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $tea.Model {
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv4PrefixSets extends $tea.Model {
+  ipv4PrefixSet?: CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $tea.Model {
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6PrefixSets extends $tea.Model {
+  ipv6PrefixSet?: CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet },
     };
   }
 
@@ -36151,6 +36592,50 @@ export class DescribeAccountAttributesResponseBodyAccountAttributeItems extends 
   }
 }
 
+export class DescribeActivationsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActivationsResponseBodyActivationListTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
   activationId?: string;
   creationTime?: string;
@@ -36161,6 +36646,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
   instanceName?: string;
   ipAddressRange?: string;
   registeredCount?: number;
+  tags?: DescribeActivationsResponseBodyActivationListTags[];
   timeToLiveInHours?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36173,6 +36659,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
       instanceName: 'InstanceName',
       ipAddressRange: 'IpAddressRange',
       registeredCount: 'RegisteredCount',
+      tags: 'Tags',
       timeToLiveInHours: 'TimeToLiveInHours',
     };
   }
@@ -36188,6 +36675,7 @@ export class DescribeActivationsResponseBodyActivationList extends $tea.Model {
       instanceName: 'string',
       ipAddressRange: 'string',
       registeredCount: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeActivationsResponseBodyActivationListTags },
       timeToLiveInHours: 'number',
     };
   }
@@ -37681,93 +38169,6 @@ export class DescribeCommandsResponseBodyCommands extends $tea.Model {
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterDedicatedBlockStorageClusterCapacity extends $tea.Model {
-  availableCapacity?: number;
-  totalCapacity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      availableCapacity: 'AvailableCapacity',
-      totalCapacity: 'TotalCapacity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableCapacity: 'number',
-      totalCapacity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageCluster extends $tea.Model {
-  category?: string;
-  createTime?: string;
-  dedicatedBlockStorageClusterCapacity?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterDedicatedBlockStorageClusterCapacity;
-  dedicatedBlockStorageClusterId?: string;
-  dedicatedBlockStorageClusterName?: string;
-  description?: string;
-  expiredTime?: string;
-  status?: string;
-  type?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      createTime: 'CreateTime',
-      dedicatedBlockStorageClusterCapacity: 'DedicatedBlockStorageClusterCapacity',
-      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
-      dedicatedBlockStorageClusterName: 'DedicatedBlockStorageClusterName',
-      description: 'Description',
-      expiredTime: 'ExpiredTime',
-      status: 'Status',
-      type: 'Type',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      createTime: 'string',
-      dedicatedBlockStorageClusterCapacity: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterDedicatedBlockStorageClusterCapacity,
-      dedicatedBlockStorageClusterId: 'string',
-      dedicatedBlockStorageClusterName: 'string',
-      description: 'string',
-      expiredTime: 'string',
-      status: 'string',
-      type: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $tea.Model {
-  dedicatedBlockStorageCluster?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageCluster[];
-  static names(): { [key: string]: string } {
-    return {
-      dedicatedBlockStorageCluster: 'DedicatedBlockStorageCluster',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dedicatedBlockStorageCluster: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageCluster },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDedicatedHostAutoRenewResponseBodyDedicatedHostRenewAttributesDedicatedHostRenewAttribute extends $tea.Model {
   autoRenewEnabled?: boolean;
   autoRenewWithEcs?: string;
@@ -38243,12 +38644,63 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostSchedu
   }
 }
 
+export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacitiesSocketCapacity extends $tea.Model {
+  availableMemory?: number;
+  availableVcpu?: number;
+  socketId?: number;
+  totalMemory?: number;
+  totalVcpu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableMemory: 'AvailableMemory',
+      availableVcpu: 'AvailableVcpu',
+      socketId: 'SocketId',
+      totalMemory: 'TotalMemory',
+      totalVcpu: 'TotalVcpu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableMemory: 'number',
+      availableVcpu: 'number',
+      socketId: 'number',
+      totalMemory: 'number',
+      totalVcpu: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities extends $tea.Model {
+  socketCapacity?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacitiesSocketCapacity[];
+  static names(): { [key: string]: string } {
+    return {
+      socketCapacity: 'SocketCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      socketCapacity: { 'type': 'array', 'itemType': DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacitiesSocketCapacity },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacity extends $tea.Model {
   availableLocalStorage?: number;
   availableMemory?: number;
   availableVcpus?: number;
   availableVgpus?: number;
   localStorageCategory?: string;
+  socketCapacities?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities;
   totalLocalStorage?: number;
   totalMemory?: number;
   totalVcpus?: number;
@@ -38260,6 +38712,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
       availableVcpus: 'AvailableVcpus',
       availableVgpus: 'AvailableVgpus',
       localStorageCategory: 'LocalStorageCategory',
+      socketCapacities: 'SocketCapacities',
       totalLocalStorage: 'TotalLocalStorage',
       totalMemory: 'TotalMemory',
       totalVcpus: 'TotalVcpus',
@@ -38274,6 +38727,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
       availableVcpus: 'number',
       availableVgpus: 'number',
       localStorageCategory: 'string',
+      socketCapacities: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities,
       totalLocalStorage: 'number',
       totalMemory: 'number',
       totalVcpus: 'number',
@@ -38308,10 +38762,12 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostHostDe
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostInstancesInstance extends $tea.Model {
   instanceId?: string;
   instanceType?: string;
+  socketId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      socketId: 'SocketId',
     };
   }
 
@@ -38319,6 +38775,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostInstan
     return {
       instanceId: 'string',
       instanceType: 'string',
+      socketId: 'string',
     };
   }
 
@@ -39001,7 +39458,104 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $tea.Model {
   }
 }
 
-export class DescribeDiagnosticReportsResponseBodyReportsIssues extends $tea.Model {
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue extends $tea.Model {
+  additional?: string;
+  issueId?: string;
+  occurrenceTime?: string;
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additional: 'Additional',
+      issueId: 'IssueId',
+      occurrenceTime: 'OccurrenceTime',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additional: 'string',
+      issueId: 'string',
+      occurrenceTime: 'string',
+      severity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues extends $tea.Model {
+  issue?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue[];
+  static names(): { [key: string]: string } {
+    return {
+      issue: 'Issue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issue: { 'type': 'array', 'itemType': DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult extends $tea.Model {
+  issues?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues;
+  metricCategory?: string;
+  metricId?: string;
+  severity?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issues: 'Issues',
+      metricCategory: 'MetricCategory',
+      metricId: 'MetricId',
+      severity: 'Severity',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issues: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues,
+      metricCategory: 'string',
+      metricId: 'string',
+      severity: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResults extends $tea.Model {
+  metricResult?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult[];
+  static names(): { [key: string]: string } {
+    return {
+      metricResult: 'MetricResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricResult: { 'type': 'array', 'itemType': DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportsResponseBodyReportsReportIssuesIssue extends $tea.Model {
   issueId?: string;
   metricCategory?: string;
   metricId?: string;
@@ -39029,11 +39583,30 @@ export class DescribeDiagnosticReportsResponseBodyReportsIssues extends $tea.Mod
   }
 }
 
-export class DescribeDiagnosticReportsResponseBodyReports extends $tea.Model {
+export class DescribeDiagnosticReportsResponseBodyReportsReportIssues extends $tea.Model {
+  issue?: DescribeDiagnosticReportsResponseBodyReportsReportIssuesIssue[];
+  static names(): { [key: string]: string } {
+    return {
+      issue: 'Issue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issue: { 'type': 'array', 'itemType': DescribeDiagnosticReportsResponseBodyReportsReportIssuesIssue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportsResponseBodyReportsReport extends $tea.Model {
   creationTime?: string;
   endTime?: string;
   finishedTime?: string;
-  issues?: DescribeDiagnosticReportsResponseBodyReportsIssues[];
+  issues?: DescribeDiagnosticReportsResponseBodyReportsReportIssues;
   metricSetId?: string;
   reportId?: string;
   resourceId?: string;
@@ -39062,7 +39635,7 @@ export class DescribeDiagnosticReportsResponseBodyReports extends $tea.Model {
       creationTime: 'string',
       endTime: 'string',
       finishedTime: 'string',
-      issues: { 'type': 'array', 'itemType': DescribeDiagnosticReportsResponseBodyReportsIssues },
+      issues: DescribeDiagnosticReportsResponseBodyReportsReportIssues,
       metricSetId: 'string',
       reportId: 'string',
       resourceId: 'string',
@@ -39070,6 +39643,25 @@ export class DescribeDiagnosticReportsResponseBodyReports extends $tea.Model {
       severity: 'string',
       startTime: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportsResponseBodyReports extends $tea.Model {
+  report?: DescribeDiagnosticReportsResponseBodyReportsReport[];
+  static names(): { [key: string]: string } {
+    return {
+      report: 'Report',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      report: { 'type': 'array', 'itemType': DescribeDiagnosticReportsResponseBodyReportsReport },
     };
   }
 
@@ -42709,6 +43301,44 @@ export class DescribeInstanceTypeFamiliesResponseBodyInstanceTypeFamilies extend
   }
 }
 
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCardsNetworkCardInfo extends $tea.Model {
+  networkCardIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      networkCardIndex: 'NetworkCardIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkCardIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards extends $tea.Model {
+  networkCardInfo?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCardsNetworkCardInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      networkCardInfo: 'NetworkCardInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkCardInfo: { 'type': 'array', 'itemType': DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCardsNetworkCardInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends $tea.Model {
   baselineCredit?: number;
   cpuArchitecture?: string;
@@ -42739,6 +43369,8 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   localStorageCategory?: string;
   maximumQueueNumberPerEni?: number;
   memorySize?: number;
+  networkCardQuantity?: number;
+  networkCards?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards;
   networkEncryptionSupport?: boolean;
   nvmeSupport?: string;
   physicalProcessorModel?: string;
@@ -42777,6 +43409,8 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       localStorageCategory: 'LocalStorageCategory',
       maximumQueueNumberPerEni: 'MaximumQueueNumberPerEni',
       memorySize: 'MemorySize',
+      networkCardQuantity: 'NetworkCardQuantity',
+      networkCards: 'NetworkCards',
       networkEncryptionSupport: 'NetworkEncryptionSupport',
       nvmeSupport: 'NvmeSupport',
       physicalProcessorModel: 'PhysicalProcessorModel',
@@ -42818,6 +43452,8 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       localStorageCategory: 'string',
       maximumQueueNumberPerEni: 'number',
       memorySize: 'number',
+      networkCardQuantity: 'number',
+      networkCards: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards,
       networkEncryptionSupport: 'boolean',
       nvmeSupport: 'string',
       physicalProcessorModel: 'string',
@@ -43103,6 +43739,82 @@ export class DescribeInstancesResponseBodyInstancesInstanceMetadataOptions exten
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSetsIpv4PrefixSet extends $tea.Model {
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSets extends $tea.Model {
+  ipv4PrefixSet?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSetsIpv6PrefixSet extends $tea.Model {
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSets extends $tea.Model {
+  ipv6PrefixSet?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSetsIpv6PrefixSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set extends $tea.Model {
   ipv6Address?: string;
   static names(): { [key: string]: string } {
@@ -43183,6 +43895,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterface extends $tea.Model {
+  ipv4PrefixSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSets;
+  ipv6PrefixSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSets;
   ipv6Sets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets;
   macAddress?: string;
   networkInterfaceId?: string;
@@ -43191,6 +43905,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      ipv4PrefixSets: 'Ipv4PrefixSets',
+      ipv6PrefixSets: 'Ipv6PrefixSets',
       ipv6Sets: 'Ipv6Sets',
       macAddress: 'MacAddress',
       networkInterfaceId: 'NetworkInterfaceId',
@@ -43202,6 +43918,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 
   static types(): { [key: string]: any } {
     return {
+      ipv4PrefixSets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv4PrefixSets,
+      ipv6PrefixSets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6PrefixSets,
       ipv6Sets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets,
       macAddress: 'string',
       networkInterfaceId: 'string',
@@ -44496,6 +45214,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
   deleteWithInstance?: boolean;
   description?: string;
   diskName?: string;
+  encrypted?: string;
   iops?: number;
   performanceLevel?: string;
   provisionedIops?: number;
@@ -44508,6 +45227,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       deleteWithInstance: 'DeleteWithInstance',
       description: 'Description',
       diskName: 'DiskName',
+      encrypted: 'Encrypted',
       iops: 'Iops',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
@@ -44523,6 +45243,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       deleteWithInstance: 'boolean',
       description: 'string',
       diskName: 'string',
+      encrypted: 'string',
       iops: 'number',
       performanceLevel: 'string',
       provisionedIops: 'number',
@@ -45055,6 +45776,50 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSets extends $tea.
   }
 }
 
+export class DescribeManagedInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeManagedInstancesResponseBodyInstancesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
   activationId?: string;
   agentVersion?: string;
@@ -45070,6 +45835,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
   osType?: string;
   osVersion?: string;
   registrationTime?: string;
+  tags?: DescribeManagedInstancesResponseBodyInstancesTags[];
   static names(): { [key: string]: string } {
     return {
       activationId: 'ActivationId',
@@ -45086,6 +45852,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
       osType: 'OsType',
       osVersion: 'OsVersion',
       registrationTime: 'RegistrationTime',
+      tags: 'Tags',
     };
   }
 
@@ -45105,6 +45872,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $tea.Model {
       osType: 'string',
       osVersion: 'string',
       registrationTime: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeManagedInstancesResponseBodyInstancesTags },
     };
   }
 
@@ -45289,12 +46057,14 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $te
   deviceIndex?: number;
   instanceId?: string;
   memberNetworkInterfaceIds?: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds;
+  networkCardIndex?: number;
   trunkNetworkInterfaceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceIndex: 'DeviceIndex',
       instanceId: 'InstanceId',
       memberNetworkInterfaceIds: 'MemberNetworkInterfaceIds',
+      networkCardIndex: 'NetworkCardIndex',
       trunkNetworkInterfaceId: 'TrunkNetworkInterfaceId',
     };
   }
@@ -45304,6 +46074,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $te
       deviceIndex: 'number',
       instanceId: 'string',
       memberNetworkInterfaceIds: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds,
+      networkCardIndex: 'number',
       trunkNetworkInterfaceId: 'string',
     };
   }
@@ -45371,6 +46142,82 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
     return {
       bondMode: 'string',
       slaveInterfaceSpecification: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecification,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $tea.Model {
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets extends $tea.Model {
+  ipv4PrefixSet?: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $tea.Model {
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets extends $tea.Model {
+  ipv6PrefixSet?: DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet },
     };
   }
 
@@ -45668,11 +46515,13 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment extends $tea.Model {
   deviceIndex?: number;
   instanceId?: string;
+  networkCardIndex?: number;
   trunkNetworkInterfaceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceIndex: 'DeviceIndex',
       instanceId: 'InstanceId',
+      networkCardIndex: 'NetworkCardIndex',
       trunkNetworkInterfaceId: 'TrunkNetworkInterfaceId',
     };
   }
@@ -45681,7 +46530,84 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
     return {
       deviceIndex: 'number',
       instanceId: 'string',
+      networkCardIndex: 'number',
       trunkNetworkInterfaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSetsIpv4PrefixSet extends $tea.Model {
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets extends $tea.Model {
+  ipv4PrefixSet?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSetsIpv6PrefixSet extends $tea.Model {
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSets extends $tea.Model {
+  ipv6PrefixSet?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSetsIpv6PrefixSet },
     };
   }
 
@@ -45860,6 +46786,8 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
   creationTime?: string;
   description?: string;
   instanceId?: string;
+  ipv4PrefixSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets;
+  ipv6PrefixSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSets;
   ipv6Sets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets;
   macAddress?: string;
   networkInterfaceId?: string;
@@ -45887,6 +46815,8 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       creationTime: 'CreationTime',
       description: 'Description',
       instanceId: 'InstanceId',
+      ipv4PrefixSets: 'Ipv4PrefixSets',
+      ipv6PrefixSets: 'Ipv6PrefixSets',
       ipv6Sets: 'Ipv6Sets',
       macAddress: 'MacAddress',
       networkInterfaceId: 'NetworkInterfaceId',
@@ -45917,6 +46847,8 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       creationTime: 'string',
       description: 'string',
       instanceId: 'string',
+      ipv4PrefixSets: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv4PrefixSets,
+      ipv6PrefixSets: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6PrefixSets,
       ipv6Sets: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets,
       macAddress: 'string',
       networkInterfaceId: 'string',
@@ -46283,6 +47215,25 @@ export class DescribePriceRequestDataDisk extends $tea.Model {
       category: 'string',
       performanceLevel: 'string',
       size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestSchedulerOptions extends $tea.Model {
+  dedicatedHostId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostId: 'DedicatedHostId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostId: 'string',
     };
   }
 
@@ -46887,6 +47838,53 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $tea.Model {
     return {
       price: DescribeRenewalPriceResponseBodyPriceInfoPrice,
       rules: DescribeRenewalPriceResponseBodyPriceInfoRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributesReservedInstanceRenewAttribute extends $tea.Model {
+  duration?: number;
+  periodUnit?: string;
+  renewalStatus?: string;
+  reservedInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      periodUnit: 'PeriodUnit',
+      renewalStatus: 'RenewalStatus',
+      reservedInstanceId: 'ReservedInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      periodUnit: 'string',
+      renewalStatus: 'string',
+      reservedInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributes extends $tea.Model {
+  reservedInstanceRenewAttribute?: DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributesReservedInstanceRenewAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      reservedInstanceRenewAttribute: 'ReservedInstanceRenewAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedInstanceRenewAttribute: { 'type': 'array', 'itemType': DescribeReservedInstanceAutoRenewAttributeResponseBodyReservedInstanceRenewAttributesReservedInstanceRenewAttribute },
     };
   }
 
@@ -47600,6 +48598,7 @@ export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission ext
   policy?: string;
   portRange?: string;
   priority?: string;
+  securityGroupRuleId?: string;
   sourceCidrIp?: string;
   sourceGroupId?: string;
   sourceGroupName?: string;
@@ -47625,6 +48624,7 @@ export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission ext
       policy: 'Policy',
       portRange: 'PortRange',
       priority: 'Priority',
+      securityGroupRuleId: 'SecurityGroupRuleId',
       sourceCidrIp: 'SourceCidrIp',
       sourceGroupId: 'SourceGroupId',
       sourceGroupName: 'SourceGroupName',
@@ -47653,6 +48653,7 @@ export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission ext
       policy: 'string',
       portRange: 'string',
       priority: 'string',
+      securityGroupRuleId: 'string',
       sourceCidrIp: 'string',
       sourceGroupId: 'string',
       sourceGroupName: 'string',
@@ -47903,6 +48904,28 @@ export class DescribeSecurityGroupsResponseBodySecurityGroups extends $tea.Model
   }
 }
 
+export class DescribeSendFileResultsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeInstancesInvokeInstance extends $tea.Model {
   creationTime?: string;
   errorCode?: string;
@@ -47962,6 +48985,47 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeInsta
   }
 }
 
+export class DescribeSendFileResultsResponseBodyInvocationsInvocationTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSendFileResultsResponseBodyInvocationsInvocationTags extends $tea.Model {
+  tag?: DescribeSendFileResultsResponseBodyInvocationsInvocationTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeSendFileResultsResponseBodyInvocationsInvocationTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $tea.Model {
   content?: string;
   contentType?: string;
@@ -47975,6 +49039,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $t
   invokeInstances?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeInstances;
   name?: string;
   overwrite?: string;
+  tags?: DescribeSendFileResultsResponseBodyInvocationsInvocationTags;
   targetDir?: string;
   vmCount?: number;
   static names(): { [key: string]: string } {
@@ -47991,6 +49056,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $t
       invokeInstances: 'InvokeInstances',
       name: 'Name',
       overwrite: 'Overwrite',
+      tags: 'Tags',
       targetDir: 'TargetDir',
       vmCount: 'VmCount',
     };
@@ -48010,6 +49076,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $t
       invokeInstances: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeInstances,
       name: 'string',
       overwrite: 'string',
+      tags: DescribeSendFileResultsResponseBodyInvocationsInvocationTags,
       targetDir: 'string',
       vmCount: 'number',
     };
@@ -49220,6 +50287,7 @@ export class DescribeTaskAttributeResponseBodyOperationProgressSet extends $tea.
 export class DescribeTasksResponseBodyTaskSetTask extends $tea.Model {
   creationTime?: string;
   finishedTime?: string;
+  resourceId?: string;
   supportCancel?: string;
   taskAction?: string;
   taskId?: string;
@@ -49228,6 +50296,7 @@ export class DescribeTasksResponseBodyTaskSetTask extends $tea.Model {
     return {
       creationTime: 'CreationTime',
       finishedTime: 'FinishedTime',
+      resourceId: 'ResourceId',
       supportCancel: 'SupportCancel',
       taskAction: 'TaskAction',
       taskId: 'TaskId',
@@ -49239,6 +50308,7 @@ export class DescribeTasksResponseBodyTaskSetTask extends $tea.Model {
     return {
       creationTime: 'string',
       finishedTime: 'string',
+      resourceId: 'string',
       supportCancel: 'string',
       taskAction: 'string',
       taskId: 'string',
@@ -50328,6 +51398,50 @@ export class ImportKeyPairRequestTag extends $tea.Model {
   }
 }
 
+export class InvokeCommandRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeCommandShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPluginStatusResponseBodyInstancePluginStatusSetInstancePluginStatusPluginStatusSetPluginStatus extends $tea.Model {
   firstHeartbeatTime?: string;
   lastHeartbeatTime?: string;
@@ -51167,6 +52281,31 @@ export class ReplaceSystemDiskRequestSystemDisk extends $tea.Model {
   }
 }
 
+export class ReplaceSystemDiskRequestArn extends $tea.Model {
+  assumeRoleFor?: number;
+  roleType?: string;
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetDisksRequestDisk extends $tea.Model {
   diskId?: string;
   snapshotId?: string;
@@ -51693,6 +52832,7 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
   instanceType?: string;
   ipv6Address?: string[];
   ipv6AddressCount?: number;
+  networkCardIndex?: number;
   networkInterfaceName?: string;
   networkInterfaceTrafficMode?: string;
   primaryIpAddress?: string;
@@ -51707,6 +52847,7 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
       instanceType: 'InstanceType',
       ipv6Address: 'Ipv6Address',
       ipv6AddressCount: 'Ipv6AddressCount',
+      networkCardIndex: 'NetworkCardIndex',
       networkInterfaceName: 'NetworkInterfaceName',
       networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       primaryIpAddress: 'PrimaryIpAddress',
@@ -51724,6 +52865,7 @@ export class RunInstancesRequestNetworkInterface extends $tea.Model {
       instanceType: 'string',
       ipv6Address: { 'type': 'array', 'itemType': 'string' },
       ipv6AddressCount: 'number',
+      networkCardIndex: 'number',
       networkInterfaceName: 'string',
       networkInterfaceTrafficMode: 'string',
       primaryIpAddress: 'string',
@@ -51773,6 +52915,28 @@ export class RunInstancesResponseBodyInstanceIdSets extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceIdSet: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendFileRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -52061,6 +53225,14 @@ export default class Client extends OpenApi {
     return await this.acceptInquiredSystemEventWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ActivateRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ActivateRouterInterfaceResponse
+   */
+  // Deprecated
   async activateRouterInterfaceWithOptions(request: ActivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52101,11 +53273,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new ActivateRouterInterfaceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ActivateRouterInterfaceRequest
+    * @return ActivateRouterInterfaceResponse
+   */
+  // Deprecated
   async activateRouterInterface(request: ActivateRouterInterfaceRequest): Promise<ActivateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddBandwidthPackageIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddBandwidthPackageIpsResponse
+   */
+  // Deprecated
   async addBandwidthPackageIpsWithOptions(request: AddBandwidthPackageIpsRequest, runtime: $Util.RuntimeOptions): Promise<AddBandwidthPackageIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52158,11 +53345,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBandwidthPackageIpsResponse>(await this.callApi(params, req, runtime), new AddBandwidthPackageIpsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AddBandwidthPackageIpsRequest
+    * @return AddBandwidthPackageIpsResponse
+   */
+  // Deprecated
   async addBandwidthPackageIps(request: AddBandwidthPackageIpsRequest): Promise<AddBandwidthPackageIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBandwidthPackageIpsWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 20 tags can be added to each ECS resource.
+    * *   `Tag.N.Key` must match `Tag.N.Value` based on the value of N.
+    * *   If you add a tag that has the same key (`Tag.N.Key`) as an existing tag on the specified resource, the new tag value (`Tag.N.Value`) overwrites the original tag value.
+    *
+    * @param request AddTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddTagsResponse
+   */
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52211,11 +53415,32 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTagsResponse>(await this.callApi(params, req, runtime), new AddTagsResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 20 tags can be added to each ECS resource.
+    * *   `Tag.N.Key` must match `Tag.N.Value` based on the value of N.
+    * *   If you add a tag that has the same key (`Tag.N.Key`) as an existing tag on the specified resource, the new tag value (`Tag.N.Value`) overwrites the original tag value.
+    *
+    * @param request AddTagsRequest
+    * @return AddTagsResponse
+   */
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagsWithOptions(request, runtime);
   }
 
+  /**
+    * Before you create a dedicated host, you can call the [DescribeAvailableResource](~~66186~~) operation to query the available resources in a specific region or zone.
+    * We recommend that you understand the billing methods of resources before you create a dedicated host. You are charged for resources used by the created dedicated host. For more information, see [Billing overview](~~68978~~).
+    * * You can create up to 100 pay-as-you-go or subscription dedicated hosts at a time.
+    * * After a dedicated host is created, you can use its ID that is returned by the system as the value of a request parameter to call the [DescribeDedicatedHosts](~~134242~~) operation to query the state of the dedicated host.
+    * * After you submit a request to create a dedicated host, an error is returned if a specific parameter is invalid or the requested resources are insufficient. For more information about error reasons, see the "Error codes" section in this topic.
+    * * After a dedicated host is created, you can call the [ModifyInstanceDeployment](~~134248~~) operation to migrate ECS instances from a shared host to the dedicated host. You can also migrate ECS instances from another dedicated host to the created dedicated host.
+    *
+    * @param request AllocateDedicatedHostsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateDedicatedHostsResponse
+   */
   async allocateDedicatedHostsWithOptions(request: AllocateDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<AllocateDedicatedHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52315,7 +53540,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.networkAttributes))) {
+    if (!Util.isUnset(request.networkAttributes)) {
       query["NetworkAttributes"] = request.networkAttributes;
     }
 
@@ -52336,11 +53561,30 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateDedicatedHostsResponse>(await this.callApi(params, req, runtime), new AllocateDedicatedHostsResponse({}));
   }
 
+  /**
+    * Before you create a dedicated host, you can call the [DescribeAvailableResource](~~66186~~) operation to query the available resources in a specific region or zone.
+    * We recommend that you understand the billing methods of resources before you create a dedicated host. You are charged for resources used by the created dedicated host. For more information, see [Billing overview](~~68978~~).
+    * * You can create up to 100 pay-as-you-go or subscription dedicated hosts at a time.
+    * * After a dedicated host is created, you can use its ID that is returned by the system as the value of a request parameter to call the [DescribeDedicatedHosts](~~134242~~) operation to query the state of the dedicated host.
+    * * After you submit a request to create a dedicated host, an error is returned if a specific parameter is invalid or the requested resources are insufficient. For more information about error reasons, see the "Error codes" section in this topic.
+    * * After a dedicated host is created, you can call the [ModifyInstanceDeployment](~~134248~~) operation to migrate ECS instances from a shared host to the dedicated host. You can also migrate ECS instances from another dedicated host to the created dedicated host.
+    *
+    * @param request AllocateDedicatedHostsRequest
+    * @return AllocateDedicatedHostsResponse
+   */
   async allocateDedicatedHosts(request: AllocateDedicatedHostsRequest): Promise<AllocateDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateDedicatedHostsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AllocateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateEipAddressResponse
+   */
+  // Deprecated
   async allocateEipAddressWithOptions(request: AllocateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52401,11 +53645,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateEipAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AllocateEipAddressRequest
+    * @return AllocateEipAddressResponse
+   */
+  // Deprecated
   async allocateEipAddress(request: AllocateEipAddressRequest): Promise<AllocateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The instance to which to assign a public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](~~25695~~) and cannot be assigned a public IP address.
+    * *   You can assign only a single public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error code is returned.
+    * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](~~25502~~)) or start the instance ([StartInstance](~~25500~~)) for the public IP address to take effect.
+    * If an instance is located in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](~~36017~~).
+    * > After an EIP is associated with an instance located in a VPC, no public IP addresses can be assigned to the instance.
+    *
+    * @param request AllocatePublicIpAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocatePublicIpAddressResponse
+   */
   async allocatePublicIpAddressWithOptions(request: AllocatePublicIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocatePublicIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52454,11 +53718,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocatePublicIpAddressResponse>(await this.callApi(params, req, runtime), new AllocatePublicIpAddressResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The instance to which to assign a public IP address must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for an instance, the instance is [locked for security reasons](~~25695~~) and cannot be assigned a public IP address.
+    * *   You can assign only a single public IP address to an instance. If the instance already has a public IP address, the `AllocatedAlready` error code is returned.
+    * *   After you assign a public IP address to an instance, you must restart the instance ([RebootInstance](~~25502~~)) or start the instance ([StartInstance](~~25500~~)) for the public IP address to take effect.
+    * If an instance is located in a virtual private cloud (VPC), you can assign a public IP address to the instance or associate an elastic IP address (EIP) with the instance. For more information, see [AssociateEipAddress](~~36017~~).
+    * > After an EIP is associated with an instance located in a VPC, no public IP addresses can be assigned to the instance.
+    *
+    * @param request AllocatePublicIpAddressRequest
+    * @return AllocatePublicIpAddressResponse
+   */
   async allocatePublicIpAddress(request: AllocatePublicIpAddressRequest): Promise<AllocatePublicIpAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocatePublicIpAddressWithOptions(request, runtime);
   }
 
+  /**
+    * *   Each disk can have only one automatic snapshot policy applied.
+    * *   A single automatic snapshot policy can be applied to multiple disks.
+    *
+    * @param request ApplyAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicyWithOptions(request: ApplyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ApplyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52503,11 +53787,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ApplyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * *   Each disk can have only one automatic snapshot policy applied.
+    * *   A single automatic snapshot policy can be applied to multiple disks.
+    *
+    * @param request ApplyAutoSnapshotPolicyRequest
+    * @return ApplyAutoSnapshotPolicyResponse
+   */
   async applyAutoSnapshotPolicy(request: ApplyAutoSnapshotPolicyRequest): Promise<ApplyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can specify IPv6 addresses that are in the CIDR block of the vSwitch with which the ENI is associated, or specify the number of IPv6 addresses to automatically generate for the ENI. When you call this operation, take note of the following items:
+    * *   IPv6 must be enabled for the vSwitch with which the ENI is associated. For more information, see [Enable IPv6 for a vSwitch](~~98923~~).
+    * *   The ENI must be in the Available (Available) or InUse (InUse) state.
+    * *   If you want to assign IPv6 addresses to a primary ENI, make sure that the instance to which the ENI is attached is in the Running (Running) or Stopped (Stopped) state.
+    * *   The maximum number of IPv6 addresses that can be assigned to an ENI varies per instance type.
+    *     *   If the ENI is in the Available (Available) state, it can be assigned a maximum of 10 IPv6 addresses.
+    *     *   If the ENI is already attached to an Elastic Compute Service (ECS) instance, the maximum number of IPv6 addresses that can be assigned to the ENI varies based on the instance type. For more information, see [Overview of instance families](~~25378~~).
+    * *   After the operation is called, you can obtain the IPv6 addresses that are assigned to the ENI from the response.
+    *
+    * @param request AssignIpv6AddressesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssignIpv6AddressesResponse
+   */
   async assignIpv6AddressesWithOptions(request: AssignIpv6AddressesRequest, runtime: $Util.RuntimeOptions): Promise<AssignIpv6AddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52517,6 +53822,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ipv6AddressCount)) {
       query["Ipv6AddressCount"] = request.ipv6AddressCount;
+    }
+
+    if (!Util.isUnset(request.ipv6Prefix)) {
+      query["Ipv6Prefix"] = request.ipv6Prefix;
+    }
+
+    if (!Util.isUnset(request.ipv6PrefixCount)) {
+      query["Ipv6PrefixCount"] = request.ipv6PrefixCount;
     }
 
     if (!Util.isUnset(request.networkInterfaceId)) {
@@ -52564,16 +53877,48 @@ export default class Client extends OpenApi {
     return $tea.cast<AssignIpv6AddressesResponse>(await this.callApi(params, req, runtime), new AssignIpv6AddressesResponse({}));
   }
 
+  /**
+    * You can specify IPv6 addresses that are in the CIDR block of the vSwitch with which the ENI is associated, or specify the number of IPv6 addresses to automatically generate for the ENI. When you call this operation, take note of the following items:
+    * *   IPv6 must be enabled for the vSwitch with which the ENI is associated. For more information, see [Enable IPv6 for a vSwitch](~~98923~~).
+    * *   The ENI must be in the Available (Available) or InUse (InUse) state.
+    * *   If you want to assign IPv6 addresses to a primary ENI, make sure that the instance to which the ENI is attached is in the Running (Running) or Stopped (Stopped) state.
+    * *   The maximum number of IPv6 addresses that can be assigned to an ENI varies per instance type.
+    *     *   If the ENI is in the Available (Available) state, it can be assigned a maximum of 10 IPv6 addresses.
+    *     *   If the ENI is already attached to an Elastic Compute Service (ECS) instance, the maximum number of IPv6 addresses that can be assigned to the ENI varies based on the instance type. For more information, see [Overview of instance families](~~25378~~).
+    * *   After the operation is called, you can obtain the IPv6 addresses that are assigned to the ENI from the response.
+    *
+    * @param request AssignIpv6AddressesRequest
+    * @return AssignIpv6AddressesResponse
+   */
   async assignIpv6Addresses(request: AssignIpv6AddressesRequest): Promise<AssignIpv6AddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignIpv6AddressesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
+    * *   When you assign secondary private IP addresses to a primary ENI, the instance to which the ENI is attached must be in the Running (Running) or Stopped (Stopped) state.
+    * *   When an ENI is in the Available (Available) state, you can assign up to 50 secondary private IP addresses to it. When an ENI is attached to an instance, the number of secondary private IP addresses that can be assigned to the ENI is subject to the instance type. For more information, see [Instance families](~~25378~~).
+    * *   After you call this operation for an ENI, you can obtain the secondary private IP addresses that are assigned to the ENI from the response.
+    *
+    * @param request AssignPrivateIpAddressesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssignPrivateIpAddressesResponse
+   */
   async assignPrivateIpAddressesWithOptions(request: AssignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressesResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
+    if (!Util.isUnset(request.ipv4PrefixCount)) {
+      query["Ipv4PrefixCount"] = request.ipv4PrefixCount;
     }
 
     if (!Util.isUnset(request.networkInterfaceId)) {
@@ -52629,11 +53974,29 @@ export default class Client extends OpenApi {
     return $tea.cast<AssignPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressesResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
+    * *   When you assign secondary private IP addresses to a primary ENI, the instance to which the ENI is attached must be in the Running (Running) or Stopped (Stopped) state.
+    * *   When an ENI is in the Available (Available) state, you can assign up to 50 secondary private IP addresses to it. When an ENI is attached to an instance, the number of secondary private IP addresses that can be assigned to the ENI is subject to the instance type. For more information, see [Instance families](~~25378~~).
+    * *   After you call this operation for an ENI, you can obtain the secondary private IP addresses that are assigned to the ENI from the response.
+    *
+    * @param request AssignPrivateIpAddressesRequest
+    * @return AssignPrivateIpAddressesResponse
+   */
   async assignPrivateIpAddresses(request: AssignPrivateIpAddressesRequest): Promise<AssignPrivateIpAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignPrivateIpAddressesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AssociateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateEipAddressResponse
+   */
+  // Deprecated
   async associateEipAddressWithOptions(request: AssociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52686,11 +54049,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AssociateEipAddressRequest
+    * @return AssociateEipAddressResponse
+   */
+  // Deprecated
   async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AssociateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AssociateHaVipResponse
+   */
+  // Deprecated
   async associateHaVipWithOptions(request: AssociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<AssociateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52743,11 +54121,29 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateHaVipResponse>(await this.callApi(params, req, runtime), new AssociateHaVipResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request AssociateHaVipRequest
+    * @return AssociateHaVipResponse
+   */
+  // Deprecated
   async associateHaVip(request: AssociateHaVipRequest): Promise<AssociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateHaVipWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   The instance to be connected must be in the **Running** state or **Stopped** state.
+    * *   The ClassicLink feature must be enabled for the target VPC. For more information, see [Enable ClassicLink](~~65413~~).
+    * *   The instance and the VPC must be in the same region.
+    *
+    * @param request AttachClassicLinkVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachClassicLinkVpcResponse
+   */
   async attachClassicLinkVpcWithOptions(request: AttachClassicLinkVpcRequest, runtime: $Util.RuntimeOptions): Promise<AttachClassicLinkVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52792,11 +54188,39 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachClassicLinkVpcResponse>(await this.callApi(params, req, runtime), new AttachClassicLinkVpcResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   The instance to be connected must be in the **Running** state or **Stopped** state.
+    * *   The ClassicLink feature must be enabled for the target VPC. For more information, see [Enable ClassicLink](~~65413~~).
+    * *   The instance and the VPC must be in the same region.
+    *
+    * @param request AttachClassicLinkVpcRequest
+    * @return AttachClassicLinkVpcResponse
+   */
   async attachClassicLinkVpc(request: AttachClassicLinkVpcRequest): Promise<AttachClassicLinkVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachClassicLinkVpcWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following points:
+    * *   The disk to be attached must be in the **Unattached** (`Available`) state.
+    * *   When the disk is attached as a data disk, take note of the following items:
+    *     *   The instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    *     *   If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
+    *     *   If the disk is a system disk detached from an instance, no limits apply to the billing method of the disk.
+    * *   When the disk is attached as a system disk, take note of the following items:
+    *     *   The instance must be the original instance from which the system disk was detached.
+    *     *   The instance must be in the **Stopped** (`Stopped`) state.
+    *     *   The logon credentials must be configured.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * *   Disks for which the multi-attach feature is enabled can be attached only to instances that support the NVMe protocol. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    *
+    * @param request AttachDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachDiskResponse
+   */
   async attachDiskWithOptions(request: AttachDiskRequest, runtime: $Util.RuntimeOptions): Promise<AttachDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52861,6 +54285,23 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDiskResponse>(await this.callApi(params, req, runtime), new AttachDiskResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following points:
+    * *   The disk to be attached must be in the **Unattached** (`Available`) state.
+    * *   When the disk is attached as a data disk, take note of the following items:
+    *     *   The instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    *     *   If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
+    *     *   If the disk is a system disk detached from an instance, no limits apply to the billing method of the disk.
+    * *   When the disk is attached as a system disk, take note of the following items:
+    *     *   The instance must be the original instance from which the system disk was detached.
+    *     *   The instance must be in the **Stopped** (`Stopped`) state.
+    *     *   The logon credentials must be configured.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * *   Disks for which the multi-attach feature is enabled can be attached only to instances that support the NVMe protocol. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    *
+    * @param request AttachDiskRequest
+    * @return AttachDiskResponse
+   */
   async attachDisk(request: AttachDiskRequest): Promise<AttachDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDiskWithOptions(request, runtime);
@@ -52919,6 +54360,18 @@ export default class Client extends OpenApi {
     return await this.attachInstanceRamRoleWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   SSH key pairs are not supported on Windows instances.
+    * *   If an SSH key pair is attached to an instance, the username and password authentication method is disabled for the instance.
+    * *   If you attach an SSH key pair to an instance in the **Running** state, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the key pair to take effect.
+    * *   If you attach an SSH key pair to an instance in the **Stopped** state, you must call the [StartInstance](~~25500~~) operation to start the instance for the key pair to take effect.
+    * *   If an instance already has an SSH key pair attached, the new SSH key pair will replace the original one.
+    *
+    * @param request AttachKeyPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachKeyPairResponse
+   */
   async attachKeyPairWithOptions(request: AttachKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<AttachKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52963,16 +54416,46 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachKeyPairResponse>(await this.callApi(params, req, runtime), new AttachKeyPairResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   SSH key pairs are not supported on Windows instances.
+    * *   If an SSH key pair is attached to an instance, the username and password authentication method is disabled for the instance.
+    * *   If you attach an SSH key pair to an instance in the **Running** state, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the key pair to take effect.
+    * *   If you attach an SSH key pair to an instance in the **Stopped** state, you must call the [StartInstance](~~25500~~) operation to start the instance for the key pair to take effect.
+    * *   If an instance already has an SSH key pair attached, the new SSH key pair will replace the original one.
+    *
+    * @param request AttachKeyPairRequest
+    * @return AttachKeyPairResponse
+   */
   async attachKeyPair(request: AttachKeyPairRequest): Promise<AttachKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachKeyPairWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The ENI must be in the **Available** (`Available`) state. Each ENI can be attached to only a single instance that resides in the same zone and VPC as the ENI.
+    * *   The instance must be in the Running (Running) or Stopped (Stopped) state. When you attach ENIs to instances of some instance types, make sure that the instances are in the Stopped (Stopped) state. For more information, see the "Instance types of the ECS instances that must be in the Stopped (Stopped) state" section in [Bind an ENI](~~58503~~).
+    *     > If the last start time of the instance (including the start time of the instance if it is newly purchased, the last restart time of the instance, and the last reactivation time of the instance) is before April 1, 2018 and the instance stays in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, the ENI cannot be attached to the instance.
+    * *   You can attach multiple ENIs to a single instance. For more information, see [ENI overview](~~58496~~).
+    * *   The vSwitch to which the ENI is connected must be in the same zone and VPC as the vSwitch to which the instance is connected.
+    * *   This operation is an asynchronous operation. After this operation is called to attach an ENI, you can check the status or events of the ENI to determine whether the ENI is attached. The following figure shows the transitions between the states of the ENI.
+    * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221124/esgu/AttachNetworkInterface.jpg) If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. If the ENI is in the InUse state, the ENI is attached to the specified instance. If the ENI is in the Available state, the ENI fails to be attached.
+    * **For information about examples on how to call this operation, see** [Attach an ENI](~~471550~~).
+    *
+    * @param request AttachNetworkInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachNetworkInterfaceResponse
+   */
   async attachNetworkInterfaceWithOptions(request: AttachNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<AttachNetworkInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.networkCardIndex)) {
+      query["NetworkCardIndex"] = request.networkCardIndex;
     }
 
     if (!Util.isUnset(request.networkInterfaceId)) {
@@ -53028,11 +54511,81 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachNetworkInterfaceResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The ENI must be in the **Available** (`Available`) state. Each ENI can be attached to only a single instance that resides in the same zone and VPC as the ENI.
+    * *   The instance must be in the Running (Running) or Stopped (Stopped) state. When you attach ENIs to instances of some instance types, make sure that the instances are in the Stopped (Stopped) state. For more information, see the "Instance types of the ECS instances that must be in the Stopped (Stopped) state" section in [Bind an ENI](~~58503~~).
+    *     > If the last start time of the instance (including the start time of the instance if it is newly purchased, the last restart time of the instance, and the last reactivation time of the instance) is before April 1, 2018 and the instance stays in the Running state, you must call the RebootInstance operation to restart the instance. If you do not call the RebootInstance operation to restart the instance, the ENI cannot be attached to the instance.
+    * *   You can attach multiple ENIs to a single instance. For more information, see [ENI overview](~~58496~~).
+    * *   The vSwitch to which the ENI is connected must be in the same zone and VPC as the vSwitch to which the instance is connected.
+    * *   This operation is an asynchronous operation. After this operation is called to attach an ENI, you can check the status or events of the ENI to determine whether the ENI is attached. The following figure shows the transitions between the states of the ENI.
+    * ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/file-manage-files/zh-CN/20221124/esgu/AttachNetworkInterface.jpg) If the ENI is in the Attaching state, the ENI attachment request is sent and the ENI is being attached to the specified instance. If the ENI is in the InUse state, the ENI is attached to the specified instance. If the ENI is in the Available state, the ENI fails to be attached.
+    * **For information about examples on how to call this operation, see** [Attach an ENI](~~471550~~).
+    *
+    * @param request AttachNetworkInterfaceRequest
+    * @return AttachNetworkInterfaceResponse
+   */
   async attachNetworkInterface(request: AttachNetworkInterfaceRequest): Promise<AttachNetworkInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachNetworkInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+    * When you call this operation, take note of the following items:
+    * - The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * - The valid value of Priority ranges from 1 to 100. A smaller value indicates a higher priority.
+    * - When multiple security group rules have the same priority, drop rules take precedence.
+    * - The source can be a CIDR block specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId or can be Elastic Compute Service (ECS) instances in a security group specified by SourceGroupId.
+    * - For advanced security groups, security groups cannot be used as authorization objects.
+    * - For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+    * - If the specified security group rule already exists, the call to AuthorizeSecurityGroup is successful but no security group rule is created.
+    * - The `Permissions.N` prefix is added to some parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+    * - You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *     - Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourceCidrIp=10.0.0.0/8
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Accept
+    *                 &<Common request parameters>
+    *                 
+    *         ```
+    *     - Parameters used to specify an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by the SourceGroupOwnerAccount parameter. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourceGroupId=sg-1651FBB**
+    *                 &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Drop
+    *                 &<Common request parameters>
+    *                 
+    *         ```
+    *     - Parameters used to specify an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
+    *                 &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Drop
+    *                 &<Common request parameters>
+    *                
+    *         ```
+    * - For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+    *
+    * @param request AuthorizeSecurityGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AuthorizeSecurityGroupResponse
+   */
   async authorizeSecurityGroupWithOptions(request: AuthorizeSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53161,11 +54714,112 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeSecurityGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeSecurityGroupResponse({}));
   }
 
+  /**
+    * In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+    * When you call this operation, take note of the following items:
+    * - The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * - The valid value of Priority ranges from 1 to 100. A smaller value indicates a higher priority.
+    * - When multiple security group rules have the same priority, drop rules take precedence.
+    * - The source can be a CIDR block specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId or can be Elastic Compute Service (ECS) instances in a security group specified by SourceGroupId.
+    * - For advanced security groups, security groups cannot be used as authorization objects.
+    * - For each basic security group, a maximum of 20 security groups can be used as authorization objects.
+    * - If the specified security group rule already exists, the call to AuthorizeSecurityGroup is successful but no security group rule is created.
+    * - The `Permissions.N` prefix is added to some parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+    * - You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *     - Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourceCidrIp=10.0.0.0/8
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Accept
+    *                 &<Common request parameters>
+    *                 
+    *         ```
+    *     - Parameters used to specify an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by the SourceGroupOwnerAccount parameter. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourceGroupId=sg-1651FBB**
+    *                 &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Drop
+    *                 &<Common request parameters>
+    *                 
+    *         ```
+    *     - Parameters used to specify an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
+    *         ```
+    *                 http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
+    *                 &SecurityGroupId=sg-bp67acfmxazb4p****
+    *                 &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
+    *                 &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
+    *                 &Permissions.1.IpProtocol=TCP
+    *                 &Permissions.1.PortRange=22/22
+    *                 &Permissions.1.NicType=intranet
+    *                 &Permissions.1.Policy=Drop
+    *                 &<Common request parameters>
+    *                
+    *         ```
+    * - For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+    *
+    * @param request AuthorizeSecurityGroupRequest
+    * @return AuthorizeSecurityGroupResponse
+   */
   async authorizeSecurityGroup(request: AuthorizeSecurityGroupRequest): Promise<AuthorizeSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * *   You can set Policy to accept or drop for each security group rule to allow or deny access.
+    * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+    * *   When several security group rules have the same priority, drop rules take precedence.
+    * *   In each rule, the destination can be a CIDR block specified by DestCidrIp, Ipv6DestCidrIp, or DestPrefixListId or can be Elastic Compute Service (ECS) instances in a security group specified by DestGroupId.
+    * *   Security groups cannot be referenced as authorization objects (destinations or sources) in rules of advanced security groups.
+    * *   Up to 20 security groups can be referenced as authorization objects in rules of each basic security group.
+    * *   If the specified security group rule exists in the security group, the call to AuthorizeSecurityGroupEgress is successful but no security group rule is created.
+    * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
+    * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *     *   Parameters used to specify an outbound security group rule that controls access to a CIDR block: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, and Permissions.N.DestCidrIp. Permissions.N.SourcePortRange is an optional parameter. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.IpProtocol=ICMP
+    *             &Permissions.1.DestCidrIp=10.0.0.0/8
+    *             &Permissions.1.PortRange=-1/-1
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Accept
+    *             &<Common request parameters>
+    *     *   Parameters used to specify an outbound security group rule that controls access to a security group: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, Permissions.N.DestGroupOwnerAccount, and Permissions.N.DestGroupId. Permissions.N.SourcePortRange is an optional parameter. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.DestGroupId=sg-bp67acfmxazb4pi***
+    *             &Permissions.1.DestGroupOwnerAccount=Test@aliyun.com
+    *             &Permissions.1.IpProtocol=TCP
+    *             &Permissions.1.PortRange=22/22
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Drop
+    *             &<Common request parameters>
+    *     *   Parameters used to specify an outbound security group rule that controls access to a prefix list: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, and Permissions.N.DestPrefixListId. Permissions.N.SourcePortRange is an optional parameter. In this case, prefix lists support only security groups in virtual private clouds (VPCs). Permissions.N.NicType must be set to intranet. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy****
+    *             &Permissions.1.DestGroupOwnerAccount=Test@aliyun.com
+    *             &Permissions.1.IpProtocol=TCP
+    *             &Permissions.1.PortRange=22/22
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Drop
+    *             &<Common request parameters>
+    *
+    * @param request AuthorizeSecurityGroupEgressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AuthorizeSecurityGroupEgressResponse
+   */
   async authorizeSecurityGroupEgressWithOptions(request: AuthorizeSecurityGroupEgressRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeSecurityGroupEgressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53294,6 +54948,51 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeSecurityGroupEgressResponse>(await this.callApi(params, req, runtime), new AuthorizeSecurityGroupEgressResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+    * *   You can set Policy to accept or drop for each security group rule to allow or deny access.
+    * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+    * *   When several security group rules have the same priority, drop rules take precedence.
+    * *   In each rule, the destination can be a CIDR block specified by DestCidrIp, Ipv6DestCidrIp, or DestPrefixListId or can be Elastic Compute Service (ECS) instances in a security group specified by DestGroupId.
+    * *   Security groups cannot be referenced as authorization objects (destinations or sources) in rules of advanced security groups.
+    * *   Up to 20 security groups can be referenced as authorization objects in rules of each basic security group.
+    * *   If the specified security group rule exists in the security group, the call to AuthorizeSecurityGroupEgress is successful but no security group rule is created.
+    * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
+    * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+    *     *   Parameters used to specify an outbound security group rule that controls access to a CIDR block: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, and Permissions.N.DestCidrIp. Permissions.N.SourcePortRange is an optional parameter. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.IpProtocol=ICMP
+    *             &Permissions.1.DestCidrIp=10.0.0.0/8
+    *             &Permissions.1.PortRange=-1/-1
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Accept
+    *             &<Common request parameters>
+    *     *   Parameters used to specify an outbound security group rule that controls access to a security group: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, Permissions.N.DestGroupOwnerAccount, and Permissions.N.DestGroupId. Permissions.N.SourcePortRange is an optional parameter. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.DestGroupId=sg-bp67acfmxazb4pi***
+    *             &Permissions.1.DestGroupOwnerAccount=Test@aliyun.com
+    *             &Permissions.1.IpProtocol=TCP
+    *             &Permissions.1.PortRange=22/22
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Drop
+    *             &<Common request parameters>
+    *     *   Parameters used to specify an outbound security group rule that controls access to a prefix list: SecurityGroupId, Permissions.N.IpProtocol, Permissions.N.PortRange, Permissions.N.SourcePortRange, Permissions.N.NicType, Permissions.N.Policy, and Permissions.N.DestPrefixListId. Permissions.N.SourcePortRange is an optional parameter. In this case, prefix lists support only security groups in virtual private clouds (VPCs). Permissions.N.NicType must be set to intranet. Sample request:
+    *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroupEgress
+    *             &SecurityGroupId=sg-bp67acfmxazb4ph***
+    *             &Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy****
+    *             &Permissions.1.DestGroupOwnerAccount=Test@aliyun.com
+    *             &Permissions.1.IpProtocol=TCP
+    *             &Permissions.1.PortRange=22/22
+    *             &Permissions.1.NicType=intranet
+    *             &Permissions.1.Policy=Drop
+    *             &<Common request parameters>
+    *
+    * @param request AuthorizeSecurityGroupEgressRequest
+    * @return AuthorizeSecurityGroupEgressResponse
+   */
   async authorizeSecurityGroupEgress(request: AuthorizeSecurityGroupEgressRequest): Promise<AuthorizeSecurityGroupEgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeSecurityGroupEgressWithOptions(request, runtime);
@@ -53344,6 +55043,15 @@ export default class Client extends OpenApi {
     return await this.cancelAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After you cancel the image copy task, the image copy created in the destination region is deleted, and the source image remains unchanged.
+    * *   If the image copy task is complete, the CancelCopyImage operation fails and an error is returned.
+    *
+    * @param request CancelCopyImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelCopyImageResponse
+   */
   async cancelCopyImageWithOptions(request: CancelCopyImageRequest, runtime: $Util.RuntimeOptions): Promise<CancelCopyImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53388,11 +55096,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCopyImageResponse>(await this.callApi(params, req, runtime), new CancelCopyImageResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After you cancel the image copy task, the image copy created in the destination region is deleted, and the source image remains unchanged.
+    * *   If the image copy task is complete, the CancelCopyImage operation fails and an error is returned.
+    *
+    * @param request CancelCopyImageRequest
+    * @return CancelCopyImageResponse
+   */
   async cancelCopyImage(request: CancelCopyImageRequest): Promise<CancelCopyImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCopyImageWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that the image build task to be canceled is in the BUILDING, DISTRIBUTING, or RELEASING state.
+    *
+    * @param request CancelImagePipelineExecutionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelImagePipelineExecutionResponse
+   */
   async cancelImagePipelineExecutionWithOptions(request: CancelImagePipelineExecutionRequest, runtime: $Util.RuntimeOptions): Promise<CancelImagePipelineExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53445,11 +55168,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelImagePipelineExecutionResponse>(await this.callApi(params, req, runtime), new CancelImagePipelineExecutionResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that the image build task to be canceled is in the BUILDING, DISTRIBUTING, or RELEASING state.
+    *
+    * @param request CancelImagePipelineExecutionRequest
+    * @return CancelImagePipelineExecutionResponse
+   */
   async cancelImagePipelineExecution(request: CancelImagePipelineExecutionRequest): Promise<CancelImagePipelineExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelImagePipelineExecutionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CancelPhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelPhysicalConnectionResponse
+   */
+  // Deprecated
   async cancelPhysicalConnectionWithOptions(request: CancelPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53502,6 +55239,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CancelPhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CancelPhysicalConnectionRequest
+    * @return CancelPhysicalConnectionResponse
+   */
+  // Deprecated
   async cancelPhysicalConnection(request: CancelPhysicalConnectionRequest): Promise<CancelPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPhysicalConnectionWithOptions(request, runtime);
@@ -53605,6 +55349,14 @@ export default class Client extends OpenApi {
     return await this.cancelTaskWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ConnectRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConnectRouterInterfaceResponse
+   */
+  // Deprecated
   async connectRouterInterfaceWithOptions(request: ConnectRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53645,11 +55397,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ConnectRouterInterfaceResponse>(await this.callApi(params, req, runtime), new ConnectRouterInterfaceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ConnectRouterInterfaceRequest
+    * @return ConnectRouterInterfaceResponse
+   */
+  // Deprecated
   async connectRouterInterface(request: ConnectRouterInterfaceRequest): Promise<ConnectRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.connectRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * After a public IP address is converted into an EIP, the EIP is billed separately. Make sure that you understand the billing methods of EIPs. For more information, see [Billing overview](~~122035~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
+    * *   No EIPs are associated with the instance.
+    * *   The instance has no configuration change tasks that have not taken effect.
+    * *   The public bandwidth of the instance is not 0 Mbit/s.
+    * *   The instance uses the pay-by-traffic billing method for network usage.
+    * *   If the instance is a subscription instance that resides in a VPC, the instance does not expire within 24 hours.
+    *
+    * @param request ConvertNatPublicIpToEipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConvertNatPublicIpToEipResponse
+   */
   async convertNatPublicIpToEipWithOptions(request: ConvertNatPublicIpToEipRequest, runtime: $Util.RuntimeOptions): Promise<ConvertNatPublicIpToEipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53690,11 +55463,37 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertNatPublicIpToEipResponse>(await this.callApi(params, req, runtime), new ConvertNatPublicIpToEipResponse({}));
   }
 
+  /**
+    * After a public IP address is converted into an EIP, the EIP is billed separately. Make sure that you understand the billing methods of EIPs. For more information, see [Billing overview](~~122035~~).
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   The instance is in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
+    * *   No EIPs are associated with the instance.
+    * *   The instance has no configuration change tasks that have not taken effect.
+    * *   The public bandwidth of the instance is not 0 Mbit/s.
+    * *   The instance uses the pay-by-traffic billing method for network usage.
+    * *   If the instance is a subscription instance that resides in a VPC, the instance does not expire within 24 hours.
+    *
+    * @param request ConvertNatPublicIpToEipRequest
+    * @return ConvertNatPublicIpToEipResponse
+   */
   async convertNatPublicIpToEip(request: ConvertNatPublicIpToEipRequest): Promise<ConvertNatPublicIpToEipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.convertNatPublicIpToEipWithOptions(request, runtime);
   }
 
+  /**
+    * After you copy a custom image to the destination region, you can use the image copy to create Elastic Compute Service (ECS) instances by calling the RunInstances operation or replace the system disks of instances by calling the ReplaceSystemDisk operation in the destination region.
+    * When you call this operation, take note of the following items:
+    * *   Only custom images that are in the `Available` state can be copied.
+    * *   You can only copy images within your own Alibaba Cloud account. Images cannot be copied from one account to another.
+    * *   When an image is being copied, you cannot delete the image copy by calling the [DeleteImage](~~25537~~) operation, but you can cancel the running copy task by calling the [CancelCopyImage](~~25539~~) operation.
+    * *   A single region can have only one image copy task running at a time. Other image copy tasks queue up for the current task to complete before they run in sequence.
+    * *   You can set the `ResourceGroupId` parameter to specify the resource group to which the image copy belongs. If you do not set the `ResourceGroupId` parameter, the image copy belongs to the default resource group.
+    *
+    * @param request CopyImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyImageResponse
+   */
   async copyImageWithOptions(request: CopyImageRequest, runtime: $Util.RuntimeOptions): Promise<CopyImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53771,14 +55570,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyImageResponse>(await this.callApi(params, req, runtime), new CopyImageResponse({}));
   }
 
+  /**
+    * After you copy a custom image to the destination region, you can use the image copy to create Elastic Compute Service (ECS) instances by calling the RunInstances operation or replace the system disks of instances by calling the ReplaceSystemDisk operation in the destination region.
+    * When you call this operation, take note of the following items:
+    * *   Only custom images that are in the `Available` state can be copied.
+    * *   You can only copy images within your own Alibaba Cloud account. Images cannot be copied from one account to another.
+    * *   When an image is being copied, you cannot delete the image copy by calling the [DeleteImage](~~25537~~) operation, but you can cancel the running copy task by calling the [CancelCopyImage](~~25539~~) operation.
+    * *   A single region can have only one image copy task running at a time. Other image copy tasks queue up for the current task to complete before they run in sequence.
+    * *   You can set the `ResourceGroupId` parameter to specify the resource group to which the image copy belongs. If you do not set the `ResourceGroupId` parameter, the image copy belongs to the default resource group.
+    *
+    * @param request CopyImageRequest
+    * @return CopyImageResponse
+   */
   async copyImage(request: CopyImageRequest): Promise<CopyImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyImageWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   New snapshots, which are the copies of source snapshots, cannot be used to roll back the disks for which the source snapshots were created.
+    * *   Encrypted snapshots cannot be copied.
+    * *   Local snapshots cannot be copied.
+    *
+    * @param request CopySnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopySnapshotResponse
+   */
   async copySnapshotWithOptions(request: CopySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CopySnapshotResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.arn)) {
+      query["Arn"] = request.arn;
+    }
+
     if (!Util.isUnset(request.destinationRegionId)) {
       query["DestinationRegionId"] = request.destinationRegionId;
     }
@@ -53789,6 +55615,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.destinationSnapshotName)) {
       query["DestinationSnapshotName"] = request.destinationSnapshotName;
+    }
+
+    if (!Util.isUnset(request.encrypted)) {
+      query["Encrypted"] = request.encrypted;
+    }
+
+    if (!Util.isUnset(request.KMSKeyId)) {
+      query["KMSKeyId"] = request.KMSKeyId;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -53840,11 +55674,40 @@ export default class Client extends OpenApi {
     return $tea.cast<CopySnapshotResponse>(await this.callApi(params, req, runtime), new CopySnapshotResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   New snapshots, which are the copies of source snapshots, cannot be used to roll back the disks for which the source snapshots were created.
+    * *   Encrypted snapshots cannot be copied.
+    * *   Local snapshots cannot be copied.
+    *
+    * @param request CopySnapshotRequest
+    * @return CopySnapshotResponse
+   */
   async copySnapshot(request: CopySnapshotRequest): Promise<CopySnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copySnapshotWithOptions(request, runtime);
   }
 
+  /**
+    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
+    * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
+    * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+    * *   CentOS 6, CentOS 7, CentOS 8, and later
+    * *   Debian 8, Debian 9, Debian 10, and later
+    * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+    * *   CoreOS
+    * *   OpenSUSE
+    * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
+    * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+    * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+    * You can create up to 5,000 activation codes for managed instances within an Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of activation codes must be greater than 50% before you can proceed to create more activation codes.
+    * > You can go to the **Cloud Assistant** page in the Elastic Compute Service (ECS) console and click **Register Instance** on the **Managed Instances** tab to check the usage of activation codes.
+    *
+    * @param request CreateActivationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateActivationResponse
+   */
   async createActivationWithOptions(request: CreateActivationRequest, runtime: $Util.RuntimeOptions): Promise<CreateActivationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53888,6 +55751,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.timeToLiveInHours)) {
       query["TimeToLiveInHours"] = request.timeToLiveInHours;
     }
@@ -53909,11 +55776,39 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateActivationResponse>(await this.callApi(params, req, runtime), new CreateActivationResponse({}));
   }
 
+  /**
+    * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
+    * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
+    * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+    * *   CentOS 6, CentOS 7, CentOS 8, and later
+    * *   Debian 8, Debian 9, Debian 10, and later
+    * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+    * *   CoreOS
+    * *   OpenSUSE
+    * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
+    * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+    * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+    * You can create up to 5,000 activation codes for managed instances within an Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of activation codes must be greater than 50% before you can proceed to create more activation codes.
+    * > You can go to the **Cloud Assistant** page in the Elastic Compute Service (ECS) console and click **Register Instance** on the **Managed Instances** tab to check the usage of activation codes.
+    *
+    * @param request CreateActivationRequest
+    * @return CreateActivationResponse
+   */
   async createActivation(request: CreateActivationRequest): Promise<CreateActivationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createActivationWithOptions(request, runtime);
   }
 
+  /**
+    * * Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports one-click deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+    * * Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
+    * * Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
+    * * When you specify both the `LaunchTemplateId` and `LaunchConfiguration.*` parameters, the LaunchTemplateId parameter takes precedence.
+    *
+    * @param request CreateAutoProvisioningGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAutoProvisioningGroupResponse
+   */
   async createAutoProvisioningGroupWithOptions(request: CreateAutoProvisioningGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoProvisioningGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54041,7 +55936,7 @@ export default class Client extends OpenApi {
       query["ValidUntil"] = request.validUntil;
     }
 
-    if (!Util.isUnset($tea.toMap(request.launchConfiguration))) {
+    if (!Util.isUnset(request.launchConfiguration)) {
       query["LaunchConfiguration"] = request.launchConfiguration;
     }
 
@@ -54062,11 +55957,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoProvisioningGroupResponse>(await this.callApi(params, req, runtime), new CreateAutoProvisioningGroupResponse({}));
   }
 
+  /**
+    * * Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports one-click deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+    * * Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
+    * * Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
+    * * When you specify both the `LaunchTemplateId` and `LaunchConfiguration.*` parameters, the LaunchTemplateId parameter takes precedence.
+    *
+    * @param request CreateAutoProvisioningGroupRequest
+    * @return CreateAutoProvisioningGroupResponse
+   */
   async createAutoProvisioningGroup(request: CreateAutoProvisioningGroupRequest): Promise<CreateAutoProvisioningGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAutoProvisioningGroupWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and cross-region replication for snapshots in the policy to meet your diverse data backup requirements. After you create an automatic snapshot policy, you must call the [ApplyAutoSnapshotPolicy](~~25531~~) operation to apply it to disks. If you want to modify the automatic snapshot policy, you must call the [ModifyAutoSnapshotPolicyEx](~~25529~~) operation.
+    * When you call this operation, take note of the following items:
+    * *   You can create a maximum of 100 automatic snapshot policies within each region for a single Alibaba Cloud account.
+    * *   If an automatic snapshot is being created when the time scheduled for creating another automatic snapshot is due, the new snapshot task is skipped. This may occur when a disk contains a large volume of data. For example, you have scheduled snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a disk. The system starts to create a snapshot for the disk at 09:00:00. The process takes 80 minutes because the disk contains a large volume of data and ends at 10:20:00. The system skips the automatic snapshot task scheduled for 10:00:00 and creates the next automatic snapshot for the disk at 11:00:00.
+    * *   For information about how to copy a snapshot from one region to another, see the "Background information" section in [Copy a snapshot](~~159441~~).
+    *
+    * @param request CreateAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicyWithOptions(request: CreateAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54092,6 +56007,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.storageLocationArn)) {
+      query["StorageLocationArn"] = request.storageLocationArn;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -54139,11 +56058,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and cross-region replication for snapshots in the policy to meet your diverse data backup requirements. After you create an automatic snapshot policy, you must call the [ApplyAutoSnapshotPolicy](~~25531~~) operation to apply it to disks. If you want to modify the automatic snapshot policy, you must call the [ModifyAutoSnapshotPolicyEx](~~25529~~) operation.
+    * When you call this operation, take note of the following items:
+    * *   You can create a maximum of 100 automatic snapshot policies within each region for a single Alibaba Cloud account.
+    * *   If an automatic snapshot is being created when the time scheduled for creating another automatic snapshot is due, the new snapshot task is skipped. This may occur when a disk contains a large volume of data. For example, you have scheduled snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a disk. The system starts to create a snapshot for the disk at 09:00:00. The process takes 80 minutes because the disk contains a large volume of data and ends at 10:20:00. The system skips the automatic snapshot task scheduled for 10:00:00 and creates the next automatic snapshot for the disk at 11:00:00.
+    * *   For information about how to copy a snapshot from one region to another, see the "Background information" section in [Copy a snapshot](~~159441~~).
+    *
+    * @param request CreateAutoSnapshotPolicyRequest
+    * @return CreateAutoSnapshotPolicyResponse
+   */
   async createAutoSnapshotPolicy(request: CreateAutoSnapshotPolicyRequest): Promise<CreateAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * When you create a capacity reservation, you can specify attributes such as a zone and an instance type. The system uses a private pool to reserve resources that match the specified attributes. For more information, see [Overview of Immediate Capacity Reservation](~~193633~~).
+    * *   Currently, only immediate capacity reservations are supported. Immediate capacity reservations take effect as soon as they are purchased. After you purchase an immediate capacity reservation, the specified instance type is billed on a pay-as-you-go basis regardless of whether the capacity reservation is actually used to create pay-as-you-go instances. Billing stops until you manually release the capacity reservation or until the capacity reservation expires and is automatically released.
+    *     *   You can call the [CreateInstance](~~25499~~) or [RunInstances](~~63440~~) operation to specify private pool attributes when you create instances. You can also call the [ModifyInstanceAttachmentAttributes](~~190006~~) operation to modify the attributes of a private pool. When an instance matches a private pool associated with a capacity reservation, you are charged based on the configurations of the instance such as the instance type, disks, and public bandwidth.
+    *     *   Before a capacity reservation is used to create pay-as-you-go instances, you are charged only for the specified instance type.
+    * *   Savings plans or regional reserved instances can be applied to offset the hourly bills of the unused capacity of immediate capacity reservations and the hourly bills of the instances that are matched to immediate capacity reservations. Zonal reserved instances cannot be applied to offset these bills. We recommend that you purchase reserved instances or savings plans before you purchase immediate capacity reservations. This way, you can have guaranteed access to resources for free within the coverage of the reserved instances or savings plans.
+    * > The CreateCapacityReservation operation can be called to create only immediate capacity reservations. You can use the ECS console to create immediate or scheduled capacity reservations. For more information, see [Overview](~~193626#section-oil-qh5-xvx~~).
+    *
+    * @param request CreateCapacityReservationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCapacityReservationResponse
+   */
   async createCapacityReservationWithOptions(request: CreateCapacityReservationRequest, runtime: $Util.RuntimeOptions): Promise<CreateCapacityReservationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54211,7 +56152,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -54232,11 +56173,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCapacityReservationResponse>(await this.callApi(params, req, runtime), new CreateCapacityReservationResponse({}));
   }
 
+  /**
+    * When you create a capacity reservation, you can specify attributes such as a zone and an instance type. The system uses a private pool to reserve resources that match the specified attributes. For more information, see [Overview of Immediate Capacity Reservation](~~193633~~).
+    * *   Currently, only immediate capacity reservations are supported. Immediate capacity reservations take effect as soon as they are purchased. After you purchase an immediate capacity reservation, the specified instance type is billed on a pay-as-you-go basis regardless of whether the capacity reservation is actually used to create pay-as-you-go instances. Billing stops until you manually release the capacity reservation or until the capacity reservation expires and is automatically released.
+    *     *   You can call the [CreateInstance](~~25499~~) or [RunInstances](~~63440~~) operation to specify private pool attributes when you create instances. You can also call the [ModifyInstanceAttachmentAttributes](~~190006~~) operation to modify the attributes of a private pool. When an instance matches a private pool associated with a capacity reservation, you are charged based on the configurations of the instance such as the instance type, disks, and public bandwidth.
+    *     *   Before a capacity reservation is used to create pay-as-you-go instances, you are charged only for the specified instance type.
+    * *   Savings plans or regional reserved instances can be applied to offset the hourly bills of the unused capacity of immediate capacity reservations and the hourly bills of the instances that are matched to immediate capacity reservations. Zonal reserved instances cannot be applied to offset these bills. We recommend that you purchase reserved instances or savings plans before you purchase immediate capacity reservations. This way, you can have guaranteed access to resources for free within the coverage of the reserved instances or savings plans.
+    * > The CreateCapacityReservation operation can be called to create only immediate capacity reservations. You can use the ECS console to create immediate or scheduled capacity reservations. For more information, see [Overview](~~193626#section-oil-qh5-xvx~~).
+    *
+    * @param request CreateCapacityReservationRequest
+    * @return CreateCapacityReservationResponse
+   */
   async createCapacityReservation(request: CreateCapacityReservationRequest): Promise<CreateCapacityReservationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCapacityReservationWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can create commands of the following types:
+    *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+    *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+    *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+    * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, take note of the following items:
+    *         *   The timeout period takes effect on each execution of the command.
+    *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         *   The timeout of one execution does not affect the subsequent executions of the command.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+    * *   You can use the WorkingDir parameter to specify the working directory of a Cloud Assistant command. For Linux instances, the default working directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default working directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+    * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
+    *
+    * @param request CreateCommandRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCommandResponse
+   */
   async createCommandWithOptions(request: CreateCommandRequest, runtime: $Util.RuntimeOptions): Promise<CreateCommandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54284,6 +56255,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.timeout)) {
       query["Timeout"] = request.timeout;
     }
@@ -54313,94 +56288,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCommandResponse>(await this.callApi(params, req, runtime), new CreateCommandResponse({}));
   }
 
+  /**
+    * *   You can create commands of the following types:
+    *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+    *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+    *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+    * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, take note of the following items:
+    *         *   The timeout period takes effect on each execution of the command.
+    *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *         *   The timeout of one execution does not affect the subsequent executions of the command.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+    * *   You can use the WorkingDir parameter to specify the working directory of a Cloud Assistant command. For Linux instances, the default working directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default working directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+    * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
+    *
+    * @param request CreateCommandRequest
+    * @return CreateCommandResponse
+   */
   async createCommand(request: CreateCommandRequest): Promise<CreateCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCommandWithOptions(request, runtime);
-  }
-
-  async createDedicatedBlockStorageClusterWithOptions(request: CreateDedicatedBlockStorageClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedBlockStorageClusterResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.capacity)) {
-      query["Capacity"] = request.capacity;
-    }
-
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!Util.isUnset(request.dedicatedBlockStorageClusterName)) {
-      query["DedicatedBlockStorageClusterName"] = request.dedicatedBlockStorageClusterName;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.fromApp)) {
-      query["FromApp"] = request.fromApp;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.period)) {
-      query["Period"] = request.period;
-    }
-
-    if (!Util.isUnset(request.periodUnit)) {
-      query["PeriodUnit"] = request.periodUnit;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDedicatedBlockStorageCluster",
-      version: "2014-05-26",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDedicatedBlockStorageClusterResponse>(await this.callApi(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
-  }
-
-  async createDedicatedBlockStorageCluster(request: CreateDedicatedBlockStorageClusterRequest): Promise<CreateDedicatedBlockStorageClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDedicatedBlockStorageClusterWithOptions(request, runtime);
   }
 
   async createDedicatedHostClusterWithOptions(request: CreateDedicatedHostClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostClusterResponse> {
@@ -54472,6 +56380,15 @@ export default class Client extends OpenApi {
     return await this.createDedicatedHostClusterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
+    * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
+    * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
+    *
+    * @param request CreateDemandRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDemandResponse
+   */
   async createDemandWithOptions(request: CreateDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54556,6 +56473,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDemandResponse>(await this.callApi(params, req, runtime), new CreateDemandResponse({}));
   }
 
+  /**
+    * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
+    * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
+    * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
+    *
+    * @param request CreateDemandRequest
+    * @return CreateDemandResponse
+   */
   async createDemand(request: CreateDemandRequest): Promise<CreateDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDemandWithOptions(request, runtime);
@@ -54728,6 +56653,20 @@ export default class Client extends OpenApi {
     return await this.createDiagnosticReportWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   You can enable the multi-attach feature when you create a disk. We recommend that you first understand this feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    * <!---->
+    * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+    * *   When you create disks, you may be charged for the resources used. We recommend that you understand the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
+    * *   By default, the `DeleteAutoSnapshot` parameter is set to `true` when a disk is created. This indicates that when the disk is released, its automatic snapshots are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+    * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
+    * *   By default, for a disk that is created by calling the CreateDisk operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
+    *
+    * @param request CreateDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDiskResponse
+   */
   async createDiskWithOptions(request: CreateDiskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54856,11 +56795,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiskResponse>(await this.callApi(params, req, runtime), new CreateDiskResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   You can enable the multi-attach feature when you create a disk. We recommend that you first understand this feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+    * <!---->
+    * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+    * *   When you create disks, you may be charged for the resources used. We recommend that you understand the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
+    * *   By default, the `DeleteAutoSnapshot` parameter is set to `true` when a disk is created. This indicates that when the disk is released, its automatic snapshots are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+    * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
+    * *   By default, for a disk that is created by calling the CreateDisk operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
+    *
+    * @param request CreateDiskRequest
+    * @return CreateDiskResponse
+   */
   async createDisk(request: CreateDiskRequest): Promise<CreateDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiskWithOptions(request, runtime);
   }
 
+  /**
+    * Elasticity Assurance provides a new method to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
+    * *   Elasticity assurances are not refundable after purchase.
+    * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
+    * *   Elasticity assurances only support the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode take effect immediately after they are purchased and can be applied an unlimited number of times within their effective duration.
+    *
+    * @param request CreateElasticityAssuranceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateElasticityAssuranceResponse
+   */
   async createElasticityAssuranceWithOptions(request: CreateElasticityAssuranceRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticityAssuranceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54932,7 +56894,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -54953,11 +56915,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateElasticityAssuranceResponse>(await this.callApi(params, req, runtime), new CreateElasticityAssuranceResponse({}));
   }
 
+  /**
+    * Elasticity Assurance provides a new method to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
+    * *   Elasticity assurances are not refundable after purchase.
+    * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
+    * *   Elasticity assurances only support the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode take effect immediately after they are purchased and can be applied an unlimited number of times within their effective duration.
+    *
+    * @param request CreateElasticityAssuranceRequest
+    * @return CreateElasticityAssuranceResponse
+   */
   async createElasticityAssurance(request: CreateElasticityAssuranceRequest): Promise<CreateElasticityAssuranceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createElasticityAssuranceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateForwardEntryResponse
+   */
+  // Deprecated
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55022,11 +57001,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new CreateForwardEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateForwardEntryRequest
+    * @return CreateForwardEntryResponse
+   */
+  // Deprecated
   async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateHaVipResponse
+   */
+  // Deprecated
   async createHaVipWithOptions(request: CreateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<CreateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55083,6 +57077,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHaVipResponse>(await this.callApi(params, req, runtime), new CreateHaVipResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateHaVipRequest
+    * @return CreateHaVipResponse
+   */
+  // Deprecated
   async createHaVip(request: CreateHaVipRequest): Promise<CreateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHaVipWithOptions(request, runtime);
@@ -55149,6 +57150,25 @@ export default class Client extends OpenApi {
     return await this.createHpcClusterWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following points:
+    * *   The created custom image can be used only when it is in the Available (Available) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more parameters, the custom image is created based on the parameter that has a higher priority by default.
+    * *   **Method 1**: Create a custom image from an instance. You need to only specify the instance ID (`InstanceId`). The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After the CreateImage operation is called, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, some cache data may not be written to the disks. As a result, the data of the created custom image may be slightly inconsistent with that of the instance. We recommend that you create custom images from instances after you stop the instances ([StopInstances](~~155372~~)).
+    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot (`SnapshotId`). The specified snapshot cannot be created on or before July 15, 2013.
+    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify the data mapping between the disks and the snapshots (`DiskDeviceMapping`).
+    * When you use Method 3 to create a custom image, take note of the following items:
+    * *   You can specify only one system disk snapshot. The device name of the system disk must be /dev/xvda.
+    * *   You can specify multiple data disk snapshots. The device names of the data disks are unique and in alphabetical order from /dev/xvdb to /dev/xvdz.
+    * *   `SnapshotId` may not be specified. In this case, an empty data disk with a specified size is created.
+    * *   The specified snapshot cannot be created on or before July 15, 2013.
+    *
+    * @param request CreateImageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateImageResponse
+   */
   async createImageWithOptions(request: CreateImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55166,6 +57186,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.detectionStrategy)) {
+      query["DetectionStrategy"] = request.detectionStrategy;
     }
 
     if (!Util.isUnset(request.diskDeviceMapping)) {
@@ -55241,11 +57265,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageResponse>(await this.callApi(params, req, runtime), new CreateImageResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following points:
+    * *   The created custom image can be used only when it is in the Available (Available) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more parameters, the custom image is created based on the parameter that has a higher priority by default.
+    * *   **Method 1**: Create a custom image from an instance. You need to only specify the instance ID (`InstanceId`). The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After the CreateImage operation is called, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, some cache data may not be written to the disks. As a result, the data of the created custom image may be slightly inconsistent with that of the instance. We recommend that you create custom images from instances after you stop the instances ([StopInstances](~~155372~~)).
+    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot (`SnapshotId`). The specified snapshot cannot be created on or before July 15, 2013.
+    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify the data mapping between the disks and the snapshots (`DiskDeviceMapping`).
+    * When you use Method 3 to create a custom image, take note of the following items:
+    * *   You can specify only one system disk snapshot. The device name of the system disk must be /dev/xvda.
+    * *   You can specify multiple data disk snapshots. The device names of the data disks are unique and in alphabetical order from /dev/xvdb to /dev/xvdz.
+    * *   `SnapshotId` may not be specified. In this case, an empty data disk with a specified size is created.
+    * *   The specified snapshot cannot be created on or before July 15, 2013.
+    *
+    * @param request CreateImageRequest
+    * @return CreateImageResponse
+   */
   async createImage(request: CreateImageRequest): Promise<CreateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * Only custom image components can be created.
+    * * Image components can be used to create only Linux images, so you must set the `SystemType` parameter to Linux.
+    * * You must configure the image component type to image building component by setting the `ComponentType` parameter to Build.
+    * * You can use Dockerfile to edit the content of image components and then pass the edited content into the `Content` parameter. The content cannot be greater than 16 KB in size and can contain up to 127 commands. `FROM` commands cannot be used in image components. For information about the commands that are supported, see [Commands supported by Image Builder](~~200206~~).
+    * You can use image components to create image templates in the Elastic Compute Service (ECS) console, but cannot call API operations to use image components to create image templates. For more information, see [Overview](~~197410~~).
+    *
+    * @param request CreateImageComponentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateImageComponentResponse
+   */
   async createImageComponentWithOptions(request: CreateImageComponentRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageComponentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55326,11 +57380,38 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageComponentResponse>(await this.callApi(params, req, runtime), new CreateImageComponentResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * Only custom image components can be created.
+    * * Image components can be used to create only Linux images, so you must set the `SystemType` parameter to Linux.
+    * * You must configure the image component type to image building component by setting the `ComponentType` parameter to Build.
+    * * You can use Dockerfile to edit the content of image components and then pass the edited content into the `Content` parameter. The content cannot be greater than 16 KB in size and can contain up to 127 commands. `FROM` commands cannot be used in image components. For information about the commands that are supported, see [Commands supported by Image Builder](~~200206~~).
+    * You can use image components to create image templates in the Elastic Compute Service (ECS) console, but cannot call API operations to use image components to create image templates. For more information, see [Overview](~~197410~~).
+    *
+    * @param request CreateImageComponentRequest
+    * @return CreateImageComponentResponse
+   */
   async createImageComponent(request: CreateImageComponentRequest): Promise<CreateImageComponentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageComponentWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can use image templates to customize image content and create images across regions and accounts. When you call this operation, take note of the following items:
+    * *   You can create only custom image templates.
+    * *   You can configure only public, custom, or shared Linux images or image families as the source images to create custom image templates.
+    * *   When you use an image template to create an image, you must create an intermediate Elastic Compute Service (ECS) instance to help create the image. The intermediate instance is billed on a pay-as-you-go basis. For more information, see [Pay-as-you-go](~~40653~~).
+    * For the `BuildContent` parameter that specifies the content of image templates, take note of the following items:
+    * *   If the `BuildContent` value contains `FROM` commands, the values of `BaseImageType` that specifies the type of the source image and `BaseImage` that specifies the source image are overridden by the `FROM` commands.
+    * *   If the `BuildContent` value does not contain `FROM` commands, the system adds the `FROM` command that consists of the `BaseImageType` and `BaseImage` values to the first line of the template content in the format of `<BaseImageType>:<BaseImage>`.
+    * *   You can use Dockerfile to edit the content of image templates and then pass the edited content into the `BuildContent` parameter. The content cannot be greater than 16 KB in size, and can contain up to 127 commands. For information about the commands that are supported, see [Commands supported by Image Builder](~~200206~~).
+    * You can use image components to create image templates in the ECS console, but cannot call API operations to use image components to create image templates. For more information, see [Overview](~~197410~~).
+    *
+    * @param request CreateImagePipelineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateImagePipelineResponse
+   */
   async createImagePipelineWithOptions(request: CreateImagePipelineRequest, runtime: $Util.RuntimeOptions): Promise<CreateImagePipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55443,11 +57524,68 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImagePipelineResponse>(await this.callApi(params, req, runtime), new CreateImagePipelineResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can use image templates to customize image content and create images across regions and accounts. When you call this operation, take note of the following items:
+    * *   You can create only custom image templates.
+    * *   You can configure only public, custom, or shared Linux images or image families as the source images to create custom image templates.
+    * *   When you use an image template to create an image, you must create an intermediate Elastic Compute Service (ECS) instance to help create the image. The intermediate instance is billed on a pay-as-you-go basis. For more information, see [Pay-as-you-go](~~40653~~).
+    * For the `BuildContent` parameter that specifies the content of image templates, take note of the following items:
+    * *   If the `BuildContent` value contains `FROM` commands, the values of `BaseImageType` that specifies the type of the source image and `BaseImage` that specifies the source image are overridden by the `FROM` commands.
+    * *   If the `BuildContent` value does not contain `FROM` commands, the system adds the `FROM` command that consists of the `BaseImageType` and `BaseImage` values to the first line of the template content in the format of `<BaseImageType>:<BaseImage>`.
+    * *   You can use Dockerfile to edit the content of image templates and then pass the edited content into the `BuildContent` parameter. The content cannot be greater than 16 KB in size, and can contain up to 127 commands. For information about the commands that are supported, see [Commands supported by Image Builder](~~200206~~).
+    * You can use image components to create image templates in the ECS console, but cannot call API operations to use image components to create image templates. For more information, see [Overview](~~197410~~).
+    *
+    * @param request CreateImagePipelineRequest
+    * @return CreateImagePipelineResponse
+   */
   async createImagePipeline(request: CreateImagePipelineRequest): Promise<CreateImagePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImagePipelineWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone. If you want to batch create instances that automatically enter the Running state after they are created, we recommend that you call the [RunInstances](~~63440~~) operation.
+    * When you call this operation, take note of the following items:
+    * * **Billing**:
+    *     * You must fully understand the ECS billing methods before you create an instance because you may be charged for resources used by the instance. For more information, see [Billing overview](~~25398~~).
+    *     * If you create a subscription instance (`PrePaid`), available coupons within your account are used by default.
+    * * **Instance type**:
+    *     * You can use the `IoOptimized` parameter to specify whether to create an I/O optimized instance.
+    *     * Select an instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
+    *     * Query available resources. Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+    * > If the `QuotaExceed.ElasticQuota` error is returned when you call this operation, it indicates that you have reached the maximum number of instances of the specified instance type that can be created within the specified region or the maximum number of vCPUs for all instance types in a zone. You can go to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c8b.12215451.favorites.decs.5e3a336aMGTtzy#/privileges/quota) or [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas) to request a quota increase.
+    * * **Image**:
+    *     * The image determines the system disk configurations of the new instance. The system disk of the new instance is a clone of the specified image.
+    *     * If you want to create instances with 512 MiB of memory, you cannot use Windows Server images except for Windows Server Semi-Annual Channel images.
+    *     * If you want to create instances with 4 GiB or more of memory, you cannot use 32-bit OS image.
+    * * **Network type**:
+    *     * Each instance that resides in a virtual private cloud (VPC) must be connected to only a single vSwitch.
+    *     * If the `VSwitchId` parameter is specified, the security group specified by `SecurityGroupId` and the vSwitch specified by `VSwitchId` must belong to the same VPC.
+    *     * The value of `PrivateIpAddress` depends on that of `VSwitchId` and cannot be separately specified.`` If both the `VSwitchId` and `PrivateIpAddress` parameters are specified, the IP address specified by `PrivateIpAddress` must be available in the CIDR block of the specified vSwitch.
+    * * **Public bandwidth**:
+    *     * As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy for your account. To increase the maximum bandwidth value, submit a ticket. The throttling policy imposes the following constraints: Within a single region, the total maximum bandwidth value of all instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s and that of all instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
+    *     * If you call the `CreateInstance` operation to create an instance, no public IP addresses are assigned to the instance. You can call the [AllocatePublicIpAddress](~~25544~~) operation to manually assign public IP addresses to instances.
+    *     * Network usage fees are determined based on the settings of `InternetChargeType` and `InternetMaxBandwidthOut`.
+    *     * The `InternetMaxBandwidthIn` value is irrelevant to billing because inbound data traffic is free of charge.
+    *     * If `InternetChargeType` is set to PayByBandwidth, `InternetMaxBandwidthOut` specifies the fixed bandwidth value. A fixed bandwidth is a specified amount of public bandwidth allocated to an instance that uses the pay-by-bandwidth billing method for network usage.
+    *     * If `InternetChargeType` is set to PayByTraffic, `InternetMaxBandwidthOut` specifies the peak bandwidth value. A peak bandwidth is the maximum amount of public bandwidth that an instance can consume when it uses the pay-by-traffic billing method for network usage. Network usage costs are calculated based on the volume of network traffic.
+    * * **Security group**:
+    *     * If no security groups are available in the region where you want to create an instance, you must call the [CreateSecurityGroup](~~25553~~) operation to create a security group in that region first.
+    *     * The maximum number of instances that a security group can contain varies based on the security group type. For more information, see the "Security group limits" section in [Limits](~~25412~~).
+    *     * Instances in the same security group can communicate with each other over the internal network. By default, instances in different security groups cannot communicate with each other. You can allow communication between instances by allowing mutual access between their security groups. For more information, see [AuthorizeSecurityGroup](~~25554~~) and [AuthorizeSecurityGroupEgress](~~25560~~).
+    * * **Storage**:
+    *     * The instance is assigned a system disk whose size is determined based on the specified image. The size of the system disk must be at least `20 GiB` and greater than or equal to the image size. For more information about system disk categories, see the description of the `SystemDisk.Category` parameter.
+    *     * The system disk of an I/O optimized instance can only be an enhanced SSD (ESSD) (`cloud_essd`), a standard SSD (`cloud_ssd`), or an ultra disk (`cloud_efficiency`).
+    *     * The maximum size of a data disk varies based on its category. For more information, see the description of the `DataDisk.N.Size` parameter.
+    *     * A maximum of 16 data disks can be attached to each instance. The mount points of data disks are allocated by the system in alphabetical order from /dev/xvdb to /dev/xvdz.
+    * * **User data**: If the instance type supports [user data](~~49121~~), you can use the UserData parameter to pass in user data. User data is encoded in Base64. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt `UserData` values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64 and then decode and decrypt the information in the same way within the instance.
+    * * **Others**: When you call API operations by using Alibaba Cloud CLI or SDKs, you must delete periods (.) from some request parameters before you use the parameters. For example, use `SystemDiskCategory` instead of `SystemDisk.Category` as a request parameter.
+    *
+    * @param request CreateInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55683,15 +57821,15 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.hibernationOptions))) {
+    if (!Util.isUnset(request.hibernationOptions)) {
       query["HibernationOptions"] = request.hibernationOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -55712,11 +57850,61 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+    * > You can call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone. If you want to batch create instances that automatically enter the Running state after they are created, we recommend that you call the [RunInstances](~~63440~~) operation.
+    * When you call this operation, take note of the following items:
+    * * **Billing**:
+    *     * You must fully understand the ECS billing methods before you create an instance because you may be charged for resources used by the instance. For more information, see [Billing overview](~~25398~~).
+    *     * If you create a subscription instance (`PrePaid`), available coupons within your account are used by default.
+    * * **Instance type**:
+    *     * You can use the `IoOptimized` parameter to specify whether to create an I/O optimized instance.
+    *     * Select an instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
+    *     * Query available resources. Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+    * > If the `QuotaExceed.ElasticQuota` error is returned when you call this operation, it indicates that you have reached the maximum number of instances of the specified instance type that can be created within the specified region or the maximum number of vCPUs for all instance types in a zone. You can go to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c8b.12215451.favorites.decs.5e3a336aMGTtzy#/privileges/quota) or [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas) to request a quota increase.
+    * * **Image**:
+    *     * The image determines the system disk configurations of the new instance. The system disk of the new instance is a clone of the specified image.
+    *     * If you want to create instances with 512 MiB of memory, you cannot use Windows Server images except for Windows Server Semi-Annual Channel images.
+    *     * If you want to create instances with 4 GiB or more of memory, you cannot use 32-bit OS image.
+    * * **Network type**:
+    *     * Each instance that resides in a virtual private cloud (VPC) must be connected to only a single vSwitch.
+    *     * If the `VSwitchId` parameter is specified, the security group specified by `SecurityGroupId` and the vSwitch specified by `VSwitchId` must belong to the same VPC.
+    *     * The value of `PrivateIpAddress` depends on that of `VSwitchId` and cannot be separately specified.`` If both the `VSwitchId` and `PrivateIpAddress` parameters are specified, the IP address specified by `PrivateIpAddress` must be available in the CIDR block of the specified vSwitch.
+    * * **Public bandwidth**:
+    *     * As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy for your account. To increase the maximum bandwidth value, submit a ticket. The throttling policy imposes the following constraints: Within a single region, the total maximum bandwidth value of all instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s and that of all instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
+    *     * If you call the `CreateInstance` operation to create an instance, no public IP addresses are assigned to the instance. You can call the [AllocatePublicIpAddress](~~25544~~) operation to manually assign public IP addresses to instances.
+    *     * Network usage fees are determined based on the settings of `InternetChargeType` and `InternetMaxBandwidthOut`.
+    *     * The `InternetMaxBandwidthIn` value is irrelevant to billing because inbound data traffic is free of charge.
+    *     * If `InternetChargeType` is set to PayByBandwidth, `InternetMaxBandwidthOut` specifies the fixed bandwidth value. A fixed bandwidth is a specified amount of public bandwidth allocated to an instance that uses the pay-by-bandwidth billing method for network usage.
+    *     * If `InternetChargeType` is set to PayByTraffic, `InternetMaxBandwidthOut` specifies the peak bandwidth value. A peak bandwidth is the maximum amount of public bandwidth that an instance can consume when it uses the pay-by-traffic billing method for network usage. Network usage costs are calculated based on the volume of network traffic.
+    * * **Security group**:
+    *     * If no security groups are available in the region where you want to create an instance, you must call the [CreateSecurityGroup](~~25553~~) operation to create a security group in that region first.
+    *     * The maximum number of instances that a security group can contain varies based on the security group type. For more information, see the "Security group limits" section in [Limits](~~25412~~).
+    *     * Instances in the same security group can communicate with each other over the internal network. By default, instances in different security groups cannot communicate with each other. You can allow communication between instances by allowing mutual access between their security groups. For more information, see [AuthorizeSecurityGroup](~~25554~~) and [AuthorizeSecurityGroupEgress](~~25560~~).
+    * * **Storage**:
+    *     * The instance is assigned a system disk whose size is determined based on the specified image. The size of the system disk must be at least `20 GiB` and greater than or equal to the image size. For more information about system disk categories, see the description of the `SystemDisk.Category` parameter.
+    *     * The system disk of an I/O optimized instance can only be an enhanced SSD (ESSD) (`cloud_essd`), a standard SSD (`cloud_ssd`), or an ultra disk (`cloud_efficiency`).
+    *     * The maximum size of a data disk varies based on its category. For more information, see the description of the `DataDisk.N.Size` parameter.
+    *     * A maximum of 16 data disks can be attached to each instance. The mount points of data disks are allocated by the system in alphabetical order from /dev/xvdb to /dev/xvdz.
+    * * **User data**: If the instance type supports [user data](~~49121~~), you can use the UserData parameter to pass in user data. User data is encoded in Base64. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt `UserData` values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64 and then decode and decrypt the information in the same way within the instance.
+    * * **Others**: When you call API operations by using Alibaba Cloud CLI or SDKs, you must delete periods (.) from some request parameters before you use the parameters. For example, use `SystemDiskCategory` instead of `SystemDisk.Category` as a request parameter.
+    *
+    * @param request CreateInstanceRequest
+    * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * In addition to calling CreateKeyPair, you can create a key pair by using a third-party key pair generation tool and call the [ImportKeyPair](~~51774~~) operation to upload the key pair to an Alibaba Cloud region.
+    * A maximum of 500 key pairs can be created in each region. For more information, see [Limits](~~25412~~).
+    *
+    * @param request CreateKeyPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateKeyPairResponse
+   */
   async createKeyPairWithOptions(request: CreateKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55765,11 +57953,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateKeyPairResponse>(await this.callApi(params, req, runtime), new CreateKeyPairResponse({}));
   }
 
+  /**
+    * ## Description
+    * In addition to calling CreateKeyPair, you can create a key pair by using a third-party key pair generation tool and call the [ImportKeyPair](~~51774~~) operation to upload the key pair to an Alibaba Cloud region.
+    * A maximum of 500 key pairs can be created in each region. For more information, see [Limits](~~25412~~).
+    *
+    * @param request CreateKeyPairRequest
+    * @return CreateKeyPairResponse
+   */
   async createKeyPair(request: CreateKeyPairRequest): Promise<CreateKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createKeyPairWithOptions(request, runtime);
   }
 
+  /**
+    * Launch templates contain preset configurations used to create instances, such as the region, image ID, instance type, security group ID, and public bandwidth settings. If a specific parameter is not included in a launch template, you must manually specify the parameter when you use the launch template to create an instance.
+    * After you create a launch template (`CreateLaunchTemplate`), its version number is set to 1 by default. You can create multiple versions (`CreateLaunchTemplateVersion`) for the launch template. Version numbers start from 1 and increment by one. If you do not specify a template version number when you use a launch template to create instances ([RunInstances](~~63440~~)), the default version is used.
+    * When you call this operation, take note of the following items:
+    * * You can create up to 30 launch templates in each region. Each launch template can have up to 30 versions.
+    * * Most parameters in launch templates are optional. When you create a launch template, ECS does not verify the existence or validity of specified parameter values. The validity of the parameter values are verified only when you use the launch template to create instances.
+    * * If you set a specific parameter in a launch template, you cannot filter out this parameter when you use the launch template to create instances ([RunInstances](~~63440~~)). For example, if you set the `HostName` parameter to LocalHost in a launch template and do not specify the `HostName` parameter when you call the `RunInstances` operation to create instances from the launch template, the instance hostname is still `LocalHost`. If you want to overwrite the `LocalHost` value of HostName provided by the launch template, you can set `HostName` to MyHost or another value when you call the `RunInstances` operation.
+    *
+    * @param request CreateLaunchTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLaunchTemplateResponse
+   */
   async createLaunchTemplateWithOptions(request: CreateLaunchTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateLaunchTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55953,7 +58161,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -55974,11 +58182,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLaunchTemplateResponse>(await this.callApi(params, req, runtime), new CreateLaunchTemplateResponse({}));
   }
 
+  /**
+    * Launch templates contain preset configurations used to create instances, such as the region, image ID, instance type, security group ID, and public bandwidth settings. If a specific parameter is not included in a launch template, you must manually specify the parameter when you use the launch template to create an instance.
+    * After you create a launch template (`CreateLaunchTemplate`), its version number is set to 1 by default. You can create multiple versions (`CreateLaunchTemplateVersion`) for the launch template. Version numbers start from 1 and increment by one. If you do not specify a template version number when you use a launch template to create instances ([RunInstances](~~63440~~)), the default version is used.
+    * When you call this operation, take note of the following items:
+    * * You can create up to 30 launch templates in each region. Each launch template can have up to 30 versions.
+    * * Most parameters in launch templates are optional. When you create a launch template, ECS does not verify the existence or validity of specified parameter values. The validity of the parameter values are verified only when you use the launch template to create instances.
+    * * If you set a specific parameter in a launch template, you cannot filter out this parameter when you use the launch template to create instances ([RunInstances](~~63440~~)). For example, if you set the `HostName` parameter to LocalHost in a launch template and do not specify the `HostName` parameter when you call the `RunInstances` operation to create instances from the launch template, the instance hostname is still `LocalHost`. If you want to overwrite the `LocalHost` value of HostName provided by the launch template, you can set `HostName` to MyHost or another value when you call the `RunInstances` operation.
+    *
+    * @param request CreateLaunchTemplateRequest
+    * @return CreateLaunchTemplateResponse
+   */
   async createLaunchTemplate(request: CreateLaunchTemplateRequest): Promise<CreateLaunchTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLaunchTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+    *
+    * @param request CreateLaunchTemplateVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateLaunchTemplateVersionResponse
+   */
   async createLaunchTemplateVersionWithOptions(request: CreateLaunchTemplateVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateLaunchTemplateVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56158,7 +58384,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -56179,11 +58405,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLaunchTemplateVersionResponse>(await this.callApi(params, req, runtime), new CreateLaunchTemplateVersionResponse({}));
   }
 
+  /**
+    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+    *
+    * @param request CreateLaunchTemplateVersionRequest
+    * @return CreateLaunchTemplateVersionResponse
+   */
   async createLaunchTemplateVersion(request: CreateLaunchTemplateVersionRequest): Promise<CreateLaunchTemplateVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLaunchTemplateVersionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateNatGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNatGatewayResponse
+   */
+  // Deprecated
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56244,11 +58484,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new CreateNatGatewayResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateNatGatewayRequest
+    * @return CreateNatGatewayResponse
+   */
+  // Deprecated
   async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   This operation is a synchronous operation. After an ENI is created, it immediately enters the Available state and can be attached to an Elastic Compute Service (ECS) instance.
+    * *   If the NetworkInterfaceId parameter is empty in the response, it indicates that no ENI is created. Call the operation again to create an ENI.
+    * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
+    * *   When an ENI is detached from an instance and then attached to another instance, the attributes of the ENI remain unchanged and network traffic is directed to the new instance.
+    * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
+    * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
+    * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
+    *
+    * @param request CreateNetworkInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateNetworkInterfaceResponse
+   */
   async createNetworkInterfaceWithOptions(request: CreateNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56268,12 +58530,28 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!Util.isUnset(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
+    if (!Util.isUnset(request.ipv4PrefixCount)) {
+      query["Ipv4PrefixCount"] = request.ipv4PrefixCount;
+    }
+
     if (!Util.isUnset(request.ipv6Address)) {
       query["Ipv6Address"] = request.ipv6Address;
     }
 
     if (!Util.isUnset(request.ipv6AddressCount)) {
       query["Ipv6AddressCount"] = request.ipv6AddressCount;
+    }
+
+    if (!Util.isUnset(request.ipv6Prefix)) {
+      query["Ipv6Prefix"] = request.ipv6Prefix;
+    }
+
+    if (!Util.isUnset(request.ipv6PrefixCount)) {
+      query["Ipv6PrefixCount"] = request.ipv6PrefixCount;
     }
 
     if (!Util.isUnset(request.networkInterfaceName)) {
@@ -56369,6 +58647,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateNetworkInterfaceResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   This operation is a synchronous operation. After an ENI is created, it immediately enters the Available state and can be attached to an Elastic Compute Service (ECS) instance.
+    * *   If the NetworkInterfaceId parameter is empty in the response, it indicates that no ENI is created. Call the operation again to create an ENI.
+    * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
+    * *   When an ENI is detached from an instance and then attached to another instance, the attributes of the ENI remain unchanged and network traffic is directed to the new instance.
+    * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
+    * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
+    * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
+    *
+    * @param request CreateNetworkInterfaceRequest
+    * @return CreateNetworkInterfaceResponse
+   */
   async createNetworkInterface(request: CreateNetworkInterfaceRequest): Promise<CreateNetworkInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkInterfaceWithOptions(request, runtime);
@@ -56435,6 +58727,14 @@ export default class Client extends OpenApi {
     return await this.createNetworkInterfacePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreatePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePhysicalConnectionResponse
+   */
+  // Deprecated
   async createPhysicalConnectionWithOptions(request: CreatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56527,11 +58827,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreatePhysicalConnectionRequest
+    * @return CreatePhysicalConnectionResponse
+   */
+  // Deprecated
   async createPhysicalConnection(request: CreatePhysicalConnectionRequest): Promise<CreatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   A prefix list is a set of one or more network prefixes (CIDR blocks). You can reference prefix lists to configure network rules for other network resources. For more information, see [Overview](~~206223~~).
+    * *   When you create a prefix list, take note of the following items:
+    *     *   You must specify an IP address family (IPv4 or IPv6) for the prefix list, and cannot change the IP address family after the prefix list is created. You cannot combine IPv4 and IPv6 CIDR blocks in a single prefix list.
+    *     *   You must specify the maximum number of entries that the prefix list can contain. You cannot modify the maximum number of entries after the prefix list is created.
+    *     *   You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and a description for the CIDR block. The total number of your specified entries cannot exceed the maximum number.
+    * *   For more information about the limits on prefix lists and other resources, see [Limits](~~25412~~).
+    * *   You can create RAM users and grant them minimum permissions. This eliminates the need to share the AccessKey pair of your Alibaba Cloud account with other users and reduces security risks for your enterprises. For information about how to grant permissions on prefix lists to RAM users, see [Grant permissions on prefix lists to RAM users](~~206175~~)
+    *
+    * @param request CreatePrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePrefixListResponse
+   */
   async createPrefixListWithOptions(request: CreatePrefixListRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56600,11 +58921,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrefixListResponse>(await this.callApi(params, req, runtime), new CreatePrefixListResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   A prefix list is a set of one or more network prefixes (CIDR blocks). You can reference prefix lists to configure network rules for other network resources. For more information, see [Overview](~~206223~~).
+    * *   When you create a prefix list, take note of the following items:
+    *     *   You must specify an IP address family (IPv4 or IPv6) for the prefix list, and cannot change the IP address family after the prefix list is created. You cannot combine IPv4 and IPv6 CIDR blocks in a single prefix list.
+    *     *   You must specify the maximum number of entries that the prefix list can contain. You cannot modify the maximum number of entries after the prefix list is created.
+    *     *   You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and a description for the CIDR block. The total number of your specified entries cannot exceed the maximum number.
+    * *   For more information about the limits on prefix lists and other resources, see [Limits](~~25412~~).
+    * *   You can create RAM users and grant them minimum permissions. This eliminates the need to share the AccessKey pair of your Alibaba Cloud account with other users and reduces security risks for your enterprises. For information about how to grant permissions on prefix lists to RAM users, see [Grant permissions on prefix lists to RAM users](~~206175~~)
+    *
+    * @param request CreatePrefixListRequest
+    * @return CreatePrefixListResponse
+   */
   async createPrefixList(request: CreatePrefixListRequest): Promise<CreatePrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrefixListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouteEntryResponse
+   */
+  // Deprecated
   async createRouteEntryWithOptions(request: CreateRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56669,11 +59011,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateRouteEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateRouteEntryRequest
+    * @return CreateRouteEntryResponse
+   */
+  // Deprecated
   async createRouteEntry(request: CreateRouteEntryRequest): Promise<CreateRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRouterInterfaceResponse
+   */
+  // Deprecated
   async createRouterInterfaceWithOptions(request: CreateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56802,11 +59159,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new CreateRouterInterfaceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateRouterInterfaceRequest
+    * @return CreateRouterInterfaceResponse
+   */
+  // Deprecated
   async createRouterInterface(request: CreateRouterInterfaceRequest): Promise<CreateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following points:
+    * *   You can create up to 100 security groups within a single Alibaba Cloud region.
+    * *   To create a security group of the Virtual Private Cloud (VPC) type, you must specify the VpcId parameter.
+    *
+    * @param request CreateSecurityGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSecurityGroupResponse
+   */
   async createSecurityGroupWithOptions(request: CreateSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56879,11 +59252,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecurityGroupResponse>(await this.callApi(params, req, runtime), new CreateSecurityGroupResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following points:
+    * *   You can create up to 100 security groups within a single Alibaba Cloud region.
+    * *   To create a security group of the Virtual Private Cloud (VPC) type, you must specify the VpcId parameter.
+    *
+    * @param request CreateSecurityGroupRequest
+    * @return CreateSecurityGroupResponse
+   */
   async createSecurityGroup(request: CreateSecurityGroupRequest): Promise<CreateSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+    * You can use the ECS console, call the [](~~63962~~)operation, or use CloudMonitor to view the scheduled simulated system events.
+    * The following section describes the lifecycle of a simulated system event:
+    * *   Scheduled: The state of the simulated system event is automatically changed to Scheduled after it is scheduled.
+    * *   Executed: The state of the simulated system event is automatically changed to Executed at the scheduled time specified by the NotBefore parameter if no manual intervention is involved.
+    * *   Canceled: The state of the simulated system event is changed to Canceled if you cancel the event by calling the [CancelSimulatedSystemEvents](~~88808~~) operation.
+    * *   Avoided: The state of the simulated system event generated from maintenance-triggered instance restart can be changed to Avoided if you restart the instance before the scheduled time of the simulated system event. The maintenance-triggered instance restart is indicated by the SystemMaintenance.Reboot value. For more information, see [RebootInstance](~~25502~~).
+    *
+    * @param request CreateSimulatedSystemEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSimulatedSystemEventsResponse
+   */
   async createSimulatedSystemEventsWithOptions(request: CreateSimulatedSystemEventsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimulatedSystemEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56940,11 +59333,45 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimulatedSystemEventsResponse>(await this.callApi(params, req, runtime), new CreateSimulatedSystemEventsResponse({}));
   }
 
+  /**
+    * You can use the ECS console, call the [](~~63962~~)operation, or use CloudMonitor to view the scheduled simulated system events.
+    * The following section describes the lifecycle of a simulated system event:
+    * *   Scheduled: The state of the simulated system event is automatically changed to Scheduled after it is scheduled.
+    * *   Executed: The state of the simulated system event is automatically changed to Executed at the scheduled time specified by the NotBefore parameter if no manual intervention is involved.
+    * *   Canceled: The state of the simulated system event is changed to Canceled if you cancel the event by calling the [CancelSimulatedSystemEvents](~~88808~~) operation.
+    * *   Avoided: The state of the simulated system event generated from maintenance-triggered instance restart can be changed to Avoided if you restart the instance before the scheduled time of the simulated system event. The maintenance-triggered instance restart is indicated by the SystemMaintenance.Reboot value. For more information, see [RebootInstance](~~25502~~).
+    *
+    * @param request CreateSimulatedSystemEventsRequest
+    * @return CreateSimulatedSystemEventsResponse
+   */
   async createSimulatedSystemEvents(request: CreateSimulatedSystemEventsRequest): Promise<CreateSimulatedSystemEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimulatedSystemEventsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * The local snapshot feature is replaced by the instant access feature.
+    * *   If you have used the local snapshot feature before December 14, 2020, you can use the `Category` or `InstantAccess` parameter as expected and must take note of the following items:
+    *     *   The `Category` and `InstantAccess` parameters cannot be specified at the same time.
+    *     *   If neither of the `Category` and `InstantAccess` parameters is specified, normal snapshots are created.
+    * *   If you have not used the local snapshot feature before December 14, 2020, you can use the `InstantAccess` parameter and cannot use the `Category` parameter.
+    * For more information, see [Snapshot service upgrade and addition of a new billable item on December 14, 2020](https://help.aliyun.com/noticelist/articleid/1060755542.html).
+    * In the following scenarios, you cannot create snapshots for a disk:
+    * *   The number of manual snapshots of the disk has reached 256.
+    * *   A snapshot is being created for the disk.
+    * *   The Elastic Compute Service (ECS) instance to which the disk is attached has never been started.
+    * *   The ECS instance to which the disk is attached is not in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * When you create a snapshot, take note of the following items:
+    * *   If a snapshot is being created, you cannot use this snapshot to create a custom image by calling the [CreateImage](~~25535~~) operation.
+    * *   When a snapshot is being created for a disk that is attached to an ECS instance, do not change the instance state.
+    * *   You can create snapshots for a disk that is in the **Expired** (`Expired`) state. If the release time scheduled for a disk arrives when a snapshot is being created for the disk, the snapshot is in the **Creating** (`Creating`) state and is deleted when the disk is released.
+    *
+    * @param request CreateSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSnapshotResponse
+   */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57000,6 +59427,10 @@ export default class Client extends OpenApi {
       query["SnapshotName"] = request.snapshotName;
     }
 
+    if (!Util.isUnset(request.storageLocationArn)) {
+      query["StorageLocationArn"] = request.storageLocationArn;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -57021,11 +59452,51 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
+  /**
+    * ## Description
+    * The local snapshot feature is replaced by the instant access feature.
+    * *   If you have used the local snapshot feature before December 14, 2020, you can use the `Category` or `InstantAccess` parameter as expected and must take note of the following items:
+    *     *   The `Category` and `InstantAccess` parameters cannot be specified at the same time.
+    *     *   If neither of the `Category` and `InstantAccess` parameters is specified, normal snapshots are created.
+    * *   If you have not used the local snapshot feature before December 14, 2020, you can use the `InstantAccess` parameter and cannot use the `Category` parameter.
+    * For more information, see [Snapshot service upgrade and addition of a new billable item on December 14, 2020](https://help.aliyun.com/noticelist/articleid/1060755542.html).
+    * In the following scenarios, you cannot create snapshots for a disk:
+    * *   The number of manual snapshots of the disk has reached 256.
+    * *   A snapshot is being created for the disk.
+    * *   The Elastic Compute Service (ECS) instance to which the disk is attached has never been started.
+    * *   The ECS instance to which the disk is attached is not in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and all operations are prohibited on it.
+    * When you create a snapshot, take note of the following items:
+    * *   If a snapshot is being created, you cannot use this snapshot to create a custom image by calling the [CreateImage](~~25535~~) operation.
+    * *   When a snapshot is being created for a disk that is attached to an ECS instance, do not change the instance state.
+    * *   You can create snapshots for a disk that is in the **Expired** (`Expired`) state. If the release time scheduled for a disk arrives when a snapshot is being created for the disk, the snapshot is in the **Creating** (`Creating`) state and is deleted when the disk is released.
+    *
+    * @param request CreateSnapshotRequest
+    * @return CreateSnapshotResponse
+   */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can specify `InstanceId` to create a snapshot-consistent group for the specified disks in an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple disks that are attached to multiple instances within the same zone.
+    * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N`. If `InstanceId` is set, you can use `DiskId.N` to specify only disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify disks attached to multiple instances.
+    * When you call this operation, take note of the following items:
+    * *   The disk for which you want to create a snapshot must be in the **In Use** (`In_use`) or **Unattached** (`Available`) state.
+    *     *   If the disk is in the **In Use** (`In_use`) state, the instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    *     *   If the disk is in the **Unattached** (`Available`) state, make sure that the disk has been attached to an ECS instance. Snapshots cannot be created for disks that have never been attached to ECS instances.
+    * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
+    * *   A single snapshot-consistent group can contain snapshots of up to 16 disks including the system disk and data disks and cannot exceed 32 TiB in size.
+    * *   Snapshots that you created by using the snapshot-consistent group feature are retained until they are deleted. We recommend that you delete unnecessary snapshots on a regular basis to prevent them from incurring excessive fees.
+    * *   Snapshot-consistent groups cannot be created for disks that have the multi-attach feature enabled. If disks that have the multi-attach feature enabled are attached to an instance, you must set the `ExcludeDiskId.N` parameter to exclude these disks.
+    * For information about the snapshot-consistent group feature and its billing, see [Create a snapshot-consistent group](~~199625~~).
+    *
+    * @param request CreateSnapshotGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSnapshotGroupResponse
+   */
   async createSnapshotGroupWithOptions(request: CreateSnapshotGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57081,6 +59552,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.storageLocationArn)) {
+      query["StorageLocationArn"] = request.storageLocationArn;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -57102,11 +59577,39 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotGroupResponse>(await this.callApi(params, req, runtime), new CreateSnapshotGroupResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can specify `InstanceId` to create a snapshot-consistent group for the specified disks in an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple disks that are attached to multiple instances within the same zone.
+    * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N`. If `InstanceId` is set, you can use `DiskId.N` to specify only disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify disks attached to multiple instances.
+    * When you call this operation, take note of the following items:
+    * *   The disk for which you want to create a snapshot must be in the **In Use** (`In_use`) or **Unattached** (`Available`) state.
+    *     *   If the disk is in the **In Use** (`In_use`) state, the instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    *     *   If the disk is in the **Unattached** (`Available`) state, make sure that the disk has been attached to an ECS instance. Snapshots cannot be created for disks that have never been attached to ECS instances.
+    * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
+    * *   A single snapshot-consistent group can contain snapshots of up to 16 disks including the system disk and data disks and cannot exceed 32 TiB in size.
+    * *   Snapshots that you created by using the snapshot-consistent group feature are retained until they are deleted. We recommend that you delete unnecessary snapshots on a regular basis to prevent them from incurring excessive fees.
+    * *   Snapshot-consistent groups cannot be created for disks that have the multi-attach feature enabled. If disks that have the multi-attach feature enabled are attached to an instance, you must set the `ExcludeDiskId.N` parameter to exclude these disks.
+    * For information about the snapshot-consistent group feature and its billing, see [Create a snapshot-consistent group](~~199625~~).
+    *
+    * @param request CreateSnapshotGroupRequest
+    * @return CreateSnapshotGroupResponse
+   */
   async createSnapshotGroup(request: CreateSnapshotGroupRequest): Promise<CreateSnapshotGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * A storage set can distribute disks or Shared Block Storage devices to different locations. You can specify the number of partitions in a storage set. A larger number of partitions indicate more discrete distribution of disks or Shared Block Storage devices.
+    * When you call this operation, take note of the following items:
+    * *   A limitation exists on the number of storage sets that you can create in a region. You can call the [DescribeAccountAttributes](~~73772~~) operation to query the allowed number of storage sets in a region.
+    * *   A limitation exists on the number of partitions in a zone. You can call the [DescribeAccountAttributes](~~73772~~) operation to query the allowed number of storage sets in a zone.
+    *
+    * @param request CreateStorageSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateStorageSetResponse
+   */
   async createStorageSetWithOptions(request: CreateStorageSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateStorageSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57167,11 +59670,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStorageSetResponse>(await this.callApi(params, req, runtime), new CreateStorageSetResponse({}));
   }
 
+  /**
+    * ## Description
+    * A storage set can distribute disks or Shared Block Storage devices to different locations. You can specify the number of partitions in a storage set. A larger number of partitions indicate more discrete distribution of disks or Shared Block Storage devices.
+    * When you call this operation, take note of the following items:
+    * *   A limitation exists on the number of storage sets that you can create in a region. You can call the [DescribeAccountAttributes](~~73772~~) operation to query the allowed number of storage sets in a region.
+    * *   A limitation exists on the number of partitions in a zone. You can call the [DescribeAccountAttributes](~~73772~~) operation to query the allowed number of storage sets in a zone.
+    *
+    * @param request CreateStorageSetRequest
+    * @return CreateStorageSetResponse
+   */
   async createStorageSet(request: CreateStorageSetRequest): Promise<CreateStorageSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStorageSetWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateVSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVSwitchResponse
+   */
+  // Deprecated
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57236,11 +59757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVSwitchResponse>(await this.callApi(params, req, runtime), new CreateVSwitchResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateVSwitchRequest
+    * @return CreateVSwitchResponse
+   */
+  // Deprecated
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVirtualBorderRouterResponse
+   */
+  // Deprecated
   async createVirtualBorderRouterWithOptions(request: CreateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57329,11 +59865,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new CreateVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CreateVirtualBorderRouterRequest
+    * @return CreateVirtualBorderRouterResponse
+   */
+  // Deprecated
   async createVirtualBorderRouter(request: CreateVirtualBorderRouterRequest): Promise<CreateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
+    *
+    * @param request CreateVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcResponse
+   */
+  // Deprecated
   async createVpcWithOptions(request: CreateVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57394,11 +59945,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcResponse>(await this.callApi(params, req, runtime), new CreateVpcResponse({}));
   }
 
+  /**
+    * @deprecated : CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
+    *
+    * @param request CreateVpcRequest
+    * @return CreateVpcResponse
+   */
+  // Deprecated
   async createVpc(request: CreateVpcRequest): Promise<CreateVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeactivateRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeactivateRouterInterfaceResponse
+   */
+  // Deprecated
   async deactivateRouterInterfaceWithOptions(request: DeactivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeactivateRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57439,11 +60005,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactivateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeactivateRouterInterfaceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeactivateRouterInterfaceRequest
+    * @return DeactivateRouterInterfaceResponse
+   */
+  // Deprecated
   async deactivateRouterInterface(request: DeactivateRouterInterfaceRequest): Promise<DeactivateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deactivateRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * Before you call this operation to delete an activation code, make sure that the activation code has never been used to register managed instances.
+    *
+    * @param request DeleteActivationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteActivationResponse
+   */
   async deleteActivationWithOptions(request: DeleteActivationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteActivationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57492,6 +60073,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteActivationResponse>(await this.callApi(params, req, runtime), new DeleteActivationResponse({}));
   }
 
+  /**
+    * ## Description
+    * Before you call this operation to delete an activation code, make sure that the activation code has never been used to register managed instances.
+    *
+    * @param request DeleteActivationRequest
+    * @return DeleteActivationResponse
+   */
   async deleteActivation(request: DeleteActivationRequest): Promise<DeleteActivationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteActivationWithOptions(request, runtime);
@@ -57595,6 +60183,14 @@ export default class Client extends OpenApi {
     return await this.deleteAutoSnapshotPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteBandwidthPackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteBandwidthPackageResponse
+   */
+  // Deprecated
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57639,6 +60235,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteBandwidthPackageResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteBandwidthPackageRequest
+    * @return DeleteBandwidthPackageResponse
+   */
+  // Deprecated
   async deleteBandwidthPackage(request: DeleteBandwidthPackageRequest): Promise<DeleteBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBandwidthPackageWithOptions(request, runtime);
@@ -57746,6 +60349,13 @@ export default class Client extends OpenApi {
     return await this.deleteDedicatedHostClusterWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
+    *
+    * @param request DeleteDemandRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDemandResponse
+   */
   async deleteDemandWithOptions(request: DeleteDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57798,6 +60408,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDemandResponse>(await this.callApi(params, req, runtime), new DeleteDemandResponse({}));
   }
 
+  /**
+    * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
+    *
+    * @param request DeleteDemandRequest
+    * @return DeleteDemandResponse
+   */
   async deleteDemand(request: DeleteDemandRequest): Promise<DeleteDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDemandWithOptions(request, runtime);
@@ -57885,6 +60501,13 @@ export default class Client extends OpenApi {
     return await this.deleteDiagnosticMetricSetsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to delete the diagnostic reports that are no longer needed.
+    *
+    * @param request DeleteDiagnosticReportsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDiagnosticReportsResponse
+   */
   async deleteDiagnosticReportsWithOptions(request: DeleteDiagnosticReportsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiagnosticReportsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57913,11 +60536,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDiagnosticReportsResponse>(await this.callApi(params, req, runtime), new DeleteDiagnosticReportsResponse({}));
   }
 
+  /**
+    * You can call this operation to delete the diagnostic reports that are no longer needed.
+    *
+    * @param request DeleteDiagnosticReportsRequest
+    * @return DeleteDiagnosticReportsResponse
+   */
   async deleteDiagnosticReports(request: DeleteDiagnosticReportsRequest): Promise<DeleteDiagnosticReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiagnosticReportsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation to release a pay-as-you-go data disk, take note of the following items:
+    * *   Manual snapshots of the disk are retained.
+    * *   You can call the [ModifyDiskAttribute](~~25517~~) operation to configure whether to release automatic snapshots together with the disk. We recommend that you delete unneeded snapshots to maintain an enough snapshot quota for new automatic snapshots.
+    * *   The disk must be in the Unattached (Available) state.
+    * *   If the specified disk does not exist, the request is ignored.
+    *
+    * @param request DeleteDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDiskResponse
+   */
   async deleteDiskWithOptions(request: DeleteDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57958,11 +60599,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDiskResponse>(await this.callApi(params, req, runtime), new DeleteDiskResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation to release a pay-as-you-go data disk, take note of the following items:
+    * *   Manual snapshots of the disk are retained.
+    * *   You can call the [ModifyDiskAttribute](~~25517~~) operation to configure whether to release automatic snapshots together with the disk. We recommend that you delete unneeded snapshots to maintain an enough snapshot quota for new automatic snapshots.
+    * *   The disk must be in the Unattached (Available) state.
+    * *   If the specified disk does not exist, the request is ignored.
+    *
+    * @param request DeleteDiskRequest
+    * @return DeleteDiskResponse
+   */
   async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteForwardEntryResponse
+   */
+  // Deprecated
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58011,11 +60671,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new DeleteForwardEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteForwardEntryRequest
+    * @return DeleteForwardEntryResponse
+   */
+  // Deprecated
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteHaVipResponse
+   */
+  // Deprecated
   async deleteHaVipWithOptions(request: DeleteHaVipRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58064,6 +60739,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHaVipResponse>(await this.callApi(params, req, runtime), new DeleteHaVipResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteHaVipRequest
+    * @return DeleteHaVipResponse
+   */
+  // Deprecated
   async deleteHaVip(request: DeleteHaVipRequest): Promise<DeleteHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHaVipWithOptions(request, runtime);
@@ -58179,6 +60861,13 @@ export default class Client extends OpenApi {
     return await this.deleteImageWithOptions(request, runtime);
   }
 
+  /**
+    * Only custom image components can be deleted.
+    *
+    * @param request DeleteImageComponentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteImageComponentResponse
+   */
   async deleteImageComponentWithOptions(request: DeleteImageComponentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageComponentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58227,11 +60916,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageComponentResponse>(await this.callApi(params, req, runtime), new DeleteImageComponentResponse({}));
   }
 
+  /**
+    * Only custom image components can be deleted.
+    *
+    * @param request DeleteImageComponentRequest
+    * @return DeleteImageComponentResponse
+   */
   async deleteImageComponent(request: DeleteImageComponentRequest): Promise<DeleteImageComponentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageComponentWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * If an image build task based on an image template is in the BUILDING, DISTRIBUTING, RELEASING, or CANCELLING state, you cannot delete the template. You can delete the template only when the image build task is in the SUCCESS, FAILED, or CANCELLED state. You can call the DescribeImagePipelineExecutions operation to query the details of an image build task.
+    *
+    * @param request DeleteImagePipelineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteImagePipelineResponse
+   */
   async deleteImagePipelineWithOptions(request: DeleteImagePipelineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImagePipelineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58280,11 +60983,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImagePipelineResponse>(await this.callApi(params, req, runtime), new DeleteImagePipelineResponse({}));
   }
 
+  /**
+    * ## Description
+    * If an image build task based on an image template is in the BUILDING, DISTRIBUTING, RELEASING, or CANCELLING state, you cannot delete the template. You can delete the template only when the image build task is in the SUCCESS, FAILED, or CANCELLED state. You can call the DescribeImagePipelineExecutions operation to query the details of an image build task.
+    *
+    * @param request DeleteImagePipelineRequest
+    * @return DeleteImagePipelineResponse
+   */
   async deleteImagePipeline(request: DeleteImagePipelineRequest): Promise<DeleteImagePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImagePipelineWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   After an instance is released, all the physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
+    * *   Disks attached to the instance:
+    *     *   The disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks.
+    *     *   The disks for which `DeleteWithInstance` is set to true are released along with the instance.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to false, the automatic snapshots of the disks are retained.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to true, the automatic snapshots of the disks are released.
+    *     *   Manual snapshots of the disks are retained.
+    *     *   If `OperationLocks` in the response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~). Even if `DeleteWithInstance` is set to `false` for the data disks that are attached to the instance, this parameter is ignored and the data disks are released along with the instance.
+    *
+    * @param request DeleteInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58333,11 +61058,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   After an instance is released, all the physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
+    * *   Disks attached to the instance:
+    *     *   The disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks.
+    *     *   The disks for which `DeleteWithInstance` is set to true are released along with the instance.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to false, the automatic snapshots of the disks are retained.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to true, the automatic snapshots of the disks are released.
+    *     *   Manual snapshots of the disks are retained.
+    *     *   If `OperationLocks` in the response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~). Even if `DeleteWithInstance` is set to `false` for the data disks that are attached to the instance, this parameter is ignored and the data disks are released along with the instance.
+    *
+    * @param request DeleteInstanceRequest
+    * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   After an instance is released, all the physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
+    * *   Disks attached to the instance:
+    *     *   The disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks.
+    *     *   The disks for which `DeleteWithInstance` is set to true are released along with the instance.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to false, the automatic snapshots of the disks are retained.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to true, the automatic snapshots of the disks are released.
+    *     *   Manual snapshots of the disks are retained.
+    *     *   If `OperationLocks` in the DeleteInstances response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons. Even if the `DeleteWithInstance` parameter is set to `false` for the data disks that are attached to the instance, the parameter is ignored and the data disks are released along with the instance. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    *
+    * @param request DeleteInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteInstancesResponse
+   */
   async deleteInstancesWithOptions(request: DeleteInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58398,11 +61151,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstancesResponse>(await this.callApi(params, req, runtime), new DeleteInstancesResponse({}));
   }
 
+  /**
+    * *   After an instance is released, all the physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
+    * *   Disks attached to the instance:
+    *     *   The disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks.
+    *     *   The disks for which `DeleteWithInstance` is set to true are released along with the instance.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to false, the automatic snapshots of the disks are retained.
+    *     *   For disks for which `DeleteAutoSnapshot` is set to true, the automatic snapshots of the disks are released.
+    *     *   Manual snapshots of the disks are retained.
+    *     *   If `OperationLocks` in the DeleteInstances response contains `"LockReason" : "security"` for an instance, the instance is locked for security reasons. Even if the `DeleteWithInstance` parameter is set to `false` for the data disks that are attached to the instance, the parameter is ignored and the data disks are released along with the instance. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    *
+    * @param request DeleteInstancesRequest
+    * @return DeleteInstancesResponse
+   */
   async deleteInstances(request: DeleteInstancesRequest): Promise<DeleteInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After an SSH key pair is deleted, you cannot query the SSH key pair by calling the [DescribeKeyPairs](~~51773~~) operation.
+    * *   If an SSH key pair is bound to one or more Elastic Compute Service (ECS) instances, the SSH key pair cannot be deleted.
+    *
+    * @param request DeleteKeyPairsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteKeyPairsResponse
+   */
   async deleteKeyPairsWithOptions(request: DeleteKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKeyPairsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58443,6 +61218,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteKeyPairsResponse>(await this.callApi(params, req, runtime), new DeleteKeyPairsResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After an SSH key pair is deleted, you cannot query the SSH key pair by calling the [DescribeKeyPairs](~~51773~~) operation.
+    * *   If an SSH key pair is bound to one or more Elastic Compute Service (ECS) instances, the SSH key pair cannot be deleted.
+    *
+    * @param request DeleteKeyPairsRequest
+    * @return DeleteKeyPairsResponse
+   */
   async deleteKeyPairs(request: DeleteKeyPairsRequest): Promise<DeleteKeyPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteKeyPairsWithOptions(request, runtime);
@@ -58558,6 +61341,14 @@ export default class Client extends OpenApi {
     return await this.deleteLaunchTemplateVersionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteNatGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNatGatewayResponse
+   */
+  // Deprecated
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58602,11 +61393,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new DeleteNatGatewayResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteNatGatewayRequest
+    * @return DeleteNatGatewayResponse
+   */
+  // Deprecated
   async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   The ENI must be in the Available state.
+    * *   If the ENI is bound to an ECS instance, you must unbind the ENI from the ECS instance ([DetachNetworkInterface](~~58514~~)) before you can delete the ENI.
+    * *   After an ENI is deleted:
+    *     *   The primary private IP address of the ENI is automatically released.
+    *     *   The ENI is automatically removed from its security groups.
+    *
+    * @param request DeleteNetworkInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNetworkInterfaceResponse
+   */
   async deleteNetworkInterfaceWithOptions(request: DeleteNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58655,11 +61465,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteNetworkInterfaceResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   The ENI must be in the Available state.
+    * *   If the ENI is bound to an ECS instance, you must unbind the ENI from the ECS instance ([DetachNetworkInterface](~~58514~~)) before you can delete the ENI.
+    * *   After an ENI is deleted:
+    *     *   The primary private IP address of the ENI is automatically released.
+    *     *   The ENI is automatically removed from its security groups.
+    *
+    * @param request DeleteNetworkInterfaceRequest
+    * @return DeleteNetworkInterfaceResponse
+   */
   async deleteNetworkInterface(request: DeleteNetworkInterfaceRequest): Promise<DeleteNetworkInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteNetworkInterfacePermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNetworkInterfacePermissionResponse
+   */
+  // Deprecated
   async deleteNetworkInterfacePermissionWithOptions(request: DeleteNetworkInterfacePermissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkInterfacePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58712,11 +61541,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkInterfacePermissionResponse>(await this.callApi(params, req, runtime), new DeleteNetworkInterfacePermissionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteNetworkInterfacePermissionRequest
+    * @return DeleteNetworkInterfacePermissionResponse
+   */
+  // Deprecated
   async deleteNetworkInterfacePermission(request: DeleteNetworkInterfacePermissionRequest): Promise<DeleteNetworkInterfacePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkInterfacePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeletePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePhysicalConnectionResponse
+   */
+  // Deprecated
   async deletePhysicalConnectionWithOptions(request: DeletePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58765,11 +61609,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DeletePhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeletePhysicalConnectionRequest
+    * @return DeletePhysicalConnectionResponse
+   */
+  // Deprecated
   async deletePhysicalConnection(request: DeletePhysicalConnectionRequest): Promise<DeletePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * If a prefix list is associated with resources, you cannot delete the prefix list. You must disassociate the prefix list from the resources before you can delete the prefix list. You can call the [DescribePrefixListAssociations](https://www.alibabacloud.com/help/en/elastic-compute-service/latest/describeprefixlistassociations) operation to query resources that are associated with a specific prefix list.
+    *
+    * @param request DeletePrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeletePrefixListResponse
+   */
   async deletePrefixListWithOptions(request: DeletePrefixListRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58818,11 +61677,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrefixListResponse>(await this.callApi(params, req, runtime), new DeletePrefixListResponse({}));
   }
 
+  /**
+    * ## Description
+    * If a prefix list is associated with resources, you cannot delete the prefix list. You must disassociate the prefix list from the resources before you can delete the prefix list. You can call the [DescribePrefixListAssociations](https://www.alibabacloud.com/help/en/elastic-compute-service/latest/describeprefixlistassociations) operation to query resources that are associated with a specific prefix list.
+    *
+    * @param request DeletePrefixListRequest
+    * @return DeletePrefixListResponse
+   */
   async deletePrefixList(request: DeletePrefixListRequest): Promise<DeletePrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrefixListWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteRouteEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouteEntryResponse
+   */
+  // Deprecated
   async deleteRouteEntryWithOptions(request: DeleteRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58879,11 +61753,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteRouteEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteRouteEntryRequest
+    * @return DeleteRouteEntryResponse
+   */
+  // Deprecated
   async deleteRouteEntry(request: DeleteRouteEntryRequest): Promise<DeleteRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteRouterInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRouterInterfaceResponse
+   */
+  // Deprecated
   async deleteRouterInterfaceWithOptions(request: DeleteRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58936,11 +61825,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteRouterInterfaceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteRouterInterfaceRequest
+    * @return DeleteRouterInterfaceResponse
+   */
+  // Deprecated
   async deleteRouterInterface(request: DeleteRouterInterfaceRequest): Promise<DeleteRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouterInterfaceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a security group, make sure that no instances are present in the security group and that the security group is not referenced by other security groups [DescribeSecurityGroupReferences](~~57320~~)). Otherwise, the DeleteSecurityGroup request fails.
+    *
+    * @param request DeleteSecurityGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSecurityGroupResponse
+   */
   async deleteSecurityGroupWithOptions(request: DeleteSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58985,11 +61888,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityGroupResponse>(await this.callApi(params, req, runtime), new DeleteSecurityGroupResponse({}));
   }
 
+  /**
+    * Before you delete a security group, make sure that no instances are present in the security group and that the security group is not referenced by other security groups [DescribeSecurityGroupReferences](~~57320~~)). Otherwise, the DeleteSecurityGroup request fails.
+    *
+    * @param request DeleteSecurityGroupRequest
+    * @return DeleteSecurityGroupResponse
+   */
   async deleteSecurityGroup(request: DeleteSecurityGroupRequest): Promise<DeleteSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   If the specified snapshot ID does not exist, the request is ignored.
+    * *   A snapshot that has been used to create custom images cannot be deleted. The snapshot can be deleted only after the created custom images are deleted ([DeleteImage](~~25537~~)).
+    * *   A snapshot that has been used to create disks cannot be deleted. If you do want to delete the snapshot, set the `Force` parameter to true to force delete the snapshot. The disks created from the snapshot cannot be re-initialized after the snapshot is force deleted.
+    *
+    * @param request DeleteSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSnapshotResponse
+   */
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59034,11 +61954,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   If the specified snapshot ID does not exist, the request is ignored.
+    * *   A snapshot that has been used to create custom images cannot be deleted. The snapshot can be deleted only after the created custom images are deleted ([DeleteImage](~~25537~~)).
+    * *   A snapshot that has been used to create disks cannot be deleted. If you do want to delete the snapshot, set the `Force` parameter to true to force delete the snapshot. The disks created from the snapshot cannot be re-initialized after the snapshot is force deleted.
+    *
+    * @param request DeleteSnapshotRequest
+    * @return DeleteSnapshotResponse
+   */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * If you have custom images that were created from a disk snapshot contained in a snapshot-consistent group, the disk snapshot is retained when the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](~~25537~~) operation to delete the custom images. Then, you can call the [DeleteSnapshot](~~25525~~) operation to delete the disk snapshot.
+    *
+    * @param request DeleteSnapshotGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSnapshotGroupResponse
+   */
   async deleteSnapshotGroupWithOptions(request: DeleteSnapshotGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59083,6 +62021,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotGroupResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotGroupResponse({}));
   }
 
+  /**
+    * ## Description
+    * If you have custom images that were created from a disk snapshot contained in a snapshot-consistent group, the disk snapshot is retained when the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](~~25537~~) operation to delete the custom images. Then, you can call the [DeleteSnapshot](~~25525~~) operation to delete the disk snapshot.
+    *
+    * @param request DeleteSnapshotGroupRequest
+    * @return DeleteSnapshotGroupResponse
+   */
   async deleteSnapshotGroup(request: DeleteSnapshotGroupRequest): Promise<DeleteSnapshotGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotGroupWithOptions(request, runtime);
@@ -59141,6 +62086,14 @@ export default class Client extends OpenApi {
     return await this.deleteStorageSetWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVSwitchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVSwitchResponse
+   */
+  // Deprecated
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59185,11 +62138,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVSwitchResponse>(await this.callApi(params, req, runtime), new DeleteVSwitchResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVSwitchRequest
+    * @return DeleteVSwitchResponse
+   */
+  // Deprecated
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVirtualBorderRouterResponse
+   */
+  // Deprecated
   async deleteVirtualBorderRouterWithOptions(request: DeleteVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59242,11 +62210,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new DeleteVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVirtualBorderRouterRequest
+    * @return DeleteVirtualBorderRouterResponse
+   */
+  // Deprecated
   async deleteVirtualBorderRouter(request: DeleteVirtualBorderRouterRequest): Promise<DeleteVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteVpcResponse
+   */
+  // Deprecated
   async deleteVpcWithOptions(request: DeleteVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59291,6 +62274,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcResponse>(await this.callApi(params, req, runtime), new DeleteVpcResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DeleteVpcRequest
+    * @return DeleteVpcResponse
+   */
+  // Deprecated
   async deleteVpc(request: DeleteVpcRequest): Promise<DeleteVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcWithOptions(request, runtime);
@@ -59349,6 +62339,14 @@ export default class Client extends OpenApi {
     return await this.deregisterManagedInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeAccessPointsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccessPointsResponse
+   */
+  // Deprecated
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59401,11 +62399,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessPointsResponse>(await this.callApi(params, req, runtime), new DescribeAccessPointsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeAccessPointsRequest
+    * @return DescribeAccessPointsResponse
+   */
+  // Deprecated
   async describeAccessPoints(request: DescribeAccessPointsRequest): Promise<DescribeAccessPointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessPointsWithOptions(request, runtime);
   }
 
+  /**
+    * After you [create](https://account.alibabacloud.com/register/intl_register.htm) an Alibaba Cloud account, you can create a specific number of ECS instances in different regions within the account. For more information, see [Limits](~~25412~~).
+    * You can also [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
+    *
+    * @param request DescribeAccountAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountAttributesResponse
+   */
   async describeAccountAttributesWithOptions(request: DescribeAccountAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59450,6 +62463,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountAttributesResponse>(await this.callApi(params, req, runtime), new DescribeAccountAttributesResponse({}));
   }
 
+  /**
+    * After you [create](https://account.alibabacloud.com/register/intl_register.htm) an Alibaba Cloud account, you can create a specific number of ECS instances in different regions within the account. For more information, see [Limits](~~25412~~).
+    * You can also [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
+    *
+    * @param request DescribeAccountAttributesRequest
+    * @return DescribeAccountAttributesResponse
+   */
   async describeAccountAttributes(request: DescribeAccountAttributesRequest): Promise<DescribeAccountAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountAttributesWithOptions(request, runtime);
@@ -59496,6 +62516,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -59776,6 +62800,20 @@ export default class Client extends OpenApi {
     return await this.describeAutoSnapshotPolicyExWithOptions(request, runtime);
   }
 
+  /**
+    * The value of the `DestinationResource` parameter determines whether you need to specify additional parameters. The following sequence provides the order by which resources are filtered. You cannot query a higher order resource by specifying a lower order resource.
+    * *   Sequence: `Zone > IoOptimized > InstanceType = Network = ddh > SystemDisk > DataDisk`
+    * *   Examples:
+    *     *   If you set `DestinationResource` to `DataDisk`, you must specify the `InstanceType` parameter or set the `ResourceType` parameter to `disk`.
+    *     *   If you set `DestinationResource` to `SystemDisk`, you must specify the `InstanceType` parameter.
+    *     *   If you set `DestinationResource` to `InstanceType`, you must specify the `IoOptimized` and `InstanceType` parameters.
+    *     *   If you want to query available ecs.g5.large resources in all zones of the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+    *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59876,6 +62914,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+    * The value of the `DestinationResource` parameter determines whether you need to specify additional parameters. The following sequence provides the order by which resources are filtered. You cannot query a higher order resource by specifying a lower order resource.
+    * *   Sequence: `Zone > IoOptimized > InstanceType = Network = ddh > SystemDisk > DataDisk`
+    * *   Examples:
+    *     *   If you set `DestinationResource` to `DataDisk`, you must specify the `InstanceType` parameter or set the `ResourceType` parameter to `disk`.
+    *     *   If you set `DestinationResource` to `SystemDisk`, you must specify the `InstanceType` parameter.
+    *     *   If you set `DestinationResource` to `InstanceType`, you must specify the `IoOptimized` and `InstanceType` parameters.
+    *     *   If you want to query available ecs.g5.large resources in all zones of the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to InstanceType, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+    *     *   If you want to query the zones where ecs.g5.large resources are available in the China (Hangzhou) region, you must set RegionId to cn-hangzhou, DestinationResource to Zone, IoOptimized to optimized, and InstanceType to ecs.g5.large.``
+    *
+    * @param request DescribeAvailableResourceRequest
+    * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
@@ -59946,6 +62997,14 @@ export default class Client extends OpenApi {
     return await this.describeBandwidthLimitationWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeBandwidthPackagesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBandwidthPackagesResponse
+   */
+  // Deprecated
   async describeBandwidthPackagesWithOptions(request: DescribeBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60002,6 +63061,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new DescribeBandwidthPackagesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeBandwidthPackagesRequest
+    * @return DescribeBandwidthPackagesResponse
+   */
+  // Deprecated
   async describeBandwidthPackages(request: DescribeBandwidthPackagesRequest): Promise<DescribeBandwidthPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandwidthPackagesWithOptions(request, runtime);
@@ -60038,7 +63104,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -60123,7 +63189,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -60149,6 +63215,16 @@ export default class Client extends OpenApi {
     return await this.describeCapacityReservationsWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   This operation applies only to instances that reside in the classic network.
+    * *   You can query up to 100 instances that reside in the classic network at a time.
+    * *   At least one of the `VpcId` and `InstanceId` parameters must be specified.
+    *
+    * @param request DescribeClassicLinkInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClassicLinkInstancesResponse
+   */
   async describeClassicLinkInstancesWithOptions(request: DescribeClassicLinkInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClassicLinkInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60201,6 +63277,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClassicLinkInstancesResponse>(await this.callApi(params, req, runtime), new DescribeClassicLinkInstancesResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   This operation applies only to instances that reside in the classic network.
+    * *   You can query up to 100 instances that reside in the classic network at a time.
+    * *   At least one of the `VpcId` and `InstanceId` parameters must be specified.
+    *
+    * @param request DescribeClassicLinkInstancesRequest
+    * @return DescribeClassicLinkInstancesResponse
+   */
   async describeClassicLinkInstances(request: DescribeClassicLinkInstancesRequest): Promise<DescribeClassicLinkInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClassicLinkInstancesWithOptions(request, runtime);
@@ -60271,6 +63356,14 @@ export default class Client extends OpenApi {
     return await this.describeCloudAssistantStatusWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClustersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClustersResponse
+   */
+  // Deprecated
   async describeClustersWithOptions(request: DescribeClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60311,11 +63404,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClustersResponse>(await this.callApi(params, req, runtime), new DescribeClustersResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeClustersRequest
+    * @return DescribeClustersResponse
+   */
+  // Deprecated
   async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClustersWithOptions(request, runtime);
   }
 
+  /**
+    * If you specify only the `Action` and `RegionId` parameters to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+    *
+    * @param request DescribeCommandsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCommandsResponse
+   */
   async describeCommandsWithOptions(request: DescribeCommandsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommandsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60400,78 +63507,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommandsResponse>(await this.callApi(params, req, runtime), new DescribeCommandsResponse({}));
   }
 
+  /**
+    * If you specify only the `Action` and `RegionId` parameters to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+    *
+    * @param request DescribeCommandsRequest
+    * @return DescribeCommandsResponse
+   */
   async describeCommands(request: DescribeCommandsRequest): Promise<DescribeCommandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommandsWithOptions(request, runtime);
-  }
-
-  async describeDedicatedBlockStorageClustersWithOptions(request: DescribeDedicatedBlockStorageClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClustersResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
-    if (!Util.isUnset(request.dedicatedBlockStorageClusterId)) {
-      query["DedicatedBlockStorageClusterId"] = request.dedicatedBlockStorageClusterId;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDedicatedBlockStorageClusters",
-      version: "2014-05-26",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
-  }
-
-  async describeDedicatedBlockStorageClusters(request: DescribeDedicatedBlockStorageClustersRequest): Promise<DescribeDedicatedBlockStorageClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDedicatedBlockStorageClustersWithOptions(request, runtime);
   }
 
   async describeDedicatedHostAutoRenewWithOptions(request: DescribeDedicatedHostAutoRenewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostAutoRenewResponse> {
@@ -60523,6 +63567,13 @@ export default class Client extends OpenApi {
     return await this.describeDedicatedHostAutoRenewWithOptions(request, runtime);
   }
 
+  /**
+    * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), it is regarded as a valid filter condition and an empty result is returned.
+    *
+    * @param request DescribeDedicatedHostClustersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedHostClustersResponse
+   */
   async describeDedicatedHostClustersWithOptions(request: DescribeDedicatedHostClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60599,6 +63650,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedHostClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostClustersResponse({}));
   }
 
+  /**
+    * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), it is regarded as a valid filter condition and an empty result is returned.
+    *
+    * @param request DescribeDedicatedHostClustersRequest
+    * @return DescribeDedicatedHostClustersResponse
+   */
   async describeDedicatedHostClusters(request: DescribeDedicatedHostClustersRequest): Promise<DescribeDedicatedHostClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedHostClustersWithOptions(request, runtime);
@@ -60657,6 +63714,16 @@ export default class Client extends OpenApi {
     return await this.describeDedicatedHostTypesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can use one of the following methods to query the details of one or more dedicated hosts:
+    * *   Specify the `DedicatedHostIds` parameter to query the details of specified dedicated hosts.
+    * *   Specify the `DedicatedHostClusterId` parameter to query the details of the dedicated hosts in a dedicated host cluster.
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHostsWithOptions(request: DescribeDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60712,6 +63779,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.socketDetails)) {
+      query["SocketDetails"] = request.socketDetails;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -60741,11 +63812,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedHostsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostsResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can use one of the following methods to query the details of one or more dedicated hosts:
+    * *   Specify the `DedicatedHostIds` parameter to query the details of specified dedicated hosts.
+    * *   Specify the `DedicatedHostClusterId` parameter to query the details of the dedicated hosts in a dedicated host cluster.
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHosts(request: DescribeDedicatedHostsRequest): Promise<DescribeDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedHostsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+    * By default, the filing tickets of I/O optimized VPC-type instances are queried.
+    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+    *
+    * @param request DescribeDemandsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDemandsResponse
+   */
   async describeDemandsWithOptions(request: DescribeDemandsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDemandsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60834,6 +63923,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDemandsResponse>(await this.callApi(params, req, runtime), new DescribeDemandsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+    * By default, the filing tickets of I/O optimized VPC-type instances are queried.
+    * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+    *
+    * @param request DescribeDemandsRequest
+    * @return DescribeDemandsResponse
+   */
   async describeDemands(request: DescribeDemandsRequest): Promise<DescribeDemandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDemandsWithOptions(request, runtime);
@@ -61055,6 +64152,39 @@ export default class Client extends OpenApi {
     return await this.describeDiagnosticMetricsWithOptions(request, runtime);
   }
 
+  async describeDiagnosticReportAttributesWithOptions(request: DescribeDiagnosticReportAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportAttributesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosticReportAttributes",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosticReportAttributesResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosticReportAttributesResponse({}));
+  }
+
+  async describeDiagnosticReportAttributes(request: DescribeDiagnosticReportAttributesRequest): Promise<DescribeDiagnosticReportAttributesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosticReportAttributesWithOptions(request, runtime);
+  }
+
   async describeDiagnosticReportsWithOptions(request: DescribeDiagnosticReportsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61108,6 +64238,18 @@ export default class Client extends OpenApi {
     return await this.describeDiagnosticReportsWithOptions(request, runtime);
   }
 
+  /**
+    * The monitoring data includes read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds) of the disk.
+    * When you call this operation, take note of the following items:
+    * *   Only the monitoring data of disks that are in the Running (`In_use`) state can be queried. For more information, see [Disk states](~~25689~~).
+    *     > Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_Use`) state and the system cannot obtain the relevant information.
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
+    * *   You can query the monitoring data in the previous 30 days. If the value of `StartTime` is more than 30 days before the current time, an error is returned.
+    *
+    * @param request DescribeDiskMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiskMonitorDataResponse
+   */
   async describeDiskMonitorDataWithOptions(request: DescribeDiskMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61160,11 +64302,36 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiskMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataResponse({}));
   }
 
+  /**
+    * The monitoring data includes read IOPS, write IOPS, read bandwidth (byte/s), write bandwidth (byte/s), read latency (microseconds), and write latency (microseconds) of the disk.
+    * When you call this operation, take note of the following items:
+    * *   Only the monitoring data of disks that are in the Running (`In_use`) state can be queried. For more information, see [Disk states](~~25689~~).
+    *     > Some information may be missing from the monitoring data of a disk because the disk is not in the In Use (`In_Use`) state and the system cannot obtain the relevant information.
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
+    * *   You can query the monitoring data in the previous 30 days. If the value of `StartTime` is more than 30 days before the current time, an error is returned.
+    *
+    * @param request DescribeDiskMonitorDataRequest
+    * @return DescribeDiskMonitorDataResponse
+   */
   async describeDiskMonitorData(request: DescribeDiskMonitorDataRequest): Promise<DescribeDiskMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * * The `DiskIds` value is a JSON array. If DiskIds is not specified, it is not used as a filter condition. If `DiskIds` is set to an empty JSON array, it is regarded as a valid filter condition, and an empty result is returned.
+    * * You can use one of the following methods to check the responses:
+    *     * Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+    * * A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeDisksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDisksResponse
+   */
   async describeDisksWithOptions(request: DescribeDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61321,11 +64488,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDisksResponse>(await this.callApi(params, req, runtime), new DescribeDisksResponse({}));
   }
 
+  /**
+    * * You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * * The `DiskIds` value is a JSON array. If DiskIds is not specified, it is not used as a filter condition. If `DiskIds` is set to an empty JSON array, it is regarded as a valid filter condition, and an empty result is returned.
+    * * You can use one of the following methods to check the responses:
+    *     * Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+    * * A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeDisksRequest
+    * @return DescribeDisksResponse
+   */
   async describeDisks(request: DescribeDisksRequest): Promise<DescribeDisksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDisksWithOptions(request, runtime);
   }
 
+  /**
+    * *   The full status information of an EBS device includes the lifecycle status provided by the `Status` parameter, health status provided by the `HealthStatus` parameter, and event type provided by the `EventType` parameter of the EBS device. You can filter the results based on these parameters.
+    * *   The release time, scheduled execution time, and actual execution time of each EBS device event are identical. If you specify a period of time by using the `EventTime.Start` and `EventTime.End` parameters, all events that occurred within this period are queried. You can query events that occurred within the last seven days.
+    *
+    * @param request DescribeDisksFullStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDisksFullStatusResponse
+   */
   async describeDisksFullStatusWithOptions(request: DescribeDisksFullStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisksFullStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61389,7 +64577,7 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset($tea.toMap(request.eventTime))) {
+    if (!Util.isUnset(request.eventTime)) {
       query["EventTime"] = request.eventTime;
     }
 
@@ -61410,11 +64598,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDisksFullStatusResponse>(await this.callApi(params, req, runtime), new DescribeDisksFullStatusResponse({}));
   }
 
+  /**
+    * *   The full status information of an EBS device includes the lifecycle status provided by the `Status` parameter, health status provided by the `HealthStatus` parameter, and event type provided by the `EventType` parameter of the EBS device. You can filter the results based on these parameters.
+    * *   The release time, scheduled execution time, and actual execution time of each EBS device event are identical. If you specify a period of time by using the `EventTime.Start` and `EventTime.End` parameters, all events that occurred within this period are queried. You can query events that occurred within the last seven days.
+    *
+    * @param request DescribeDisksFullStatusRequest
+    * @return DescribeDisksFullStatusResponse
+   */
   async describeDisksFullStatus(request: DescribeDisksFullStatusRequest): Promise<DescribeDisksFullStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDisksFullStatusWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeEipAddressesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEipAddressesResponse
+   */
+  // Deprecated
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61499,11 +64702,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipAddressesResponse>(await this.callApi(params, req, runtime), new DescribeEipAddressesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeEipAddressesRequest
+    * @return DescribeEipAddressesResponse
+   */
+  // Deprecated
   async describeEipAddresses(request: DescribeEipAddressesRequest): Promise<DescribeEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipAddressesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeEipMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeEipMonitorDataResponse
+   */
+  // Deprecated
   async describeEipMonitorDataWithOptions(request: DescribeEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61560,11 +64778,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeEipMonitorDataResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeEipMonitorDataRequest
+    * @return DescribeEipMonitorDataResponse
+   */
+  // Deprecated
   async describeEipMonitorData(request: DescribeEipMonitorDataRequest): Promise<DescribeEipMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * When an elasticity assurance expires, data about the association between instances and the private pool generated by the elasticity assurance becomes invalid. If you call this operation to query the expired elasticity assurance, no value is returned.
+    *
+    * @param request DescribeElasticityAssuranceInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticityAssuranceInstancesResponse
+   */
   async describeElasticityAssuranceInstancesWithOptions(request: DescribeElasticityAssuranceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticityAssuranceInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61596,7 +64828,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -61617,6 +64849,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticityAssuranceInstancesResponse>(await this.callApi(params, req, runtime), new DescribeElasticityAssuranceInstancesResponse({}));
   }
 
+  /**
+    * When an elasticity assurance expires, data about the association between instances and the private pool generated by the elasticity assurance becomes invalid. If you call this operation to query the expired elasticity assurance, no value is returned.
+    *
+    * @param request DescribeElasticityAssuranceInstancesRequest
+    * @return DescribeElasticityAssuranceInstancesResponse
+   */
   async describeElasticityAssuranceInstances(request: DescribeElasticityAssuranceInstancesRequest): Promise<DescribeElasticityAssuranceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticityAssuranceInstancesWithOptions(request, runtime);
@@ -61681,7 +64919,7 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -61772,6 +65010,14 @@ export default class Client extends OpenApi {
     return await this.describeEniMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeForwardTableEntriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeForwardTableEntriesResponse
+   */
+  // Deprecated
   async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61828,11 +65074,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeForwardTableEntriesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeForwardTableEntriesRequest
+    * @return DescribeForwardTableEntriesResponse
+   */
+  // Deprecated
   async describeForwardTableEntries(request: DescribeForwardTableEntriesRequest): Promise<DescribeForwardTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeForwardTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeHaVipsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHaVipsResponse
+   */
+  // Deprecated
   async describeHaVipsWithOptions(request: DescribeHaVipsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHaVipsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61885,6 +65146,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHaVipsResponse>(await this.callApi(params, req, runtime), new DescribeHaVipsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeHaVipsRequest
+    * @return DescribeHaVipsResponse
+   */
+  // Deprecated
   async describeHaVips(request: DescribeHaVipsRequest): Promise<DescribeHaVipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHaVipsWithOptions(request, runtime);
@@ -61955,6 +65223,13 @@ export default class Client extends OpenApi {
     return await this.describeHpcClustersWithOptions(request, runtime);
   }
 
+  /**
+    * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeImageComponents operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *
+    * @param request DescribeImageComponentsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeImageComponentsResponse
+   */
   async describeImageComponentsWithOptions(request: DescribeImageComponentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageComponentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62031,11 +65306,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageComponentsResponse>(await this.callApi(params, req, runtime), new DescribeImageComponentsResponse({}));
   }
 
+  /**
+    * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeImageComponents operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *
+    * @param request DescribeImageComponentsRequest
+    * @return DescribeImageComponentsResponse
+   */
   async describeImageComponents(request: DescribeImageComponentsRequest): Promise<DescribeImageComponentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageComponentsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
+    * *   If no available custom images exist in the specified image family, the response is empty.
+    *
+    * @param request DescribeImageFromFamilyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeImageFromFamilyResponse
+   */
   async describeImageFromFamilyWithOptions(request: DescribeImageFromFamilyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageFromFamilyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62080,11 +65370,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageFromFamilyResponse>(await this.callApi(params, req, runtime), new DescribeImageFromFamilyResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
+    * *   If no available custom images exist in the specified image family, the response is empty.
+    *
+    * @param request DescribeImageFromFamilyRequest
+    * @return DescribeImageFromFamilyResponse
+   */
   async describeImageFromFamily(request: DescribeImageFromFamilyRequest): Promise<DescribeImageFromFamilyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageFromFamilyWithOptions(request, runtime);
   }
 
+  /**
+    * * The image template specified by the `ImagePipelineId` parameter cannot be a deleted image template. The corresponding build task is deleted when an image template is deleted.
+    * * You must set the `ImagePipelineId` parameter to specify the ID of an image template or the `ExecutionId` parameter to specify the ID of a build task.
+    * * You can configure the query token by using the `NextToken` parameter. Set the value of NextToken to the `NextToken` value that was returned when you last called the `DescribeImagePipelineExecutions` operation. Then, use the `MaxResults` parameter to configure the maximum number of entries to return on each page to query the details of the image build task.
+    *
+    * @param request DescribeImagePipelineExecutionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeImagePipelineExecutionsResponse
+   */
   async describeImagePipelineExecutionsWithOptions(request: DescribeImagePipelineExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagePipelineExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62153,11 +65460,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImagePipelineExecutionsResponse>(await this.callApi(params, req, runtime), new DescribeImagePipelineExecutionsResponse({}));
   }
 
+  /**
+    * * The image template specified by the `ImagePipelineId` parameter cannot be a deleted image template. The corresponding build task is deleted when an image template is deleted.
+    * * You must set the `ImagePipelineId` parameter to specify the ID of an image template or the `ExecutionId` parameter to specify the ID of a build task.
+    * * You can configure the query token by using the `NextToken` parameter. Set the value of NextToken to the `NextToken` value that was returned when you last called the `DescribeImagePipelineExecutions` operation. Then, use the `MaxResults` parameter to configure the maximum number of entries to return on each page to query the details of the image build task.
+    *
+    * @param request DescribeImagePipelineExecutionsRequest
+    * @return DescribeImagePipelineExecutionsResponse
+   */
   async describeImagePipelineExecutions(request: DescribeImagePipelineExecutionsRequest): Promise<DescribeImagePipelineExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagePipelineExecutionsWithOptions(request, runtime);
   }
 
+  /**
+    * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *
+    * @param request DescribeImagePipelinesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeImagePipelinesResponse
+   */
   async describeImagePipelinesWithOptions(request: DescribeImagePipelinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagePipelinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62230,6 +65552,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImagePipelinesResponse>(await this.callApi(params, req, runtime), new DescribeImagePipelinesResponse({}));
   }
 
+  /**
+    * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+    *
+    * @param request DescribeImagePipelinesRequest
+    * @return DescribeImagePipelinesResponse
+   */
   async describeImagePipelines(request: DescribeImagePipelinesRequest): Promise<DescribeImagePipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagePipelinesWithOptions(request, runtime);
@@ -62345,6 +65673,15 @@ export default class Client extends OpenApi {
     return await this.describeImageSupportInstanceTypesWithOptions(request, runtime);
   }
 
+  /**
+    * * You can query your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images from other Alibaba Cloud accounts.
+    * * This operation supports paged query. The response contains the total number of available images and the images on the returned page. By default, ten entries are displayed on each page.
+    * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeImagesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeImagesResponse
+   */
   async describeImagesWithOptions(request: DescribeImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62473,11 +65810,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImagesResponse>(await this.callApi(params, req, runtime), new DescribeImagesResponse({}));
   }
 
+  /**
+    * * You can query your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images from other Alibaba Cloud accounts.
+    * * This operation supports paged query. The response contains the total number of available images and the images on the returned page. By default, ten entries are displayed on each page.
+    * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeImagesRequest
+    * @return DescribeImagesResponse
+   */
   async describeImages(request: DescribeImagesRequest): Promise<DescribeImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagesWithOptions(request, runtime);
   }
 
+  /**
+    * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with the attributes of matching instances. You can configure a private pool when you create an instance, so that the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
+    * When a private pool expires, data about the association between instances and the private pool becomes invalid. In this case, a call to this operation returns empty values related to private pools.
+    *
+    * @param request DescribeInstanceAttachmentAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceAttachmentAttributesResponse
+   */
   async describeInstanceAttachmentAttributesWithOptions(request: DescribeInstanceAttachmentAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttachmentAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62530,11 +65883,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAttachmentAttributesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAttachmentAttributesResponse({}));
   }
 
+  /**
+    * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with the attributes of matching instances. You can configure a private pool when you create an instance, so that the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
+    * When a private pool expires, data about the association between instances and the private pool becomes invalid. In this case, a call to this operation returns empty values related to private pools.
+    *
+    * @param request DescribeInstanceAttachmentAttributesRequest
+    * @return DescribeInstanceAttachmentAttributesResponse
+   */
   async describeInstanceAttachmentAttributes(request: DescribeInstanceAttachmentAttributesRequest): Promise<DescribeInstanceAttachmentAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAttachmentAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeInstanceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceAttributeResponse
+   */
+  // Deprecated
   async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62575,11 +65943,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeInstanceAttributeRequest
+    * @return DescribeInstanceAttributeResponse
+   */
+  // Deprecated
   async describeInstanceAttribute(request: DescribeInstanceAttributeRequest): Promise<DescribeInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
+    * *   This operation is applicable to only subscription instances. An error is returned if you call this operation on pay-as-you-go instances.
+    *
+    * @param request DescribeInstanceAutoRenewAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceAutoRenewAttributeResponse
+   */
   async describeInstanceAutoRenewAttributeWithOptions(request: DescribeInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62636,11 +66019,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewAttributeResponse({}));
   }
 
+  /**
+    * *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
+    * *   This operation is applicable to only subscription instances. An error is returned if you call this operation on pay-as-you-go instances.
+    *
+    * @param request DescribeInstanceAutoRenewAttributeRequest
+    * @return DescribeInstanceAutoRenewAttributeResponse
+   */
   async describeInstanceAutoRenewAttribute(request: DescribeInstanceAutoRenewAttributeRequest): Promise<DescribeInstanceAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can query system events that were finished within the last 30 days. The time range for querying unfinished system events is unlimited.
+    * *   You can also specify the InstanceEventCycleStatus.N parameter to query the system events that are in the Scheduled, Executing, or Inquiring state.
+    *
+    * @param request DescribeInstanceHistoryEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceHistoryEventsResponse
+   */
   async describeInstanceHistoryEventsWithOptions(request: DescribeInstanceHistoryEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceHistoryEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62720,11 +66118,11 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset($tea.toMap(request.eventPublishTime))) {
+    if (!Util.isUnset(request.eventPublishTime)) {
       query["EventPublishTime"] = request.eventPublishTime;
     }
 
-    if (!Util.isUnset($tea.toMap(request.notBefore))) {
+    if (!Util.isUnset(request.notBefore)) {
       query["NotBefore"] = request.notBefore;
     }
 
@@ -62745,11 +66143,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceHistoryEventsResponse({}));
   }
 
+  /**
+    * *   You can query system events that were finished within the last 30 days. The time range for querying unfinished system events is unlimited.
+    * *   You can also specify the InstanceEventCycleStatus.N parameter to query the system events that are in the Scheduled, Executing, or Inquiring state.
+    *
+    * @param request DescribeInstanceHistoryEventsRequest
+    * @return DescribeInstanceHistoryEventsResponse
+   */
   async describeInstanceHistoryEvents(request: DescribeInstanceHistoryEventsRequest): Promise<DescribeInstanceHistoryEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceHistoryEventsWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is used to query the specified maintenance policy of an instance, which contains the following maintenance attributes:
+    * *   Maintenance window: the time period that you specify for maintenance.
+    * *   Maintenance action: the action that you specify in response to instance shutdown.
+    *
+    * @param request DescribeInstanceMaintenanceAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceMaintenanceAttributesResponse
+   */
   async describeInstanceMaintenanceAttributesWithOptions(request: DescribeInstanceMaintenanceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceMaintenanceAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62802,11 +66216,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceMaintenanceAttributesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceMaintenanceAttributesResponse({}));
   }
 
+  /**
+    * This operation is used to query the specified maintenance policy of an instance, which contains the following maintenance attributes:
+    * *   Maintenance window: the time period that you specify for maintenance.
+    * *   Maintenance action: the action that you specify in response to instance shutdown.
+    *
+    * @param request DescribeInstanceMaintenanceAttributesRequest
+    * @return DescribeInstanceMaintenanceAttributesResponse
+   */
   async describeInstanceMaintenanceAttributes(request: DescribeInstanceMaintenanceAttributesRequest): Promise<DescribeInstanceMaintenanceAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMaintenanceAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
+    * *   Pricing information cannot be queried for pay-as-you-go ECS instances when you change their configurations. Prices of existing pay-as-you-go ECS instances whose configurations are changed are the same as those of new pay-as-you-go instances. You can call the [DescribePrice](~~107829~~) operation to query the latest prices of ECS instances.
+    * *   Before you upgrade the configurations of an instance, we recommend that you call the [DescribeResourcesModification](~~66187~~) operation to query the instance types available for configuration upgrades in a specified zone.
+    *
+    * @param request DescribeInstanceModificationPriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceModificationPriceResponse
+   */
   async describeInstanceModificationPriceWithOptions(request: DescribeInstanceModificationPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceModificationPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62842,7 +66274,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -62863,11 +66295,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceModificationPriceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceModificationPriceResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
+    * *   Pricing information cannot be queried for pay-as-you-go ECS instances when you change their configurations. Prices of existing pay-as-you-go ECS instances whose configurations are changed are the same as those of new pay-as-you-go instances. You can call the [DescribePrice](~~107829~~) operation to query the latest prices of ECS instances.
+    * *   Before you upgrade the configurations of an instance, we recommend that you call the [DescribeResourcesModification](~~66187~~) operation to query the instance types available for configuration upgrades in a specified zone.
+    *
+    * @param request DescribeInstanceModificationPriceRequest
+    * @return DescribeInstanceModificationPriceResponse
+   */
   async describeInstanceModificationPrice(request: DescribeInstanceModificationPriceRequest): Promise<DescribeInstanceModificationPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceModificationPriceWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+    * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
+    * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
+    *
+    * @param request DescribeInstanceMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceMonitorDataResponse
+   */
   async describeInstanceMonitorDataWithOptions(request: DescribeInstanceMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62920,11 +66371,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeInstanceMonitorDataResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+    * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
+    * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
+    *
+    * @param request DescribeInstanceMonitorDataRequest
+    * @return DescribeInstanceMonitorDataResponse
+   */
   async describeInstanceMonitorData(request: DescribeInstanceMonitorDataRequest): Promise<DescribeInstanceMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeInstanceRamRoleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceRamRoleResponse
+   */
   async describeInstanceRamRoleWithOptions(request: DescribeInstanceRamRoleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRamRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62977,11 +66444,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceRamRoleResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRamRoleResponse({}));
   }
 
+  /**
+    * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeInstanceRamRoleRequest
+    * @return DescribeInstanceRamRoleResponse
+   */
   async describeInstanceRamRole(request: DescribeInstanceRamRoleRequest): Promise<DescribeInstanceRamRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceRamRoleWithOptions(request, runtime);
   }
 
+  /**
+    * * For information about the lifecycle states of an ECS instance, see [Instance states](~~25687~~).
+    * * You can also call this operation to query the list of ECS instances.
+    *
+    * @param request DescribeInstanceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceStatusResponse
+   */
   async describeInstanceStatusWithOptions(request: DescribeInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63042,11 +66523,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatusResponse({}));
   }
 
+  /**
+    * * For information about the lifecycle states of an ECS instance, see [Instance states](~~25687~~).
+    * * You can also call this operation to query the list of ECS instances.
+    *
+    * @param request DescribeInstanceStatusRequest
+    * @return DescribeInstanceStatusResponse
+   */
   async describeInstanceStatus(request: DescribeInstanceStatusRequest): Promise<DescribeInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+    * >  The DescribeInstanceTopology operation is in invitational preview and is not commercially available.
+    *
+    * @param request DescribeInstanceTopologyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceTopologyResponse
+   */
   async describeInstanceTopologyWithOptions(request: DescribeInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63087,6 +66582,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTopologyResponse({}));
   }
 
+  /**
+    * >  The DescribeInstanceTopology operation is in invitational preview and is not commercially available.
+    *
+    * @param request DescribeInstanceTopologyRequest
+    * @return DescribeInstanceTopologyResponse
+   */
   async describeInstanceTopology(request: DescribeInstanceTopologyRequest): Promise<DescribeInstanceTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTopologyWithOptions(request, runtime);
@@ -63141,6 +66642,18 @@ export default class Client extends OpenApi {
     return await this.describeInstanceTypeFamiliesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * Before you call this operation, take note of the following items:
+    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
+    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+    *
+    * @param request DescribeInstanceTypesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceTypesResponse
+   */
   async describeInstanceTypesWithOptions(request: DescribeInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63325,11 +66838,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypesResponse({}));
   }
 
+  /**
+    * ## Description
+    * Before you call this operation, take note of the following items:
+    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
+    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+    *
+    * @param request DescribeInstanceTypesRequest
+    * @return DescribeInstanceTypesResponse
+   */
   async describeInstanceTypes(request: DescribeInstanceTypesRequest): Promise<DescribeInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTypesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeInstanceVncPasswdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceVncPasswdResponse
+   */
+  // Deprecated
   async describeInstanceVncPasswdWithOptions(request: DescribeInstanceVncPasswdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceVncPasswdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63374,6 +66906,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceVncPasswdResponse>(await this.callApi(params, req, runtime), new DescribeInstanceVncPasswdResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeInstanceVncPasswdRequest
+    * @return DescribeInstanceVncPasswdResponse
+   */
+  // Deprecated
   async describeInstanceVncPasswd(request: DescribeInstanceVncPasswdRequest): Promise<DescribeInstanceVncPasswdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceVncPasswdWithOptions(request, runtime);
@@ -63428,6 +66967,19 @@ export default class Client extends OpenApi {
     return await this.describeInstanceVncUrlWithOptions(request, runtime);
   }
 
+  /**
+    * * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+    * * If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include the `DryRun` parameter in your request to check whether the empty list is caused by lack of permissions.
+    * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    * * You can use one of the following methods to check the responses:
+    *     * Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+    *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+    *
+    * @param request DescribeInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63616,6 +67168,18 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+    * * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+    * * If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include the `DryRun` parameter in your request to check whether the empty list is caused by lack of permissions.
+    * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    * * You can use one of the following methods to check the responses:
+    *     * Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+    *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+    *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+    *
+    * @param request DescribeInstancesRequest
+    * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
@@ -63680,11 +67244,11 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset($tea.toMap(request.eventPublishTime))) {
+    if (!Util.isUnset(request.eventPublishTime)) {
       query["EventPublishTime"] = request.eventPublishTime;
     }
 
-    if (!Util.isUnset($tea.toMap(request.notBefore))) {
+    if (!Util.isUnset(request.notBefore)) {
       query["NotBefore"] = request.notBefore;
     }
 
@@ -63710,6 +67274,15 @@ export default class Client extends OpenApi {
     return await this.describeInstancesFullStatusWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+    * *   You can query the information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
+    *
+    * @param request DescribeInvocationResultsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInvocationResultsResponse
+   */
   async describeInvocationResultsWithOptions(request: DescribeInvocationResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationResultsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63761,6 +67334,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -63790,11 +67367,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInvocationResultsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationResultsResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+    * *   You can query the information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
+    *
+    * @param request DescribeInvocationResultsRequest
+    * @return DescribeInvocationResultsResponse
+   */
   async describeInvocationResults(request: DescribeInvocationResultsRequest): Promise<DescribeInvocationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInvocationResultsWithOptions(request, runtime);
   }
 
+  /**
+    * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution results.
+    * *   You can query information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
+    *
+    * @param request DescribeInvocationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInvocationsResponse
+   */
   async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63858,6 +67451,10 @@ export default class Client extends OpenApi {
       query["RepeatMode"] = request.repeatMode;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -63891,6 +67488,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
   }
 
+  /**
+    * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution results.
+    * *   You can query information about command executions within the last four weeks. A maximum of 100,000 pieces of execution information can be retained.
+    *
+    * @param request DescribeInvocationsRequest
+    * @return DescribeInvocationsResponse
+   */
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
@@ -64111,6 +67715,14 @@ export default class Client extends OpenApi {
     return await this.describeLaunchTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeLimitationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeLimitationResponse
+   */
+  // Deprecated
   async describeLimitationWithOptions(request: DescribeLimitationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLimitationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64151,6 +67763,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLimitationResponse>(await this.callApi(params, req, runtime), new DescribeLimitationResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeLimitationRequest
+    * @return DescribeLimitationResponse
+   */
+  // Deprecated
   async describeLimitation(request: DescribeLimitationRequest): Promise<DescribeLimitationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLimitationWithOptions(request, runtime);
@@ -64211,6 +67830,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -64233,6 +67856,14 @@ export default class Client extends OpenApi {
     return await this.describeManagedInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeNatGatewaysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNatGatewaysResponse
+   */
+  // Deprecated
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64289,6 +67920,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewaysResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeNatGatewaysRequest
+    * @return DescribeNatGatewaysResponse
+   */
+  // Deprecated
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatGatewaysWithOptions(request, runtime);
@@ -64420,6 +68058,14 @@ export default class Client extends OpenApi {
     return await this.describeNetworkInterfacePermissionsWithOptions(request, runtime);
   }
 
+  /**
+    * The `DescribeNetworkInterfaces` operation supports multiple pagination mechanisms. We recommend that you set `MaxResults` to specify the maximum number of entries to return in each request. The returned value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+    * > If you specify `MaxResults` or `NextToken`, the system returns results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+    *
+    * @param request DescribeNetworkInterfacesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNetworkInterfacesResponse
+   */
   async describeNetworkInterfacesWithOptions(request: DescribeNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkInterfacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64540,11 +68186,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkInterfacesResponse({}));
   }
 
+  /**
+    * The `DescribeNetworkInterfaces` operation supports multiple pagination mechanisms. We recommend that you set `MaxResults` to specify the maximum number of entries to return in each request. The returned value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+    * > If you specify `MaxResults` or `NextToken`, the system returns results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+    *
+    * @param request DescribeNetworkInterfacesRequest
+    * @return DescribeNetworkInterfacesResponse
+   */
   async describeNetworkInterfaces(request: DescribeNetworkInterfacesRequest): Promise<DescribeNetworkInterfacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkInterfacesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeNewProjectEipMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeNewProjectEipMonitorDataResponse
+   */
+  // Deprecated
   async describeNewProjectEipMonitorDataWithOptions(request: DescribeNewProjectEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNewProjectEipMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64601,11 +68262,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNewProjectEipMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeNewProjectEipMonitorDataResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeNewProjectEipMonitorDataRequest
+    * @return DescribeNewProjectEipMonitorDataResponse
+   */
+  // Deprecated
   async describeNewProjectEipMonitorData(request: DescribeNewProjectEipMonitorDataRequest): Promise<DescribeNewProjectEipMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNewProjectEipMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribePhysicalConnectionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePhysicalConnectionsResponse
+   */
+  // Deprecated
   async describePhysicalConnectionsWithOptions(request: DescribePhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64666,6 +68342,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhysicalConnectionsResponse>(await this.callApi(params, req, runtime), new DescribePhysicalConnectionsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribePhysicalConnectionsRequest
+    * @return DescribePhysicalConnectionsResponse
+   */
+  // Deprecated
   async describePhysicalConnections(request: DescribePhysicalConnectionsRequest): Promise<DescribePhysicalConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhysicalConnectionsWithOptions(request, runtime);
@@ -64785,6 +68468,14 @@ export default class Client extends OpenApi {
     return await this.describePrefixListAttributesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can specify the `AddressFamily`, `PrefixListId.N`, and `PrefixListName` request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    *
+    * @param request DescribePrefixListsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePrefixListsResponse
+   */
   async describePrefixListsWithOptions(request: DescribePrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePrefixListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64849,6 +68540,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePrefixListsResponse>(await this.callApi(params, req, runtime), new DescribePrefixListsResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can specify the `AddressFamily`, `PrefixListId.N`, and `PrefixListName` request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    *
+    * @param request DescribePrefixListsRequest
+    * @return DescribePrefixListsResponse
+   */
   async describePrefixLists(request: DescribePrefixListsRequest): Promise<DescribePrefixListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePrefixListsWithOptions(request, runtime);
@@ -64973,7 +68671,11 @@ export default class Client extends OpenApi {
       query["DataDisk"] = request.dataDisk;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.schedulerOptions)) {
+      query["SchedulerOptions"] = request.schedulerOptions;
+    }
+
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -65104,6 +68806,13 @@ export default class Client extends OpenApi {
     return await this.describeRecommendInstanceTypeWithOptions(request, runtime);
   }
 
+  /**
+    * ****
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65152,11 +68861,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * ****
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
+    * *   Take note of the following items:
+    *     *   If you set only the required parameters, the price for renewing a specified instance for one month is queried by default.
+    *     *   The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the synchronized expiration date-related parameter (`ExpectedRenewDay`) are mutually exclusive. You cannot set these parameters together to query the prices for renewing a specified instance for a period of time and to a synchronized expiration date at the same time.
+    *
+    * @param request DescribeRenewalPriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRenewalPriceResponse
+   */
   async describeRenewalPriceWithOptions(request: DescribeRenewalPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRenewalPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65217,9 +68943,68 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRenewalPriceResponse>(await this.callApi(params, req, runtime), new DescribeRenewalPriceResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
+    * *   Take note of the following items:
+    *     *   If you set only the required parameters, the price for renewing a specified instance for one month is queried by default.
+    *     *   The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the synchronized expiration date-related parameter (`ExpectedRenewDay`) are mutually exclusive. You cannot set these parameters together to query the prices for renewing a specified instance for a period of time and to a synchronized expiration date at the same time.
+    *
+    * @param request DescribeRenewalPriceRequest
+    * @return DescribeRenewalPriceResponse
+   */
   async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRenewalPriceWithOptions(request, runtime);
+  }
+
+  async describeReservedInstanceAutoRenewAttributeWithOptions(request: DescribeReservedInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReservedInstanceAutoRenewAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reservedInstanceId)) {
+      query["ReservedInstanceId"] = request.reservedInstanceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeReservedInstanceAutoRenewAttribute",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeReservedInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeReservedInstanceAutoRenewAttributeResponse({}));
+  }
+
+  async describeReservedInstanceAutoRenewAttribute(request: DescribeReservedInstanceAutoRenewAttributeRequest): Promise<DescribeReservedInstanceAutoRenewAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeReservedInstanceAutoRenewAttributeWithOptions(request, runtime);
   }
 
   async describeReservedInstancesWithOptions(request: DescribeReservedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReservedInstancesResponse> {
@@ -65457,6 +69242,14 @@ export default class Client extends OpenApi {
     return await this.describeResourcesModificationWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRouteTablesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRouteTablesResponse
+   */
+  // Deprecated
   async describeRouteTablesWithOptions(request: DescribeRouteTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65525,11 +69318,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouteTablesResponse>(await this.callApi(params, req, runtime), new DescribeRouteTablesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRouteTablesRequest
+    * @return DescribeRouteTablesResponse
+   */
+  // Deprecated
   async describeRouteTables(request: DescribeRouteTablesRequest): Promise<DescribeRouteTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteTablesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRouterInterfacesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRouterInterfacesResponse
+   */
+  // Deprecated
   async describeRouterInterfacesWithOptions(request: DescribeRouterInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouterInterfacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65578,6 +69386,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouterInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeRouterInterfacesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeRouterInterfacesRequest
+    * @return DescribeRouterInterfacesResponse
+   */
+  // Deprecated
   async describeRouterInterfaces(request: DescribeRouterInterfacesRequest): Promise<DescribeRouterInterfacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouterInterfacesWithOptions(request, runtime);
@@ -65640,6 +69455,16 @@ export default class Client extends OpenApi {
     return await this.describeSecurityGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   A security group can be referenced by the inbound or outbound rules of other security groups.
+    * *   Up to 100 entries can be returned each time.
+    * *   If a security group cannot be deleted by calling the [DeleteSecurityGroup](~~25558~~) operation, you can call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must remove the reference before you can delete the security group.
+    *
+    * @param request DescribeSecurityGroupReferencesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSecurityGroupReferencesResponse
+   */
   async describeSecurityGroupReferencesWithOptions(request: DescribeSecurityGroupReferencesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupReferencesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65684,11 +69509,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupReferencesResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupReferencesResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   A security group can be referenced by the inbound or outbound rules of other security groups.
+    * *   Up to 100 entries can be returned each time.
+    * *   If a security group cannot be deleted by calling the [DeleteSecurityGroup](~~25558~~) operation, you can call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must remove the reference before you can delete the security group.
+    *
+    * @param request DescribeSecurityGroupReferencesRequest
+    * @return DescribeSecurityGroupReferencesResponse
+   */
   async describeSecurityGroupReferences(request: DescribeSecurityGroupReferencesRequest): Promise<DescribeSecurityGroupReferencesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupReferencesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   The basic information of security groups includes their IDs and descriptions. In the response, security groups are displayed in descending order of their IDs.
+    * *   We recommend that you use the NextToken and MaxResults parameters for a paged query. During a paged query, when you call the DescribeSecurityGroups operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeSecurityGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. If the return value of NextToken is empty, the current page of results is the last page and no more results are to be returned.
+    * *   When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeSecurityGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroupsWithOptions(request: DescribeSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65789,11 +69633,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupsResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   The basic information of security groups includes their IDs and descriptions. In the response, security groups are displayed in descending order of their IDs.
+    * *   We recommend that you use the NextToken and MaxResults parameters for a paged query. During a paged query, when you call the DescribeSecurityGroups operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeSecurityGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call. If the return value of NextToken is empty, the current page of results is the last page and no more results are to be returned.
+    * *   When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeSecurityGroupsRequest
+    * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroups(request: DescribeSecurityGroupsRequest): Promise<DescribeSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Usage notes
+    * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check whether the file is successfully sent.
+    * *   You can call this operation to query the records of files sent in the last six weeks.
+    *
+    * @param request DescribeSendFileResultsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSendFileResultsResponse
+   */
   async describeSendFileResultsWithOptions(request: DescribeSendFileResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSendFileResultsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65833,12 +69695,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -65858,11 +69728,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
   }
 
+  /**
+    * ## Usage notes
+    * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check whether the file is successfully sent.
+    * *   You can call this operation to query the records of files sent in the last six weeks.
+    *
+    * @param request DescribeSendFileResultsRequest
+    * @return DescribeSendFileResultsResponse
+   */
   async describeSendFileResults(request: DescribeSendFileResultsRequest): Promise<DescribeSendFileResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSendFileResultsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    *
+    * @param request DescribeSnapshotGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotGroupsResponse
+   */
   async describeSnapshotGroupsWithOptions(request: DescribeSnapshotGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65939,11 +69825,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotGroupsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotGroupsResponse({}));
   }
 
+  /**
+    * ## Description
+    * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    *
+    * @param request DescribeSnapshotGroupsRequest
+    * @return DescribeSnapshotGroupsResponse
+   */
   async describeSnapshotGroups(request: DescribeSnapshotGroupsRequest): Promise<DescribeSnapshotGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can specify multiple request parameters such as `RegionId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations.
+    * *   Only the specified parameters are used as filter conditions. If the `DiskIds` and `SnapshotLinkIds` parameters are set to empty JSON arrays, they are regarded as valid filter conditions and an empty result is returned.
+    *
+    * @param request DescribeSnapshotLinksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotLinksResponse
+   */
   async describeSnapshotLinksWithOptions(request: DescribeSnapshotLinksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotLinksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66004,11 +69906,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotLinksResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotLinksResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You can specify multiple request parameters such as `RegionId`, `DiskIds`, and `InstanceId` to be queried. Specified parameters have logical AND relations.
+    * *   Only the specified parameters are used as filter conditions. If the `DiskIds` and `SnapshotLinkIds` parameters are set to empty JSON arrays, they are regarded as valid filter conditions and an empty result is returned.
+    *
+    * @param request DescribeSnapshotLinksRequest
+    * @return DescribeSnapshotLinksResponse
+   */
   async describeSnapshotLinks(request: DescribeSnapshotLinksRequest): Promise<DescribeSnapshotLinksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotLinksWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 400 entries of monitoring data can be returned at a time. If the result of the `(EndTime - StartTime)/Period` formula is greater than 400, an error is returned.
+    * *   Only the monitored data within the last 30 days can be queried. If the value of `StartTime` is more than 30 days earlier than when you call this operation, an error is returned.
+    *
+    * @param request DescribeSnapshotMonitorDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotMonitorDataResponse
+   */
   async describeSnapshotMonitorDataWithOptions(request: DescribeSnapshotMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66065,6 +69984,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotMonitorDataResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   Up to 400 entries of monitoring data can be returned at a time. If the result of the `(EndTime - StartTime)/Period` formula is greater than 400, an error is returned.
+    * *   Only the monitored data within the last 30 days can be queried. If the value of `StartTime` is more than 30 days earlier than when you call this operation, an error is returned.
+    *
+    * @param request DescribeSnapshotMonitorDataRequest
+    * @return DescribeSnapshotMonitorDataResponse
+   */
   async describeSnapshotMonitorData(request: DescribeSnapshotMonitorDataRequest): Promise<DescribeSnapshotMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotMonitorDataWithOptions(request, runtime);
@@ -66123,6 +70050,14 @@ export default class Client extends OpenApi {
     return await this.describeSnapshotPackageWithOptions(request, runtime);
   }
 
+  /**
+    * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeSnapshotsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotsResponse
+   */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66243,11 +70178,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
+  /**
+    * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+    * When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](~~110340~~).
+    *
+    * @param request DescribeSnapshotsRequest
+    * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+    * If you want to view the snapshot usage information about each disk in the current region, we recommend that you call the [DescribeSnapshotLinks](~~55837~~) operation to query snapshot chain information.
+    *
+    * @param request DescribeSnapshotsUsageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSnapshotsUsageResponse
+   */
   async describeSnapshotsUsageWithOptions(request: DescribeSnapshotsUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66292,11 +70241,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsUsageResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsUsageResponse({}));
   }
 
+  /**
+    * If you want to view the snapshot usage information about each disk in the current region, we recommend that you call the [DescribeSnapshotLinks](~~55837~~) operation to query snapshot chain information.
+    *
+    * @param request DescribeSnapshotsUsageRequest
+    * @return DescribeSnapshotsUsageResponse
+   */
   async describeSnapshotsUsage(request: DescribeSnapshotsUsageRequest): Promise<DescribeSnapshotsUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsUsageWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation to query information that is generated for preemptible instances in the last 30 days and select suitable instance types based on the query results. The information that you can query by calling this operation includes:
+    *     * Average release rate of preemptible instances
+    *     * Percentage of the average preemptible instance price relative to the pay-as-you-go instance price
+    *     * Average preemptible instance price that is calculated based on the preceding percentage
+    * * This operation is applicable only to I/O optimized preemptible instances that are located in virtual private clouds (VPCs).
+    * * You can use one of the following methods to query information that is generated for preemptible instances in the last 30 days:
+    *     * Set the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters to query information about instance types that have the specified number of vCPUs and memory size.
+    *     * Set the `InstanceTypes.N` parameter to query information of the specified instance types.
+    *     * Set the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters, and set the `InstanceTypeFamily` or `InstanceFamilyLevel` parameter to query information of the instance types that have the specified number of vCPUs and memory size within the specified instance family or at the specified instance family level.
+    *
+    * @param request DescribeSpotAdviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSpotAdviceResponse
+   */
   async describeSpotAdviceWithOptions(request: DescribeSpotAdviceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpotAdviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66377,6 +70347,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSpotAdviceResponse>(await this.callApi(params, req, runtime), new DescribeSpotAdviceResponse({}));
   }
 
+  /**
+    * * You can call this operation to query information that is generated for preemptible instances in the last 30 days and select suitable instance types based on the query results. The information that you can query by calling this operation includes:
+    *     * Average release rate of preemptible instances
+    *     * Percentage of the average preemptible instance price relative to the pay-as-you-go instance price
+    *     * Average preemptible instance price that is calculated based on the preceding percentage
+    * * This operation is applicable only to I/O optimized preemptible instances that are located in virtual private clouds (VPCs).
+    * * You can use one of the following methods to query information that is generated for preemptible instances in the last 30 days:
+    *     * Set the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters to query information about instance types that have the specified number of vCPUs and memory size.
+    *     * Set the `InstanceTypes.N` parameter to query information of the specified instance types.
+    *     * Set the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters, and set the `InstanceTypeFamily` or `InstanceFamilyLevel` parameter to query information of the instance types that have the specified number of vCPUs and memory size within the specified instance family or at the specified instance family level.
+    *
+    * @param request DescribeSpotAdviceRequest
+    * @return DescribeSpotAdviceResponse
+   */
   async describeSpotAdvice(request: DescribeSpotAdviceRequest): Promise<DescribeSpotAdviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSpotAdviceWithOptions(request, runtime);
@@ -66682,6 +70666,13 @@ export default class Client extends OpenApi {
     return await this.describeStorageSetsWithOptions(request, runtime);
   }
 
+  /**
+    * If a tag key is specified and no tag values are specified, all tags that contain the tag key are returned. If a tag key-value pair is specified, only tags that exactly match the key-value pair are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66742,6 +70733,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+    * If a tag key is specified and no tag values are specified, all tags that contain the tag key are returned. If a tag key-value pair is specified, only tags that exactly match the key-value pair are returned.
+    *
+    * @param request DescribeTagsRequest
+    * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
@@ -66819,6 +70816,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -66865,6 +70866,14 @@ export default class Client extends OpenApi {
     return await this.describeTasksWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeUserBusinessBehaviorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserBusinessBehaviorResponse
+   */
+  // Deprecated
   async describeUserBusinessBehaviorWithOptions(request: DescribeUserBusinessBehaviorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBusinessBehaviorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66909,11 +70918,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserBusinessBehaviorResponse>(await this.callApi(params, req, runtime), new DescribeUserBusinessBehaviorResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeUserBusinessBehaviorRequest
+    * @return DescribeUserBusinessBehaviorResponse
+   */
+  // Deprecated
   async describeUserBusinessBehavior(request: DescribeUserBusinessBehaviorRequest): Promise<DescribeUserBusinessBehaviorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserBusinessBehaviorWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   The returned user data is encoded in Base64.
+    * *   If the instance does not have user data configured, an empty result is returned.
+    *
+    * @param request DescribeUserDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserDataResponse
+   */
   async describeUserDataWithOptions(request: DescribeUserDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66954,11 +70979,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserDataResponse>(await this.callApi(params, req, runtime), new DescribeUserDataResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   The returned user data is encoded in Base64.
+    * *   If the instance does not have user data configured, an empty result is returned.
+    *
+    * @param request DescribeUserDataRequest
+    * @return DescribeUserDataResponse
+   */
   async describeUserData(request: DescribeUserDataRequest): Promise<DescribeUserDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserDataWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVRoutersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVRoutersResponse
+   */
+  // Deprecated
   async describeVRoutersWithOptions(request: DescribeVRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVRoutersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67011,11 +71052,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVRoutersResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVRoutersRequest
+    * @return DescribeVRoutersResponse
+   */
+  // Deprecated
   async describeVRouters(request: DescribeVRoutersRequest): Promise<DescribeVRoutersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVRoutersWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVSwitchesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVSwitchesResponse
+   */
+  // Deprecated
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67080,11 +71136,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVSwitchesRequest
+    * @return DescribeVSwitchesResponse
+   */
+  // Deprecated
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVirtualBorderRoutersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVirtualBorderRoutersResponse
+   */
+  // Deprecated
   async describeVirtualBorderRoutersWithOptions(request: DescribeVirtualBorderRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67133,11 +71204,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualBorderRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVirtualBorderRoutersRequest
+    * @return DescribeVirtualBorderRoutersResponse
+   */
+  // Deprecated
   async describeVirtualBorderRouters(request: DescribeVirtualBorderRoutersRequest): Promise<DescribeVirtualBorderRoutersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualBorderRoutersWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+   */
+  // Deprecated
   async describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67190,11 +71276,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualBorderRoutersForPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersForPhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+    * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+   */
+  // Deprecated
   async describeVirtualBorderRoutersForPhysicalConnection(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVpcsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVpcsResponse
+   */
+  // Deprecated
   async describeVpcsWithOptions(request: DescribeVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67251,6 +71352,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcsResponse>(await this.callApi(params, req, runtime), new DescribeVpcsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request DescribeVpcsRequest
+    * @return DescribeVpcsResponse
+   */
+  // Deprecated
   async describeVpcs(request: DescribeVpcsRequest): Promise<DescribeVpcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcsWithOptions(request, runtime);
@@ -67468,6 +71576,15 @@ export default class Client extends OpenApi {
     return await this.detachInstanceRamRoleWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After you detach an SSH key pair from an instance, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the detach operation to take effect.
+    * *   The username and password authentication method is automatically selected for an instance after you unbind an SSH key pair from the instance.
+    *
+    * @param request DetachKeyPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachKeyPairResponse
+   */
   async detachKeyPairWithOptions(request: DetachKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<DetachKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67512,11 +71629,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachKeyPairResponse>(await this.callApi(params, req, runtime), new DetachKeyPairResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   After you detach an SSH key pair from an instance, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the detach operation to take effect.
+    * *   The username and password authentication method is automatically selected for an instance after you unbind an SSH key pair from the instance.
+    *
+    * @param request DetachKeyPairRequest
+    * @return DetachKeyPairResponse
+   */
   async detachKeyPair(request: DetachKeyPairRequest): Promise<DetachKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachKeyPairWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * The primary ENIs of ECS instances cannot be unbound.
+    * * The ENI must be in the Detaching (Detaching) or InUse (InUse) state.
+    * * The instance must be in the Running (Running) or Stopped (Stopped) state.
+    *
+    * @param request DetachNetworkInterfaceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachNetworkInterfaceResponse
+   */
   async detachNetworkInterfaceWithOptions(request: DetachNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DetachNetworkInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67573,6 +71708,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachNetworkInterfaceResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * The primary ENIs of ECS instances cannot be unbound.
+    * * The ENI must be in the Detaching (Detaching) or InUse (InUse) state.
+    * * The instance must be in the Running (Running) or Stopped (Stopped) state.
+    *
+    * @param request DetachNetworkInterfaceRequest
+    * @return DetachNetworkInterfaceResponse
+   */
   async detachNetworkInterface(request: DetachNetworkInterfaceRequest): Promise<DetachNetworkInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachNetworkInterfaceWithOptions(request, runtime);
@@ -67631,6 +71775,14 @@ export default class Client extends OpenApi {
     return await this.disableActivationWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipFillParamsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EipFillParamsResponse
+   */
+  // Deprecated
   async eipFillParamsWithOptions(request: EipFillParamsRequest, runtime: $Util.RuntimeOptions): Promise<EipFillParamsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67679,11 +71831,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EipFillParamsResponse>(await this.callApi(params, req, runtime), new EipFillParamsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipFillParamsRequest
+    * @return EipFillParamsResponse
+   */
+  // Deprecated
   async eipFillParams(request: EipFillParamsRequest): Promise<EipFillParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.eipFillParamsWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipFillProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EipFillProductResponse
+   */
+  // Deprecated
   async eipFillProductWithOptions(request: EipFillProductRequest, runtime: $Util.RuntimeOptions): Promise<EipFillProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67732,11 +71899,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EipFillProductResponse>(await this.callApi(params, req, runtime), new EipFillProductResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipFillProductRequest
+    * @return EipFillProductResponse
+   */
+  // Deprecated
   async eipFillProduct(request: EipFillProductRequest): Promise<EipFillProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.eipFillProductWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipNotifyPaidRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EipNotifyPaidResponse
+   */
+  // Deprecated
   async eipNotifyPaidWithOptions(request: EipNotifyPaidRequest, runtime: $Util.RuntimeOptions): Promise<EipNotifyPaidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67785,11 +71967,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EipNotifyPaidResponse>(await this.callApi(params, req, runtime), new EipNotifyPaidResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EipNotifyPaidRequest
+    * @return EipNotifyPaidResponse
+   */
+  // Deprecated
   async eipNotifyPaid(request: EipNotifyPaidRequest): Promise<EipNotifyPaidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.eipNotifyPaidWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EnablePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnablePhysicalConnectionResponse
+   */
+  // Deprecated
   async enablePhysicalConnectionWithOptions(request: EnablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnablePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67842,6 +72039,13 @@ export default class Client extends OpenApi {
     return $tea.cast<EnablePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new EnablePhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request EnablePhysicalConnectionRequest
+    * @return EnablePhysicalConnectionResponse
+   */
+  // Deprecated
   async enablePhysicalConnection(request: EnablePhysicalConnectionRequest): Promise<EnablePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enablePhysicalConnectionWithOptions(request, runtime);
@@ -67908,6 +72112,14 @@ export default class Client extends OpenApi {
     return await this.exportImageWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ExportSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExportSnapshotResponse
+   */
+  // Deprecated
   async exportSnapshotWithOptions(request: ExportSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ExportSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67956,11 +72168,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportSnapshotResponse>(await this.callApi(params, req, runtime), new ExportSnapshotResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ExportSnapshotRequest
+    * @return ExportSnapshotResponse
+   */
+  // Deprecated
   async exportSnapshot(request: ExportSnapshotRequest): Promise<ExportSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportSnapshotWithOptions(request, runtime);
   }
 
+  /**
+    * *   ECS is a virtualized cloud-based service and cannot be connected to display devices. However, Alibaba Cloud caches system command outputs for the last start, restart, or shutdown of ECS instances. You can call the GetInstanceConsoleOutput operation to obtain the command outputs.
+    * *   The command outputs of instances that use the retired instance types cannot be obtained. For more information, see [Retired instance types](~~55263~~).
+    * *   The command outputs of Windows instances cannot be obtained.
+    *
+    * @param request GetInstanceConsoleOutputRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceConsoleOutputResponse
+   */
   async getInstanceConsoleOutputWithOptions(request: GetInstanceConsoleOutputRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsoleOutputResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68013,6 +72241,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceConsoleOutputResponse>(await this.callApi(params, req, runtime), new GetInstanceConsoleOutputResponse({}));
   }
 
+  /**
+    * *   ECS is a virtualized cloud-based service and cannot be connected to display devices. However, Alibaba Cloud caches system command outputs for the last start, restart, or shutdown of ECS instances. You can call the GetInstanceConsoleOutput operation to obtain the command outputs.
+    * *   The command outputs of instances that use the retired instance types cannot be obtained. For more information, see [Retired instance types](~~55263~~).
+    * *   The command outputs of Windows instances cannot be obtained.
+    *
+    * @param request GetInstanceConsoleOutputRequest
+    * @return GetInstanceConsoleOutputResponse
+   */
   async getInstanceConsoleOutput(request: GetInstanceConsoleOutputRequest): Promise<GetInstanceConsoleOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceConsoleOutputWithOptions(request, runtime);
@@ -68164,6 +72400,27 @@ export default class Client extends OpenApi {
     return await this.importImageWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * A maximum of 500 key pairs can be created in each region.
+    * * The key pair that you wan to import must support one of the following encryption methods:
+    *     * rsa
+    *     * dsa
+    *     * ssh-rsa
+    *     * ssh-dss
+    *     * ecdsa
+    *     * ssh-rsa-cert-v00@openssh.com
+    *     * ssh-dss-cert-v00@openssh.com
+    *     * ssh-rsa-cert-v01@openssh.com
+    *     * ssh-dss-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp256-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp384-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp521-cert-v01@openssh.com
+    *
+    * @param request ImportKeyPairRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportKeyPairResponse
+   */
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68216,11 +72473,39 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportKeyPairResponse>(await this.callApi(params, req, runtime), new ImportKeyPairResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * * A maximum of 500 key pairs can be created in each region.
+    * * The key pair that you wan to import must support one of the following encryption methods:
+    *     * rsa
+    *     * dsa
+    *     * ssh-rsa
+    *     * ssh-dss
+    *     * ecdsa
+    *     * ssh-rsa-cert-v00@openssh.com
+    *     * ssh-dss-cert-v00@openssh.com
+    *     * ssh-rsa-cert-v01@openssh.com
+    *     * ssh-dss-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp256-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp384-cert-v01@openssh.com
+    *     * ecdsa-sha2-nistp521-cert-v01@openssh.com
+    *
+    * @param request ImportKeyPairRequest
+    * @return ImportKeyPairResponse
+   */
   async importKeyPair(request: ImportKeyPairRequest): Promise<ImportKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importKeyPairWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ImportSnapshotRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportSnapshotResponse
+   */
+  // Deprecated
   async importSnapshotWithOptions(request: ImportSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ImportSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68273,6 +72558,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportSnapshotResponse>(await this.callApi(params, req, runtime), new ImportSnapshotResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ImportSnapshotRequest
+    * @return ImportSnapshotResponse
+   */
+  // Deprecated
   async importSnapshot(request: ImportSnapshotRequest): Promise<ImportSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importSnapshotWithOptions(request, runtime);
@@ -68331,6 +72623,26 @@ export default class Client extends OpenApi {
     return await this.installCloudAssistantWithOptions(request, runtime);
   }
 
+  /**
+    * *   The ECS instances on which to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
+    *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
+    *     *   The instances are in the Running (`Running`) state.
+    *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
+    * *   If `Timed` is set to false, the command is run only once.
+    * *   If `Timed` is set to true, the command is run on a schedule.
+    *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
+    *     *   If you want to specify a schedule by using a cron expression, you can set a time zone based on your requirements. If you do not set a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *           - Linux: 2.2.3.282 
+    *           - Windows: 2.1.3.282 
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+    * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must specify custom parameters (`Parameters`) when you run the command.
+    *
+    * @param tmpReq InvokeCommandRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InvokeCommandResponse
+   */
   async invokeCommandWithOptions(tmpReq: InvokeCommandRequest, runtime: $Util.RuntimeOptions): Promise<InvokeCommandResponse> {
     Util.validateModel(tmpReq);
     let request = new InvokeCommandShrinkRequest({ });
@@ -68384,6 +72696,10 @@ export default class Client extends OpenApi {
       query["RepeatMode"] = request.repeatMode;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -68392,8 +72708,16 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.timed)) {
       query["Timed"] = request.timed;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
     }
 
     if (!Util.isUnset(request.username)) {
@@ -68421,11 +72745,38 @@ export default class Client extends OpenApi {
     return $tea.cast<InvokeCommandResponse>(await this.callApi(params, req, runtime), new InvokeCommandResponse({}));
   }
 
+  /**
+    * *   The ECS instances on which to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
+    *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
+    *     *   The instances are in the Running (`Running`) state.
+    *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
+    *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
+    * *   If `Timed` is set to false, the command is run only once.
+    * *   If `Timed` is set to true, the command is run on a schedule.
+    *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
+    *     *   If you want to specify a schedule by using a cron expression, you can set a time zone based on your requirements. If you do not set a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *           - Linux: 2.2.3.282 
+    *           - Windows: 2.1.3.282 
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+    * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must specify custom parameters (`Parameters`) when you run the command.
+    *
+    * @param request InvokeCommandRequest
+    * @return InvokeCommandResponse
+   */
   async invokeCommand(request: InvokeCommandRequest): Promise<InvokeCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.invokeCommandWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * A resource is a cloud service entity that you create in Alibaba Cloud, such as an ECS instance, elastic network interface (ENI), or image. A resource group is a collection of infrastructure for projects, environments, or stacks. In a resource group, you can manage resources and monitor and run tasks in a centralized manner without switching between Alibaba Cloud services.
+    *
+    * @param request JoinResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return JoinResourceGroupResponse
+   */
   async joinResourceGroupWithOptions(request: JoinResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<JoinResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68478,6 +72829,13 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinResourceGroupResponse>(await this.callApi(params, req, runtime), new JoinResourceGroupResponse({}));
   }
 
+  /**
+    * ## Description
+    * A resource is a cloud service entity that you create in Alibaba Cloud, such as an ECS instance, elastic network interface (ENI), or image. A resource group is a collection of infrastructure for projects, environments, or stacks. In a resource group, you can manage resources and monitor and run tasks in a centralized manner without switching between Alibaba Cloud services.
+    *
+    * @param request JoinResourceGroupRequest
+    * @return JoinResourceGroupResponse
+   */
   async joinResourceGroup(request: JoinResourceGroupRequest): Promise<JoinResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinResourceGroupWithOptions(request, runtime);
@@ -68597,6 +72955,15 @@ export default class Client extends OpenApi {
     return await this.leaveSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
+    * - 2.2.3.344 for Linux instances
+    * - 2.1.3.344 for Windows instances
+    *
+    * @param request ListPluginStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListPluginStatusResponse
+   */
   async listPluginStatusWithOptions(request: ListPluginStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListPluginStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68657,6 +73024,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPluginStatusResponse>(await this.callApi(params, req, runtime), new ListPluginStatusResponse({}));
   }
 
+  /**
+    * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
+    * - 2.2.3.344 for Linux instances
+    * - 2.1.3.344 for Windows instances
+    *
+    * @param request ListPluginStatusRequest
+    * @return ListPluginStatusResponse
+   */
   async listPluginStatus(request: ListPluginStatusRequest): Promise<ListPluginStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPluginStatusWithOptions(request, runtime);
@@ -68731,6 +73106,15 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   If you modify the capacity or capacity-related settings of an auto provisioning group, the group executes a scheduling task once after the group is modified.
+    * *   You cannot modify an auto provisioning group when the group is being deleted.
+    *
+    * @param request ModifyAutoProvisioningGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAutoProvisioningGroupResponse
+   */
   async modifyAutoProvisioningGroupWithOptions(request: ModifyAutoProvisioningGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoProvisioningGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68811,11 +73195,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoProvisioningGroupResponse>(await this.callApi(params, req, runtime), new ModifyAutoProvisioningGroupResponse({}));
   }
 
+  /**
+    * Before you call this operation, take note of the following items:
+    * *   If you modify the capacity or capacity-related settings of an auto provisioning group, the group executes a scheduling task once after the group is modified.
+    * *   You cannot modify an auto provisioning group when the group is being deleted.
+    *
+    * @param request ModifyAutoProvisioningGroupRequest
+    * @return ModifyAutoProvisioningGroupResponse
+   */
   async modifyAutoProvisioningGroup(request: ModifyAutoProvisioningGroupRequest): Promise<ModifyAutoProvisioningGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoProvisioningGroupWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyAutoSnapshotPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAutoSnapshotPolicyResponse
+   */
+  // Deprecated
   async modifyAutoSnapshotPolicyWithOptions(request: ModifyAutoSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoSnapshotPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68884,6 +73284,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAutoSnapshotPolicyResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyAutoSnapshotPolicyRequest
+    * @return ModifyAutoSnapshotPolicyResponse
+   */
+  // Deprecated
   async modifyAutoSnapshotPolicy(request: ModifyAutoSnapshotPolicyRequest): Promise<ModifyAutoSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoSnapshotPolicyWithOptions(request, runtime);
@@ -68962,6 +73369,14 @@ export default class Client extends OpenApi {
     return await this.modifyAutoSnapshotPolicyExWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyBandwidthPackageSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBandwidthPackageSpecResponse
+   */
+  // Deprecated
   async modifyBandwidthPackageSpecWithOptions(request: ModifyBandwidthPackageSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBandwidthPackageSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69010,6 +73425,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBandwidthPackageSpecResponse>(await this.callApi(params, req, runtime), new ModifyBandwidthPackageSpecResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyBandwidthPackageSpecRequest
+    * @return ModifyBandwidthPackageSpecResponse
+   */
+  // Deprecated
   async modifyBandwidthPackageSpec(request: ModifyBandwidthPackageSpecRequest): Promise<ModifyBandwidthPackageSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBandwidthPackageSpecWithOptions(request, runtime);
@@ -69062,7 +73484,7 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -69161,6 +73583,15 @@ export default class Client extends OpenApi {
     return await this.modifyCommandWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
+    * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
+    *
+    * @param request ModifyDedicatedHostAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedHostAttributeResponse
+   */
   async modifyDedicatedHostAttributeWithOptions(request: ModifyDedicatedHostAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69212,7 +73643,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.networkAttributes))) {
+    if (!Util.isUnset(request.networkAttributes)) {
       query["NetworkAttributes"] = request.networkAttributes;
     }
 
@@ -69233,6 +73664,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedHostAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostAttributeResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   All the Elastic Compute Service (ECS) instances that are hosted on a dedicated host must be in the Stopped (`Stopped`) state before you can modify the CPU overcommit ratio of the dedicated host.
+    * *   Modifications to the CPU overcommit ratio of a dedicated host do not affect the operation of the dedicated host. After the CPU overcommit ratio is modified, the number of allocated vCPUs on the dedicated host cannot exceed the new total number of vCPUs. Otherwise, ECS instances that use the excess vCPUs cannot start.
+    *
+    * @param request ModifyDedicatedHostAttributeRequest
+    * @return ModifyDedicatedHostAttributeResponse
+   */
   async modifyDedicatedHostAttribute(request: ModifyDedicatedHostAttributeRequest): Promise<ModifyDedicatedHostAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedHostAttributeWithOptions(request, runtime);
@@ -69291,6 +73730,15 @@ export default class Client extends OpenApi {
     return await this.modifyDedicatedHostAutoReleaseTimeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   If you enable auto-renewal for your subscription dedicated host, the dedicated host is automatically renewed nine days before expiration. The renewal fees are automatically paid at 08:00:00 (UTC+8). If the fees are not paid, they are paid at the same point in time the next day. Automatic payment stops after the fees are paid or after the dedicated host expires and is locked. Make sure that you have sufficient balance within your account.
+    * *   Subscription dedicated hosts can be automatically renewed along with the subscription Elastic Compute Service (ECS) instances hosted on the dedicated hosts. For more information, see the description of the AutoRenewWithEcs parameter.
+    *
+    * @param request ModifyDedicatedHostAutoRenewAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedHostAutoRenewAttributeResponse
+   */
   async modifyDedicatedHostAutoRenewAttributeWithOptions(request: ModifyDedicatedHostAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69355,6 +73803,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedHostAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostAutoRenewAttributeResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   If you enable auto-renewal for your subscription dedicated host, the dedicated host is automatically renewed nine days before expiration. The renewal fees are automatically paid at 08:00:00 (UTC+8). If the fees are not paid, they are paid at the same point in time the next day. Automatic payment stops after the fees are paid or after the dedicated host expires and is locked. Make sure that you have sufficient balance within your account.
+    * *   Subscription dedicated hosts can be automatically renewed along with the subscription Elastic Compute Service (ECS) instances hosted on the dedicated hosts. For more information, see the description of the AutoRenewWithEcs parameter.
+    *
+    * @param request ModifyDedicatedHostAutoRenewAttributeRequest
+    * @return ModifyDedicatedHostAutoRenewAttributeResponse
+   */
   async modifyDedicatedHostAutoRenewAttribute(request: ModifyDedicatedHostAutoRenewAttributeRequest): Promise<ModifyDedicatedHostAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedHostAutoRenewAttributeWithOptions(request, runtime);
@@ -69770,6 +74226,21 @@ export default class Client extends OpenApi {
     return await this.modifyDiskAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * When you call this operation, take note of the following items:
+    * *   You can change the billing method from subscription to pay-as-you-go for subscription disks that are attached to a subscription instance.
+    * *   You can change the billing method from pay-as-you-go to subscription for pay-as-you-go data disks that are attached to a subscription or pay-as-you-go instance.
+    * *   The instance cannot be in the Stopped state due to overdue payments.
+    * *   You can change the billing method for each disk three times at most. A maximum of three refunds can be made for price differences for a single instance.
+    * *   The price difference is refunded to the payment account you used. Coupons that have been redeemed are not refundable.
+    * *   You cannot change the billing method of a disk again within five minutes after the billing method is changed.
+    *
+    * @param request ModifyDiskChargeTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDiskChargeTypeResponse
+   */
   async modifyDiskChargeTypeWithOptions(request: ModifyDiskChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69830,6 +74301,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDiskChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyDiskChargeTypeResponse({}));
   }
 
+  /**
+    * ## Description
+    * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * When you call this operation, take note of the following items:
+    * *   You can change the billing method from subscription to pay-as-you-go for subscription disks that are attached to a subscription instance.
+    * *   You can change the billing method from pay-as-you-go to subscription for pay-as-you-go data disks that are attached to a subscription or pay-as-you-go instance.
+    * *   The instance cannot be in the Stopped state due to overdue payments.
+    * *   You can change the billing method for each disk three times at most. A maximum of three refunds can be made for price differences for a single instance.
+    * *   The price difference is refunded to the payment account you used. Coupons that have been redeemed are not refundable.
+    * *   You cannot change the billing method of a disk again within five minutes after the billing method is changed.
+    *
+    * @param request ModifyDiskChargeTypeRequest
+    * @return ModifyDiskChargeTypeResponse
+   */
   async modifyDiskChargeType(request: ModifyDiskChargeTypeRequest): Promise<ModifyDiskChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDiskChargeTypeWithOptions(request, runtime);
@@ -69896,6 +74381,14 @@ export default class Client extends OpenApi {
     return await this.modifyDiskSpecWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyEipAddressAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyEipAddressAttributeResponse
+   */
+  // Deprecated
   async modifyEipAddressAttributeWithOptions(request: ModifyEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEipAddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69944,6 +74437,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEipAddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyEipAddressAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyEipAddressAttributeRequest
+    * @return ModifyEipAddressAttributeResponse
+   */
+  // Deprecated
   async modifyEipAddressAttribute(request: ModifyEipAddressAttributeRequest): Promise<ModifyEipAddressAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEipAddressAttributeWithOptions(request, runtime);
@@ -69976,7 +74476,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -70002,6 +74502,14 @@ export default class Client extends OpenApi {
     return await this.modifyElasticityAssuranceWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyForwardEntryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyForwardEntryResponse
+   */
+  // Deprecated
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70070,11 +74578,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyForwardEntryResponse>(await this.callApi(params, req, runtime), new ModifyForwardEntryResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyForwardEntryRequest
+    * @return ModifyForwardEntryResponse
+   */
+  // Deprecated
   async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyHaVipAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyHaVipAttributeResponse
+   */
+  // Deprecated
   async modifyHaVipAttributeWithOptions(request: ModifyHaVipAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHaVipAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70127,6 +74650,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyHaVipAttributeResponse>(await this.callApi(params, req, runtime), new ModifyHaVipAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyHaVipAttributeRequest
+    * @return ModifyHaVipAttributeResponse
+   */
+  // Deprecated
   async modifyHaVipAttribute(request: ModifyHaVipAttributeRequest): Promise<ModifyHaVipAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHaVipAttributeWithOptions(request, runtime);
@@ -70208,7 +74738,7 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset($tea.toMap(request.features))) {
+    if (!Util.isUnset(request.features)) {
       query["Features"] = request.features;
     }
 
@@ -70274,6 +74804,14 @@ export default class Client extends OpenApi {
     return await this.modifyImageAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyImageShareGroupPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyImageShareGroupPermissionResponse
+   */
+  // Deprecated
   async modifyImageShareGroupPermissionWithOptions(request: ModifyImageShareGroupPermissionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageShareGroupPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70326,6 +74864,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyImageShareGroupPermissionResponse>(await this.callApi(params, req, runtime), new ModifyImageShareGroupPermissionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyImageShareGroupPermissionRequest
+    * @return ModifyImageShareGroupPermissionResponse
+   */
+  // Deprecated
   async modifyImageShareGroupPermission(request: ModifyImageShareGroupPermissionRequest): Promise<ModifyImageShareGroupPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyImageShareGroupPermissionWithOptions(request, runtime);
@@ -70423,7 +74968,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -70496,7 +75041,7 @@ export default class Client extends OpenApi {
       query["Recyclable"] = request.recyclable;
     }
 
-    if (!Util.isUnset($tea.toMap(request.remoteConnectionOptions))) {
+    if (!Util.isUnset(request.remoteConnectionOptions)) {
       query["RemoteConnectionOptions"] = request.remoteConnectionOptions;
     }
 
@@ -70656,6 +75201,23 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+    * When you call this operation, take note of the following items:
+    * * The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you have no overdue payments for them.
+    * * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the `AutoPay` parameter to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * * **Change the billing method from subscription to pay-as-you-go**:
+    *     * Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
+    *     * After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
+    *     * **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only when the next month arrives. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+    * * **Change the billing method from pay-as-you-go to subscription**:
+    *     * You can change the billing method of all data disks attached to an instance from pay-as-you-go to subscription.
+    *     * This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
+    *
+    * @param request ModifyInstanceChargeTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceChargeTypeResponse
+   */
   async modifyInstanceChargeTypeWithOptions(request: ModifyInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70732,11 +75294,40 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceChargeTypeResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing methods and pricing schedule of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+    * When you call this operation, take note of the following items:
+    * * The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you have no overdue payments for them.
+    * * After you change the billing method, automatic payment is enabled by default. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the `AutoPay` parameter to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+    * * **Change the billing method from subscription to pay-as-you-go**:
+    *     * Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
+    *     * After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
+    *     * **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only when the next month arrives. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+    * * **Change the billing method from pay-as-you-go to subscription**:
+    *     * You can change the billing method of all data disks attached to an instance from pay-as-you-go to subscription.
+    *     * This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
+    *
+    * @param request ModifyInstanceChargeTypeRequest
+    * @return ModifyInstanceChargeTypeResponse
+   */
   async modifyInstanceChargeType(request: ModifyInstanceChargeTypeRequest): Promise<ModifyInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation for an ECS instance, take note of the following items:
+    * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+    * *   The network type of the instance must be Virtual Private Cloud (VPC).
+    * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
+    * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
+    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+    * *   You can redeploy an instance to a specific dedicated host cluster.
+    *
+    * @param request ModifyInstanceDeploymentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyInstanceDeploymentResponse
+   */
   async modifyInstanceDeploymentWithOptions(request: ModifyInstanceDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70821,6 +75412,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceDeploymentResponse>(await this.callApi(params, req, runtime), new ModifyInstanceDeploymentResponse({}));
   }
 
+  /**
+    * When you call this operation for an ECS instance, take note of the following items:
+    * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+    * *   The network type of the instance must be Virtual Private Cloud (VPC).
+    * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
+    * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
+    * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+    * *   You can redeploy an instance to a specific dedicated host cluster.
+    *
+    * @param request ModifyInstanceDeploymentRequest
+    * @return ModifyInstanceDeploymentResponse
+   */
   async modifyInstanceDeployment(request: ModifyInstanceDeploymentRequest): Promise<ModifyInstanceDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceDeploymentWithOptions(request, runtime);
@@ -70904,6 +75507,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceMetadataTags)) {
+      query["InstanceMetadataTags"] = request.instanceMetadataTags;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -71072,11 +75679,11 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
-    if (!Util.isUnset($tea.toMap(request.temporary))) {
+    if (!Util.isUnset(request.temporary)) {
       query["Temporary"] = request.temporary;
     }
 
@@ -71399,6 +76006,14 @@ export default class Client extends OpenApi {
     return await this.modifyNetworkInterfaceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyPhysicalConnectionAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPhysicalConnectionAttributeResponse
+   */
+  // Deprecated
   async modifyPhysicalConnectionAttributeWithOptions(request: ModifyPhysicalConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhysicalConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71487,11 +76102,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPhysicalConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyPhysicalConnectionAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyPhysicalConnectionAttributeRequest
+    * @return ModifyPhysicalConnectionAttributeResponse
+   */
+  // Deprecated
   async modifyPhysicalConnectionAttribute(request: ModifyPhysicalConnectionAttributeRequest): Promise<ModifyPhysicalConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPhysicalConnectionAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#section-jua-0tj-q5m) section in Network FAQ.
+    * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
+    *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. These two CIDR blocks are the same.
+    *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. These two CIDR blocks are the same.
+    * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, the entry to be deleted cannot have the 10.0.0.0/8 CIDR block specified.
+    * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) in the entry.
+    *
+    * @param request ModifyPrefixListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPrefixListResponse
+   */
   async modifyPrefixListWithOptions(request: ModifyPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrefixListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71556,6 +76191,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrefixListResponse>(await this.callApi(params, req, runtime), new ModifyPrefixListResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   The specified CIDR block must be valid. For example, 10.0.0.0/8 is a valid CIDR block while 10.0.0.1/8 is not. For more information, see the [What is CIDR?](https://www.alibabacloud.com/help/doc-detail/40637.htm#section-jua-0tj-q5m) section in Network FAQ.
+    * *   When you add or delete an entry, you cannot specify duplicate CIDR blocks. Examples:
+    *     *   For IPv4 CIDR blocks, you cannot specify the 10.0.0.0/8 CIDR block in two entries. You cannot specify the 10.0.0.1/32 CIDR block in one entry and the 10.0.0.1 CIDR block in another entry. These two CIDR blocks are the same.
+    *     *   For IPv6 CIDR blocks, you cannot specify the 2001:fd01:0:0:0:0:0:0/32 CIDR block in one entry and the 2001:fd01::/32 CIDR block in another entry. These two CIDR blocks are the same.
+    * *   The CIDR block in an entry to be added cannot the same as that in an entry to be deleted. For example, when you add an entry in which the 10.0.0.0/8 CIDR block is specified, the entry to be deleted cannot have the 10.0.0.0/8 CIDR block specified.
+    * *   If you want to modify the description of an entry, you must specify the CIDR block (`AddEntry.N.Cidr`) and new description (`AddEntry.N.Description`) in the entry.
+    *
+    * @param request ModifyPrefixListRequest
+    * @return ModifyPrefixListResponse
+   */
   async modifyPrefixList(request: ModifyPrefixListRequest): Promise<ModifyPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrefixListWithOptions(request, runtime);
@@ -71620,7 +76267,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -71703,6 +76350,79 @@ export default class Client extends OpenApi {
     return await this.modifyReservedInstanceAttributeWithOptions(request, runtime);
   }
 
+  async modifyReservedInstanceAutoRenewAttributeWithOptions(request: ModifyReservedInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReservedInstanceAutoRenewAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.renewalStatus)) {
+      query["RenewalStatus"] = request.renewalStatus;
+    }
+
+    if (!Util.isUnset(request.reservedInstanceId)) {
+      query["ReservedInstanceId"] = request.reservedInstanceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyReservedInstanceAutoRenewAttribute",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyReservedInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new ModifyReservedInstanceAutoRenewAttributeResponse({}));
+  }
+
+  async modifyReservedInstanceAutoRenewAttribute(request: ModifyReservedInstanceAutoRenewAttributeRequest): Promise<ModifyReservedInstanceAutoRenewAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyReservedInstanceAutoRenewAttributeWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   For information about limits on reserved instances, see the "Limits" section in [Overview](~~100370~~).
+    * *   If you call this operation to split a reserved instance, make sure that you fully understand the limits on splitting a reserved instance. For more information, see [Split a reserved instance](~~100375~~).
+    * *   If you call this operation to merge reserved instances, make sure that you fully understand the limits on merging reserved instances. For more information, see [Merge reserved instances](~~132229~~).
+    * *   If you call this operation to modify a reserved instance, make sure that you fully understand the limits on and methods of modifying a reserved instance. For more information, see [Modify a reserved instance](~~132230~~).
+    *
+    * @param request ModifyReservedInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyReservedInstancesResponse
+   */
   async modifyReservedInstancesWithOptions(request: ModifyReservedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReservedInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71751,11 +76471,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyReservedInstancesResponse>(await this.callApi(params, req, runtime), new ModifyReservedInstancesResponse({}));
   }
 
+  /**
+    * ## Description
+    * When you call this operation, take note of the following items:
+    * *   For information about limits on reserved instances, see the "Limits" section in [Overview](~~100370~~).
+    * *   If you call this operation to split a reserved instance, make sure that you fully understand the limits on splitting a reserved instance. For more information, see [Split a reserved instance](~~100375~~).
+    * *   If you call this operation to merge reserved instances, make sure that you fully understand the limits on merging reserved instances. For more information, see [Merge reserved instances](~~132229~~).
+    * *   If you call this operation to modify a reserved instance, make sure that you fully understand the limits on and methods of modifying a reserved instance. For more information, see [Modify a reserved instance](~~132230~~).
+    *
+    * @param request ModifyReservedInstancesRequest
+    * @return ModifyReservedInstancesResponse
+   */
   async modifyReservedInstances(request: ModifyReservedInstancesRequest): Promise<ModifyReservedInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyReservedInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyRouterInterfaceAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRouterInterfaceAttributeResponse
+   */
+  // Deprecated
   async modifyRouterInterfaceAttributeWithOptions(request: ModifyRouterInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71828,11 +76567,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouterInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyRouterInterfaceAttributeRequest
+    * @return ModifyRouterInterfaceAttributeResponse
+   */
+  // Deprecated
   async modifyRouterInterfaceAttribute(request: ModifyRouterInterfaceAttributeRequest): Promise<ModifyRouterInterfaceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouterInterfaceAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyRouterInterfaceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyRouterInterfaceSpecResponse
+   */
+  // Deprecated
   async modifyRouterInterfaceSpecWithOptions(request: ModifyRouterInterfaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71889,6 +76643,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouterInterfaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceSpecResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyRouterInterfaceSpecRequest
+    * @return ModifyRouterInterfaceSpecResponse
+   */
+  // Deprecated
   async modifyRouterInterfaceSpec(request: ModifyRouterInterfaceSpecRequest): Promise<ModifyRouterInterfaceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouterInterfaceSpecWithOptions(request, runtime);
@@ -72036,6 +76797,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupRuleId)) {
+      query["SecurityGroupRuleId"] = request.securityGroupRuleId;
     }
 
     if (!Util.isUnset(request.sourceCidrIp)) {
@@ -72194,6 +76959,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupRuleId)) {
+      query["SecurityGroupRuleId"] = request.securityGroupRuleId;
     }
 
     if (!Util.isUnset(request.sourceCidrIp)) {
@@ -72474,6 +77243,14 @@ export default class Client extends OpenApi {
     return await this.modifyStorageSetAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyUserBusinessBehaviorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyUserBusinessBehaviorResponse
+   */
+  // Deprecated
   async modifyUserBusinessBehaviorWithOptions(request: ModifyUserBusinessBehaviorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserBusinessBehaviorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72522,11 +77299,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUserBusinessBehaviorResponse>(await this.callApi(params, req, runtime), new ModifyUserBusinessBehaviorResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyUserBusinessBehaviorRequest
+    * @return ModifyUserBusinessBehaviorResponse
+   */
+  // Deprecated
   async modifyUserBusinessBehavior(request: ModifyUserBusinessBehaviorRequest): Promise<ModifyUserBusinessBehaviorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUserBusinessBehaviorWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVRouterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVRouterAttributeResponse
+   */
+  // Deprecated
   async modifyVRouterAttributeWithOptions(request: ModifyVRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVRouterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72579,11 +77371,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVRouterAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVRouterAttributeRequest
+    * @return ModifyVRouterAttributeResponse
+   */
+  // Deprecated
   async modifyVRouterAttribute(request: ModifyVRouterAttributeRequest): Promise<ModifyVRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVRouterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVSwitchAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVSwitchAttributeResponse
+   */
+  // Deprecated
   async modifyVSwitchAttributeWithOptions(request: ModifyVSwitchAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72636,11 +77443,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVSwitchAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVSwitchAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVSwitchAttributeRequest
+    * @return ModifyVSwitchAttributeResponse
+   */
+  // Deprecated
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVSwitchAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVirtualBorderRouterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVirtualBorderRouterAttributeResponse
+   */
+  // Deprecated
   async modifyVirtualBorderRouterAttributeWithOptions(request: ModifyVirtualBorderRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72721,11 +77543,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVirtualBorderRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVirtualBorderRouterAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVirtualBorderRouterAttributeRequest
+    * @return ModifyVirtualBorderRouterAttributeResponse
+   */
+  // Deprecated
   async modifyVirtualBorderRouterAttribute(request: ModifyVirtualBorderRouterAttributeRequest): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVirtualBorderRouterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVpcAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyVpcAttributeResponse
+   */
+  // Deprecated
   async modifyVpcAttributeWithOptions(request: ModifyVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72786,14 +77623,37 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpcAttributeResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ModifyVpcAttributeRequest
+    * @return ModifyVpcAttributeResponse
+   */
+  // Deprecated
   async modifyVpcAttribute(request: ModifyVpcAttributeRequest): Promise<ModifyVpcAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * *   Before you call this operation, make sure that you understand how reserved instances are billed. For more information, see [Reserved instances](~~100371~~).
+    * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](~~66186~~) operation to query available instance resources.
+    *
+    * @param request PurchaseReservedInstancesOfferingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PurchaseReservedInstancesOfferingResponse
+   */
   async purchaseReservedInstancesOfferingWithOptions(request: PurchaseReservedInstancesOfferingRequest, runtime: $Util.RuntimeOptions): Promise<PurchaseReservedInstancesOfferingResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewPeriod)) {
+      query["AutoRenewPeriod"] = request.autoRenewPeriod;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -72883,6 +77743,13 @@ export default class Client extends OpenApi {
     return $tea.cast<PurchaseReservedInstancesOfferingResponse>(await this.callApi(params, req, runtime), new PurchaseReservedInstancesOfferingResponse({}));
   }
 
+  /**
+    * *   Before you call this operation, make sure that you understand how reserved instances are billed. For more information, see [Reserved instances](~~100371~~).
+    * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](~~66186~~) operation to query available instance resources.
+    *
+    * @param request PurchaseReservedInstancesOfferingRequest
+    * @return PurchaseReservedInstancesOfferingResponse
+   */
   async purchaseReservedInstancesOffering(request: PurchaseReservedInstancesOfferingRequest): Promise<PurchaseReservedInstancesOfferingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.purchaseReservedInstancesOfferingWithOptions(request, runtime);
@@ -73083,6 +77950,16 @@ export default class Client extends OpenApi {
     return await this.reInitDiskWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only instances that are in the `Running` state can be restarted.****
+    * *   After the ECS instance is restarted, the status of the instance changes to `Starting`.****
+    * *   An instance can be forcibly restarted. A forced restart (`ForceStop`) is equivalent to performing a hard restart. This operation can cause data loss if data in the instance is not written to the disk.
+    * *   If you call the DescribeInstances operation to query the details of an instance and `OperationLocks` in the response contains "LockReason": "security", the instance is locked for security reasons and cannot be restarted. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    *
+    * @param request RebootInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RebootInstanceResponse
+   */
   async rebootInstanceWithOptions(request: RebootInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73131,11 +78008,31 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootInstanceResponse>(await this.callApi(params, req, runtime), new RebootInstanceResponse({}));
   }
 
+  /**
+    * *   Only instances that are in the `Running` state can be restarted.****
+    * *   After the ECS instance is restarted, the status of the instance changes to `Starting`.****
+    * *   An instance can be forcibly restarted. A forced restart (`ForceStop`) is equivalent to performing a hard restart. This operation can cause data loss if data in the instance is not written to the disk.
+    * *   If you call the DescribeInstances operation to query the details of an instance and `OperationLocks` in the response contains "LockReason": "security", the instance is locked for security reasons and cannot be restarted. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    *
+    * @param request RebootInstanceRequest
+    * @return RebootInstanceResponse
+   */
   async rebootInstance(request: RebootInstanceRequest): Promise<RebootInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Description
+    * *   The ECS instances to be restarted must be in the **Running** (`Running`) state.
+    * *   Batch operations are supported. You can use the `BatchOptimization` parameter to specify the batch operation mode.
+    * *   Instances can be forcibly restarted. A forced restart (`ForceStop`) is equivalent to powering off traditional servers to restart them. This operation can cause data loss if data in the instance is not written to Elastic Block Storage devices.
+    * *   If the response contains`{"OperationLocks": {"LockReason" : "security"}}` when you query information of an instance, the instance is locked for security reasons and all operations are prohibited on the instance.
+    *
+    * @param request RebootInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RebootInstancesResponse
+   */
   async rebootInstancesWithOptions(request: RebootInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RebootInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73192,11 +78089,29 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootInstancesResponse>(await this.callApi(params, req, runtime), new RebootInstancesResponse({}));
   }
 
+  /**
+    * ## Description
+    * *   The ECS instances to be restarted must be in the **Running** (`Running`) state.
+    * *   Batch operations are supported. You can use the `BatchOptimization` parameter to specify the batch operation mode.
+    * *   Instances can be forcibly restarted. A forced restart (`ForceStop`) is equivalent to powering off traditional servers to restart them. This operation can cause data loss if data in the instance is not written to Elastic Block Storage devices.
+    * *   If the response contains`{"OperationLocks": {"LockReason" : "security"}}` when you query information of an instance, the instance is locked for security reasons and all operations are prohibited on the instance.
+    *
+    * @param request RebootInstancesRequest
+    * @return RebootInstancesResponse
+   */
   async rebootInstances(request: RebootInstancesRequest): Promise<RebootInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request RecoverVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RecoverVirtualBorderRouterResponse
+   */
+  // Deprecated
   async recoverVirtualBorderRouterWithOptions(request: RecoverVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<RecoverVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73249,6 +78164,13 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new RecoverVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request RecoverVirtualBorderRouterRequest
+    * @return RecoverVirtualBorderRouterResponse
+   */
+  // Deprecated
   async recoverVirtualBorderRouter(request: RecoverVirtualBorderRouterRequest): Promise<RecoverVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoverVirtualBorderRouterWithOptions(request, runtime);
@@ -73379,7 +78301,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -73405,6 +78327,13 @@ export default class Client extends OpenApi {
     return await this.releaseCapacityReservationWithOptions(request, runtime);
   }
 
+  /**
+    * Before you release a pay-as-you-go dedicated host, make sure that no Elastic Compute Service (ECS) instances are deployed on the dedicated host.
+    *
+    * @param request ReleaseDedicatedHostRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseDedicatedHostResponse
+   */
   async releaseDedicatedHostWithOptions(request: ReleaseDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDedicatedHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73449,11 +78378,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseDedicatedHostResponse>(await this.callApi(params, req, runtime), new ReleaseDedicatedHostResponse({}));
   }
 
+  /**
+    * Before you release a pay-as-you-go dedicated host, make sure that no Elastic Compute Service (ECS) instances are deployed on the dedicated host.
+    *
+    * @param request ReleaseDedicatedHostRequest
+    * @return ReleaseDedicatedHostResponse
+   */
   async releaseDedicatedHost(request: ReleaseDedicatedHostRequest): Promise<ReleaseDedicatedHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseDedicatedHostWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ReleaseEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseEipAddressResponse
+   */
+  // Deprecated
   async releaseEipAddressWithOptions(request: ReleaseEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73498,6 +78441,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseEipAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipAddressResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ReleaseEipAddressRequest
+    * @return ReleaseEipAddressResponse
+   */
+  // Deprecated
   async releaseEipAddress(request: ReleaseEipAddressRequest): Promise<ReleaseEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEipAddressWithOptions(request, runtime);
@@ -73506,28 +78456,20 @@ export default class Client extends OpenApi {
   async releasePublicIpAddressWithOptions(request: ReleasePublicIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePublicIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.publicIpAddress)) {
       query["PublicIpAddress"] = request.publicIpAddress;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -73552,6 +78494,14 @@ export default class Client extends OpenApi {
     return await this.releasePublicIpAddressWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request RemoveBandwidthPackageIpsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveBandwidthPackageIpsResponse
+   */
+  // Deprecated
   async removeBandwidthPackageIpsWithOptions(request: RemoveBandwidthPackageIpsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBandwidthPackageIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73604,6 +78554,13 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveBandwidthPackageIpsResponse>(await this.callApi(params, req, runtime), new RemoveBandwidthPackageIpsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request RemoveBandwidthPackageIpsRequest
+    * @return RemoveBandwidthPackageIpsResponse
+   */
+  // Deprecated
   async removeBandwidthPackageIps(request: RemoveBandwidthPackageIpsRequest): Promise<RemoveBandwidthPackageIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeBandwidthPackageIpsWithOptions(request, runtime);
@@ -73787,6 +78744,14 @@ export default class Client extends OpenApi {
   async renewReservedInstancesWithOptions(request: RenewReservedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RenewReservedInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewPeriod)) {
+      query["AutoRenewPeriod"] = request.autoRenewPeriod;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -73845,11 +78810,35 @@ export default class Client extends OpenApi {
     return await this.renewReservedInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You must specify `ImageId` or `DiskId`. If both `ImageId` and `DiskId` are specified, only `DiskId` takes effect.
+    * > You can configure the `DiskId` parameter to replace the operating system of an instance. This feature is in invitational preview. To use this feature, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+    * *   The category of the system disk cannot be changed.
+    * *   The billing method of the system disk cannot be changed.
+    * *   The instance must be in the Stopped (`Stopped`) state.
+    *     **
+    *     **Note**This item is applicable only to instances that reside in virtual private clouds (VPCs). If the instance is a pay-as-you-go instance and economical mode is enabled for the instance, you must set the stop mode to standard mode when you stop the instance. This ensures that the required resources are available for the instance to start after the system disk is replaced. For more information, see [StopInstance](~~25501~~).
+    * *   The instance must not be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    * *   You cannot have unpaid orders for the instance.
+    * *   You can configure the `SystemDisk.Size` parameter to specify the capacity of the new system disk.
+    * After you call this operation, you can use one of the following methods to check whether the system disk is replaced:
+    * *   Call the [DescribeDisks](~~25514~~) operation to query the state of the new system disk. If the new system disk is in the In_use state, the system disk is replaced.
+    * *   Call the [DescribeInstances](~~25506~~) operation to query the state of the instance whose system disk is replaced. If the `OperationLocks` response parameter is empty, the system disk is replaced.
+    *
+    * @param request ReplaceSystemDiskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReplaceSystemDiskResponse
+   */
   async replaceSystemDiskWithOptions(request: ReplaceSystemDiskRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceSystemDiskResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.architecture)) {
       query["Architecture"] = request.architecture;
+    }
+
+    if (!Util.isUnset(request.arn)) {
+      query["Arn"] = request.arn;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -73860,12 +78849,24 @@ export default class Client extends OpenApi {
       query["DiskId"] = request.diskId;
     }
 
+    if (!Util.isUnset(request.encryptAlgorithm)) {
+      query["EncryptAlgorithm"] = request.encryptAlgorithm;
+    }
+
+    if (!Util.isUnset(request.encrypted)) {
+      query["Encrypted"] = request.encrypted;
+    }
+
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
     }
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.KMSKeyId)) {
+      query["KMSKeyId"] = request.KMSKeyId;
     }
 
     if (!Util.isUnset(request.keyPairName)) {
@@ -73908,7 +78909,7 @@ export default class Client extends OpenApi {
       query["UseAdditionalService"] = request.useAdditionalService;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -73929,6 +78930,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ReplaceSystemDiskResponse>(await this.callApi(params, req, runtime), new ReplaceSystemDiskResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following items:
+    * *   You must specify `ImageId` or `DiskId`. If both `ImageId` and `DiskId` are specified, only `DiskId` takes effect.
+    * > You can configure the `DiskId` parameter to replace the operating system of an instance. This feature is in invitational preview. To use this feature, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
+    * *   The category of the system disk cannot be changed.
+    * *   The billing method of the system disk cannot be changed.
+    * *   The instance must be in the Stopped (`Stopped`) state.
+    *     **
+    *     **Note**This item is applicable only to instances that reside in virtual private clouds (VPCs). If the instance is a pay-as-you-go instance and economical mode is enabled for the instance, you must set the stop mode to standard mode when you stop the instance. This ensures that the required resources are available for the instance to start after the system disk is replaced. For more information, see [StopInstance](~~25501~~).
+    * *   The instance must not be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](~~25695~~).
+    * *   You cannot have unpaid orders for the instance.
+    * *   You can configure the `SystemDisk.Size` parameter to specify the capacity of the new system disk.
+    * After you call this operation, you can use one of the following methods to check whether the system disk is replaced:
+    * *   Call the [DescribeDisks](~~25514~~) operation to query the state of the new system disk. If the new system disk is in the In_use state, the system disk is replaced.
+    * *   Call the [DescribeInstances](~~25506~~) operation to query the state of the instance whose system disk is replaced. If the `OperationLocks` response parameter is empty, the system disk is replaced.
+    *
+    * @param request ReplaceSystemDiskRequest
+    * @return ReplaceSystemDiskResponse
+   */
   async replaceSystemDisk(request: ReplaceSystemDiskRequest): Promise<ReplaceSystemDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.replaceSystemDiskWithOptions(request, runtime);
@@ -74261,6 +79281,10 @@ export default class Client extends OpenApi {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
+    if (!Util.isUnset(request.securityGroupRuleId)) {
+      query["SecurityGroupRuleId"] = request.securityGroupRuleId;
+    }
+
     if (!Util.isUnset(request.sourceCidrIp)) {
       query["SourceCidrIp"] = request.sourceCidrIp;
     }
@@ -74410,6 +79434,10 @@ export default class Client extends OpenApi {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
+    if (!Util.isUnset(request.securityGroupRuleId)) {
+      query["SecurityGroupRuleId"] = request.securityGroupRuleId;
+    }
+
     if (!Util.isUnset(request.sourceCidrIp)) {
       query["SourceCidrIp"] = request.sourceCidrIp;
     }
@@ -74440,6 +79468,28 @@ export default class Client extends OpenApi {
     return await this.revokeSecurityGroupEgressWithOptions(request, runtime);
   }
 
+  /**
+    * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operation, RunCommand can be used to create and run a command within a single request.
+    * When you call this operation, take note of the following item:
+    * *   The instances on which you want to run a command must reside in a virtual private cloud (VPC).
+    * *   The instances must be in the `Running` state.
+    * *   The Cloud Assistant client must be installed on the instances. For more information, see [InstallCloudAssistant](~~85916~~).
+    * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+    * *   If you want to specify a schedule by using a cron expression, you can set a time zone based on your requirements. If you do not set a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    * *   You can specify the `TimeOut` parameter to set the timeout period for executions of the command on instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process.
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *           - Linux: 2.2.3.282 
+    *           - Windows: 2.1.3.282 
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+    * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you set the `CommandContent` parameter, you can define custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can call the [DescribeAccountAttribute](~~73772~~) operation to query quotas.
+    *
+    * @param tmpReq RunCommandRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunCommandResponse
+   */
   async runCommandWithOptions(tmpReq: RunCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunCommandResponse> {
     Util.validateModel(tmpReq);
     let request = new RunCommandShrinkRequest({ });
@@ -74513,6 +79563,10 @@ export default class Client extends OpenApi {
       query["RepeatMode"] = request.repeatMode;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -74566,11 +79620,59 @@ export default class Client extends OpenApi {
     return $tea.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
   }
 
+  /**
+    * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operation, RunCommand can be used to create and run a command within a single request.
+    * When you call this operation, take note of the following item:
+    * *   The instances on which you want to run a command must reside in a virtual private cloud (VPC).
+    * *   The instances must be in the `Running` state.
+    * *   The Cloud Assistant client must be installed on the instances. For more information, see [InstallCloudAssistant](~~85916~~).
+    * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+    * *   If you want to specify a schedule by using a cron expression, you can set a time zone based on your requirements. If you do not set a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+    * *   You can specify the `TimeOut` parameter to set the timeout period for executions of the command on instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process.
+    *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *           - Linux: 2.2.3.282 
+    *           - Windows: 2.1.3.282 
+    * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
+    * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you set the `CommandContent` parameter, you can define custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+    * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can call the [DescribeAccountAttribute](~~73772~~) operation to query quotas.
+    *
+    * @param request RunCommandRequest
+    * @return RunCommandResponse
+   */
   async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runCommandWithOptions(request, runtime);
   }
 
+  /**
+    * * **Preparations**:
+    *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+    *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
+    *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
+    *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+    *     * Network planning: Make sure that you have security groups available for use. For more information, see [CreateSecurityGroup](~~25553~~). Before you create an instance of the Virtual Private Cloud (VPC) type, create a VPC in the region where you want to create the instance. For more information, see [Create a VPC](~~65430~~).
+    * * **Precautions**:
+    *     * You can create a maximum of 100 instances at a time.
+    *     * You can use the `AutoReleaseTime` parameter to set the time when you want the instances to be automatically released.
+    *     * After instances are created, you can call the [DescribeInstances](~~25506~~) operation to check their states.
+    *     * By default, instances automatically start after they are created. Instances are ready for use when they are in the Running (`Running`) state.
+    *     * As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy for your account. To increase the maximum bandwidth value, submit a ticket. The throttling policy imposes the following constraints: Within a single region, the total maximum bandwidth value of all instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s and that of all instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
+    *     * Different from the [CreateInstance](~~25499~~) operation, the `RunInstances` operation allows the system to assign public IP addresses to the new instances if you set the `InternetMaxBandwidthOut` parameter to a value greater than 0.
+    *     * When you call the RunInstances operation to create an instance, you can use one of the following methods to bind a primary elastic network interface (ENI) to the instance. Note that you can use only one of the methods to configure the primary ENI in each call. Otherwise, the call fails and an error message is returned. Specify parameters such as `SecurityGroupId`, `VSwitchId`, `PrivateIpAddress`, `NetworkInterfaceQueueNumber`, and `Ipv6AddressCount` to configure the primary ENI. Specify parameters that start with `NetworkInterface.N.` to configure the primary and secondary ENIs. If `NetworkInterface.N.InstanceType` is set to `Primary`, the primary ENI is bound to the instance. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, a secondary ENI is bound to the instance.
+    *     * After you call this operation, an error is returned if a parameter is invalid or if available resources are insufficient. For more information, see the "Error codes" section of this topic.
+    * > If the `QuotaExceed.ElasticQuota` error is returned when you call this operation, you have reached the maximum number of instances of the specified instance type that can be created within the specified region or the maximum number of vCPUs for all instance types in a zone. You can go to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c8b.12215451.favorites.decs.5e3a336aMGTtzy#/privileges/quota) or [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas) to request a quota increase.
+    * * **Best practices**:
+    *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+    *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
+    *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
+    *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+    *
+    * @param request RunInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunInstancesResponse
+   */
   async runInstancesWithOptions(request: RunInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RunInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74846,27 +79948,27 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.cpuOptions))) {
+    if (!Util.isUnset(request.cpuOptions)) {
       query["CpuOptions"] = request.cpuOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.hibernationOptions))) {
+    if (!Util.isUnset(request.hibernationOptions)) {
       query["HibernationOptions"] = request.hibernationOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.schedulerOptions))) {
+    if (!Util.isUnset(request.schedulerOptions)) {
       query["SchedulerOptions"] = request.schedulerOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.securityOptions))) {
+    if (!Util.isUnset(request.securityOptions)) {
       query["SecurityOptions"] = request.securityOptions;
     }
 
-    if (!Util.isUnset($tea.toMap(request.systemDisk))) {
+    if (!Util.isUnset(request.systemDisk)) {
       query["SystemDisk"] = request.systemDisk;
     }
 
@@ -74887,11 +79989,50 @@ export default class Client extends OpenApi {
     return $tea.cast<RunInstancesResponse>(await this.callApi(params, req, runtime), new RunInstancesResponse({}));
   }
 
+  /**
+    * * **Preparations**:
+    *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+    *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
+    *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
+    *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+    *     * Network planning: Make sure that you have security groups available for use. For more information, see [CreateSecurityGroup](~~25553~~). Before you create an instance of the Virtual Private Cloud (VPC) type, create a VPC in the region where you want to create the instance. For more information, see [Create a VPC](~~65430~~).
+    * * **Precautions**:
+    *     * You can create a maximum of 100 instances at a time.
+    *     * You can use the `AutoReleaseTime` parameter to set the time when you want the instances to be automatically released.
+    *     * After instances are created, you can call the [DescribeInstances](~~25506~~) operation to check their states.
+    *     * By default, instances automatically start after they are created. Instances are ready for use when they are in the Running (`Running`) state.
+    *     * As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy for your account. To increase the maximum bandwidth value, submit a ticket. The throttling policy imposes the following constraints: Within a single region, the total maximum bandwidth value of all instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s and that of all instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
+    *     * Different from the [CreateInstance](~~25499~~) operation, the `RunInstances` operation allows the system to assign public IP addresses to the new instances if you set the `InternetMaxBandwidthOut` parameter to a value greater than 0.
+    *     * When you call the RunInstances operation to create an instance, you can use one of the following methods to bind a primary elastic network interface (ENI) to the instance. Note that you can use only one of the methods to configure the primary ENI in each call. Otherwise, the call fails and an error message is returned. Specify parameters such as `SecurityGroupId`, `VSwitchId`, `PrivateIpAddress`, `NetworkInterfaceQueueNumber`, and `Ipv6AddressCount` to configure the primary ENI. Specify parameters that start with `NetworkInterface.N.` to configure the primary and secondary ENIs. If `NetworkInterface.N.InstanceType` is set to `Primary`, the primary ENI is bound to the instance. If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, a secondary ENI is bound to the instance.
+    *     * After you call this operation, an error is returned if a parameter is invalid or if available resources are insufficient. For more information, see the "Error codes" section of this topic.
+    * > If the `QuotaExceed.ElasticQuota` error is returned when you call this operation, you have reached the maximum number of instances of the specified instance type that can be created within the specified region or the maximum number of vCPUs for all instance types in a zone. You can go to the [ECS console](https://ecs.console.aliyun.com/?spm=a2c8b.12215451.favorites.decs.5e3a336aMGTtzy#/privileges/quota) or [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas) to request a quota increase.
+    * * **Best practices**:
+    *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+    *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
+    *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
+    *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+    *
+    * @param request RunInstancesRequest
+    * @return RunInstancesResponse
+   */
   async runInstances(request: RunInstancesRequest): Promise<RunInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * * The instances to which to send a file must be in the Running (`Running`) state.
+    * * The Cloud Assistant client must be installed on the instances. For information about how to install the Cloud Assistant client, see [InstallCloudAssistant](~~85916~~).
+    * * Only the Cloud Assistant client versions that are later than the following ones support file sending. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *     * For Linux instances, the version of the Cloud Assistant client must be later than 1.0.2.569.
+    *     * For Windows instances, the version of the Cloud Assistant client must be later than 1.0.0.149.
+    * * The file to be sent must not exceed 32 KB in size after it is encoded in Base64.
+    * * The file may fail to be sent due to exceptions on the instances, network, or the Cloud Assistance client. Call the [DescribeSendFileResults](~~~~) operation to troubleshoot the issues.
+    *
+    * @param request SendFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendFileResponse
+   */
   async sendFileWithOptions(request: SendFileRequest, runtime: $Util.RuntimeOptions): Promise<SendFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74947,12 +80088,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.targetDir)) {
@@ -74980,11 +80129,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
   }
 
+  /**
+    * * The instances to which to send a file must be in the Running (`Running`) state.
+    * * The Cloud Assistant client must be installed on the instances. For information about how to install the Cloud Assistant client, see [InstallCloudAssistant](~~85916~~).
+    * * Only the Cloud Assistant client versions that are later than the following ones support file sending. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+    *     * For Linux instances, the version of the Cloud Assistant client must be later than 1.0.2.569.
+    *     * For Windows instances, the version of the Cloud Assistant client must be later than 1.0.0.149.
+    * * The file to be sent must not exceed 32 KB in size after it is encoded in Base64.
+    * * The file may fail to be sent due to exceptions on the instances, network, or the Cloud Assistance client. Call the [DescribeSendFileResults](~~~~) operation to troubleshoot the issues.
+    *
+    * @param request SendFileRequest
+    * @return SendFileResponse
+   */
   async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request StartElasticityAssuranceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartElasticityAssuranceResponse
+   */
+  // Deprecated
   async startElasticityAssuranceWithOptions(request: StartElasticityAssuranceRequest, runtime: $Util.RuntimeOptions): Promise<StartElasticityAssuranceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75008,7 +80177,7 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset($tea.toMap(request.privatePoolOptions))) {
+    if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
 
@@ -75029,6 +80198,13 @@ export default class Client extends OpenApi {
     return $tea.cast<StartElasticityAssuranceResponse>(await this.callApi(params, req, runtime), new StartElasticityAssuranceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request StartElasticityAssuranceRequest
+    * @return StartElasticityAssuranceResponse
+   */
+  // Deprecated
   async startElasticityAssurance(request: StartElasticityAssuranceRequest): Promise<StartElasticityAssuranceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startElasticityAssuranceWithOptions(request, runtime);
@@ -75453,6 +80629,13 @@ export default class Client extends OpenApi {
     return await this.stopInvocationWithOptions(request, runtime);
   }
 
+  /**
+    * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](~~25412~~).
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75505,11 +80688,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](~~25412~~).
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request TerminatePhysicalConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TerminatePhysicalConnectionResponse
+   */
+  // Deprecated
   async terminatePhysicalConnectionWithOptions(request: TerminatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TerminatePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75562,11 +80759,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new TerminatePhysicalConnectionResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request TerminatePhysicalConnectionRequest
+    * @return TerminatePhysicalConnectionResponse
+   */
+  // Deprecated
   async terminatePhysicalConnection(request: TerminatePhysicalConnectionRequest): Promise<TerminatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminatePhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request TerminateVirtualBorderRouterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TerminateVirtualBorderRouterResponse
+   */
+  // Deprecated
   async terminateVirtualBorderRouterWithOptions(request: TerminateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<TerminateVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75619,6 +80831,13 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new TerminateVirtualBorderRouterResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request TerminateVirtualBorderRouterRequest
+    * @return TerminateVirtualBorderRouterResponse
+   */
+  // Deprecated
   async terminateVirtualBorderRouter(request: TerminateVirtualBorderRouterRequest): Promise<TerminateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateVirtualBorderRouterWithOptions(request, runtime);
@@ -75629,6 +80848,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.ipv6Address)) {
       query["Ipv6Address"] = request.ipv6Address;
+    }
+
+    if (!Util.isUnset(request.ipv6Prefix)) {
+      query["Ipv6Prefix"] = request.ipv6Prefix;
     }
 
     if (!Util.isUnset(request.networkInterfaceId)) {
@@ -75684,6 +80907,10 @@ export default class Client extends OpenApi {
   async unassignPrivateIpAddressesWithOptions(request: UnassignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<UnassignPrivateIpAddressesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
     if (!Util.isUnset(request.networkInterfaceId)) {
       query["NetworkInterfaceId"] = request.networkInterfaceId;
     }
@@ -75738,6 +80965,14 @@ export default class Client extends OpenApi {
     return await this.unassignPrivateIpAddressesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UnassociateEipAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateEipAddressResponse
+   */
+  // Deprecated
   async unassociateEipAddressWithOptions(request: UnassociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75790,11 +81025,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateEipAddressResponse>(await this.callApi(params, req, runtime), new UnassociateEipAddressResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UnassociateEipAddressRequest
+    * @return UnassociateEipAddressResponse
+   */
+  // Deprecated
   async unassociateEipAddress(request: UnassociateEipAddressRequest): Promise<UnassociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UnassociateHaVipRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnassociateHaVipResponse
+   */
+  // Deprecated
   async unassociateHaVipWithOptions(request: UnassociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateHaVipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -75851,6 +81101,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateHaVipResponse>(await this.callApi(params, req, runtime), new UnassociateHaVipResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request UnassociateHaVipRequest
+    * @return UnassociateHaVipResponse
+   */
+  // Deprecated
   async unassociateHaVip(request: UnassociateHaVipRequest): Promise<UnassociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateHaVipWithOptions(request, runtime);
