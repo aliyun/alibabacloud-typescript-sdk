@@ -8300,6 +8300,7 @@ export class SubscribeBillToOSSRequest extends $tea.Model {
   bucketOwnerId?: number;
   bucketPath?: string;
   multAccountRelSubscribe?: string;
+  rowLimitPerFile?: number;
   subscribeBucket?: string;
   subscribeType?: string;
   static names(): { [key: string]: string } {
@@ -8308,6 +8309,7 @@ export class SubscribeBillToOSSRequest extends $tea.Model {
       bucketOwnerId: 'BucketOwnerId',
       bucketPath: 'BucketPath',
       multAccountRelSubscribe: 'MultAccountRelSubscribe',
+      rowLimitPerFile: 'RowLimitPerFile',
       subscribeBucket: 'SubscribeBucket',
       subscribeType: 'SubscribeType',
     };
@@ -8319,6 +8321,7 @@ export class SubscribeBillToOSSRequest extends $tea.Model {
       bucketOwnerId: 'number',
       bucketPath: 'string',
       multAccountRelSubscribe: 'string',
+      rowLimitPerFile: 'number',
       subscribeBucket: 'string',
       subscribeType: 'string',
     };
@@ -13037,6 +13040,7 @@ export class QueryBillOverviewResponseBodyData extends $tea.Model {
 export class QueryBillToOSSSubscriptionResponseBodyDataItemsItem extends $tea.Model {
   bucketOwnerId?: number;
   bucketPath?: string;
+  rowLimitPerFile?: number;
   subscribeBucket?: string;
   subscribeLanguage?: string;
   subscribeTime?: string;
@@ -13045,6 +13049,7 @@ export class QueryBillToOSSSubscriptionResponseBodyDataItemsItem extends $tea.Mo
     return {
       bucketOwnerId: 'BucketOwnerId',
       bucketPath: 'BucketPath',
+      rowLimitPerFile: 'RowLimitPerFile',
       subscribeBucket: 'SubscribeBucket',
       subscribeLanguage: 'SubscribeLanguage',
       subscribeTime: 'SubscribeTime',
@@ -13056,6 +13061,7 @@ export class QueryBillToOSSSubscriptionResponseBodyDataItemsItem extends $tea.Mo
     return {
       bucketOwnerId: 'number',
       bucketPath: 'string',
+      rowLimitPerFile: 'number',
       subscribeBucket: 'string',
       subscribeLanguage: 'string',
       subscribeTime: 'string',
@@ -20723,6 +20729,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.multAccountRelSubscribe)) {
       query["MultAccountRelSubscribe"] = request.multAccountRelSubscribe;
+    }
+
+    if (!Util.isUnset(request.rowLimitPerFile)) {
+      query["RowLimitPerFile"] = request.rowLimitPerFile;
     }
 
     if (!Util.isUnset(request.subscribeBucket)) {
