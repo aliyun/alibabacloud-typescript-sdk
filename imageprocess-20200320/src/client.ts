@@ -2865,7 +2865,11 @@ export class DetectLungNoduleResponseBodyDataSeriesElements extends $tea.Model {
   imageZ?: number;
   lobe?: string;
   lung?: string;
+  majorAxis?: number[];
   meanValue?: number;
+  minorAxis?: number[];
+  recistSOPInstanceUID?: string;
+  risk?: number;
   SOPInstanceUID?: string;
   volume?: number;
   x?: number;
@@ -2881,7 +2885,11 @@ export class DetectLungNoduleResponseBodyDataSeriesElements extends $tea.Model {
       imageZ: 'ImageZ',
       lobe: 'Lobe',
       lung: 'Lung',
+      majorAxis: 'MajorAxis',
       meanValue: 'MeanValue',
+      minorAxis: 'MinorAxis',
+      recistSOPInstanceUID: 'RecistSOPInstanceUID',
+      risk: 'Risk',
       SOPInstanceUID: 'SOPInstanceUID',
       volume: 'Volume',
       x: 'X',
@@ -2900,7 +2908,11 @@ export class DetectLungNoduleResponseBodyDataSeriesElements extends $tea.Model {
       imageZ: 'number',
       lobe: 'string',
       lung: 'string',
+      majorAxis: { 'type': 'array', 'itemType': 'number' },
       meanValue: 'number',
+      minorAxis: { 'type': 'array', 'itemType': 'number' },
+      recistSOPInstanceUID: 'string',
+      risk: 'number',
       SOPInstanceUID: 'string',
       volume: 'number',
       x: 'number',
@@ -4083,7 +4095,11 @@ export class ScreenChestCTResponseBodyDataLungNoduleSeriesElements extends $tea.
   imageZ?: number;
   lobe?: string;
   lung?: string;
+  majorAxis?: number[];
   meanValue?: number;
+  minorAxis?: number[];
+  recistSOPInstanceUID?: string;
+  risk?: number;
   SOPInstanceUID?: string;
   volume?: number;
   x?: number;
@@ -4099,7 +4115,11 @@ export class ScreenChestCTResponseBodyDataLungNoduleSeriesElements extends $tea.
       imageZ: 'ImageZ',
       lobe: 'Lobe',
       lung: 'Lung',
+      majorAxis: 'MajorAxis',
       meanValue: 'MeanValue',
+      minorAxis: 'MinorAxis',
+      recistSOPInstanceUID: 'RecistSOPInstanceUID',
+      risk: 'Risk',
       SOPInstanceUID: 'SOPInstanceUID',
       volume: 'Volume',
       x: 'X',
@@ -4118,7 +4138,11 @@ export class ScreenChestCTResponseBodyDataLungNoduleSeriesElements extends $tea.
       imageZ: 'number',
       lobe: 'string',
       lung: 'string',
+      majorAxis: { 'type': 'array', 'itemType': 'number' },
       meanValue: 'number',
+      minorAxis: { 'type': 'array', 'itemType': 'number' },
+      recistSOPInstanceUID: 'string',
+      risk: 'number',
       SOPInstanceUID: 'string',
       volume: 'number',
       x: 'number',
@@ -4215,18 +4239,18 @@ export class ScreenChestCTResponseBodyDataScreenEcLesion extends $tea.Model {
 
 export class ScreenChestCTResponseBodyDataScreenEc extends $tea.Model {
   lesion?: ScreenChestCTResponseBodyDataScreenEcLesion;
-  seriesInsanceUid?: string;
+  seriesInstanceUid?: string;
   static names(): { [key: string]: string } {
     return {
       lesion: 'Lesion',
-      seriesInsanceUid: 'SeriesInsanceUid',
+      seriesInstanceUid: 'SeriesInstanceUid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lesion: ScreenChestCTResponseBodyDataScreenEcLesion,
-      seriesInsanceUid: 'string',
+      seriesInstanceUid: 'string',
     };
   }
 
