@@ -2943,8 +2943,8 @@ export class VerifyAdvertisingRequestUser extends $tea.Model {
 }
 
 export class VerifyAdvertisingRequestVerifyad extends $tea.Model {
-  id?: number;
-  seat?: number;
+  id?: string;
+  seat?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -2954,8 +2954,8 @@ export class VerifyAdvertisingRequestVerifyad extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
-      seat: 'number',
+      id: 'string',
+      seat: 'string',
     };
   }
 
