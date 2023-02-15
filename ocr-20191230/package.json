@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ocr20191230",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
