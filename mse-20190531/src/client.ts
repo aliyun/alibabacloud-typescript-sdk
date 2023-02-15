@@ -744,6 +744,7 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
 export class AddGatewayRouteResponseBody extends $tea.Model {
   code?: number;
   data?: number;
+  errorCode?: string;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -752,6 +753,7 @@ export class AddGatewayRouteResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
+      errorCode: 'ErrorCode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -763,6 +765,7 @@ export class AddGatewayRouteResponseBody extends $tea.Model {
     return {
       code: 'number',
       data: 'number',
+      errorCode: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -4715,6 +4718,198 @@ export class ExportNacosConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExportNacosConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportZookeeperDataRequest extends $tea.Model {
+  acceptLanguage?: string;
+  exportType?: string;
+  instanceId?: string;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      exportType: 'ExportType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      exportType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportZookeeperDataResponseBody extends $tea.Model {
+  data?: ExportZookeeperDataResponseBodyData;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExportZookeeperDataResponseBodyData,
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportZookeeperDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExportZookeeperDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportZookeeperDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchLosslessRuleListRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appId?: string;
+  appName?: string;
+  namespace?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      namespace: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchLosslessRuleListResponseBody extends $tea.Model {
+  code?: string;
+  data?: FetchLosslessRuleListResponseBodyData;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: FetchLosslessRuleListResponseBodyData,
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchLosslessRuleListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FetchLosslessRuleListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FetchLosslessRuleListResponseBody,
     };
   }
 
@@ -8682,6 +8877,96 @@ export class ListEurekaServicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEurekaServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExportZookeeperDataRequest extends $tea.Model {
+  acceptLanguage?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExportZookeeperDataResponseBody extends $tea.Model {
+  data?: ListExportZookeeperDataResponseBodyData[];
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListExportZookeeperDataResponseBodyData },
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExportZookeeperDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListExportZookeeperDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExportZookeeperDataResponseBody,
     };
   }
 
@@ -13991,6 +14276,7 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
 export class UpdateGatewayRouteResponseBody extends $tea.Model {
   code?: number;
   data?: number;
+  errorCode?: string;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -13999,6 +14285,7 @@ export class UpdateGatewayRouteResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
+      errorCode: 'ErrorCode',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -14010,6 +14297,7 @@ export class UpdateGatewayRouteResponseBody extends $tea.Model {
     return {
       code: 'number',
       data: 'number',
+      errorCode: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -17777,6 +18065,129 @@ export class ExportNacosConfigResponseBodyData extends $tea.Model {
   }
 }
 
+export class ExportZookeeperDataResponseBodyData extends $tea.Model {
+  contentMap?: { [key: string]: any };
+  createTime?: number;
+  exportType?: string;
+  extend?: string;
+  id?: number;
+  instanceId?: string;
+  kubeoneTaskIds?: string;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentMap: 'ContentMap',
+      createTime: 'CreateTime',
+      exportType: 'ExportType',
+      extend: 'Extend',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      kubeoneTaskIds: 'KubeoneTaskIds',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      createTime: 'number',
+      exportType: 'string',
+      extend: 'string',
+      id: 'number',
+      instanceId: 'string',
+      kubeoneTaskIds: 'string',
+      status: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchLosslessRuleListResponseBodyDataResults extends $tea.Model {
+  aligned?: boolean;
+  appId?: string;
+  appName?: string;
+  count?: number;
+  delayTime?: number;
+  enable?: boolean;
+  funcType?: number;
+  lossLessDetail?: boolean;
+  notice?: boolean;
+  related?: boolean;
+  shutdownWaitSeconds?: number;
+  warmupTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aligned: 'Aligned',
+      appId: 'AppId',
+      appName: 'AppName',
+      count: 'Count',
+      delayTime: 'DelayTime',
+      enable: 'Enable',
+      funcType: 'FuncType',
+      lossLessDetail: 'LossLessDetail',
+      notice: 'Notice',
+      related: 'Related',
+      shutdownWaitSeconds: 'ShutdownWaitSeconds',
+      warmupTime: 'WarmupTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aligned: 'boolean',
+      appId: 'string',
+      appName: 'string',
+      count: 'number',
+      delayTime: 'number',
+      enable: 'boolean',
+      funcType: 'number',
+      lossLessDetail: 'boolean',
+      notice: 'boolean',
+      related: 'boolean',
+      shutdownWaitSeconds: 'number',
+      warmupTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchLosslessRuleListResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  results?: FetchLosslessRuleListResponseBodyDataResults[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      results: 'Results',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      results: { 'type': 'array', 'itemType': FetchLosslessRuleListResponseBodyDataResults },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppMessageQueueRouteResponseBodyData extends $tea.Model {
   appId?: string;
   enable?: boolean;
@@ -20508,6 +20919,49 @@ export class ListEurekaServicesResponseBodyData extends $tea.Model {
       instancesId: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       upStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExportZookeeperDataResponseBodyData extends $tea.Model {
+  contentMap?: string;
+  createTime?: number;
+  exportType?: string;
+  extend?: string;
+  id?: number;
+  instanceId?: string;
+  kubeoneTaskIds?: string;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentMap: 'ContentMap',
+      createTime: 'CreateTime',
+      exportType: 'ExportType',
+      extend: 'Extend',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      kubeoneTaskIds: 'KubeoneTaskIds',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentMap: 'string',
+      createTime: 'number',
+      exportType: 'string',
+      extend: 'string',
+      id: 'number',
+      instanceId: 'string',
+      kubeoneTaskIds: 'string',
+      status: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -26827,6 +27281,76 @@ export default class Client extends OpenApi {
     return await this.exportNacosConfigWithOptions(request, runtime);
   }
 
+  async exportZookeeperDataWithOptions(request: ExportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportZookeeperDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      query["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportZookeeperData",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ExportZookeeperDataResponse({}));
+  }
+
+  async exportZookeeperData(request: ExportZookeeperDataRequest): Promise<ExportZookeeperDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportZookeeperDataWithOptions(request, runtime);
+  }
+
+  async fetchLosslessRuleListWithOptions(request: FetchLosslessRuleListRequest, runtime: $Util.RuntimeOptions): Promise<FetchLosslessRuleListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FetchLosslessRuleList",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FetchLosslessRuleListResponse>(await this.callApi(params, req, runtime), new FetchLosslessRuleListResponse({}));
+  }
+
+  async fetchLosslessRuleList(request: FetchLosslessRuleListRequest): Promise<FetchLosslessRuleListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.fetchLosslessRuleListWithOptions(request, runtime);
+  }
+
   async getAppMessageQueueRouteWithOptions(request: GetAppMessageQueueRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetAppMessageQueueRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28532,6 +29056,47 @@ export default class Client extends OpenApi {
   async listEurekaServices(request: ListEurekaServicesRequest): Promise<ListEurekaServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEurekaServicesWithOptions(request, runtime);
+  }
+
+  async listExportZookeeperDataWithOptions(request: ListExportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ListExportZookeeperDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExportZookeeperData",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ListExportZookeeperDataResponse({}));
+  }
+
+  async listExportZookeeperData(request: ListExportZookeeperDataRequest): Promise<ListExportZookeeperDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listExportZookeeperDataWithOptions(request, runtime);
   }
 
   async listGatewayWithOptions(tmpReq: ListGatewayRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayResponse> {
