@@ -263,12 +263,10 @@ export class GetAsyncJobResultResponse extends $tea.Model {
 
 export class RecognizeVideoCastCrewListRequest extends $tea.Model {
   params?: RecognizeVideoCastCrewListRequestParams[];
-  registerUrl?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
       params: 'Params',
-      registerUrl: 'RegisterUrl',
       videoUrl: 'VideoUrl',
     };
   }
@@ -276,7 +274,6 @@ export class RecognizeVideoCastCrewListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       params: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListRequestParams },
-      registerUrl: 'string',
       videoUrl: 'string',
     };
   }
@@ -288,12 +285,10 @@ export class RecognizeVideoCastCrewListRequest extends $tea.Model {
 
 export class RecognizeVideoCastCrewListAdvanceRequest extends $tea.Model {
   params?: RecognizeVideoCastCrewListAdvanceRequestParams[];
-  registerUrlObject?: Readable;
   videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
       params: 'Params',
-      registerUrlObject: 'RegisterUrl',
       videoUrlObject: 'VideoUrl',
     };
   }
@@ -301,7 +296,6 @@ export class RecognizeVideoCastCrewListAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       params: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListAdvanceRequestParams },
-      registerUrlObject: 'Readable',
       videoUrlObject: 'Readable',
     };
   }
@@ -313,12 +307,10 @@ export class RecognizeVideoCastCrewListAdvanceRequest extends $tea.Model {
 
 export class RecognizeVideoCastCrewListShrinkRequest extends $tea.Model {
   paramsShrink?: string;
-  registerUrl?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
       paramsShrink: 'Params',
-      registerUrl: 'RegisterUrl',
       videoUrl: 'VideoUrl',
     };
   }
@@ -326,7 +318,6 @@ export class RecognizeVideoCastCrewListShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       paramsShrink: 'string',
-      registerUrl: 'string',
       videoUrl: 'string',
     };
   }
@@ -387,15 +378,18 @@ export class RecognizeVideoCastCrewListResponse extends $tea.Model {
 }
 
 export class SplitVideoPartsRequest extends $tea.Model {
+  template?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      template: 'Template',
       videoUrl: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      template: 'string',
       videoUrl: 'string',
     };
   }
@@ -406,15 +400,18 @@ export class SplitVideoPartsRequest extends $tea.Model {
 }
 
 export class SplitVideoPartsAdvanceRequest extends $tea.Model {
+  template?: string;
   videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
+      template: 'Template',
       videoUrlObject: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      template: 'string',
       videoUrlObject: 'Readable',
     };
   }
@@ -977,17 +974,51 @@ export class SplitVideoPartsResponseBodyDataElements extends $tea.Model {
   }
 }
 
+export class SplitVideoPartsResponseBodyDataSplitVideoPartResults extends $tea.Model {
+  beginTime?: number;
+  by?: string;
+  endTime?: number;
+  theme?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      by: 'By',
+      endTime: 'EndTime',
+      theme: 'Theme',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      by: 'string',
+      endTime: 'number',
+      theme: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SplitVideoPartsResponseBodyData extends $tea.Model {
   elements?: SplitVideoPartsResponseBodyDataElements[];
+  splitVideoPartResults?: SplitVideoPartsResponseBodyDataSplitVideoPartResults[];
   static names(): { [key: string]: string } {
     return {
       elements: 'Elements',
+      splitVideoPartResults: 'SplitVideoPartResults',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': SplitVideoPartsResponseBodyDataElements },
+      splitVideoPartResults: { 'type': 'array', 'itemType': SplitVideoPartsResponseBodyDataSplitVideoPartResults },
     };
   }
 
@@ -1321,10 +1352,6 @@ export default class Client extends OpenApi {
       body["Params"] = request.paramsShrink;
     }
 
-    if (!Util.isUnset(request.registerUrl)) {
-      body["RegisterUrl"] = request.registerUrl;
-    }
-
     if (!Util.isUnset(request.videoUrl)) {
       body["VideoUrl"] = request.videoUrl;
     }
@@ -1395,32 +1422,6 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let recognizeVideoCastCrewListReq = new RecognizeVideoCastCrewListRequest({ });
     OpenApiUtil.convert(request, recognizeVideoCastCrewListReq);
-    if (!Util.isUnset(request.registerUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.registerUrlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVideoCastCrewListReq.registerUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
     if (!Util.isUnset(request.videoUrlObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.body.accessKeyId;
@@ -1454,6 +1455,10 @@ export default class Client extends OpenApi {
   async splitVideoPartsWithOptions(request: SplitVideoPartsRequest, runtime: $Util.RuntimeOptions): Promise<SplitVideoPartsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.template)) {
+      body["Template"] = request.template;
+    }
+
     if (!Util.isUnset(request.videoUrl)) {
       body["VideoUrl"] = request.videoUrl;
     }
