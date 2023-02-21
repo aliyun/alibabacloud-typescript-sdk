@@ -1113,6 +1113,118 @@ export class GenerateImageWithTextAndImageResponse extends $tea.Model {
   }
 }
 
+export class GenerateSuperResolutionImageRequest extends $tea.Model {
+  imageUrl?: string;
+  outputFormat?: string;
+  outputQuality?: number;
+  scale?: number;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      outputFormat: 'OutputFormat',
+      outputQuality: 'OutputQuality',
+      scale: 'Scale',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      outputFormat: 'string',
+      outputQuality: 'number',
+      scale: 'number',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateSuperResolutionImageAdvanceRequest extends $tea.Model {
+  imageUrlObject?: Readable;
+  outputFormat?: string;
+  outputQuality?: number;
+  scale?: number;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrl',
+      outputFormat: 'OutputFormat',
+      outputQuality: 'OutputQuality',
+      scale: 'Scale',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+      outputFormat: 'string',
+      outputQuality: 'number',
+      scale: 'number',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateSuperResolutionImageResponseBody extends $tea.Model {
+  data?: GenerateSuperResolutionImageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GenerateSuperResolutionImageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateSuperResolutionImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateSuperResolutionImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateSuperResolutionImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncJobResultRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
@@ -2375,6 +2487,25 @@ export class GenerateImageWithTextAndImageResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateSuperResolutionImageResponseBodyData extends $tea.Model {
+  resultUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultUrl: 'ResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultUrl: 'string',
     };
   }
 
@@ -3997,6 +4128,125 @@ export default class Client extends OpenApi {
 
     let generateImageWithTextAndImageResp = await this.generateImageWithTextAndImageWithOptions(generateImageWithTextAndImageReq, runtime);
     return generateImageWithTextAndImageResp;
+  }
+
+  async generateSuperResolutionImageWithOptions(request: GenerateSuperResolutionImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateSuperResolutionImageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.outputFormat)) {
+      body["OutputFormat"] = request.outputFormat;
+    }
+
+    if (!Util.isUnset(request.outputQuality)) {
+      body["OutputQuality"] = request.outputQuality;
+    }
+
+    if (!Util.isUnset(request.scale)) {
+      body["Scale"] = request.scale;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateSuperResolutionImage",
+      version: "2019-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateSuperResolutionImageResponse>(await this.callApi(params, req, runtime), new GenerateSuperResolutionImageResponse({}));
+  }
+
+  async generateSuperResolutionImage(request: GenerateSuperResolutionImageRequest): Promise<GenerateSuperResolutionImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateSuperResolutionImageWithOptions(request, runtime);
+  }
+
+  async generateSuperResolutionImageAdvance(request: GenerateSuperResolutionImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateSuperResolutionImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let generateSuperResolutionImageReq = new GenerateSuperResolutionImageRequest({ });
+    OpenApiUtil.convert(request, generateSuperResolutionImageReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      generateSuperResolutionImageReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let generateSuperResolutionImageResp = await this.generateSuperResolutionImageWithOptions(generateSuperResolutionImageReq, runtime);
+    return generateSuperResolutionImageResp;
   }
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
