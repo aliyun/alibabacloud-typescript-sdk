@@ -183,6 +183,43 @@ export class SavedSearch extends $tea.Model {
   }
 }
 
+export class Alert extends $tea.Model {
+  configuration?: Configuration;
+  description?: string;
+  displayName?: string;
+  name?: string;
+  schedule?: Schedule;
+  state?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'configuration',
+      description: 'description',
+      displayName: 'displayName',
+      name: 'name',
+      schedule: 'schedule',
+      state: 'state',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: Configuration,
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      schedule: Schedule,
+      state: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Chart extends $tea.Model {
   action?: { [key: string]: any };
   display?: { [key: string]: any };
@@ -214,6 +251,70 @@ export class Chart extends $tea.Model {
   }
 }
 
+export class Configuration extends $tea.Model {
+  annotations?: ConfigurationAnnotations[];
+  autoAnnotation?: boolean;
+  dashboard?: string;
+  groupConfiguration?: ConfigurationGroupConfiguration;
+  joinConfigurations?: ConfigurationJoinConfigurations[];
+  labels?: ConfigurationLabels[];
+  noDataFire?: boolean;
+  noDataSeverity?: number;
+  policyConfiguration?: ConfigurationPolicyConfiguration;
+  queryList?: ConfigurationQueryList;
+  sendResolved?: boolean;
+  severityConfigurations?: ConfigurationSeverityConfigurations[];
+  tags?: string[];
+  threshold?: number;
+  type?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'annotations',
+      autoAnnotation: 'autoAnnotation',
+      dashboard: 'dashboard',
+      groupConfiguration: 'groupConfiguration',
+      joinConfigurations: 'joinConfigurations',
+      labels: 'labels',
+      noDataFire: 'noDataFire',
+      noDataSeverity: 'noDataSeverity',
+      policyConfiguration: 'policyConfiguration',
+      queryList: 'queryList',
+      sendResolved: 'sendResolved',
+      severityConfigurations: 'severityConfigurations',
+      tags: 'tags',
+      threshold: 'threshold',
+      type: 'type',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'array', 'itemType': ConfigurationAnnotations },
+      autoAnnotation: 'boolean',
+      dashboard: 'string',
+      groupConfiguration: ConfigurationGroupConfiguration,
+      joinConfigurations: { 'type': 'array', 'itemType': ConfigurationJoinConfigurations },
+      labels: { 'type': 'array', 'itemType': ConfigurationLabels },
+      noDataFire: 'boolean',
+      noDataSeverity: 'number',
+      policyConfiguration: ConfigurationPolicyConfiguration,
+      queryList: ConfigurationQueryList,
+      sendResolved: 'boolean',
+      severityConfigurations: { 'type': 'array', 'itemType': ConfigurationSeverityConfigurations },
+      tags: { 'type': 'array', 'itemType': 'string' },
+      threshold: 'number',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Dashboard extends $tea.Model {
   attribute?: { [key: string]: string };
   charts?: Chart[];
@@ -237,6 +338,25 @@ export class Dashboard extends $tea.Model {
       dashboardName: 'string',
       description: 'string',
       displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EtlFunctionConfig extends $tea.Model {
+  functionProvider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionProvider: 'functionProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionProvider: 'string',
     };
   }
 
@@ -282,6 +402,31 @@ export class EtlJob extends $tea.Model {
   }
 }
 
+export class EtlLogConfig extends $tea.Model {
+  endpoint?: string;
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      logstoreName: 'logstoreName',
+      projectName: 'projectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EtlMeta extends $tea.Model {
   enable?: boolean;
   etlMetaKey?: string;
@@ -305,6 +450,56 @@ export class EtlMeta extends $tea.Model {
       etlMetaName: 'string',
       etlMetaTag: 'string',
       etlMetaValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EtlSourceConfig extends $tea.Model {
+  logstoreName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'logstoreName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EtlTriggerConfig extends $tea.Model {
+  maxRetryTime?: number;
+  roleArn?: string;
+  startingPosition?: string;
+  startingUnixtime?: number;
+  triggerInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRetryTime: 'maxRetryTime',
+      roleArn: 'roleArn',
+      startingPosition: 'startingPosition',
+      startingUnixtime: 'startingUnixtime',
+      triggerInterval: 'triggerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRetryTime: 'number',
+      roleArn: 'string',
+      startingPosition: 'string',
+      startingUnixtime: 'number',
+      triggerInterval: 'number',
     };
   }
 
@@ -411,6 +606,7 @@ export class Logstore extends $tea.Model {
   logstoreName?: string;
   maxSplitShard?: number;
   mode?: string;
+  productType?: string;
   shardCount?: number;
   telemetryType?: string;
   ttl?: number;
@@ -426,6 +622,7 @@ export class Logstore extends $tea.Model {
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
+      productType: 'productType',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -444,6 +641,7 @@ export class Logstore extends $tea.Model {
       logstoreName: 'string',
       maxSplitShard: 'number',
       mode: 'string',
+      productType: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -516,33 +714,67 @@ export class MachineGroup extends $tea.Model {
 
 export class Project extends $tea.Model {
   createTime?: string;
-  description?: string;
   lastModifyTime?: string;
-  owner?: string;
+  projectDesc?: string;
   projectName?: string;
+  projectOwner?: string;
+  projectStatus?: string;
   region?: string;
-  status?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
-      description: 'description',
       lastModifyTime: 'lastModifyTime',
-      owner: 'owner',
+      projectDesc: 'projectDesc',
       projectName: 'projectName',
+      projectOwner: 'projectOwner',
+      projectStatus: 'projectStatus',
       region: 'region',
-      status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      description: 'string',
       lastModifyTime: 'string',
-      owner: 'string',
+      projectDesc: 'string',
       projectName: 'string',
+      projectOwner: 'string',
+      projectStatus: 'string',
       region: 'string',
-      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Schedule extends $tea.Model {
+  cronExpression?: string;
+  dayOfWeek?: number;
+  hour?: number;
+  interval?: string;
+  runImmediately?: boolean;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'cronExpression',
+      dayOfWeek: 'dayOfWeek',
+      hour: 'hour',
+      interval: 'interval',
+      runImmediately: 'runImmediately',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+      dayOfWeek: 'number',
+      hour: 'number',
+      interval: 'string',
+      runImmediately: 'boolean',
+      type: 'string',
     };
   }
 
@@ -651,6 +883,53 @@ export class KeysValue extends $tea.Model {
 }
 
 export class ApplyConfigToMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $tea.Model {
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'resourceGroupId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1131,10 +1410,12 @@ export class CreateOssShipperResponse extends $tea.Model {
 export class CreateProjectRequest extends $tea.Model {
   description?: string;
   projectName?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
       projectName: 'projectName',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -1142,6 +1423,7 @@ export class CreateProjectRequest extends $tea.Model {
     return {
       description: 'string',
       projectName: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1418,6 +1700,25 @@ export class DeleteMachineGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectRequest extends $tea.Model {
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: 'string',
     };
   }
 
@@ -2229,10 +2530,12 @@ export class GetProjectLogsResponse extends $tea.Model {
 export class GetProjectPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
+  body: string;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -2240,6 +2543,7 @@ export class GetProjectPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: 'string',
     };
   }
 
@@ -3838,15 +4142,18 @@ export class UpdateOssShipperResponse extends $tea.Model {
 
 export class UpdateProjectRequest extends $tea.Model {
   description?: string;
+  project?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      project: 'project',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      project: 'string',
     };
   }
 
@@ -3994,6 +4301,209 @@ export class LogtailConfigOutputDetail extends $tea.Model {
       endpoint: 'string',
       logstoreName: 'string',
       region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationAnnotations extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationGroupConfiguration extends $tea.Model {
+  fields?: string[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'fields',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationJoinConfigurations extends $tea.Model {
+  condition?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationPolicyConfiguration extends $tea.Model {
+  actionPolicyId?: string;
+  alertPolicyId?: string;
+  repeatInterval?: string;
+  useDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      actionPolicyId: 'actionPolicyId',
+      alertPolicyId: 'alertPolicyId',
+      repeatInterval: 'repeatInterval',
+      useDefault: 'useDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionPolicyId: 'string',
+      alertPolicyId: 'string',
+      repeatInterval: 'string',
+      useDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationQueryList extends $tea.Model {
+  powerSqlMode?: string;
+  project?: string;
+  query?: string;
+  region?: string;
+  roleArn?: string;
+  start?: string;
+  store?: string;
+  storeType?: string;
+  timeSpanType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      powerSqlMode: 'powerSqlMode',
+      project: 'project',
+      query: 'query',
+      region: 'region',
+      roleArn: 'roleArn',
+      start: 'start',
+      store: 'store',
+      storeType: 'storeType',
+      timeSpanType: 'timeSpanType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      powerSqlMode: 'string',
+      project: 'string',
+      query: 'string',
+      region: 'string',
+      roleArn: 'string',
+      start: 'string',
+      store: 'string',
+      storeType: 'string',
+      timeSpanType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationSeverityConfigurationsEvalCondition extends $tea.Model {
+  condition?: string;
+  countCondition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      countCondition: 'countCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      countCondition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigurationSeverityConfigurations extends $tea.Model {
+  evalCondition?: ConfigurationSeverityConfigurationsEvalCondition;
+  severity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evalCondition: 'evalCondition',
+      severity: 'severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evalCondition: ConfigurationSeverityConfigurationsEvalCondition,
+      severity: 'number',
     };
   }
 
@@ -4989,12 +5499,6 @@ export default class Client extends OpenApi {
   }
 
 
-  async applyConfigToMachineGroup(project: string, machineGroup: string, configName: string): Promise<ApplyConfigToMachineGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
-  }
-
   async applyConfigToMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyConfigToMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -5016,10 +5520,49 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyConfigToMachineGroupResponse>(await this.execute(params, req, runtime), new ApplyConfigToMachineGroupResponse({}));
   }
 
-  async createConsumerGroup(project: string, logstore: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
+  async applyConfigToMachineGroup(project: string, machineGroup: string, configName: string): Promise<ApplyConfigToMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
+    return await this.applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      body["resourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/resourcegroup`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
 
   async createConsumerGroupWithOptions(project: string, logstore: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
@@ -5058,10 +5601,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupResponse>(await this.execute(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
 
-  async createDomain(project: string, request: CreateDomainRequest): Promise<CreateDomainResponse> {
+  async createConsumerGroup(project: string, logstore: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createDomainWithOptions(project, request, headers, runtime);
+    return await this.createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
   }
 
   async createDomainWithOptions(project: string, request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
@@ -5092,10 +5635,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
   }
 
-  async createIndex(project: string, logstore: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
+  async createDomain(project: string, request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createIndexWithOptions(project, logstore, request, headers, runtime);
+    return await this.createDomainWithOptions(project, request, headers, runtime);
   }
 
   async createIndexWithOptions(project: string, logstore: string, request: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
@@ -5107,7 +5650,7 @@ export default class Client extends OpenApi {
       body["keys"] = request.keys;
     }
 
-    if (!Util.isUnset($tea.toMap(request.line))) {
+    if (!Util.isUnset(request.line)) {
       body["line"] = request.line;
     }
 
@@ -5150,10 +5693,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIndexResponse>(await this.execute(params, req, runtime), new CreateIndexResponse({}));
   }
 
-  async createLogStore(project: string, request: CreateLogStoreRequest): Promise<CreateLogStoreResponse> {
+  async createIndex(project: string, logstore: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createLogStoreWithOptions(project, request, headers, runtime);
+    return await this.createIndexWithOptions(project, logstore, request, headers, runtime);
   }
 
   async createLogStoreWithOptions(project: string, request: CreateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogStoreResponse> {
@@ -5173,7 +5716,7 @@ export default class Client extends OpenApi {
       body["enable_tracking"] = request.enableTracking;
     }
 
-    if (!Util.isUnset($tea.toMap(request.encryptConf))) {
+    if (!Util.isUnset(request.encryptConf)) {
       body["encrypt_conf"] = request.encryptConf;
     }
 
@@ -5224,10 +5767,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogStoreResponse>(await this.execute(params, req, runtime), new CreateLogStoreResponse({}));
   }
 
-  async createLogging(project: string, request: CreateLoggingRequest): Promise<CreateLoggingResponse> {
+  async createLogStore(project: string, request: CreateLogStoreRequest): Promise<CreateLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createLoggingWithOptions(project, request, headers, runtime);
+    return await this.createLogStoreWithOptions(project, request, headers, runtime);
   }
 
   async createLoggingWithOptions(project: string, request: CreateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLoggingResponse> {
@@ -5262,10 +5805,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLoggingResponse>(await this.execute(params, req, runtime), new CreateLoggingResponse({}));
   }
 
-  async createMachineGroup(project: string, request: CreateMachineGroupRequest): Promise<CreateMachineGroupResponse> {
+  async createLogging(project: string, request: CreateLoggingRequest): Promise<CreateLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createMachineGroupWithOptions(project, request, headers, runtime);
+    return await this.createLoggingWithOptions(project, request, headers, runtime);
   }
 
   async createMachineGroupWithOptions(project: string, request: CreateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMachineGroupResponse> {
@@ -5273,7 +5816,7 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
+    if (!Util.isUnset(request.groupAttribute)) {
       body["groupAttribute"] = request.groupAttribute;
     }
 
@@ -5312,10 +5855,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMachineGroupResponse>(await this.execute(params, req, runtime), new CreateMachineGroupResponse({}));
   }
 
-  async createOdpsShipper(project: string, logstore: string, request: CreateOdpsShipperRequest): Promise<CreateOdpsShipperResponse> {
+  async createMachineGroup(project: string, request: CreateMachineGroupRequest): Promise<CreateMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
+    return await this.createMachineGroupWithOptions(project, request, headers, runtime);
   }
 
   async createOdpsShipperWithOptions(project: string, logstore: string, request: CreateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOdpsShipperResponse> {
@@ -5327,7 +5870,7 @@ export default class Client extends OpenApi {
       body["shipperName"] = request.shipperName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+    if (!Util.isUnset(request.targetConfiguration)) {
       body["targetConfiguration"] = request.targetConfiguration;
     }
 
@@ -5354,10 +5897,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOdpsShipperResponse>(await this.execute(params, req, runtime), new CreateOdpsShipperResponse({}));
   }
 
-  async createOssExternalStore(project: string, request: CreateOssExternalStoreRequest): Promise<CreateOssExternalStoreResponse> {
+  async createOdpsShipper(project: string, logstore: string, request: CreateOdpsShipperRequest): Promise<CreateOdpsShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createOssExternalStoreWithOptions(project, request, headers, runtime);
+    return await this.createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
   }
 
   async createOssExternalStoreWithOptions(project: string, request: CreateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssExternalStoreResponse> {
@@ -5369,7 +5912,7 @@ export default class Client extends OpenApi {
       body["externalStoreName"] = request.externalStoreName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.parameter))) {
+    if (!Util.isUnset(request.parameter)) {
       body["parameter"] = request.parameter;
     }
 
@@ -5396,10 +5939,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssExternalStoreResponse>(await this.execute(params, req, runtime), new CreateOssExternalStoreResponse({}));
   }
 
-  async createOssShipper(project: string, logstore: string, request: CreateOssShipperRequest): Promise<CreateOssShipperResponse> {
+  async createOssExternalStore(project: string, request: CreateOssExternalStoreRequest): Promise<CreateOssExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createOssShipperWithOptions(project, logstore, request, headers, runtime);
+    return await this.createOssExternalStoreWithOptions(project, request, headers, runtime);
   }
 
   async createOssShipperWithOptions(project: string, logstore: string, request: CreateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssShipperResponse> {
@@ -5411,7 +5954,7 @@ export default class Client extends OpenApi {
       body["shipperName"] = request.shipperName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+    if (!Util.isUnset(request.targetConfiguration)) {
       body["targetConfiguration"] = request.targetConfiguration;
     }
 
@@ -5438,10 +5981,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssShipperResponse>(await this.execute(params, req, runtime), new CreateOssShipperResponse({}));
   }
 
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
+  async createOssShipper(project: string, logstore: string, request: CreateOssShipperRequest): Promise<CreateOssShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createProjectWithOptions(request, headers, runtime);
+    return await this.createOssShipperWithOptions(project, logstore, request, headers, runtime);
   }
 
   async createProjectWithOptions(request: CreateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
@@ -5453,6 +5996,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       body["projectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -5473,10 +6020,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
   }
 
-  async createRdsExternalStore(project: string, request: CreateRdsExternalStoreRequest): Promise<CreateRdsExternalStoreResponse> {
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createRdsExternalStoreWithOptions(project, request, headers, runtime);
+    return await this.createProjectWithOptions(request, headers, runtime);
   }
 
   async createRdsExternalStoreWithOptions(project: string, request: CreateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRdsExternalStoreResponse> {
@@ -5488,7 +6035,7 @@ export default class Client extends OpenApi {
       body["externalStoreName"] = request.externalStoreName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.parameter))) {
+    if (!Util.isUnset(request.parameter)) {
       body["parameter"] = request.parameter;
     }
 
@@ -5515,10 +6062,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new CreateRdsExternalStoreResponse({}));
   }
 
-  async createSavedSearch(project: string, request: CreateSavedSearchRequest): Promise<CreateSavedSearchResponse> {
+  async createRdsExternalStore(project: string, request: CreateRdsExternalStoreRequest): Promise<CreateRdsExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createSavedSearchWithOptions(project, request, headers, runtime);
+    return await this.createRdsExternalStoreWithOptions(project, request, headers, runtime);
   }
 
   async createSavedSearchWithOptions(project: string, request: CreateSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSavedSearchResponse> {
@@ -5565,10 +6112,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSavedSearchResponse>(await this.execute(params, req, runtime), new CreateSavedSearchResponse({}));
   }
 
-  async deleteConsumerGroup(project: string, logstore: string, consumerGroup: string): Promise<DeleteConsumerGroupResponse> {
+  async createSavedSearch(project: string, request: CreateSavedSearchRequest): Promise<CreateSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
+    return await this.createSavedSearchWithOptions(project, request, headers, runtime);
   }
 
   async deleteConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
@@ -5592,10 +6139,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
-  async deleteDomain(project: string, domainName: string): Promise<DeleteDomainResponse> {
+  async deleteConsumerGroup(project: string, logstore: string, consumerGroup: string): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDomainWithOptions(project, domainName, headers, runtime);
+    return await this.deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
   }
 
   async deleteDomainWithOptions(project: string, domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
@@ -5619,10 +6166,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
   }
 
-  async deleteExternalStore(project: string, externalStoreName: string): Promise<DeleteExternalStoreResponse> {
+  async deleteDomain(project: string, domainName: string): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+    return await this.deleteDomainWithOptions(project, domainName, headers, runtime);
   }
 
   async deleteExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExternalStoreResponse> {
@@ -5646,10 +6193,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExternalStoreResponse>(await this.execute(params, req, runtime), new DeleteExternalStoreResponse({}));
   }
 
-  async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
+  async deleteExternalStore(project: string, externalStoreName: string): Promise<DeleteExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteIndexWithOptions(project, logstore, headers, runtime);
+    return await this.deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
   }
 
   async deleteIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
@@ -5673,10 +6220,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIndexResponse>(await this.execute(params, req, runtime), new DeleteIndexResponse({}));
   }
 
-  async deleteLogStore(project: string, logstore: string): Promise<DeleteLogStoreResponse> {
+  async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLogStoreWithOptions(project, logstore, headers, runtime);
+    return await this.deleteIndexWithOptions(project, logstore, headers, runtime);
   }
 
   async deleteLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogStoreResponse> {
@@ -5700,10 +6247,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogStoreResponse>(await this.execute(params, req, runtime), new DeleteLogStoreResponse({}));
   }
 
-  async deleteLogging(project: string): Promise<DeleteLoggingResponse> {
+  async deleteLogStore(project: string, logstore: string): Promise<DeleteLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLoggingWithOptions(project, headers, runtime);
+    return await this.deleteLogStoreWithOptions(project, logstore, headers, runtime);
   }
 
   async deleteLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLoggingResponse> {
@@ -5727,10 +6274,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoggingResponse>(await this.execute(params, req, runtime), new DeleteLoggingResponse({}));
   }
 
-  async deleteMachineGroup(project: string, machineGroup: string): Promise<DeleteMachineGroupResponse> {
+  async deleteLogging(project: string): Promise<DeleteLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
+    return await this.deleteLoggingWithOptions(project, headers, runtime);
   }
 
   async deleteMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMachineGroupResponse> {
@@ -5754,18 +6301,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMachineGroupResponse>(await this.execute(params, req, runtime), new DeleteMachineGroupResponse({}));
   }
 
-  async deleteProject(project: string): Promise<DeleteProjectResponse> {
+  async deleteMachineGroup(project: string, machineGroup: string): Promise<DeleteMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteProjectWithOptions(project, headers, runtime);
+    return await this.deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
-  async deleteProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
+  async deleteProjectWithOptions(request: DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.project)) {
+      query["project"] = request.project;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProject",
@@ -5781,10 +6332,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
   }
 
-  async deleteProjectPolicy(project: string): Promise<DeleteProjectPolicyResponse> {
+  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteProjectPolicyWithOptions(project, headers, runtime);
+    return await this.deleteProjectWithOptions(request, headers, runtime);
   }
 
   async deleteProjectPolicyWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectPolicyResponse> {
@@ -5808,10 +6359,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectPolicyResponse>(await this.execute(params, req, runtime), new DeleteProjectPolicyResponse({}));
   }
 
-  async deleteSavedSearch(project: string, savedsearchName: string): Promise<DeleteSavedSearchResponse> {
+  async deleteProjectPolicy(project: string): Promise<DeleteProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+    return await this.deleteProjectPolicyWithOptions(project, headers, runtime);
   }
 
   async deleteSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSavedSearchResponse> {
@@ -5835,10 +6386,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSavedSearchResponse>(await this.execute(params, req, runtime), new DeleteSavedSearchResponse({}));
   }
 
-  async deleteShipper(project: string, logstore: string, shipperName: string): Promise<DeleteShipperResponse> {
+  async deleteSavedSearch(project: string, savedsearchName: string): Promise<DeleteSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
+    return await this.deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
   }
 
   async deleteShipperWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteShipperResponse> {
@@ -5862,10 +6413,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteShipperResponse>(await this.execute(params, req, runtime), new DeleteShipperResponse({}));
   }
 
-  async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
+  async deleteShipper(project: string, logstore: string, shipperName: string): Promise<DeleteShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
+    return await this.deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
   }
 
   async getAppliedConfigsWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedConfigsResponse> {
@@ -5889,10 +6440,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppliedConfigsResponse>(await this.execute(params, req, runtime), new GetAppliedConfigsResponse({}));
   }
 
-  async getAppliedMachineGroups(project: string, configName: string): Promise<GetAppliedMachineGroupsResponse> {
+  async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
+    return await this.getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
   }
 
   async getAppliedMachineGroupsWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedMachineGroupsResponse> {
@@ -5916,10 +6467,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppliedMachineGroupsResponse>(await this.execute(params, req, runtime), new GetAppliedMachineGroupsResponse({}));
   }
 
-  async getCheckPoint(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest): Promise<GetCheckPointResponse> {
+  async getAppliedMachineGroups(project: string, configName: string): Promise<GetAppliedMachineGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+    return await this.getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
   }
 
   async getCheckPointWithOptions(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCheckPointResponse> {
@@ -5950,10 +6501,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckPointResponse>(await this.execute(params, req, runtime), new GetCheckPointResponse({}));
   }
 
-  async getContextLogs(project: string, logstore: string, request: GetContextLogsRequest): Promise<GetContextLogsResponse> {
+  async getCheckPoint(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest): Promise<GetCheckPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getContextLogsWithOptions(project, logstore, request, headers, runtime);
+    return await this.getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
   async getContextLogsWithOptions(project: string, logstore: string, request: GetContextLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetContextLogsResponse> {
@@ -6000,10 +6551,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetContextLogsResponse>(await this.execute(params, req, runtime), new GetContextLogsResponse({}));
   }
 
-  async getCursor(project: string, logstore: string, shardId: string, request: GetCursorRequest): Promise<GetCursorResponse> {
+  async getContextLogs(project: string, logstore: string, request: GetContextLogsRequest): Promise<GetContextLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCursorWithOptions(project, logstore, shardId, request, headers, runtime);
+    return await this.getContextLogsWithOptions(project, logstore, request, headers, runtime);
   }
 
   async getCursorWithOptions(project: string, logstore: string, shardId: string, request: GetCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCursorResponse> {
@@ -6034,10 +6585,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCursorResponse>(await this.execute(params, req, runtime), new GetCursorResponse({}));
   }
 
-  async getCursorTime(project: string, logstore: string, shardId: string, request: GetCursorTimeRequest): Promise<GetCursorTimeResponse> {
+  async getCursor(project: string, logstore: string, shardId: string, request: GetCursorRequest): Promise<GetCursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
+    return await this.getCursorWithOptions(project, logstore, shardId, request, headers, runtime);
   }
 
   async getCursorTimeWithOptions(project: string, logstore: string, shardId: string, request: GetCursorTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCursorTimeResponse> {
@@ -6068,10 +6619,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCursorTimeResponse>(await this.execute(params, req, runtime), new GetCursorTimeResponse({}));
   }
 
-  async getExternalStore(project: string, externalStoreName: string): Promise<GetExternalStoreResponse> {
+  async getCursorTime(project: string, logstore: string, shardId: string, request: GetCursorTimeRequest): Promise<GetCursorTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+    return await this.getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
   }
 
   async getExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExternalStoreResponse> {
@@ -6095,10 +6646,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExternalStoreResponse>(await this.execute(params, req, runtime), new GetExternalStoreResponse({}));
   }
 
-  async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
+  async getExternalStore(project: string, externalStoreName: string): Promise<GetExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getHistogramsWithOptions(project, logstore, request, headers, runtime);
+    return await this.getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
   }
 
   async getHistogramsWithOptions(project: string, logstore: string, request: GetHistogramsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHistogramsResponse> {
@@ -6141,10 +6692,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHistogramsResponse>(await this.execute(params, req, runtime), new GetHistogramsResponse({}));
   }
 
-  async getIndex(project: string, logstore: string): Promise<GetIndexResponse> {
+  async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getIndexWithOptions(project, logstore, headers, runtime);
+    return await this.getHistogramsWithOptions(project, logstore, request, headers, runtime);
   }
 
   async getIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexResponse> {
@@ -6168,10 +6719,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIndexResponse>(await this.execute(params, req, runtime), new GetIndexResponse({}));
   }
 
-  async getLogStore(project: string, logstore: string): Promise<GetLogStoreResponse> {
+  async getIndex(project: string, logstore: string): Promise<GetIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLogStoreWithOptions(project, logstore, headers, runtime);
+    return await this.getIndexWithOptions(project, logstore, headers, runtime);
   }
 
   async getLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogStoreResponse> {
@@ -6195,10 +6746,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogStoreResponse>(await this.execute(params, req, runtime), new GetLogStoreResponse({}));
   }
 
-  async getLogging(project: string): Promise<GetLoggingResponse> {
+  async getLogStore(project: string, logstore: string): Promise<GetLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLoggingWithOptions(project, headers, runtime);
+    return await this.getLogStoreWithOptions(project, logstore, headers, runtime);
   }
 
   async getLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLoggingResponse> {
@@ -6222,10 +6773,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLoggingResponse>(await this.execute(params, req, runtime), new GetLoggingResponse({}));
   }
 
-  async getLogs(project: string, logstore: string, request: GetLogsRequest): Promise<GetLogsResponse> {
+  async getLogging(project: string): Promise<GetLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLogsWithOptions(project, logstore, request, headers, runtime);
+    return await this.getLoggingWithOptions(project, headers, runtime);
   }
 
   async getLogsWithOptions(project: string, logstore: string, request: GetLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogsResponse> {
@@ -6284,10 +6835,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogsResponse>(await this.execute(params, req, runtime), new GetLogsResponse({}));
   }
 
-  async getMachineGroup(project: string, machineGroup: string): Promise<GetMachineGroupResponse> {
+  async getLogs(project: string, logstore: string, request: GetLogsRequest): Promise<GetLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
+    return await this.getLogsWithOptions(project, logstore, request, headers, runtime);
   }
 
   async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
@@ -6311,10 +6862,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMachineGroupResponse>(await this.execute(params, req, runtime), new GetMachineGroupResponse({}));
   }
 
-  async getProject(project: string): Promise<GetProjectResponse> {
+  async getMachineGroup(project: string, machineGroup: string): Promise<GetMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectWithOptions(project, headers, runtime);
+    return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
   async getProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
@@ -6338,10 +6889,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
   }
 
-  async getProjectLogs(project: string, request: GetProjectLogsRequest): Promise<GetProjectLogsResponse> {
+  async getProject(project: string): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectLogsWithOptions(project, request, headers, runtime);
+    return await this.getProjectWithOptions(project, headers, runtime);
   }
 
   async getProjectLogsWithOptions(project: string, request: GetProjectLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectLogsResponse> {
@@ -6376,10 +6927,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectLogsResponse>(await this.execute(params, req, runtime), new GetProjectLogsResponse({}));
   }
 
-  async getProjectPolicy(project: string): Promise<GetProjectPolicyResponse> {
+  async getProjectLogs(project: string, request: GetProjectLogsRequest): Promise<GetProjectLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectPolicyWithOptions(project, headers, runtime);
+    return await this.getProjectLogsWithOptions(project, request, headers, runtime);
   }
 
   async getProjectPolicyWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectPolicyResponse> {
@@ -6398,15 +6949,15 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "string",
     });
     return $tea.cast<GetProjectPolicyResponse>(await this.execute(params, req, runtime), new GetProjectPolicyResponse({}));
   }
 
-  async getSavedSearch(project: string, savedsearchName: string): Promise<GetSavedSearchResponse> {
+  async getProjectPolicy(project: string): Promise<GetProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+    return await this.getProjectPolicyWithOptions(project, headers, runtime);
   }
 
   async getSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSavedSearchResponse> {
@@ -6430,10 +6981,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSavedSearchResponse>(await this.execute(params, req, runtime), new GetSavedSearchResponse({}));
   }
 
-  async getShipperStatus(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest): Promise<GetShipperStatusResponse> {
+  async getSavedSearch(project: string, savedsearchName: string): Promise<GetSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
+    return await this.getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
   }
 
   async getShipperStatusWithOptions(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShipperStatusResponse> {
@@ -6480,10 +7031,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShipperStatusResponse>(await this.execute(params, req, runtime), new GetShipperStatusResponse({}));
   }
 
-  async listConsumerGroup(project: string, logstore: string): Promise<ListConsumerGroupResponse> {
+  async getShipperStatus(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest): Promise<GetShipperStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConsumerGroupWithOptions(project, logstore, headers, runtime);
+    return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
   async listConsumerGroupWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupResponse> {
@@ -6507,10 +7058,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerGroupResponse>(await this.execute(params, req, runtime), new ListConsumerGroupResponse({}));
   }
 
-  async listDomains(project: string, request: ListDomainsRequest): Promise<ListDomainsResponse> {
+  async listConsumerGroup(project: string, logstore: string): Promise<ListConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDomainsWithOptions(project, request, headers, runtime);
+    return await this.listConsumerGroupWithOptions(project, logstore, headers, runtime);
   }
 
   async listDomainsWithOptions(project: string, request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
@@ -6549,10 +7100,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
   }
 
-  async listExternalStore(project: string, request: ListExternalStoreRequest): Promise<ListExternalStoreResponse> {
+  async listDomains(project: string, request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listExternalStoreWithOptions(project, request, headers, runtime);
+    return await this.listDomainsWithOptions(project, request, headers, runtime);
   }
 
   async listExternalStoreWithOptions(project: string, request: ListExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExternalStoreResponse> {
@@ -6591,10 +7142,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExternalStoreResponse>(await this.execute(params, req, runtime), new ListExternalStoreResponse({}));
   }
 
-  async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
+  async listExternalStore(project: string, request: ListExternalStoreRequest): Promise<ListExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listLogStoresWithOptions(project, request, headers, runtime);
+    return await this.listExternalStoreWithOptions(project, request, headers, runtime);
   }
 
   async listLogStoresWithOptions(project: string, request: ListLogStoresRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogStoresResponse> {
@@ -6641,10 +7192,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogStoresResponse>(await this.execute(params, req, runtime), new ListLogStoresResponse({}));
   }
 
-  async listMachineGroup(project: string, request: ListMachineGroupRequest): Promise<ListMachineGroupResponse> {
+  async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMachineGroupWithOptions(project, request, headers, runtime);
+    return await this.listLogStoresWithOptions(project, request, headers, runtime);
   }
 
   async listMachineGroupWithOptions(project: string, request: ListMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachineGroupResponse> {
@@ -6683,10 +7234,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMachineGroupResponse>(await this.execute(params, req, runtime), new ListMachineGroupResponse({}));
   }
 
-  async listMachines(project: string, machineGroup: string, request: ListMachinesRequest): Promise<ListMachinesResponse> {
+  async listMachineGroup(project: string, request: ListMachineGroupRequest): Promise<ListMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMachinesWithOptions(project, machineGroup, request, headers, runtime);
+    return await this.listMachineGroupWithOptions(project, request, headers, runtime);
   }
 
   async listMachinesWithOptions(project: string, machineGroup: string, request: ListMachinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachinesResponse> {
@@ -6721,10 +7272,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMachinesResponse>(await this.execute(params, req, runtime), new ListMachinesResponse({}));
   }
 
-  async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
+  async listMachines(project: string, machineGroup: string, request: ListMachinesRequest): Promise<ListMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listProjectWithOptions(request, headers, runtime);
+    return await this.listMachinesWithOptions(project, machineGroup, request, headers, runtime);
   }
 
   async listProjectWithOptions(request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
@@ -6760,10 +7311,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectResponse>(await this.execute(params, req, runtime), new ListProjectResponse({}));
   }
 
-  async listSavedSearch(project: string, request: ListSavedSearchRequest): Promise<ListSavedSearchResponse> {
+  async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSavedSearchWithOptions(project, request, headers, runtime);
+    return await this.listProjectWithOptions(request, headers, runtime);
   }
 
   async listSavedSearchWithOptions(project: string, request: ListSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSavedSearchResponse> {
@@ -6798,10 +7349,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSavedSearchResponse>(await this.execute(params, req, runtime), new ListSavedSearchResponse({}));
   }
 
-  async listShards(project: string, logstore: string): Promise<ListShardsResponse> {
+  async listSavedSearch(project: string, request: ListSavedSearchRequest): Promise<ListSavedSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listShardsWithOptions(project, logstore, headers, runtime);
+    return await this.listSavedSearchWithOptions(project, request, headers, runtime);
   }
 
   async listShardsWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardsResponse> {
@@ -6825,10 +7376,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShardsResponse>(await this.execute(params, req, runtime), new ListShardsResponse({}));
   }
 
-  async listShipper(project: string, logstore: string): Promise<ListShipperResponse> {
+  async listShards(project: string, logstore: string): Promise<ListShardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listShipperWithOptions(project, logstore, headers, runtime);
+    return await this.listShardsWithOptions(project, logstore, headers, runtime);
   }
 
   async listShipperWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShipperResponse> {
@@ -6852,10 +7403,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShipperResponse>(await this.execute(params, req, runtime), new ListShipperResponse({}));
   }
 
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async listShipper(project: string, logstore: string): Promise<ListShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagResourcesWithOptions(request, headers, runtime);
+    return await this.listShipperWithOptions(project, logstore, headers, runtime);
   }
 
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -6901,10 +7452,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
-  async pullData(project: string, logstore: string, shard: string, request: PullDataRequest): Promise<PullDataResponse> {
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.pullDataWithOptions(project, logstore, shard, request, headers, runtime);
+    return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
   async pullDataWithOptions(project: string, logstore: string, shard: string, request: PullDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PullDataResponse> {
@@ -6943,10 +7494,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PullDataResponse>(await this.execute(params, req, runtime), new PullDataResponse({}));
   }
 
-  async putProjectPolicy(project: string, request: PutProjectPolicyRequest): Promise<PutProjectPolicyResponse> {
+  async pullData(project: string, logstore: string, shard: string, request: PullDataRequest): Promise<PullDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putProjectPolicyWithOptions(project, request, headers, runtime);
+    return await this.pullDataWithOptions(project, logstore, shard, request, headers, runtime);
   }
 
   async putProjectPolicyWithOptions(project: string, request: PutProjectPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProjectPolicyResponse> {
@@ -6972,10 +7523,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutProjectPolicyResponse>(await this.execute(params, req, runtime), new PutProjectPolicyResponse({}));
   }
 
-  async putWebtracking(project: string, logstoreName: string, request: PutWebtrackingRequest): Promise<PutWebtrackingResponse> {
+  async putProjectPolicy(project: string, request: PutProjectPolicyRequest): Promise<PutProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
+    return await this.putProjectPolicyWithOptions(project, request, headers, runtime);
   }
 
   async putWebtrackingWithOptions(project: string, logstoreName: string, request: PutWebtrackingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutWebtrackingResponse> {
@@ -7018,10 +7569,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PutWebtrackingResponse>(await this.execute(params, req, runtime), new PutWebtrackingResponse({}));
   }
 
-  async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<RemoveConfigFromMachineGroupResponse> {
+  async putWebtracking(project: string, logstoreName: string, request: PutWebtrackingRequest): Promise<PutWebtrackingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+    return await this.putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
   }
 
   async removeConfigFromMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveConfigFromMachineGroupResponse> {
@@ -7045,10 +7596,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveConfigFromMachineGroupResponse>(await this.execute(params, req, runtime), new RemoveConfigFromMachineGroupResponse({}));
   }
 
-  async splitShard(project: string, logstore: string, shard: string, request: SplitShardRequest): Promise<SplitShardResponse> {
+  async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<RemoveConfigFromMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.splitShardWithOptions(project, logstore, shard, request, headers, runtime);
+    return await this.removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
   }
 
   async splitShardWithOptions(project: string, logstore: string, shard: string, request: SplitShardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitShardResponse> {
@@ -7083,10 +7634,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SplitShardResponse>(await this.execute(params, req, runtime), new SplitShardResponse({}));
   }
 
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  async splitShard(project: string, logstore: string, shard: string, request: SplitShardRequest): Promise<SplitShardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.tagResourcesWithOptions(request, headers, runtime);
+    return await this.splitShardWithOptions(project, logstore, shard, request, headers, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
@@ -7122,10 +7673,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
   }
 
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.untagResourcesWithOptions(request, headers, runtime);
+    return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
@@ -7165,10 +7716,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
   }
 
-  async updateConsumerGroup(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   async updateConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
@@ -7203,10 +7754,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
 
-  async updateIndex(project: string, logstore: string, request: UpdateIndexRequest): Promise<UpdateIndexResponse> {
+  async updateConsumerGroup(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateIndexWithOptions(project, logstore, request, headers, runtime);
+    return await this.updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
   async updateIndexWithOptions(project: string, logstore: string, request: UpdateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexResponse> {
@@ -7218,7 +7769,7 @@ export default class Client extends OpenApi {
       body["keys"] = request.keys;
     }
 
-    if (!Util.isUnset($tea.toMap(request.line))) {
+    if (!Util.isUnset(request.line)) {
       body["line"] = request.line;
     }
 
@@ -7261,10 +7812,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIndexResponse>(await this.execute(params, req, runtime), new UpdateIndexResponse({}));
   }
 
-  async updateLogStore(project: string, logstore: string, request: UpdateLogStoreRequest): Promise<UpdateLogStoreResponse> {
+  async updateIndex(project: string, logstore: string, request: UpdateIndexRequest): Promise<UpdateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLogStoreWithOptions(project, logstore, request, headers, runtime);
+    return await this.updateIndexWithOptions(project, logstore, request, headers, runtime);
   }
 
   async updateLogStoreWithOptions(project: string, logstore: string, request: UpdateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogStoreResponse> {
@@ -7284,7 +7835,7 @@ export default class Client extends OpenApi {
       body["enable_tracking"] = request.enableTracking;
     }
 
-    if (!Util.isUnset($tea.toMap(request.encryptConf))) {
+    if (!Util.isUnset(request.encryptConf)) {
       body["encrypt_conf"] = request.encryptConf;
     }
 
@@ -7335,10 +7886,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLogStoreResponse>(await this.execute(params, req, runtime), new UpdateLogStoreResponse({}));
   }
 
-  async updateLogging(project: string, request: UpdateLoggingRequest): Promise<UpdateLoggingResponse> {
+  async updateLogStore(project: string, logstore: string, request: UpdateLogStoreRequest): Promise<UpdateLogStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateLoggingWithOptions(project, request, headers, runtime);
+    return await this.updateLogStoreWithOptions(project, logstore, request, headers, runtime);
   }
 
   async updateLoggingWithOptions(project: string, request: UpdateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLoggingResponse> {
@@ -7373,10 +7924,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLoggingResponse>(await this.execute(params, req, runtime), new UpdateLoggingResponse({}));
   }
 
-  async updateMachineGroup(project: string, groupName: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
+  async updateLogging(project: string, request: UpdateLoggingRequest): Promise<UpdateLoggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
+    return await this.updateLoggingWithOptions(project, request, headers, runtime);
   }
 
   async updateMachineGroupWithOptions(project: string, groupName: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
@@ -7384,7 +7935,7 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
+    if (!Util.isUnset(request.groupAttribute)) {
       body["groupAttribute"] = request.groupAttribute;
     }
 
@@ -7423,10 +7974,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMachineGroupResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupResponse({}));
   }
 
-  async updateMachineGroupMachine(project: string, machineGroup: string, request: UpdateMachineGroupMachineRequest): Promise<UpdateMachineGroupMachineResponse> {
+  async updateMachineGroup(project: string, groupName: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
+    return await this.updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
   }
 
   async updateMachineGroupMachineWithOptions(project: string, machineGroup: string, request: UpdateMachineGroupMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupMachineResponse> {
@@ -7458,10 +8009,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMachineGroupMachineResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupMachineResponse({}));
   }
 
-  async updateOdpsShipper(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest): Promise<UpdateOdpsShipperResponse> {
+  async updateMachineGroupMachine(project: string, machineGroup: string, request: UpdateMachineGroupMachineRequest): Promise<UpdateMachineGroupMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+    return await this.updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
   }
 
   async updateOdpsShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOdpsShipperResponse> {
@@ -7473,7 +8024,7 @@ export default class Client extends OpenApi {
       body["shipperName"] = request.shipperName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+    if (!Util.isUnset(request.targetConfiguration)) {
       body["targetConfiguration"] = request.targetConfiguration;
     }
 
@@ -7500,10 +8051,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOdpsShipperResponse>(await this.execute(params, req, runtime), new UpdateOdpsShipperResponse({}));
   }
 
-  async updateOssExternalStore(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest): Promise<UpdateOssExternalStoreResponse> {
+  async updateOdpsShipper(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest): Promise<UpdateOdpsShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+    return await this.updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
   async updateOssExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssExternalStoreResponse> {
@@ -7515,7 +8066,7 @@ export default class Client extends OpenApi {
       body["externalStoreName"] = request.externalStoreName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.parameter))) {
+    if (!Util.isUnset(request.parameter)) {
       body["parameter"] = request.parameter;
     }
 
@@ -7542,10 +8093,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOssExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateOssExternalStoreResponse({}));
   }
 
-  async updateOssShipper(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest): Promise<UpdateOssShipperResponse> {
+  async updateOssExternalStore(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest): Promise<UpdateOssExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+    return await this.updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
   }
 
   async updateOssShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssShipperResponse> {
@@ -7557,7 +8108,7 @@ export default class Client extends OpenApi {
       body["shipperName"] = request.shipperName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+    if (!Util.isUnset(request.targetConfiguration)) {
       body["targetConfiguration"] = request.targetConfiguration;
     }
 
@@ -7584,24 +8135,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOssShipperResponse>(await this.execute(params, req, runtime), new UpdateOssShipperResponse({}));
   }
 
-  async updateProject(project: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
+  async updateOssShipper(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest): Promise<UpdateOssShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateProjectWithOptions(project, request, headers, runtime);
+    return await this.updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
-  async updateProjectWithOptions(project: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+  async updateProjectWithOptions(request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.project)) {
+      query["project"] = request.project;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -7618,10 +8172,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
   }
 
-  async updateRdsExternalStore(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest): Promise<UpdateRdsExternalStoreResponse> {
+  async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateRdsExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+    return await this.updateProjectWithOptions(request, headers, runtime);
   }
 
   async updateRdsExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRdsExternalStoreResponse> {
@@ -7633,7 +8187,7 @@ export default class Client extends OpenApi {
       body["externalStoreName"] = request.externalStoreName;
     }
 
-    if (!Util.isUnset($tea.toMap(request.parameter))) {
+    if (!Util.isUnset(request.parameter)) {
       body["parameter"] = request.parameter;
     }
 
@@ -7660,10 +8214,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateRdsExternalStoreResponse({}));
   }
 
-  async updateSavedSearch(project: string, savedsearchName: string, request: UpdateSavedSearchRequest): Promise<UpdateSavedSearchResponse> {
+  async updateRdsExternalStore(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest): Promise<UpdateRdsExternalStoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateSavedSearchWithOptions(project, savedsearchName, request, headers, runtime);
+    return await this.updateRdsExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
   }
 
   async updateSavedSearchWithOptions(project: string, savedsearchName: string, request: UpdateSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSavedSearchResponse> {
@@ -7708,6 +8262,12 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UpdateSavedSearchResponse>(await this.execute(params, req, runtime), new UpdateSavedSearchResponse({}));
+  }
+
+  async updateSavedSearch(project: string, savedsearchName: string, request: UpdateSavedSearchRequest): Promise<UpdateSavedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSavedSearchWithOptions(project, savedsearchName, request, headers, runtime);
   }
 
 }

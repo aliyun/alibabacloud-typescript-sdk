@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sls20201230",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,11 +20,11 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.4",
+    "@alicloud/tea-util": "^1.4.5",
     "@alicloud/gateway-spi": "^0.0.8",
-    "@alicloud/gateway-sls": "^0.0.4",
-    "@alicloud/openapi-client": "^0.4.1",
-    "@alicloud/openapi-util": "^0.2.9"
+    "@alicloud/gateway-sls": "^0.0.5",
+    "@alicloud/openapi-client": "^0.4.4",
+    "@alicloud/openapi-util": "^0.3.1"
   },
   "files": [
     "dist",
