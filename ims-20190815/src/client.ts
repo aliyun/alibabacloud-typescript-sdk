@@ -5466,15 +5466,18 @@ export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Mod
 
 export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Model {
   lastUsedDate?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       lastUsedDate: 'LastUsedDate',
+      serviceName: 'ServiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lastUsedDate: 'string',
+      serviceName: 'string',
     };
   }
 
