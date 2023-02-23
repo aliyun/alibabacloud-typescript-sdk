@@ -14311,8 +14311,8 @@ export class GetFileLastCommitResponseBodyResultSignature extends $tea.Model {
   verificationStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      gpgKeyId: 'GpgKeyId',
-      verificationStatus: 'VerificationStatus',
+      gpgKeyId: 'gpgKeyId',
+      verificationStatus: 'verificationStatus',
     };
   }
 
@@ -15704,6 +15704,7 @@ export class GetSprintInfoResponseBodySprint extends $tea.Model {
   identifier?: string;
   modifier?: string;
   name?: string;
+  owners?: string[];
   scope?: string;
   spaceIdentifier?: string;
   startDate?: number;
@@ -15718,6 +15719,7 @@ export class GetSprintInfoResponseBodySprint extends $tea.Model {
       identifier: 'identifier',
       modifier: 'modifier',
       name: 'name',
+      owners: 'owners',
       scope: 'scope',
       spaceIdentifier: 'spaceIdentifier',
       startDate: 'startDate',
@@ -15735,6 +15737,7 @@ export class GetSprintInfoResponseBodySprint extends $tea.Model {
       identifier: 'string',
       modifier: 'string',
       name: 'string',
+      owners: { 'type': 'array', 'itemType': 'string' },
       scope: 'string',
       spaceIdentifier: 'string',
       startDate: 'number',
@@ -17220,6 +17223,7 @@ export class ListProjectMembersResponseBodyMembers extends $tea.Model {
   organizationUserInfo?: ListProjectMembersResponseBodyMembersOrganizationUserInfo;
   realName?: string;
   realNamePinyin?: string;
+  roleName?: string;
   stamp?: string;
   tbRoleId?: string;
   static names(): { [key: string]: string } {
@@ -17241,6 +17245,7 @@ export class ListProjectMembersResponseBodyMembers extends $tea.Model {
       organizationUserInfo: 'organizationUserInfo',
       realName: 'realName',
       realNamePinyin: 'realNamePinyin',
+      roleName: 'roleName',
       stamp: 'stamp',
       tbRoleId: 'tbRoleId',
     };
@@ -17265,6 +17270,7 @@ export class ListProjectMembersResponseBodyMembers extends $tea.Model {
       organizationUserInfo: ListProjectMembersResponseBodyMembersOrganizationUserInfo,
       realName: 'string',
       realNamePinyin: 'string',
+      roleName: 'string',
       stamp: 'string',
       tbRoleId: 'string',
     };
