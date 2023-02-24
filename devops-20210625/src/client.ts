@@ -3570,6 +3570,81 @@ export class DeleteVariableGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteWorkitemRequest extends $tea.Model {
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemResponseBody extends $tea.Model {
+  deleteFlag?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deleteFlag: 'deleteFlag',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteFlag: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkitemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteWorkitemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWorkitemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteWorkitemAllCommentRequest extends $tea.Model {
   identifier?: string;
   static names(): { [key: string]: string } {
@@ -11968,6 +12043,84 @@ export class UpdateWorkitemCommentResponse extends $tea.Model {
   }
 }
 
+export class UpdateWorkitemFieldRequest extends $tea.Model {
+  updateWorkitemPropertyRequest?: UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest[];
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateWorkitemPropertyRequest: 'updateWorkitemPropertyRequest',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateWorkitemPropertyRequest: { 'type': 'array', 'itemType': UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest },
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemFieldResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  workitem?: UpdateWorkitemFieldResponseBodyWorkitem;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      workitem: 'workitem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workitem: UpdateWorkitemFieldResponseBodyWorkitem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemFieldResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateWorkitemFieldResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWorkitemFieldResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
@@ -16468,6 +16621,37 @@ export class GetWorkItemWorkFlowInfoResponseBodyWorkflow extends $tea.Model {
   }
 }
 
+export class GetWorkitemCommentListResponseBodyCommentListUser extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  identifier?: string;
+  nickName?: string;
+  realName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      identifier: 'identifier',
+      nickName: 'nickName',
+      realName: 'realName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      identifier: 'string',
+      nickName: 'string',
+      realName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
   content?: string;
   createTime?: number;
@@ -16479,6 +16663,7 @@ export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
   targetIdentifier?: string;
   targetType?: string;
   topTime?: number;
+  user?: GetWorkitemCommentListResponseBodyCommentListUser;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
@@ -16491,6 +16676,7 @@ export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
       targetIdentifier: 'targetIdentifier',
       targetType: 'targetType',
       topTime: 'topTime',
+      user: 'user',
     };
   }
 
@@ -16506,6 +16692,7 @@ export class GetWorkitemCommentListResponseBodyCommentList extends $tea.Model {
       targetIdentifier: 'string',
       targetType: 'string',
       topTime: 'number',
+      user: GetWorkitemCommentListResponseBodyCommentListUser,
     };
   }
 
@@ -20477,6 +20664,107 @@ export class UpdateWorkitemCommentResponseBodyComment extends $tea.Model {
   }
 }
 
+export class UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest extends $tea.Model {
+  fieldIdentifier?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkitemFieldResponseBodyWorkitem extends $tea.Model {
+  assignedTo?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  document?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  logicalStatus?: string;
+  modifier?: string;
+  parentIdentifier?: string;
+  serialNumber?: string;
+  spaceIdentifier?: string;
+  spaceName?: string;
+  spaceType?: string;
+  sprintIdentifier?: string;
+  status?: string;
+  statusIdentifier?: string;
+  statusStageIdentifier?: string;
+  subject?: string;
+  updateStatusAt?: number;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      document: 'document',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      logicalStatus: 'logicalStatus',
+      modifier: 'modifier',
+      parentIdentifier: 'parentIdentifier',
+      serialNumber: 'serialNumber',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceName: 'spaceName',
+      spaceType: 'spaceType',
+      sprintIdentifier: 'sprintIdentifier',
+      status: 'status',
+      statusIdentifier: 'statusIdentifier',
+      statusStageIdentifier: 'statusStageIdentifier',
+      subject: 'subject',
+      updateStatusAt: 'updateStatusAt',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      document: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      logicalStatus: 'string',
+      modifier: 'string',
+      parentIdentifier: 'string',
+      serialNumber: 'string',
+      spaceIdentifier: 'string',
+      spaceName: 'string',
+      spaceType: 'string',
+      sprintIdentifier: 'string',
+      status: 'string',
+      statusIdentifier: 'string',
+      statusStageIdentifier: 'string',
+      subject: 'string',
+      updateStatusAt: 'number',
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -22426,6 +22714,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVariableGroupWithOptions(organizationId, id, headers, runtime);
+  }
+
+  async deleteWorkitemWithOptions(organizationId: string, request: DeleteWorkitemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkitemResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWorkitem",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitem/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWorkitemResponse>(await this.callApi(params, req, runtime), new DeleteWorkitemResponse({}));
+  }
+
+  async deleteWorkitem(organizationId: string, request: DeleteWorkitemRequest): Promise<DeleteWorkitemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkitemWithOptions(organizationId, request, headers, runtime);
   }
 
   async deleteWorkitemAllCommentWithOptions(organizationId: string, request: DeleteWorkitemAllCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteWorkitemAllCommentResponse> {
@@ -26616,6 +26935,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWorkitemCommentWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async updateWorkitemFieldWithOptions(organizationId: string, request: UpdateWorkitemFieldRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateWorkitemFieldResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.updateWorkitemPropertyRequest)) {
+      body["updateWorkitemPropertyRequest"] = request.updateWorkitemPropertyRequest;
+    }
+
+    if (!Util.isUnset(request.workitemIdentifier)) {
+      body["workitemIdentifier"] = request.workitemIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWorkitemField",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${OpenApiUtil.getEncodeParam(organizationId)}/workitems/updateWorkitemField`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWorkitemFieldResponse>(await this.callApi(params, req, runtime), new UpdateWorkitemFieldResponse({}));
+  }
+
+  async updateWorkitemField(organizationId: string, request: UpdateWorkitemFieldRequest): Promise<UpdateWorkitemFieldResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkitemFieldWithOptions(organizationId, request, headers, runtime);
   }
 
 }
