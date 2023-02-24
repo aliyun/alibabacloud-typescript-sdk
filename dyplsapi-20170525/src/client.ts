@@ -182,6 +182,7 @@ export class BindAxbRequest extends $tea.Model {
   callDisplayType?: number;
   callRestrict?: string;
   callTimeout?: number;
+  dtmfConfig?: string;
   expectCity?: string;
   expiration?: string;
   isRecordingEnabled?: boolean;
@@ -202,6 +203,7 @@ export class BindAxbRequest extends $tea.Model {
       callDisplayType: 'CallDisplayType',
       callRestrict: 'CallRestrict',
       callTimeout: 'CallTimeout',
+      dtmfConfig: 'DtmfConfig',
       expectCity: 'ExpectCity',
       expiration: 'Expiration',
       isRecordingEnabled: 'IsRecordingEnabled',
@@ -225,6 +227,7 @@ export class BindAxbRequest extends $tea.Model {
       callDisplayType: 'number',
       callRestrict: 'string',
       callTimeout: 'number',
+      dtmfConfig: 'string',
       expectCity: 'string',
       expiration: 'string',
       isRecordingEnabled: 'boolean',
@@ -848,93 +851,6 @@ export class CancelPickUpWaybillResponse extends $tea.Model {
   }
 }
 
-export class ConfirmSendSmsRequest extends $tea.Model {
-  callId?: string;
-  ownerId?: number;
-  poolKey?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  secretNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callId: 'CallId',
-      ownerId: 'OwnerId',
-      poolKey: 'PoolKey',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      secretNo: 'SecretNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callId: 'string',
-      ownerId: 'number',
-      poolKey: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      secretNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmSendSmsResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmSendSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmSendSmsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConfirmSendSmsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateAxgGroupRequest extends $tea.Model {
   name?: string;
   numbers?: string;
@@ -1486,93 +1402,6 @@ export class GetSecretAsrDetailResponse extends $tea.Model {
   }
 }
 
-export class GetSubscriptionDetailRequest extends $tea.Model {
-  ownerId?: number;
-  poolKey?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  secretNo?: string;
-  subsId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      poolKey: 'PoolKey',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      poolKey: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      secretNo: 'string',
-      subsId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSubscriptionDetailResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetSubscriptionDetailResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetSubscriptionDetailResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSubscriptionDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubscriptionDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSubscriptionDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTotalPublicUrlRequest extends $tea.Model {
   callId?: string;
   callTime?: string;
@@ -1910,93 +1739,6 @@ export class OperateBlackNoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OperateBlackNoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCallStatusRequest extends $tea.Model {
-  callNo?: string;
-  ownerId?: number;
-  poolKey?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callNo: 'CallNo',
-      ownerId: 'OwnerId',
-      poolKey: 'PoolKey',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callNo: 'string',
-      ownerId: 'number',
-      poolKey: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCallStatusResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  secretCallStatusDTO?: QueryCallStatusResponseBodySecretCallStatusDTO;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      secretCallStatusDTO: 'SecretCallStatusDTO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      secretCallStatusDTO: QueryCallStatusResponseBodySecretCallStatusDTO,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCallStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCallStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryCallStatusResponseBody,
     };
   }
 
@@ -3496,43 +3238,6 @@ export class GetSecretAsrDetailResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetSubscriptionDetailResponseBodyData extends $tea.Model {
-  city?: string;
-  phoneNo?: string;
-  province?: string;
-  secretNo?: string;
-  subsId?: number;
-  switchStatus?: number;
-  vendor?: string;
-  static names(): { [key: string]: string } {
-    return {
-      city: 'City',
-      phoneNo: 'PhoneNo',
-      province: 'Province',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-      switchStatus: 'SwitchStatus',
-      vendor: 'Vendor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      city: 'string',
-      phoneNo: 'string',
-      province: 'string',
-      secretNo: 'string',
-      subsId: 'number',
-      switchStatus: 'number',
-      vendor: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTotalPublicUrlResponseBodyData extends $tea.Model {
   phonePublicUrl?: string;
   ringPublicUrl?: string;
@@ -3547,31 +3252,6 @@ export class GetTotalPublicUrlResponseBodyData extends $tea.Model {
     return {
       phonePublicUrl: 'string',
       ringPublicUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCallStatusResponseBodySecretCallStatusDTO extends $tea.Model {
-  calledNo?: string;
-  extension?: string;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      calledNo: 'CalledNo',
-      extension: 'Extension',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      calledNo: 'string',
-      extension: 'string',
-      status: 'number',
     };
   }
 
@@ -3903,6 +3583,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.callTimeout)) {
       query["CallTimeout"] = request.callTimeout;
+    }
+
+    if (!Util.isUnset(request.dtmfConfig)) {
+      query["DtmfConfig"] = request.dtmfConfig;
     }
 
     if (!Util.isUnset(request.expectCity)) {
@@ -4376,55 +4060,6 @@ export default class Client extends OpenApi {
     return await this.cancelPickUpWaybillWithOptions(request, runtime);
   }
 
-  async confirmSendSmsWithOptions(request: ConfirmSendSmsRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmSendSmsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.callId)) {
-      query["CallId"] = request.callId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.poolKey)) {
-      query["PoolKey"] = request.poolKey;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.secretNo)) {
-      query["SecretNo"] = request.secretNo;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ConfirmSendSms",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ConfirmSendSmsResponse>(await this.callApi(params, req, runtime), new ConfirmSendSmsResponse({}));
-  }
-
-  async confirmSendSms(request: ConfirmSendSmsRequest): Promise<ConfirmSendSmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.confirmSendSmsWithOptions(request, runtime);
-  }
-
   async createAxgGroupWithOptions(request: CreateAxgGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAxgGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4482,16 +4117,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreatePickUpWaybillShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.consigneeAddress))) {
-      request.consigneeAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.consigneeAddress), "ConsigneeAddress", "json");
+    if (!Util.isUnset(tmpReq.consigneeAddress)) {
+      request.consigneeAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.consigneeAddress, "ConsigneeAddress", "json");
     }
 
     if (!Util.isUnset(tmpReq.goodsInfos)) {
       request.goodsInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.goodsInfos, "GoodsInfos", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.sendAddress))) {
-      request.sendAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sendAddress), "SendAddress", "json");
+    if (!Util.isUnset(tmpReq.sendAddress)) {
+      request.sendAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sendAddress, "SendAddress", "json");
     }
 
     let query = { };
@@ -4585,12 +4220,12 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreatePickUpWaybillPreQueryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.consigneeInfo))) {
-      request.consigneeInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.consigneeInfo), "ConsigneeInfo", "json");
+    if (!Util.isUnset(tmpReq.consigneeInfo)) {
+      request.consigneeInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.consigneeInfo, "ConsigneeInfo", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.senderInfo))) {
-      request.senderInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.senderInfo), "SenderInfo", "json");
+    if (!Util.isUnset(tmpReq.senderInfo)) {
+      request.senderInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.senderInfo, "SenderInfo", "json");
     }
 
     let query = { };
@@ -4720,55 +4355,6 @@ export default class Client extends OpenApi {
   async getSecretAsrDetail(request: GetSecretAsrDetailRequest): Promise<GetSecretAsrDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecretAsrDetailWithOptions(request, runtime);
-  }
-
-  async getSubscriptionDetailWithOptions(request: GetSubscriptionDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSubscriptionDetailResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.poolKey)) {
-      query["PoolKey"] = request.poolKey;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.secretNo)) {
-      query["SecretNo"] = request.secretNo;
-    }
-
-    if (!Util.isUnset(request.subsId)) {
-      query["SubsId"] = request.subsId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetSubscriptionDetail",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetSubscriptionDetailResponse>(await this.callApi(params, req, runtime), new GetSubscriptionDetailResponse({}));
-  }
-
-  async getSubscriptionDetail(request: GetSubscriptionDetailRequest): Promise<GetSubscriptionDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSubscriptionDetailWithOptions(request, runtime);
   }
 
   async getTotalPublicUrlWithOptions(request: GetTotalPublicUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetTotalPublicUrlResponse> {
@@ -4973,55 +4559,6 @@ export default class Client extends OpenApi {
   async operateBlackNo(request: OperateBlackNoRequest): Promise<OperateBlackNoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateBlackNoWithOptions(request, runtime);
-  }
-
-  async queryCallStatusWithOptions(request: QueryCallStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallStatusResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.callNo)) {
-      query["CallNo"] = request.callNo;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.poolKey)) {
-      query["PoolKey"] = request.poolKey;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.subsId)) {
-      query["SubsId"] = request.subsId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryCallStatus",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryCallStatusResponse>(await this.callApi(params, req, runtime), new QueryCallStatusResponse({}));
-  }
-
-  async queryCallStatus(request: QueryCallStatusRequest): Promise<QueryCallStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryCallStatusWithOptions(request, runtime);
   }
 
   async queryPhoneNoAByTrackNoWithOptions(request: QueryPhoneNoAByTrackNoRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneNoAByTrackNoResponse> {
