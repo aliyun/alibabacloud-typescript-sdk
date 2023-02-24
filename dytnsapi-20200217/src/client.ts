@@ -1490,6 +1490,7 @@ export class ThreeElementsVerificationRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  routeName?: string;
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
@@ -1500,6 +1501,7 @@ export class ThreeElementsVerificationRequest extends $tea.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      routeName: 'RouteName',
     };
   }
 
@@ -1513,6 +1515,7 @@ export class ThreeElementsVerificationRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      routeName: 'string',
     };
   }
 
@@ -2996,6 +2999,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
