@@ -13346,9 +13346,11 @@ export class DescribeDomainCcActivityLogResponseBodyActivityLog extends $tea.Mod
 export class DescribeDomainCertificateInfoResponseBodyCertInfosCertInfo extends $tea.Model {
   certDomainName?: string;
   certExpireTime?: string;
+  certId?: string;
   certLife?: string;
   certName?: string;
   certOrg?: string;
+  certRegion?: string;
   certStartTime?: string;
   certType?: string;
   certUpdateTime?: string;
@@ -13361,9 +13363,11 @@ export class DescribeDomainCertificateInfoResponseBodyCertInfosCertInfo extends 
     return {
       certDomainName: 'CertDomainName',
       certExpireTime: 'CertExpireTime',
+      certId: 'CertId',
       certLife: 'CertLife',
       certName: 'CertName',
       certOrg: 'CertOrg',
+      certRegion: 'CertRegion',
       certStartTime: 'CertStartTime',
       certType: 'CertType',
       certUpdateTime: 'CertUpdateTime',
@@ -13379,9 +13383,11 @@ export class DescribeDomainCertificateInfoResponseBodyCertInfosCertInfo extends 
     return {
       certDomainName: 'string',
       certExpireTime: 'string',
+      certId: 'string',
       certLife: 'string',
       certName: 'string',
       certOrg: 'string',
+      certRegion: 'string',
       certStartTime: 'string',
       certType: 'string',
       certUpdateTime: 'string',
@@ -19310,8 +19316,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
-    * - You can call this API operation up to three times per second per account.
+    * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+    * *   You can call this operation up to three times per second per account.
     *
     * @param request DescribeCdnSubListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19334,8 +19340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > - By default, this operation queries all tracking tasks. However, only one tracking task can be displayed. Therefore, only one tracking task is returned.
-    * - You can call this API operation up to three times per second per account.
+    * *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
+    * *   You can call this operation up to three times per second per account.
     *
     * @return DescribeCdnSubListResponse
    */
@@ -21603,7 +21609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this API operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDomainRealtimeLogDeliveryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21630,7 +21636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this API operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDomainRealtimeLogDeliveryRequest
     * @return DescribeDomainRealtimeLogDeliveryResponse
@@ -22864,8 +22870,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
-    * *   The maximum number of times that each user can call this operation per second is 40.
+    * *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+    * *   You can call this operation up to 40 times per second per account.
     *
     * @param request DescribeL2VipsByDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22904,8 +22910,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
-    * *   The maximum number of times that each user can call this operation per second is 40.
+    * *   This operation is available only to users whose daily peak bandwidth value is higher than 1 Gbit/s. If you meet this requirement, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply for permissions to use this operation.
+    * *   You can call this operation up to 40 times per second per account.
     *
     * @param request DescribeL2VipsByDomainRequest
     * @return DescribeL2VipsByDomainResponse
@@ -23386,7 +23392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeUserCertificateExpireCountRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23409,7 +23415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @return DescribeUserCertificateExpireCountResponse
    */
@@ -23736,7 +23742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeVerifyContentRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23767,7 +23773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeVerifyContentRequest
     * @return DescribeVerifyContentResponse
@@ -25182,7 +25188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request VerifyDomainOwnerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25217,7 +25223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request VerifyDomainOwnerRequest
     * @return VerifyDomainOwnerResponse
