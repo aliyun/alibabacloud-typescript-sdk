@@ -6122,6 +6122,7 @@ export class DescribeDcdnDomainUsageDataRequest extends $tea.Model {
   field?: string;
   interval?: string;
   startTime?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
@@ -6131,6 +6132,7 @@ export class DescribeDcdnDomainUsageDataRequest extends $tea.Model {
       field: 'Field',
       interval: 'Interval',
       startTime: 'StartTime',
+      type: 'Type',
     };
   }
 
@@ -6143,6 +6145,7 @@ export class DescribeDcdnDomainUsageDataRequest extends $tea.Model {
       field: 'string',
       interval: 'string',
       startTime: 'string',
+      type: 'string',
     };
   }
 
@@ -14411,9 +14414,11 @@ export class DescribeDcdnDomainCcActivityLogResponseBodyActivityLog extends $tea
 export class DescribeDcdnDomainCertificateInfoResponseBodyCertInfosCertInfo extends $tea.Model {
   certDomainName?: string;
   certExpireTime?: string;
+  certId?: string;
   certLife?: string;
   certName?: string;
   certOrg?: string;
+  certRegion?: string;
   certType?: string;
   domainName?: string;
   SSLProtocol?: string;
@@ -14423,9 +14428,11 @@ export class DescribeDcdnDomainCertificateInfoResponseBodyCertInfosCertInfo exte
     return {
       certDomainName: 'CertDomainName',
       certExpireTime: 'CertExpireTime',
+      certId: 'CertId',
       certLife: 'CertLife',
       certName: 'CertName',
       certOrg: 'CertOrg',
+      certRegion: 'CertRegion',
       certType: 'CertType',
       domainName: 'DomainName',
       SSLProtocol: 'SSLProtocol',
@@ -14438,9 +14445,11 @@ export class DescribeDcdnDomainCertificateInfoResponseBodyCertInfosCertInfo exte
     return {
       certDomainName: 'string',
       certExpireTime: 'string',
+      certId: 'string',
       certLife: 'string',
       certName: 'string',
       certOrg: 'string',
+      certRegion: 'string',
       certType: 'string',
       domainName: 'string',
       SSLProtocol: 'string',
@@ -19514,6 +19523,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * > 
+    * *   The Dynamic Route for CDN (DCDN) service is activated.
+    * *   Internet content provider (ICP) filing is complete for the accelerated domain name.
+    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request AddDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddDcdnDomainResponse
+   */
   async addDcdnDomainWithOptions(request: AddDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19574,11 +19594,32 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDcdnDomainResponse>(await this.callApi(params, req, runtime), new AddDcdnDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   The Dynamic Route for CDN (DCDN) service is activated.
+    * *   Internet content provider (ICP) filing is complete for the accelerated domain name.
+    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request AddDcdnDomainRequest
+    * @return AddDcdnDomainResponse
+   */
   async addDcdnDomain(request: AddDcdnDomainRequest): Promise<AddDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
+    * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
+    * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request AddDcdnIpaDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddDcdnIpaDomainResponse
+   */
   async addDcdnIpaDomainWithOptions(request: AddDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19639,11 +19680,34 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new AddDcdnIpaDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   Make sure that the IPA service is activated before you add a domain name to accelerate.
+    * *   Make sure that the Internet content provider (ICP) filling is complete for the domain name to accelerate.
+    * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed. The review is complete by the end of the next business day after you submit the request.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request AddDcdnIpaDomainRequest
+    * @return AddDcdnIpaDomainResponse
+   */
   async addDcdnIpaDomain(request: AddDcdnIpaDomainRequest): Promise<AddDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDcdnIpaDomainWithOptions(request, runtime);
   }
 
+  /**
+    * **Prerequisites**:
+    * *   The [DCDN service is activated](~~64926~~).
+    * *   Internet Content Provider (ICP) filing is complete for the accelerated domain names.
+    * > 
+    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+    * *   The maximum number of domain names configured at a time is 50.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request BatchAddDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchAddDcdnDomainResponse
+   */
   async batchAddDcdnDomainWithOptions(request: BatchAddDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19700,11 +19764,30 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAddDcdnDomainResponse>(await this.callApi(params, req, runtime), new BatchAddDcdnDomainResponse({}));
   }
 
+  /**
+    * **Prerequisites**:
+    * *   The [DCDN service is activated](~~64926~~).
+    * *   Internet Content Provider (ICP) filing is complete for the accelerated domain names.
+    * > 
+    * *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+    * *   The maximum number of domain names configured at a time is 50.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request BatchAddDcdnDomainRequest
+    * @return BatchAddDcdnDomainResponse
+   */
   async batchAddDcdnDomain(request: BatchAddDcdnDomainRequest): Promise<BatchAddDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request BatchCreateDcdnWafRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchCreateDcdnWafRulesResponse
+   */
   async batchCreateDcdnWafRulesWithOptions(request: BatchCreateDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateDcdnWafRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19733,11 +19816,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCreateDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchCreateDcdnWafRulesResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request BatchCreateDcdnWafRulesRequest
+    * @return BatchCreateDcdnWafRulesResponse
+   */
   async batchCreateDcdnWafRules(request: BatchCreateDcdnWafRulesRequest): Promise<BatchCreateDcdnWafRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCreateDcdnWafRulesWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchDeleteDcdnDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchDeleteDcdnDomainConfigsResponse
+   */
   async batchDeleteDcdnDomainConfigsWithOptions(request: BatchDeleteDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19778,11 +19876,27 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteDcdnDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchDeleteDcdnDomainConfigsResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can specify up to 50 domain names in each request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchDeleteDcdnDomainConfigsRequest
+    * @return BatchDeleteDcdnDomainConfigsResponse
+   */
   async batchDeleteDcdnDomainConfigs(request: BatchDeleteDcdnDomainConfigsRequest): Promise<BatchDeleteDcdnDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteDcdnDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request BatchDeleteDcdnWafRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchDeleteDcdnWafRulesResponse
+   */
   async batchDeleteDcdnWafRulesWithOptions(request: BatchDeleteDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnWafRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19807,11 +19921,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchDeleteDcdnWafRulesResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request BatchDeleteDcdnWafRulesRequest
+    * @return BatchDeleteDcdnWafRulesResponse
+   */
   async batchDeleteDcdnWafRules(request: BatchDeleteDcdnWafRulesRequest): Promise<BatchDeleteDcdnWafRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteDcdnWafRulesWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request BatchModifyDcdnWafRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchModifyDcdnWafRulesResponse
+   */
   async batchModifyDcdnWafRulesWithOptions(request: BatchModifyDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchModifyDcdnWafRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19840,11 +19968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchModifyDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchModifyDcdnWafRulesResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request BatchModifyDcdnWafRulesRequest
+    * @return BatchModifyDcdnWafRulesResponse
+   */
   async batchModifyDcdnWafRules(request: BatchModifyDcdnWafRulesRequest): Promise<BatchModifyDcdnWafRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchModifyDcdnWafRulesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request BatchSetDcdnDomainCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSetDcdnDomainCertificateResponse
+   */
   async batchSetDcdnDomainCertificateWithOptions(request: BatchSetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19901,11 +20042,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSetDcdnDomainCertificateResponse>(await this.callApi(params, req, runtime), new BatchSetDcdnDomainCertificateResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request BatchSetDcdnDomainCertificateRequest
+    * @return BatchSetDcdnDomainCertificateResponse
+   */
   async batchSetDcdnDomainCertificate(request: BatchSetDcdnDomainCertificateRequest): Promise<BatchSetDcdnDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnDomainCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,)
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchSetDcdnDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSetDcdnDomainConfigsResponse
+   */
   async batchSetDcdnDomainConfigsWithOptions(request: BatchSetDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19946,11 +20102,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSetDcdnDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchSetDcdnDomainConfigsResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,)
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request BatchSetDcdnDomainConfigsRequest
+    * @return BatchSetDcdnDomainConfigsResponse
+   */
   async batchSetDcdnDomainConfigs(request: BatchSetDcdnDomainConfigsRequest): Promise<BatchSetDcdnDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request BatchSetDcdnIpaDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSetDcdnIpaDomainConfigsResponse
+   */
   async batchSetDcdnIpaDomainConfigsWithOptions(request: BatchSetDcdnIpaDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnIpaDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19991,11 +20162,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSetDcdnIpaDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchSetDcdnIpaDomainConfigsResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request BatchSetDcdnIpaDomainConfigsRequest
+    * @return BatchSetDcdnIpaDomainConfigsResponse
+   */
   async batchSetDcdnIpaDomainConfigs(request: BatchSetDcdnIpaDomainConfigsRequest): Promise<BatchSetDcdnIpaDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnIpaDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request BatchSetDcdnWafDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchSetDcdnWafDomainConfigsResponse
+   */
   async batchSetDcdnWafDomainConfigsWithOptions(request: BatchSetDcdnWafDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnWafDomainConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20028,11 +20213,25 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSetDcdnWafDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchSetDcdnWafDomainConfigsResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request BatchSetDcdnWafDomainConfigsRequest
+    * @return BatchSetDcdnWafDomainConfigsResponse
+   */
   async batchSetDcdnWafDomainConfigs(request: BatchSetDcdnWafDomainConfigsRequest): Promise<BatchSetDcdnWafDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnWafDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request CheckDcdnProjectExistRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckDcdnProjectExistResponse
+   */
   async checkDcdnProjectExistWithOptions(request: CheckDcdnProjectExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckDcdnProjectExistResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20053,11 +20252,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDcdnProjectExistResponse>(await this.callApi(params, req, runtime), new CheckDcdnProjectExistResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request CheckDcdnProjectExistRequest
+    * @return CheckDcdnProjectExistResponse
+   */
   async checkDcdnProjectExist(request: CheckDcdnProjectExistRequest): Promise<CheckDcdnProjectExistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDcdnProjectExistWithOptions(request, runtime);
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request CommitStagingRoutineCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CommitStagingRoutineCodeResponse
+   */
   async commitStagingRoutineCodeWithOptions(request: CommitStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<CommitStagingRoutineCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20086,11 +20298,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CommitStagingRoutineCodeResponse>(await this.callApi(params, req, runtime), new CommitStagingRoutineCodeResponse({}));
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request CommitStagingRoutineCodeRequest
+    * @return CommitStagingRoutineCodeResponse
+   */
   async commitStagingRoutineCode(request: CommitStagingRoutineCodeRequest): Promise<CommitStagingRoutineCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.commitStagingRoutineCodeWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request CreateDcdnDeliverTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDcdnDeliverTaskResponse
+   */
   async createDcdnDeliverTaskWithOptions(request: CreateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20131,11 +20356,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDcdnDeliverTaskResponse>(await this.callApi(params, req, runtime), new CreateDcdnDeliverTaskResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request CreateDcdnDeliverTaskRequest
+    * @return CreateDcdnDeliverTaskResponse
+   */
   async createDcdnDeliverTask(request: CreateDcdnDeliverTaskRequest): Promise<CreateDcdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnDeliverTaskWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateDcdnSLSRealTimeLogDeliveryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDcdnSLSRealTimeLogDeliveryResponse
+   */
   async createDcdnSLSRealTimeLogDeliveryWithOptions(request: CreateDcdnSLSRealTimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnSLSRealTimeLogDeliveryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20188,11 +20426,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDcdnSLSRealTimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new CreateDcdnSLSRealTimeLogDeliveryResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateDcdnSLSRealTimeLogDeliveryRequest
+    * @return CreateDcdnSLSRealTimeLogDeliveryResponse
+   */
   async createDcdnSLSRealTimeLogDelivery(request: CreateDcdnSLSRealTimeLogDeliveryRequest): Promise<CreateDcdnSLSRealTimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnSLSRealTimeLogDeliveryWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+    * *   You can call this operation up to three times per second.
+    *
+    * @param request CreateDcdnSubTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDcdnSubTaskResponse
+   */
   async createDcdnSubTaskWithOptions(request: CreateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnSubTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20221,11 +20474,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDcdnSubTaskResponse>(await this.callApi(params, req, runtime), new CreateDcdnSubTaskResponse({}));
   }
 
+  /**
+    * > 
+    * *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+    * *   You can call this operation up to three times per second.
+    *
+    * @param request CreateDcdnSubTaskRequest
+    * @return CreateDcdnSubTaskResponse
+   */
   async createDcdnSubTask(request: CreateDcdnSubTaskRequest): Promise<CreateDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnSubTaskWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request CreateDcdnWafPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDcdnWafPolicyResponse
+   */
   async createDcdnWafPolicyWithOptions(request: CreateDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnWafPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20262,11 +20531,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new CreateDcdnWafPolicyResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request CreateDcdnWafPolicyRequest
+    * @return CreateDcdnWafPolicyResponse
+   */
   async createDcdnWafPolicy(request: CreateDcdnWafPolicyRequest): Promise<CreateDcdnWafPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnWafPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+    * *   This operation creates a routine that contains only production and staging environments.
+    * *   You can call this operation up to 100 times per second.
+    *
+    * @param tmpReq CreateRoutineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRoutineResponse
+   */
   async createRoutineWithOptions(tmpReq: CreateRoutineRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateRoutineShrinkRequest({ });
@@ -20305,11 +20591,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRoutineResponse>(await this.callApi(params, req, runtime), new CreateRoutineResponse({}));
   }
 
+  /**
+    * > 
+    * *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
+    * *   This operation creates a routine that contains only production and staging environments.
+    * *   You can call this operation up to 100 times per second.
+    *
+    * @param request CreateRoutineRequest
+    * @return CreateRoutineResponse
+   */
   async createRoutine(request: CreateRoutineRequest): Promise<CreateRoutineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRoutineWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateSlrAndSlsProjectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSlrAndSlsProjectResponse
+   */
   async createSlrAndSlsProjectWithOptions(request: CreateSlrAndSlsProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrAndSlsProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20338,11 +20640,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSlrAndSlsProjectResponse>(await this.callApi(params, req, runtime), new CreateSlrAndSlsProjectResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateSlrAndSlsProjectRequest
+    * @return CreateSlrAndSlsProjectResponse
+   */
   async createSlrAndSlsProject(request: CreateSlrAndSlsProjectRequest): Promise<CreateSlrAndSlsProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSlrAndSlsProjectWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DeleteDcdnDeliverTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnDeliverTaskResponse
+   */
   async deleteDcdnDeliverTaskWithOptions(request: DeleteDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20367,11 +20682,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnDeliverTaskResponse>(await this.callApi(params, req, runtime), new DeleteDcdnDeliverTaskResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DeleteDcdnDeliverTaskRequest
+    * @return DeleteDcdnDeliverTaskResponse
+   */
   async deleteDcdnDeliverTask(request: DeleteDcdnDeliverTaskRequest): Promise<DeleteDcdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnDeliverTaskWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Before you delete your domain name, you must request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+    * *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](~~130622~~) operation.
+    * *   The maximum number of times that each user can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnDomainResponse
+   */
   async deleteDcdnDomainWithOptions(request: DeleteDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20408,11 +20739,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnDomainResponse>(await this.callApi(params, req, runtime), new DeleteDcdnDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   Before you delete your domain name, you must request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+    * *   If you call the **DeleteDcdnDomain** operation, all the information about the accelerated domain name is deleted. If you want to disable an accelerated domain name, call the [StopDcdnDomain](~~130622~~) operation.
+    * *   The maximum number of times that each user can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnDomainRequest
+    * @return DeleteDcdnDomainResponse
+   */
   async deleteDcdnDomain(request: DeleteDcdnDomainRequest): Promise<DeleteDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Before you delete your domain name, we recommend that you request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+    * *   If you call the **DeleteDcdnIpaDomain** operation to delete an accelerated domain name, all the relevant information is deleted. If you want to only disable an accelerated domain name, we recommend that you call the **StopDcdnIpaDomain** operation.
+    * *   The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnIpaDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnIpaDomainResponse
+   */
   async deleteDcdnIpaDomainWithOptions(request: DeleteDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20449,11 +20799,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new DeleteDcdnIpaDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   Before you delete your domain name, we recommend that you request the Domain Name System (DNS) provider to restore the A record of the domain name. Otherwise, the domain name may become inaccessible after you delete it.
+    * *   If you call the **DeleteDcdnIpaDomain** operation to delete an accelerated domain name, all the relevant information is deleted. If you want to only disable an accelerated domain name, we recommend that you call the **StopDcdnIpaDomain** operation.
+    * *   The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnIpaDomainRequest
+    * @return DeleteDcdnIpaDomainResponse
+   */
   async deleteDcdnIpaDomain(request: DeleteDcdnIpaDomainRequest): Promise<DeleteDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnIpaDomainWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnIpaSpecificConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnIpaSpecificConfigResponse
+   */
   async deleteDcdnIpaSpecificConfigWithOptions(request: DeleteDcdnIpaSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnIpaSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20490,11 +20856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnIpaSpecificConfigResponse>(await this.callApi(params, req, runtime), new DeleteDcdnIpaSpecificConfigResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DeleteDcdnIpaSpecificConfigRequest
+    * @return DeleteDcdnIpaSpecificConfigResponse
+   */
   async deleteDcdnIpaSpecificConfig(request: DeleteDcdnIpaSpecificConfigRequest): Promise<DeleteDcdnIpaSpecificConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnIpaSpecificConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 50 times per second per account.
+    *
+    * @param request DeleteDcdnKvRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnKvResponse
+   */
   async deleteDcdnKvWithOptions(request: DeleteDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnKvResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20523,11 +20902,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnKvResponse>(await this.callApi(params, req, runtime), new DeleteDcdnKvResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 50 times per second per account.
+    *
+    * @param request DeleteDcdnKvRequest
+    * @return DeleteDcdnKvResponse
+   */
   async deleteDcdnKv(request: DeleteDcdnKvRequest): Promise<DeleteDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnKvWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DeleteDcdnRealTimeLogProjectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnRealTimeLogProjectResponse
+   */
   async deleteDcdnRealTimeLogProjectWithOptions(request: DeleteDcdnRealTimeLogProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnRealTimeLogProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20552,11 +20944,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnRealTimeLogProjectResponse>(await this.callApi(params, req, runtime), new DeleteDcdnRealTimeLogProjectResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DeleteDcdnRealTimeLogProjectRequest
+    * @return DeleteDcdnRealTimeLogProjectResponse
+   */
   async deleteDcdnRealTimeLogProject(request: DeleteDcdnRealTimeLogProjectRequest): Promise<DeleteDcdnRealTimeLogProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnRealTimeLogProjectWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DeleteDcdnSpecificConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnSpecificConfigResponse
+   */
   async deleteDcdnSpecificConfigWithOptions(request: DeleteDcdnSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20593,11 +20998,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnSpecificConfigResponse>(await this.callApi(params, req, runtime), new DeleteDcdnSpecificConfigResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DeleteDcdnSpecificConfigRequest
+    * @return DeleteDcdnSpecificConfigResponse
+   */
   async deleteDcdnSpecificConfig(request: DeleteDcdnSpecificConfigRequest): Promise<DeleteDcdnSpecificConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnSpecificConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DeleteDcdnSpecificStagingConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnSpecificStagingConfigResponse
+   */
   async deleteDcdnSpecificStagingConfigWithOptions(request: DeleteDcdnSpecificStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSpecificStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20634,11 +21052,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnSpecificStagingConfigResponse>(await this.callApi(params, req, runtime), new DeleteDcdnSpecificStagingConfigResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DeleteDcdnSpecificStagingConfigRequest
+    * @return DeleteDcdnSpecificStagingConfigResponse
+   */
   async deleteDcdnSpecificStagingConfig(request: DeleteDcdnSpecificStagingConfigRequest): Promise<DeleteDcdnSpecificStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnSpecificStagingConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request DeleteDcdnSubTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnSubTaskResponse
+   */
   async deleteDcdnSubTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSubTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -20655,11 +21086,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnSubTaskResponse>(await this.callApi(params, req, runtime), new DeleteDcdnSubTaskResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @return DeleteDcdnSubTaskResponse
+   */
   async deleteDcdnSubTask(): Promise<DeleteDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnSubTaskWithOptions(runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request DeleteDcdnWafPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDcdnWafPolicyResponse
+   */
   async deleteDcdnWafPolicyWithOptions(request: DeleteDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnWafPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20684,11 +21128,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new DeleteDcdnWafPolicyResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request DeleteDcdnWafPolicyRequest
+    * @return DeleteDcdnWafPolicyResponse
+   */
   async deleteDcdnWafPolicy(request: DeleteDcdnWafPolicyRequest): Promise<DeleteDcdnWafPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnWafPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DeleteRoutineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRoutineResponse
+   */
   async deleteRoutineWithOptions(request: DeleteRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20713,11 +21171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRoutineResponse>(await this.callApi(params, req, runtime), new DeleteRoutineResponse({}));
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DeleteRoutineRequest
+    * @return DeleteRoutineResponse
+   */
   async deleteRoutine(request: DeleteRoutineRequest): Promise<DeleteRoutineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRoutineWithOptions(request, runtime);
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DeleteRoutineCodeRevisionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRoutineCodeRevisionResponse
+   */
   async deleteRoutineCodeRevisionWithOptions(request: DeleteRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineCodeRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20746,11 +21217,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRoutineCodeRevisionResponse>(await this.callApi(params, req, runtime), new DeleteRoutineCodeRevisionResponse({}));
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DeleteRoutineCodeRevisionRequest
+    * @return DeleteRoutineCodeRevisionResponse
+   */
   async deleteRoutineCodeRevision(request: DeleteRoutineCodeRevisionRequest): Promise<DeleteRoutineCodeRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRoutineCodeRevisionWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param tmpReq DeleteRoutineConfEnvsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRoutineConfEnvsResponse
+   */
   async deleteRoutineConfEnvsWithOptions(tmpReq: DeleteRoutineConfEnvsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineConfEnvsResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteRoutineConfEnvsShrinkRequest({ });
@@ -20785,11 +21271,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRoutineConfEnvsResponse>(await this.callApi(params, req, runtime), new DeleteRoutineConfEnvsResponse({}));
   }
 
+  /**
+    * > 
+    * *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DeleteRoutineConfEnvsRequest
+    * @return DeleteRoutineConfEnvsResponse
+   */
   async deleteRoutineConfEnvs(request: DeleteRoutineConfEnvsRequest): Promise<DeleteRoutineConfEnvsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRoutineConfEnvsWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to three times per second.
+    *
+    * @param request DescribeDcdnAclFieldsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnAclFieldsResponse
+   */
   async describeDcdnAclFieldsWithOptions(request: DescribeDcdnAclFieldsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnAclFieldsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20814,11 +21315,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnAclFieldsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnAclFieldsResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to three times per second.
+    *
+    * @param request DescribeDcdnAclFieldsRequest
+    * @return DescribeDcdnAclFieldsResponse
+   */
   async describeDcdnAclFields(request: DescribeDcdnAclFieldsRequest): Promise<DescribeDcdnAclFieldsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnAclFieldsWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
+    * *   You can query data in the last 90 days.
+    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request DescribeDcdnBgpBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnBgpBpsDataResponse
+   */
   async describeDcdnBgpBpsDataWithOptions(request: DescribeDcdnBgpBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBgpBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20863,11 +21382,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnBgpBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnBgpBpsDataResponse({}));
   }
 
+  /**
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
+    * *   You can query data in the last 90 days.
+    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request DescribeDcdnBgpBpsDataRequest
+    * @return DescribeDcdnBgpBpsDataResponse
+   */
   async describeDcdnBgpBpsData(request: DescribeDcdnBgpBpsDataRequest): Promise<DescribeDcdnBgpBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnBgpBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
+    * *   You can query data in the last 90 days.
+    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request DescribeDcdnBgpTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnBgpTrafficDataResponse
+   */
   async describeDcdnBgpTrafficDataWithOptions(request: DescribeDcdnBgpTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBgpTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20904,11 +21446,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnBgpTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnBgpTrafficDataResponse({}));
   }
 
+  /**
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
+    * *   You can query data in the last 90 days.
+    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request DescribeDcdnBgpTrafficDataRequest
+    * @return DescribeDcdnBgpTrafficDataResponse
+   */
   async describeDcdnBgpTrafficData(request: DescribeDcdnBgpTrafficDataRequest): Promise<DescribeDcdnBgpTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnBgpTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnBlockedRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnBlockedRegionsResponse
+   */
   async describeDcdnBlockedRegionsWithOptions(request: DescribeDcdnBlockedRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBlockedRegionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20929,11 +21489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnBlockedRegionsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnBlockedRegionsResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnBlockedRegionsRequest
+    * @return DescribeDcdnBlockedRegionsResponse
+   */
   async describeDcdnBlockedRegions(request: DescribeDcdnBlockedRegionsRequest): Promise<DescribeDcdnBlockedRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnBlockedRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnCertificateDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnCertificateDetailResponse
+   */
   async describeDcdnCertificateDetailWithOptions(request: DescribeDcdnCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20966,11 +21539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnCertificateDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnCertificateDetailResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnCertificateDetailRequest
+    * @return DescribeDcdnCertificateDetailResponse
+   */
   async describeDcdnCertificateDetail(request: DescribeDcdnCertificateDetailRequest): Promise<DescribeDcdnCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnCertificateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnCertificateListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnCertificateListResponse
+   */
   async describeDcdnCertificateListWithOptions(request: DescribeDcdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21003,11 +21589,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnCertificateListResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnCertificateListRequest
+    * @return DescribeDcdnCertificateListResponse
+   */
   async describeDcdnCertificateList(request: DescribeDcdnCertificateListRequest): Promise<DescribeDcdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnCertificateListWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnDeletedDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDeletedDomainsResponse
+   */
   async describeDcdnDeletedDomainsWithOptions(request: DescribeDcdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeletedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21036,11 +21635,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDeletedDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDeletedDomainsResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnDeletedDomainsRequest
+    * @return DescribeDcdnDeletedDomainsResponse
+   */
   async describeDcdnDeletedDomains(request: DescribeDcdnDeletedDomainsRequest): Promise<DescribeDcdnDeletedDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDeletedDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DescribeDcdnDeliverListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDeliverListResponse
+   */
   async describeDcdnDeliverListWithOptions(request: DescribeDcdnDeliverListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeliverListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21065,6 +21677,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDeliverListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDeliverListResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DescribeDcdnDeliverListRequest
+    * @return DescribeDcdnDeliverListResponse
+   */
   async describeDcdnDeliverList(request: DescribeDcdnDeliverListRequest): Promise<DescribeDcdnDeliverListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDeliverListWithOptions(request, runtime);
@@ -21148,6 +21766,20 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDomainBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 20 times per second.
+    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data is available | Data delay |
+    * | ---------------- | ---------------------------- | ---------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainBpsDataByLayerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainBpsDataByLayerResponse
+   */
   async describeDcdnDomainBpsDataByLayerWithOptions(request: DescribeDcdnDomainBpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainBpsDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21196,11 +21828,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainBpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainBpsDataByLayerResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 20 times per second.
+    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data is available | Data delay |
+    * | ---------------- | ---------------------------- | ---------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainBpsDataByLayerRequest
+    * @return DescribeDcdnDomainBpsDataByLayerResponse
+   */
   async describeDcdnDomainBpsDataByLayer(request: DescribeDcdnDomainBpsDataByLayerRequest): Promise<DescribeDcdnDomainBpsDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainBpsDataByLayerWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainByCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainByCertificateResponse
+   */
   async describeDcdnDomainByCertificateWithOptions(request: DescribeDcdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21229,11 +21881,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainByCertificateResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainByCertificateResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainByCertificateRequest
+    * @return DescribeDcdnDomainByCertificateResponse
+   */
   async describeDcdnDomainByCertificate(request: DescribeDcdnDomainByCertificateRequest): Promise<DescribeDcdnDomainByCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainByCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
+    * *   You can query data collected over the last 30 days.
+    * *   You can call this operation up to 50 times per second.
+    *
+    * @param request DescribeDcdnDomainCcActivityLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainCcActivityLogResponse
+   */
   async describeDcdnDomainCcActivityLogWithOptions(request: DescribeDcdnDomainCcActivityLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainCcActivityLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21286,11 +21954,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainCcActivityLogResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainCcActivityLogResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you do not configure the StartTime or EndTime parameter, data collected over the last 24 hours is queried. If you configure both the StartTime and EndTime parameters, data collected within the specified time range is queried.
+    * *   You can query data collected over the last 30 days.
+    * *   You can call this operation up to 50 times per second.
+    *
+    * @param request DescribeDcdnDomainCcActivityLogRequest
+    * @return DescribeDcdnDomainCcActivityLogResponse
+   */
   async describeDcdnDomainCcActivityLog(request: DescribeDcdnDomainCcActivityLogRequest): Promise<DescribeDcdnDomainCcActivityLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainCcActivityLogWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainCertificateInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainCertificateInfoResponse
+   */
   async describeDcdnDomainCertificateInfoWithOptions(request: DescribeDcdnDomainCertificateInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainCertificateInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21315,11 +21999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainCertificateInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainCertificateInfoResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainCertificateInfoRequest
+    * @return DescribeDcdnDomainCertificateInfoResponse
+   */
   async describeDcdnDomainCertificateInfo(request: DescribeDcdnDomainCertificateInfoRequest): Promise<DescribeDcdnDomainCertificateInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainCertificateInfoWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 80.
+    *
+    * @param request DescribeDcdnDomainCnameRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainCnameResponse
+   */
   async describeDcdnDomainCnameWithOptions(request: DescribeDcdnDomainCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainCnameResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -21340,11 +22037,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainCnameResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainCnameResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 80.
+    *
+    * @param request DescribeDcdnDomainCnameRequest
+    * @return DescribeDcdnDomainCnameResponse
+   */
   async describeDcdnDomainCname(request: DescribeDcdnDomainCnameRequest): Promise<DescribeDcdnDomainCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainCnameWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can query the configurations of one or more features in a request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainConfigsResponse
+   */
   async describeDcdnDomainConfigsWithOptions(request: DescribeDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21385,11 +22097,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainConfigsResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can query the configurations of one or more features in a request.
+    * *   You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnDomainConfigsRequest
+    * @return DescribeDcdnDomainConfigsResponse
+   */
   async describeDcdnDomainConfigs(request: DescribeDcdnDomainConfigsRequest): Promise<DescribeDcdnDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnDomainDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainDetailResponse
+   */
   async describeDcdnDomainDetailWithOptions(request: DescribeDcdnDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21422,11 +22149,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainDetailResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnDomainDetailRequest
+    * @return DescribeDcdnDomainDetailResponse
+   */
   async describeDcdnDomainDetail(request: DescribeDcdnDomainDetailRequest): Promise<DescribeDcdnDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainHitRateDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainHitRateDataResponse
+   */
   async describeDcdnDomainHitRateDataWithOptions(request: DescribeDcdnDomainHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHitRateDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21463,11 +22210,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainHitRateDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainHitRateDataRequest
+    * @return DescribeDcdnDomainHitRateDataResponse
+   */
   async describeDcdnDomainHitRateData(request: DescribeDcdnDomainHitRateDataRequest): Promise<DescribeDcdnDomainHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainHitRateDataWithOptions(request, runtime);
   }
 
+  /**
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * * You can call this operation up to 100 times per second per account.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainHttpCodeDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainHttpCodeDataResponse
+   */
   async describeDcdnDomainHttpCodeDataWithOptions(request: DescribeDcdnDomainHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21512,11 +22287,40 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainHttpCodeDataResponse({}));
   }
 
+  /**
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * * You can call this operation up to 100 times per second per account.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainHttpCodeDataRequest
+    * @return DescribeDcdnDomainHttpCodeDataResponse
+   */
   async describeDcdnDomainHttpCodeData(request: DescribeDcdnDomainHttpCodeDataRequest): Promise<DescribeDcdnDomainHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainHttpCodeDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 20 times per second per account.
+    * - You cannot query the distribution of HTTP status codes by IP protocol.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainHttpCodeDataByLayerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
+   */
   async describeDcdnDomainHttpCodeDataByLayerWithOptions(request: DescribeDcdnDomainHttpCodeDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHttpCodeDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21565,11 +22369,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainHttpCodeDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainHttpCodeDataByLayerResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 20 times per second per account.
+    * - You cannot query the distribution of HTTP status codes by IP protocol.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainHttpCodeDataByLayerRequest
+    * @return DescribeDcdnDomainHttpCodeDataByLayerResponse
+   */
   async describeDcdnDomainHttpCodeDataByLayer(request: DescribeDcdnDomainHttpCodeDataByLayerRequest): Promise<DescribeDcdnDomainHttpCodeDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainHttpCodeDataByLayerWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Unit: bit/s.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainIpaBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainIpaBpsDataResponse
+   */
   async describeDcdnDomainIpaBpsDataWithOptions(request: DescribeDcdnDomainIpaBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21622,11 +22450,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainIpaBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainIpaBpsDataResponse({}));
   }
 
+  /**
+    * > 
+    * *   Unit: bit/s.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainIpaBpsDataRequest
+    * @return DescribeDcdnDomainIpaBpsDataResponse
+   */
   async describeDcdnDomainIpaBpsData(request: DescribeDcdnDomainIpaBpsDataRequest): Promise<DescribeDcdnDomainIpaBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainIpaBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   The minimum time granularity at which the data is queried is 5 minutes. The maximum time range for a single query is 31 days. The period within which historical data is available is 366 days. The data latency is no more than 10 minutes.
+    *
+    * @param request DescribeDcdnDomainIpaConnDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainIpaConnDataResponse
+   */
   async describeDcdnDomainIpaConnDataWithOptions(request: DescribeDcdnDomainIpaConnDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaConnDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21663,11 +22509,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainIpaConnDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainIpaConnDataResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * *   The minimum time granularity at which the data is queried is 5 minutes. The maximum time range for a single query is 31 days. The period within which historical data is available is 366 days. The data latency is no more than 10 minutes.
+    *
+    * @param request DescribeDcdnDomainIpaConnDataRequest
+    * @return DescribeDcdnDomainIpaConnDataResponse
+   */
   async describeDcdnDomainIpaConnData(request: DescribeDcdnDomainIpaConnDataRequest): Promise<DescribeDcdnDomainIpaConnDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainIpaConnDataWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you do not set **StartTime** or **EndTime**, data collected within the last 24 hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
+    * *   The monitoring data is measured in bytes.
+    * *   The maximum number of times that users can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainIpaTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainIpaTrafficDataResponse
+   */
   async describeDcdnDomainIpaTrafficDataWithOptions(request: DescribeDcdnDomainIpaTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21720,11 +22584,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainIpaTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainIpaTrafficDataResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you do not set **StartTime** or **EndTime**, data collected within the last 24 hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
+    * *   The monitoring data is measured in bytes.
+    * *   The maximum number of times that users can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainIpaTrafficDataRequest
+    * @return DescribeDcdnDomainIpaTrafficDataResponse
+   */
   async describeDcdnDomainIpaTrafficData(request: DescribeDcdnDomainIpaTrafficDataRequest): Promise<DescribeDcdnDomainIpaTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainIpaTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can call this operation up to 100 times per second.
+    * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
+    * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
+    * *   You can query data of a domain name or all domain names that belong to your account.
+    * *   You can view data that is collected over the last seven days. The interval at which data is queried is based on the time range specified by **StartTime** and **EndTime**.
+    *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
+    *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
+    *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
+    *
+    * @param request DescribeDcdnDomainIspDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainIspDataResponse
+   */
   async describeDcdnDomainIspDataWithOptions(request: DescribeDcdnDomainIspDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIspDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21757,11 +22645,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainIspDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainIspDataResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can call this operation up to 100 times per second.
+    * *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
+    * *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
+    * *   You can query data of a domain name or all domain names that belong to your account.
+    * *   You can view data that is collected over the last seven days. The interval at which data is queried is based on the time range specified by **StartTime** and **EndTime**.
+    *     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
+    *     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
+    *     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
+    *
+    * @param request DescribeDcdnDomainIspDataRequest
+    * @return DescribeDcdnDomainIspDataResponse
+   */
   async describeDcdnDomainIspData(request: DescribeDcdnDomainIspDataRequest): Promise<DescribeDcdnDomainIspDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainIspDataWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you specify neither the **StartTime** parameter nor the **EndTime** parameter, the data in the last 24 hours is returned. If you specify the **StartTime** and **EndTime** parameters, the data within the specified time range is returned.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainLogResponse
+   */
   async describeDcdnDomainLogWithOptions(request: DescribeDcdnDomainLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21802,11 +22713,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainLogResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainLogResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you specify neither the **StartTime** parameter nor the **EndTime** parameter, the data in the last 24 hours is returned. If you specify the **StartTime** and **EndTime** parameters, the data within the specified time range is returned.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnDomainLogRequest
+    * @return DescribeDcdnDomainLogResponse
+   */
   async describeDcdnDomainLog(request: DescribeDcdnDomainLogRequest): Promise<DescribeDcdnDomainLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainLogWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
+    * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
+    * *   You can query data up to the last 90 days.
+    * *   The time range cannot exceed 1 hour.
+    *
+    * @param request DescribeDcdnDomainMultiUsageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainMultiUsageDataResponse
+   */
   async describeDcdnDomainMultiUsageDataWithOptions(request: DescribeDcdnDomainMultiUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainMultiUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21839,11 +22769,36 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainMultiUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainMultiUsageDataResponse({}));
   }
 
+  /**
+    * When you call this operation, take note of the following rules:
+    * *   If you do not set the StartTime or EndTime parameter, data within the last 10 minutes is queried. You can set both the StartTime and EndTime parameters to specify a time range.
+    * *   You can specify one or more accelerated domain names. Separate domain names with commas (,).
+    * *   You can query data up to the last 90 days.
+    * *   The time range cannot exceed 1 hour.
+    *
+    * @param request DescribeDcdnDomainMultiUsageDataRequest
+    * @return DescribeDcdnDomainMultiUsageDataResponse
+   */
   async describeDcdnDomainMultiUsageData(request: DescribeDcdnDomainMultiUsageDataRequest): Promise<DescribeDcdnDomainMultiUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainMultiUsageDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainOriginBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainOriginBpsDataResponse
+   */
   async describeDcdnDomainOriginBpsDataWithOptions(request: DescribeDcdnDomainOriginBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainOriginBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21880,11 +22835,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainOriginBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainOriginBpsDataResponse({}));
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainOriginBpsDataRequest
+    * @return DescribeDcdnDomainOriginBpsDataResponse
+   */
   async describeDcdnDomainOriginBpsData(request: DescribeDcdnDomainOriginBpsDataRequest): Promise<DescribeDcdnDomainOriginBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainOriginBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainOriginTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainOriginTrafficDataResponse
+   */
   async describeDcdnDomainOriginTrafficDataWithOptions(request: DescribeDcdnDomainOriginTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainOriginTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21921,11 +22904,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainOriginTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainOriginTrafficDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameters, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainOriginTrafficDataRequest
+    * @return DescribeDcdnDomainOriginTrafficDataResponse
+   */
   async describeDcdnDomainOriginTrafficData(request: DescribeDcdnDomainOriginTrafficDataRequest): Promise<DescribeDcdnDomainOriginTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainOriginTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DescribeDcdnDomainPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainPropertyResponse
+   */
   async describeDcdnDomainPropertyWithOptions(request: DescribeDcdnDomainPropertyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21950,6 +22953,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainPropertyResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainPropertyResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 10.
+    *
+    * @param request DescribeDcdnDomainPropertyRequest
+    * @return DescribeDcdnDomainPropertyResponse
+   */
   async describeDcdnDomainProperty(request: DescribeDcdnDomainPropertyRequest): Promise<DescribeDcdnDomainPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainPropertyWithOptions(request, runtime);
@@ -21992,6 +23001,21 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDomainPvDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainQpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainQpsDataResponse
+   */
   async describeDcdnDomainQpsDataWithOptions(request: DescribeDcdnDomainQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22036,11 +23060,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainQpsDataResponse({}));
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainQpsDataRequest
+    * @return DescribeDcdnDomainQpsDataResponse
+   */
   async describeDcdnDomainQpsData(request: DescribeDcdnDomainQpsDataRequest): Promise<DescribeDcdnDomainQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainQpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 20 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainQpsDataByLayerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainQpsDataByLayerResponse
+   */
   async describeDcdnDomainQpsDataByLayerWithOptions(request: DescribeDcdnDomainQpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainQpsDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22089,11 +23141,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainQpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainQpsDataByLayerResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 20 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainQpsDataByLayerRequest
+    * @return DescribeDcdnDomainQpsDataByLayerResponse
+   */
   async describeDcdnDomainQpsDataByLayer(request: DescribeDcdnDomainQpsDataByLayerRequest): Promise<DescribeDcdnDomainQpsDataByLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainQpsDataByLayerWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeBpsDataResponse
+   */
   async describeDcdnDomainRealTimeBpsDataWithOptions(request: DescribeDcdnDomainRealTimeBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeBpsDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22114,11 +23193,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeBpsDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeBpsDataRequest
+    * @return DescribeDcdnDomainRealTimeBpsDataResponse
+   */
   async describeDcdnDomainRealTimeBpsData(request: DescribeDcdnDomainRealTimeBpsDataRequest): Promise<DescribeDcdnDomainRealTimeBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeByteHitRateDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse
+   */
   async describeDcdnDomainRealTimeByteHitRateDataWithOptions(request: DescribeDcdnDomainRealTimeByteHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeByteHitRateDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22139,11 +23246,40 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeByteHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeByteHitRateDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeByteHitRateDataRequest
+    * @return DescribeDcdnDomainRealTimeByteHitRateDataResponse
+   */
   async describeDcdnDomainRealTimeByteHitRateData(request: DescribeDcdnDomainRealTimeByteHitRateDataRequest): Promise<DescribeDcdnDomainRealTimeByteHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeByteHitRateDataWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 10 times per second per account.
+    * **Time granularity of general data returned by the operation**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * Unless otherwise specified, statistics in the preceding table prevail.
+    *
+    * @param request DescribeDcdnDomainRealTimeDetailDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeDetailDataResponse
+   */
   async describeDcdnDomainRealTimeDetailDataWithOptions(request: DescribeDcdnDomainRealTimeDetailDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeDetailDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22164,11 +23300,40 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeDetailDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeDetailDataResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 10 times per second per account.
+    * **Time granularity of general data returned by the operation**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * Unless otherwise specified, statistics in the preceding table prevail.
+    *
+    * @param request DescribeDcdnDomainRealTimeDetailDataRequest
+    * @return DescribeDcdnDomainRealTimeDetailDataResponse
+   */
   async describeDcdnDomainRealTimeDetailData(request: DescribeDcdnDomainRealTimeDetailDataRequest): Promise<DescribeDcdnDomainRealTimeDetailDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeDetailDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation up to 10 times per second per account.
+    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    *
+    * @param request DescribeDcdnDomainRealTimeHttpCodeDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse
+   */
   async describeDcdnDomainRealTimeHttpCodeDataWithOptions(request: DescribeDcdnDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22209,11 +23374,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeHttpCodeDataResponse({}));
   }
 
+  /**
+    * * You can call this operation up to 10 times per second per account.
+    * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    *
+    * @param request DescribeDcdnDomainRealTimeHttpCodeDataRequest
+    * @return DescribeDcdnDomainRealTimeHttpCodeDataResponse
+   */
   async describeDcdnDomainRealTimeHttpCodeData(request: DescribeDcdnDomainRealTimeHttpCodeDataRequest): Promise<DescribeDcdnDomainRealTimeHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeHttpCodeDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeQpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeQpsDataResponse
+   */
   async describeDcdnDomainRealTimeQpsDataWithOptions(request: DescribeDcdnDomainRealTimeQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeQpsDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22234,11 +23427,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeQpsDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeQpsDataRequest
+    * @return DescribeDcdnDomainRealTimeQpsDataResponse
+   */
   async describeDcdnDomainRealTimeQpsData(request: DescribeDcdnDomainRealTimeQpsDataRequest): Promise<DescribeDcdnDomainRealTimeQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeQpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeReqHitRateDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse
+   */
   async describeDcdnDomainRealTimeReqHitRateDataWithOptions(request: DescribeDcdnDomainRealTimeReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeReqHitRateDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22259,11 +23480,39 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeReqHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeReqHitRateDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeReqHitRateDataRequest
+    * @return DescribeDcdnDomainRealTimeReqHitRateDataResponse
+   */
   async describeDcdnDomainRealTimeReqHitRateData(request: DescribeDcdnDomainRealTimeReqHitRateDataRequest): Promise<DescribeDcdnDomainRealTimeReqHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeReqHitRateDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse
+   */
   async describeDcdnDomainRealTimeSrcBpsDataWithOptions(request: DescribeDcdnDomainRealTimeSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22296,11 +23545,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeSrcBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeSrcBpsDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcBpsDataRequest
+    * @return DescribeDcdnDomainRealTimeSrcBpsDataResponse
+   */
   async describeDcdnDomainRealTimeSrcBpsData(request: DescribeDcdnDomainRealTimeSrcBpsDataRequest): Promise<DescribeDcdnDomainRealTimeSrcBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeSrcBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, data collected over the last one hour is queried. If you set both the StartTime and EndTime parameters, data collected within the specified time range is queried.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+   */
   async describeDcdnDomainRealTimeSrcHttpCodeDataWithOptions(request: DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22341,11 +23617,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 10 times per second per account.
+    * - If you do not set the StartTime or EndTime parameter, data collected over the last one hour is queried. If you set both the StartTime and EndTime parameters, data collected within the specified time range is queried.
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest
+    * @return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse
+   */
   async describeDcdnDomainRealTimeSrcHttpCodeData(request: DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest): Promise<DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeSrcHttpCodeDataWithOptions(request, runtime);
   }
 
+  /**
+    * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+   */
   async describeDcdnDomainRealTimeSrcTrafficDataWithOptions(request: DescribeDcdnDomainRealTimeSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22378,11 +23681,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeSrcTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeSrcTrafficDataResponse({}));
   }
 
+  /**
+    * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |1 minute|1 hour|7 days|5 minutes|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    *
+    * @param request DescribeDcdnDomainRealTimeSrcTrafficDataRequest
+    * @return DescribeDcdnDomainRealTimeSrcTrafficDataResponse
+   */
   async describeDcdnDomainRealTimeSrcTrafficData(request: DescribeDcdnDomainRealTimeSrcTrafficDataRequest): Promise<DescribeDcdnDomainRealTimeSrcTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeSrcTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account.  
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRealTimeTrafficDataResponse
+   */
   async describeDcdnDomainRealTimeTrafficDataWithOptions(request: DescribeDcdnDomainRealTimeTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22415,11 +23744,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRealTimeTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRealTimeTrafficDataResponse({}));
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account.  
+    * **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 1 minute | 1 hour | 7 days | 5 minutes |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    *
+    * @param request DescribeDcdnDomainRealTimeTrafficDataRequest
+    * @return DescribeDcdnDomainRealTimeTrafficDataResponse
+   */
   async describeDcdnDomainRealTimeTrafficData(request: DescribeDcdnDomainRealTimeTrafficDataRequest): Promise<DescribeDcdnDomainRealTimeTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRealTimeTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you do not specify the StartTime or EndTime parameters, the data within the last 24 hours is queried by default.
+    * *   If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    * *   The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainRegionDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainRegionDataResponse
+   */
   async describeDcdnDomainRegionDataWithOptions(request: DescribeDcdnDomainRegionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRegionDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22452,6 +23803,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainRegionDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainRegionDataResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you do not specify the StartTime or EndTime parameters, the data within the last 24 hours is queried by default.
+    * *   If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    * *   The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnDomainRegionDataRequest
+    * @return DescribeDcdnDomainRegionDataResponse
+   */
   async describeDcdnDomainRegionData(request: DescribeDcdnDomainRegionDataRequest): Promise<DescribeDcdnDomainRegionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainRegionDataWithOptions(request, runtime);
@@ -22490,6 +23850,15 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDomainStagingConfigWithOptions(request, runtime);
   }
 
+  /**
+    * **Before you call this operation, take note of the following considerations:**
+    * *   If you do not set the StartTime parameter, the data on the previous day is queried.
+    * *   You can specify only one domain name.
+    *
+    * @param request DescribeDcdnDomainTopReferVisitRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainTopReferVisitResponse
+   */
   async describeDcdnDomainTopReferVisitWithOptions(request: DescribeDcdnDomainTopReferVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTopReferVisitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22522,11 +23891,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainTopReferVisitResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainTopReferVisitResponse({}));
   }
 
+  /**
+    * **Before you call this operation, take note of the following considerations:**
+    * *   If you do not set the StartTime parameter, the data on the previous day is queried.
+    * *   You can specify only one domain name.
+    *
+    * @param request DescribeDcdnDomainTopReferVisitRequest
+    * @return DescribeDcdnDomainTopReferVisitResponse
+   */
   async describeDcdnDomainTopReferVisit(request: DescribeDcdnDomainTopReferVisitRequest): Promise<DescribeDcdnDomainTopReferVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainTopReferVisitWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can only query the data within the last seven days.
+    *
+    * @param request DescribeDcdnDomainTopUrlVisitRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainTopUrlVisitResponse
+   */
   async describeDcdnDomainTopUrlVisitWithOptions(request: DescribeDcdnDomainTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTopUrlVisitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22559,11 +23943,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainTopUrlVisitResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainTopUrlVisitResponse({}));
   }
 
+  /**
+    * >  You can only query the data within the last seven days.
+    *
+    * @param request DescribeDcdnDomainTopUrlVisitRequest
+    * @return DescribeDcdnDomainTopUrlVisitResponse
+   */
   async describeDcdnDomainTopUrlVisit(request: DescribeDcdnDomainTopUrlVisitRequest): Promise<DescribeDcdnDomainTopUrlVisitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainTopUrlVisitWithOptions(request, runtime);
   }
 
+  /**
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * * You can call this operation up to 100 times per second per account.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainTrafficDataResponse
+   */
   async describeDcdnDomainTrafficDataWithOptions(request: DescribeDcdnDomainTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22608,11 +24013,40 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainTrafficDataResponse({}));
   }
 
+  /**
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * * You can call this operation up to 100 times per second per account.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainTrafficDataRequest
+    * @return DescribeDcdnDomainTrafficDataResponse
+   */
   async describeDcdnDomainTrafficData(request: DescribeDcdnDomainTrafficDataRequest): Promise<DescribeDcdnDomainTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation up to 10 times per second per account.
+    * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
+    * **Time granularity**:
+    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainUsageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainUsageDataResponse
+   */
   async describeDcdnDomainUsageDataWithOptions(request: DescribeDcdnDomainUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22644,6 +24078,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22661,11 +24099,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainUsageDataResponse({}));
   }
 
+  /**
+    * * You can call this operation up to 10 times per second per account.
+    * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
+    * **Time granularity**:
+    * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainUsageDataRequest
+    * @return DescribeDcdnDomainUsageDataResponse
+   */
   async describeDcdnDomainUsageData(request: DescribeDcdnDomainUsageDataRequest): Promise<DescribeDcdnDomainUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainUsageDataWithOptions(request, runtime);
   }
 
+  /**
+    * **Before you call this operation, pay attention to the following considerations:**
+    * *   If you do not specify the StartTime or EndTime parameter, the data collected within the last 24 hours is queried by default. If you specify the StartTime and EndTime parameters, the data collected within the specified time range is queried.
+    * *   You can specify only one accelerated domain or all the accelerated domains under your account.
+    *
+    * @param request DescribeDcdnDomainUvDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainUvDataResponse
+   */
   async describeDcdnDomainUvDataWithOptions(request: DescribeDcdnDomainUvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainUvDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22698,11 +24159,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainUvDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainUvDataResponse({}));
   }
 
+  /**
+    * **Before you call this operation, pay attention to the following considerations:**
+    * *   If you do not specify the StartTime or EndTime parameter, the data collected within the last 24 hours is queried by default. If you specify the StartTime and EndTime parameters, the data collected within the specified time range is queried.
+    * *   You can specify only one accelerated domain or all the accelerated domains under your account.
+    *
+    * @param request DescribeDcdnDomainUvDataRequest
+    * @return DescribeDcdnDomainUvDataResponse
+   */
   async describeDcdnDomainUvData(request: DescribeDcdnDomainUvDataRequest): Promise<DescribeDcdnDomainUvDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainUvDataWithOptions(request, runtime);
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainWebsocketBpsDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainWebsocketBpsDataResponse
+   */
   async describeDcdnDomainWebsocketBpsDataWithOptions(request: DescribeDcdnDomainWebsocketBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22747,11 +24230,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainWebsocketBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainWebsocketBpsDataResponse({}));
   }
 
+  /**
+    * - You can call this operation up to 100 times per second per account.
+    * - If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainWebsocketBpsDataRequest
+    * @return DescribeDcdnDomainWebsocketBpsDataResponse
+   */
   async describeDcdnDomainWebsocketBpsData(request: DescribeDcdnDomainWebsocketBpsDataRequest): Promise<DescribeDcdnDomainWebsocketBpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainWebsocketBpsDataWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account.  
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainWebsocketHttpCodeDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse
+   */
   async describeDcdnDomainWebsocketHttpCodeDataWithOptions(request: DescribeDcdnDomainWebsocketHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22796,11 +24305,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainWebsocketHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainWebsocketHttpCodeDataResponse({}));
   }
 
+  /**
+    * You can call this operation up to 100 times per second per account.  
+    * **Time granularity**The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay. 
+    * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+    * | ---------------- | ---------------------------- | ------------------------- | ---------- |
+    * | 5 minutes | 3 days | 93 days | 15 minutes |
+    * | 1 hour | 31 days | 186 days | 4 hours |
+    * | 1 day | 366 days | 366 days | 04:00 on the next day |
+    *
+    * @param request DescribeDcdnDomainWebsocketHttpCodeDataRequest
+    * @return DescribeDcdnDomainWebsocketHttpCodeDataResponse
+   */
   async describeDcdnDomainWebsocketHttpCodeData(request: DescribeDcdnDomainWebsocketHttpCodeDataRequest): Promise<DescribeDcdnDomainWebsocketHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainWebsocketHttpCodeDataWithOptions(request, runtime);
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainWebsocketTrafficDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnDomainWebsocketTrafficDataResponse
+   */
   async describeDcdnDomainWebsocketTrafficDataWithOptions(request: DescribeDcdnDomainWebsocketTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22845,11 +24381,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnDomainWebsocketTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainWebsocketTrafficDataResponse({}));
   }
 
+  /**
+    * * You can call this operation up to 100 times per second per account.
+    * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last 24 hours. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+    * **Time granularity**
+    * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
+    * |Time granularity|Maximum time range per query|Historical data available|Data delay|
+    * |---|---|---|---|
+    * |5 minutes|3 days|93 days|15 minutes|
+    * |1 hour|31 days|186 days|4 hours|
+    * |1 day|366 days|366 days|04:00 on the next day|
+    *
+    * @param request DescribeDcdnDomainWebsocketTrafficDataRequest
+    * @return DescribeDcdnDomainWebsocketTrafficDataResponse
+   */
   async describeDcdnDomainWebsocketTrafficData(request: DescribeDcdnDomainWebsocketTrafficDataRequest): Promise<DescribeDcdnDomainWebsocketTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainWebsocketTrafficDataWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is one hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+    *
+    * @param request DescribeDcdnErUsageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnErUsageDataResponse
+   */
   async describeDcdnErUsageDataWithOptions(request: DescribeDcdnErUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnErUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22890,11 +24448,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnErUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnErUsageDataResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is one hour. The maximum time span for a query is 24 hours. The time period within which historical data is available for a query is 366 days.
+    *
+    * @param request DescribeDcdnErUsageDataRequest
+    * @return DescribeDcdnErUsageDataResponse
+   */
   async describeDcdnErUsageData(request: DescribeDcdnErUsageDataRequest): Promise<DescribeDcdnErUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnErUsageDataWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnHttpsDomainListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnHttpsDomainListResponse
+   */
   async describeDcdnHttpsDomainListWithOptions(request: DescribeDcdnHttpsDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnHttpsDomainListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22927,11 +24499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnHttpsDomainListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnHttpsDomainListResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnHttpsDomainListRequest
+    * @return DescribeDcdnHttpsDomainListResponse
+   */
   async describeDcdnHttpsDomainList(request: DescribeDcdnHttpsDomainListRequest): Promise<DescribeDcdnHttpsDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnHttpsDomainListWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnIpInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnIpInfoResponse
+   */
   async describeDcdnIpInfoWithOptions(request: DescribeDcdnIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22956,11 +24541,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnIpInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpInfoResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnIpInfoRequest
+    * @return DescribeDcdnIpInfoResponse
+   */
   async describeDcdnIpInfo(request: DescribeDcdnIpInfoRequest): Promise<DescribeDcdnIpInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnIpaDomainConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnIpaDomainConfigsResponse
+   */
   async describeDcdnIpaDomainConfigsWithOptions(request: DescribeDcdnIpaDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22997,11 +24595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnIpaDomainConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpaDomainConfigsResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnIpaDomainConfigsRequest
+    * @return DescribeDcdnIpaDomainConfigsResponse
+   */
   async describeDcdnIpaDomainConfigs(request: DescribeDcdnIpaDomainConfigsRequest): Promise<DescribeDcdnIpaDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaDomainConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnIpaDomainDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnIpaDomainDetailResponse
+   */
   async describeDcdnIpaDomainDetailWithOptions(request: DescribeDcdnIpaDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23034,11 +24645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnIpaDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpaDomainDetailResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnIpaDomainDetailRequest
+    * @return DescribeDcdnIpaDomainDetailResponse
+   */
   async describeDcdnIpaDomainDetail(request: DescribeDcdnIpaDomainDetailRequest): Promise<DescribeDcdnIpaDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DescribeDcdnIpaServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnIpaServiceResponse
+   */
   async describeDcdnIpaServiceWithOptions(request: DescribeDcdnIpaServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23067,11 +24691,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnIpaServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpaServiceResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DescribeDcdnIpaServiceRequest
+    * @return DescribeDcdnIpaServiceResponse
+   */
   async describeDcdnIpaService(request: DescribeDcdnIpaServiceRequest): Promise<DescribeDcdnIpaServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaServiceWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnIpaUserDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnIpaUserDomainsResponse
+   */
   async describeDcdnIpaUserDomainsWithOptions(request: DescribeDcdnIpaUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23136,6 +24773,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnIpaUserDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnIpaUserDomainsResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnIpaUserDomainsRequest
+    * @return DescribeDcdnIpaUserDomainsResponse
+   */
   async describeDcdnIpaUserDomains(request: DescribeDcdnIpaUserDomainsRequest): Promise<DescribeDcdnIpaUserDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnIpaUserDomainsWithOptions(request, runtime);
@@ -23170,6 +24813,13 @@ export default class Client extends OpenApi {
     return await this.describeDcdnL2VipsWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnRealTimeDeliveryFieldRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnRealTimeDeliveryFieldResponse
+   */
   async describeDcdnRealTimeDeliveryFieldWithOptions(request: DescribeDcdnRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRealTimeDeliveryFieldResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23194,11 +24844,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnRealTimeDeliveryFieldResponse>(await this.callApi(params, req, runtime), new DescribeDcdnRealTimeDeliveryFieldResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnRealTimeDeliveryFieldRequest
+    * @return DescribeDcdnRealTimeDeliveryFieldResponse
+   */
   async describeDcdnRealTimeDeliveryField(request: DescribeDcdnRealTimeDeliveryFieldRequest): Promise<DescribeDcdnRealTimeDeliveryFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnRealTimeDeliveryFieldWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
+    * *   You can call this operation up to 20 times per second.
+    *
+    * @param request DescribeDcdnRefreshQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnRefreshQuotaResponse
+   */
   async describeDcdnRefreshQuotaWithOptions(request: DescribeDcdnRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23227,11 +24892,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnRefreshQuotaResponse>(await this.callApi(params, req, runtime), new DescribeDcdnRefreshQuotaResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
+    * *   You can call this operation up to 20 times per second.
+    *
+    * @param request DescribeDcdnRefreshQuotaRequest
+    * @return DescribeDcdnRefreshQuotaResponse
+   */
   async describeDcdnRefreshQuota(request: DescribeDcdnRefreshQuotaRequest): Promise<DescribeDcdnRefreshQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnRefreshQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can query data within the last three days.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnRefreshTaskByIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnRefreshTaskByIdResponse
+   */
   async describeDcdnRefreshTaskByIdWithOptions(request: DescribeDcdnRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTaskByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23256,11 +24938,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnRefreshTaskByIdResponse>(await this.callApi(params, req, runtime), new DescribeDcdnRefreshTaskByIdResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can query data within the last three days.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnRefreshTaskByIdRequest
+    * @return DescribeDcdnRefreshTaskByIdResponse
+   */
   async describeDcdnRefreshTaskById(request: DescribeDcdnRefreshTaskByIdRequest): Promise<DescribeDcdnRefreshTaskByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnRefreshTaskByIdWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   You can query the status information by task ID or URL.
+    * *   You can set both the **TaskId** parameter and the **ObjectPath** parameter to query. If you set neither the **TaskId** parameter nor the **ObjectPath** parameter, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
+    * *   If you specify the **DomainName** or **Status** parameter, you must also specify the **ObjectType** parameter.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnRefreshTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnRefreshTasksResponse
+   */
   async describeDcdnRefreshTasksWithOptions(request: DescribeDcdnRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23325,11 +25026,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnRefreshTasksResponse>(await this.callApi(params, req, runtime), new DescribeDcdnRefreshTasksResponse({}));
   }
 
+  /**
+    * > 
+    * *   You can query the status information by task ID or URL.
+    * *   You can set both the **TaskId** parameter and the **ObjectPath** parameter to query. If you set neither the **TaskId** parameter nor the **ObjectPath** parameter, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
+    * *   If you specify the **DomainName** or **Status** parameter, you must also specify the **ObjectType** parameter.
+    * *   You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnRefreshTasksRequest
+    * @return DescribeDcdnRefreshTasksResponse
+   */
   async describeDcdnRefreshTasks(request: DescribeDcdnRefreshTasksRequest): Promise<DescribeDcdnRefreshTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnRefreshTasksWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnRegionAndIspRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnRegionAndIspResponse
+   */
   async describeDcdnRegionAndIspWithOptions(request: DescribeDcdnRegionAndIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRegionAndIspResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23358,11 +25076,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnRegionAndIspResponse>(await this.callApi(params, req, runtime), new DescribeDcdnRegionAndIspResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnRegionAndIspRequest
+    * @return DescribeDcdnRegionAndIspResponse
+   */
   async describeDcdnRegionAndIsp(request: DescribeDcdnRegionAndIspRequest): Promise<DescribeDcdnRegionAndIspResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnRegionAndIspWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DescribeDcdnReportRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnReportResponse
+   */
   async describeDcdnReportWithOptions(request: DescribeDcdnReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23411,11 +25142,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnReportResponse>(await this.callApi(params, req, runtime), new DescribeDcdnReportResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 3.
+    *
+    * @param request DescribeDcdnReportRequest
+    * @return DescribeDcdnReportResponse
+   */
   async describeDcdnReport(request: DescribeDcdnReportRequest): Promise<DescribeDcdnReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnReportWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+    * *   You can call this API operation up to three times per second per account.
+    *
+    * @param request DescribeDcdnReportListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnReportListResponse
+   */
   async describeDcdnReportListWithOptions(request: DescribeDcdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23440,11 +25186,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnReportListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnReportListResponse({}));
   }
 
+  /**
+    * > 
+    * *   This operation queries the metadata of all operations reports. The statistics in the reports are not returned.
+    * *   You can call this API operation up to three times per second per account.
+    *
+    * @param request DescribeDcdnReportListRequest
+    * @return DescribeDcdnReportListResponse
+   */
   async describeDcdnReportList(request: DescribeDcdnReportListRequest): Promise<DescribeDcdnReportListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnReportListWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnSLSRealtimeLogDeliveryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
+   */
   async describeDcdnSLSRealtimeLogDeliveryWithOptions(request: DescribeDcdnSLSRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSLSRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23469,11 +25230,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSLSRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSLSRealtimeLogDeliveryResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnSLSRealtimeLogDeliveryRequest
+    * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
+   */
   async describeDcdnSLSRealtimeLogDelivery(request: DescribeDcdnSLSRealtimeLogDeliveryRequest): Promise<DescribeDcdnSLSRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSLSRealtimeLogDeliveryWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second.
+    *
+    * @param request DescribeDcdnSMCertificateDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSMCertificateDetailResponse
+   */
   async describeDcdnSMCertificateDetailWithOptions(request: DescribeDcdnSMCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSMCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23506,11 +25280,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSMCertificateDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSMCertificateDetailResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second.
+    *
+    * @param request DescribeDcdnSMCertificateDetailRequest
+    * @return DescribeDcdnSMCertificateDetailResponse
+   */
   async describeDcdnSMCertificateDetail(request: DescribeDcdnSMCertificateDetailRequest): Promise<DescribeDcdnSMCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSMCertificateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnSMCertificateListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSMCertificateListResponse
+   */
   async describeDcdnSMCertificateListWithOptions(request: DescribeDcdnSMCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSMCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23543,11 +25330,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSMCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSMCertificateListResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnSMCertificateListRequest
+    * @return DescribeDcdnSMCertificateListResponse
+   */
   async describeDcdnSMCertificateList(request: DescribeDcdnSMCertificateListRequest): Promise<DescribeDcdnSMCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSMCertificateListWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnSecFuncInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSecFuncInfoResponse
+   */
   async describeDcdnSecFuncInfoWithOptions(request: DescribeDcdnSecFuncInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSecFuncInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23576,11 +25376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSecFuncInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSecFuncInfoResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnSecFuncInfoRequest
+    * @return DescribeDcdnSecFuncInfoResponse
+   */
   async describeDcdnSecFuncInfo(request: DescribeDcdnSecFuncInfoRequest): Promise<DescribeDcdnSecFuncInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSecFuncInfoWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 50 times per second.
+    *
+    * @param request DescribeDcdnSecSpecInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSecSpecInfoResponse
+   */
   async describeDcdnSecSpecInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSecSpecInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -23597,11 +25410,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSecSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSecSpecInfoResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 50 times per second.
+    *
+    * @return DescribeDcdnSecSpecInfoResponse
+   */
   async describeDcdnSecSpecInfo(): Promise<DescribeDcdnSecSpecInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSecSpecInfoWithOptions(runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnServiceResponse
+   */
   async describeDcdnServiceWithOptions(request: DescribeDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23630,11 +25455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnServiceResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnServiceRequest
+    * @return DescribeDcdnServiceResponse
+   */
   async describeDcdnService(request: DescribeDcdnServiceRequest): Promise<DescribeDcdnServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnServiceWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnStagingIpRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnStagingIpResponse
+   */
   async describeDcdnStagingIpWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnStagingIpResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -23651,11 +25489,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnStagingIpResponse>(await this.callApi(params, req, runtime), new DescribeDcdnStagingIpResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @return DescribeDcdnStagingIpResponse
+   */
   async describeDcdnStagingIp(): Promise<DescribeDcdnStagingIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnStagingIpWithOptions(runtime);
   }
 
+  /**
+    * > 
+    * *   By default, this operation queries all custom report tasks. However, only one task can be displayed. Therefore, only one task is returned.
+    * *   You can call this operation up to three times per second per account.
+    *
+    * @param request DescribeDcdnSubListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnSubListResponse
+   */
   async describeDcdnSubListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSubListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -23672,11 +25524,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnSubListResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSubListResponse({}));
   }
 
+  /**
+    * > 
+    * *   By default, this operation queries all custom report tasks. However, only one task can be displayed. Therefore, only one task is returned.
+    * *   You can call this operation up to three times per second per account.
+    *
+    * @return DescribeDcdnSubListResponse
+   */
   async describeDcdnSubList(): Promise<DescribeDcdnSubListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnSubListWithOptions(runtime);
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnTagResourcesResponse
+   */
   async describeDcdnTagResourcesWithOptions(request: DescribeDcdnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23709,11 +25575,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnTagResourcesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnTagResourcesResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 10 times per second per account.
+    *
+    * @param request DescribeDcdnTagResourcesRequest
+    * @return DescribeDcdnTagResourcesResponse
+   */
   async describeDcdnTagResources(request: DescribeDcdnTagResourcesRequest): Promise<DescribeDcdnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * **Before you call this operation, pay attention to the following considerations:**If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    *
+    * @param request DescribeDcdnTopDomainsByFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnTopDomainsByFlowResponse
+   */
   async describeDcdnTopDomainsByFlowWithOptions(request: DescribeDcdnTopDomainsByFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnTopDomainsByFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23746,11 +25625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnTopDomainsByFlowResponse>(await this.callApi(params, req, runtime), new DescribeDcdnTopDomainsByFlowResponse({}));
   }
 
+  /**
+    * **Before you call this operation, pay attention to the following considerations:**If you do not specify the StartTime and EndTime parameters, the data within the current month is queried by default. If you specify the StartTime and EndTime parameters, the data within the specified time range is queried.
+    *
+    * @param request DescribeDcdnTopDomainsByFlowRequest
+    * @return DescribeDcdnTopDomainsByFlowResponse
+   */
   async describeDcdnTopDomainsByFlow(request: DescribeDcdnTopDomainsByFlowRequest): Promise<DescribeDcdnTopDomainsByFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnTopDomainsByFlowWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnUserBillHistoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserBillHistoryResponse
+   */
   async describeDcdnUserBillHistoryWithOptions(request: DescribeDcdnUserBillHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserBillHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23779,6 +25671,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserBillHistoryResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserBillHistoryResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnUserBillHistoryRequest
+    * @return DescribeDcdnUserBillHistoryResponse
+   */
   async describeDcdnUserBillHistory(request: DescribeDcdnUserBillHistoryRequest): Promise<DescribeDcdnUserBillHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserBillHistoryWithOptions(request, runtime);
@@ -23817,6 +25715,13 @@ export default class Client extends OpenApi {
     return await this.describeDcdnUserBillTypeWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnUserCertificateExpireCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserCertificateExpireCountResponse
+   */
   async describeDcdnUserCertificateExpireCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserCertificateExpireCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -23833,11 +25738,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserCertificateExpireCountResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserCertificateExpireCountResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @return DescribeDcdnUserCertificateExpireCountResponse
+   */
   async describeDcdnUserCertificateExpireCount(): Promise<DescribeDcdnUserCertificateExpireCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserCertificateExpireCountWithOptions(runtime);
   }
 
+  /**
+    * >You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserConfigsResponse
+   */
   async describeDcdnUserConfigsWithOptions(request: DescribeDcdnUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23862,11 +25779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserConfigsResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserConfigsRequest
+    * @return DescribeDcdnUserConfigsResponse
+   */
   async describeDcdnUserConfigs(request: DescribeDcdnUserConfigsRequest): Promise<DescribeDcdnUserConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserConfigsWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 80 times per second per account.
+    *
+    * @param request DescribeDcdnUserDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserDomainsResponse
+   */
   async describeDcdnUserDomainsWithOptions(request: DescribeDcdnUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23939,11 +25869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserDomainsResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 80 times per second per account.
+    *
+    * @param request DescribeDcdnUserDomainsRequest
+    * @return DescribeDcdnUserDomainsResponse
+   */
   async describeDcdnUserDomains(request: DescribeDcdnUserDomainsRequest): Promise<DescribeDcdnUserDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnUserDomainsByFuncRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserDomainsByFuncResponse
+   */
   async describeDcdnUserDomainsByFuncWithOptions(request: DescribeDcdnUserDomainsByFuncRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsByFuncResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23988,11 +25931,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserDomainsByFuncResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserDomainsByFuncResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnUserDomainsByFuncRequest
+    * @return DescribeDcdnUserDomainsByFuncResponse
+   */
   async describeDcdnUserDomainsByFunc(request: DescribeDcdnUserDomainsByFuncRequest): Promise<DescribeDcdnUserDomainsByFuncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserDomainsByFuncWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnUserQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserQuotaResponse
+   */
   async describeDcdnUserQuotaWithOptions(request: DescribeDcdnUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24021,11 +25977,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserQuotaResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeDcdnUserQuotaRequest
+    * @return DescribeDcdnUserQuotaResponse
+   */
   async describeDcdnUserQuota(request: DescribeDcdnUserQuotaRequest): Promise<DescribeDcdnUserQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnUserRealTimeDeliveryFieldRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
+   */
   async describeDcdnUserRealTimeDeliveryFieldWithOptions(request: DescribeDcdnUserRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserRealTimeDeliveryFieldResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -24046,11 +26015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserRealTimeDeliveryFieldResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserRealTimeDeliveryFieldResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnUserRealTimeDeliveryFieldRequest
+    * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
+   */
   async describeDcdnUserRealTimeDeliveryField(request: DescribeDcdnUserRealTimeDeliveryFieldRequest): Promise<DescribeDcdnUserRealTimeDeliveryFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserRealTimeDeliveryFieldWithOptions(request, runtime);
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserResourcePackageRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserResourcePackageResponse
+   */
   async describeDcdnUserResourcePackageWithOptions(request: DescribeDcdnUserResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserResourcePackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24083,11 +26065,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserResourcePackageResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserResourcePackageResponse({}));
   }
 
+  /**
+    * > You can call this operation up to 30 times per second per account.
+    *
+    * @param request DescribeDcdnUserResourcePackageRequest
+    * @return DescribeDcdnUserResourcePackageResponse
+   */
   async describeDcdnUserResourcePackage(request: DescribeDcdnUserResourcePackageRequest): Promise<DescribeDcdnUserResourcePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserResourcePackageWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnUserSecDropRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserSecDropResponse
+   */
   async describeDcdnUserSecDropWithOptions(request: DescribeDcdnUserSecDropRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserSecDropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24120,11 +26115,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserSecDropResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserSecDropResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnUserSecDropRequest
+    * @return DescribeDcdnUserSecDropResponse
+   */
   async describeDcdnUserSecDrop(request: DescribeDcdnUserSecDropRequest): Promise<DescribeDcdnUserSecDropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserSecDropWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnUserSecDropByMinuteRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserSecDropByMinuteResponse
+   */
   async describeDcdnUserSecDropByMinuteWithOptions(request: DescribeDcdnUserSecDropByMinuteRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserSecDropByMinuteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24181,11 +26189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserSecDropByMinuteResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserSecDropByMinuteResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 50.
+    *
+    * @param request DescribeDcdnUserSecDropByMinuteRequest
+    * @return DescribeDcdnUserSecDropByMinuteResponse
+   */
   async describeDcdnUserSecDropByMinute(request: DescribeDcdnUserSecDropByMinuteRequest): Promise<DescribeDcdnUserSecDropByMinuteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserSecDropByMinuteWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnUserTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnUserTagsResponse
+   */
   async describeDcdnUserTagsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserTagsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -24202,11 +26223,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnUserTagsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserTagsResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 100.
+    *
+    * @return DescribeDcdnUserTagsResponse
+   */
   async describeDcdnUserTags(): Promise<DescribeDcdnUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserTagsWithOptions(runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnVerifyContentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnVerifyContentResponse
+   */
   async describeDcdnVerifyContentWithOptions(request: DescribeDcdnVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnVerifyContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24231,11 +26264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnVerifyContentResponse>(await this.callApi(params, req, runtime), new DescribeDcdnVerifyContentResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request DescribeDcdnVerifyContentRequest
+    * @return DescribeDcdnVerifyContentResponse
+   */
   async describeDcdnVerifyContent(request: DescribeDcdnVerifyContentRequest): Promise<DescribeDcdnVerifyContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnVerifyContentWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 150 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafDomainResponse
+   */
   async describeDcdnWafDomainWithOptions(request: DescribeDcdnWafDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24268,11 +26314,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafDomainResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDomainResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 150 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainRequest
+    * @return DescribeDcdnWafDomainResponse
+   */
   async describeDcdnWafDomain(request: DescribeDcdnWafDomainRequest): Promise<DescribeDcdnWafDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafDomainWithOptions(request, runtime);
   }
 
+  /**
+    * # Usage notes
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafDomainDetailResponse
+   */
   async describeDcdnWafDomainDetailWithOptions(request: DescribeDcdnWafDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24297,11 +26357,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDomainDetailResponse({}));
   }
 
+  /**
+    * # Usage notes
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainDetailRequest
+    * @return DescribeDcdnWafDomainDetailResponse
+   */
   async describeDcdnWafDomainDetail(request: DescribeDcdnWafDomainDetailRequest): Promise<DescribeDcdnWafDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafDomainsResponse
+   */
   async describeDcdnWafDomainsWithOptions(request: DescribeDcdnWafDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24334,11 +26408,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDomainsResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafDomainsRequest
+    * @return DescribeDcdnWafDomainsResponse
+   */
   async describeDcdnWafDomains(request: DescribeDcdnWafDomainsRequest): Promise<DescribeDcdnWafDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafFilterInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafFilterInfoResponse
+   */
   async describeDcdnWafFilterInfoWithOptions(request: DescribeDcdnWafFilterInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafFilterInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24367,11 +26454,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafFilterInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafFilterInfoResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafFilterInfoRequest
+    * @return DescribeDcdnWafFilterInfoResponse
+   */
   async describeDcdnWafFilterInfo(request: DescribeDcdnWafFilterInfoRequest): Promise<DescribeDcdnWafFilterInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafFilterInfoWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafGeoInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafGeoInfoResponse
+   */
   async describeDcdnWafGeoInfoWithOptions(request: DescribeDcdnWafGeoInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafGeoInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24396,11 +26496,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafGeoInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafGeoInfoResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafGeoInfoRequest
+    * @return DescribeDcdnWafGeoInfoResponse
+   */
   async describeDcdnWafGeoInfo(request: DescribeDcdnWafGeoInfoRequest): Promise<DescribeDcdnWafGeoInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafGeoInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If you do not set StartTime or EndTime, data collected in the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+    * *   The log data is collected every hour.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnWafLogsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafLogsResponse
+   */
   async describeDcdnWafLogsWithOptions(request: DescribeDcdnWafLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24441,11 +26557,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafLogsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafLogsResponse({}));
   }
 
+  /**
+    * > 
+    * *   If you do not set StartTime or EndTime, data collected in the last 24 hours is queried. If you set both StartTime and EndTime, data collected within the specified time range is queried.
+    * *   The log data is collected every hour.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeDcdnWafLogsRequest
+    * @return DescribeDcdnWafLogsResponse
+   */
   async describeDcdnWafLogs(request: DescribeDcdnWafLogsRequest): Promise<DescribeDcdnWafLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafLogsWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPoliciesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafPoliciesResponse
+   */
   async describeDcdnWafPoliciesWithOptions(request: DescribeDcdnWafPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24478,11 +26610,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPoliciesResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPoliciesRequest
+    * @return DescribeDcdnWafPoliciesResponse
+   */
   async describeDcdnWafPolicies(request: DescribeDcdnWafPoliciesRequest): Promise<DescribeDcdnWafPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafPolicyResponse
+   */
   async describeDcdnWafPolicyWithOptions(request: DescribeDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24507,11 +26652,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyRequest
+    * @return DescribeDcdnWafPolicyResponse
+   */
   async describeDcdnWafPolicy(request: DescribeDcdnWafPolicyRequest): Promise<DescribeDcdnWafPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafPolicyDomainsResponse
+   */
   async describeDcdnWafPolicyDomainsWithOptions(request: DescribeDcdnWafPolicyDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24544,11 +26702,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafPolicyDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyDomainsResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyDomainsRequest
+    * @return DescribeDcdnWafPolicyDomainsResponse
+   */
   async describeDcdnWafPolicyDomains(request: DescribeDcdnWafPolicyDomainsRequest): Promise<DescribeDcdnWafPolicyDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafPolicyDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * # Usage notes
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyValidDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafPolicyValidDomainsResponse
+   */
   async describeDcdnWafPolicyValidDomainsWithOptions(request: DescribeDcdnWafPolicyValidDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyValidDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24585,11 +26757,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafPolicyValidDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyValidDomainsResponse({}));
   }
 
+  /**
+    * # Usage notes
+    * You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafPolicyValidDomainsRequest
+    * @return DescribeDcdnWafPolicyValidDomainsResponse
+   */
   async describeDcdnWafPolicyValidDomains(request: DescribeDcdnWafPolicyValidDomainsRequest): Promise<DescribeDcdnWafPolicyValidDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafPolicyValidDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafRuleResponse
+   */
   async describeDcdnWafRuleWithOptions(request: DescribeDcdnWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24614,6 +26800,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafRuleResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafRuleResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafRuleRequest
+    * @return DescribeDcdnWafRuleResponse
+   */
   async describeDcdnWafRule(request: DescribeDcdnWafRuleRequest): Promise<DescribeDcdnWafRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafRuleWithOptions(request, runtime);
@@ -24669,6 +26861,13 @@ export default class Client extends OpenApi {
     return await this.describeDcdnWafRulesWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafScenesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafScenesResponse
+   */
   async describeDcdnWafScenesWithOptions(request: DescribeDcdnWafScenesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafScenesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24693,11 +26892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafScenesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafScenesResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafScenesRequest
+    * @return DescribeDcdnWafScenesResponse
+   */
   async describeDcdnWafScenes(request: DescribeDcdnWafScenesRequest): Promise<DescribeDcdnWafScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafScenesWithOptions(request, runtime);
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafServiceResponse
+   */
   async describeDcdnWafServiceWithOptions(request: DescribeDcdnWafServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24726,13 +26938,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafServiceResponse({}));
   }
 
+  /**
+    * >You can call this operation up to 20 times per second per account.
+    *
+    * @param request DescribeDcdnWafServiceRequest
+    * @return DescribeDcdnWafServiceResponse
+   */
   async describeDcdnWafService(request: DescribeDcdnWafServiceRequest): Promise<DescribeDcdnWafServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafServiceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation up to 20 times per second per account.
+    * >You can call this operation up to 20 times per second per account.
     *
     * @param request DescribeDcdnWafSpecInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24755,7 +26973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 20 times per second per account.
+    * >You can call this operation up to 20 times per second per account.
     *
     * @return DescribeDcdnWafSpecInfoResponse
    */
@@ -24764,6 +26982,14 @@ export default class Client extends OpenApi {
     return await this.describeDcdnWafSpecInfoWithOptions(runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
+    *
+    * @param request DescribeDcdnWafUsageDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnWafUsageDataResponse
+   */
   async describeDcdnWafUsageDataWithOptions(request: DescribeDcdnWafUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24804,11 +27030,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnWafUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafUsageDataResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 10 times per second per account.
+    * *   The minimum time granularity for a query is 5 minutes. The maximum time span for a query is 31 days. The time period within which historical data is available for a query is 90 days.
+    *
+    * @param request DescribeDcdnWafUsageDataRequest
+    * @return DescribeDcdnWafUsageDataResponse
+   */
   async describeDcdnWafUsageData(request: DescribeDcdnWafUsageDataRequest): Promise<DescribeDcdnWafUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafUsageDataWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second.
+    *
+    * @param request DescribeDcdnsecServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDcdnsecServiceResponse
+   */
   async describeDcdnsecServiceWithOptions(request: DescribeDcdnsecServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnsecServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24837,6 +27077,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDcdnsecServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnsecServiceResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 20 times per second.
+    *
+    * @param request DescribeDcdnsecServiceRequest
+    * @return DescribeDcdnsecServiceResponse
+   */
   async describeDcdnsecService(request: DescribeDcdnsecServiceRequest): Promise<DescribeDcdnsecServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnsecServiceWithOptions(request, runtime);
@@ -24908,6 +27154,13 @@ export default class Client extends OpenApi {
     return await this.describeRDDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeRoutineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRoutineResponse
+   */
   async describeRoutineWithOptions(request: DescribeRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24932,11 +27185,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoutineResponse>(await this.callApi(params, req, runtime), new DescribeRoutineResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeRoutineRequest
+    * @return DescribeRoutineResponse
+   */
   async describeRoutine(request: DescribeRoutineRequest): Promise<DescribeRoutineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoutineWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeRoutineCanaryEnvsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRoutineCanaryEnvsResponse
+   */
   async describeRoutineCanaryEnvsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCanaryEnvsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -24953,11 +27219,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoutineCanaryEnvsResponse>(await this.callApi(params, req, runtime), new DescribeRoutineCanaryEnvsResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @return DescribeRoutineCanaryEnvsResponse
+   */
   async describeRoutineCanaryEnvs(): Promise<DescribeRoutineCanaryEnvsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoutineCanaryEnvsWithOptions(runtime);
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DescribeRoutineCodeRevisionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRoutineCodeRevisionResponse
+   */
   async describeRoutineCodeRevisionWithOptions(request: DescribeRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCodeRevisionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24986,11 +27264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoutineCodeRevisionResponse>(await this.callApi(params, req, runtime), new DescribeRoutineCodeRevisionResponse({}));
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DescribeRoutineCodeRevisionRequest
+    * @return DescribeRoutineCodeRevisionResponse
+   */
   async describeRoutineCodeRevision(request: DescribeRoutineCodeRevisionRequest): Promise<DescribeRoutineCodeRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoutineCodeRevisionWithOptions(request, runtime);
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request DescribeRoutineSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRoutineSpecResponse
+   */
   async describeRoutineSpecWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRoutineSpecResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -25007,11 +27298,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoutineSpecResponse>(await this.callApi(params, req, runtime), new DescribeRoutineSpecResponse({}));
   }
 
+  /**
+    * >  The call frequency of the API is no more than 100 queries per second.
+    *
+    * @return DescribeRoutineSpecResponse
+   */
   async describeRoutineSpec(): Promise<DescribeRoutineSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoutineSpecWithOptions(runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request DescribeRoutineUserInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRoutineUserInfoResponse
+   */
   async describeRoutineUserInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRoutineUserInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -25028,11 +27331,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRoutineUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeRoutineUserInfoResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @return DescribeRoutineUserInfoResponse
+   */
   async describeRoutineUserInfo(): Promise<DescribeRoutineUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRoutineUserInfoWithOptions(runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DescribeUserDcdnIpaStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserDcdnIpaStatusResponse
+   */
   async describeUserDcdnIpaStatusWithOptions(request: DescribeUserDcdnIpaStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDcdnIpaStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25061,11 +27376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserDcdnIpaStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserDcdnIpaStatusResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request DescribeUserDcdnIpaStatusRequest
+    * @return DescribeUserDcdnIpaStatusResponse
+   */
   async describeUserDcdnIpaStatus(request: DescribeUserDcdnIpaStatusRequest): Promise<DescribeUserDcdnIpaStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserDcdnIpaStatusWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeUserDcdnStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserDcdnStatusResponse
+   */
   async describeUserDcdnStatusWithOptions(request: DescribeUserDcdnStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDcdnStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25090,11 +27418,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserDcdnStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserDcdnStatusResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeUserDcdnStatusRequest
+    * @return DescribeUserDcdnStatusResponse
+   */
   async describeUserDcdnStatus(request: DescribeUserDcdnStatusRequest): Promise<DescribeUserDcdnStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserDcdnStatusWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeUserErStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserErStatusResponse
+   */
   async describeUserErStatusWithOptions(request: DescribeUserErStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserErStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25119,11 +27460,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserErStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserErStatusResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request DescribeUserErStatusRequest
+    * @return DescribeUserErStatusResponse
+   */
   async describeUserErStatus(request: DescribeUserErStatusRequest): Promise<DescribeUserErStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserErStatusWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 20.
+    *
+    * @param request DescribeUserLogserviceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserLogserviceStatusResponse
+   */
   async describeUserLogserviceStatusWithOptions(request: DescribeUserLogserviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserLogserviceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25152,11 +27506,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserLogserviceStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserLogserviceStatusResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 20.
+    *
+    * @param request DescribeUserLogserviceStatusRequest
+    * @return DescribeUserLogserviceStatusResponse
+   */
   async describeUserLogserviceStatus(request: DescribeUserLogserviceStatusRequest): Promise<DescribeUserLogserviceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserLogserviceStatusWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   This operation modifies only the specified configurations. Other configurations remain unchanged.
+    * *   If you want to delete a setting, delete the parameter value.
+    * *   This operation can add canary release environments. Make sure that the environment names comply with the naming rules. Otherwise, you will fail to add the environments.
+    * *   Dynamic Route for CDN (DCDN) provides 35 canary release environments. Among these environments, 34 are deployed in China and 1 is deployed outside China. The canary release environments are:
+    *     *   Outside China: presetCanaryOverseas.
+    *     *   In China: The 34 canary release environments are named in the format of presetCanaryXX. For example, presetCanaryBeijing represents the canary release environment in Beijing. A canary release environment is in each of the following regions: Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong, Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hong Kong, Hubei, Hunan, Jiangsu, Jiangxi, Jilin, Liaoning, Macao, Neimenggu, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Taiwan, Tianjin, Xinjiang, Xizang, Yunan, and Zhejiang.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param tmpReq EditRoutineConfRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EditRoutineConfResponse
+   */
   async editRoutineConfWithOptions(tmpReq: EditRoutineConfRequest, runtime: $Util.RuntimeOptions): Promise<EditRoutineConfResponse> {
     Util.validateModel(tmpReq);
     let request = new EditRoutineConfShrinkRequest({ });
@@ -25195,11 +27569,31 @@ export default class Client extends OpenApi {
     return $tea.cast<EditRoutineConfResponse>(await this.callApi(params, req, runtime), new EditRoutineConfResponse({}));
   }
 
+  /**
+    * > 
+    * *   This operation modifies only the specified configurations. Other configurations remain unchanged.
+    * *   If you want to delete a setting, delete the parameter value.
+    * *   This operation can add canary release environments. Make sure that the environment names comply with the naming rules. Otherwise, you will fail to add the environments.
+    * *   Dynamic Route for CDN (DCDN) provides 35 canary release environments. Among these environments, 34 are deployed in China and 1 is deployed outside China. The canary release environments are:
+    *     *   Outside China: presetCanaryOverseas.
+    *     *   In China: The 34 canary release environments are named in the format of presetCanaryXX. For example, presetCanaryBeijing represents the canary release environment in Beijing. A canary release environment is in each of the following regions: Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong, Guangxi, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hong Kong, Hubei, Hunan, Jiangsu, Jiangxi, Jilin, Liaoning, Macao, Neimenggu, Ningxia, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Taiwan, Tianjin, Xinjiang, Xizang, Yunan, and Zhejiang.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request EditRoutineConfRequest
+    * @return EditRoutineConfResponse
+   */
   async editRoutineConf(request: EditRoutineConfRequest): Promise<EditRoutineConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editRoutineConfWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListDcdnRealTimeDeliveryProjectRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDcdnRealTimeDeliveryProjectResponse
+   */
   async listDcdnRealTimeDeliveryProjectWithOptions(request: ListDcdnRealTimeDeliveryProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnRealTimeDeliveryProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25236,11 +27630,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDcdnRealTimeDeliveryProjectResponse>(await this.callApi(params, req, runtime), new ListDcdnRealTimeDeliveryProjectResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListDcdnRealTimeDeliveryProjectRequest
+    * @return ListDcdnRealTimeDeliveryProjectResponse
+   */
   async listDcdnRealTimeDeliveryProject(request: ListDcdnRealTimeDeliveryProjectRequest): Promise<ListDcdnRealTimeDeliveryProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDcdnRealTimeDeliveryProjectWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request ModifyDCdnDomainSchdmByPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDCdnDomainSchdmByPropertyResponse
+   */
   async modifyDCdnDomainSchdmByPropertyWithOptions(request: ModifyDCdnDomainSchdmByPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDCdnDomainSchdmByPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25269,11 +27676,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDCdnDomainSchdmByPropertyResponse>(await this.callApi(params, req, runtime), new ModifyDCdnDomainSchdmByPropertyResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request ModifyDCdnDomainSchdmByPropertyRequest
+    * @return ModifyDCdnDomainSchdmByPropertyResponse
+   */
   async modifyDCdnDomainSchdmByProperty(request: ModifyDCdnDomainSchdmByPropertyRequest): Promise<ModifyDCdnDomainSchdmByPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDCdnDomainSchdmByPropertyWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request ModifyDcdnWafPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDcdnWafPolicyResponse
+   */
   async modifyDcdnWafPolicyWithOptions(request: ModifyDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25306,11 +27727,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafPolicyResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request ModifyDcdnWafPolicyRequest
+    * @return ModifyDcdnWafPolicyResponse
+   */
   async modifyDcdnWafPolicy(request: ModifyDcdnWafPolicyRequest): Promise<ModifyDcdnWafPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDcdnWafPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request ModifyDcdnWafPolicyDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDcdnWafPolicyDomainsResponse
+   */
   async modifyDcdnWafPolicyDomainsWithOptions(request: ModifyDcdnWafPolicyDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafPolicyDomainsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25347,11 +27783,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDcdnWafPolicyDomainsResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafPolicyDomainsResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    *
+    * @param request ModifyDcdnWafPolicyDomainsRequest
+    * @return ModifyDcdnWafPolicyDomainsResponse
+   */
   async modifyDcdnWafPolicyDomains(request: ModifyDcdnWafPolicyDomainsRequest): Promise<ModifyDcdnWafPolicyDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDcdnWafPolicyDomainsWithOptions(request, runtime);
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
+    *
+    * @param request ModifyDcdnWafRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDcdnWafRuleResponse
+   */
   async modifyDcdnWafRuleWithOptions(request: ModifyDcdnWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -25388,11 +27840,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDcdnWafRuleResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafRuleResponse({}));
   }
 
+  /**
+    * >*   You can call this operation up to 20 times per second per account.
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
+    * *   You must configure at least one of the **RuleStatus**, **RuleName** and **RuleConfig** parameters.
+    *
+    * @param request ModifyDcdnWafRuleRequest
+    * @return ModifyDcdnWafRuleResponse
+   */
   async modifyDcdnWafRule(request: ModifyDcdnWafRuleRequest): Promise<ModifyDcdnWafRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDcdnWafRuleWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request OpenDcdnServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenDcdnServiceResponse
+   */
   async openDcdnServiceWithOptions(request: OpenDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenDcdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25429,11 +27898,36 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenDcdnServiceResponse>(await this.callApi(params, req, runtime), new OpenDcdnServiceResponse({}));
   }
 
+  /**
+    * > 
+    * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
+    * *   You can call this operation up to five times per second per account.
+    *
+    * @param request OpenDcdnServiceRequest
+    * @return OpenDcdnServiceResponse
+   */
   async openDcdnService(request: OpenDcdnServiceRequest): Promise<OpenDcdnServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openDcdnServiceWithOptions(request, runtime);
   }
 
+  /**
+    * # Usage notes
+    * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
+    * *   Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
+    * *   Each Alibaba Cloud account can submit up to 100 URLs in a request.
+    * *   The prefetch queue of each Alibaba Cloud account can contain up to 50,000 URLs. DCDN executes prefetch tasks based on the time at which you submit the URLs.
+    * *   You can call this operation up to 15 times per second per account.
+    * # Precautions
+    * *   After a refresh task is submitted and executed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
+    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks take 5 to 30 minutes to complete. A task with a smaller average file size takes less time.
+    * *   To allow Resource Access Management (RAM) users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
+    *
+    * @param request PreloadDcdnObjectCachesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PreloadDcdnObjectCachesResponse
+   */
   async preloadDcdnObjectCachesWithOptions(request: PreloadDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<PreloadDcdnObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25478,11 +27972,34 @@ export default class Client extends OpenApi {
     return $tea.cast<PreloadDcdnObjectCachesResponse>(await this.callApi(params, req, runtime), new PreloadDcdnObjectCachesResponse({}));
   }
 
+  /**
+    * # Usage notes
+    * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
+    * *   Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   By default, each Alibaba Cloud account can submit up to 1,000 URLs per day. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to increase your daily quota. Alibaba Cloud reviews your application and then increases the quota accordingly.
+    * *   Each Alibaba Cloud account can submit up to 100 URLs in a request.
+    * *   The prefetch queue of each Alibaba Cloud account can contain up to 50,000 URLs. DCDN executes prefetch tasks based on the time at which you submit the URLs.
+    * *   You can call this operation up to 15 times per second per account.
+    * # Precautions
+    * *   After a refresh task is submitted and executed, the POPs immediately start to retrieve resources from the origin server. Therefore, a large number of refresh tasks cause a large number of concurrent download tasks. This increases the number of requests that are redirected to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
+    * *   The time required for a prefetch task to complete is proportional to the size of the prefetched file. In actual practice, most prefetch tasks take 5 to 30 minutes to complete. A task with a smaller average file size takes less time.
+    * *   To allow Resource Access Management (RAM) users to perform this operation, you must first grant them the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~445051~~).
+    *
+    * @param request PreloadDcdnObjectCachesRequest
+    * @return PreloadDcdnObjectCachesResponse
+   */
   async preloadDcdnObjectCaches(request: PreloadDcdnObjectCachesRequest): Promise<PreloadDcdnObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.preloadDcdnObjectCachesWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request PublishDcdnStagingConfigToProductionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PublishDcdnStagingConfigToProductionResponse
+   */
   async publishDcdnStagingConfigToProductionWithOptions(request: PublishDcdnStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishDcdnStagingConfigToProductionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25511,11 +28028,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishDcdnStagingConfigToProductionResponse>(await this.callApi(params, req, runtime), new PublishDcdnStagingConfigToProductionResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request PublishDcdnStagingConfigToProductionRequest
+    * @return PublishDcdnStagingConfigToProductionResponse
+   */
   async publishDcdnStagingConfigToProduction(request: PublishDcdnStagingConfigToProductionRequest): Promise<PublishDcdnStagingConfigToProductionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishDcdnStagingConfigToProductionWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param tmpReq PublishRoutineCodeRevisionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PublishRoutineCodeRevisionResponse
+   */
   async publishRoutineCodeRevisionWithOptions(tmpReq: PublishRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<PublishRoutineCodeRevisionResponse> {
     Util.validateModel(tmpReq);
     let request = new PublishRoutineCodeRevisionShrinkRequest({ });
@@ -25554,11 +28084,32 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishRoutineCodeRevisionResponse>(await this.callApi(params, req, runtime), new PublishRoutineCodeRevisionResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request PublishRoutineCodeRevisionRequest
+    * @return PublishRoutineCodeRevisionResponse
+   */
   async publishRoutineCodeRevision(request: PublishRoutineCodeRevisionRequest): Promise<PublishRoutineCodeRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishRoutineCodeRevisionWithOptions(request, runtime);
   }
 
+  /**
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
+    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to apply for an increased upper limit. Alibaba Cloud will review your application and then increase the quota accordingly.
+    * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
+    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+    * *   You can call this operation up to 30 times per second per account.
+    * - After a refresh task is submitted and completed, your resources that are stored on CDN POPs are removed. When a POP receives a request your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * - A refresh task takes effect five to six minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * - If you want to use Resource Access Management (RAM) users to refresh or prefetch resources, you must acquire the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/to-grant-the-ram-users-refresh-and-preheating-permissions).
+    *
+    * @param request RefreshDcdnObjectCachesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RefreshDcdnObjectCachesResponse
+   */
   async refreshDcdnObjectCachesWithOptions(request: RefreshDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDcdnObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25595,11 +28146,32 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshDcdnObjectCachesResponse>(await this.callApi(params, req, runtime), new RefreshDcdnObjectCachesResponse({}));
   }
 
+  /**
+    * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests in which parameters are sent as a form.
+    * *   You can call the [RefreshDcdnObjectCaches](~~130620~~) operation to refresh content and call the [PreloadDcdnObjectCaches](~~130636~~) operation to prefetch content.
+    * *   By default, each Alibaba Cloud account can refresh content from a maximum of 10,000 URLs and 100 directories per day, including subdirectories. If the daily peak bandwidth value of your workloads exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to apply for an increased upper limit. Alibaba Cloud will review your application and then increase the quota accordingly.
+    * *   You can specify up to 1,000 URLs or 100 directories that you want to refresh in each request.
+    * *   You can refresh a maximum of 1,000 URLs per minute for each domain name.
+    * *   You can call this operation up to 30 times per second per account.
+    * - After a refresh task is submitted and completed, your resources that are stored on CDN POPs are removed. When a POP receives a request your resources, the request is redirected to the origin server to retrieve the resources. Then, the resources are returned to the client and cached on the POP. If you frequently run refresh tasks, more requests will be redirected back to the origin server for resources, which result in high bandwidth costs and undue pressure on the origin server.
+    * - A refresh task takes effect five to six minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
+    * - If you want to use Resource Access Management (RAM) users to refresh or prefetch resources, you must acquire the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](https://www.alibabacloud.com/help/en/dynamic-route-for-cdn/latest/to-grant-the-ram-users-refresh-and-preheating-permissions).
+    *
+    * @param request RefreshDcdnObjectCachesRequest
+    * @return RefreshDcdnObjectCachesResponse
+   */
   async refreshDcdnObjectCaches(request: RefreshDcdnObjectCachesRequest): Promise<RefreshDcdnObjectCachesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshDcdnObjectCachesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request RollbackDcdnStagingConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RollbackDcdnStagingConfigResponse
+   */
   async rollbackDcdnStagingConfigWithOptions(request: RollbackDcdnStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<RollbackDcdnStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25624,11 +28196,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackDcdnStagingConfigResponse>(await this.callApi(params, req, runtime), new RollbackDcdnStagingConfigResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request RollbackDcdnStagingConfigRequest
+    * @return RollbackDcdnStagingConfigResponse
+   */
   async rollbackDcdnStagingConfig(request: RollbackDcdnStagingConfigRequest): Promise<RollbackDcdnStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackDcdnStagingConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request SetDcdnDomainCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDcdnDomainCertificateResponse
+   */
   async setDcdnDomainCertificateWithOptions(request: SetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25689,11 +28274,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDcdnDomainCertificateResponse>(await this.callApi(params, req, runtime), new SetDcdnDomainCertificateResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request SetDcdnDomainCertificateRequest
+    * @return SetDcdnDomainCertificateResponse
+   */
   async setDcdnDomainCertificate(request: SetDcdnDomainCertificateRequest): Promise<SetDcdnDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request SetDcdnDomainSMCertificateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDcdnDomainSMCertificateResponse
+   */
   async setDcdnDomainSMCertificateWithOptions(request: SetDcdnDomainSMCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainSMCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25734,11 +28332,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDcdnDomainSMCertificateResponse>(await this.callApi(params, req, runtime), new SetDcdnDomainSMCertificateResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request SetDcdnDomainSMCertificateRequest
+    * @return SetDcdnDomainSMCertificateResponse
+   */
   async setDcdnDomainSMCertificate(request: SetDcdnDomainSMCertificateRequest): Promise<SetDcdnDomainSMCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainSMCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request SetDcdnDomainStagingConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDcdnDomainStagingConfigResponse
+   */
   async setDcdnDomainStagingConfigWithOptions(request: SetDcdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25767,11 +28378,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDcdnDomainStagingConfigResponse>(await this.callApi(params, req, runtime), new SetDcdnDomainStagingConfigResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 30.
+    *
+    * @param request SetDcdnDomainStagingConfigRequest
+    * @return SetDcdnDomainStagingConfigResponse
+   */
   async setDcdnDomainStagingConfig(request: SetDcdnDomainStagingConfigRequest): Promise<SetDcdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainStagingConfigWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second.
+    *
+    * @param request SetDcdnUserConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDcdnUserConfigResponse
+   */
   async setDcdnUserConfigWithOptions(request: SetDcdnUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnUserConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25812,11 +28436,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDcdnUserConfigResponse>(await this.callApi(params, req, runtime), new SetDcdnUserConfigResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second.
+    *
+    * @param request SetDcdnUserConfigRequest
+    * @return SetDcdnUserConfigResponse
+   */
   async setDcdnUserConfig(request: SetDcdnUserConfigRequest): Promise<SetDcdnUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnUserConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Each subdomain is globally unique. Resource Access Management (RAM) users cannot create duplicate subdomains.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param tmpReq SetRoutineSubdomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetRoutineSubdomainResponse
+   */
   async setRoutineSubdomainWithOptions(tmpReq: SetRoutineSubdomainRequest, runtime: $Util.RuntimeOptions): Promise<SetRoutineSubdomainResponse> {
     Util.validateModel(tmpReq);
     let request = new SetRoutineSubdomainShrinkRequest({ });
@@ -25847,11 +28486,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SetRoutineSubdomainResponse>(await this.callApi(params, req, runtime), new SetRoutineSubdomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   Each subdomain is globally unique. Resource Access Management (RAM) users cannot create duplicate subdomains.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request SetRoutineSubdomainRequest
+    * @return SetRoutineSubdomainResponse
+   */
   async setRoutineSubdomain(request: SetRoutineSubdomainRequest): Promise<SetRoutineSubdomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setRoutineSubdomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request StartDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDcdnDomainResponse
+   */
   async startDcdnDomainWithOptions(request: StartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25884,11 +28540,28 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDcdnDomainResponse>(await this.callApi(params, req, runtime), new StartDcdnDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request StartDcdnDomainRequest
+    * @return StartDcdnDomainResponse
+   */
   async startDcdnDomain(request: StartDcdnDomainRequest): Promise<StartDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   The maximum number of times that users can call this operation per second is 20.
+    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
+    *
+    * @param request StartDcdnIpaDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartDcdnIpaDomainResponse
+   */
   async startDcdnIpaDomainWithOptions(request: StartDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25921,11 +28594,28 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new StartDcdnIpaDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   The maximum number of times that users can call this operation per second is 20.
+    * *   If an accelerated domain is in an invalid state or your account has an overdue payment, the accelerated domain cannot be enabled.
+    *
+    * @param request StartDcdnIpaDomainRequest
+    * @return StartDcdnIpaDomainResponse
+   */
   async startDcdnIpaDomain(request: StartDcdnIpaDomainRequest): Promise<StartDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDcdnIpaDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   After the accelerated domain is disabled, Dynamic Route for CDN retains its information and reroutes all the requests that are destined for the accelerated domain to the origin.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request StopDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDcdnDomainResponse
+   */
   async stopDcdnDomainWithOptions(request: StopDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25958,11 +28648,28 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDcdnDomainResponse>(await this.callApi(params, req, runtime), new StopDcdnDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   After the accelerated domain is disabled, Dynamic Route for CDN retains its information and reroutes all the requests that are destined for the accelerated domain to the origin.
+    * *   The maximum number of times that each user can call this operation per second is 30.
+    *
+    * @param request StopDcdnDomainRequest
+    * @return StopDcdnDomainResponse
+   */
   async stopDcdnDomain(request: StopDcdnDomainRequest): Promise<StopDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   The maximum number of times that users can call this operation per second is 20.
+    * *   If you disable an accelerated domain, the configurations of the accelerated domain are still retained. The system automatically forwards all the requests that are destined for this domain to the origin.
+    *
+    * @param request StopDcdnIpaDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopDcdnIpaDomainResponse
+   */
   async stopDcdnIpaDomainWithOptions(request: StopDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25995,6 +28702,14 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new StopDcdnIpaDomainResponse({}));
   }
 
+  /**
+    * > 
+    * *   The maximum number of times that users can call this operation per second is 20.
+    * *   If you disable an accelerated domain, the configurations of the accelerated domain are still retained. The system automatically forwards all the requests that are destined for this domain to the origin.
+    *
+    * @param request StopDcdnIpaDomainRequest
+    * @return StopDcdnIpaDomainResponse
+   */
   async stopDcdnIpaDomain(request: StopDcdnIpaDomainRequest): Promise<StopDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDcdnIpaDomainWithOptions(request, runtime);
@@ -26104,6 +28819,13 @@ export default class Client extends OpenApi {
     return await this.untagDcdnResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request UpdateDcdnDeliverTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnDeliverTaskResponse
+   */
   async updateDcdnDeliverTaskWithOptions(request: UpdateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26148,11 +28870,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnDeliverTaskResponse>(await this.callApi(params, req, runtime), new UpdateDcdnDeliverTaskResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request UpdateDcdnDeliverTaskRequest
+    * @return UpdateDcdnDeliverTaskResponse
+   */
   async updateDcdnDeliverTask(request: UpdateDcdnDeliverTaskRequest): Promise<UpdateDcdnDeliverTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnDeliverTaskWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request UpdateDcdnDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnDomainResponse
+   */
   async updateDcdnDomainWithOptions(request: UpdateDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26197,11 +28932,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnDomainResponse>(await this.callApi(params, req, runtime), new UpdateDcdnDomainResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 30 times per second per account.
+    *
+    * @param request UpdateDcdnDomainRequest
+    * @return UpdateDcdnDomainResponse
+   */
   async updateDcdnDomain(request: UpdateDcdnDomainRequest): Promise<UpdateDcdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnDomainWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request UpdateDcdnIpaDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnIpaDomainResponse
+   */
   async updateDcdnIpaDomainWithOptions(request: UpdateDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26246,11 +28994,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnIpaDomainResponse>(await this.callApi(params, req, runtime), new UpdateDcdnIpaDomainResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that users can call this operation per second is 20.
+    *
+    * @param request UpdateDcdnIpaDomainRequest
+    * @return UpdateDcdnIpaDomainResponse
+   */
   async updateDcdnIpaDomain(request: UpdateDcdnIpaDomainRequest): Promise<UpdateDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnIpaDomainWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request UpdateDcdnSLSRealtimeLogDeliveryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
+   */
   async updateDcdnSLSRealtimeLogDeliveryWithOptions(request: UpdateDcdnSLSRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnSLSRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26299,11 +29060,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnSLSRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new UpdateDcdnSLSRealtimeLogDeliveryResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request UpdateDcdnSLSRealtimeLogDeliveryRequest
+    * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
+   */
   async updateDcdnSLSRealtimeLogDelivery(request: UpdateDcdnSLSRealtimeLogDeliveryRequest): Promise<UpdateDcdnSLSRealtimeLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnSLSRealtimeLogDeliveryWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request UpdateDcdnSubTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnSubTaskResponse
+   */
   async updateDcdnSubTaskWithOptions(request: UpdateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnSubTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26340,11 +29114,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnSubTaskResponse>(await this.callApi(params, req, runtime), new UpdateDcdnSubTaskResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to three times per second per account.
+    *
+    * @param request UpdateDcdnSubTaskRequest
+    * @return UpdateDcdnSubTaskResponse
+   */
   async updateDcdnSubTask(request: UpdateDcdnSubTaskRequest): Promise<UpdateDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnSubTaskWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request UpdateDcdnUserRealTimeDeliveryFieldRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
+   */
   async updateDcdnUserRealTimeDeliveryFieldWithOptions(request: UpdateDcdnUserRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnUserRealTimeDeliveryFieldResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -26365,11 +29152,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDcdnUserRealTimeDeliveryFieldResponse>(await this.callApi(params, req, runtime), new UpdateDcdnUserRealTimeDeliveryFieldResponse({}));
   }
 
+  /**
+    * >  You can call this operation up to 100 times per second per account.
+    *
+    * @param request UpdateDcdnUserRealTimeDeliveryFieldRequest
+    * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
+   */
   async updateDcdnUserRealTimeDeliveryField(request: UpdateDcdnUserRealTimeDeliveryFieldRequest): Promise<UpdateDcdnUserRealTimeDeliveryFieldResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnUserRealTimeDeliveryFieldWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Each time you submit code, a version of the code is generated. You can manage and publish code by version.
+    * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request UploadRoutineCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadRoutineCodeResponse
+   */
   async uploadRoutineCodeWithOptions(request: UploadRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadRoutineCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26398,11 +29201,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadRoutineCodeResponse>(await this.callApi(params, req, runtime), new UploadRoutineCodeResponse({}));
   }
 
+  /**
+    * > 
+    * *   Each time you submit code, a version of the code is generated. You can manage and publish code by version.
+    * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
+    * *   You can call this operation up to 100 times per second per account.
+    *
+    * @param request UploadRoutineCodeRequest
+    * @return UploadRoutineCodeResponse
+   */
   async uploadRoutineCode(request: UploadRoutineCodeRequest): Promise<UploadRoutineCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadRoutineCodeWithOptions(request, runtime);
   }
 
+  /**
+    * > 
+    * *   Each time you upload code to a routine, a version is generated. The number of versions is counted by CodeRev. The uploaded code is used only for testing.
+    * *   The code is automatically published to a staging environment.
+    * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
+    * *   The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request UploadStagingRoutineCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadStagingRoutineCodeResponse
+   */
   async uploadStagingRoutineCodeWithOptions(request: UploadStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadStagingRoutineCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -26431,11 +29254,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadStagingRoutineCodeResponse>(await this.callApi(params, req, runtime), new UploadStagingRoutineCodeResponse({}));
   }
 
+  /**
+    * > 
+    * *   Each time you upload code to a routine, a version is generated. The number of versions is counted by CodeRev. The uploaded code is used only for testing.
+    * *   The code is automatically published to a staging environment.
+    * *   Each routine can retain at most 10 versions. If the upper limit is reached, you must call the DeleteRoutineCodeRevision operation to manually delete versions that are no longer needed before new versions can be saved.
+    * *   The call frequency of the API is no more than 100 queries per second.
+    *
+    * @param request UploadStagingRoutineCodeRequest
+    * @return UploadStagingRoutineCodeResponse
+   */
   async uploadStagingRoutineCode(request: UploadStagingRoutineCodeRequest): Promise<UploadStagingRoutineCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadStagingRoutineCodeWithOptions(request, runtime);
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request VerifyDcdnDomainOwnerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VerifyDcdnDomainOwnerResponse
+   */
   async verifyDcdnDomainOwnerWithOptions(request: VerifyDcdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDcdnDomainOwnerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26464,6 +29304,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyDcdnDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyDcdnDomainOwnerResponse({}));
   }
 
+  /**
+    * >  The maximum number of times that each user can call this operation per second is 100.
+    *
+    * @param request VerifyDcdnDomainOwnerRequest
+    * @return VerifyDcdnDomainOwnerResponse
+   */
   async verifyDcdnDomainOwner(request: VerifyDcdnDomainOwnerRequest): Promise<VerifyDcdnDomainOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyDcdnDomainOwnerWithOptions(request, runtime);
