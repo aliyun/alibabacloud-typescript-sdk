@@ -146,6 +146,144 @@ export class ADMMUResponse extends $tea.Model {
   }
 }
 
+export class ADMiniCogRequest extends $tea.Model {
+  params?: string;
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      params: 'Params',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      params: 'string',
+      serviceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ADMiniCogResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ADMiniCogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ADMiniCogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ADMiniCogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ADMiniCogResultRequest extends $tea.Model {
+  params?: string;
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      params: 'Params',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      params: 'string',
+      serviceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ADMiniCogResultResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ADMiniCogResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ADMiniCogResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ADMiniCogResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBrandChEcomRequest extends $tea.Model {
   imageUrl?: string;
   serviceCode?: string;
@@ -1922,6 +2060,75 @@ export class GetSummaryChEcomResponse extends $tea.Model {
   }
 }
 
+export class GetTableQAServiceInfoByIdRequest extends $tea.Model {
+  serviceCode?: string;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceCode: 'ServiceCode',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceCode: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableQAServiceInfoByIdResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableQAServiceInfoByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTableQAServiceInfoByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableQAServiceInfoByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTcChEcomRequest extends $tea.Model {
   serviceCode?: string;
   text?: string;
@@ -3206,87 +3413,6 @@ export class GetWsCustomizedSeaGeneralResponse extends $tea.Model {
   }
 }
 
-export class InsertCustomRequest extends $tea.Model {
-  apiId?: number;
-  customFileName?: string;
-  customUrl?: string;
-  regFileName?: string;
-  regUrl?: string;
-  serviceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiId: 'ApiId',
-      customFileName: 'CustomFileName',
-      customUrl: 'CustomUrl',
-      regFileName: 'RegFileName',
-      regUrl: 'RegUrl',
-      serviceCode: 'ServiceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiId: 'number',
-      customFileName: 'string',
-      customUrl: 'string',
-      regFileName: 'string',
-      regUrl: 'string',
-      serviceCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertCustomResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertCustomResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertCustomResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InsertCustomResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OpenAlinlpServiceResponseBody extends $tea.Model {
   orderId?: string;
   requestId?: string;
@@ -3334,31 +3460,19 @@ export class OpenAlinlpServiceResponse extends $tea.Model {
   }
 }
 
-export class UpdateCustomRequest extends $tea.Model {
-  customFileName?: string;
-  customId?: number;
-  customUrl?: string;
-  regFileName?: string;
-  regUrl?: string;
+export class RequestTableQARequest extends $tea.Model {
+  params?: string;
   serviceCode?: string;
   static names(): { [key: string]: string } {
     return {
-      customFileName: 'CustomFileName',
-      customId: 'CustomId',
-      customUrl: 'CustomUrl',
-      regFileName: 'RegFileName',
-      regUrl: 'RegUrl',
+      params: 'Params',
       serviceCode: 'ServiceCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customFileName: 'string',
-      customId: 'number',
-      customUrl: 'string',
-      regFileName: 'string',
-      regUrl: 'string',
+      params: 'string',
       serviceCode: 'string',
     };
   }
@@ -3368,7 +3482,7 @@ export class UpdateCustomRequest extends $tea.Model {
   }
 }
 
-export class UpdateCustomResponseBody extends $tea.Model {
+export class RequestTableQAResponseBody extends $tea.Model {
   data?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -3390,10 +3504,10 @@ export class UpdateCustomResponseBody extends $tea.Model {
   }
 }
 
-export class UpdateCustomResponse extends $tea.Model {
+export class RequestTableQAResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: UpdateCustomResponseBody;
+  body: RequestTableQAResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3406,7 +3520,82 @@ export class UpdateCustomResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: UpdateCustomResponseBody,
+      body: RequestTableQAResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestTableQAOnlineRequest extends $tea.Model {
+  botId?: string;
+  params?: string;
+  question?: string;
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      botId: 'BotId',
+      params: 'Params',
+      question: 'Question',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      botId: 'string',
+      params: 'string',
+      question: 'string',
+      serviceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestTableQAOnlineResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestTableQAOnlineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RequestTableQAOnlineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RequestTableQAOnlineResponseBody,
     };
   }
 
@@ -3502,6 +3691,72 @@ export default class Client extends OpenApi {
   async aDMMU(request: ADMMURequest): Promise<ADMMUResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.aDMMUWithOptions(request, runtime);
+  }
+
+  async aDMiniCogWithOptions(request: ADMiniCogRequest, runtime: $Util.RuntimeOptions): Promise<ADMiniCogResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ADMiniCog",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ADMiniCogResponse>(await this.callApi(params, req, runtime), new ADMiniCogResponse({}));
+  }
+
+  async aDMiniCog(request: ADMiniCogRequest): Promise<ADMiniCogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.aDMiniCogWithOptions(request, runtime);
+  }
+
+  async aDMiniCogResultWithOptions(request: ADMiniCogResultRequest, runtime: $Util.RuntimeOptions): Promise<ADMiniCogResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ADMiniCogResult",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ADMiniCogResultResponse>(await this.callApi(params, req, runtime), new ADMiniCogResultResponse({}));
+  }
+
+  async aDMiniCogResult(request: ADMiniCogResultRequest): Promise<ADMiniCogResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.aDMiniCogResultWithOptions(request, runtime);
   }
 
   async getBrandChEcomWithOptions(request: GetBrandChEcomRequest, runtime: $Util.RuntimeOptions): Promise<GetBrandChEcomResponse> {
@@ -4397,6 +4652,39 @@ export default class Client extends OpenApi {
     return await this.getSummaryChEcomWithOptions(request, runtime);
   }
 
+  async getTableQAServiceInfoByIdWithOptions(request: GetTableQAServiceInfoByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetTableQAServiceInfoByIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTableQAServiceInfoById",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTableQAServiceInfoByIdResponse>(await this.callApi(params, req, runtime), new GetTableQAServiceInfoByIdResponse({}));
+  }
+
+  async getTableQAServiceInfoById(request: GetTableQAServiceInfoByIdRequest): Promise<GetTableQAServiceInfoByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTableQAServiceInfoByIdWithOptions(request, runtime);
+  }
+
   async getTcChEcomWithOptions(request: GetTcChEcomRequest, runtime: $Util.RuntimeOptions): Promise<GetTcChEcomResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5106,55 +5394,6 @@ export default class Client extends OpenApi {
     return await this.getWsCustomizedSeaGeneralWithOptions(request, runtime);
   }
 
-  async insertCustomWithOptions(request: InsertCustomRequest, runtime: $Util.RuntimeOptions): Promise<InsertCustomResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.apiId)) {
-      body["ApiId"] = request.apiId;
-    }
-
-    if (!Util.isUnset(request.customFileName)) {
-      body["CustomFileName"] = request.customFileName;
-    }
-
-    if (!Util.isUnset(request.customUrl)) {
-      body["CustomUrl"] = request.customUrl;
-    }
-
-    if (!Util.isUnset(request.regFileName)) {
-      body["RegFileName"] = request.regFileName;
-    }
-
-    if (!Util.isUnset(request.regUrl)) {
-      body["RegUrl"] = request.regUrl;
-    }
-
-    if (!Util.isUnset(request.serviceCode)) {
-      body["ServiceCode"] = request.serviceCode;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "InsertCustom",
-      version: "2020-06-29",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<InsertCustomResponse>(await this.callApi(params, req, runtime), new InsertCustomResponse({}));
-  }
-
-  async insertCustom(request: InsertCustomRequest): Promise<InsertCustomResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.insertCustomWithOptions(request, runtime);
-  }
-
   async openAlinlpServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenAlinlpServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -5176,27 +5415,11 @@ export default class Client extends OpenApi {
     return await this.openAlinlpServiceWithOptions(runtime);
   }
 
-  async updateCustomWithOptions(request: UpdateCustomRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomResponse> {
+  async requestTableQAWithOptions(request: RequestTableQARequest, runtime: $Util.RuntimeOptions): Promise<RequestTableQAResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customFileName)) {
-      body["CustomFileName"] = request.customFileName;
-    }
-
-    if (!Util.isUnset(request.customId)) {
-      body["CustomId"] = request.customId;
-    }
-
-    if (!Util.isUnset(request.customUrl)) {
-      body["CustomUrl"] = request.customUrl;
-    }
-
-    if (!Util.isUnset(request.regFileName)) {
-      body["RegFileName"] = request.regFileName;
-    }
-
-    if (!Util.isUnset(request.regUrl)) {
-      body["RegUrl"] = request.regUrl;
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
     }
 
     if (!Util.isUnset(request.serviceCode)) {
@@ -5207,7 +5430,7 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "UpdateCustom",
+      action: "RequestTableQA",
       version: "2020-06-29",
       protocol: "HTTPS",
       pathname: "/",
@@ -5217,12 +5440,53 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomResponse>(await this.callApi(params, req, runtime), new UpdateCustomResponse({}));
+    return $tea.cast<RequestTableQAResponse>(await this.callApi(params, req, runtime), new RequestTableQAResponse({}));
   }
 
-  async updateCustom(request: UpdateCustomRequest): Promise<UpdateCustomResponse> {
+  async requestTableQA(request: RequestTableQARequest): Promise<RequestTableQAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateCustomWithOptions(request, runtime);
+    return await this.requestTableQAWithOptions(request, runtime);
+  }
+
+  async requestTableQAOnlineWithOptions(request: RequestTableQAOnlineRequest, runtime: $Util.RuntimeOptions): Promise<RequestTableQAOnlineResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.botId)) {
+      body["BotId"] = request.botId;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.question)) {
+      body["Question"] = request.question;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RequestTableQAOnline",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RequestTableQAOnlineResponse>(await this.callApi(params, req, runtime), new RequestTableQAOnlineResponse({}));
+  }
+
+  async requestTableQAOnline(request: RequestTableQAOnlineRequest): Promise<RequestTableQAOnlineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.requestTableQAOnlineWithOptions(request, runtime);
   }
 
 }
