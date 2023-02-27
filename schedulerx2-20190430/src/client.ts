@@ -92,6 +92,87 @@ export class BatchDeleteJobsResponse extends $tea.Model {
   }
 }
 
+export class BatchDeleteRouteStrategyRequest extends $tea.Model {
+  groupId?: string;
+  jobIdList?: number[];
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      jobIdList: 'JobIdList',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      jobIdList: { 'type': 'array', 'itemType': 'number' },
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteRouteStrategyResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteRouteStrategyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchDeleteRouteStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteRouteStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDisableJobsRequest extends $tea.Model {
   groupId?: string;
   jobIdList?: number[];
@@ -263,7 +344,9 @@ export class BatchEnableJobsResponse extends $tea.Model {
 export class CreateAppGroupRequest extends $tea.Model {
   appKey?: string;
   appName?: string;
+  appType?: number;
   description?: string;
+  enableLog?: boolean;
   groupId?: string;
   maxJobs?: number;
   monitorConfigJson?: string;
@@ -277,7 +360,9 @@ export class CreateAppGroupRequest extends $tea.Model {
     return {
       appKey: 'AppKey',
       appName: 'AppName',
+      appType: 'AppType',
       description: 'Description',
+      enableLog: 'EnableLog',
       groupId: 'GroupId',
       maxJobs: 'MaxJobs',
       monitorConfigJson: 'MonitorConfigJson',
@@ -294,7 +379,9 @@ export class CreateAppGroupRequest extends $tea.Model {
     return {
       appKey: 'string',
       appName: 'string',
+      appType: 'number',
       description: 'string',
+      enableLog: 'boolean',
       groupId: 'string',
       maxJobs: 'number',
       monitorConfigJson: 'string',
@@ -403,6 +490,7 @@ export class CreateJobRequest extends $tea.Model {
   timeout?: number;
   timeoutEnable?: boolean;
   timeoutKillEnable?: boolean;
+  timezone?: string;
   XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -440,6 +528,7 @@ export class CreateJobRequest extends $tea.Model {
       timeout: 'Timeout',
       timeoutEnable: 'TimeoutEnable',
       timeoutKillEnable: 'TimeoutKillEnable',
+      timezone: 'Timezone',
       XAttrs: 'XAttrs',
     };
   }
@@ -480,6 +569,7 @@ export class CreateJobRequest extends $tea.Model {
       timeout: 'number',
       timeoutEnable: 'boolean',
       timeoutKillEnable: 'boolean',
+      timezone: 'string',
       XAttrs: 'string',
     };
   }
@@ -629,6 +719,102 @@ export class CreateNamespaceResponse extends $tea.Model {
   }
 }
 
+export class CreateRouteStrategyRequest extends $tea.Model {
+  groupId?: string;
+  jobId?: number;
+  name?: string;
+  namespace?: string;
+  regionId?: string;
+  status?: number;
+  strategyContent?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      jobId: 'JobId',
+      name: 'Name',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+      status: 'Status',
+      strategyContent: 'StrategyContent',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      jobId: 'number',
+      name: 'string',
+      namespace: 'string',
+      regionId: 'string',
+      status: 'number',
+      strategyContent: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteStrategyResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateRouteStrategyResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateRouteStrategyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRouteStrategyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateRouteStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRouteStrategyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkflowRequest extends $tea.Model {
   description?: string;
   groupId?: string;
@@ -731,6 +917,87 @@ export class CreateWorkflowResponse extends $tea.Model {
   }
 }
 
+export class DeleteAppGroupRequest extends $tea.Model {
+  deleteJobs?: boolean;
+  groupId?: string;
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteJobs: 'DeleteJobs',
+      groupId: 'GroupId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteJobs: 'boolean',
+      groupId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppGroupResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAppGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteJobRequest extends $tea.Model {
   groupId?: string;
   jobId?: number;
@@ -807,6 +1074,87 @@ export class DeleteJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteStrategyRequest extends $tea.Model {
+  groupId?: string;
+  jobId?: number;
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      jobId: 'JobId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      jobId: 'number',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteStrategyResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRouteStrategyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRouteStrategyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRouteStrategyResponseBody,
     };
   }
 
@@ -1579,6 +1927,87 @@ export class ExecuteWorkflowResponse extends $tea.Model {
   }
 }
 
+export class GetAppGroupRequest extends $tea.Model {
+  groupId?: string;
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppGroupResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetAppGroupResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetAppGroupResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAppGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobInfoRequest extends $tea.Model {
   groupId?: string;
   jobId?: number;
@@ -1675,6 +2104,7 @@ export class GetJobInstanceRequest extends $tea.Model {
   jobInstanceId?: number;
   namespace?: string;
   namespaceSource?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
@@ -1682,6 +2112,7 @@ export class GetJobInstanceRequest extends $tea.Model {
       jobInstanceId: 'JobInstanceId',
       namespace: 'Namespace',
       namespaceSource: 'NamespaceSource',
+      regionId: 'RegionId',
     };
   }
 
@@ -1692,6 +2123,7 @@ export class GetJobInstanceRequest extends $tea.Model {
       jobInstanceId: 'number',
       namespace: 'string',
       namespaceSource: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3169,6 +3601,90 @@ export class StopInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateAppGroupRequest extends $tea.Model {
+  description?: string;
+  groupId?: string;
+  maxConcurrency?: number;
+  namespace?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      groupId: 'GroupId',
+      maxConcurrency: 'MaxConcurrency',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      groupId: 'string',
+      maxConcurrency: 'number',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppGroupResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAppGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAppGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateJobRequest extends $tea.Model {
   attemptInterval?: number;
   calendar?: string;
@@ -3197,12 +3713,14 @@ export class UpdateJobRequest extends $tea.Model {
   sendChannel?: string;
   successNoticeEnable?: boolean;
   taskAttemptInterval?: number;
+  taskDispatchMode?: string;
   taskMaxAttempt?: number;
   timeExpression?: string;
   timeType?: number;
   timeout?: number;
   timeoutEnable?: boolean;
   timeoutKillEnable?: boolean;
+  timezone?: string;
   static names(): { [key: string]: string } {
     return {
       attemptInterval: 'AttemptInterval',
@@ -3232,12 +3750,14 @@ export class UpdateJobRequest extends $tea.Model {
       sendChannel: 'SendChannel',
       successNoticeEnable: 'SuccessNoticeEnable',
       taskAttemptInterval: 'TaskAttemptInterval',
+      taskDispatchMode: 'TaskDispatchMode',
       taskMaxAttempt: 'TaskMaxAttempt',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
       timeout: 'Timeout',
       timeoutEnable: 'TimeoutEnable',
       timeoutKillEnable: 'TimeoutKillEnable',
+      timezone: 'Timezone',
     };
   }
 
@@ -3270,12 +3790,14 @@ export class UpdateJobRequest extends $tea.Model {
       sendChannel: 'string',
       successNoticeEnable: 'boolean',
       taskAttemptInterval: 'number',
+      taskDispatchMode: 'string',
       taskMaxAttempt: 'number',
       timeExpression: 'string',
       timeType: 'number',
       timeout: 'number',
       timeoutEnable: 'boolean',
       timeoutKillEnable: 'boolean',
+      timezone: 'string',
     };
   }
 
@@ -3608,6 +4130,22 @@ export class CreateNamespaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateRouteStrategyResponseBodyData extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkflowResponseBodyData extends $tea.Model {
   workflowId?: number;
   static names(): { [key: string]: string } {
@@ -3682,6 +4220,43 @@ export class ExecuteWorkflowResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       wfInstanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppGroupResponseBodyData extends $tea.Model {
+  appKey?: string;
+  appName?: string;
+  curJobs?: number;
+  description?: string;
+  groupId?: string;
+  maxJobs?: number;
+  monitorConfigJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appName: 'AppName',
+      curJobs: 'CurJobs',
+      description: 'Description',
+      groupId: 'GroupId',
+      maxJobs: 'MaxJobs',
+      monitorConfigJson: 'MonitorConfigJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      appName: 'string',
+      curJobs: 'number',
+      description: 'string',
+      groupId: 'string',
+      maxJobs: 'number',
+      monitorConfigJson: 'string',
     };
   }
 
@@ -4920,6 +5495,49 @@ export default class Client extends OpenApi {
     return await this.batchDeleteJobsWithOptions(request, runtime);
   }
 
+  async batchDeleteRouteStrategyWithOptions(request: BatchDeleteRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteRouteStrategyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobIdList)) {
+      body["JobIdList"] = request.jobIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteRouteStrategy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteRouteStrategyResponse>(await this.callApi(params, req, runtime), new BatchDeleteRouteStrategyResponse({}));
+  }
+
+  async batchDeleteRouteStrategy(request: BatchDeleteRouteStrategyRequest): Promise<BatchDeleteRouteStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteRouteStrategyWithOptions(request, runtime);
+  }
+
   /**
     * Before you call this operation, you must add the following dependency to the pom.xml file:
     * ```xml
@@ -5233,6 +5851,10 @@ export default class Client extends OpenApi {
       body["TimeoutKillEnable"] = request.timeoutKillEnable;
     }
 
+    if (!Util.isUnset(request.timezone)) {
+      body["Timezone"] = request.timezone;
+    }
+
     if (!Util.isUnset(request.XAttrs)) {
       body["XAttrs"] = request.XAttrs;
     }
@@ -5301,6 +5923,63 @@ export default class Client extends OpenApi {
     return await this.createNamespaceWithOptions(request, runtime);
   }
 
+  async createRouteStrategyWithOptions(request: CreateRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteStrategyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.strategyContent)) {
+      query["StrategyContent"] = request.strategyContent;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRouteStrategy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRouteStrategyResponse>(await this.callApi(params, req, runtime), new CreateRouteStrategyResponse({}));
+  }
+
+  async createRouteStrategy(request: CreateRouteStrategyRequest): Promise<CreateRouteStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRouteStrategyWithOptions(request, runtime);
+  }
+
   async createWorkflowWithOptions(request: CreateWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<CreateWorkflowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5366,6 +6045,47 @@ export default class Client extends OpenApi {
     return await this.createWorkflowWithOptions(request, runtime);
   }
 
+  async deleteAppGroupWithOptions(request: DeleteAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteJobs)) {
+      query["DeleteJobs"] = request.deleteJobs;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppGroup",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppGroupResponse({}));
+  }
+
+  async deleteAppGroup(request: DeleteAppGroupRequest): Promise<DeleteAppGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppGroupWithOptions(request, runtime);
+  }
+
   async deleteJobWithOptions(request: DeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5389,6 +6109,47 @@ export default class Client extends OpenApi {
   async deleteJob(request: DeleteJobRequest): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteJobWithOptions(request, runtime);
+  }
+
+  async deleteRouteStrategyWithOptions(request: DeleteRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteStrategyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRouteStrategy",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRouteStrategyResponse>(await this.callApi(params, req, runtime), new DeleteRouteStrategyResponse({}));
+  }
+
+  async deleteRouteStrategy(request: DeleteRouteStrategyRequest): Promise<DeleteRouteStrategyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRouteStrategyWithOptions(request, runtime);
   }
 
   async deleteWorkflowWithOptions(request: DeleteWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWorkflowResponse> {
@@ -5623,6 +6384,43 @@ export default class Client extends OpenApi {
   async executeWorkflow(request: ExecuteWorkflowRequest): Promise<ExecuteWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeWorkflowWithOptions(request, runtime);
+  }
+
+  async getAppGroupWithOptions(request: GetAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppGroup",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppGroupResponse>(await this.callApi(params, req, runtime), new GetAppGroupResponse({}));
+  }
+
+  async getAppGroup(request: GetAppGroupRequest): Promise<GetAppGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAppGroupWithOptions(request, runtime);
   }
 
   async getJobInfoWithOptions(request: GetJobInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetJobInfoResponse> {
@@ -6292,6 +7090,51 @@ export default class Client extends OpenApi {
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  async updateAppGroupWithOptions(request: UpdateAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.maxConcurrency)) {
+      query["MaxConcurrency"] = request.maxConcurrency;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAppGroup",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppGroupResponse>(await this.callApi(params, req, runtime), new UpdateAppGroupResponse({}));
+  }
+
+  async updateAppGroup(request: UpdateAppGroupRequest): Promise<UpdateAppGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAppGroupWithOptions(request, runtime);
+  }
+
   async updateJobWithOptions(request: UpdateJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6404,6 +7247,10 @@ export default class Client extends OpenApi {
       body["TaskAttemptInterval"] = request.taskAttemptInterval;
     }
 
+    if (!Util.isUnset(request.taskDispatchMode)) {
+      body["TaskDispatchMode"] = request.taskDispatchMode;
+    }
+
     if (!Util.isUnset(request.taskMaxAttempt)) {
       body["TaskMaxAttempt"] = request.taskMaxAttempt;
     }
@@ -6426,6 +7273,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.timeoutKillEnable)) {
       body["TimeoutKillEnable"] = request.timeoutKillEnable;
+    }
+
+    if (!Util.isUnset(request.timezone)) {
+      body["Timezone"] = request.timezone;
     }
 
     let req = new $OpenApi.OpenApiRequest({
