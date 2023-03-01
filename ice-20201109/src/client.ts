@@ -6260,6 +6260,7 @@ export class GetSmartHandleJobRequest extends $tea.Model {
 
 export class GetSmartHandleJobResponseBody extends $tea.Model {
   jobId?: string;
+  jobResult?: GetSmartHandleJobResponseBodyJobResult;
   output?: string;
   requestId?: string;
   smartJobInfo?: GetSmartHandleJobResponseBodySmartJobInfo;
@@ -6268,6 +6269,7 @@ export class GetSmartHandleJobResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
+      jobResult: 'JobResult',
       output: 'Output',
       requestId: 'RequestId',
       smartJobInfo: 'SmartJobInfo',
@@ -6279,6 +6281,7 @@ export class GetSmartHandleJobResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+      jobResult: GetSmartHandleJobResponseBodyJobResult,
       output: 'string',
       requestId: 'string',
       smartJobInfo: GetSmartHandleJobResponseBodySmartJobInfo,
@@ -17797,6 +17800,28 @@ export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
   }
 }
 
+export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
+  aiResult?: string;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiResult: 'AiResult',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiResult: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.Model {
   inputFile?: string;
   static names(): { [key: string]: string } {
@@ -19922,30 +19947,36 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model 
 }
 
 export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
+  activityResults?: string;
   createTime?: string;
   finishTime?: string;
   status?: string;
   taskId?: string;
   taskInput?: string;
+  userData?: string;
   workflow?: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow;
   static names(): { [key: string]: string } {
     return {
+      activityResults: 'ActivityResults',
       createTime: 'CreateTime',
       finishTime: 'FinishTime',
       status: 'Status',
       taskId: 'TaskId',
       taskInput: 'TaskInput',
+      userData: 'UserData',
       workflow: 'Workflow',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activityResults: 'string',
       createTime: 'string',
       finishTime: 'string',
       status: 'string',
       taskId: 'string',
       taskInput: 'string',
+      userData: 'string',
       workflow: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow,
     };
   }
@@ -31166,7 +31197,23 @@ export default class Client extends OpenApi {
 
   async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.streamName)) {
+      query["StreamName"] = request.streamName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -31175,7 +31222,7 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
