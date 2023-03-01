@@ -8266,10 +8266,12 @@ export class UpdateTriggerResponse extends $tea.Model {
 }
 
 export class NASConfigMountPoints extends $tea.Model {
+  enableTLS?: boolean;
   mountDir?: string;
   serverAddr?: string;
   static names(): { [key: string]: string } {
     return {
+      enableTLS: 'enableTLS',
       mountDir: 'mountDir',
       serverAddr: 'serverAddr',
     };
@@ -8277,6 +8279,7 @@ export class NASConfigMountPoints extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableTLS: 'boolean',
       mountDir: 'string',
       serverAddr: 'string',
     };
