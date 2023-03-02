@@ -631,9 +631,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   name?: string;
+  policies?: string;
   predicates?: AddGatewayRouteRequestPredicates;
   redirectJSON?: AddGatewayRouteRequestRedirectJSON;
   routeOrder?: number;
+  routeType?: string;
   services?: AddGatewayRouteRequestServices[];
   static names(): { [key: string]: string } {
     return {
@@ -648,9 +650,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       name: 'Name',
+      policies: 'Policies',
       predicates: 'Predicates',
       redirectJSON: 'RedirectJSON',
       routeOrder: 'RouteOrder',
+      routeType: 'RouteType',
       services: 'Services',
     };
   }
@@ -668,9 +672,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       name: 'string',
+      policies: 'string',
       predicates: AddGatewayRouteRequestPredicates,
       redirectJSON: AddGatewayRouteRequestRedirectJSON,
       routeOrder: 'number',
+      routeType: 'string',
       services: { 'type': 'array', 'itemType': AddGatewayRouteRequestServices },
     };
   }
@@ -692,9 +698,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   name?: string;
+  policies?: string;
   predicatesShrink?: string;
   redirectJSONShrink?: string;
   routeOrder?: number;
+  routeType?: string;
   servicesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -709,9 +717,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       name: 'Name',
+      policies: 'Policies',
       predicatesShrink: 'Predicates',
       redirectJSONShrink: 'RedirectJSON',
       routeOrder: 'RouteOrder',
+      routeType: 'RouteType',
       servicesShrink: 'Services',
     };
   }
@@ -729,9 +739,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       name: 'string',
+      policies: 'string',
       predicatesShrink: 'string',
       redirectJSONShrink: 'string',
       routeOrder: 'number',
+      routeType: 'string',
       servicesShrink: 'string',
     };
   }
@@ -19157,6 +19169,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
   headerOp?: GetGatewayRouteDetailResponseBodyDataHeaderOp;
   id?: number;
   name?: string;
+  policies?: string;
   predicates?: string;
   redirect?: GetGatewayRouteDetailResponseBodyDataRedirect;
   retry?: GetGatewayRouteDetailResponseBodyDataRetry;
@@ -19189,6 +19202,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       headerOp: 'HeaderOp',
       id: 'Id',
       name: 'Name',
+      policies: 'Policies',
       predicates: 'Predicates',
       redirect: 'Redirect',
       retry: 'Retry',
@@ -19224,6 +19238,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       headerOp: GetGatewayRouteDetailResponseBodyDataHeaderOp,
       id: 'number',
       name: 'string',
+      policies: 'string',
       predicates: 'string',
       redirect: GetGatewayRouteDetailResponseBodyDataRedirect,
       retry: GetGatewayRouteDetailResponseBodyDataRetry,
@@ -23340,6 +23355,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   configContentLimit?: number;
   configSecretEnabled?: boolean;
   configSecretSupported?: boolean;
+  eurekaSupported?: boolean;
   extendedTypesEnable?: boolean;
   initLimit?: string;
   juteMaxbuffer?: string;
@@ -23370,6 +23386,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'ConfigContentLimit',
       configSecretEnabled: 'ConfigSecretEnabled',
       configSecretSupported: 'ConfigSecretSupported',
+      eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
       juteMaxbuffer: 'JuteMaxbuffer',
@@ -23403,6 +23420,7 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       configContentLimit: 'number',
       configSecretEnabled: 'boolean',
       configSecretSupported: 'boolean',
+      eurekaSupported: 'boolean',
       extendedTypesEnable: 'boolean',
       initLimit: 'string',
       juteMaxbuffer: 'string',
@@ -25039,6 +25057,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!Util.isUnset(request.policies)) {
+      query["Policies"] = request.policies;
+    }
+
     if (!Util.isUnset(request.predicatesShrink)) {
       query["Predicates"] = request.predicatesShrink;
     }
@@ -25049,6 +25071,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.routeOrder)) {
       query["RouteOrder"] = request.routeOrder;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      query["RouteType"] = request.routeType;
     }
 
     if (!Util.isUnset(request.servicesShrink)) {
@@ -27342,6 +27368,13 @@ export default class Client extends OpenApi {
     return await this.exportZookeeperDataWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the rules for graceful start and shutdown.
+    *
+    * @param request FetchLosslessRuleListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return FetchLosslessRuleListResponse
+   */
   async fetchLosslessRuleListWithOptions(request: FetchLosslessRuleListRequest, runtime: $Util.RuntimeOptions): Promise<FetchLosslessRuleListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -27362,6 +27395,12 @@ export default class Client extends OpenApi {
     return $tea.cast<FetchLosslessRuleListResponse>(await this.callApi(params, req, runtime), new FetchLosslessRuleListResponse({}));
   }
 
+  /**
+    * You can call this operation to query the rules for graceful start and shutdown.
+    *
+    * @param request FetchLosslessRuleListRequest
+    * @return FetchLosslessRuleListResponse
+   */
   async fetchLosslessRuleList(request: FetchLosslessRuleListRequest): Promise<FetchLosslessRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchLosslessRuleListWithOptions(request, runtime);
@@ -28148,6 +28187,13 @@ export default class Client extends OpenApi {
     return await this.getNacosHistoryConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the GetOverview operation to query overview information about service governance.
+    *
+    * @param request GetOverviewRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetOverviewResponse
+   */
   async getOverviewWithOptions(request: GetOverviewRequest, runtime: $Util.RuntimeOptions): Promise<GetOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28180,6 +28226,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOverviewResponse>(await this.callApi(params, req, runtime), new GetOverviewResponse({}));
   }
 
+  /**
+    * You can call the GetOverview operation to query overview information about service governance.
+    *
+    * @param request GetOverviewRequest
+    * @return GetOverviewResponse
+   */
   async getOverview(request: GetOverviewRequest): Promise<GetOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOverviewWithOptions(request, runtime);
