@@ -5524,7 +5524,6 @@ export class CreateDeviceTunnelResponse extends $tea.Model {
 }
 
 export class CreateDownloadDataJobRequest extends $tea.Model {
-  context?: { [key: string]: any };
   downloadDataType?: string;
   endTime?: number;
   fileConfig?: { [key: string]: any };
@@ -5533,7 +5532,6 @@ export class CreateDownloadDataJobRequest extends $tea.Model {
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
-      context: 'Context',
       downloadDataType: 'DownloadDataType',
       endTime: 'EndTime',
       fileConfig: 'FileConfig',
@@ -5545,7 +5543,6 @@ export class CreateDownloadDataJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      context: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       downloadDataType: 'string',
       endTime: 'number',
       fileConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -5561,7 +5558,6 @@ export class CreateDownloadDataJobRequest extends $tea.Model {
 }
 
 export class CreateDownloadDataJobShrinkRequest extends $tea.Model {
-  contextShrink?: string;
   downloadDataType?: string;
   endTime?: number;
   fileConfigShrink?: string;
@@ -5570,7 +5566,6 @@ export class CreateDownloadDataJobShrinkRequest extends $tea.Model {
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
-      contextShrink: 'Context',
       downloadDataType: 'DownloadDataType',
       endTime: 'EndTime',
       fileConfigShrink: 'FileConfig',
@@ -5582,7 +5577,6 @@ export class CreateDownloadDataJobShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      contextShrink: 'string',
       downloadDataType: 'string',
       endTime: 'number',
       fileConfigShrink: 'string',
@@ -22204,6 +22198,84 @@ export class QueryDevicePropertyStatusResponse extends $tea.Model {
   }
 }
 
+export class QueryDeviceProvisioningRequest extends $tea.Model {
+  deviceName?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceProvisioningResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDeviceProvisioningResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDeviceProvisioningResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceProvisioningResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDeviceProvisioningResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDeviceProvisioningResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceServiceDataRequest extends $tea.Model {
   asc?: number;
   deviceName?: string;
@@ -35217,177 +35289,29 @@ export class CreateDeviceTunnelResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateDownloadDataJobResponseBodyDataHeader extends $tea.Model {
-  alias?: string;
-  dataPrecision?: string;
-  dimDateClass?: string;
-  fieldName?: string;
-  fieldType?: string;
-  geoClass?: string;
-  timeClass?: string;
-  typeClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      dataPrecision: 'DataPrecision',
-      dimDateClass: 'DimDateClass',
-      fieldName: 'FieldName',
-      fieldType: 'FieldType',
-      geoClass: 'GeoClass',
-      timeClass: 'TimeClass',
-      typeClass: 'TypeClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      dataPrecision: 'string',
-      dimDateClass: 'string',
-      fieldName: 'string',
-      fieldType: 'string',
-      geoClass: 'string',
-      timeClass: 'string',
-      typeClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr extends $tea.Model {
-  expr?: string;
-  exprType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expr: 'Expr',
-      exprType: 'ExprType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expr: 'string',
-      exprType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders extends $tea.Model {
-  alias?: string;
-  dimDateClass?: string;
-  fieldName?: string;
-  fieldType?: string;
-  geoClass?: string;
-  timeClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      dimDateClass: 'DimDateClass',
-      fieldName: 'FieldName',
-      fieldType: 'FieldType',
-      geoClass: 'GeoClass',
-      timeClass: 'TimeClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      dimDateClass: 'string',
-      fieldName: 'string',
-      fieldType: 'string',
-      geoClass: 'string',
-      timeClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDownloadDataJobResponseBodyDataQuerySetting extends $tea.Model {
-  astExpr?: CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr[];
-  selectedHeaders?: CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders[];
-  static names(): { [key: string]: string } {
-    return {
-      astExpr: 'AstExpr',
-      selectedHeaders: 'SelectedHeaders',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      astExpr: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr },
-      selectedHeaders: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateDownloadDataJobResponseBodyData extends $tea.Model {
   asyncExecute?: boolean;
-  beginTime?: number;
   csvFileName?: string;
   csvUrl?: string;
-  datasetId?: string;
-  endTime?: number;
-  header?: CreateDownloadDataJobResponseBodyDataHeader[];
   longJobId?: string;
-  pageNo?: number;
-  pageSize?: number;
-  previewSize?: number;
-  querySetting?: CreateDownloadDataJobResponseBodyDataQuerySetting;
-  resultDataInString?: string;
   status?: number;
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       asyncExecute: 'AsyncExecute',
-      beginTime: 'BeginTime',
       csvFileName: 'CsvFileName',
       csvUrl: 'CsvUrl',
-      datasetId: 'DatasetId',
-      endTime: 'EndTime',
-      header: 'Header',
       longJobId: 'LongJobId',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      previewSize: 'PreviewSize',
-      querySetting: 'QuerySetting',
-      resultDataInString: 'ResultDataInString',
       status: 'Status',
-      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       asyncExecute: 'boolean',
-      beginTime: 'number',
       csvFileName: 'string',
       csvUrl: 'string',
-      datasetId: 'string',
-      endTime: 'number',
-      header: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataHeader },
       longJobId: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      previewSize: 'number',
-      querySetting: CreateDownloadDataJobResponseBodyDataQuerySetting,
-      resultDataInString: 'string',
       status: 'number',
-      totalCount: 'number',
     };
   }
 
@@ -41495,6 +41419,49 @@ export class QueryDevicePropertyStatusResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: QueryDevicePropertyStatusResponseBodyDataList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceProvisioningResponseBodyData extends $tea.Model {
+  aliyunUid?: string;
+  deviceName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  productKey?: string;
+  sourceIotInstanceId?: string;
+  sourceRegion?: string;
+  targetIotInstanceId?: string;
+  targetRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      deviceName: 'DeviceName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      productKey: 'ProductKey',
+      sourceIotInstanceId: 'SourceIotInstanceId',
+      sourceRegion: 'SourceRegion',
+      targetIotInstanceId: 'TargetIotInstanceId',
+      targetRegion: 'TargetRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      deviceName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      productKey: 'string',
+      sourceIotInstanceId: 'string',
+      sourceRegion: 'string',
+      targetIotInstanceId: 'string',
+      targetRegion: 'string',
     };
   }
 
@@ -49032,10 +48999,6 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateDownloadDataJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.context)) {
-      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
-    }
-
     if (!Util.isUnset(tmpReq.fileConfig)) {
       request.fileConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileConfig, "FileConfig", "json");
     }
@@ -49062,10 +49025,6 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.contextShrink)) {
-      body["Context"] = request.contextShrink;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       body["IotInstanceId"] = request.iotInstanceId;
     }
@@ -57265,6 +57224,41 @@ export default class Client extends OpenApi {
   async queryDevicePropertyStatus(request: QueryDevicePropertyStatusRequest): Promise<QueryDevicePropertyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicePropertyStatusWithOptions(request, runtime);
+  }
+
+  async queryDeviceProvisioningWithOptions(request: QueryDeviceProvisioningRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceProvisioningResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceProvisioning",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceProvisioningResponse>(await this.callApi(params, req, runtime), new QueryDeviceProvisioningResponse({}));
+  }
+
+  async queryDeviceProvisioning(request: QueryDeviceProvisioningRequest): Promise<QueryDeviceProvisioningResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceProvisioningWithOptions(request, runtime);
   }
 
   async queryDeviceServiceDataWithOptions(request: QueryDeviceServiceDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceServiceDataResponse> {
