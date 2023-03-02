@@ -1370,8 +1370,10 @@ export class CreateDataServiceApiRequest extends $tea.Model {
   protocols?: string;
   registrationDetails?: string;
   requestMethod?: number;
+  resourceGroupId?: number;
   responseContentType?: number;
   scriptDetails?: string;
+  sqlMode?: number;
   tenantId?: number;
   timeout?: number;
   visibleRange?: number;
@@ -1388,8 +1390,10 @@ export class CreateDataServiceApiRequest extends $tea.Model {
       protocols: 'Protocols',
       registrationDetails: 'RegistrationDetails',
       requestMethod: 'RequestMethod',
+      resourceGroupId: 'ResourceGroupId',
       responseContentType: 'ResponseContentType',
       scriptDetails: 'ScriptDetails',
+      sqlMode: 'SqlMode',
       tenantId: 'TenantId',
       timeout: 'Timeout',
       visibleRange: 'VisibleRange',
@@ -1409,8 +1413,10 @@ export class CreateDataServiceApiRequest extends $tea.Model {
       protocols: 'string',
       registrationDetails: 'string',
       requestMethod: 'number',
+      resourceGroupId: 'number',
       responseContentType: 'number',
       scriptDetails: 'string',
+      sqlMode: 'number',
       tenantId: 'number',
       timeout: 'number',
       visibleRange: 'number',
@@ -16537,10 +16543,12 @@ export class ListTopicsResponse extends $tea.Model {
 export class MountDirectoryRequest extends $tea.Model {
   targetId?: string;
   targetType?: string;
+  targetUserId?: string;
   static names(): { [key: string]: string } {
     return {
       targetId: 'TargetId',
       targetType: 'TargetType',
+      targetUserId: 'TargetUserId',
     };
   }
 
@@ -16548,6 +16556,7 @@ export class MountDirectoryRequest extends $tea.Model {
     return {
       targetId: 'string',
       targetType: 'string',
+      targetUserId: 'string',
     };
   }
 
@@ -18934,10 +18943,12 @@ export class TopTenErrorTimesInstanceResponse extends $tea.Model {
 export class UmountDirectoryRequest extends $tea.Model {
   targetId?: string;
   targetType?: string;
+  targetUserId?: string;
   static names(): { [key: string]: string } {
     return {
       targetId: 'TargetId',
       targetType: 'TargetType',
+      targetUserId: 'TargetUserId',
     };
   }
 
@@ -18945,6 +18956,7 @@ export class UmountDirectoryRequest extends $tea.Model {
     return {
       targetId: 'string',
       targetType: 'string',
+      targetUserId: 'string',
     };
   }
 
@@ -19528,6 +19540,7 @@ export class UpdateDataServiceApiRequest extends $tea.Model {
   protocols?: string;
   registrationDetails?: string;
   requestMethod?: number;
+  resourceGroupId?: number;
   responseContentType?: number;
   scriptDetails?: string;
   tenantId?: number;
@@ -19543,6 +19556,7 @@ export class UpdateDataServiceApiRequest extends $tea.Model {
       protocols: 'Protocols',
       registrationDetails: 'RegistrationDetails',
       requestMethod: 'RequestMethod',
+      resourceGroupId: 'ResourceGroupId',
       responseContentType: 'ResponseContentType',
       scriptDetails: 'ScriptDetails',
       tenantId: 'TenantId',
@@ -19561,6 +19575,7 @@ export class UpdateDataServiceApiRequest extends $tea.Model {
       protocols: 'string',
       registrationDetails: 'string',
       requestMethod: 'number',
+      resourceGroupId: 'number',
       responseContentType: 'number',
       scriptDetails: 'string',
       tenantId: 'number',
@@ -25706,11 +25721,13 @@ export class GetMetaTableIntroWikiResponseBodyData extends $tea.Model {
 
 export class GetMetaTableLineageResponseBodyDataDataEntityList extends $tea.Model {
   createTimestamp?: number;
+  databaseName?: string;
   tableGuid?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
       createTimestamp: 'CreateTimestamp',
+      databaseName: 'DatabaseName',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
     };
@@ -25719,6 +25736,7 @@ export class GetMetaTableLineageResponseBodyDataDataEntityList extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       createTimestamp: 'number',
+      databaseName: 'string',
       tableGuid: 'string',
       tableName: 'string',
     };
@@ -26119,6 +26137,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
   description?: string;
   dqcDescription?: string;
   dqcType?: number;
+  fileType?: number;
   nodeId?: number;
   nodeName?: string;
   ownerId?: string;
@@ -26129,6 +26148,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
   relatedFlowId?: number;
   repeatInterval?: number;
   repeatability?: string;
+  resGroupIdentifier?: string;
   resGroupName?: string;
   schedulerType?: string;
   static names(): { [key: string]: string } {
@@ -26140,6 +26160,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
       description: 'Description',
       dqcDescription: 'DqcDescription',
       dqcType: 'DqcType',
+      fileType: 'FileType',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       ownerId: 'OwnerId',
@@ -26150,6 +26171,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
       relatedFlowId: 'RelatedFlowId',
       repeatInterval: 'RepeatInterval',
       repeatability: 'Repeatability',
+      resGroupIdentifier: 'ResGroupIdentifier',
       resGroupName: 'ResGroupName',
       schedulerType: 'SchedulerType',
     };
@@ -26164,6 +26186,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
       description: 'string',
       dqcDescription: 'string',
       dqcType: 'number',
+      fileType: 'number',
       nodeId: 'number',
       nodeName: 'string',
       ownerId: 'string',
@@ -26174,6 +26197,7 @@ export class GetNodeResponseBodyData extends $tea.Model {
       relatedFlowId: 'number',
       repeatInterval: 'number',
       repeatability: 'string',
+      resGroupIdentifier: 'string',
       resGroupName: 'string',
       schedulerType: 'string',
     };
@@ -30907,6 +30931,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
   description?: string;
   dqcDescription?: string;
   dqcType?: number;
+  fileType?: number;
   nodeId?: number;
   nodeName?: string;
   ownerId?: string;
@@ -30917,6 +30942,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
   relatedFlowId?: number;
   repeatInterval?: number;
   repeatability?: boolean;
+  resGroupIdentifier?: string;
   resGroupName?: string;
   schedulerType?: string;
   static names(): { [key: string]: string } {
@@ -30928,6 +30954,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       description: 'Description',
       dqcDescription: 'DqcDescription',
       dqcType: 'DqcType',
+      fileType: 'FileType',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       ownerId: 'OwnerId',
@@ -30938,6 +30965,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       relatedFlowId: 'RelatedFlowId',
       repeatInterval: 'RepeatInterval',
       repeatability: 'Repeatability',
+      resGroupIdentifier: 'ResGroupIdentifier',
       resGroupName: 'ResGroupName',
       schedulerType: 'SchedulerType',
     };
@@ -30952,6 +30980,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       description: 'string',
       dqcDescription: 'string',
       dqcType: 'number',
+      fileType: 'number',
       nodeId: 'number',
       nodeName: 'string',
       ownerId: 'string',
@@ -30962,6 +30991,7 @@ export class ListNodesResponseBodyDataNodes extends $tea.Model {
       relatedFlowId: 'number',
       repeatInterval: 'number',
       repeatability: 'boolean',
+      resGroupIdentifier: 'string',
       resGroupName: 'string',
       schedulerType: 'string',
     };
@@ -33561,6 +33591,13 @@ export default class Client extends OpenApi {
     return await this.addMetaCollectionEntityWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+    *
+    * @param request AddProjectMemberToRoleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddProjectMemberToRoleResponse
+   */
   async addProjectMemberToRoleWithOptions(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33597,6 +33634,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddProjectMemberToRoleResponse>(await this.callApi(params, req, runtime), new AddProjectMemberToRoleResponse({}));
   }
 
+  /**
+    * For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](~~136941~~).
+    *
+    * @param request AddProjectMemberToRoleRequest
+    * @return AddProjectMemberToRoleResponse
+   */
   async addProjectMemberToRole(request: AddProjectMemberToRoleRequest): Promise<AddProjectMemberToRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addProjectMemberToRoleWithOptions(request, runtime);
@@ -34014,6 +34057,13 @@ export default class Client extends OpenApi {
     return await this.createConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+    *
+    * @param request CreateDISyncTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDISyncTaskResponse
+   */
   async createDISyncTaskWithOptions(request: CreateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34058,6 +34108,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDISyncTaskResponse>(await this.callApi(params, req, runtime), new CreateDISyncTaskResponse({}));
   }
 
+  /**
+    * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+    *
+    * @param request CreateDISyncTaskRequest
+    * @return CreateDISyncTaskResponse
+   */
   async createDISyncTask(request: CreateDISyncTaskRequest): Promise<CreateDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDISyncTaskWithOptions(request, runtime);
@@ -34250,12 +34306,20 @@ export default class Client extends OpenApi {
       body["RequestMethod"] = request.requestMethod;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.responseContentType)) {
       body["ResponseContentType"] = request.responseContentType;
     }
 
     if (!Util.isUnset(request.scriptDetails)) {
       body["ScriptDetails"] = request.scriptDetails;
+    }
+
+    if (!Util.isUnset(request.sqlMode)) {
+      body["SqlMode"] = request.sqlMode;
     }
 
     if (!Util.isUnset(request.tenantId)) {
@@ -34711,6 +34775,27 @@ export default class Client extends OpenApi {
     return await this.createFolderWithOptions(request, runtime);
   }
 
+  /**
+    * The import package must be uploaded. Example of the upload method:
+    * Config config = new Config();
+    * config.setAccessKeyId(accessId);
+    * config.setAccessKeySecret(accessKey);
+    * config.setEndpoint(popEndpoint);
+    * config.setRegionId(regionId);
+    * Client client = new Client(config);
+    * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+    * request.setName("test_migration_api\\_" + System.currentTimeMillis());
+    * request.setProjectId(123456L);
+    * request.setPackageType("DATAWORKS_MODEL");
+    * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+    * RuntimeOptions runtime = new RuntimeOptions();
+    * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+    * ...
+    *
+    * @param request CreateImportMigrationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateImportMigrationResponse
+   */
   async createImportMigrationWithOptions(request: CreateImportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateImportMigrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -34767,6 +34852,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImportMigrationResponse>(await this.callApi(params, req, runtime), new CreateImportMigrationResponse({}));
   }
 
+  /**
+    * The import package must be uploaded. Example of the upload method:
+    * Config config = new Config();
+    * config.setAccessKeyId(accessId);
+    * config.setAccessKeySecret(accessKey);
+    * config.setEndpoint(popEndpoint);
+    * config.setRegionId(regionId);
+    * Client client = new Client(config);
+    * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+    * request.setName("test_migration_api\\_" + System.currentTimeMillis());
+    * request.setProjectId(123456L);
+    * request.setPackageType("DATAWORKS_MODEL");
+    * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+    * RuntimeOptions runtime = new RuntimeOptions();
+    * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+    * ...
+    *
+    * @param request CreateImportMigrationRequest
+    * @return CreateImportMigrationResponse
+   */
   async createImportMigration(request: CreateImportMigrationRequest): Promise<CreateImportMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImportMigrationWithOptions(request, runtime);
@@ -34955,6 +35060,13 @@ export default class Client extends OpenApi {
     return await this.createMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+    * Collections are classified into various types. The names of collections of the same type must be different.
+    *
+    * @param request CreateMetaCollectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateMetaCollectionResponse
+   */
   async createMetaCollectionWithOptions(request: CreateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34991,6 +35103,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMetaCollectionResponse>(await this.callApi(params, req, runtime), new CreateMetaCollectionResponse({}));
   }
 
+  /**
+    * Collections are classified into various types. The names of collections of the same type must be different.
+    *
+    * @param request CreateMetaCollectionRequest
+    * @return CreateMetaCollectionResponse
+   */
   async createMetaCollection(request: CreateMetaCollectionRequest): Promise<CreateMetaCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMetaCollectionWithOptions(request, runtime);
@@ -36207,6 +36325,13 @@ export default class Client extends OpenApi {
     return await this.deleteQualityEntityWithOptions(request, runtime);
   }
 
+  /**
+    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
+    *
+    * @param request DeleteQualityFollowerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteQualityFollowerResponse
+   */
   async deleteQualityFollowerWithOptions(request: DeleteQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityFollowerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36235,6 +36360,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityFollowerResponse>(await this.callApi(params, req, runtime), new DeleteQualityFollowerResponse({}));
   }
 
+  /**
+    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
+    *
+    * @param request DeleteQualityFollowerRequest
+    * @return DeleteQualityFollowerResponse
+   */
   async deleteQualityFollower(request: DeleteQualityFollowerRequest): Promise<DeleteQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityFollowerWithOptions(request, runtime);
@@ -36647,6 +36778,14 @@ export default class Client extends OpenApi {
     return await this.exportDataSourcesWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+    * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request GenerateDISyncTaskConfigForCreatingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateDISyncTaskConfigForCreatingResponse
+   */
   async generateDISyncTaskConfigForCreatingWithOptions(request: GenerateDISyncTaskConfigForCreatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36683,11 +36822,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateDISyncTaskConfigForCreatingResponse>(await this.callApi(params, req, runtime), new GenerateDISyncTaskConfigForCreatingResponse({}));
   }
 
+  /**
+    * DataWorks allows you to use only the [CreateDISyncTask](~~278725~~) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](~~278725~~) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+    * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request GenerateDISyncTaskConfigForCreatingRequest
+    * @return GenerateDISyncTaskConfigForCreatingResponse
+   */
   async generateDISyncTaskConfigForCreating(request: GenerateDISyncTaskConfigForCreatingRequest): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDISyncTaskConfigForCreatingWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request GenerateDISyncTaskConfigForUpdatingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateDISyncTaskConfigForUpdatingResponse
+   */
   async generateDISyncTaskConfigForUpdatingWithOptions(request: GenerateDISyncTaskConfigForUpdatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36728,6 +36881,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateDISyncTaskConfigForUpdatingResponse>(await this.callApi(params, req, runtime), new GenerateDISyncTaskConfigForUpdatingResponse({}));
   }
 
+  /**
+    * DataWorks allows you to use only the [UpdateDISyncTask](~~289109~~) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request GenerateDISyncTaskConfigForUpdatingRequest
+    * @return GenerateDISyncTaskConfigForUpdatingResponse
+   */
   async generateDISyncTaskConfigForUpdating(request: GenerateDISyncTaskConfigForUpdatingRequest): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDISyncTaskConfigForUpdatingWithOptions(request, runtime);
@@ -37005,6 +37164,22 @@ export default class Client extends OpenApi {
     return await this.getDISyncTaskWithOptions(request, runtime);
   }
 
+  /**
+    * Supported DAG types:
+    * *   MANUAL: the DAG for a manually triggered workflow.
+    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+    * *   SUPPLY_DATA: the DAG for a data backfill instance.
+    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+    * Supported DAG states:
+    * *   CREATED: The DAG is created.
+    * *   RUNNING: The DAG is running.
+    * *   FAILURE: The DAG fails to run.
+    * *   SUCCESS: The DAG successfully runs.
+    *
+    * @param request GetDagRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDagResponse
+   */
   async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37033,6 +37208,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDagResponse>(await this.callApi(params, req, runtime), new GetDagResponse({}));
   }
 
+  /**
+    * Supported DAG types:
+    * *   MANUAL: the DAG for a manually triggered workflow.
+    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+    * *   SUPPLY_DATA: the DAG for a data backfill instance.
+    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+    * Supported DAG states:
+    * *   CREATED: The DAG is created.
+    * *   RUNNING: The DAG is running.
+    * *   FAILURE: The DAG fails to run.
+    * *   SUCCESS: The DAG successfully runs.
+    *
+    * @param request GetDagRequest
+    * @return GetDagResponse
+   */
   async getDag(request: GetDagRequest): Promise<GetDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDagWithOptions(request, runtime);
@@ -37725,6 +37915,13 @@ export default class Client extends OpenApi {
     return await this.getInstanceErrorRankWithOptions(request, runtime);
   }
 
+  /**
+    * You may not obtain the instance logs that were generated more than seven days ago.
+    *
+    * @param request GetInstanceLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceLogResponse
+   */
   async getInstanceLogWithOptions(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37757,6 +37954,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceLogResponse>(await this.callApi(params, req, runtime), new GetInstanceLogResponse({}));
   }
 
+  /**
+    * You may not obtain the instance logs that were generated more than seven days ago.
+    *
+    * @param request GetInstanceLogRequest
+    * @return GetInstanceLogResponse
+   */
   async getInstanceLog(request: GetInstanceLogRequest): Promise<GetInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceLogWithOptions(request, runtime);
@@ -38038,6 +38241,13 @@ export default class Client extends OpenApi {
     return await this.getMetaColumnLineageWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param request GetMetaDBInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMetaDBInfoResponse
+   */
   async getMetaDBInfoWithOptions(request: GetMetaDBInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -38058,6 +38268,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaDBInfoResponse>(await this.callApi(params, req, runtime), new GetMetaDBInfoResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the basic metadata information about a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param request GetMetaDBInfoRequest
+    * @return GetMetaDBInfoResponse
+   */
   async getMetaDBInfo(request: GetMetaDBInfoRequest): Promise<GetMetaDBInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaDBInfoWithOptions(request, runtime);
@@ -38417,6 +38633,13 @@ export default class Client extends OpenApi {
     return await this.getMetaTableOutputWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param tmpReq GetMetaTablePartitionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMetaTablePartitionResponse
+   */
   async getMetaTablePartitionWithOptions(tmpReq: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
     Util.validateModel(tmpReq);
     let request = new GetMetaTablePartitionShrinkRequest({ });
@@ -38475,6 +38698,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTablePartitionResponse>(await this.callApi(params, req, runtime), new GetMetaTablePartitionResponse({}));
   }
 
+  /**
+    * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param request GetMetaTablePartitionRequest
+    * @return GetMetaTablePartitionResponse
+   */
   async getMetaTablePartition(request: GetMetaTablePartitionRequest): Promise<GetMetaTablePartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTablePartitionWithOptions(request, runtime);
@@ -39321,6 +39550,15 @@ export default class Client extends OpenApi {
     return await this.getTopicInfluenceWithOptions(request, runtime);
   }
 
+  /**
+    * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+    * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
+    * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
+    *
+    * @param request ImportDataSourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportDataSourcesResponse
+   */
   async importDataSourcesWithOptions(request: ImportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDataSourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39349,6 +39587,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportDataSourcesResponse>(await this.callApi(params, req, runtime), new ImportDataSourcesResponse({}));
   }
 
+  /**
+    * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+    * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
+    * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
+    *
+    * @param request ImportDataSourcesRequest
+    * @return ImportDataSourcesResponse
+   */
   async importDataSources(request: ImportDataSourcesRequest): Promise<ImportDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importDataSourcesWithOptions(request, runtime);
@@ -39728,6 +39974,13 @@ export default class Client extends OpenApi {
     return await this.listConnectionsWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
+    *
+    * @param request ListDIProjectConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDIProjectConfigResponse
+   */
   async listDIProjectConfigWithOptions(request: ListDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39760,11 +40013,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDIProjectConfigResponse>(await this.callApi(params, req, runtime), new ListDIProjectConfigResponse({}));
   }
 
+  /**
+    * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
+    *
+    * @param request ListDIProjectConfigRequest
+    * @return ListDIProjectConfigResponse
+   */
   async listDIProjectConfig(request: ListDIProjectConfigRequest): Promise<ListDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDIProjectConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Supported DAG types:
+    * *   MANUAL: the DAG for a manually triggered workflow.
+    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+    * *   SUPPLY_DATA: the DAG for a data backfill instance.
+    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+    * Supported DAG states:
+    * *   CREATED: The DAG is created.
+    * *   RUNNING: The DAG is running.
+    * *   FAILURE: The DAG fails to run.
+    * *   SUCCESS: The DAG successfully runs.
+    *
+    * @param request ListDagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDagsResponse
+   */
   async listDagsWithOptions(request: ListDagsRequest, runtime: $Util.RuntimeOptions): Promise<ListDagsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39793,6 +40068,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDagsResponse>(await this.callApi(params, req, runtime), new ListDagsResponse({}));
   }
 
+  /**
+    * Supported DAG types:
+    * *   MANUAL: the DAG for a manually triggered workflow.
+    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+    * *   SUPPLY_DATA: the DAG for a data backfill instance.
+    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+    * Supported DAG states:
+    * *   CREATED: The DAG is created.
+    * *   RUNNING: The DAG is running.
+    * *   FAILURE: The DAG fails to run.
+    * *   SUCCESS: The DAG successfully runs.
+    *
+    * @param request ListDagsRequest
+    * @return ListDagsResponse
+   */
   async listDags(request: ListDagsRequest): Promise<ListDagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDagsWithOptions(request, runtime);
@@ -40808,6 +41098,13 @@ export default class Client extends OpenApi {
     return await this.listMetaCollectionEntitiesWithOptions(request, runtime);
   }
 
+  /**
+    * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+    *
+    * @param request ListMetaCollectionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListMetaCollectionsResponse
+   */
   async listMetaCollectionsWithOptions(request: ListMetaCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaCollectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40864,6 +41161,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMetaCollectionsResponse>(await this.callApi(params, req, runtime), new ListMetaCollectionsResponse({}));
   }
 
+  /**
+    * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+    *
+    * @param request ListMetaCollectionsRequest
+    * @return ListMetaCollectionsResponse
+   */
   async listMetaCollections(request: ListMetaCollectionsRequest): Promise<ListMetaCollectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMetaCollectionsWithOptions(request, runtime);
@@ -41264,6 +41567,13 @@ export default class Client extends OpenApi {
     return await this.listProgramTypeCountWithOptions(request, runtime);
   }
 
+  /**
+    * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
+    *
+    * @param request ListProjectIdsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProjectIdsResponse
+   */
   async listProjectIdsWithOptions(request: ListProjectIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectIdsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41288,6 +41598,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectIdsResponse>(await this.callApi(params, req, runtime), new ListProjectIdsResponse({}));
   }
 
+  /**
+    * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
+    *
+    * @param request ListProjectIdsRequest
+    * @return ListProjectIdsResponse
+   */
   async listProjectIds(request: ListProjectIdsRequest): Promise<ListProjectIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectIdsWithOptions(request, runtime);
@@ -41948,6 +42264,10 @@ export default class Client extends OpenApi {
       body["TargetType"] = request.targetType;
     }
 
+    if (!Util.isUnset(request.targetUserId)) {
+      body["TargetUserId"] = request.targetUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -42040,6 +42360,14 @@ export default class Client extends OpenApi {
     return await this.publishDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+    * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request QueryDISyncTaskConfigProcessResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDISyncTaskConfigProcessResultResponse
+   */
   async queryDISyncTaskConfigProcessResultWithOptions(request: QueryDISyncTaskConfigProcessResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryDISyncTaskConfigProcessResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42072,11 +42400,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDISyncTaskConfigProcessResultResponse>(await this.callApi(params, req, runtime), new QueryDISyncTaskConfigProcessResultResponse({}));
   }
 
+  /**
+    * DataWorks allows you to call only the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+    * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+    *
+    * @param request QueryDISyncTaskConfigProcessResultRequest
+    * @return QueryDISyncTaskConfigProcessResultResponse
+   */
   async queryDISyncTaskConfigProcessResult(request: QueryDISyncTaskConfigProcessResultRequest): Promise<QueryDISyncTaskConfigProcessResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDISyncTaskConfigProcessResultWithOptions(request, runtime);
   }
 
+  /**
+    * *   You must use FML statements to query information about the data modeling engine when you call this operation.
+    * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
+    *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+    * *   A maximum of 1,000 entries can be returned each time you call the operation.
+    *
+    * @param request QueryPublicModelEngineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryPublicModelEngineResponse
+   */
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42105,6 +42450,15 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPublicModelEngineResponse>(await this.callApi(params, req, runtime), new QueryPublicModelEngineResponse({}));
   }
 
+  /**
+    * *   You must use FML statements to query information about the data modeling engine when you call this operation.
+    * *   The information about the data modeling engine can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement.
+    *     The num LIMIT num statement specifies the offset when the information about the data modeling engine is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+    * *   A maximum of 1,000 entries can be returned each time you call the operation.
+    *
+    * @param request QueryPublicModelEngineRequest
+    * @return QueryPublicModelEngineResponse
+   */
   async queryPublicModelEngine(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPublicModelEngineWithOptions(request, runtime);
@@ -42311,6 +42665,13 @@ export default class Client extends OpenApi {
     return await this.revokeTablePermissionWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about data backfill, see [Backfill data](~~137937~~).
+    *
+    * @param request RunCycleDagNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunCycleDagNodesResponse
+   */
   async runCycleDagNodesWithOptions(request: RunCycleDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunCycleDagNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42379,6 +42740,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RunCycleDagNodesResponse>(await this.callApi(params, req, runtime), new RunCycleDagNodesResponse({}));
   }
 
+  /**
+    * For more information about data backfill, see [Backfill data](~~137937~~).
+    *
+    * @param request RunCycleDagNodesRequest
+    * @return RunCycleDagNodesResponse
+   */
   async runCycleDagNodes(request: RunCycleDagNodesRequest): Promise<RunCycleDagNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runCycleDagNodesWithOptions(request, runtime);
@@ -42556,6 +42923,13 @@ export default class Client extends OpenApi {
     return await this.scanSensitiveDataWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param request SearchMetaTablesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchMetaTablesResponse
+   */
   async searchMetaTablesWithOptions(request: SearchMetaTablesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMetaTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42608,6 +42982,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchMetaTablesResponse>(await this.callApi(params, req, runtime), new SearchMetaTablesResponse({}));
   }
 
+  /**
+    * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine instance.
+    *
+    * @param request SearchMetaTablesRequest
+    * @return SearchMetaTablesResponse
+   */
   async searchMetaTables(request: SearchMetaTablesRequest): Promise<SearchMetaTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchMetaTablesWithOptions(request, runtime);
@@ -43174,6 +43554,10 @@ export default class Client extends OpenApi {
       body["TargetType"] = request.targetType;
     }
 
+    if (!Util.isUnset(request.targetUserId)) {
+      body["TargetUserId"] = request.targetUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -43392,6 +43776,13 @@ export default class Client extends OpenApi {
     return await this.updateConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    *
+    * @param request UpdateDIProjectConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDIProjectConfigResponse
+   */
   async updateDIProjectConfigWithOptions(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43428,6 +43819,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDIProjectConfigResponse>(await this.callApi(params, req, runtime), new UpdateDIProjectConfigResponse({}));
   }
 
+  /**
+    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    *
+    * @param request UpdateDIProjectConfigRequest
+    * @return UpdateDIProjectConfigResponse
+   */
   async updateDIProjectConfig(request: UpdateDIProjectConfigRequest): Promise<UpdateDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIProjectConfigWithOptions(request, runtime);
@@ -43507,6 +43904,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestMethod)) {
       body["RequestMethod"] = request.requestMethod;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.responseContentType)) {
@@ -43600,6 +44001,13 @@ export default class Client extends OpenApi {
     return await this.updateDataSourceWithOptions(request, runtime);
   }
 
+  /**
+    * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+    *
+    * @param request UpdateFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateFileResponse
+   */
   async updateFileWithOptions(request: UpdateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43736,6 +44144,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileResponse>(await this.callApi(params, req, runtime), new UpdateFileResponse({}));
   }
 
+  /**
+    * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+    *
+    * @param request UpdateFileRequest
+    * @return UpdateFileResponse
+   */
   async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileWithOptions(request, runtime);
@@ -43860,6 +44274,13 @@ export default class Client extends OpenApi {
     return await this.updateMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+    * Only the name and comment of a collection can be updated.
+    *
+    * @param request UpdateMetaCollectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateMetaCollectionResponse
+   */
   async updateMetaCollectionWithOptions(request: UpdateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43892,6 +44313,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMetaCollectionResponse>(await this.callApi(params, req, runtime), new UpdateMetaCollectionResponse({}));
   }
 
+  /**
+    * Only the name and comment of a collection can be updated.
+    *
+    * @param request UpdateMetaCollectionRequest
+    * @return UpdateMetaCollectionResponse
+   */
   async updateMetaCollection(request: UpdateMetaCollectionRequest): Promise<UpdateMetaCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaCollectionWithOptions(request, runtime);
