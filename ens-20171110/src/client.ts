@@ -1109,6 +1109,78 @@ export class AuthorizeSecurityGroupEgressResponse extends $tea.Model {
   }
 }
 
+export class CleanDistDataRequest extends $tea.Model {
+  appId?: string;
+  dataName?: string;
+  dataVersion?: string;
+  ensRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      dataName: 'DataName',
+      dataVersion: 'DataVersion',
+      ensRegionId: 'EnsRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      dataName: 'string',
+      dataVersion: 'string',
+      ensRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanDistDataResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanDistDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CleanDistDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CleanDistDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateARMServerInstancesRequest extends $tea.Model {
   amount?: number;
   autoRenew?: boolean;
@@ -1360,12 +1432,14 @@ export class CreateDiskRequest extends $tea.Model {
   ensRegionId?: string;
   instanceChargeType?: string;
   size?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       ensRegionId: 'EnsRegionId',
       instanceChargeType: 'InstanceChargeType',
       size: 'Size',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -1375,6 +1449,7 @@ export class CreateDiskRequest extends $tea.Model {
       ensRegionId: 'string',
       instanceChargeType: 'string',
       size: 'string',
+      snapshotId: 'string',
     };
   }
 
@@ -5368,6 +5443,7 @@ export class DescribeDataDistResultRequest extends $tea.Model {
   appId?: string;
   dataNames?: string;
   dataVersions?: string;
+  ensRegionIds?: string[];
   instanceIds?: string;
   maxDate?: string;
   minDate?: string;
@@ -5378,6 +5454,7 @@ export class DescribeDataDistResultRequest extends $tea.Model {
       appId: 'AppId',
       dataNames: 'DataNames',
       dataVersions: 'DataVersions',
+      ensRegionIds: 'EnsRegionIds',
       instanceIds: 'InstanceIds',
       maxDate: 'MaxDate',
       minDate: 'MinDate',
@@ -5391,6 +5468,50 @@ export class DescribeDataDistResultRequest extends $tea.Model {
       appId: 'string',
       dataNames: 'string',
       dataVersions: 'string',
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
+      instanceIds: 'string',
+      maxDate: 'string',
+      minDate: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataDistResultShrinkRequest extends $tea.Model {
+  appId?: string;
+  dataNames?: string;
+  dataVersions?: string;
+  ensRegionIdsShrink?: string;
+  instanceIds?: string;
+  maxDate?: string;
+  minDate?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      dataNames: 'DataNames',
+      dataVersions: 'DataVersions',
+      ensRegionIdsShrink: 'EnsRegionIds',
+      instanceIds: 'InstanceIds',
+      maxDate: 'MaxDate',
+      minDate: 'MinDate',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      dataNames: 'string',
+      dataVersions: 'string',
+      ensRegionIdsShrink: 'string',
       instanceIds: 'string',
       maxDate: 'string',
       minDate: 'string',
@@ -5739,9 +5860,11 @@ export class DescribeDisksRequest extends $tea.Model {
   diskType?: string;
   ensRegionId?: string;
   ensRegionIds?: string;
+  instanceId?: string;
   orderByParams?: string;
   pageNumber?: string;
   pageSize?: string;
+  snapshotId?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -5754,9 +5877,11 @@ export class DescribeDisksRequest extends $tea.Model {
       diskType: 'DiskType',
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
+      instanceId: 'InstanceId',
       orderByParams: 'OrderByParams',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      snapshotId: 'SnapshotId',
       status: 'Status',
       type: 'Type',
     };
@@ -5772,9 +5897,11 @@ export class DescribeDisksRequest extends $tea.Model {
       diskType: 'string',
       ensRegionId: 'string',
       ensRegionIds: 'string',
+      instanceId: 'string',
       orderByParams: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      snapshotId: 'string',
       status: 'string',
       type: 'string',
     };
@@ -5968,6 +6095,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
   associatedInstanceId?: string;
   associatedInstanceType?: string;
   eipAddress?: string;
+  eipName?: string;
   ensRegionId?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -5977,6 +6105,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
       eipAddress: 'EipAddress',
+      eipName: 'EipName',
       ensRegionId: 'EnsRegionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -5989,6 +6118,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
       eipAddress: 'string',
+      eipName: 'string',
       ensRegionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7423,18 +7553,15 @@ export class DescribeForwardTableEntriesResponse extends $tea.Model {
 
 export class DescribeImageInfosRequest extends $tea.Model {
   osType?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       osType: 'OsType',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       osType: 'string',
-      version: 'string',
     };
   }
 
@@ -7586,9 +7713,8 @@ export class DescribeImagesRequest extends $tea.Model {
   imageName?: string;
   pageNumber?: string;
   pageSize?: string;
+  snapshotId?: string;
   status?: string;
-  version?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
@@ -7596,9 +7722,8 @@ export class DescribeImagesRequest extends $tea.Model {
       imageName: 'ImageName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      snapshotId: 'SnapshotId',
       status: 'Status',
-      version: 'Version',
-      product: 'product',
     };
   }
 
@@ -7609,9 +7734,8 @@ export class DescribeImagesRequest extends $tea.Model {
       imageName: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      snapshotId: 'string',
       status: 'string',
-      version: 'string',
-      product: 'string',
     };
   }
 
@@ -10430,12 +10554,14 @@ export class DescribeSelfImagesRequest extends $tea.Model {
   imageName?: string;
   pageNumber?: number;
   pageSize?: number;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
       imageName: 'ImageName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -10445,6 +10571,7 @@ export class DescribeSelfImagesRequest extends $tea.Model {
       imageName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      snapshotId: 'string',
     };
   }
 
@@ -12729,120 +12856,6 @@ export class ModifyVSwitchAttributeResponse extends $tea.Model {
   }
 }
 
-export class PreCreateEnsServiceRequest extends $tea.Model {
-  bandwidthType?: string;
-  buyResourcesDetail?: string;
-  dataDiskSize?: string;
-  ensServiceName?: string;
-  imageId?: string;
-  instanceBandwithdLimit?: string;
-  instanceSpec?: string;
-  keyPairName?: string;
-  netLevel?: string;
-  password?: string;
-  schedulingPriceStrategy?: string;
-  schedulingStrategy?: string;
-  systemDiskSize?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidthType: 'BandwidthType',
-      buyResourcesDetail: 'BuyResourcesDetail',
-      dataDiskSize: 'DataDiskSize',
-      ensServiceName: 'EnsServiceName',
-      imageId: 'ImageId',
-      instanceBandwithdLimit: 'InstanceBandwithdLimit',
-      instanceSpec: 'InstanceSpec',
-      keyPairName: 'KeyPairName',
-      netLevel: 'NetLevel',
-      password: 'Password',
-      schedulingPriceStrategy: 'SchedulingPriceStrategy',
-      schedulingStrategy: 'SchedulingStrategy',
-      systemDiskSize: 'SystemDiskSize',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidthType: 'string',
-      buyResourcesDetail: 'string',
-      dataDiskSize: 'string',
-      ensServiceName: 'string',
-      imageId: 'string',
-      instanceBandwithdLimit: 'string',
-      instanceSpec: 'string',
-      keyPairName: 'string',
-      netLevel: 'string',
-      password: 'string',
-      schedulingPriceStrategy: 'string',
-      schedulingStrategy: 'string',
-      systemDiskSize: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreCreateEnsServiceResponseBody extends $tea.Model {
-  buyResourcesDetail?: string;
-  code?: number;
-  ensServiceId?: string;
-  netLevel?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buyResourcesDetail: 'BuyResourcesDetail',
-      code: 'Code',
-      ensServiceId: 'EnsServiceId',
-      netLevel: 'NetLevel',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buyResourcesDetail: 'string',
-      code: 'number',
-      ensServiceId: 'string',
-      netLevel: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreCreateEnsServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PreCreateEnsServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PreCreateEnsServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PushApplicationDataRequest extends $tea.Model {
   appId?: string;
   data?: string;
@@ -13273,6 +13286,69 @@ export class RebootInstancesResponse extends $tea.Model {
   }
 }
 
+export class RecoverAICInstanceRequest extends $tea.Model {
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverAICInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverAICInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecoverAICInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecoverAICInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReinitInstanceRequest extends $tea.Model {
   imageId?: string;
   instanceId?: string;
@@ -13431,6 +13507,69 @@ export class ReinitInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReinitInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseAICInstanceRequest extends $tea.Model {
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseAICInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseAICInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseAICInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseAICInstanceResponseBody,
     };
   }
 
@@ -14361,6 +14500,72 @@ export class ResetDeviceInstanceResponse extends $tea.Model {
   }
 }
 
+export class ResetDiskRequest extends $tea.Model {
+  diskId?: string;
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDiskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDiskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResizeDiskRequest extends $tea.Model {
   diskId?: string;
   newSize?: string;
@@ -14753,6 +14958,7 @@ export class RunInstancesRequest extends $tea.Model {
   netDistrictCode?: string;
   netWorkId?: string;
   password?: string;
+  passwordInherit?: boolean;
   period?: number;
   periodUnit?: string;
   privateIpAddress?: string;
@@ -14783,6 +14989,7 @@ export class RunInstancesRequest extends $tea.Model {
       netDistrictCode: 'NetDistrictCode',
       netWorkId: 'NetWorkId',
       password: 'Password',
+      passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
@@ -14816,6 +15023,7 @@ export class RunInstancesRequest extends $tea.Model {
       netDistrictCode: 'string',
       netWorkId: 'string',
       password: 'string',
+      passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
       privateIpAddress: 'string',
@@ -14853,6 +15061,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   netDistrictCode?: string;
   netWorkId?: string;
   password?: string;
+  passwordInherit?: boolean;
   period?: number;
   periodUnit?: string;
   privateIpAddress?: string;
@@ -14883,6 +15092,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       netDistrictCode: 'NetDistrictCode',
       netWorkId: 'NetWorkId',
       password: 'Password',
+      passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
@@ -14916,6 +15126,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       netDistrictCode: 'string',
       netWorkId: 'string',
       password: 'string',
+      passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
       privateIpAddress: 'string',
@@ -17961,6 +18172,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
   instanceName?: string;
   portable?: boolean;
   size?: number;
+  snapshotId?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -17975,6 +18187,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
       instanceName: 'InstanceName',
       portable: 'Portable',
       size: 'Size',
+      snapshotId: 'SnapshotId',
       status: 'Status',
       type: 'Type',
     };
@@ -17992,6 +18205,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
       instanceName: 'string',
       portable: 'boolean',
       size: 'number',
+      snapshotId: 'string',
       status: 'string',
       type: 'string',
     };
@@ -19056,6 +19270,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
 }
 
 export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
+  computeType?: string;
   description?: string;
   imageId?: string;
   imageSize?: string;
@@ -19064,6 +19279,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
   OSType?: string;
   static names(): { [key: string]: string } {
     return {
+      computeType: 'ComputeType',
       description: 'Description',
       imageId: 'ImageId',
       imageSize: 'ImageSize',
@@ -19075,6 +19291,7 @@ export class DescribeImageInfosResponseBodyImagesImage extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computeType: 'string',
       description: 'string',
       imageId: 'string',
       imageSize: 'string',
@@ -19135,6 +19352,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
   imageOwnerAlias?: string;
   imageSize?: string;
   platform?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
@@ -19144,6 +19362,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
       imageOwnerAlias: 'ImageOwnerAlias',
       imageSize: 'ImageSize',
       platform: 'Platform',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -19156,6 +19375,7 @@ export class DescribeImagesResponseBodyImagesImage extends $tea.Model {
       imageOwnerAlias: 'string',
       imageSize: 'string',
       platform: 'string',
+      snapshotId: 'string',
     };
   }
 
@@ -22416,6 +22636,7 @@ export class DescribeSecurityGroupsResponseBodySecurityGroups extends $tea.Model
 
 export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
   architecture?: string;
+  computeType?: string;
   creationTime?: string;
   imageId?: string;
   imageName?: string;
@@ -22424,10 +22645,12 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
   instanceId?: string;
   osVersion?: string;
   platform?: string;
+  snapshotId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
+      computeType: 'ComputeType',
       creationTime: 'CreationTime',
       imageId: 'ImageId',
       imageName: 'ImageName',
@@ -22436,6 +22659,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
       instanceId: 'InstanceId',
       osVersion: 'OsVersion',
       platform: 'Platform',
+      snapshotId: 'SnapshotId',
       status: 'Status',
     };
   }
@@ -22443,6 +22667,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       architecture: 'string',
+      computeType: 'string',
       creationTime: 'string',
       imageId: 'string',
       imageName: 'string',
@@ -22451,6 +22676,7 @@ export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
       instanceId: 'string',
       osVersion: 'string',
       platform: 'string',
+      snapshotId: 'string',
       status: 'string',
     };
   }
@@ -23674,6 +23900,47 @@ export default class Client extends OpenApi {
     return await this.authorizeSecurityGroupEgressWithOptions(request, runtime);
   }
 
+  async cleanDistDataWithOptions(request: CleanDistDataRequest, runtime: $Util.RuntimeOptions): Promise<CleanDistDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.dataName)) {
+      query["DataName"] = request.dataName;
+    }
+
+    if (!Util.isUnset(request.dataVersion)) {
+      query["DataVersion"] = request.dataVersion;
+    }
+
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CleanDistData",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CleanDistDataResponse>(await this.callApi(params, req, runtime), new CleanDistDataResponse({}));
+  }
+
+  async cleanDistData(request: CleanDistDataRequest): Promise<CleanDistDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cleanDistDataWithOptions(request, runtime);
+  }
+
   async createARMServerInstancesWithOptions(request: CreateARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateARMServerInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23838,6 +24105,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.size)) {
       query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26011,8 +26282,14 @@ export default class Client extends OpenApi {
     return await this.describeCreatePrePaidInstanceResultWithOptions(request, runtime);
   }
 
-  async describeDataDistResultWithOptions(request: DescribeDataDistResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataDistResultResponse> {
-    Util.validateModel(request);
+  async describeDataDistResultWithOptions(tmpReq: DescribeDataDistResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataDistResultResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeDataDistResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ensRegionIds)) {
+      request.ensRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ensRegionIds, "EnsRegionIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -26024,6 +26301,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataVersions)) {
       query["DataVersions"] = request.dataVersions;
+    }
+
+    if (!Util.isUnset(request.ensRegionIdsShrink)) {
+      query["EnsRegionIds"] = request.ensRegionIdsShrink;
     }
 
     if (!Util.isUnset(request.instanceIds)) {
@@ -26210,6 +26491,10 @@ export default class Client extends OpenApi {
       query["EnsRegionIds"] = request.ensRegionIds;
     }
 
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.orderByParams)) {
       query["OrderByParams"] = request.orderByParams;
     }
@@ -26220,6 +26505,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -26327,6 +26616,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eipAddress)) {
       query["EipAddress"] = request.eipAddress;
+    }
+
+    if (!Util.isUnset(request.eipName)) {
+      query["EipName"] = request.eipName;
     }
 
     if (!Util.isUnset(request.ensRegionId)) {
@@ -27056,10 +27349,6 @@ export default class Client extends OpenApi {
       query["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27146,16 +27435,12 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    if (!Util.isUnset(request.product)) {
-      query["product"] = request.product;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -28277,6 +28562,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -29431,87 +29720,6 @@ export default class Client extends OpenApi {
     return await this.modifyVSwitchAttributeWithOptions(request, runtime);
   }
 
-  async preCreateEnsServiceWithOptions(request: PreCreateEnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<PreCreateEnsServiceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.bandwidthType)) {
-      query["BandwidthType"] = request.bandwidthType;
-    }
-
-    if (!Util.isUnset(request.buyResourcesDetail)) {
-      query["BuyResourcesDetail"] = request.buyResourcesDetail;
-    }
-
-    if (!Util.isUnset(request.dataDiskSize)) {
-      query["DataDiskSize"] = request.dataDiskSize;
-    }
-
-    if (!Util.isUnset(request.ensServiceName)) {
-      query["EnsServiceName"] = request.ensServiceName;
-    }
-
-    if (!Util.isUnset(request.imageId)) {
-      query["ImageId"] = request.imageId;
-    }
-
-    if (!Util.isUnset(request.instanceBandwithdLimit)) {
-      query["InstanceBandwithdLimit"] = request.instanceBandwithdLimit;
-    }
-
-    if (!Util.isUnset(request.instanceSpec)) {
-      query["InstanceSpec"] = request.instanceSpec;
-    }
-
-    if (!Util.isUnset(request.keyPairName)) {
-      query["KeyPairName"] = request.keyPairName;
-    }
-
-    if (!Util.isUnset(request.netLevel)) {
-      query["NetLevel"] = request.netLevel;
-    }
-
-    if (!Util.isUnset(request.password)) {
-      query["Password"] = request.password;
-    }
-
-    if (!Util.isUnset(request.schedulingPriceStrategy)) {
-      query["SchedulingPriceStrategy"] = request.schedulingPriceStrategy;
-    }
-
-    if (!Util.isUnset(request.schedulingStrategy)) {
-      query["SchedulingStrategy"] = request.schedulingStrategy;
-    }
-
-    if (!Util.isUnset(request.systemDiskSize)) {
-      query["SystemDiskSize"] = request.systemDiskSize;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      query["UserData"] = request.userData;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "PreCreateEnsService",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<PreCreateEnsServiceResponse>(await this.callApi(params, req, runtime), new PreCreateEnsServiceResponse({}));
-  }
-
-  async preCreateEnsService(request: PreCreateEnsServiceRequest): Promise<PreCreateEnsServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.preCreateEnsServiceWithOptions(request, runtime);
-  }
-
   async pushApplicationDataWithOptions(request: PushApplicationDataRequest, runtime: $Util.RuntimeOptions): Promise<PushApplicationDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29708,6 +29916,31 @@ export default class Client extends OpenApi {
     return await this.rebootInstancesWithOptions(request, runtime);
   }
 
+  async recoverAICInstanceWithOptions(request: RecoverAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RecoverAICInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecoverAICInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecoverAICInstanceResponse>(await this.callApi(params, req, runtime), new RecoverAICInstanceResponse({}));
+  }
+
+  async recoverAICInstance(request: RecoverAICInstanceRequest): Promise<RecoverAICInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recoverAICInstanceWithOptions(request, runtime);
+  }
+
   async reinitInstanceWithOptions(request: ReinitInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReinitInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29786,6 +30019,35 @@ export default class Client extends OpenApi {
   async reinitInstances(request: ReinitInstancesRequest): Promise<ReinitInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reinitInstancesWithOptions(request, runtime);
+  }
+
+  async releaseAICInstanceWithOptions(request: ReleaseAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseAICInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.serverId)) {
+      query["ServerId"] = request.serverId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseAICInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseAICInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseAICInstanceResponse({}));
+  }
+
+  async releaseAICInstance(request: ReleaseAICInstanceRequest): Promise<ReleaseAICInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseAICInstanceWithOptions(request, runtime);
   }
 
   async releaseARMServerInstanceWithOptions(request: ReleaseARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseARMServerInstanceResponse> {
@@ -30237,6 +30499,39 @@ export default class Client extends OpenApi {
     return await this.resetDeviceInstanceWithOptions(request, runtime);
   }
 
+  async resetDiskWithOptions(request: ResetDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResetDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetDisk",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetDiskResponse>(await this.callApi(params, req, runtime), new ResetDiskResponse({}));
+  }
+
+  async resetDisk(request: ResetDiskRequest): Promise<ResetDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetDiskWithOptions(request, runtime);
+  }
+
   async resizeDiskWithOptions(request: ResizeDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30525,6 +30820,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordInherit)) {
+      query["PasswordInherit"] = request.passwordInherit;
     }
 
     if (!Util.isUnset(request.period)) {
