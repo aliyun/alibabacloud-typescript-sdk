@@ -404,11 +404,13 @@ export class GetTableUnderstandingResultResponse extends $tea.Model {
 }
 
 export class SubmitConvertImageToExcelJobRequest extends $tea.Model {
+  forceMergeExcel?: boolean;
   imageNameExtension?: string;
   imageNames?: string[];
   imageUrls?: string[];
   static names(): { [key: string]: string } {
     return {
+      forceMergeExcel: 'ForceMergeExcel',
       imageNameExtension: 'ImageNameExtension',
       imageNames: 'ImageNames',
       imageUrls: 'ImageUrls',
@@ -417,6 +419,7 @@ export class SubmitConvertImageToExcelJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      forceMergeExcel: 'boolean',
       imageNameExtension: 'string',
       imageNames: { 'type': 'array', 'itemType': 'string' },
       imageUrls: { 'type': 'array', 'itemType': 'string' },
@@ -429,11 +432,13 @@ export class SubmitConvertImageToExcelJobRequest extends $tea.Model {
 }
 
 export class SubmitConvertImageToExcelJobShrinkRequest extends $tea.Model {
+  forceMergeExcel?: boolean;
   imageNameExtension?: string;
   imageNamesShrink?: string;
   imageUrlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      forceMergeExcel: 'ForceMergeExcel',
       imageNameExtension: 'ImageNameExtension',
       imageNamesShrink: 'ImageNames',
       imageUrlsShrink: 'ImageUrls',
@@ -442,6 +447,7 @@ export class SubmitConvertImageToExcelJobShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      forceMergeExcel: 'boolean',
       imageNameExtension: 'string',
       imageNamesShrink: 'string',
       imageUrlsShrink: 'string',
@@ -715,10 +721,12 @@ export class SubmitConvertImageToWordJobResponse extends $tea.Model {
 export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
   fileName?: string;
   fileUrl?: string;
+  forceMergeExcel?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      forceMergeExcel: 'ForceMergeExcel',
     };
   }
 
@@ -726,6 +734,7 @@ export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrl: 'string',
+      forceMergeExcel: 'boolean',
     };
   }
 
@@ -737,10 +746,12 @@ export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
 export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileUrlObject?: Readable;
+  forceMergeExcel?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
+      forceMergeExcel: 'ForceMergeExcel',
     };
   }
 
@@ -748,6 +759,7 @@ export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrlObject: 'Readable',
+      forceMergeExcel: 'boolean',
     };
   }
 
@@ -1850,6 +1862,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.forceMergeExcel)) {
+      query["ForceMergeExcel"] = request.forceMergeExcel;
+    }
+
     if (!Util.isUnset(request.imageNameExtension)) {
       query["ImageNameExtension"] = request.imageNameExtension;
     }
@@ -1987,6 +2003,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.forceMergeExcel)) {
+      query["ForceMergeExcel"] = request.forceMergeExcel;
     }
 
     let req = new $OpenApi.OpenApiRequest({
