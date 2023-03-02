@@ -13624,6 +13624,7 @@ export class UpdateConfigRequest extends $tea.Model {
   configAuthEnabled?: boolean;
   configSecretEnabled?: boolean;
   configType?: string;
+  eurekaSupported?: boolean;
   extendedTypesEnable?: string;
   initLimit?: string;
   instanceId?: string;
@@ -13649,6 +13650,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'ConfigAuthEnabled',
       configSecretEnabled: 'ConfigSecretEnabled',
       configType: 'ConfigType',
+      eurekaSupported: 'EurekaSupported',
       extendedTypesEnable: 'ExtendedTypesEnable',
       initLimit: 'InitLimit',
       instanceId: 'InstanceId',
@@ -13677,6 +13679,7 @@ export class UpdateConfigRequest extends $tea.Model {
       configAuthEnabled: 'boolean',
       configSecretEnabled: 'boolean',
       configType: 'string',
+      eurekaSupported: 'boolean',
       extendedTypesEnable: 'string',
       initLimit: 'string',
       instanceId: 'string',
@@ -27281,6 +27284,13 @@ export default class Client extends OpenApi {
     return await this.exportNacosConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Only one task can run at a time.
+    *
+    * @param request ExportZookeeperDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExportZookeeperDataResponse
+   */
   async exportZookeeperDataWithOptions(request: ExportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportZookeeperDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27321,6 +27331,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ExportZookeeperDataResponse({}));
   }
 
+  /**
+    * Only one task can run at a time.
+    *
+    * @param request ExportZookeeperDataRequest
+    * @return ExportZookeeperDataResponse
+   */
   async exportZookeeperData(request: ExportZookeeperDataRequest): Promise<ExportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportZookeeperDataWithOptions(request, runtime);
@@ -28552,6 +28568,14 @@ export default class Client extends OpenApi {
     return await this.importServicesWithOptions(request, runtime);
   }
 
+  /**
+    * **
+    * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+    *
+    * @param request ImportZookeeperDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportZookeeperDataResponse
+   */
   async importZookeeperDataWithOptions(request: ImportZookeeperDataRequest, runtime: $Util.RuntimeOptions): Promise<ImportZookeeperDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28596,6 +28620,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportZookeeperDataResponse>(await this.callApi(params, req, runtime), new ImportZookeeperDataResponse({}));
   }
 
+  /**
+    * **
+    * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+    *
+    * @param request ImportZookeeperDataRequest
+    * @return ImportZookeeperDataResponse
+   */
   async importZookeeperData(request: ImportZookeeperDataRequest): Promise<ImportZookeeperDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importZookeeperDataWithOptions(request, runtime);
@@ -31201,6 +31232,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.configType)) {
       query["ConfigType"] = request.configType;
+    }
+
+    if (!Util.isUnset(request.eurekaSupported)) {
+      query["EurekaSupported"] = request.eurekaSupported;
     }
 
     if (!Util.isUnset(request.extendedTypesEnable)) {
