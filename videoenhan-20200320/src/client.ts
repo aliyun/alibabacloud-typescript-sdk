@@ -1049,6 +1049,100 @@ export class EraseVideoSubtitlesResponse extends $tea.Model {
   }
 }
 
+export class GenerateHumanAnimeStyleVideoRequest extends $tea.Model {
+  cartoonStyle?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cartoonStyle: 'CartoonStyle',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cartoonStyle: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleVideoAdvanceRequest extends $tea.Model {
+  cartoonStyle?: string;
+  videoUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      cartoonStyle: 'CartoonStyle',
+      videoUrlObject: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cartoonStyle: 'string',
+      videoUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleVideoResponseBody extends $tea.Model {
+  data?: GenerateHumanAnimeStyleVideoResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GenerateHumanAnimeStyleVideoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateHumanAnimeStyleVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateHumanAnimeStyleVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateVideoRequest extends $tea.Model {
   duration?: number;
   durationAdaption?: boolean;
@@ -2026,6 +2120,25 @@ export class EraseVideoLogoResponseBodyData extends $tea.Model {
 }
 
 export class EraseVideoSubtitlesResponseBodyData extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleVideoResponseBodyData extends $tea.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3389,6 +3502,113 @@ export default class Client extends OpenApi {
 
     let eraseVideoSubtitlesResp = await this.eraseVideoSubtitlesWithOptions(eraseVideoSubtitlesReq, runtime);
     return eraseVideoSubtitlesResp;
+  }
+
+  async generateHumanAnimeStyleVideoWithOptions(request: GenerateHumanAnimeStyleVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleVideoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cartoonStyle)) {
+      body["CartoonStyle"] = request.cartoonStyle;
+    }
+
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateHumanAnimeStyleVideo",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateHumanAnimeStyleVideoResponse>(await this.callApi(params, req, runtime), new GenerateHumanAnimeStyleVideoResponse({}));
+  }
+
+  async generateHumanAnimeStyleVideo(request: GenerateHumanAnimeStyleVideoRequest): Promise<GenerateHumanAnimeStyleVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateHumanAnimeStyleVideoWithOptions(request, runtime);
+  }
+
+  async generateHumanAnimeStyleVideoAdvance(request: GenerateHumanAnimeStyleVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleVideoResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let generateHumanAnimeStyleVideoReq = new GenerateHumanAnimeStyleVideoRequest({ });
+    OpenApiUtil.convert(request, generateHumanAnimeStyleVideoReq);
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      generateHumanAnimeStyleVideoReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let generateHumanAnimeStyleVideoResp = await this.generateHumanAnimeStyleVideoWithOptions(generateHumanAnimeStyleVideoReq, runtime);
+    return generateHumanAnimeStyleVideoResp;
   }
 
   async generateVideoWithOptions(request: GenerateVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoResponse> {

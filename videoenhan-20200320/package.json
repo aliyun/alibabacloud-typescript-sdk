@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/videoenhan20200320",
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
