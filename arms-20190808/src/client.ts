@@ -304,11 +304,15 @@ export class AddPrometheusGlobalViewRequest extends $tea.Model {
   clusters?: string;
   groupName?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  tag?: AddPrometheusGlobalViewRequestTag[];
   static names(): { [key: string]: string } {
     return {
       clusters: 'Clusters',
       groupName: 'GroupName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -317,6 +321,8 @@ export class AddPrometheusGlobalViewRequest extends $tea.Model {
       clusters: 'string',
       groupName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': AddPrometheusGlobalViewRequestTag },
     };
   }
 
@@ -511,6 +517,168 @@ export class AddPrometheusInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddPrometheusInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusIntegrationRequest extends $tea.Model {
+  clusterId?: string;
+  integrationType?: string;
+  param?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      integrationType: 'IntegrationType',
+      param: 'Param',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      integrationType: 'string',
+      param: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusIntegrationResponseBody extends $tea.Model {
+  code?: number;
+  data?: AddPrometheusIntegrationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: AddPrometheusIntegrationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusIntegrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddPrometheusIntegrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddPrometheusIntegrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusRemoteWriteRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  remoteWriteYaml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      remoteWriteYaml: 'RemoteWriteYaml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      remoteWriteYaml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusRemoteWriteResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusRemoteWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddPrometheusRemoteWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddPrometheusRemoteWriteResponseBody,
     };
   }
 
@@ -811,6 +979,168 @@ export class ApplyScenarioResponse extends $tea.Model {
   }
 }
 
+export class BindPrometheusGrafanaInstanceRequest extends $tea.Model {
+  clusterId?: string;
+  grafanaInstanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      grafanaInstanceId: 'GrafanaInstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      grafanaInstanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindPrometheusGrafanaInstanceResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindPrometheusGrafanaInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BindPrometheusGrafanaInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindPrometheusGrafanaInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: ChangeResourceGroupResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ChangeResourceGroupResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckServiceStatusRequest extends $tea.Model {
   regionId?: string;
   svcCode?: string;
@@ -884,11 +1214,13 @@ export class ConfigAppRequest extends $tea.Model {
   appIds?: string;
   enable?: string;
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       appIds: 'AppIds',
       enable: 'Enable',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -897,6 +1229,7 @@ export class ConfigAppRequest extends $tea.Model {
       appIds: 'string',
       enable: 'string',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -958,6 +1291,7 @@ export class CreateAlertContactRequest extends $tea.Model {
   email?: string;
   phoneNum?: string;
   regionId?: string;
+  resourceGroupId?: string;
   systemNoc?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -966,6 +1300,7 @@ export class CreateAlertContactRequest extends $tea.Model {
       email: 'Email',
       phoneNum: 'PhoneNum',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       systemNoc: 'SystemNoc',
     };
   }
@@ -977,6 +1312,7 @@ export class CreateAlertContactRequest extends $tea.Model {
       email: 'string',
       phoneNum: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       systemNoc: 'boolean',
     };
   }
@@ -1381,16 +1717,22 @@ export class CreateOrUpdateAlertRuleResponse extends $tea.Model {
 export class CreateOrUpdateContactRequest extends $tea.Model {
   contactId?: number;
   contactName?: string;
+  dingRobotUrl?: string;
   email?: string;
+  isEmailVerify?: boolean;
   phone?: string;
   reissueSendNotice?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       contactId: 'ContactId',
       contactName: 'ContactName',
+      dingRobotUrl: 'DingRobotUrl',
       email: 'Email',
+      isEmailVerify: 'IsEmailVerify',
       phone: 'Phone',
       reissueSendNotice: 'ReissueSendNotice',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1398,9 +1740,12 @@ export class CreateOrUpdateContactRequest extends $tea.Model {
     return {
       contactId: 'number',
       contactName: 'string',
+      dingRobotUrl: 'string',
       email: 'string',
+      isEmailVerify: 'boolean',
       phone: 'string',
       reissueSendNotice: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2068,23 +2413,131 @@ export class CreatePrometheusAlertRuleResponse extends $tea.Model {
   }
 }
 
+export class CreatePrometheusInstanceRequest extends $tea.Model {
+  clusterId?: string;
+  clusterName?: string;
+  clusterType?: string;
+  grafanaInstanceId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  subClustersJson?: string;
+  tags?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      grafanaInstanceId: 'GrafanaInstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      subClustersJson: 'SubClustersJson',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      grafanaInstanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      subClustersJson: 'string',
+      tags: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrometheusInstanceResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePrometheusInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePrometheusInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePrometheusInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRetcodeAppRequest extends $tea.Model {
   regionId?: string;
+  resourceGroupId?: string;
   retcodeAppName?: string;
   retcodeAppType?: string;
+  tags?: CreateRetcodeAppRequestTags[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       retcodeAppName: 'RetcodeAppName',
       retcodeAppType: 'RetcodeAppType',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      resourceGroupId: 'string',
       retcodeAppName: 'string',
       retcodeAppType: 'string',
+      tags: { 'type': 'array', 'itemType': CreateRetcodeAppRequestTags },
     };
   }
 
@@ -3557,12 +4010,178 @@ export class DeletePrometheusGlobalViewResponse extends $tea.Model {
   }
 }
 
+export class DeletePrometheusIntegrationRequest extends $tea.Model {
+  clusterId?: string;
+  instanceId?: number;
+  integrationType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      integrationType: 'IntegrationType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'number',
+      integrationType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrometheusIntegrationResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrometheusIntegrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePrometheusIntegrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrometheusIntegrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrometheusRemoteWriteRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  remoteWriteNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      remoteWriteNames: 'RemoteWriteNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      remoteWriteNames: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrometheusRemoteWriteResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePrometheusRemoteWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePrometheusRemoteWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePrometheusRemoteWriteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRetcodeAppRequest extends $tea.Model {
   appId?: string;
+  appName?: string;
+  pid?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      appName: 'AppName',
+      pid: 'Pid',
       regionId: 'RegionId',
     };
   }
@@ -3570,6 +4189,8 @@ export class DeleteRetcodeAppRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      appName: 'string',
+      pid: 'string',
       regionId: 'string',
     };
   }
@@ -4070,12 +4691,14 @@ export class DeleteWebhookContactResponse extends $tea.Model {
 
 export class DescribeContactGroupsRequest extends $tea.Model {
   contactGroupName?: string;
+  groupIds?: string;
   isDetail?: boolean;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       contactGroupName: 'ContactGroupName',
+      groupIds: 'GroupIds',
       isDetail: 'IsDetail',
       page: 'Page',
       size: 'Size',
@@ -4085,6 +4708,7 @@ export class DescribeContactGroupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contactGroupName: 'string',
+      groupIds: 'string',
       isDetail: 'boolean',
       page: 'number',
       size: 'number',
@@ -4144,28 +4768,34 @@ export class DescribeContactGroupsResponse extends $tea.Model {
 }
 
 export class DescribeContactsRequest extends $tea.Model {
+  contactIds?: string;
   contactName?: string;
   email?: string;
   page?: number;
   phone?: string;
   size?: number;
+  verbose?: string;
   static names(): { [key: string]: string } {
     return {
+      contactIds: 'ContactIds',
       contactName: 'ContactName',
       email: 'Email',
       page: 'Page',
       phone: 'Phone',
       size: 'Size',
+      verbose: 'Verbose',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      contactIds: 'string',
       contactName: 'string',
       email: 'string',
       page: 'number',
       phone: 'string',
       size: 'number',
+      verbose: 'string',
     };
   }
 
@@ -4292,11 +4922,13 @@ export class DescribeDispatchRuleResponse extends $tea.Model {
 
 export class DescribeIMRobotsRequest extends $tea.Model {
   page?: number;
+  robotIds?: string;
   robotName?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       page: 'Page',
+      robotIds: 'RobotIds',
       robotName: 'RobotName',
       size: 'Size',
     };
@@ -4305,6 +4937,7 @@ export class DescribeIMRobotsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       page: 'number',
+      robotIds: 'string',
       robotName: 'string',
       size: 'number',
     };
@@ -4495,11 +5128,13 @@ export class DescribeTraceLicenseKeyResponse extends $tea.Model {
 }
 
 export class DescribeWebhookContactsRequest extends $tea.Model {
+  contactIds?: string;
   page?: number;
   size?: number;
   webhookName?: string;
   static names(): { [key: string]: string } {
     return {
+      contactIds: 'ContactIds',
       page: 'Page',
       size: 'Size',
       webhookName: 'WebhookName',
@@ -4508,6 +5143,7 @@ export class DescribeWebhookContactsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contactIds: 'string',
       page: 'number',
       size: 'number',
       webhookName: 'string',
@@ -4884,6 +5520,75 @@ export class GetAuthTokenResponse extends $tea.Model {
   }
 }
 
+export class GetCloudClusterAllUrlRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudClusterAllUrlResponseBody extends $tea.Model {
+  data?: GetCloudClusterAllUrlResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetCloudClusterAllUrlResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudClusterAllUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCloudClusterAllUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCloudClusterAllUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClusterAllUrlRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -5104,11 +5809,15 @@ export class GetManagedPrometheusStatusRequest extends $tea.Model {
   clusterId?: string;
   clusterType?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       clusterType: 'ClusterType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -5117,6 +5826,8 @@ export class GetManagedPrometheusStatusRequest extends $tea.Model {
       clusterId: 'string',
       clusterType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -5182,18 +5893,24 @@ export class GetManagedPrometheusStatusResponse extends $tea.Model {
 }
 
 export class GetMultipleTraceRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
+  startTime?: number;
   traceIDs?: string[];
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
+      startTime: 'StartTime',
       traceIDs: 'TraceIDs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
+      startTime: 'number',
       traceIDs: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -5457,6 +6174,243 @@ export class GetPrometheusGlobalViewResponse extends $tea.Model {
   }
 }
 
+export class GetPrometheusInstanceRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusInstanceResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetPrometheusInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetPrometheusInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPrometheusInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPrometheusInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusIntegrationRequest extends $tea.Model {
+  clusterId?: string;
+  instanceId?: number;
+  integrationType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      integrationType: 'IntegrationType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'number',
+      integrationType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusIntegrationResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetPrometheusIntegrationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetPrometheusIntegrationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusIntegrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPrometheusIntegrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPrometheusIntegrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusRemoteWriteRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  remoteWriteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      remoteWriteName: 'RemoteWriteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      remoteWriteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusRemoteWriteResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetPrometheusRemoteWriteResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetPrometheusRemoteWriteResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusRemoteWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPrometheusRemoteWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPrometheusRemoteWriteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRecordingRuleRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -5518,6 +6472,231 @@ export class GetRecordingRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRecordingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeAppByPidRequest extends $tea.Model {
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeAppByPidResponseBody extends $tea.Model {
+  requestId?: string;
+  retcodeApp?: GetRetcodeAppByPidResponseBodyRetcodeApp;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      retcodeApp: 'RetcodeApp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      retcodeApp: GetRetcodeAppByPidResponseBodyRetcodeApp,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeAppByPidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRetcodeAppByPidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRetcodeAppByPidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeDataByQueryRequest extends $tea.Model {
+  from?: number;
+  pid?: string;
+  query?: string;
+  regionId?: string;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      pid: 'Pid',
+      query: 'Query',
+      regionId: 'RegionId',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      pid: 'string',
+      query: 'string',
+      regionId: 'string',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeDataByQueryResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeDataByQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRetcodeDataByQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRetcodeDataByQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeLogstoreRequest extends $tea.Model {
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeLogstoreResponseBody extends $tea.Model {
+  data?: GetRetcodeLogstoreResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetRetcodeLogstoreResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeLogstoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetRetcodeLogstoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRetcodeLogstoreResponseBody,
     };
   }
 
@@ -6290,18 +7469,24 @@ export class InstallCmsExporterResponse extends $tea.Model {
 
 export class InstallManagedPrometheusRequest extends $tea.Model {
   clusterId?: string;
+  clusterName?: string;
   clusterType?: string;
+  grafanaInstanceId?: string;
   kubeConfig?: string;
   regionId?: string;
+  resourceGroupId?: string;
   securityGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
       clusterType: 'ClusterType',
+      grafanaInstanceId: 'GrafanaInstanceId',
       kubeConfig: 'KubeConfig',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -6311,9 +7496,12 @@ export class InstallManagedPrometheusRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      clusterName: 'string',
       clusterType: 'string',
+      grafanaInstanceId: 'string',
       kubeConfig: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -7324,6 +8512,7 @@ export class ListIntegrationResponse extends $tea.Model {
 }
 
 export class ListNotificationPoliciesRequest extends $tea.Model {
+  ids?: string;
   isDetail?: boolean;
   name?: string;
   page?: number;
@@ -7331,6 +8520,7 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      ids: 'Ids',
       isDetail: 'IsDetail',
       name: 'Name',
       page: 'Page',
@@ -7341,6 +8531,7 @@ export class ListNotificationPoliciesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ids: 'string',
       isDetail: 'boolean',
       name: 'string',
       page: 'number',
@@ -7689,6 +8880,84 @@ export class ListPrometheusGlobalViewResponse extends $tea.Model {
   }
 }
 
+export class ListPrometheusInstanceByTagAndResourceGroupIdRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  tag?: ListPrometheusInstanceByTagAndResourceGroupIdRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListPrometheusInstanceByTagAndResourceGroupIdRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusInstanceByTagAndResourceGroupIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPrometheusInstanceByTagAndResourceGroupIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrometheusInstanceByTagAndResourceGroupIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPrometheusInstancesRequest extends $tea.Model {
   regionId?: string;
   showGlobalView?: boolean;
@@ -7758,20 +9027,179 @@ export class ListPrometheusInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListPrometheusIntegrationRequest extends $tea.Model {
+  clusterId?: string;
+  integrationType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      integrationType: 'IntegrationType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      integrationType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusIntegrationResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListPrometheusIntegrationResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListPrometheusIntegrationResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusIntegrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPrometheusIntegrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrometheusIntegrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusRemoteWritesRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusRemoteWritesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListPrometheusRemoteWritesResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListPrometheusRemoteWritesResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusRemoteWritesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPrometheusRemoteWritesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPrometheusRemoteWritesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRetcodeAppsRequest extends $tea.Model {
   regionId?: string;
-  securityToken?: string;
+  resourceGroupId?: string;
+  tags?: ListRetcodeAppsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
-      securityToken: 'SecurityToken',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
-      securityToken: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListRetcodeAppsRequestTags },
     };
   }
 
@@ -7985,15 +9413,21 @@ export class ListSilencePoliciesResponse extends $tea.Model {
 
 export class ListTraceAppsRequest extends $tea.Model {
   regionId?: string;
+  resourceGroupId?: string;
+  tags?: ListTraceAppsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTraceAppsRequestTags },
     };
   }
 
@@ -9217,21 +10651,25 @@ export class SearchAlertHistoriesResponse extends $tea.Model {
 }
 
 export class SearchAlertRulesRequest extends $tea.Model {
+  alertRuleId?: string;
   appType?: string;
   currentPage?: number;
   pageSize?: number;
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   systemRegionId?: string;
   title?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      alertRuleId: 'AlertRuleId',
       appType: 'AppType',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       systemRegionId: 'SystemRegionId',
       title: 'Title',
       type: 'Type',
@@ -9240,11 +10678,13 @@ export class SearchAlertRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alertRuleId: 'string',
       appType: 'string',
       currentPage: 'number',
       pageSize: 'number',
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       systemRegionId: 'string',
       title: 'string',
       type: 'string',
@@ -9403,13 +10843,19 @@ export class SearchRetcodeAppByPageRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
+  retcodeAppId?: string;
   retcodeAppName?: string;
+  tags?: SearchRetcodeAppByPageRequestTags[];
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retcodeAppId: 'RetcodeAppId',
       retcodeAppName: 'RetcodeAppName',
+      tags: 'Tags',
     };
   }
 
@@ -9418,7 +10864,10 @@ export class SearchRetcodeAppByPageRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
+      retcodeAppId: 'string',
       retcodeAppName: 'string',
+      tags: { 'type': 'array', 'itemType': SearchRetcodeAppByPageRequestTags },
     };
   }
 
@@ -9547,12 +10996,16 @@ export class SearchTraceAppByPageRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
+  tags?: SearchTraceAppByPageRequestTags[];
   traceAppName?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       traceAppName: 'TraceAppName',
     };
   }
@@ -9562,6 +11015,8 @@ export class SearchTraceAppByPageRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': SearchTraceAppByPageRequestTags },
       traceAppName: 'string',
     };
   }
@@ -9886,10 +11341,12 @@ export class SendTTSVerifyLinkResponse extends $tea.Model {
 }
 
 export class SetRetcodeShareStatusRequest extends $tea.Model {
+  appName?: string;
   pid?: string;
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      appName: 'AppName',
       pid: 'Pid',
       status: 'Status',
     };
@@ -9897,6 +11354,7 @@ export class SetRetcodeShareStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appName: 'string',
       pid: 'string',
       status: 'boolean',
     };
@@ -10233,88 +11691,18 @@ export class SyncRecordingRulesResponse extends $tea.Model {
   }
 }
 
-export class TurnOnSecondSwitchRequest extends $tea.Model {
-  pid?: string;
-  proxyUserId?: string;
-  releaseStartTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pid: 'Pid',
-      proxyUserId: 'ProxyUserId',
-      releaseStartTime: 'ReleaseStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pid: 'string',
-      proxyUserId: 'string',
-      releaseStartTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TurnOnSecondSwitchResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TurnOnSecondSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TurnOnSecondSwitchResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TurnOnSecondSwitchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UninstallManagedPrometheusRequest extends $tea.Model {
   clusterId?: string;
   clusterType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       clusterType: 'ClusterType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       vpcId: 'VpcId',
     };
   }
@@ -10324,6 +11712,7 @@ export class UninstallManagedPrometheusRequest extends $tea.Model {
       clusterId: 'string',
       clusterType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       vpcId: 'string',
     };
   }
@@ -10412,18 +11801,24 @@ export class UninstallPromClusterRequest extends $tea.Model {
 }
 
 export class UninstallPromClusterResponseBody extends $tea.Model {
+  code?: number;
   data?: boolean;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -10977,6 +12372,255 @@ export class UpdatePrometheusAlertRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdatePrometheusGlobalViewRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  subClustersJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      subClustersJson: 'SubClustersJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      subClustersJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusGlobalViewResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdatePrometheusGlobalViewResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdatePrometheusGlobalViewResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusGlobalViewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePrometheusGlobalViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrometheusGlobalViewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusIntegrationRequest extends $tea.Model {
+  clusterId?: string;
+  instanceId?: number;
+  integrationType?: string;
+  param?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      integrationType: 'IntegrationType',
+      param: 'Param',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'number',
+      integrationType: 'string',
+      param: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusIntegrationResponseBody extends $tea.Model {
+  code?: number;
+  data?: UpdatePrometheusIntegrationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdatePrometheusIntegrationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusIntegrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePrometheusIntegrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrometheusIntegrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusRemoteWriteRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  remoteWriteName?: string;
+  remoteWriteYaml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      remoteWriteName: 'RemoteWriteName',
+      remoteWriteYaml: 'RemoteWriteYaml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+      remoteWriteName: 'string',
+      remoteWriteYaml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusRemoteWriteResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusRemoteWriteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePrometheusRemoteWriteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrometheusRemoteWriteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWebhookRequest extends $tea.Model {
   body?: string;
   contactId?: number;
@@ -11173,8 +12817,55 @@ export class AddAliClusterIdsToPrometheusGlobalViewResponseBodyData extends $tea
   }
 }
 
+export class AddPrometheusGlobalViewRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddPrometheusGlobalViewResponseBodyDataInfo extends $tea.Model {
+  failedInstances?: string;
+  globalViewClusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedInstances: 'FailedInstances',
+      globalViewClusterId: 'GlobalViewClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedInstances: 'string',
+      globalViewClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddPrometheusGlobalViewResponseBodyData extends $tea.Model {
-  info?: string;
+  info?: AddPrometheusGlobalViewResponseBodyDataInfo;
   msg?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -11187,7 +12878,7 @@ export class AddPrometheusGlobalViewResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      info: 'string',
+      info: AddPrometheusGlobalViewResponseBodyDataInfo,
       msg: 'string',
       success: 'boolean',
     };
@@ -11223,6 +12914,28 @@ export class AddPrometheusGlobalViewByAliClusterIdsResponseBodyData extends $tea
   }
 }
 
+export class AddPrometheusIntegrationResponseBodyData extends $tea.Model {
+  instanceId?: number;
+  instanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      instanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppendInstancesToPrometheusGlobalViewResponseBodyData extends $tea.Model {
   info?: string;
   msg?: string;
@@ -11240,6 +12953,28 @@ export class AppendInstancesToPrometheusGlobalViewResponseBodyData extends $tea.
       info: 'string',
       msg: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBodyData extends $tea.Model {
+  resourceGroupId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
     };
   }
 
@@ -11554,18 +13289,22 @@ export class CreateOrUpdateAlertRuleResponseBodyAlertRule extends $tea.Model {
 export class CreateOrUpdateContactResponseBodyAlertContact extends $tea.Model {
   contactId?: number;
   contactName?: string;
+  dingRobotUrl?: string;
   email?: string;
   isVerify?: boolean;
   phone?: string;
   reissueSendNotice?: number;
+  isEmailVerify?: boolean;
   static names(): { [key: string]: string } {
     return {
       contactId: 'ContactId',
       contactName: 'ContactName',
+      dingRobotUrl: 'DingRobotUrl',
       email: 'Email',
       isVerify: 'IsVerify',
       phone: 'Phone',
       reissueSendNotice: 'ReissueSendNotice',
+      isEmailVerify: 'isEmailVerify',
     };
   }
 
@@ -11573,10 +13312,12 @@ export class CreateOrUpdateContactResponseBodyAlertContact extends $tea.Model {
     return {
       contactId: 'number',
       contactName: 'string',
+      dingRobotUrl: 'string',
       email: 'string',
       isVerify: 'boolean',
       phone: 'string',
       reissueSendNotice: 'number',
+      isEmailVerify: 'boolean',
     };
   }
 
@@ -12134,13 +13875,80 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $t
   }
 }
 
+export class CreateRetcodeAppRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRetcodeAppResponseBodyRetcodeAppDataBeanTagsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRetcodeAppResponseBodyRetcodeAppDataBeanTags extends $tea.Model {
+  tags?: CreateRetcodeAppResponseBodyRetcodeAppDataBeanTagsTags[];
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: { 'type': 'array', 'itemType': CreateRetcodeAppResponseBodyRetcodeAppDataBeanTagsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRetcodeAppResponseBodyRetcodeAppDataBean extends $tea.Model {
   appId?: number;
   pid?: string;
+  resourceGroupId?: string;
+  tags?: CreateRetcodeAppResponseBodyRetcodeAppDataBeanTags;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pid: 'Pid',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -12148,6 +13956,8 @@ export class CreateRetcodeAppResponseBodyRetcodeAppDataBean extends $tea.Model {
     return {
       appId: 'number',
       pid: 'string',
+      resourceGroupId: 'string',
+      tags: CreateRetcodeAppResponseBodyRetcodeAppDataBeanTags,
     };
   }
 
@@ -12687,12 +14497,14 @@ export class CreateSyntheticTaskResponseBodyData extends $tea.Model {
 }
 
 export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts extends $tea.Model {
+  armsContactId?: number;
   contactId?: number;
   contactName?: string;
   email?: string;
   phone?: string;
   static names(): { [key: string]: string } {
     return {
+      armsContactId: 'ArmsContactId',
       contactId: 'ContactId',
       contactName: 'ContactName',
       email: 'Email',
@@ -12702,6 +14514,7 @@ export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts
 
   static types(): { [key: string]: any } {
     return {
+      armsContactId: 'number',
       contactId: 'number',
       contactName: 'string',
       email: 'string',
@@ -12715,11 +14528,13 @@ export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts
 }
 
 export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroups extends $tea.Model {
+  armsContactGroupId?: number;
   contactGroupId?: number;
   contactGroupName?: string;
   contacts?: DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts[];
   static names(): { [key: string]: string } {
     return {
+      armsContactGroupId: 'ArmsContactGroupId',
       contactGroupId: 'ContactGroupId',
       contactGroupName: 'ContactGroupName',
       contacts: 'Contacts',
@@ -12728,6 +14543,7 @@ export class DescribeContactGroupsResponseBodyPageBeanAlertContactGroups extends
 
   static types(): { [key: string]: any } {
     return {
+      armsContactGroupId: 'number',
       contactGroupId: 'number',
       contactGroupName: 'string',
       contacts: { 'type': 'array', 'itemType': DescribeContactGroupsResponseBodyPageBeanAlertContactGroupsContacts },
@@ -12768,17 +14584,21 @@ export class DescribeContactGroupsResponseBodyPageBean extends $tea.Model {
 }
 
 export class DescribeContactsResponseBodyPageBeanAlertContacts extends $tea.Model {
+  armsContactId?: number;
   contactId?: number;
   contactName?: string;
   email?: string;
+  isEmailVerify?: boolean;
   isVerify?: boolean;
   phone?: string;
   reissueSendNotice?: number;
   static names(): { [key: string]: string } {
     return {
+      armsContactId: 'ArmsContactId',
       contactId: 'ContactId',
       contactName: 'ContactName',
       email: 'Email',
+      isEmailVerify: 'IsEmailVerify',
       isVerify: 'IsVerify',
       phone: 'Phone',
       reissueSendNotice: 'ReissueSendNotice',
@@ -12787,9 +14607,11 @@ export class DescribeContactsResponseBodyPageBeanAlertContacts extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      armsContactId: 'number',
       contactId: 'number',
       contactName: 'string',
       email: 'string',
+      isEmailVerify: 'boolean',
       isVerify: 'boolean',
       phone: 'string',
       reissueSendNotice: 'number',
@@ -13010,19 +14832,45 @@ export class DescribeDispatchRuleResponseBodyDispatchRule extends $tea.Model {
   }
 }
 
+export class DescribeIMRobotsResponseBodyPageBeanAlertIMRobotsDispatchRules extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIMRobotsResponseBodyPageBeanAlertIMRobots extends $tea.Model {
+  createTime?: string;
   dailyNoc?: boolean;
   dailyNocTime?: string;
   dingSignKey?: string;
+  dispatchRules?: DescribeIMRobotsResponseBodyPageBeanAlertIMRobotsDispatchRules[];
   robotAddr?: string;
   robotId?: number;
   robotName?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       dailyNoc: 'DailyNoc',
       dailyNocTime: 'DailyNocTime',
       dingSignKey: 'DingSignKey',
+      dispatchRules: 'DispatchRules',
       robotAddr: 'RobotAddr',
       robotId: 'RobotId',
       robotName: 'RobotName',
@@ -13032,9 +14880,11 @@ export class DescribeIMRobotsResponseBodyPageBeanAlertIMRobots extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       dailyNoc: 'boolean',
       dailyNocTime: 'string',
       dingSignKey: 'string',
+      dispatchRules: { 'type': 'array', 'itemType': DescribeIMRobotsResponseBodyPageBeanAlertIMRobotsDispatchRules },
       robotAddr: 'string',
       robotId: 'number',
       robotName: 'string',
@@ -13583,6 +15433,77 @@ export class GetAppApiByPageResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCloudClusterAllUrlResponseBodyDataRemoteUrl extends $tea.Model {
+  authToken?: boolean;
+  grafanaUrl?: string;
+  internetGrafanaUrl?: string;
+  internetPushGatewayUrl?: string;
+  internetRemoteReadUrl?: string;
+  internetRemoteWriteUrl?: string;
+  pushGatewayUrl?: string;
+  remoteReadUrl?: string;
+  remoteWriteUrl?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'AuthToken',
+      grafanaUrl: 'GrafanaUrl',
+      internetGrafanaUrl: 'InternetGrafanaUrl',
+      internetPushGatewayUrl: 'InternetPushGatewayUrl',
+      internetRemoteReadUrl: 'InternetRemoteReadUrl',
+      internetRemoteWriteUrl: 'InternetRemoteWriteUrl',
+      pushGatewayUrl: 'PushGatewayUrl',
+      remoteReadUrl: 'RemoteReadUrl',
+      remoteWriteUrl: 'RemoteWriteUrl',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'boolean',
+      grafanaUrl: 'string',
+      internetGrafanaUrl: 'string',
+      internetPushGatewayUrl: 'string',
+      internetRemoteReadUrl: 'string',
+      internetRemoteWriteUrl: 'string',
+      pushGatewayUrl: 'string',
+      remoteReadUrl: 'string',
+      remoteWriteUrl: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCloudClusterAllUrlResponseBodyData extends $tea.Model {
+  productCode?: string;
+  region?: string;
+  remoteUrl?: GetCloudClusterAllUrlResponseBodyDataRemoteUrl;
+  static names(): { [key: string]: string } {
+    return {
+      productCode: 'ProductCode',
+      region: 'Region',
+      remoteUrl: 'RemoteUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productCode: 'string',
+      region: 'string',
+      remoteUrl: GetCloudClusterAllUrlResponseBodyDataRemoteUrl,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMultipleTraceResponseBodyMultiCallChainInfosSpansLogEventListTagEntryList extends $tea.Model {
   key?: string;
   value?: string;
@@ -13958,6 +15879,284 @@ export class GetOnCallSchedulesDetailResponseBodyData extends $tea.Model {
       renderedLayerEntries: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries } },
       renderedSubstitudeEntries: { 'type': 'array', 'itemType': GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntries },
       scheduleLayers: { 'type': 'array', 'itemType': GetOnCallSchedulesDetailResponseBodyDataScheduleLayers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusInstanceResponseBodyDataTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
+  clusterId?: string;
+  clusterName?: string;
+  clusterType?: string;
+  grafanaInstanceId?: string;
+  paymentType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceType?: string;
+  securityGroupId?: string;
+  subClustersJson?: string;
+  tags?: GetPrometheusInstanceResponseBodyDataTags[];
+  userId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      grafanaInstanceId: 'GrafanaInstanceId',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceType: 'ResourceType',
+      securityGroupId: 'SecurityGroupId',
+      subClustersJson: 'SubClustersJson',
+      tags: 'Tags',
+      userId: 'UserId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      grafanaInstanceId: 'string',
+      paymentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceType: 'string',
+      securityGroupId: 'string',
+      subClustersJson: 'string',
+      tags: { 'type': 'array', 'itemType': GetPrometheusInstanceResponseBodyDataTags },
+      userId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusIntegrationResponseBodyData extends $tea.Model {
+  canDelete?: boolean;
+  canEditor?: boolean;
+  clusterId?: string;
+  containerName?: string;
+  describe?: string;
+  exporterType?: string;
+  instanceId?: number;
+  instanceName?: string;
+  integrationType?: string;
+  namespace?: string;
+  needUpgrade?: boolean;
+  param?: string;
+  showDescribe?: boolean;
+  showLog?: string;
+  status?: string;
+  target?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canDelete: 'CanDelete',
+      canEditor: 'CanEditor',
+      clusterId: 'ClusterId',
+      containerName: 'ContainerName',
+      describe: 'Describe',
+      exporterType: 'ExporterType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      integrationType: 'IntegrationType',
+      namespace: 'Namespace',
+      needUpgrade: 'NeedUpgrade',
+      param: 'Param',
+      showDescribe: 'ShowDescribe',
+      showLog: 'ShowLog',
+      status: 'Status',
+      target: 'Target',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canDelete: 'boolean',
+      canEditor: 'boolean',
+      clusterId: 'string',
+      containerName: 'string',
+      describe: 'string',
+      exporterType: 'string',
+      instanceId: 'number',
+      instanceName: 'string',
+      integrationType: 'string',
+      namespace: 'string',
+      needUpgrade: 'boolean',
+      param: 'string',
+      showDescribe: 'boolean',
+      showLog: 'string',
+      status: 'string',
+      target: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPrometheusRemoteWriteResponseBodyData extends $tea.Model {
+  clusterId?: string;
+  remoteWriteName?: string;
+  remoteWriteYaml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      remoteWriteName: 'RemoteWriteName',
+      remoteWriteYaml: 'RemoteWriteYaml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      remoteWriteName: 'string',
+      remoteWriteYaml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeAppByPidResponseBodyRetcodeAppTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeAppByPidResponseBodyRetcodeApp extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  pid?: string;
+  resourceGroupId?: string;
+  retcodeAppType?: string;
+  tags?: GetRetcodeAppByPidResponseBodyRetcodeAppTags[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      pid: 'Pid',
+      resourceGroupId: 'ResourceGroupId',
+      retcodeAppType: 'RetcodeAppType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      pid: 'string',
+      resourceGroupId: 'string',
+      retcodeAppType: 'string',
+      tags: { 'type': 'array', 'itemType': GetRetcodeAppByPidResponseBodyRetcodeAppTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeLogstoreResponseBodyDataRetcodeSLSConfig extends $tea.Model {
+  logstore?: string;
+  project?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'Logstore',
+      project: 'Project',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      project: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRetcodeLogstoreResponseBodyData extends $tea.Model {
+  message?: string;
+  retcodeSLSConfig?: GetRetcodeLogstoreResponseBodyDataRetcodeSLSConfig;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      retcodeSLSConfig: 'RetcodeSLSConfig',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      retcodeSLSConfig: GetRetcodeLogstoreResponseBodyDataRetcodeSLSConfig,
+      status: 'string',
     };
   }
 
@@ -14896,6 +17095,28 @@ export class GetTraceResponseBodySpans extends $tea.Model {
   }
 }
 
+export class GetTraceAppResponseBodyTraceAppTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
   appId?: number;
   appName?: string;
@@ -14903,7 +17124,10 @@ export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
   labels?: string[];
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   show?: boolean;
+  source?: string;
+  tags?: GetTraceAppResponseBodyTraceAppTags[];
   type?: string;
   updateTime?: number;
   userId?: string;
@@ -14915,7 +17139,10 @@ export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
       labels: 'Labels',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       show: 'Show',
+      source: 'Source',
+      tags: 'Tags',
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -14930,7 +17157,10 @@ export class GetTraceAppResponseBodyTraceApp extends $tea.Model {
       labels: { 'type': 'array', 'itemType': 'string' },
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       show: 'boolean',
+      source: 'string',
+      tags: { 'type': 'array', 'itemType': GetTraceAppResponseBodyTraceAppTags },
       type: 'string',
       updateTime: 'number',
       userId: 'string',
@@ -16350,19 +18580,280 @@ export class ListPrometheusAlertTemplatesResponseBodyPrometheusAlertTemplates ex
   }
 }
 
+export class ListPrometheusInstanceByTagAndResourceGroupIdRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstancesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstances extends $tea.Model {
+  clusterId?: string;
+  clusterName?: string;
+  clusterType?: string;
+  grafanaInstanceId?: string;
+  paymentType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  subClustersJson?: string;
+  tags?: ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstancesTags[];
+  userId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
+      grafanaInstanceId: 'GrafanaInstanceId',
+      paymentType: 'PaymentType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      subClustersJson: 'SubClustersJson',
+      tags: 'Tags',
+      userId: 'UserId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterType: 'string',
+      grafanaInstanceId: 'string',
+      paymentType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      subClustersJson: 'string',
+      tags: { 'type': 'array', 'itemType': ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstancesTags },
+      userId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyData extends $tea.Model {
+  prometheusInstances?: ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      prometheusInstances: 'PrometheusInstances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prometheusInstances: { 'type': 'array', 'itemType': ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPrometheusInstances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusIntegrationResponseBodyData extends $tea.Model {
+  canDelete?: boolean;
+  canEditor?: boolean;
+  clusterId?: string;
+  containerName?: string;
+  describe?: string;
+  exporterType?: string;
+  instanceId?: number;
+  instanceName?: string;
+  integrationType?: string;
+  namespace?: string;
+  needUpgrade?: boolean;
+  param?: string;
+  podName?: string;
+  showDescribe?: boolean;
+  showLog?: boolean;
+  status?: string;
+  target?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canDelete: 'CanDelete',
+      canEditor: 'CanEditor',
+      clusterId: 'ClusterId',
+      containerName: 'ContainerName',
+      describe: 'Describe',
+      exporterType: 'ExporterType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      integrationType: 'IntegrationType',
+      namespace: 'Namespace',
+      needUpgrade: 'NeedUpgrade',
+      param: 'Param',
+      podName: 'PodName',
+      showDescribe: 'ShowDescribe',
+      showLog: 'ShowLog',
+      status: 'Status',
+      target: 'Target',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canDelete: 'boolean',
+      canEditor: 'boolean',
+      clusterId: 'string',
+      containerName: 'string',
+      describe: 'string',
+      exporterType: 'string',
+      instanceId: 'number',
+      instanceName: 'string',
+      integrationType: 'string',
+      namespace: 'string',
+      needUpgrade: 'boolean',
+      param: 'string',
+      podName: 'string',
+      showDescribe: 'boolean',
+      showLog: 'boolean',
+      status: 'string',
+      target: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPrometheusRemoteWritesResponseBodyData extends $tea.Model {
+  clusterId?: string;
+  remoteWriteName?: string;
+  remoteWriteYaml?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      remoteWriteName: 'RemoteWriteName',
+      remoteWriteYaml: 'RemoteWriteYaml',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      remoteWriteName: 'string',
+      remoteWriteYaml: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRetcodeAppsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRetcodeAppsResponseBodyRetcodeAppsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRetcodeAppsResponseBodyRetcodeApps extends $tea.Model {
   appId?: number;
   appName?: string;
   nickName?: string;
   pid?: string;
+  resourceGroupId?: string;
   retcodeAppType?: string;
+  tags?: ListRetcodeAppsResponseBodyRetcodeAppsTags[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
       nickName: 'NickName',
       pid: 'Pid',
+      resourceGroupId: 'ResourceGroupId',
       retcodeAppType: 'RetcodeAppType',
+      tags: 'Tags',
     };
   }
 
@@ -16372,7 +18863,9 @@ export class ListRetcodeAppsResponseBodyRetcodeApps extends $tea.Model {
       appName: 'string',
       nickName: 'string',
       pid: 'string',
+      resourceGroupId: 'string',
       retcodeAppType: 'string',
+      tags: { 'type': 'array', 'itemType': ListRetcodeAppsResponseBodyRetcodeAppsTags },
     };
   }
 
@@ -16521,6 +19014,50 @@ export class ListSilencePoliciesResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class ListTraceAppsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTraceAppsResponseBodyTraceAppsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   appId?: number;
   appName?: string;
@@ -16528,7 +19065,10 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
   labels?: string[];
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   show?: boolean;
+  source?: string;
+  tags?: ListTraceAppsResponseBodyTraceAppsTags[];
   type?: string;
   updateTime?: number;
   userId?: string;
@@ -16540,7 +19080,10 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       labels: 'Labels',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       show: 'Show',
+      source: 'Source',
+      tags: 'Tags',
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -16555,7 +19098,10 @@ export class ListTraceAppsResponseBodyTraceApps extends $tea.Model {
       labels: { 'type': 'array', 'itemType': 'string' },
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       show: 'boolean',
+      source: 'string',
+      tags: { 'type': 'array', 'itemType': ListTraceAppsResponseBodyTraceAppsTags },
       type: 'string',
       updateTime: 'number',
       userId: 'string',
@@ -16716,6 +19262,7 @@ export class SearchAlertContactResponseBodyPageBeanContacts extends $tea.Model {
   dingRobot?: string;
   email?: string;
   phone?: string;
+  resourceGroupId?: string;
   systemNoc?: boolean;
   updateTime?: number;
   userId?: string;
@@ -16729,6 +19276,7 @@ export class SearchAlertContactResponseBodyPageBeanContacts extends $tea.Model {
       dingRobot: 'DingRobot',
       email: 'Email',
       phone: 'Phone',
+      resourceGroupId: 'ResourceGroupId',
       systemNoc: 'SystemNoc',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -16745,6 +19293,7 @@ export class SearchAlertContactResponseBodyPageBeanContacts extends $tea.Model {
       dingRobot: 'string',
       email: 'string',
       phone: 'string',
+      resourceGroupId: 'string',
       systemNoc: 'boolean',
       updateTime: 'number',
       userId: 'string',
@@ -17124,6 +19673,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRules extends $tea.Model {
   metricParam?: SearchAlertRulesResponseBodyPageBeanAlertRulesMetricParam;
   notice?: SearchAlertRulesResponseBodyPageBeanAlertRulesNotice;
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
   taskId?: number;
   taskStatus?: string;
@@ -17148,6 +19698,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRules extends $tea.Model {
       metricParam: 'MetricParam',
       notice: 'Notice',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
@@ -17175,6 +19726,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRules extends $tea.Model {
       metricParam: SearchAlertRulesResponseBodyPageBeanAlertRulesMetricParam,
       notice: SearchAlertRulesResponseBodyPageBeanAlertRulesNotice,
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       taskId: 'number',
       taskStatus: 'string',
@@ -17288,6 +19840,50 @@ export class SearchEventsResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class SearchRetcodeAppByPageRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchRetcodeAppByPageResponseBodyPageBeanRetcodeAppsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchRetcodeAppByPageResponseBodyPageBeanRetcodeApps extends $tea.Model {
   appId?: number;
   appName?: string;
@@ -17295,7 +19891,9 @@ export class SearchRetcodeAppByPageResponseBodyPageBeanRetcodeApps extends $tea.
   nickName?: string;
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   retcodeAppType?: string;
+  tags?: SearchRetcodeAppByPageResponseBodyPageBeanRetcodeAppsTags[];
   type?: string;
   updateTime?: number;
   userId?: string;
@@ -17307,7 +19905,9 @@ export class SearchRetcodeAppByPageResponseBodyPageBeanRetcodeApps extends $tea.
       nickName: 'NickName',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       retcodeAppType: 'RetcodeAppType',
+      tags: 'Tags',
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -17322,7 +19922,9 @@ export class SearchRetcodeAppByPageResponseBodyPageBeanRetcodeApps extends $tea.
       nickName: 'string',
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       retcodeAppType: 'string',
+      tags: { 'type': 'array', 'itemType': SearchRetcodeAppByPageResponseBodyPageBeanRetcodeAppsTags },
       type: 'string',
       updateTime: 'number',
       userId: 'string',
@@ -17362,6 +19964,28 @@ export class SearchRetcodeAppByPageResponseBodyPageBean extends $tea.Model {
   }
 }
 
+export class SearchTraceAppByNameResponseBodyTraceAppsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchTraceAppByNameResponseBodyTraceApps extends $tea.Model {
   appId?: number;
   appName?: string;
@@ -17369,7 +19993,9 @@ export class SearchTraceAppByNameResponseBodyTraceApps extends $tea.Model {
   labels?: string[];
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   show?: boolean;
+  tags?: SearchTraceAppByNameResponseBodyTraceAppsTags[];
   type?: string;
   updateTime?: number;
   userId?: string;
@@ -17381,7 +20007,9 @@ export class SearchTraceAppByNameResponseBodyTraceApps extends $tea.Model {
       labels: 'Labels',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       show: 'Show',
+      tags: 'Tags',
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -17396,10 +20024,56 @@ export class SearchTraceAppByNameResponseBodyTraceApps extends $tea.Model {
       labels: { 'type': 'array', 'itemType': 'string' },
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       show: 'boolean',
+      tags: { 'type': 'array', 'itemType': SearchTraceAppByNameResponseBodyTraceAppsTags },
       type: 'string',
       updateTime: 'number',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchTraceAppByPageRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchTraceAppByPageResponseBodyPageBeanTraceAppsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -17415,7 +20089,9 @@ export class SearchTraceAppByPageResponseBodyPageBeanTraceApps extends $tea.Mode
   labels?: string[];
   pid?: string;
   regionId?: string;
+  resourceGroupId?: string;
   show?: boolean;
+  tags?: SearchTraceAppByPageResponseBodyPageBeanTraceAppsTags[];
   type?: string;
   updateTime?: number;
   userId?: string;
@@ -17427,7 +20103,9 @@ export class SearchTraceAppByPageResponseBodyPageBeanTraceApps extends $tea.Mode
       labels: 'Labels',
       pid: 'Pid',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       show: 'Show',
+      tags: 'Tags',
       type: 'Type',
       updateTime: 'UpdateTime',
       userId: 'UserId',
@@ -17442,7 +20120,9 @@ export class SearchTraceAppByPageResponseBodyPageBeanTraceApps extends $tea.Mode
       labels: { 'type': 'array', 'itemType': 'string' },
       pid: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       show: 'boolean',
+      tags: { 'type': 'array', 'itemType': SearchTraceAppByPageResponseBodyPageBeanTraceAppsTags },
       type: 'string',
       updateTime: 'number',
       userId: 'string',
@@ -17826,6 +20506,78 @@ export class UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $t
   }
 }
 
+export class UpdatePrometheusGlobalViewResponseBodyDataFailedInstances extends $tea.Model {
+  clusterId?: string;
+  sourceName?: string;
+  sourceType?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusGlobalViewResponseBodyData extends $tea.Model {
+  failedInstances?: UpdatePrometheusGlobalViewResponseBodyDataFailedInstances[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      failedInstances: 'FailedInstances',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedInstances: { 'type': 'array', 'itemType': UpdatePrometheusGlobalViewResponseBodyDataFailedInstances },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusIntegrationResponseBodyData extends $tea.Model {
+  instanceId?: number;
+  instanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      instanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadResponseBodyUploadResult extends $tea.Model {
   fid?: string;
   fileName?: string;
@@ -17856,6 +20608,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "arms.aliyuncs.com",
@@ -18039,6 +20792,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18137,6 +20898,86 @@ export default class Client extends OpenApi {
   async addPrometheusInstance(request: AddPrometheusInstanceRequest): Promise<AddPrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusInstanceWithOptions(request, runtime);
+  }
+
+  async addPrometheusIntegrationWithOptions(request: AddPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusIntegrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.integrationType)) {
+      query["IntegrationType"] = request.integrationType;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddPrometheusIntegration",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new AddPrometheusIntegrationResponse({}));
+  }
+
+  async addPrometheusIntegration(request: AddPrometheusIntegrationRequest): Promise<AddPrometheusIntegrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addPrometheusIntegrationWithOptions(request, runtime);
+  }
+
+  async addPrometheusRemoteWriteWithOptions(request: AddPrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusRemoteWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.remoteWriteYaml)) {
+      body["RemoteWriteYaml"] = request.remoteWriteYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddPrometheusRemoteWrite",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddPrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new AddPrometheusRemoteWriteResponse({}));
+  }
+
+  async addPrometheusRemoteWrite(request: AddPrometheusRemoteWriteRequest): Promise<AddPrometheusRemoteWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addPrometheusRemoteWriteWithOptions(request, runtime);
   }
 
   async addRecordingRuleWithOptions(request: AddRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddRecordingRuleResponse> {
@@ -18292,6 +21133,88 @@ export default class Client extends OpenApi {
     return await this.applyScenarioWithOptions(request, runtime);
   }
 
+  async bindPrometheusGrafanaInstanceWithOptions(request: BindPrometheusGrafanaInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BindPrometheusGrafanaInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.grafanaInstanceId)) {
+      query["GrafanaInstanceId"] = request.grafanaInstanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindPrometheusGrafanaInstance",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindPrometheusGrafanaInstanceResponse>(await this.callApi(params, req, runtime), new BindPrometheusGrafanaInstanceResponse({}));
+  }
+
+  async bindPrometheusGrafanaInstance(request: BindPrometheusGrafanaInstanceRequest): Promise<BindPrometheusGrafanaInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindPrometheusGrafanaInstanceWithOptions(request, runtime);
+  }
+
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
   async checkServiceStatusWithOptions(request: CheckServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18325,6 +21248,13 @@ export default class Client extends OpenApi {
     return await this.checkServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+    * ***
+    *
+    * @param request ConfigAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfigAppResponse
+   */
   async configAppWithOptions(request: ConfigAppRequest, runtime: $Util.RuntimeOptions): Promise<ConfigAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18338,6 +21268,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18357,11 +21291,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigAppResponse>(await this.callApi(params, req, runtime), new ConfigAppResponse({}));
   }
 
+  /**
+    * ***
+    *
+    * @param request ConfigAppRequest
+    * @return ConfigAppResponse
+   */
   async configApp(request: ConfigAppRequest): Promise<ConfigAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configAppWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+    *
+    * @param request CreateAlertContactRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAlertContactResponse
+   */
   async createAlertContactWithOptions(request: CreateAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<CreateAlertContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18385,6 +21332,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.systemNoc)) {
       query["SystemNoc"] = request.systemNoc;
     }
@@ -18406,11 +21357,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAlertContactResponse>(await this.callApi(params, req, runtime), new CreateAlertContactResponse({}));
   }
 
+  /**
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+    *
+    * @param request CreateAlertContactRequest
+    * @return CreateAlertContactResponse
+   */
   async createAlertContact(request: CreateAlertContactRequest): Promise<CreateAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAlertContactWithOptions(request, runtime);
   }
 
+  /**
+    * ************
+    *
+    * @param request CreateAlertContactGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAlertContactGroupResponse
+   */
   async createAlertContactGroupWithOptions(request: CreateAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18443,6 +21407,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAlertContactGroupResponse>(await this.callApi(params, req, runtime), new CreateAlertContactGroupResponse({}));
   }
 
+  /**
+    * ************
+    *
+    * @param request CreateAlertContactGroupRequest
+    * @return CreateAlertContactGroupResponse
+   */
   async createAlertContactGroup(request: CreateAlertContactGroupRequest): Promise<CreateAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAlertContactGroupWithOptions(request, runtime);
@@ -18637,6 +21607,15 @@ export default class Client extends OpenApi {
 
   async createOrUpdateContactWithOptions(request: CreateOrUpdateContactRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateContactResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dingRobotUrl)) {
+      query["DingRobotUrl"] = request.dingRobotUrl;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.contactId)) {
       body["ContactId"] = request.contactId;
@@ -18650,6 +21629,10 @@ export default class Client extends OpenApi {
       body["Email"] = request.email;
     }
 
+    if (!Util.isUnset(request.isEmailVerify)) {
+      body["IsEmailVerify"] = request.isEmailVerify;
+    }
+
     if (!Util.isUnset(request.phone)) {
       body["Phone"] = request.phone;
     }
@@ -18659,6 +21642,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -19014,6 +21998,13 @@ export default class Client extends OpenApi {
     return await this.createOrUpdateWebhookContactWithOptions(request, runtime);
   }
 
+  /**
+    * > We recommend that you call the [CreateOrUpdateAlertRule](~~411960~~) operation to create a Prometheus alert rule.
+    *
+    * @param request CreatePrometheusAlertRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePrometheusAlertRuleResponse
+   */
   async createPrometheusAlertRuleWithOptions(request: CreatePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19078,9 +22069,84 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new CreatePrometheusAlertRuleResponse({}));
   }
 
+  /**
+    * > We recommend that you call the [CreateOrUpdateAlertRule](~~411960~~) operation to create a Prometheus alert rule.
+    *
+    * @param request CreatePrometheusAlertRuleRequest
+    * @return CreatePrometheusAlertRuleResponse
+   */
   async createPrometheusAlertRule(request: CreatePrometheusAlertRuleRequest): Promise<CreatePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrometheusAlertRuleWithOptions(request, runtime);
+  }
+
+  async createPrometheusInstanceWithOptions(request: CreatePrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrometheusInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.grafanaInstanceId)) {
+      query["GrafanaInstanceId"] = request.grafanaInstanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.subClustersJson)) {
+      query["SubClustersJson"] = request.subClustersJson;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePrometheusInstance",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePrometheusInstanceResponse>(await this.callApi(params, req, runtime), new CreatePrometheusInstanceResponse({}));
+  }
+
+  async createPrometheusInstance(request: CreatePrometheusInstanceRequest): Promise<CreatePrometheusInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPrometheusInstanceWithOptions(request, runtime);
   }
 
   async createRetcodeAppWithOptions(request: CreateRetcodeAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRetcodeAppResponse> {
@@ -19090,12 +22156,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.retcodeAppName)) {
       query["RetcodeAppName"] = request.retcodeAppName;
     }
 
     if (!Util.isUnset(request.retcodeAppType)) {
       query["RetcodeAppType"] = request.retcodeAppType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -19124,32 +22198,32 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateSyntheticTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.commonParam))) {
-      request.commonParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.commonParam), "CommonParam", "json");
+    if (!Util.isUnset(tmpReq.commonParam)) {
+      request.commonParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonParam, "CommonParam", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.download))) {
-      request.downloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.download), "Download", "json");
+    if (!Util.isUnset(tmpReq.download)) {
+      request.downloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.download, "Download", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.extendInterval))) {
-      request.extendIntervalShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.extendInterval), "ExtendInterval", "json");
+    if (!Util.isUnset(tmpReq.extendInterval)) {
+      request.extendIntervalShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendInterval, "ExtendInterval", "json");
     }
 
     if (!Util.isUnset(tmpReq.monitorList)) {
       request.monitorListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorList, "MonitorList", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.navigation))) {
-      request.navigationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.navigation), "Navigation", "json");
+    if (!Util.isUnset(tmpReq.navigation)) {
+      request.navigationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.navigation, "Navigation", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.net))) {
-      request.netShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.net), "Net", "json");
+    if (!Util.isUnset(tmpReq.net)) {
+      request.netShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.net, "Net", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.protocol))) {
-      request.protocolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.protocol), "Protocol", "json");
+    if (!Util.isUnset(tmpReq.protocol)) {
+      request.protocolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.protocol, "Protocol", "json");
     }
 
     let query = { };
@@ -19325,6 +22399,13 @@ export default class Client extends OpenApi {
     return await this.delAuthTokenWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAlertContactResponse
+   */
   async deleteAlertContactWithOptions(request: DeleteAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19353,11 +22434,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactRequest
+    * @return DeleteAlertContactResponse
+   */
   async deleteAlertContact(request: DeleteAlertContactRequest): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertContactWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroupWithOptions(request: DeleteAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19386,6 +22480,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteAlertContactGroupRequest
+    * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroup(request: DeleteAlertContactGroupRequest): Promise<DeleteAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertContactGroupWithOptions(request, runtime);
@@ -19420,6 +22520,13 @@ export default class Client extends OpenApi {
     return await this.deleteAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+    * The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+    *
+    * @param request DeleteAlertRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAlertRulesResponse
+   */
   async deleteAlertRulesWithOptions(request: DeleteAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19448,6 +22555,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertRulesResponse>(await this.callApi(params, req, runtime), new DeleteAlertRulesResponse({}));
   }
 
+  /**
+    * The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+    *
+    * @param request DeleteAlertRulesRequest
+    * @return DeleteAlertRulesResponse
+   */
   async deleteAlertRules(request: DeleteAlertRulesRequest): Promise<DeleteAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertRulesWithOptions(request, runtime);
@@ -19544,6 +22657,13 @@ export default class Client extends OpenApi {
     return await this.deleteContactGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteDispatchRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDispatchRuleResponse
+   */
   async deleteDispatchRuleWithOptions(request: DeleteDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19572,6 +22692,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDispatchRuleResponse>(await this.callApi(params, req, runtime), new DeleteDispatchRuleResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request DeleteDispatchRuleRequest
+    * @return DeleteDispatchRuleResponse
+   */
   async deleteDispatchRule(request: DeleteDispatchRuleRequest): Promise<DeleteDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDispatchRuleWithOptions(request, runtime);
@@ -19827,11 +22953,97 @@ export default class Client extends OpenApi {
     return await this.deletePrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  async deletePrometheusIntegrationWithOptions(request: DeletePrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusIntegrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.integrationType)) {
+      query["IntegrationType"] = request.integrationType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePrometheusIntegration",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new DeletePrometheusIntegrationResponse({}));
+  }
+
+  async deletePrometheusIntegration(request: DeletePrometheusIntegrationRequest): Promise<DeletePrometheusIntegrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePrometheusIntegrationWithOptions(request, runtime);
+  }
+
+  async deletePrometheusRemoteWriteWithOptions(request: DeletePrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusRemoteWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remoteWriteNames)) {
+      query["RemoteWriteNames"] = request.remoteWriteNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePrometheusRemoteWrite",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new DeletePrometheusRemoteWriteResponse({}));
+  }
+
+  async deletePrometheusRemoteWrite(request: DeletePrometheusRemoteWriteRequest): Promise<DeletePrometheusRemoteWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePrometheusRemoteWriteWithOptions(request, runtime);
+  }
+
   async deleteRetcodeAppWithOptions(request: DeleteRetcodeAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRetcodeAppResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -20075,6 +23287,10 @@ export default class Client extends OpenApi {
       query["ContactGroupName"] = request.contactGroupName;
     }
 
+    if (!Util.isUnset(request.groupIds)) {
+      query["GroupIds"] = request.groupIds;
+    }
+
     if (!Util.isUnset(request.isDetail)) {
       query["IsDetail"] = request.isDetail;
     }
@@ -20112,6 +23328,10 @@ export default class Client extends OpenApi {
   async describeContactsWithOptions(request: DescribeContactsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContactsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.contactIds)) {
+      query["ContactIds"] = request.contactIds;
+    }
+
     if (!Util.isUnset(request.contactName)) {
       query["ContactName"] = request.contactName;
     }
@@ -20130,6 +23350,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.size)) {
       query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.verbose)) {
+      query["Verbose"] = request.verbose;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -20192,6 +23416,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.robotIds)) {
+      query["RobotIds"] = request.robotIds;
     }
 
     if (!Util.isUnset(request.robotName)) {
@@ -20479,6 +23707,39 @@ export default class Client extends OpenApi {
     return await this.getAuthTokenWithOptions(request, runtime);
   }
 
+  async getCloudClusterAllUrlWithOptions(request: GetCloudClusterAllUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudClusterAllUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCloudClusterAllUrl",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCloudClusterAllUrlResponse>(await this.callApi(params, req, runtime), new GetCloudClusterAllUrlResponse({}));
+  }
+
+  async getCloudClusterAllUrl(request: GetCloudClusterAllUrlRequest): Promise<GetCloudClusterAllUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCloudClusterAllUrlWithOptions(request, runtime);
+  }
+
   async getClusterAllUrlWithOptions(request: GetClusterAllUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterAllUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20605,6 +23866,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20630,8 +23899,16 @@ export default class Client extends OpenApi {
   async getMultipleTraceWithOptions(request: GetMultipleTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetMultipleTraceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!Util.isUnset(request.traceIDs)) {
@@ -20685,6 +23962,13 @@ export default class Client extends OpenApi {
     return await this.getOnCallSchedulesDetailWithOptions(request, runtime);
   }
 
+  /**
+    * None.
+    *
+    * @param request GetPrometheusApiTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPrometheusApiTokenResponse
+   */
   async getPrometheusApiTokenWithOptions(request: GetPrometheusApiTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusApiTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20709,6 +23993,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusApiTokenResponse>(await this.callApi(params, req, runtime), new GetPrometheusApiTokenResponse({}));
   }
 
+  /**
+    * None.
+    *
+    * @param request GetPrometheusApiTokenRequest
+    * @return GetPrometheusApiTokenResponse
+   */
   async getPrometheusApiToken(request: GetPrometheusApiTokenRequest): Promise<GetPrometheusApiTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusApiTokenWithOptions(request, runtime);
@@ -20747,6 +24037,117 @@ export default class Client extends OpenApi {
     return await this.getPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  async getPrometheusInstanceWithOptions(request: GetPrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrometheusInstance",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPrometheusInstanceResponse>(await this.callApi(params, req, runtime), new GetPrometheusInstanceResponse({}));
+  }
+
+  async getPrometheusInstance(request: GetPrometheusInstanceRequest): Promise<GetPrometheusInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPrometheusInstanceWithOptions(request, runtime);
+  }
+
+  async getPrometheusIntegrationWithOptions(request: GetPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusIntegrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.integrationType)) {
+      query["IntegrationType"] = request.integrationType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrometheusIntegration",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new GetPrometheusIntegrationResponse({}));
+  }
+
+  async getPrometheusIntegration(request: GetPrometheusIntegrationRequest): Promise<GetPrometheusIntegrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPrometheusIntegrationWithOptions(request, runtime);
+  }
+
+  async getPrometheusRemoteWriteWithOptions(request: GetPrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusRemoteWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remoteWriteName)) {
+      query["RemoteWriteName"] = request.remoteWriteName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPrometheusRemoteWrite",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new GetPrometheusRemoteWriteResponse({}));
+  }
+
+  async getPrometheusRemoteWrite(request: GetPrometheusRemoteWriteRequest): Promise<GetPrometheusRemoteWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPrometheusRemoteWriteWithOptions(request, runtime);
+  }
+
   async getRecordingRuleWithOptions(request: GetRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordingRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20778,6 +24179,109 @@ export default class Client extends OpenApi {
   async getRecordingRule(request: GetRecordingRuleRequest): Promise<GetRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRecordingRuleWithOptions(request, runtime);
+  }
+
+  async getRetcodeAppByPidWithOptions(request: GetRetcodeAppByPidRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeAppByPidResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRetcodeAppByPid",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRetcodeAppByPidResponse>(await this.callApi(params, req, runtime), new GetRetcodeAppByPidResponse({}));
+  }
+
+  async getRetcodeAppByPid(request: GetRetcodeAppByPidRequest): Promise<GetRetcodeAppByPidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRetcodeAppByPidWithOptions(request, runtime);
+  }
+
+  async getRetcodeDataByQueryWithOptions(request: GetRetcodeDataByQueryRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeDataByQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRetcodeDataByQuery",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRetcodeDataByQueryResponse>(await this.callApi(params, req, runtime), new GetRetcodeDataByQueryResponse({}));
+  }
+
+  async getRetcodeDataByQuery(request: GetRetcodeDataByQueryRequest): Promise<GetRetcodeDataByQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRetcodeDataByQueryWithOptions(request, runtime);
+  }
+
+  async getRetcodeLogstoreWithOptions(request: GetRetcodeLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeLogstoreResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRetcodeLogstore",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRetcodeLogstoreResponse>(await this.callApi(params, req, runtime), new GetRetcodeLogstoreResponse({}));
+  }
+
+  async getRetcodeLogstore(request: GetRetcodeLogstoreRequest): Promise<GetRetcodeLogstoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRetcodeLogstoreWithOptions(request, runtime);
   }
 
   async getRetcodeShareUrlWithOptions(request: GetRetcodeShareUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeShareUrlResponse> {
@@ -21030,6 +24534,13 @@ export default class Client extends OpenApi {
     return await this.getSyntheticTaskMonitorsWithOptions(request, runtime);
   }
 
+  /**
+    * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+    *
+    * @param request GetTraceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTraceResponse
+   */
   async getTraceWithOptions(request: GetTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21066,6 +24577,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTraceResponse>(await this.callApi(params, req, runtime), new GetTraceResponse({}));
   }
 
+  /**
+    * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+    *
+    * @param request GetTraceRequest
+    * @return GetTraceResponse
+   */
   async getTrace(request: GetTraceRequest): Promise<GetTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTraceWithOptions(request, runtime);
@@ -21104,6 +24621,13 @@ export default class Client extends OpenApi {
     return await this.getTraceAppWithOptions(request, runtime);
   }
 
+  /**
+    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+    *
+    * @param request ImportAppAlertRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportAppAlertRulesResponse
+   */
   async importAppAlertRulesWithOptions(request: ImportAppAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<ImportAppAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21148,6 +24672,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportAppAlertRulesResponse>(await this.callApi(params, req, runtime), new ImportAppAlertRulesResponse({}));
   }
 
+  /**
+    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+    *
+    * @param request ImportAppAlertRulesRequest
+    * @return ImportAppAlertRulesResponse
+   */
   async importAppAlertRules(request: ImportAppAlertRulesRequest): Promise<ImportAppAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importAppAlertRulesWithOptions(request, runtime);
@@ -21198,6 +24728,13 @@ export default class Client extends OpenApi {
     return await this.installCmsExporterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the API operation to install a Prometheus agent to monitor a serverless Kubernetes (ASK) cluster. You can manage the agent in Application Real-Time Monitoring Service (ARMS), but you cannot view the agent in the ASK cluster.
+    *
+    * @param request InstallManagedPrometheusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InstallManagedPrometheusResponse
+   */
   async installManagedPrometheusWithOptions(request: InstallManagedPrometheusRequest, runtime: $Util.RuntimeOptions): Promise<InstallManagedPrometheusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21205,8 +24742,16 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
     if (!Util.isUnset(request.clusterType)) {
       query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.grafanaInstanceId)) {
+      query["GrafanaInstanceId"] = request.grafanaInstanceId;
     }
 
     if (!Util.isUnset(request.kubeConfig)) {
@@ -21215,6 +24760,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.securityGroupId)) {
@@ -21246,6 +24795,12 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallManagedPrometheusResponse>(await this.callApi(params, req, runtime), new InstallManagedPrometheusResponse({}));
   }
 
+  /**
+    * You can call the API operation to install a Prometheus agent to monitor a serverless Kubernetes (ASK) cluster. You can manage the agent in Application Real-Time Monitoring Service (ARMS), but you cannot view the agent in the ASK cluster.
+    *
+    * @param request InstallManagedPrometheusRequest
+    * @return InstallManagedPrometheusResponse
+   */
   async installManagedPrometheus(request: InstallManagedPrometheusRequest): Promise<InstallManagedPrometheusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installManagedPrometheusWithOptions(request, runtime);
@@ -21480,6 +25035,13 @@ export default class Client extends OpenApi {
     return await this.listCmsInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request ListDashboardsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDashboardsResponse
+   */
   async listDashboardsWithOptions(request: ListDashboardsRequest, runtime: $Util.RuntimeOptions): Promise<ListDashboardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21532,6 +25094,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDashboardsResponse>(await this.callApi(params, req, runtime), new ListDashboardsResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request ListDashboardsRequest
+    * @return ListDashboardsResponse
+   */
   async listDashboards(request: ListDashboardsRequest): Promise<ListDashboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDashboardsWithOptions(request, runtime);
@@ -21758,6 +25326,10 @@ export default class Client extends OpenApi {
   async listNotificationPoliciesWithOptions(request: ListNotificationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListNotificationPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
     if (!Util.isUnset(request.isDetail)) {
       query["IsDetail"] = request.isDetail;
     }
@@ -21936,6 +25508,43 @@ export default class Client extends OpenApi {
     return await this.listPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  async listPrometheusInstanceByTagAndResourceGroupIdWithOptions(request: ListPrometheusInstanceByTagAndResourceGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusInstanceByTagAndResourceGroupIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrometheusInstanceByTagAndResourceGroupId",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrometheusInstanceByTagAndResourceGroupIdResponse>(await this.callApi(params, req, runtime), new ListPrometheusInstanceByTagAndResourceGroupIdResponse({}));
+  }
+
+  async listPrometheusInstanceByTagAndResourceGroupId(request: ListPrometheusInstanceByTagAndResourceGroupIdRequest): Promise<ListPrometheusInstanceByTagAndResourceGroupIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrometheusInstanceByTagAndResourceGroupIdWithOptions(request, runtime);
+  }
+
   async listPrometheusInstancesWithOptions(request: ListPrometheusInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21969,6 +25578,83 @@ export default class Client extends OpenApi {
     return await this.listPrometheusInstancesWithOptions(request, runtime);
   }
 
+  async listPrometheusIntegrationWithOptions(request: ListPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusIntegrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.integrationType)) {
+      query["IntegrationType"] = request.integrationType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrometheusIntegration",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new ListPrometheusIntegrationResponse({}));
+  }
+
+  async listPrometheusIntegration(request: ListPrometheusIntegrationRequest): Promise<ListPrometheusIntegrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrometheusIntegrationWithOptions(request, runtime);
+  }
+
+  async listPrometheusRemoteWritesWithOptions(request: ListPrometheusRemoteWritesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusRemoteWritesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPrometheusRemoteWrites",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPrometheusRemoteWritesResponse>(await this.callApi(params, req, runtime), new ListPrometheusRemoteWritesResponse({}));
+  }
+
+  async listPrometheusRemoteWrites(request: ListPrometheusRemoteWritesRequest): Promise<ListPrometheusRemoteWritesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPrometheusRemoteWritesWithOptions(request, runtime);
+  }
+
+  /**
+    * ***
+    *
+    * @param request ListRetcodeAppsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRetcodeAppsResponse
+   */
   async listRetcodeAppsWithOptions(request: ListRetcodeAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListRetcodeAppsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21976,8 +25662,12 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21997,6 +25687,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRetcodeAppsResponse>(await this.callApi(params, req, runtime), new ListRetcodeAppsResponse({}));
   }
 
+  /**
+    * ***
+    *
+    * @param request ListRetcodeAppsRequest
+    * @return ListRetcodeAppsResponse
+   */
   async listRetcodeApps(request: ListRetcodeAppsRequest): Promise<ListRetcodeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRetcodeAppsWithOptions(request, runtime);
@@ -22097,6 +25793,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22228,6 +25932,17 @@ export default class Client extends OpenApi {
     return await this.openArmsDefaultSLRWithOptions(request, runtime);
   }
 
+  /**
+    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+    * *   Application Monitoring: Basic Edition
+    * *   Browser Monitoring: Basic Edition
+    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+    * *   Prometheus Service: Pro Edition
+    *
+    * @param request OpenArmsServiceSecondVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return OpenArmsServiceSecondVersionResponse
+   */
   async openArmsServiceSecondVersionWithOptions(request: OpenArmsServiceSecondVersionRequest, runtime: $Util.RuntimeOptions): Promise<OpenArmsServiceSecondVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22256,6 +25971,16 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenArmsServiceSecondVersionResponse>(await this.callApi(params, req, runtime), new OpenArmsServiceSecondVersionResponse({}));
   }
 
+  /**
+    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+    * *   Application Monitoring: Basic Edition
+    * *   Browser Monitoring: Basic Edition
+    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+    * *   Prometheus Service: Pro Edition
+    *
+    * @param request OpenArmsServiceSecondVersionRequest
+    * @return OpenArmsServiceSecondVersionResponse
+   */
   async openArmsServiceSecondVersion(request: OpenArmsServiceSecondVersionRequest): Promise<OpenArmsServiceSecondVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openArmsServiceSecondVersionWithOptions(request, runtime);
@@ -22613,6 +26338,13 @@ export default class Client extends OpenApi {
     return await this.saveTraceAppConfigWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+    *
+    * @param request SearchAlertContactRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchAlertContactResponse
+   */
   async searchAlertContactWithOptions(request: SearchAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22661,11 +26393,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAlertContactResponse>(await this.callApi(params, req, runtime), new SearchAlertContactResponse({}));
   }
 
+  /**
+    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+    *
+    * @param request SearchAlertContactRequest
+    * @return SearchAlertContactResponse
+   */
   async searchAlertContact(request: SearchAlertContactRequest): Promise<SearchAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchAlertContactWithOptions(request, runtime);
   }
 
+  /**
+    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+    *
+    * @param request SearchAlertContactGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchAlertContactGroupResponse
+   */
   async searchAlertContactGroupWithOptions(request: SearchAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22710,11 +26455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAlertContactGroupResponse>(await this.callApi(params, req, runtime), new SearchAlertContactGroupResponse({}));
   }
 
+  /**
+    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+    *
+    * @param request SearchAlertContactGroupRequest
+    * @return SearchAlertContactGroupResponse
+   */
   async searchAlertContactGroup(request: SearchAlertContactGroupRequest): Promise<SearchAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchAlertContactGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ********
+    *
+    * @param request SearchAlertHistoriesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchAlertHistoriesResponse
+   */
   async searchAlertHistoriesWithOptions(request: SearchAlertHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertHistoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22763,14 +26521,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAlertHistoriesResponse>(await this.callApi(params, req, runtime), new SearchAlertHistoriesResponse({}));
   }
 
+  /**
+    * ********
+    *
+    * @param request SearchAlertHistoriesRequest
+    * @return SearchAlertHistoriesResponse
+   */
   async searchAlertHistories(request: SearchAlertHistoriesRequest): Promise<SearchAlertHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchAlertHistoriesWithOptions(request, runtime);
   }
 
+  /**
+    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+    *
+    * @param request SearchAlertRulesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchAlertRulesResponse
+   */
   async searchAlertRulesWithOptions(request: SearchAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.alertRuleId)) {
+      query["AlertRuleId"] = request.alertRuleId;
+    }
+
     if (!Util.isUnset(request.appType)) {
       query["AppType"] = request.appType;
     }
@@ -22789,6 +26564,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.systemRegionId)) {
@@ -22820,11 +26599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAlertRulesResponse>(await this.callApi(params, req, runtime), new SearchAlertRulesResponse({}));
   }
 
+  /**
+    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+    *
+    * @param request SearchAlertRulesRequest
+    * @return SearchAlertRulesResponse
+   */
   async searchAlertRules(request: SearchAlertRulesRequest): Promise<SearchAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchAlertRulesWithOptions(request, runtime);
   }
 
+  /**
+    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+    *
+    * @param request SearchEventsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchEventsResponse
+   */
   async searchEventsWithOptions(request: SearchEventsRequest, runtime: $Util.RuntimeOptions): Promise<SearchEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22885,6 +26677,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchEventsResponse>(await this.callApi(params, req, runtime), new SearchEventsResponse({}));
   }
 
+  /**
+    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+    *
+    * @param request SearchEventsRequest
+    * @return SearchEventsResponse
+   */
   async searchEvents(request: SearchEventsRequest): Promise<SearchEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchEventsWithOptions(request, runtime);
@@ -22905,8 +26703,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.retcodeAppId)) {
+      query["RetcodeAppId"] = request.retcodeAppId;
+    }
+
     if (!Util.isUnset(request.retcodeAppName)) {
       query["RetcodeAppName"] = request.retcodeAppName;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22931,6 +26741,13 @@ export default class Client extends OpenApi {
     return await this.searchRetcodeAppByPageWithOptions(request, runtime);
   }
 
+  /**
+    * ***
+    *
+    * @param request SearchTraceAppByNameRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchTraceAppByNameResponse
+   */
   async searchTraceAppByNameWithOptions(request: SearchTraceAppByNameRequest, runtime: $Util.RuntimeOptions): Promise<SearchTraceAppByNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22959,6 +26776,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTraceAppByNameResponse>(await this.callApi(params, req, runtime), new SearchTraceAppByNameResponse({}));
   }
 
+  /**
+    * ***
+    *
+    * @param request SearchTraceAppByNameRequest
+    * @return SearchTraceAppByNameResponse
+   */
   async searchTraceAppByName(request: SearchTraceAppByNameRequest): Promise<SearchTraceAppByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTraceAppByNameWithOptions(request, runtime);
@@ -22977,6 +26800,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.traceAppName)) {
@@ -23005,6 +26836,13 @@ export default class Client extends OpenApi {
     return await this.searchTraceAppByPageWithOptions(request, runtime);
   }
 
+  /**
+    * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
+    *
+    * @param request SearchTracesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SearchTracesResponse
+   */
   async searchTracesWithOptions(request: SearchTracesRequest, runtime: $Util.RuntimeOptions): Promise<SearchTracesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23069,6 +26907,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTracesResponse>(await this.callApi(params, req, runtime), new SearchTracesResponse({}));
   }
 
+  /**
+    * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
+    *
+    * @param request SearchTracesRequest
+    * @return SearchTracesResponse
+   */
   async searchTraces(request: SearchTracesRequest): Promise<SearchTracesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTracesWithOptions(request, runtime);
@@ -23151,6 +26995,13 @@ export default class Client extends OpenApi {
     return await this.searchTracesByPageWithOptions(request, runtime);
   }
 
+  /**
+    * After receiving the mobile phone number verification SMS, please complete the mobile phone number verification according to the SMS prompt. Only verified mobile phone numbers can use the notification method of the phone in the notification policy.
+    *
+    * @param request SendTTSVerifyLinkRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendTTSVerifyLinkResponse
+   */
   async sendTTSVerifyLinkWithOptions(request: SendTTSVerifyLinkRequest, runtime: $Util.RuntimeOptions): Promise<SendTTSVerifyLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23179,6 +27030,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SendTTSVerifyLinkResponse>(await this.callApi(params, req, runtime), new SendTTSVerifyLinkResponse({}));
   }
 
+  /**
+    * After receiving the mobile phone number verification SMS, please complete the mobile phone number verification according to the SMS prompt. Only verified mobile phone numbers can use the notification method of the phone in the notification policy.
+    *
+    * @param request SendTTSVerifyLinkRequest
+    * @return SendTTSVerifyLinkResponse
+   */
   async sendTTSVerifyLink(request: SendTTSVerifyLinkRequest): Promise<SendTTSVerifyLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendTTSVerifyLinkWithOptions(request, runtime);
@@ -23187,6 +27044,10 @@ export default class Client extends OpenApi {
   async setRetcodeShareStatusWithOptions(request: SetRetcodeShareStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetRetcodeShareStatusResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
     if (!Util.isUnset(request.pid)) {
       query["Pid"] = request.pid;
     }
@@ -23353,31 +27214,13 @@ export default class Client extends OpenApi {
     return await this.syncRecordingRulesWithOptions(request, runtime);
   }
 
-  async turnOnSecondSwitchWithOptions(request: TurnOnSecondSwitchRequest, runtime: $Util.RuntimeOptions): Promise<TurnOnSecondSwitchResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "TurnOnSecondSwitch",
-      version: "2019-08-08",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TurnOnSecondSwitchResponse>(await this.callApi(params, req, runtime), new TurnOnSecondSwitchResponse({}));
-  }
-
-  async turnOnSecondSwitch(request: TurnOnSecondSwitchRequest): Promise<TurnOnSecondSwitchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.turnOnSecondSwitchWithOptions(request, runtime);
-  }
-
+  /**
+    * You can call the API operation to uninstall a Prometheus agent only from a serverless Kubernetes (ASK) cluster.
+    *
+    * @param request UninstallManagedPrometheusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UninstallManagedPrometheusResponse
+   */
   async uninstallManagedPrometheusWithOptions(request: UninstallManagedPrometheusRequest, runtime: $Util.RuntimeOptions): Promise<UninstallManagedPrometheusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23391,6 +27234,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.vpcId)) {
@@ -23414,6 +27261,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallManagedPrometheusResponse>(await this.callApi(params, req, runtime), new UninstallManagedPrometheusResponse({}));
   }
 
+  /**
+    * You can call the API operation to uninstall a Prometheus agent only from a serverless Kubernetes (ASK) cluster.
+    *
+    * @param request UninstallManagedPrometheusRequest
+    * @return UninstallManagedPrometheusResponse
+   */
   async uninstallManagedPrometheus(request: UninstallManagedPrometheusRequest): Promise<UninstallManagedPrometheusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallManagedPrometheusWithOptions(request, runtime);
@@ -23452,6 +27305,13 @@ export default class Client extends OpenApi {
     return await this.uninstallPromClusterWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+    *
+    * @param request UpdateAlertContactRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAlertContactResponse
+   */
   async updateAlertContactWithOptions(request: UpdateAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlertContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23500,6 +27360,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAlertContactResponse>(await this.callApi(params, req, runtime), new UpdateAlertContactResponse({}));
   }
 
+  /**
+    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+    *
+    * @param request UpdateAlertContactRequest
+    * @return UpdateAlertContactResponse
+   */
   async updateAlertContact(request: UpdateAlertContactRequest): Promise<UpdateAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAlertContactWithOptions(request, runtime);
@@ -23713,6 +27579,13 @@ export default class Client extends OpenApi {
     return await this.updateIntegrationWithOptions(request, runtime);
   }
 
+  /**
+    * The UpdatePrometheusAlertRule operation is no longer maintained. Call the CreateOrUpdateAlertRule operation to create or modify alert rules.
+    *
+    * @param request UpdatePrometheusAlertRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdatePrometheusAlertRuleResponse
+   */
   async updatePrometheusAlertRuleWithOptions(request: UpdatePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23781,11 +27654,153 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusAlertRuleResponse({}));
   }
 
+  /**
+    * The UpdatePrometheusAlertRule operation is no longer maintained. Call the CreateOrUpdateAlertRule operation to create or modify alert rules.
+    *
+    * @param request UpdatePrometheusAlertRuleRequest
+    * @return UpdatePrometheusAlertRuleResponse
+   */
   async updatePrometheusAlertRule(request: UpdatePrometheusAlertRuleRequest): Promise<UpdatePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusAlertRuleWithOptions(request, runtime);
   }
 
+  async updatePrometheusGlobalViewWithOptions(request: UpdatePrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusGlobalViewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.subClustersJson)) {
+      query["SubClustersJson"] = request.subClustersJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePrometheusGlobalView",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusGlobalViewResponse({}));
+  }
+
+  async updatePrometheusGlobalView(request: UpdatePrometheusGlobalViewRequest): Promise<UpdatePrometheusGlobalViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrometheusGlobalViewWithOptions(request, runtime);
+  }
+
+  async updatePrometheusIntegrationWithOptions(request: UpdatePrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusIntegrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.integrationType)) {
+      query["IntegrationType"] = request.integrationType;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePrometheusIntegration",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusIntegrationResponse({}));
+  }
+
+  async updatePrometheusIntegration(request: UpdatePrometheusIntegrationRequest): Promise<UpdatePrometheusIntegrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrometheusIntegrationWithOptions(request, runtime);
+  }
+
+  async updatePrometheusRemoteWriteWithOptions(request: UpdatePrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusRemoteWriteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remoteWriteName)) {
+      query["RemoteWriteName"] = request.remoteWriteName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.remoteWriteYaml)) {
+      body["RemoteWriteYaml"] = request.remoteWriteYaml;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePrometheusRemoteWrite",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusRemoteWriteResponse({}));
+  }
+
+  async updatePrometheusRemoteWrite(request: UpdatePrometheusRemoteWriteRequest): Promise<UpdatePrometheusRemoteWriteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrometheusRemoteWriteWithOptions(request, runtime);
+  }
+
+  /**
+    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+    *
+    * @param request UpdateWebhookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateWebhookResponse
+   */
   async updateWebhookWithOptions(request: UpdateWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWebhookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23842,6 +27857,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWebhookResponse>(await this.callApi(params, req, runtime), new UpdateWebhookResponse({}));
   }
 
+  /**
+    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+    *
+    * @param request UpdateWebhookRequest
+    * @return UpdateWebhookResponse
+   */
   async updateWebhook(request: UpdateWebhookRequest): Promise<UpdateWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWebhookWithOptions(request, runtime);
