@@ -14260,6 +14260,87 @@ export class GetSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class GetShareSpeechModelAudioRequest extends $tea.Model {
+  iotInstanceId?: string;
+  shareTaskId?: string;
+  speechModelCodeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      shareTaskId: 'ShareTaskId',
+      speechModelCodeList: 'SpeechModelCodeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      shareTaskId: 'string',
+      speechModelCodeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShareSpeechModelAudioResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetShareSpeechModelAudioResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetShareSpeechModelAudioResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShareSpeechModelAudioResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetShareSpeechModelAudioResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetShareSpeechModelAudioResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetShareTaskByDeviceOpenRequest extends $tea.Model {
   deviceName?: string;
   iotId?: string;
@@ -26044,6 +26125,81 @@ export class QuerySpeechDeviceResponse extends $tea.Model {
   }
 }
 
+export class QuerySpeechLicenseAvailableQuotaRequest extends $tea.Model {
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseAvailableQuotaResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseAvailableQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySpeechLicenseAvailableQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySpeechLicenseAvailableQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySpeechLicenseDeviceListRequest extends $tea.Model {
   checkGroupId?: string;
   deviceName?: string;
@@ -33959,19 +34115,28 @@ export class WriteDevicesHotStorageDataResponse extends $tea.Model {
 }
 
 export class AddShareTaskDeviceResponseBodyData extends $tea.Model {
+  failSum?: number;
+  failedResultCsvFile?: string;
   progress?: number;
   progressId?: string;
+  successSum?: number;
   static names(): { [key: string]: string } {
     return {
+      failSum: 'FailSum',
+      failedResultCsvFile: 'FailedResultCsvFile',
       progress: 'Progress',
       progressId: 'ProgressId',
+      successSum: 'SuccessSum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      failSum: 'number',
+      failedResultCsvFile: 'string',
       progress: 'number',
       progressId: 'string',
+      successSum: 'number',
     };
   }
 
@@ -37023,6 +37188,25 @@ export class GetSceneRuleResponseBodyData extends $tea.Model {
       ruleDescription: 'string',
       ruleName: 'string',
       ruleStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShareSpeechModelAudioResponseBodyData extends $tea.Model {
+  data?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -53338,6 +53522,43 @@ export default class Client extends OpenApi {
     return await this.getSceneRuleWithOptions(request, runtime);
   }
 
+  async getShareSpeechModelAudioWithOptions(request: GetShareSpeechModelAudioRequest, runtime: $Util.RuntimeOptions): Promise<GetShareSpeechModelAudioResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.shareTaskId)) {
+      body["ShareTaskId"] = request.shareTaskId;
+    }
+
+    if (!Util.isUnset(request.speechModelCodeList)) {
+      body["SpeechModelCodeList"] = request.speechModelCodeList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetShareSpeechModelAudio",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetShareSpeechModelAudioResponse>(await this.callApi(params, req, runtime), new GetShareSpeechModelAudioResponse({}));
+  }
+
+  async getShareSpeechModelAudio(request: GetShareSpeechModelAudioRequest): Promise<GetShareSpeechModelAudioResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getShareSpeechModelAudioWithOptions(request, runtime);
+  }
+
   async getShareTaskByDeviceOpenWithOptions(request: GetShareTaskByDeviceOpenRequest, runtime: $Util.RuntimeOptions): Promise<GetShareTaskByDeviceOpenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -59095,6 +59316,35 @@ export default class Client extends OpenApi {
   async querySpeechDevice(request: QuerySpeechDeviceRequest): Promise<QuerySpeechDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySpeechDeviceWithOptions(request, runtime);
+  }
+
+  async querySpeechLicenseAvailableQuotaWithOptions(request: QuerySpeechLicenseAvailableQuotaRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechLicenseAvailableQuotaResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySpeechLicenseAvailableQuota",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySpeechLicenseAvailableQuotaResponse>(await this.callApi(params, req, runtime), new QuerySpeechLicenseAvailableQuotaResponse({}));
+  }
+
+  async querySpeechLicenseAvailableQuota(request: QuerySpeechLicenseAvailableQuotaRequest): Promise<QuerySpeechLicenseAvailableQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySpeechLicenseAvailableQuotaWithOptions(request, runtime);
   }
 
   async querySpeechLicenseDeviceListWithOptions(request: QuerySpeechLicenseDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechLicenseDeviceListResponse> {
