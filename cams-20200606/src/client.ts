@@ -1094,6 +1094,93 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class GetChatappTemplateDetailRequest extends $tea.Model {
+  custSpaceId?: string;
+  custWabaId?: string;
+  isvCode?: string;
+  language?: string;
+  templateCode?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      custWabaId: 'CustWabaId',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      custWabaId: 'string',
+      isvCode: 'string',
+      language: 'string',
+      templateCode: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetChatappTemplateDetailResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetChatappTemplateDetailResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetChatappTemplateDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatappTemplateDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappUploadAuthorizationRequest extends $tea.Model {
   custSpaceId?: string;
   static names(): { [key: string]: string } {
@@ -1464,6 +1551,139 @@ export class IsvGetAppIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: IsvGetAppIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateRequest extends $tea.Model {
+  auditStatus?: string;
+  custSpaceId?: string;
+  custWabaId?: string;
+  isvCode?: string;
+  language?: string;
+  name?: string;
+  page?: ListChatappTemplateRequestPage;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      custSpaceId: 'CustSpaceId',
+      custWabaId: 'CustWabaId',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      name: 'Name',
+      page: 'Page',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      custSpaceId: 'string',
+      custWabaId: 'string',
+      isvCode: 'string',
+      language: 'string',
+      name: 'string',
+      page: ListChatappTemplateRequestPage,
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateShrinkRequest extends $tea.Model {
+  auditStatus?: string;
+  custSpaceId?: string;
+  custWabaId?: string;
+  isvCode?: string;
+  language?: string;
+  name?: string;
+  pageShrink?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      custSpaceId: 'CustSpaceId',
+      custWabaId: 'CustWabaId',
+      isvCode: 'IsvCode',
+      language: 'Language',
+      name: 'Name',
+      pageShrink: 'Page',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      custSpaceId: 'string',
+      custWabaId: 'string',
+      isvCode: 'string',
+      language: 'string',
+      name: 'string',
+      pageShrink: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateResponseBody extends $tea.Model {
+  code?: string;
+  listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      listTemplate: 'ListTemplate',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      listTemplate: { 'type': 'array', 'itemType': ListChatappTemplateResponseBodyListTemplate },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListChatappTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChatappTemplateResponseBody,
     };
   }
 
@@ -3197,6 +3417,123 @@ export class CreateChatappTemplateResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
+  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
+  caption?: string;
+  duration?: number;
+  fileName?: string;
+  fileType?: string;
+  format?: string;
+  text?: string;
+  thumbUrl?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      caption: 'Caption',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      format: 'Format',
+      text: 'Text',
+      thumbUrl: 'ThumbUrl',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
+      caption: 'string',
+      duration: 'number',
+      fileName: 'string',
+      fileType: 'string',
+      format: 'string',
+      text: 'string',
+      thumbUrl: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
+  auditStatus?: string;
+  category?: string;
+  components?: GetChatappTemplateDetailResponseBodyDataComponents[];
+  example?: { [key: string]: string };
+  language?: string;
+  name?: string;
+  templateCode?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      category: 'Category',
+      components: 'Components',
+      example: 'Example',
+      language: 'Language',
+      name: 'Name',
+      templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      category: 'string',
+      components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
+      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      language: 'string',
+      name: 'string',
+      templateCode: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
   accessKeyId?: string;
   accessKeySecret?: string;
@@ -3273,6 +3610,62 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $tea.Model
       codeVerificationStatus: 'string',
       id: 'string',
       phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateRequestPage extends $tea.Model {
+  index?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
+  auditStatus?: string;
+  category?: string;
+  language?: string;
+  templateCode?: string;
+  templateName?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      category: 'Category',
+      language: 'Language',
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      category: 'string',
+      language: 'string',
+      templateCode: 'string',
+      templateName: 'string',
+      templateType: 'string',
     };
   }
 
@@ -4249,6 +4642,70 @@ export default class Client extends OpenApi {
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request GetChatappTemplateDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappTemplateDetailResponse
+   */
+  async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatappTemplateDetail",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
+  }
+
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request GetChatappTemplateDetailRequest
+    * @return GetChatappTemplateDetailResponse
+   */
+  async getChatappTemplateDetail(request: GetChatappTemplateDetailRequest): Promise<GetChatappTemplateDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChatappTemplateDetailWithOptions(request, runtime);
+  }
+
   async getChatappUploadAuthorizationWithOptions(request: GetChatappUploadAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappUploadAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4472,6 +4929,84 @@ export default class Client extends OpenApi {
   async isvGetAppId(request: IsvGetAppIdRequest): Promise<IsvGetAppIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.isvGetAppIdWithOptions(request, runtime);
+  }
+
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param tmpReq ListChatappTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListChatappTemplateResponse
+   */
+  async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListChatappTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!Util.isUnset(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChatappTemplate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
+  }
+
+  /**
+    * ### QPS limit
+    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    *
+    * @param request ListChatappTemplateRequest
+    * @return ListChatappTemplateResponse
+   */
+  async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
   /**
