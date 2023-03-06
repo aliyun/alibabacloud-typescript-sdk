@@ -1094,29 +1094,17 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
   }
 }
 
-export class GetChatappTemplateDetailRequest extends $tea.Model {
+export class GetChatappUploadAuthorizationRequest extends $tea.Model {
   custSpaceId?: string;
-  custWabaId?: string;
-  isvCode?: string;
-  language?: string;
-  templateCode?: string;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
-      custWabaId: 'CustWabaId',
-      isvCode: 'IsvCode',
-      language: 'Language',
-      templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
-      custWabaId: 'string',
-      isvCode: 'string',
-      language: 'string',
-      templateCode: 'string',
     };
   }
 
@@ -1125,9 +1113,9 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
   }
 }
 
-export class GetChatappTemplateDetailResponseBody extends $tea.Model {
+export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
   code?: string;
-  data?: GetChatappTemplateDetailResponseBodyData;
+  data?: GetChatappUploadAuthorizationResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1142,7 +1130,7 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetChatappTemplateDetailResponseBodyData,
+      data: GetChatappUploadAuthorizationResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -1153,10 +1141,10 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
   }
 }
 
-export class GetChatappTemplateDetailResponse extends $tea.Model {
+export class GetChatappUploadAuthorizationResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: GetChatappTemplateDetailResponseBody;
+  body: GetChatappUploadAuthorizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1169,7 +1157,7 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetChatappTemplateDetailResponseBody,
+      body: GetChatappUploadAuthorizationResponseBody,
     };
   }
 
@@ -1484,134 +1472,8 @@ export class IsvGetAppIdResponse extends $tea.Model {
   }
 }
 
-export class ListChatappTemplateRequest extends $tea.Model {
-  auditStatus?: string;
-  custSpaceId?: string;
-  custWabaId?: string;
-  isvCode?: string;
-  language?: string;
-  name?: string;
-  page?: ListChatappTemplateRequestPage;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      custSpaceId: 'CustSpaceId',
-      custWabaId: 'CustWabaId',
-      isvCode: 'IsvCode',
-      language: 'Language',
-      name: 'Name',
-      page: 'Page',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      custSpaceId: 'string',
-      custWabaId: 'string',
-      isvCode: 'string',
-      language: 'string',
-      name: 'string',
-      page: ListChatappTemplateRequestPage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateShrinkRequest extends $tea.Model {
-  auditStatus?: string;
-  custSpaceId?: string;
-  custWabaId?: string;
-  isvCode?: string;
-  language?: string;
-  name?: string;
-  pageShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      custSpaceId: 'CustSpaceId',
-      custWabaId: 'CustWabaId',
-      isvCode: 'IsvCode',
-      language: 'Language',
-      name: 'Name',
-      pageShrink: 'Page',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      custSpaceId: 'string',
-      custWabaId: 'string',
-      isvCode: 'string',
-      language: 'string',
-      name: 'string',
-      pageShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateResponseBody extends $tea.Model {
-  code?: string;
-  listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      listTemplate: 'ListTemplate',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      listTemplate: { 'type': 'array', 'itemType': ListChatappTemplateResponseBodyListTemplate },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChatappTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListChatappTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyChatappTemplateRequest extends $tea.Model {
+  category?: string;
   components?: ModifyChatappTemplateRequestComponents[];
   custSpaceId?: string;
   custWabaId?: string;
@@ -1619,8 +1481,10 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
   isvCode?: string;
   language?: string;
   templateCode?: string;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       components: 'Components',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
@@ -1628,11 +1492,13 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       isvCode: 'IsvCode',
       language: 'Language',
       templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       components: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponents },
       custSpaceId: 'string',
       custWabaId: 'string',
@@ -1640,6 +1506,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       isvCode: 'string',
       language: 'string',
       templateCode: 'string',
+      templateType: 'string',
     };
   }
 
@@ -1649,6 +1516,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
 }
 
 export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
+  category?: string;
   componentsShrink?: string;
   custSpaceId?: string;
   custWabaId?: string;
@@ -1656,8 +1524,10 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   isvCode?: string;
   language?: string;
   templateCode?: string;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       componentsShrink: 'Components',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
@@ -1665,11 +1535,13 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       isvCode: 'IsvCode',
       language: 'Language',
       templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       componentsShrink: 'string',
       custSpaceId: 'string',
       custWabaId: 'string',
@@ -1677,6 +1549,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       isvCode: 'string',
       language: 'string',
       templateCode: 'string',
+      templateType: 'string',
     };
   }
 
@@ -2352,6 +2225,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   messageType?: string;
   payload?: string[];
   tag?: string;
+  taskId?: string;
   templateCode?: string;
   templateParams?: { [key: string]: string };
   to?: string;
@@ -2374,6 +2248,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       messageType: 'MessageType',
       payload: 'Payload',
       tag: 'Tag',
+      taskId: 'TaskId',
       templateCode: 'TemplateCode',
       templateParams: 'TemplateParams',
       to: 'To',
@@ -2399,6 +2274,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       messageType: 'string',
       payload: { 'type': 'array', 'itemType': 'string' },
       tag: 'string',
+      taskId: 'string',
       templateCode: 'string',
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
@@ -2428,6 +2304,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   messageType?: string;
   payloadShrink?: string;
   tag?: string;
+  taskId?: string;
   templateCode?: string;
   templateParamsShrink?: string;
   to?: string;
@@ -2450,6 +2327,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       messageType: 'MessageType',
       payloadShrink: 'Payload',
       tag: 'Tag',
+      taskId: 'TaskId',
       templateCode: 'TemplateCode',
       templateParamsShrink: 'TemplateParams',
       to: 'To',
@@ -2475,6 +2353,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       messageType: 'string',
       payloadShrink: 'string',
       tag: 'string',
+      taskId: 'string',
       templateCode: 'string',
       templateParamsShrink: 'string',
       to: 'string',
@@ -2534,6 +2413,93 @@ export class SendChatappMessageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SendChatappMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIsvCustomerTermsRequest extends $tea.Model {
+  businessDesc?: string;
+  contactMail?: string;
+  countryId?: string;
+  custName?: string;
+  custSpaceId?: string;
+  isvTerms?: string;
+  officeAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessDesc: 'BusinessDesc',
+      contactMail: 'ContactMail',
+      countryId: 'CountryId',
+      custName: 'CustName',
+      custSpaceId: 'CustSpaceId',
+      isvTerms: 'IsvTerms',
+      officeAddress: 'OfficeAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessDesc: 'string',
+      contactMail: 'string',
+      countryId: 'string',
+      custName: 'string',
+      custSpaceId: 'string',
+      isvTerms: 'string',
+      officeAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIsvCustomerTermsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitIsvCustomerTermsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitIsvCustomerTermsResponseBody,
     };
   }
 
@@ -3166,18 +3132,24 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
 export class CreateChatappTemplateRequestComponents extends $tea.Model {
   buttons?: CreateChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  duration?: number;
   fileName?: string;
+  fileType?: string;
   format?: string;
   text?: string;
+  thumbUrl?: string;
   type?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
       buttons: 'Buttons',
       caption: 'Caption',
+      duration: 'Duration',
       fileName: 'FileName',
+      fileType: 'FileType',
       format: 'Format',
       text: 'Text',
+      thumbUrl: 'ThumbUrl',
       type: 'Type',
       url: 'Url',
     };
@@ -3187,9 +3159,12 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
     return {
       buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      duration: 'number',
       fileName: 'string',
+      fileType: 'string',
       format: 'string',
       text: 'string',
+      thumbUrl: 'string',
       type: 'string',
       url: 'string',
     };
@@ -3222,103 +3197,35 @@ export class CreateChatappTemplateResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
-  phoneNumber?: string;
-  text?: string;
-  type?: string;
-  url?: string;
-  urlType?: string;
+export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  accessKeySecret?: string;
+  bucketName?: string;
+  dir?: string;
+  endPoint?: string;
+  expire?: number;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      phoneNumber: 'PhoneNumber',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      bucketName: 'BucketName',
+      dir: 'Dir',
+      endPoint: 'EndPoint',
+      expire: 'Expire',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      phoneNumber: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
-  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
-  caption?: string;
-  fileName?: string;
-  format?: string;
-  text?: string;
-  type?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttons: 'Buttons',
-      caption: 'Caption',
-      fileName: 'FileName',
-      format: 'Format',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
-      caption: 'string',
-      fileName: 'string',
-      format: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
-  auditStatus?: string;
-  category?: string;
-  components?: GetChatappTemplateDetailResponseBodyDataComponents[];
-  example?: { [key: string]: string };
-  language?: string;
-  name?: string;
-  templateCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      category: 'Category',
-      components: 'Components',
-      example: 'Example',
-      language: 'Language',
-      name: 'Name',
-      templateCode: 'TemplateCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      category: 'string',
-      components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
-      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      language: 'string',
-      name: 'string',
-      templateCode: 'string',
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      bucketName: 'string',
+      dir: 'string',
+      endPoint: 'string',
+      expire: 'number',
+      securityToken: 'string',
     };
   }
 
@@ -3374,59 +3281,6 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $tea.Model
   }
 }
 
-export class ListChatappTemplateRequestPage extends $tea.Model {
-  index?: number;
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
-  auditStatus?: string;
-  category?: string;
-  language?: string;
-  templateCode?: string;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      category: 'Category',
-      language: 'Language',
-      templateCode: 'TemplateCode',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      category: 'string',
-      language: 'string',
-      templateCode: 'string',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   phoneNumber?: string;
   text?: string;
@@ -3461,18 +3315,24 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
 export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   buttons?: ModifyChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  duration?: number;
   fileName?: string;
+  fileType?: string;
   format?: string;
   text?: string;
+  thumbUrl?: string;
   type?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
       buttons: 'Buttons',
       caption: 'Caption',
+      duration: 'Duration',
       fileName: 'FileName',
+      fileType: 'FileType',
       format: 'Format',
       text: 'Text',
+      thumbUrl: 'ThumbUrl',
       type: 'Type',
       url: 'Url',
     };
@@ -3482,9 +3342,12 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
     return {
       buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      duration: 'number',
       fileName: 'string',
+      fileType: 'string',
       format: 'string',
       text: 'string',
+      thumbUrl: 'string',
       type: 'string',
       url: 'string',
     };
@@ -3875,7 +3738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ChatappBindWabaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -3906,7 +3769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ChatappBindWabaRequest
     * @return ChatappBindWabaResponse
@@ -3958,6 +3821,13 @@ export default class Client extends OpenApi {
     return await this.chatappEmbedSignUpWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappMigrationRegisterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappMigrationRegisterResponse
+   */
   async chatappMigrationRegisterWithOptions(request: ChatappMigrationRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationRegisterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3986,11 +3856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappMigrationRegisterRequest
+    * @return ChatappMigrationRegisterResponse
+   */
   async chatappMigrationRegister(request: ChatappMigrationRegisterRequest): Promise<ChatappMigrationRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappMigrationRegisterWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappMigrationVerifiedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappMigrationVerifiedResponse
+   */
   async chatappMigrationVerifiedWithOptions(request: ChatappMigrationVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationVerifiedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4023,6 +3906,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappMigrationVerifiedRequest
+    * @return ChatappMigrationVerifiedResponse
+   */
   async chatappMigrationVerified(request: ChatappMigrationVerifiedRequest): Promise<ChatappMigrationVerifiedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappMigrationVerifiedWithOptions(request, runtime);
@@ -4306,7 +4195,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DeleteChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4350,7 +4239,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DeleteChatappTemplateRequest
     * @return DeleteChatappTemplateResponse
@@ -4360,42 +4249,18 @@ export default class Client extends OpenApi {
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
-  /**
-    * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param request GetChatappTemplateDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetChatappTemplateDetailResponse
-   */
-  async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
+  async getChatappUploadAuthorizationWithOptions(request: GetChatappUploadAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappUploadAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
-      query["CustWabaId"] = request.custWabaId;
-    }
-
-    if (!Util.isUnset(request.isvCode)) {
-      query["IsvCode"] = request.isvCode;
-    }
-
-    if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
-    }
-
-    if (!Util.isUnset(request.templateCode)) {
-      query["TemplateCode"] = request.templateCode;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetChatappTemplateDetail",
+      action: "GetChatappUploadAuthorization",
       version: "2020-06-06",
       protocol: "HTTPS",
       pathname: "/",
@@ -4405,19 +4270,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
+    return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
   }
 
-  /**
-    * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param request GetChatappTemplateDetailRequest
-    * @return GetChatappTemplateDetailResponse
-   */
-  async getChatappTemplateDetail(request: GetChatappTemplateDetailRequest): Promise<GetChatappTemplateDetailResponse> {
+  async getChatappUploadAuthorization(request: GetChatappUploadAuthorizationRequest): Promise<GetChatappUploadAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getChatappTemplateDetailWithOptions(request, runtime);
+    return await this.getChatappUploadAuthorizationWithOptions(request, runtime);
   }
 
   /**
@@ -4474,6 +4332,13 @@ export default class Client extends OpenApi {
     return await this.getChatappVerifyCodeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetMigrationVerifyCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetMigrationVerifyCodeResponse
+   */
   async getMigrationVerifyCodeWithOptions(request: GetMigrationVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationVerifyCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4510,6 +4375,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetMigrationVerifyCodeRequest
+    * @return GetMigrationVerifyCodeResponse
+   */
   async getMigrationVerifyCode(request: GetMigrationVerifyCodeRequest): Promise<GetMigrationVerifyCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMigrationVerifyCodeWithOptions(request, runtime);
@@ -4605,78 +4476,12 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
-    * @param tmpReq ListChatappTemplateRequest
+    * @param tmpReq ModifyChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
-    * @return ListChatappTemplateResponse
+    * @return ModifyChatappTemplateResponse
    */
-  async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListChatappTemplateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.page)) {
-      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
-      query["AuditStatus"] = request.auditStatus;
-    }
-
-    if (!Util.isUnset(request.custSpaceId)) {
-      query["CustSpaceId"] = request.custSpaceId;
-    }
-
-    if (!Util.isUnset(request.custWabaId)) {
-      query["CustWabaId"] = request.custWabaId;
-    }
-
-    if (!Util.isUnset(request.isvCode)) {
-      query["IsvCode"] = request.isvCode;
-    }
-
-    if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageShrink)) {
-      query["Page"] = request.pageShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListChatappTemplate",
-      version: "2020-06-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
-  }
-
-  /**
-    * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param request ListChatappTemplateRequest
-    * @return ListChatappTemplateResponse
-   */
-  async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listChatappTemplateWithOptions(request, runtime);
-  }
-
   async modifyChatappTemplateWithOptions(tmpReq: ModifyChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyChatappTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyChatappTemplateShrinkRequest({ });
@@ -4690,6 +4495,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
     if (!Util.isUnset(request.componentsShrink)) {
       body["Components"] = request.componentsShrink;
     }
@@ -4718,6 +4527,10 @@ export default class Client extends OpenApi {
       body["TemplateCode"] = request.templateCode;
     }
 
+    if (!Util.isUnset(request.templateType)) {
+      body["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4735,6 +4548,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
   }
 
+  /**
+    * ### QPS limit
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyChatappTemplateRequest
+    * @return ModifyChatappTemplateResponse
+   */
   async modifyChatappTemplate(request: ModifyChatappTemplateRequest): Promise<ModifyChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyChatappTemplateWithOptions(request, runtime);
@@ -5001,7 +4821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param tmpReq SendChatappMassMessageRequest
@@ -5091,7 +4911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param request SendChatappMassMessageRequest
@@ -5179,6 +4999,10 @@ export default class Client extends OpenApi {
       body["Tag"] = request.tag;
     }
 
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
     if (!Util.isUnset(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
@@ -5232,6 +5056,66 @@ export default class Client extends OpenApi {
     return await this.sendChatappMessageWithOptions(request, runtime);
   }
 
+  async submitIsvCustomerTermsWithOptions(request: SubmitIsvCustomerTermsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIsvCustomerTermsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.businessDesc)) {
+      query["BusinessDesc"] = request.businessDesc;
+    }
+
+    if (!Util.isUnset(request.contactMail)) {
+      query["ContactMail"] = request.contactMail;
+    }
+
+    if (!Util.isUnset(request.countryId)) {
+      query["CountryId"] = request.countryId;
+    }
+
+    if (!Util.isUnset(request.custName)) {
+      query["CustName"] = request.custName;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.isvTerms)) {
+      query["IsvTerms"] = request.isvTerms;
+    }
+
+    if (!Util.isUnset(request.officeAddress)) {
+      query["OfficeAddress"] = request.officeAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitIsvCustomerTerms",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
+  }
+
+  async submitIsvCustomerTerms(request: SubmitIsvCustomerTermsRequest): Promise<SubmitIsvCustomerTermsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitIsvCustomerTermsWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateAccountWebhookRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAccountWebhookResponse
+   */
   async updateAccountWebhookWithOptions(request: UpdateAccountWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountWebhookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5268,6 +5152,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateAccountWebhookRequest
+    * @return UpdateAccountWebhookResponse
+   */
   async updateAccountWebhook(request: UpdateAccountWebhookRequest): Promise<UpdateAccountWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccountWebhookWithOptions(request, runtime);
