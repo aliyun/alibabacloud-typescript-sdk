@@ -17680,6 +17680,90 @@ export class RunTriggerNodeResponse extends $tea.Model {
   }
 }
 
+export class SaveDataServiceApiTestResultRequest extends $tea.Model {
+  apiId?: number;
+  autoGenerate?: boolean;
+  failResultSample?: string;
+  projectId?: number;
+  resultSample?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      autoGenerate: 'AutoGenerate',
+      failResultSample: 'FailResultSample',
+      projectId: 'ProjectId',
+      resultSample: 'ResultSample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      autoGenerate: 'boolean',
+      failResultSample: 'string',
+      projectId: 'number',
+      resultSample: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveDataServiceApiTestResultResponseBody extends $tea.Model {
+  data?: boolean;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveDataServiceApiTestResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveDataServiceApiTestResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveDataServiceApiTestResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScanSensitiveDataRequest extends $tea.Model {
   data?: string;
   static names(): { [key: string]: string } {
@@ -42977,6 +43061,51 @@ export default class Client extends OpenApi {
   async runTriggerNode(request: RunTriggerNodeRequest): Promise<RunTriggerNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runTriggerNodeWithOptions(request, runtime);
+  }
+
+  async saveDataServiceApiTestResultWithOptions(request: SaveDataServiceApiTestResultRequest, runtime: $Util.RuntimeOptions): Promise<SaveDataServiceApiTestResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.autoGenerate)) {
+      body["AutoGenerate"] = request.autoGenerate;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      body["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      body["ResultSample"] = request.resultSample;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveDataServiceApiTestResult",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveDataServiceApiTestResultResponse>(await this.callApi(params, req, runtime), new SaveDataServiceApiTestResultResponse({}));
+  }
+
+  async saveDataServiceApiTestResult(request: SaveDataServiceApiTestResultRequest): Promise<SaveDataServiceApiTestResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveDataServiceApiTestResultWithOptions(request, runtime);
   }
 
   async scanSensitiveDataWithOptions(request: ScanSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<ScanSensitiveDataResponse> {
