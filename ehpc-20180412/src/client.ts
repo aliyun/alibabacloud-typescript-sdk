@@ -261,6 +261,7 @@ export class AddNodesRequest extends $tea.Model {
   internetMaxBandWidthOut?: number;
   jobQueue?: string;
   minCount?: number;
+  networkInterfaceTrafficMode?: string;
   period?: number;
   periodUnit?: string;
   sync?: boolean;
@@ -295,6 +296,7 @@ export class AddNodesRequest extends $tea.Model {
       internetMaxBandWidthOut: 'InternetMaxBandWidthOut',
       jobQueue: 'JobQueue',
       minCount: 'MinCount',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       sync: 'Sync',
@@ -332,6 +334,7 @@ export class AddNodesRequest extends $tea.Model {
       internetMaxBandWidthOut: 'number',
       jobQueue: 'string',
       minCount: 'number',
+      networkInterfaceTrafficMode: 'string',
       period: 'number',
       periodUnit: 'string',
       sync: 'boolean',
@@ -781,6 +784,7 @@ export class CreateClusterRequest extends $tea.Model {
   jobQueue?: string;
   keyPairName?: string;
   name?: string;
+  networkInterfaceTrafficMode?: string;
   osTag?: string;
   password?: string;
   period?: number;
@@ -837,6 +841,7 @@ export class CreateClusterRequest extends $tea.Model {
       jobQueue: 'JobQueue',
       keyPairName: 'KeyPairName',
       name: 'Name',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
       osTag: 'OsTag',
       password: 'Password',
       period: 'Period',
@@ -896,6 +901,7 @@ export class CreateClusterRequest extends $tea.Model {
       jobQueue: 'string',
       keyPairName: 'string',
       name: 'string',
+      networkInterfaceTrafficMode: 'string',
       osTag: 'string',
       password: 'string',
       period: 'number',
@@ -9846,6 +9852,7 @@ export class StopVisualServiceResponse extends $tea.Model {
 }
 
 export class SubmitJobRequest extends $tea.Model {
+  jobRetry?: SubmitJobRequestJobRetry;
   arrayRequest?: string;
   async?: boolean;
   clockTime?: string;
@@ -9873,6 +9880,7 @@ export class SubmitJobRequest extends $tea.Model {
   variables?: string;
   static names(): { [key: string]: string } {
     return {
+      jobRetry: 'JobRetry',
       arrayRequest: 'ArrayRequest',
       async: 'Async',
       clockTime: 'ClockTime',
@@ -9903,6 +9911,7 @@ export class SubmitJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobRetry: SubmitJobRequestJobRetry,
       arrayRequest: 'string',
       async: 'boolean',
       clockTime: 'string',
@@ -14091,6 +14100,8 @@ export class ListImagesResponseBodyOsTagsOsInfo extends $tea.Model {
   architecture?: string;
   baseOsTag?: string;
   imageId?: string;
+  OSName?: string;
+  OSNameEn?: string;
   osTag?: string;
   platform?: string;
   version?: string;
@@ -14099,6 +14110,8 @@ export class ListImagesResponseBodyOsTagsOsInfo extends $tea.Model {
       architecture: 'Architecture',
       baseOsTag: 'BaseOsTag',
       imageId: 'ImageId',
+      OSName: 'OSName',
+      OSNameEn: 'OSNameEn',
       osTag: 'OsTag',
       platform: 'Platform',
       version: 'Version',
@@ -14110,6 +14123,8 @@ export class ListImagesResponseBodyOsTagsOsInfo extends $tea.Model {
       architecture: 'string',
       baseOsTag: 'string',
       imageId: 'string',
+      OSName: 'string',
+      OSNameEn: 'string',
       osTag: 'string',
       platform: 'string',
       version: 'string',
@@ -16242,6 +16257,31 @@ export class StopNodesRequestInstance extends $tea.Model {
   }
 }
 
+export class SubmitJobRequestJobRetry extends $tea.Model {
+  count?: number;
+  onExitCode?: number;
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      onExitCode: 'OnExitCode',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      onExitCode: 'number',
+      priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -16349,6 +16389,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+    *
+    * @param request AddContainerAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddContainerAppResponse
+   */
   async addContainerAppWithOptions(request: AddContainerAppRequest, runtime: $Util.RuntimeOptions): Promise<AddContainerAppResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16369,11 +16416,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddContainerAppResponse>(await this.callApi(params, req, runtime), new AddContainerAppResponse({}));
   }
 
+  /**
+    * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+    *
+    * @param request AddContainerAppRequest
+    * @return AddContainerAppResponse
+   */
   async addContainerApp(request: AddContainerAppRequest): Promise<AddContainerAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addContainerAppWithOptions(request, runtime);
   }
 
+  /**
+    * *   The compute nodes to be added are in the Stopped state.
+    * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+    * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
+    *
+    * @param request AddExistedNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddExistedNodesResponse
+   */
   async addExistedNodesWithOptions(request: AddExistedNodesRequest, runtime: $Util.RuntimeOptions): Promise<AddExistedNodesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16394,6 +16456,14 @@ export default class Client extends OpenApi {
     return $tea.cast<AddExistedNodesResponse>(await this.callApi(params, req, runtime), new AddExistedNodesResponse({}));
   }
 
+  /**
+    * *   The compute nodes to be added are in the Stopped state.
+    * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+    * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
+    *
+    * @param request AddExistedNodesRequest
+    * @return AddExistedNodesResponse
+   */
   async addExistedNodes(request: AddExistedNodesRequest): Promise<AddExistedNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addExistedNodesWithOptions(request, runtime);
@@ -16524,6 +16594,13 @@ export default class Client extends OpenApi {
     return await this.addUsersWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+    *
+    * @param request ApplyNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApplyNodesResponse
+   */
   async applyNodesWithOptions(request: ApplyNodesRequest, runtime: $Util.RuntimeOptions): Promise<ApplyNodesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16544,11 +16621,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyNodesResponse>(await this.callApi(params, req, runtime), new ApplyNodesResponse({}));
   }
 
+  /**
+    * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+    *
+    * @param request ApplyNodesRequest
+    * @return ApplyNodesResponse
+   */
   async applyNodes(request: ApplyNodesRequest): Promise<ApplyNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyNodesWithOptions(request, runtime);
   }
 
+  /**
+    * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+    *
+    * @param request CreateClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateClusterResponse
+   */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16569,6 +16659,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
+  /**
+    * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+    *
+    * @param request CreateClusterRequest
+    * @return CreateClusterResponse
+   */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
@@ -16724,6 +16820,13 @@ export default class Client extends OpenApi {
     return await this.createJobTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+    *
+    * @param request DeleteClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteClusterResponse
+   */
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16744,6 +16847,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
+  /**
+    * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that have expired are automatically released. The subscription nodes that have not expired are retained. If you need to release the subscription nodes that have not expired, change their billing method to pay-as-you-go. Before you release a cluster, make sure that you will no longer use the cluster.
+    *
+    * @param request DeleteClusterRequest
+    * @return DeleteClusterResponse
+   */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
@@ -16924,6 +17033,13 @@ export default class Client extends OpenApi {
     return await this.deleteLocalImageWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+    *
+    * @param request DeleteNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteNodesResponse
+   */
   async deleteNodesWithOptions(request: DeleteNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNodesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16944,6 +17060,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNodesResponse>(await this.callApi(params, req, runtime), new DeleteNodesResponse({}));
   }
 
+  /**
+    * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+    *
+    * @param request DeleteNodesRequest
+    * @return DeleteNodesResponse
+   */
   async deleteNodes(request: DeleteNodesRequest): Promise<DeleteNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNodesWithOptions(request, runtime);
@@ -16999,6 +17121,13 @@ export default class Client extends OpenApi {
     return await this.deleteSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+    * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+    *
+    * @param request DeleteUsersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteUsersResponse
+   */
   async deleteUsersWithOptions(request: DeleteUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUsersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17019,6 +17148,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUsersResponse>(await this.callApi(params, req, runtime), new DeleteUsersResponse({}));
   }
 
+  /**
+    * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+    *
+    * @param request DeleteUsersRequest
+    * @return DeleteUsersResponse
+   */
   async deleteUsers(request: DeleteUsersRequest): Promise<DeleteUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUsersWithOptions(request, runtime);
@@ -18611,6 +18746,13 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
+    *
+    * @param request ListTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTasksResponse
+   */
   async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -18631,6 +18773,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
+  /**
+    * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
+    *
+    * @param request ListTasksRequest
+    * @return ListTasksResponse
+   */
   async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTasksWithOptions(request, runtime);
@@ -18736,6 +18884,13 @@ export default class Client extends OpenApi {
     return await this.listVolumesWithOptions(request, runtime);
   }
 
+  /**
+    * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+    *
+    * @param request ModifyClusterAttributesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyClusterAttributesResponse
+   */
   async modifyClusterAttributesWithOptions(request: ModifyClusterAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterAttributesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -18756,6 +18911,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterAttributesResponse>(await this.callApi(params, req, runtime), new ModifyClusterAttributesResponse({}));
   }
 
+  /**
+    * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+    *
+    * @param request ModifyClusterAttributesRequest
+    * @return ModifyClusterAttributesResponse
+   */
   async modifyClusterAttributes(request: ModifyClusterAttributesRequest): Promise<ModifyClusterAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClusterAttributesWithOptions(request, runtime);
@@ -18957,6 +19118,17 @@ export default class Client extends OpenApi {
     return await this.queryServicePackAndPriceWithOptions(runtime);
   }
 
+  /**
+    * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
+    * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+    * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+    * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
+    * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+    *
+    * @param request RecoverClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RecoverClusterResponse
+   */
   async recoverClusterWithOptions(request: RecoverClusterRequest, runtime: $Util.RuntimeOptions): Promise<RecoverClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -18977,6 +19149,16 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverClusterResponse>(await this.callApi(params, req, runtime), new RecoverClusterResponse({}));
   }
 
+  /**
+    * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
+    * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+    * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+    * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
+    * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+    *
+    * @param request RecoverClusterRequest
+    * @return RecoverClusterResponse
+   */
   async recoverCluster(request: RecoverClusterRequest): Promise<RecoverClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoverClusterWithOptions(request, runtime);
@@ -19007,6 +19189,13 @@ export default class Client extends OpenApi {
     return await this.rerunJobsWithOptions(request, runtime);
   }
 
+  /**
+    * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
+    *
+    * @param request ResetNodesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetNodesResponse
+   */
   async resetNodesWithOptions(request: ResetNodesRequest, runtime: $Util.RuntimeOptions): Promise<ResetNodesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19027,6 +19216,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetNodesResponse>(await this.callApi(params, req, runtime), new ResetNodesResponse({}));
   }
 
+  /**
+    * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
+    *
+    * @param request ResetNodesRequest
+    * @return ResetNodesResponse
+   */
   async resetNodes(request: ResetNodesRequest): Promise<ResetNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetNodesWithOptions(request, runtime);
@@ -19057,6 +19252,13 @@ export default class Client extends OpenApi {
     return await this.runCloudMetricProfilingWithOptions(request, runtime);
   }
 
+  /**
+    * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+    *
+    * @param request SetAutoScaleConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetAutoScaleConfigResponse
+   */
   async setAutoScaleConfigWithOptions(request: SetAutoScaleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetAutoScaleConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19077,6 +19279,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAutoScaleConfigResponse>(await this.callApi(params, req, runtime), new SetAutoScaleConfigResponse({}));
   }
 
+  /**
+    * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+    *
+    * @param request SetAutoScaleConfigRequest
+    * @return SetAutoScaleConfigResponse
+   */
   async setAutoScaleConfig(request: SetAutoScaleConfigRequest): Promise<SetAutoScaleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAutoScaleConfigWithOptions(request, runtime);
@@ -19360,6 +19568,13 @@ export default class Client extends OpenApi {
     return await this.startVisualServiceWithOptions(request, runtime);
   }
 
+  /**
+    * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
+    *
+    * @param request StopClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopClusterResponse
+   */
   async stopClusterWithOptions(request: StopClusterRequest, runtime: $Util.RuntimeOptions): Promise<StopClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19380,6 +19595,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StopClusterResponse>(await this.callApi(params, req, runtime), new StopClusterResponse({}));
   }
 
+  /**
+    * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
+    *
+    * @param request StopClusterRequest
+    * @return StopClusterResponse
+   */
   async stopCluster(request: StopClusterRequest): Promise<StopClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopClusterWithOptions(request, runtime);
@@ -19485,6 +19706,13 @@ export default class Client extends OpenApi {
     return await this.stopVisualServiceWithOptions(request, runtime);
   }
 
+  /**
+    * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+    *
+    * @param request SubmitJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitJobResponse
+   */
   async submitJobWithOptions(request: SubmitJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19505,6 +19733,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitJobResponse>(await this.callApi(params, req, runtime), new SubmitJobResponse({}));
   }
 
+  /**
+    * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
+    *
+    * @param request SubmitJobRequest
+    * @return SubmitJobResponse
+   */
   async submitJob(request: SubmitJobRequest): Promise<SubmitJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitJobWithOptions(request, runtime);
@@ -19721,6 +19955,13 @@ export default class Client extends OpenApi {
     return await this.updateClusterVolumesWithOptions(request, runtime);
   }
 
+  /**
+    * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+    *
+    * @param request UpdateQueueConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateQueueConfigResponse
+   */
   async updateQueueConfigWithOptions(request: UpdateQueueConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQueueConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19741,6 +19982,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQueueConfigResponse>(await this.callApi(params, req, runtime), new UpdateQueueConfigResponse({}));
   }
 
+  /**
+    * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+    *
+    * @param request UpdateQueueConfigRequest
+    * @return UpdateQueueConfigResponse
+   */
   async updateQueueConfig(request: UpdateQueueConfigRequest): Promise<UpdateQueueConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateQueueConfigWithOptions(request, runtime);
