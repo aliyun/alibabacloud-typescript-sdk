@@ -2784,6 +2784,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
   messageQueueGrayEnable?: boolean;
   name?: string;
   namespace?: string;
+  recordCanaryDetail?: boolean;
   region?: string;
   source?: string;
   status?: number;
@@ -2803,6 +2804,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       messageQueueGrayEnable: 'MessageQueueGrayEnable',
       name: 'Name',
       namespace: 'Namespace',
+      recordCanaryDetail: 'RecordCanaryDetail',
       region: 'Region',
       source: 'Source',
       status: 'Status',
@@ -2825,6 +2827,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       messageQueueGrayEnable: 'boolean',
       name: 'string',
       namespace: 'string',
+      recordCanaryDetail: 'boolean',
       region: 'string',
       source: 'string',
       status: 'number',
@@ -2839,7 +2842,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
 
 export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $tea.Model {
   code?: number;
-  data?: any;
+  data?: CreateOrUpdateSwimmingLaneGroupResponseBodyData;
   dynamicMessage?: string;
   errorCode?: string;
   httpStatusCode?: number;
@@ -2862,7 +2865,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'any',
+      data: CreateOrUpdateSwimmingLaneGroupResponseBodyData,
       dynamicMessage: 'string',
       errorCode: 'string',
       httpStatusCode: 'number',
@@ -4465,10 +4468,16 @@ export class DeleteSwimmingLaneResponse extends $tea.Model {
 export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
+  namespace?: string;
+  region?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      namespace: 'Namespace',
+      region: 'Region',
+      name: 'name',
     };
   }
 
@@ -4476,6 +4485,9 @@ export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
+      namespace: 'string',
+      region: 'string',
+      name: 'string',
     };
   }
 
@@ -11576,7 +11588,7 @@ export class QueryAllSwimmingLaneGroupRequest extends $tea.Model {
 
 export class QueryAllSwimmingLaneGroupResponseBody extends $tea.Model {
   code?: number;
-  data?: any;
+  data?: QueryAllSwimmingLaneGroupResponseBodyData[];
   dynamicMessage?: string;
   errorCode?: string;
   httpStatusCode?: number;
@@ -11599,7 +11611,7 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'any',
+      data: { 'type': 'array', 'itemType': QueryAllSwimmingLaneGroupResponseBodyData },
       dynamicMessage: 'string',
       errorCode: 'string',
       httpStatusCode: 'number',
@@ -17717,6 +17729,64 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $tea.Mode
   }
 }
 
+export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $tea.Model {
+  appIds?: string;
+  dbGrayEnable?: string;
+  enable?: string;
+  entryApp?: string;
+  id?: number;
+  messageQueueFilterSide?: string;
+  messageQueueGrayEnable?: boolean;
+  name?: string;
+  namespace?: string;
+  recordCanaryDetail?: boolean;
+  region?: string;
+  source?: string;
+  status?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIds: 'AppIds',
+      dbGrayEnable: 'DbGrayEnable',
+      enable: 'Enable',
+      entryApp: 'EntryApp',
+      id: 'Id',
+      messageQueueFilterSide: 'MessageQueueFilterSide',
+      messageQueueGrayEnable: 'MessageQueueGrayEnable',
+      name: 'Name',
+      namespace: 'Namespace',
+      recordCanaryDetail: 'RecordCanaryDetail',
+      region: 'Region',
+      source: 'Source',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIds: 'string',
+      dbGrayEnable: 'string',
+      enable: 'string',
+      entryApp: 'string',
+      id: 'number',
+      messageQueueFilterSide: 'string',
+      messageQueueGrayEnable: 'boolean',
+      name: 'string',
+      namespace: 'string',
+      recordCanaryDetail: 'boolean',
+      region: 'string',
+      source: 'string',
+      status: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateZnodeResponseBodyData extends $tea.Model {
   data?: string;
   dir?: boolean;
@@ -22894,6 +22964,64 @@ export class PullServicesResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryAllSwimmingLaneGroupResponseBodyData extends $tea.Model {
+  appIds?: string;
+  dbGrayEnable?: string;
+  enable?: string;
+  entryApp?: string;
+  id?: number;
+  messageQueueFilterSide?: string;
+  messageQueueGrayEnable?: boolean;
+  name?: string;
+  namespace?: string;
+  recordCanaryDetail?: boolean;
+  region?: string;
+  source?: string;
+  status?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appIds: 'AppIds',
+      dbGrayEnable: 'DbGrayEnable',
+      enable: 'Enable',
+      entryApp: 'EntryApp',
+      id: 'Id',
+      messageQueueFilterSide: 'MessageQueueFilterSide',
+      messageQueueGrayEnable: 'MessageQueueGrayEnable',
+      name: 'Name',
+      namespace: 'Namespace',
+      recordCanaryDetail: 'RecordCanaryDetail',
+      region: 'Region',
+      source: 'Source',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIds: 'string',
+      dbGrayEnable: 'string',
+      enable: 'string',
+      entryApp: 'string',
+      id: 'number',
+      messageQueueFilterSide: 'string',
+      messageQueueGrayEnable: 'boolean',
+      name: 'string',
+      namespace: 'string',
+      recordCanaryDetail: 'boolean',
+      region: 'string',
+      source: 'string',
+      status: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryBusinessLocationsResponseBodyData extends $tea.Model {
   cnName?: string;
   description?: string;
@@ -26354,6 +26482,10 @@ export default class Client extends OpenApi {
       query["Namespace"] = request.namespace;
     }
 
+    if (!Util.isUnset(request.recordCanaryDetail)) {
+      query["RecordCanaryDetail"] = request.recordCanaryDetail;
+    }
+
     if (!Util.isUnset(request.region)) {
       query["Region"] = request.region;
     }
@@ -27179,6 +27311,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
     }
 
     let req = new $OpenApi.OpenApiRequest({
