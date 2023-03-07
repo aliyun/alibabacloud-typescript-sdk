@@ -7290,6 +7290,8 @@ export class ImportNacosConfigResponse extends $tea.Model {
 
 export class ImportServicesRequest extends $tea.Model {
   acceptLanguage?: string;
+  fcServiceName?: string;
+  fcVersion?: string;
   gatewayUniqueId?: string;
   serviceList?: ImportServicesRequestServiceList[];
   sourceType?: string;
@@ -7297,6 +7299,8 @@ export class ImportServicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      fcServiceName: 'FcServiceName',
+      fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
       serviceList: 'ServiceList',
       sourceType: 'SourceType',
@@ -7307,6 +7311,8 @@ export class ImportServicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      fcServiceName: 'string',
+      fcVersion: 'string',
       gatewayUniqueId: 'string',
       serviceList: { 'type': 'array', 'itemType': ImportServicesRequestServiceList },
       sourceType: 'string',
@@ -7321,6 +7327,8 @@ export class ImportServicesRequest extends $tea.Model {
 
 export class ImportServicesShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
+  fcServiceName?: string;
+  fcVersion?: string;
   gatewayUniqueId?: string;
   serviceListShrink?: string;
   sourceType?: string;
@@ -7328,6 +7336,8 @@ export class ImportServicesShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      fcServiceName: 'FcServiceName',
+      fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
       serviceListShrink: 'ServiceList',
       sourceType: 'SourceType',
@@ -7338,6 +7348,8 @@ export class ImportServicesShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      fcServiceName: 'string',
+      fcVersion: 'string',
       gatewayUniqueId: 'string',
       serviceListShrink: 'string',
       sourceType: 'string',
@@ -28724,6 +28736,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.fcServiceName)) {
+      query["FcServiceName"] = request.fcServiceName;
+    }
+
+    if (!Util.isUnset(request.fcVersion)) {
+      query["FcVersion"] = request.fcVersion;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
