@@ -18403,6 +18403,87 @@ export class StopInstanceResponse extends $tea.Model {
   }
 }
 
+export class SubmitDataServiceApiRequest extends $tea.Model {
+  apiId?: number;
+  projectId?: number;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      projectId: 'ProjectId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      projectId: 'number',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDataServiceApiResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDataServiceApiResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitDataServiceApiResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDataServiceApiResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitFileRequest extends $tea.Model {
   comment?: string;
   fileId?: number;
@@ -43276,6 +43357,43 @@ export default class Client extends OpenApi {
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
+  }
+
+  async submitDataServiceApiWithOptions(request: SubmitDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDataServiceApiResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDataServiceApi",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDataServiceApiResponse>(await this.callApi(params, req, runtime), new SubmitDataServiceApiResponse({}));
+  }
+
+  async submitDataServiceApi(request: SubmitDataServiceApiRequest): Promise<SubmitDataServiceApiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDataServiceApiWithOptions(request, runtime);
   }
 
   async submitFileWithOptions(request: SubmitFileRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFileResponse> {
