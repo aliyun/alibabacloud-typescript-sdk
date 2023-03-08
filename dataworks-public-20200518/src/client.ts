@@ -2708,6 +2708,7 @@ export class CreateQualityEntityRequest extends $tea.Model {
   entityLevel?: number;
   envType?: string;
   matchExpression?: string;
+  projectId?: number;
   projectName?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
@@ -2715,6 +2716,7 @@ export class CreateQualityEntityRequest extends $tea.Model {
       entityLevel: 'EntityLevel',
       envType: 'EnvType',
       matchExpression: 'MatchExpression',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       tableName: 'TableName',
     };
@@ -2725,6 +2727,7 @@ export class CreateQualityEntityRequest extends $tea.Model {
       entityLevel: 'number',
       envType: 'string',
       matchExpression: 'string',
+      projectId: 'number',
       projectName: 'string',
       tableName: 'string',
     };
@@ -2798,12 +2801,14 @@ export class CreateQualityFollowerRequest extends $tea.Model {
   alarmMode?: number;
   entityId?: number;
   follower?: string;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       alarmMode: 'AlarmMode',
       entityId: 'EntityId',
       follower: 'Follower',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -2813,6 +2818,7 @@ export class CreateQualityFollowerRequest extends $tea.Model {
       alarmMode: 'number',
       entityId: 'number',
       follower: 'string',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -2990,6 +2996,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
   methodName?: string;
   operator?: string;
   predictType?: number;
+  projectId?: number;
   projectName?: string;
   property?: string;
   propertyType?: string;
@@ -3010,6 +3017,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
       methodName: 'MethodName',
       operator: 'Operator',
       predictType: 'PredictType',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       property: 'Property',
       propertyType: 'PropertyType',
@@ -3033,6 +3041,7 @@ export class CreateQualityRuleRequest extends $tea.Model {
       methodName: 'string',
       operator: 'string',
       predictType: 'number',
+      projectId: 'number',
       projectName: 'string',
       property: 'string',
       propertyType: 'string',
@@ -4738,11 +4747,13 @@ export class DeleteProjectMemberResponse extends $tea.Model {
 export class DeleteQualityEntityRequest extends $tea.Model {
   entityId?: number;
   envType?: string;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
       envType: 'EnvType',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -4751,6 +4762,7 @@ export class DeleteQualityEntityRequest extends $tea.Model {
     return {
       entityId: 'number',
       envType: 'string',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -4821,10 +4833,12 @@ export class DeleteQualityEntityResponse extends $tea.Model {
 
 export class DeleteQualityFollowerRequest extends $tea.Model {
   followerId?: number;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       followerId: 'FollowerId',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -4832,6 +4846,7 @@ export class DeleteQualityFollowerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       followerId: 'number',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -5000,10 +5015,12 @@ export class DeleteQualityRelativeNodeResponse extends $tea.Model {
 }
 
 export class DeleteQualityRuleRequest extends $tea.Model {
+  projectId?: number;
   projectName?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       ruleId: 'RuleId',
     };
@@ -5011,6 +5028,7 @@ export class DeleteQualityRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      projectId: 'number',
       projectName: 'string',
       ruleId: 'number',
     };
@@ -10901,12 +10919,14 @@ export class GetProjectDetailResponse extends $tea.Model {
 export class GetQualityEntityRequest extends $tea.Model {
   envType?: string;
   matchExpression?: string;
+  projectId?: number;
   projectName?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
       envType: 'EnvType',
       matchExpression: 'MatchExpression',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       tableName: 'TableName',
     };
@@ -10916,6 +10936,7 @@ export class GetQualityEntityRequest extends $tea.Model {
     return {
       envType: 'string',
       matchExpression: 'string',
+      projectId: 'number',
       projectName: 'string',
       tableName: 'string',
     };
@@ -10987,10 +11008,12 @@ export class GetQualityEntityResponse extends $tea.Model {
 
 export class GetQualityFollowerRequest extends $tea.Model {
   entityId?: number;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -10998,6 +11021,7 @@ export class GetQualityFollowerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       entityId: 'number',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -11067,10 +11091,12 @@ export class GetQualityFollowerResponse extends $tea.Model {
 }
 
 export class GetQualityRuleRequest extends $tea.Model {
+  projectId?: number;
   projectName?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       ruleId: 'RuleId',
     };
@@ -11078,6 +11104,7 @@ export class GetQualityRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      projectId: 'number',
       projectName: 'string',
       ruleId: 'number',
     };
@@ -15482,6 +15509,7 @@ export class ListQualityResultsByEntityRequest extends $tea.Model {
   entityId?: number;
   pageNumber?: number;
   pageSize?: number;
+  projectId?: number;
   projectName?: string;
   startDate?: string;
   static names(): { [key: string]: string } {
@@ -15490,6 +15518,7 @@ export class ListQualityResultsByEntityRequest extends $tea.Model {
       entityId: 'EntityId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       startDate: 'StartDate',
     };
@@ -15501,6 +15530,7 @@ export class ListQualityResultsByEntityRequest extends $tea.Model {
       entityId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      projectId: 'number',
       projectName: 'string',
       startDate: 'string',
     };
@@ -15574,6 +15604,7 @@ export class ListQualityResultsByRuleRequest extends $tea.Model {
   endDate?: string;
   pageNumber?: number;
   pageSize?: number;
+  projectId?: number;
   projectName?: string;
   ruleId?: number;
   startDate?: string;
@@ -15582,6 +15613,7 @@ export class ListQualityResultsByRuleRequest extends $tea.Model {
       endDate: 'EndDate',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       ruleId: 'RuleId',
       startDate: 'StartDate',
@@ -15593,6 +15625,7 @@ export class ListQualityResultsByRuleRequest extends $tea.Model {
       endDate: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      projectId: 'number',
       projectName: 'string',
       ruleId: 'number',
       startDate: 'string',
@@ -15667,12 +15700,14 @@ export class ListQualityRulesRequest extends $tea.Model {
   entityId?: number;
   pageNumber?: number;
   pageSize?: number;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -15682,6 +15717,7 @@ export class ListQualityRulesRequest extends $tea.Model {
       entityId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -20694,12 +20730,14 @@ export class UpdateQualityFollowerRequest extends $tea.Model {
   alarmMode?: number;
   follower?: string;
   followerId?: number;
+  projectId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       alarmMode: 'AlarmMode',
       follower: 'Follower',
       followerId: 'FollowerId',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
     };
   }
@@ -20709,6 +20747,7 @@ export class UpdateQualityFollowerRequest extends $tea.Model {
       alarmMode: 'number',
       follower: 'string',
       followerId: 'number',
+      projectId: 'number',
       projectName: 'string',
     };
   }
@@ -20789,6 +20828,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   openSwitch?: boolean;
   operator?: string;
   predictType?: number;
+  projectId?: number;
   projectName?: string;
   property?: string;
   propertyType?: string;
@@ -20811,6 +20851,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       openSwitch: 'OpenSwitch',
       operator: 'Operator',
       predictType: 'PredictType',
+      projectId: 'ProjectId',
       projectName: 'ProjectName',
       property: 'Property',
       propertyType: 'PropertyType',
@@ -20836,6 +20877,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       openSwitch: 'boolean',
       operator: 'string',
       predictType: 'number',
+      projectId: 'number',
       projectName: 'string',
       property: 'string',
       propertyType: 'string',
@@ -35392,6 +35434,10 @@ export default class Client extends OpenApi {
       body["MatchExpression"] = request.matchExpression;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -35435,6 +35481,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.follower)) {
       body["Follower"] = request.follower;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -35557,6 +35607,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.predictType)) {
       body["PredictType"] = request.predictType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -36464,6 +36518,10 @@ export default class Client extends OpenApi {
       body["EnvType"] = request.envType;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -36502,6 +36560,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.followerId)) {
       body["FollowerId"] = request.followerId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -36596,6 +36658,10 @@ export default class Client extends OpenApi {
   async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -39450,6 +39516,10 @@ export default class Client extends OpenApi {
       body["MatchExpression"] = request.matchExpression;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -39487,6 +39557,10 @@ export default class Client extends OpenApi {
       body["EntityId"] = request.entityId;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -39516,6 +39590,10 @@ export default class Client extends OpenApi {
   async getQualityRuleWithOptions(request: GetQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -41913,6 +41991,10 @@ export default class Client extends OpenApi {
       body["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -41964,6 +42046,10 @@ export default class Client extends OpenApi {
       body["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -42011,6 +42097,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -44023,13 +44113,6 @@ export default class Client extends OpenApi {
     return await this.updateConnectionWithOptions(request, runtime);
   }
 
-  /**
-    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
-    *
-    * @param request UpdateDIProjectConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDIProjectConfigResponse
-   */
   async updateDIProjectConfigWithOptions(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44066,12 +44149,6 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDIProjectConfigResponse>(await this.callApi(params, req, runtime), new UpdateDIProjectConfigResponse({}));
   }
 
-  /**
-    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
-    *
-    * @param request UpdateDIProjectConfigRequest
-    * @return UpdateDIProjectConfigResponse
-   */
   async updateDIProjectConfig(request: UpdateDIProjectConfigRequest): Promise<UpdateDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIProjectConfigWithOptions(request, runtime);
@@ -44766,6 +44843,10 @@ export default class Client extends OpenApi {
       body["FollowerId"] = request.followerId;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
@@ -44837,6 +44918,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.predictType)) {
       body["PredictType"] = request.predictType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.projectName)) {
