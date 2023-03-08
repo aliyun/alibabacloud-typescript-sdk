@@ -2759,6 +2759,128 @@ export class GetCartoonResponse extends $tea.Model {
   }
 }
 
+export class GetHotelContactByGenieDeviceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceRequest extends $tea.Model {
+  deviceInfo?: GetHotelContactByGenieDeviceRequestDeviceInfo;
+  userInfo?: GetHotelContactByGenieDeviceRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: GetHotelContactByGenieDeviceRequestDeviceInfo,
+      userInfo: GetHotelContactByGenieDeviceRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceShrinkRequest extends $tea.Model {
+  deviceInfoShrink?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfoShrink: 'DeviceInfo',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfoShrink: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: GetHotelContactByGenieDeviceResponseBodyResult;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: GetHotelContactByGenieDeviceResponseBodyResult,
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetHotelContactByGenieDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHotelContactByGenieDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHotelContactByNumberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -4163,6 +4285,112 @@ export class GetRelationProductListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRelationProductListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUnionIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUnionIdRequest extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUnionIdResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  result?: GetUnionIdResponseBodyResult[];
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': GetUnionIdResponseBodyResult },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUnionIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUnionIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUnionIdResponseBody,
     };
   }
 
@@ -9405,6 +9633,117 @@ export class GetCartoonResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetHotelContactByGenieDeviceRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotelContactByGenieDeviceResponseBodyResult extends $tea.Model {
+  expireAt?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  hotelId?: string;
+  icon?: string;
+  id?: number;
+  name?: string;
+  number?: string;
+  status?: number;
+  type?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireAt: 'ExpireAt',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hotelId: 'HotelId',
+      icon: 'Icon',
+      id: 'Id',
+      name: 'Name',
+      number: 'Number',
+      status: 'Status',
+      type: 'Type',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireAt: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      hotelId: 'string',
+      icon: 'string',
+      id: 'number',
+      name: 'string',
+      number: 'string',
+      status: 'number',
+      type: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHotelContactByNumberRequestUserInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -10110,6 +10449,28 @@ export class GetRelationProductListResponseBodyResult extends $tea.Model {
     return {
       name: 'string',
       pk: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUnionIdResponseBodyResult extends $tea.Model {
+  organizationId?: string;
+  unionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationId: 'OrganizationId',
+      unionId: 'UnionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationId: 'string',
+      unionId: 'string',
     };
   }
 
@@ -13596,6 +13957,64 @@ export default class Client extends OpenApi {
     return await this.getCartoonWithOptions(request, headers, runtime);
   }
 
+  async getHotelContactByGenieDeviceWithOptions(tmpReq: GetHotelContactByGenieDeviceRequest, headers: GetHotelContactByGenieDeviceHeaders, runtime: $Util.RuntimeOptions): Promise<GetHotelContactByGenieDeviceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetHotelContactByGenieDeviceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      query["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHotelContactByGenieDevice",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/getHotelContactByGenieDevice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotelContactByGenieDeviceResponse>(await this.callApi(params, req, runtime), new GetHotelContactByGenieDeviceResponse({}));
+  }
+
+  async getHotelContactByGenieDevice(request: GetHotelContactByGenieDeviceRequest): Promise<GetHotelContactByGenieDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetHotelContactByGenieDeviceHeaders({ });
+    return await this.getHotelContactByGenieDeviceWithOptions(request, headers, runtime);
+  }
+
   async getHotelContactByNumberWithOptions(tmpReq: GetHotelContactByNumberRequest, headers: GetHotelContactByNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetHotelContactByNumberResponse> {
     Util.validateModel(tmpReq);
     let request = new GetHotelContactByNumberShrinkRequest({ });
@@ -14225,6 +14644,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetRelationProductListHeaders({ });
     return await this.getRelationProductListWithOptions(headers, runtime);
+  }
+
+  async getUnionIdWithOptions(request: GetUnionIdRequest, headers: GetUnionIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUnionIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.encodeKey)) {
+      body["EncodeKey"] = request.encodeKey;
+    }
+
+    if (!Util.isUnset(request.encodeType)) {
+      body["EncodeType"] = request.encodeType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.idType)) {
+      body["IdType"] = request.idType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUnionId",
+      version: "ip_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ip/getUnionId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUnionIdResponse>(await this.callApi(params, req, runtime), new GetUnionIdResponse({}));
+  }
+
+  async getUnionId(request: GetUnionIdRequest): Promise<GetUnionIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUnionIdHeaders({ });
+    return await this.getUnionIdWithOptions(request, headers, runtime);
   }
 
   async getWelcomeTextAndMusicWithOptions(request: GetWelcomeTextAndMusicRequest, headers: GetWelcomeTextAndMusicHeaders, runtime: $Util.RuntimeOptions): Promise<GetWelcomeTextAndMusicResponse> {
