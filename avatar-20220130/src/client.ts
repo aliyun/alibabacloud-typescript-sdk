@@ -1538,12 +1538,14 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
   failReason?: string;
   subtitlesUrl?: string;
   videoUrl?: string;
+  wordSubtitlesUrl?: string;
   static names(): { [key: string]: string } {
     return {
       failCode: 'FailCode',
       failReason: 'FailReason',
       subtitlesUrl: 'SubtitlesUrl',
       videoUrl: 'VideoUrl',
+      wordSubtitlesUrl: 'WordSubtitlesUrl',
     };
   }
 
@@ -1553,6 +1555,7 @@ export class GetVideoTaskInfoResponseBodyDataTaskResult extends $tea.Model {
       failReason: 'string',
       subtitlesUrl: 'string',
       videoUrl: 'string',
+      wordSubtitlesUrl: 'string',
     };
   }
 
