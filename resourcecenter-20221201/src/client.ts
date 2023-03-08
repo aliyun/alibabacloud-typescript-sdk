@@ -1226,37 +1226,13 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $t
   }
 }
 
-export class ListResourceTypesResponseBodyResourceTypesCodeMapping extends $tea.Model {
-  resourceGroup?: string;
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroup: 'ResourceGroup',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroup: 'string',
-      tag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListResourceTypesResponseBodyResourceTypes extends $tea.Model {
-  codeMapping?: ListResourceTypesResponseBodyResourceTypesCodeMapping;
   filterKeys?: string[];
   productName?: string;
   resourceType?: string;
   resourceTypeName?: string;
   static names(): { [key: string]: string } {
     return {
-      codeMapping: 'CodeMapping',
       filterKeys: 'FilterKeys',
       productName: 'ProductName',
       resourceType: 'ResourceType',
@@ -1266,7 +1242,6 @@ export class ListResourceTypesResponseBodyResourceTypes extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      codeMapping: ListResourceTypesResponseBodyResourceTypesCodeMapping,
       filterKeys: { 'type': 'array', 'itemType': 'string' },
       productName: 'string',
       resourceType: 'string',
