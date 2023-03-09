@@ -684,6 +684,72 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserPermissionsRequest extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserPermissionsResponseBody extends $tea.Model {
+  permissions?: DescribeUserPermissionsResponseBodyPermissions[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      permissions: 'Permissions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permissions: { 'type': 'array', 'itemType': DescribeUserPermissionsResponseBodyPermissions },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserPermissionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUserPermissionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserPermissionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachClusterFromHubRequest extends $tea.Model {
   clusterId?: string;
   clusterIds?: string;
@@ -754,6 +820,72 @@ export class DetachClusterFromHubResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachClusterFromHubResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionsRequest extends $tea.Model {
+  permissions?: GrantUserPermissionsRequestPermissions[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      permissions: 'Permissions',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permissions: { 'type': 'array', 'itemType': GrantUserPermissionsRequestPermissions },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GrantUserPermissionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantUserPermissionsResponseBody,
     };
   }
 
@@ -1631,6 +1763,68 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class DescribeUserPermissionsResponseBodyPermissions extends $tea.Model {
+  ownerId?: string;
+  parentId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  roleName?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      parentId: 'ParentId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      roleName: 'RoleName',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'string',
+      parentId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      roleName: 'string',
+      roleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionsRequestPermissions extends $tea.Model {
+  clusterId?: string;
+  namespace?: string;
+  roleName?: string;
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      namespace: 'Namespace',
+      roleName: 'RoleName',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      namespace: 'string',
+      roleName: 'string',
+      roleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2005,6 +2199,35 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async describeUserPermissionsWithOptions(request: DescribeUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserPermissions",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserPermissionsResponse>(await this.callApi(params, req, runtime), new DescribeUserPermissionsResponse({}));
+  }
+
+  async describeUserPermissions(request: DescribeUserPermissionsRequest): Promise<DescribeUserPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserPermissionsWithOptions(request, runtime);
+  }
+
   async detachClusterFromHubWithOptions(request: DetachClusterFromHubRequest, runtime: $Util.RuntimeOptions): Promise<DetachClusterFromHubResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2042,6 +2265,39 @@ export default class Client extends OpenApi {
   async detachClusterFromHub(request: DetachClusterFromHubRequest): Promise<DetachClusterFromHubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachClusterFromHubWithOptions(request, runtime);
+  }
+
+  async grantUserPermissionsWithOptions(request: GrantUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.permissions)) {
+      query["Permissions"] = request.permissions;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantUserPermissions",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantUserPermissionsResponse>(await this.callApi(params, req, runtime), new GrantUserPermissionsResponse({}));
+  }
+
+  async grantUserPermissions(request: GrantUserPermissionsRequest): Promise<GrantUserPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantUserPermissionsWithOptions(request, runtime);
   }
 
   async updateHubClusterFeatureWithOptions(tmpReq: UpdateHubClusterFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHubClusterFeatureResponse> {
