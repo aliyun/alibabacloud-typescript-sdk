@@ -2002,13 +2002,13 @@ export class CreateImageRequest extends $tea.Model {
   deleteAfterImageUpload?: string;
   imageName?: string;
   instanceId?: string;
-  product?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       deleteAfterImageUpload: 'DeleteAfterImageUpload',
       imageName: 'ImageName',
       instanceId: 'InstanceId',
-      product: 'product',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -2017,7 +2017,7 @@ export class CreateImageRequest extends $tea.Model {
       deleteAfterImageUpload: 'string',
       imageName: 'string',
       instanceId: 'string',
-      product: 'string',
+      snapshotId: 'string',
     };
   }
 
@@ -3665,6 +3665,72 @@ export class DeleteDeviceInternetPortResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDeviceInternetPortResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskRequest extends $tea.Model {
+  diskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskResponseBody extends $tea.Model {
+  code?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDiskResponseBody,
     };
   }
 
@@ -11489,6 +11555,81 @@ export class GetOssStorageAndAccByBucketsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOssStorageAndAccByBucketsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssUsageDataRequest extends $tea.Model {
+  bucket?: string;
+  endTime?: string;
+  period?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      endTime: 'EndTime',
+      period: 'Period',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      endTime: 'string',
+      period: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssUsageDataResponseBody extends $tea.Model {
+  requestId?: string;
+  usageList?: GetOssUsageDataResponseBodyUsageList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      usageList: 'UsageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      usageList: { 'type': 'array', 'itemType': GetOssUsageDataResponseBodyUsageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssUsageDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOssUsageDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOssUsageDataResponseBody,
     };
   }
 
@@ -23057,6 +23198,43 @@ export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $tea.Mod
   }
 }
 
+export class GetOssUsageDataResponseBodyUsageList extends $tea.Model {
+  lanRxBw?: number;
+  lanTxBw?: number;
+  point?: number;
+  pointTs?: string;
+  storageUsageByte?: number;
+  wanRxBw?: number;
+  wanTxBw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lanRxBw: 'LanRxBw',
+      lanTxBw: 'LanTxBw',
+      point: 'Point',
+      pointTs: 'PointTs',
+      storageUsageByte: 'StorageUsageByte',
+      wanRxBw: 'WanRxBw',
+      wanTxBw: 'WanTxBw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lanRxBw: 'number',
+      lanTxBw: 'number',
+      point: 'number',
+      pointTs: 'string',
+      storageUsageByte: 'number',
+      wanRxBw: 'number',
+      wanTxBw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationsResponseBodyApplicationsApplicationAppListApp extends $tea.Model {
   appId?: string;
   appInfo?: string;
@@ -24416,8 +24594,8 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.product)) {
-      query["product"] = request.product;
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25468,6 +25646,35 @@ export default class Client extends OpenApi {
   async deleteDeviceInternetPort(request: DeleteDeviceInternetPortRequest): Promise<DeleteDeviceInternetPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceInternetPortWithOptions(request, runtime);
+  }
+
+  async deleteDiskWithOptions(request: DeleteDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDisk",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDiskResponse>(await this.callApi(params, req, runtime), new DeleteDiskResponse({}));
+  }
+
+  async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDiskWithOptions(request, runtime);
   }
 
   async deleteEnsRouteEntryWithOptions(request: DeleteEnsRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsRouteEntryResponse> {
@@ -28987,6 +29194,31 @@ export default class Client extends OpenApi {
   async getOssStorageAndAccByBuckets(request: GetOssStorageAndAccByBucketsRequest): Promise<GetOssStorageAndAccByBucketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOssStorageAndAccByBucketsWithOptions(request, runtime);
+  }
+
+  async getOssUsageDataWithOptions(request: GetOssUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOssUsageDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOssUsageData",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOssUsageDataResponse>(await this.callApi(params, req, runtime), new GetOssUsageDataResponse({}));
+  }
+
+  async getOssUsageData(request: GetOssUsageDataRequest): Promise<GetOssUsageDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssUsageDataWithOptions(request, runtime);
   }
 
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
