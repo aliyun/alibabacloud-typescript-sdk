@@ -1279,6 +1279,50 @@ export class LocationDateCluster extends $tea.Model {
   }
 }
 
+export class MNS extends $tea.Model {
+  endpoint?: string;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      topicName: 'TopicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      topicName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Notification extends $tea.Model {
+  MNS?: MNS;
+  rocketMQ?: RocketMQ;
+  static names(): { [key: string]: string } {
+    return {
+      MNS: 'MNS',
+      rocketMQ: 'RocketMQ',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      MNS: MNS,
+      rocketMQ: RocketMQ,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OCRContents extends $tea.Model {
   boundary?: Boundary;
   confidence?: number;
@@ -1438,6 +1482,31 @@ export class RegionType extends $tea.Model {
     return {
       localName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RocketMQ extends $tea.Model {
+  endpoint?: string;
+  instanceId?: string;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      instanceId: 'InstanceId',
+      topicName: 'TopicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      instanceId: 'string',
+      topicName: 'string',
     };
   }
 
@@ -1663,6 +1732,112 @@ export class SubtitleStream extends $tea.Model {
       language: 'string',
       startTime: 'number',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetAudio extends $tea.Model {
+  disableAudio?: boolean;
+  filterAudio?: TargetAudioFilterAudio;
+  stream?: number[];
+  transcodeAudio?: TargetAudioTranscodeAudio;
+  static names(): { [key: string]: string } {
+    return {
+      disableAudio: 'DisableAudio',
+      filterAudio: 'FilterAudio',
+      stream: 'Stream',
+      transcodeAudio: 'TranscodeAudio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableAudio: 'boolean',
+      filterAudio: TargetAudioFilterAudio,
+      stream: { 'type': 'array', 'itemType': 'number' },
+      transcodeAudio: TargetAudioTranscodeAudio,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetImage extends $tea.Model {
+  animations?: TargetImageAnimations[];
+  snapshots?: TargetImageSnapshots[];
+  sprites?: TargetImageSprites[];
+  static names(): { [key: string]: string } {
+    return {
+      animations: 'Animations',
+      snapshots: 'Snapshots',
+      sprites: 'Sprites',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      animations: { 'type': 'array', 'itemType': TargetImageAnimations },
+      snapshots: { 'type': 'array', 'itemType': TargetImageSnapshots },
+      sprites: { 'type': 'array', 'itemType': TargetImageSprites },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetSubtitle extends $tea.Model {
+  disableSubtitle?: boolean;
+  extractSubtitle?: TargetSubtitleExtractSubtitle;
+  stream?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      disableSubtitle: 'DisableSubtitle',
+      extractSubtitle: 'ExtractSubtitle',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableSubtitle: 'boolean',
+      extractSubtitle: TargetSubtitleExtractSubtitle,
+      stream: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVideo extends $tea.Model {
+  disableVideo?: boolean;
+  filterVideo?: TargetVideoFilterVideo;
+  stream?: number[];
+  transcodeVideo?: TargetVideoTranscodeVideo;
+  static names(): { [key: string]: string } {
+    return {
+      disableVideo: 'DisableVideo',
+      filterVideo: 'FilterVideo',
+      stream: 'Stream',
+      transcodeVideo: 'TranscodeVideo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableVideo: 'boolean',
+      filterVideo: TargetVideoFilterVideo,
+      stream: { 'type': 'array', 'itemType': 'number' },
+      transcodeVideo: TargetVideoTranscodeVideo,
     };
   }
 
@@ -2440,13 +2615,15 @@ export class BatchGetFileMetaResponse extends $tea.Model {
 
 export class BatchIndexFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  files?: FileForReq[];
+  files?: InputFile[];
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       files: 'Files',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
@@ -2455,7 +2632,8 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      files: { 'type': 'array', 'itemType': FileForReq },
+      files: { 'type': 'array', 'itemType': InputFile },
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
     };
@@ -2469,12 +2647,14 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
 export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   filesShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       filesShrink: 'Files',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
@@ -2484,6 +2664,7 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       filesShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
     };
@@ -2737,6 +2918,7 @@ export class CompareImageFacesResponse extends $tea.Model {
 
 export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -2746,6 +2928,7 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -2758,6 +2941,7 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -2774,6 +2958,7 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
 
 export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -2783,6 +2968,7 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -2795,6 +2981,7 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -3050,6 +3237,7 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
   compressMethod?: string;
   credentialConfig?: CredentialConfig;
   kdtreeOption?: KdtreeOption;
+  notification?: Notification;
   notifyTopicName?: string;
   octreeOption?: OctreeOption;
   pointCloudFields?: string[];
@@ -3064,6 +3252,7 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
       compressMethod: 'CompressMethod',
       credentialConfig: 'CredentialConfig',
       kdtreeOption: 'KdtreeOption',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       octreeOption: 'OctreeOption',
       pointCloudFields: 'PointCloudFields',
@@ -3081,6 +3270,7 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
       compressMethod: 'string',
       credentialConfig: CredentialConfig,
       kdtreeOption: KdtreeOption,
+      notification: Notification,
       notifyTopicName: 'string',
       octreeOption: OctreeOption,
       pointCloudFields: { 'type': 'array', 'itemType': 'string' },
@@ -3102,6 +3292,7 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
   compressMethod?: string;
   credentialConfigShrink?: string;
   kdtreeOptionShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   octreeOptionShrink?: string;
   pointCloudFieldsShrink?: string;
@@ -3116,6 +3307,7 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
       compressMethod: 'CompressMethod',
       credentialConfigShrink: 'CredentialConfig',
       kdtreeOptionShrink: 'KdtreeOption',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       octreeOptionShrink: 'OctreeOption',
       pointCloudFieldsShrink: 'PointCloudFields',
@@ -3133,6 +3325,7 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
       compressMethod: 'string',
       credentialConfigShrink: 'string',
       kdtreeOptionShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       octreeOptionShrink: 'string',
       pointCloudFieldsShrink: 'string',
@@ -3420,6 +3613,7 @@ export class CreateDatasetResponse extends $tea.Model {
 export class CreateFacesSearchingTaskRequest extends $tea.Model {
   datasetName?: string;
   maxResult?: string;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   sources?: CreateFacesSearchingTaskRequestSources[];
@@ -3429,6 +3623,7 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
     return {
       datasetName: 'DatasetName',
       maxResult: 'MaxResult',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sources: 'Sources',
@@ -3441,6 +3636,7 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
     return {
       datasetName: 'string',
       maxResult: 'string',
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       sources: { 'type': 'array', 'itemType': CreateFacesSearchingTaskRequestSources },
@@ -3457,6 +3653,7 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
 export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
   maxResult?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourcesShrink?: string;
@@ -3466,6 +3663,7 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
     return {
       datasetName: 'DatasetName',
       maxResult: 'MaxResult',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourcesShrink: 'Sources',
@@ -3478,6 +3676,7 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       maxResult: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourcesShrink: 'string',
@@ -3543,6 +3742,7 @@ export class CreateFacesSearchingTaskResponse extends $tea.Model {
 
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
   datasetName?: string;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   tags?: { [key: string]: any };
@@ -3550,6 +3750,7 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tags: 'Tags',
@@ -3560,6 +3761,7 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -3574,6 +3776,7 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
 
 export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   tagsShrink?: string;
@@ -3581,6 +3784,7 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
@@ -3591,6 +3795,7 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       tagsShrink: 'string',
@@ -3656,6 +3861,8 @@ export class CreateFigureClusteringTaskResponse extends $tea.Model {
 export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
   datasetName?: string;
   from?: string;
+  froms?: string[];
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   tags?: { [key: string]: any };
@@ -3665,6 +3872,8 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
     return {
       datasetName: 'DatasetName',
       from: 'From',
+      froms: 'Froms',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tags: 'Tags',
@@ -3677,6 +3886,8 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
     return {
       datasetName: 'string',
       from: 'string',
+      froms: { 'type': 'array', 'itemType': 'string' },
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -3693,6 +3904,8 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
 export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
   from?: string;
+  fromsShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   tagsShrink?: string;
@@ -3702,6 +3915,8 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
     return {
       datasetName: 'DatasetName',
       from: 'From',
+      fromsShrink: 'Froms',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
@@ -3714,6 +3929,8 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       from: 'string',
+      fromsShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       tagsShrink: 'string',
@@ -3780,6 +3997,7 @@ export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
 export class CreateFileCompressionTaskRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -3791,6 +4009,7 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
     return {
       compressedFormat: 'CompressedFormat',
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -3805,6 +4024,7 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
     return {
       compressedFormat: 'string',
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -3823,6 +4043,7 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
 export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
   compressedFormat?: string;
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -3834,6 +4055,7 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
     return {
       compressedFormat: 'CompressedFormat',
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -3848,6 +4070,7 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
     return {
       compressedFormat: 'string',
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -3915,6 +4138,7 @@ export class CreateFileCompressionTaskResponse extends $tea.Model {
 
 export class CreateFileUncompressionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -3925,6 +4149,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -3938,6 +4163,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -3955,6 +4181,7 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
 
 export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   password?: string;
   projectName?: string;
@@ -3965,6 +4192,7 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       projectName: 'ProjectName',
@@ -3978,6 +4206,7 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       password: 'string',
       projectName: 'string',
@@ -4047,6 +4276,7 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   interval?: number;
   maxFrames?: number;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   reviewer?: string;
@@ -4059,6 +4289,7 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
       credentialConfig: 'CredentialConfig',
       interval: 'Interval',
       maxFrames: 'MaxFrames',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       reviewer: 'Reviewer',
@@ -4074,6 +4305,7 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
       credentialConfig: CredentialConfig,
       interval: 'number',
       maxFrames: 'number',
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       reviewer: 'string',
@@ -4093,6 +4325,7 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   interval?: number;
   maxFrames?: number;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   reviewer?: string;
@@ -4105,6 +4338,7 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'CredentialConfig',
       interval: 'Interval',
       maxFrames: 'MaxFrames',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       reviewer: 'Reviewer',
@@ -4120,6 +4354,7 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'string',
       interval: 'number',
       maxFrames: 'number',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       reviewer: 'string',
@@ -4192,6 +4427,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
   direction?: string;
   imageFormat?: string;
   margin?: number;
+  notification?: Notification;
   notifyTopicName?: string;
   padding?: number;
   projectName?: string;
@@ -4209,6 +4445,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
       direction: 'Direction',
       imageFormat: 'ImageFormat',
       margin: 'Margin',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       padding: 'Padding',
       projectName: 'ProjectName',
@@ -4229,6 +4466,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
       direction: 'string',
       imageFormat: 'string',
       margin: 'number',
+      notification: Notification,
       notifyTopicName: 'string',
       padding: 'number',
       projectName: 'string',
@@ -4253,6 +4491,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
   direction?: string;
   imageFormat?: string;
   margin?: number;
+  notificationShrink?: string;
   notifyTopicName?: string;
   padding?: number;
   projectName?: string;
@@ -4270,6 +4509,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
       direction: 'Direction',
       imageFormat: 'ImageFormat',
       margin: 'Margin',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       padding: 'Padding',
       projectName: 'ProjectName',
@@ -4290,6 +4530,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
       direction: 'string',
       imageFormat: 'string',
       margin: 'number',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       padding: 'number',
       projectName: 'string',
@@ -4359,6 +4600,7 @@ export class CreateImageSplicingTaskResponse extends $tea.Model {
 
 export class CreateImageToPDFTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   sources?: CreateImageToPDFTaskRequestSources[];
@@ -4368,6 +4610,7 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sources: 'Sources',
@@ -4380,6 +4623,7 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       sources: { 'type': 'array', 'itemType': CreateImageToPDFTaskRequestSources },
@@ -4396,6 +4640,7 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
 
 export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourcesShrink?: string;
@@ -4405,6 +4650,7 @@ export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourcesShrink: 'Sources',
@@ -4417,6 +4663,7 @@ export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourcesShrink: 'string',
@@ -4485,6 +4732,7 @@ export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
   datasetName?: string;
   dateOptions?: CreateLocationDateClusteringTaskRequestDateOptions;
   locationOptions?: CreateLocationDateClusteringTaskRequestLocationOptions;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   tags?: { [key: string]: any };
@@ -4494,6 +4742,7 @@ export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
       datasetName: 'DatasetName',
       dateOptions: 'DateOptions',
       locationOptions: 'LocationOptions',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tags: 'Tags',
@@ -4506,6 +4755,7 @@ export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
       datasetName: 'string',
       dateOptions: CreateLocationDateClusteringTaskRequestDateOptions,
       locationOptions: CreateLocationDateClusteringTaskRequestLocationOptions,
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -4522,6 +4772,7 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
   dateOptionsShrink?: string;
   locationOptionsShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   tagsShrink?: string;
@@ -4531,6 +4782,7 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
       datasetName: 'DatasetName',
       dateOptionsShrink: 'DateOptions',
       locationOptionsShrink: 'LocationOptions',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
@@ -4543,6 +4795,7 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
       datasetName: 'string',
       dateOptionsShrink: 'string',
       locationOptionsShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       tagsShrink: 'string',
@@ -4607,6 +4860,7 @@ export class CreateLocationDateClusteringTaskResponse extends $tea.Model {
 
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   sources?: CreateMediaConvertTaskRequestSources[];
@@ -4616,6 +4870,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sources: 'Sources',
@@ -4628,6 +4883,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       sources: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestSources },
@@ -4644,6 +4900,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
 
 export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourcesShrink?: string;
@@ -4653,6 +4910,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourcesShrink: 'Sources',
@@ -4665,6 +4923,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourcesShrink: 'string',
@@ -4741,6 +5000,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
   longText?: boolean;
   maxSheetColumn?: number;
   maxSheetRow?: number;
+  notification?: Notification;
   notifyTopicName?: string;
   pages?: string;
   paperHorizontal?: boolean;
@@ -4774,6 +5034,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       longText: 'LongText',
       maxSheetColumn: 'MaxSheetColumn',
       maxSheetRow: 'MaxSheetRow',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       pages: 'Pages',
       paperHorizontal: 'PaperHorizontal',
@@ -4810,6 +5071,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       longText: 'boolean',
       maxSheetColumn: 'number',
       maxSheetRow: 'number',
+      notification: Notification,
       notifyTopicName: 'string',
       pages: 'string',
       paperHorizontal: 'boolean',
@@ -4850,6 +5112,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
   longText?: boolean;
   maxSheetColumn?: number;
   maxSheetRow?: number;
+  notificationShrink?: string;
   notifyTopicName?: string;
   pages?: string;
   paperHorizontal?: boolean;
@@ -4883,6 +5146,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       longText: 'LongText',
       maxSheetColumn: 'MaxSheetColumn',
       maxSheetRow: 'MaxSheetRow',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       pages: 'Pages',
       paperHorizontal: 'PaperHorizontal',
@@ -4919,6 +5183,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       longText: 'boolean',
       maxSheetColumn: 'number',
       maxSheetRow: 'number',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       pages: 'string',
       paperHorizontal: 'boolean',
@@ -5097,6 +5362,7 @@ export class CreateStoryRequest extends $tea.Model {
   datasetName?: string;
   maxFileCount?: number;
   minFileCount?: number;
+  notification?: Notification;
   notifyTopicName?: string;
   objectId?: string;
   projectName?: string;
@@ -5115,6 +5381,7 @@ export class CreateStoryRequest extends $tea.Model {
       datasetName: 'DatasetName',
       maxFileCount: 'MaxFileCount',
       minFileCount: 'MinFileCount',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       objectId: 'ObjectId',
       projectName: 'ProjectName',
@@ -5136,6 +5403,7 @@ export class CreateStoryRequest extends $tea.Model {
       datasetName: 'string',
       maxFileCount: 'number',
       minFileCount: 'number',
+      notification: Notification,
       notifyTopicName: 'string',
       objectId: 'string',
       projectName: 'string',
@@ -5161,6 +5429,7 @@ export class CreateStoryShrinkRequest extends $tea.Model {
   datasetName?: string;
   maxFileCount?: number;
   minFileCount?: number;
+  notificationShrink?: string;
   notifyTopicName?: string;
   objectId?: string;
   projectName?: string;
@@ -5179,6 +5448,7 @@ export class CreateStoryShrinkRequest extends $tea.Model {
       datasetName: 'DatasetName',
       maxFileCount: 'MaxFileCount',
       minFileCount: 'MinFileCount',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       objectId: 'ObjectId',
       projectName: 'ProjectName',
@@ -5200,6 +5470,7 @@ export class CreateStoryShrinkRequest extends $tea.Model {
       datasetName: 'string',
       maxFileCount: 'number',
       minFileCount: 'number',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       objectId: 'string',
       projectName: 'string',
@@ -5385,6 +5656,7 @@ export class CreateTriggerResponse extends $tea.Model {
 
 export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   sourceURI?: string;
@@ -5393,6 +5665,7 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
@@ -5404,6 +5677,7 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       sourceURI: 'string',
@@ -5419,6 +5693,7 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
 
 export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourceURI?: string;
@@ -5427,6 +5702,7 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
@@ -5438,6 +5714,7 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourceURI: 'string',
@@ -5505,6 +5782,7 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   interval?: number;
   maxFrames?: number;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   reviewer?: string;
@@ -5517,6 +5795,7 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
       credentialConfig: 'CredentialConfig',
       interval: 'Interval',
       maxFrames: 'MaxFrames',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       reviewer: 'Reviewer',
@@ -5532,6 +5811,7 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
       credentialConfig: CredentialConfig,
       interval: 'number',
       maxFrames: 'number',
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
       reviewer: 'string',
@@ -5551,6 +5831,7 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   interval?: number;
   maxFrames?: number;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   reviewer?: string;
@@ -5563,6 +5844,7 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'CredentialConfig',
       interval: 'Interval',
       maxFrames: 'MaxFrames',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       reviewer: 'Reviewer',
@@ -5578,6 +5860,7 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'string',
       interval: 'number',
       maxFrames: 'number',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       reviewer: 'string',
@@ -7171,6 +7454,7 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
   externalUploaded?: boolean;
   filename?: string;
   hidecmb?: boolean;
+  notification?: Notification;
   notifyTopicName?: string;
   password?: string;
   permission?: WebofficePermission;
@@ -7188,6 +7472,7 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
       externalUploaded: 'ExternalUploaded',
       filename: 'Filename',
       hidecmb: 'Hidecmb',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       permission: 'Permission',
@@ -7208,6 +7493,7 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
       externalUploaded: 'boolean',
       filename: 'string',
       hidecmb: 'boolean',
+      notification: Notification,
       notifyTopicName: 'string',
       password: 'string',
       permission: WebofficePermission,
@@ -7232,6 +7518,7 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
   externalUploaded?: boolean;
   filename?: string;
   hidecmb?: boolean;
+  notificationShrink?: string;
   notifyTopicName?: string;
   password?: string;
   permissionShrink?: string;
@@ -7249,6 +7536,7 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
       externalUploaded: 'ExternalUploaded',
       filename: 'Filename',
       hidecmb: 'Hidecmb',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       password: 'Password',
       permissionShrink: 'Permission',
@@ -7269,6 +7557,7 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
       externalUploaded: 'boolean',
       filename: 'string',
       hidecmb: 'boolean',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       password: 'string',
       permissionShrink: 'string',
@@ -8185,13 +8474,15 @@ export class GetVideoLabelClassificationResultResponse extends $tea.Model {
 
 export class IndexFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  file?: FileForReq;
+  file?: InputFile;
+  notification?: Notification;
   notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       file: 'File',
+      notification: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
@@ -8200,7 +8491,8 @@ export class IndexFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      file: FileForReq,
+      file: InputFile,
+      notification: Notification,
       notifyTopicName: 'string',
       projectName: 'string',
     };
@@ -8214,12 +8506,14 @@ export class IndexFileMetaRequest extends $tea.Model {
 export class IndexFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   fileShrink?: string;
+  notificationShrink?: string;
   notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       fileShrink: 'File',
+      notificationShrink: 'Notification',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
@@ -8229,6 +8523,7 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       fileShrink: 'string',
+      notificationShrink: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
     };
@@ -11232,6 +11527,409 @@ export class InputFileFigures extends $tea.Model {
   }
 }
 
+export class TargetAudioFilterAudio extends $tea.Model {
+  mixing?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mixing: 'Mixing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mixing: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetAudioTranscodeAudio extends $tea.Model {
+  bitrate?: number;
+  bitrateOption?: string;
+  channel?: number;
+  codec?: string;
+  quality?: number;
+  sampleRate?: number;
+  sampleRateOption?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bitrateOption: 'BitrateOption',
+      channel: 'Channel',
+      codec: 'Codec',
+      quality: 'Quality',
+      sampleRate: 'SampleRate',
+      sampleRateOption: 'SampleRateOption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bitrateOption: 'string',
+      channel: 'number',
+      codec: 'string',
+      quality: 'number',
+      sampleRate: 'number',
+      sampleRateOption: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetImageAnimations extends $tea.Model {
+  format?: string;
+  frameRate?: number;
+  height?: number;
+  interval?: number;
+  number?: number;
+  scaleType?: string;
+  startTime?: number;
+  URI?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      frameRate: 'FrameRate',
+      height: 'Height',
+      interval: 'Interval',
+      number: 'Number',
+      scaleType: 'ScaleType',
+      startTime: 'StartTime',
+      URI: 'URI',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      frameRate: 'number',
+      height: 'number',
+      interval: 'number',
+      number: 'number',
+      scaleType: 'string',
+      startTime: 'number',
+      URI: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetImageSnapshots extends $tea.Model {
+  format?: string;
+  height?: number;
+  interval?: number;
+  number?: number;
+  scaleType?: string;
+  startTime?: number;
+  URI?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      height: 'Height',
+      interval: 'Interval',
+      number: 'Number',
+      scaleType: 'ScaleType',
+      startTime: 'StartTime',
+      URI: 'URI',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      height: 'number',
+      interval: 'number',
+      number: 'number',
+      scaleType: 'string',
+      startTime: 'number',
+      URI: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetImageSprites extends $tea.Model {
+  format?: string;
+  interval?: number;
+  margin?: number;
+  number?: number;
+  pad?: number;
+  scaleHeight?: number;
+  scaleType?: string;
+  scaleWidth?: number;
+  startTime?: number;
+  tileHeight?: number;
+  tileWidth?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      interval: 'Interval',
+      margin: 'Margin',
+      number: 'Number',
+      pad: 'Pad',
+      scaleHeight: 'ScaleHeight',
+      scaleType: 'ScaleType',
+      scaleWidth: 'ScaleWidth',
+      startTime: 'StartTime',
+      tileHeight: 'TileHeight',
+      tileWidth: 'TileWidth',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      interval: 'number',
+      margin: 'number',
+      number: 'number',
+      pad: 'number',
+      scaleHeight: 'number',
+      scaleType: 'string',
+      scaleWidth: 'number',
+      startTime: 'number',
+      tileHeight: 'number',
+      tileWidth: 'number',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetSubtitleExtractSubtitle extends $tea.Model {
+  format?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVideoFilterVideoDelogos extends $tea.Model {
+  duration?: number;
+  dx?: number;
+  dy?: number;
+  height?: number;
+  referPos?: string;
+  startTime?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      dx: 'Dx',
+      dy: 'Dy',
+      height: 'Height',
+      referPos: 'ReferPos',
+      startTime: 'StartTime',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      dx: 'number',
+      dy: 'number',
+      height: 'number',
+      referPos: 'string',
+      startTime: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVideoFilterVideoWatermarks extends $tea.Model {
+  borderColor?: string;
+  borderWidth?: number;
+  content?: string;
+  duration?: number;
+  dx?: number;
+  dy?: number;
+  fontApha?: number;
+  fontColor?: string;
+  fontName?: string;
+  fontSize?: number;
+  height?: number;
+  referPos?: string;
+  startTime?: number;
+  type?: string;
+  URI?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      content: 'Content',
+      duration: 'Duration',
+      dx: 'Dx',
+      dy: 'Dy',
+      fontApha: 'FontApha',
+      fontColor: 'FontColor',
+      fontName: 'FontName',
+      fontSize: 'FontSize',
+      height: 'Height',
+      referPos: 'ReferPos',
+      startTime: 'StartTime',
+      type: 'Type',
+      URI: 'URI',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      borderColor: 'string',
+      borderWidth: 'number',
+      content: 'string',
+      duration: 'number',
+      dx: 'number',
+      dy: 'number',
+      fontApha: 'number',
+      fontColor: 'string',
+      fontName: 'string',
+      fontSize: 'number',
+      height: 'number',
+      referPos: 'string',
+      startTime: 'number',
+      type: 'string',
+      URI: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVideoFilterVideo extends $tea.Model {
+  delogos?: TargetVideoFilterVideoDelogos[];
+  watermarks?: TargetVideoFilterVideoWatermarks[];
+  static names(): { [key: string]: string } {
+    return {
+      delogos: 'Delogos',
+      watermarks: 'Watermarks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delogos: { 'type': 'array', 'itemType': TargetVideoFilterVideoDelogos },
+      watermarks: { 'type': 'array', 'itemType': TargetVideoFilterVideoWatermarks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TargetVideoTranscodeVideo extends $tea.Model {
+  adaptiveResolutionDirection?: boolean;
+  BFrames?: number;
+  bitrate?: number;
+  bitrateOption?: string;
+  bufferSize?: number;
+  CRF?: number;
+  codec?: string;
+  frameRate?: number;
+  frameRateOption?: string;
+  GOPSize?: number;
+  maxBitrate?: number;
+  pixelFormat?: string;
+  refs?: number;
+  resolution?: string;
+  resolutionOption?: string;
+  rotation?: number;
+  scaleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adaptiveResolutionDirection: 'AdaptiveResolutionDirection',
+      BFrames: 'BFrames',
+      bitrate: 'Bitrate',
+      bitrateOption: 'BitrateOption',
+      bufferSize: 'BufferSize',
+      CRF: 'CRF',
+      codec: 'Codec',
+      frameRate: 'FrameRate',
+      frameRateOption: 'FrameRateOption',
+      GOPSize: 'GOPSize',
+      maxBitrate: 'MaxBitrate',
+      pixelFormat: 'PixelFormat',
+      refs: 'Refs',
+      resolution: 'Resolution',
+      resolutionOption: 'ResolutionOption',
+      rotation: 'Rotation',
+      scaleType: 'ScaleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adaptiveResolutionDirection: 'boolean',
+      BFrames: 'number',
+      bitrate: 'number',
+      bitrateOption: 'string',
+      bufferSize: 'number',
+      CRF: 'number',
+      codec: 'string',
+      frameRate: 'number',
+      frameRateOption: 'string',
+      GOPSize: 'number',
+      maxBitrate: 'number',
+      pixelFormat: 'string',
+      refs: 'number',
+      resolution: 'string',
+      resolutionOption: 'string',
+      rotation: 'number',
+      scaleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
   height?: number;
   referPos?: string;
@@ -11674,201 +12372,6 @@ export class CreateMediaConvertTaskRequestSources extends $tea.Model {
   }
 }
 
-export class CreateMediaConvertTaskRequestTargetsAudioFilterAudio extends $tea.Model {
-  mixing?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mixing: 'Mixing',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mixing: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsAudioTranscodeAudio extends $tea.Model {
-  bitrate?: number;
-  bitrateOption?: string;
-  channel?: number;
-  codec?: string;
-  quality?: number;
-  sampleRate?: number;
-  sampleRateOption?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bitrate: 'Bitrate',
-      bitrateOption: 'BitrateOption',
-      channel: 'Channel',
-      codec: 'Codec',
-      quality: 'Quality',
-      sampleRate: 'SampleRate',
-      sampleRateOption: 'SampleRateOption',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bitrate: 'number',
-      bitrateOption: 'string',
-      channel: 'number',
-      codec: 'string',
-      quality: 'number',
-      sampleRate: 'number',
-      sampleRateOption: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsAudio extends $tea.Model {
-  disableAudio?: boolean;
-  filterAudio?: CreateMediaConvertTaskRequestTargetsAudioFilterAudio;
-  transcodeAudio?: CreateMediaConvertTaskRequestTargetsAudioTranscodeAudio;
-  static names(): { [key: string]: string } {
-    return {
-      disableAudio: 'DisableAudio',
-      filterAudio: 'FilterAudio',
-      transcodeAudio: 'TranscodeAudio',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disableAudio: 'boolean',
-      filterAudio: CreateMediaConvertTaskRequestTargetsAudioFilterAudio,
-      transcodeAudio: CreateMediaConvertTaskRequestTargetsAudioTranscodeAudio,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsImageSnapshots extends $tea.Model {
-  format?: string;
-  height?: number;
-  interval?: number;
-  number?: number;
-  scaleType?: string;
-  startTime?: number;
-  URI?: string;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-      height: 'Height',
-      interval: 'Interval',
-      number: 'Number',
-      scaleType: 'ScaleType',
-      startTime: 'StartTime',
-      URI: 'URI',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-      height: 'number',
-      interval: 'number',
-      number: 'number',
-      scaleType: 'string',
-      startTime: 'number',
-      URI: 'string',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsImageSprites extends $tea.Model {
-  format?: string;
-  interval?: number;
-  margin?: number;
-  number?: number;
-  pad?: number;
-  scaleHeight?: number;
-  scaleType?: string;
-  scaleWidth?: number;
-  startTime?: number;
-  tileHeight?: number;
-  tileWidth?: number;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-      interval: 'Interval',
-      margin: 'Margin',
-      number: 'Number',
-      pad: 'Pad',
-      scaleHeight: 'ScaleHeight',
-      scaleType: 'ScaleType',
-      scaleWidth: 'ScaleWidth',
-      startTime: 'StartTime',
-      tileHeight: 'TileHeight',
-      tileWidth: 'TileWidth',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-      interval: 'number',
-      margin: 'number',
-      number: 'number',
-      pad: 'number',
-      scaleHeight: 'number',
-      scaleType: 'string',
-      scaleWidth: 'number',
-      startTime: 'number',
-      tileHeight: 'number',
-      tileWidth: 'number',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsImage extends $tea.Model {
-  snapshots?: CreateMediaConvertTaskRequestTargetsImageSnapshots[];
-  sprites?: CreateMediaConvertTaskRequestTargetsImageSprites[];
-  static names(): { [key: string]: string } {
-    return {
-      snapshots: 'Snapshots',
-      sprites: 'Sprites',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      snapshots: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetsImageSnapshots },
-      sprites: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetsImageSprites },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
   duration?: number;
   format?: string;
@@ -11894,275 +12397,17 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
   }
 }
 
-export class CreateMediaConvertTaskRequestTargetsSubtitleExtractSubtitle extends $tea.Model {
-  format?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsSubtitle extends $tea.Model {
-  disableSubtitle?: boolean;
-  extractSubtitle?: CreateMediaConvertTaskRequestTargetsSubtitleExtractSubtitle;
-  static names(): { [key: string]: string } {
-    return {
-      disableSubtitle: 'DisableSubtitle',
-      extractSubtitle: 'ExtractSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disableSubtitle: 'boolean',
-      extractSubtitle: CreateMediaConvertTaskRequestTargetsSubtitleExtractSubtitle,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsVideoFilterVideoDelogos extends $tea.Model {
-  duration?: number;
-  dx?: number;
-  dy?: number;
-  height?: number;
-  referPos?: string;
-  startTime?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      dx: 'Dx',
-      dy: 'Dy',
-      height: 'Height',
-      referPos: 'ReferPos',
-      startTime: 'StartTime',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      dx: 'number',
-      dy: 'number',
-      height: 'number',
-      referPos: 'string',
-      startTime: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsVideoFilterVideoWatermarks extends $tea.Model {
-  borderColor?: string;
-  borderWidth?: number;
-  content?: string;
-  duration?: number;
-  dx?: number;
-  dy?: number;
-  fontApha?: number;
-  fontColor?: string;
-  fontName?: string;
-  fontSize?: number;
-  height?: number;
-  referPos?: string;
-  startTime?: number;
-  type?: string;
-  URI?: string;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      borderColor: 'BorderColor',
-      borderWidth: 'BorderWidth',
-      content: 'Content',
-      duration: 'Duration',
-      dx: 'Dx',
-      dy: 'Dy',
-      fontApha: 'FontApha',
-      fontColor: 'FontColor',
-      fontName: 'FontName',
-      fontSize: 'FontSize',
-      height: 'Height',
-      referPos: 'ReferPos',
-      startTime: 'StartTime',
-      type: 'Type',
-      URI: 'URI',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      borderColor: 'string',
-      borderWidth: 'number',
-      content: 'string',
-      duration: 'number',
-      dx: 'number',
-      dy: 'number',
-      fontApha: 'number',
-      fontColor: 'string',
-      fontName: 'string',
-      fontSize: 'number',
-      height: 'number',
-      referPos: 'string',
-      startTime: 'number',
-      type: 'string',
-      URI: 'string',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsVideoFilterVideo extends $tea.Model {
-  delogos?: CreateMediaConvertTaskRequestTargetsVideoFilterVideoDelogos[];
-  watermarks?: CreateMediaConvertTaskRequestTargetsVideoFilterVideoWatermarks[];
-  static names(): { [key: string]: string } {
-    return {
-      delogos: 'Delogos',
-      watermarks: 'Watermarks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      delogos: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetsVideoFilterVideoDelogos },
-      watermarks: { 'type': 'array', 'itemType': CreateMediaConvertTaskRequestTargetsVideoFilterVideoWatermarks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsVideoTranscodeVideo extends $tea.Model {
-  adaptiveResolutionDirection?: boolean;
-  BFrames?: number;
-  bitrate?: number;
-  bitrateOption?: string;
-  bufferSize?: number;
-  CRF?: number;
-  codec?: string;
-  frameRate?: number;
-  frameRateOption?: string;
-  GOPSize?: number;
-  maxBitrate?: number;
-  pixelFormat?: string;
-  refs?: number;
-  resolution?: string;
-  resolutionOption?: string;
-  rotation?: number;
-  scaleType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adaptiveResolutionDirection: 'AdaptiveResolutionDirection',
-      BFrames: 'BFrames',
-      bitrate: 'Bitrate',
-      bitrateOption: 'BitrateOption',
-      bufferSize: 'BufferSize',
-      CRF: 'CRF',
-      codec: 'Codec',
-      frameRate: 'FrameRate',
-      frameRateOption: 'FrameRateOption',
-      GOPSize: 'GOPSize',
-      maxBitrate: 'MaxBitrate',
-      pixelFormat: 'PixelFormat',
-      refs: 'Refs',
-      resolution: 'Resolution',
-      resolutionOption: 'ResolutionOption',
-      rotation: 'Rotation',
-      scaleType: 'ScaleType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adaptiveResolutionDirection: 'boolean',
-      BFrames: 'number',
-      bitrate: 'number',
-      bitrateOption: 'string',
-      bufferSize: 'number',
-      CRF: 'number',
-      codec: 'string',
-      frameRate: 'number',
-      frameRateOption: 'string',
-      GOPSize: 'number',
-      maxBitrate: 'number',
-      pixelFormat: 'string',
-      refs: 'number',
-      resolution: 'string',
-      resolutionOption: 'string',
-      rotation: 'number',
-      scaleType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMediaConvertTaskRequestTargetsVideo extends $tea.Model {
-  disableVideo?: boolean;
-  filterVideo?: CreateMediaConvertTaskRequestTargetsVideoFilterVideo;
-  transcodeVideo?: CreateMediaConvertTaskRequestTargetsVideoTranscodeVideo;
-  static names(): { [key: string]: string } {
-    return {
-      disableVideo: 'DisableVideo',
-      filterVideo: 'FilterVideo',
-      transcodeVideo: 'TranscodeVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disableVideo: 'boolean',
-      filterVideo: CreateMediaConvertTaskRequestTargetsVideoFilterVideo,
-      transcodeVideo: CreateMediaConvertTaskRequestTargetsVideoTranscodeVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
-  audio?: CreateMediaConvertTaskRequestTargetsAudio;
+  audio?: TargetAudio;
   container?: string;
-  image?: CreateMediaConvertTaskRequestTargetsImage;
+  image?: TargetImage;
   preset?: PresetReference;
   segment?: CreateMediaConvertTaskRequestTargetsSegment;
   speed?: number;
-  subtitle?: CreateMediaConvertTaskRequestTargetsSubtitle;
+  stripMetadata?: boolean;
+  subtitle?: TargetSubtitle;
   URI?: string;
-  video?: CreateMediaConvertTaskRequestTargetsVideo;
+  video?: TargetVideo;
   static names(): { [key: string]: string } {
     return {
       audio: 'Audio',
@@ -12171,6 +12416,7 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
       preset: 'Preset',
       segment: 'Segment',
       speed: 'Speed',
+      stripMetadata: 'StripMetadata',
       subtitle: 'Subtitle',
       URI: 'URI',
       video: 'Video',
@@ -12179,15 +12425,16 @@ export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      audio: CreateMediaConvertTaskRequestTargetsAudio,
+      audio: TargetAudio,
       container: 'string',
-      image: CreateMediaConvertTaskRequestTargetsImage,
+      image: TargetImage,
       preset: PresetReference,
       segment: CreateMediaConvertTaskRequestTargetsSegment,
       speed: 'number',
-      subtitle: CreateMediaConvertTaskRequestTargetsSubtitle,
+      stripMetadata: 'boolean',
+      subtitle: TargetSubtitle,
       URI: 'string',
-      video: CreateMediaConvertTaskRequestTargetsVideo,
+      video: TargetVideo,
     };
   }
 
@@ -12745,6 +12992,10 @@ export default class Client extends OpenApi {
       request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -12752,6 +13003,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.filesShrink)) {
       query["Files"] = request.filesShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -12882,9 +13137,17 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13049,6 +13312,10 @@ export default class Client extends OpenApi {
       request.kdtreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kdtreeOption, "KdtreeOption", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.octreeOption)) {
       request.octreeOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.octreeOption, "OctreeOption", "json");
     }
@@ -13072,6 +13339,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.kdtreeOptionShrink)) {
       query["KdtreeOption"] = request.kdtreeOptionShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13268,6 +13539,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateFacesSearchingTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sources)) {
       request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
@@ -13279,6 +13554,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13327,6 +13606,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClusteringTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -13334,6 +13617,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13378,6 +13665,14 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClustersMergingTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.froms)) {
+      request.fromsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.froms, "Froms", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -13389,6 +13684,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.from)) {
       query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.fromsShrink)) {
+      query["Froms"] = request.fromsShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13441,6 +13744,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sources)) {
       request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
@@ -13452,6 +13759,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13512,6 +13823,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.selectedFiles)) {
       request.selectedFilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedFiles, "SelectedFiles", "json");
     }
@@ -13523,6 +13838,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13583,6 +13902,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.scenes)) {
       request.scenesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scenes, "Scenes", "json");
     }
@@ -13602,6 +13925,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxFrames)) {
       query["MaxFrames"] = request.maxFrames;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13662,6 +13989,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sources)) {
       request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
@@ -13693,6 +14024,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.margin)) {
       query["Margin"] = request.margin;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13761,6 +14096,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sources)) {
       request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
@@ -13772,6 +14111,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13832,6 +14175,10 @@ export default class Client extends OpenApi {
       request.locationOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locationOptions, "LocationOptions", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -13847,6 +14194,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.locationOptionsShrink)) {
       query["LocationOptions"] = request.locationOptionsShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13895,6 +14246,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.sources)) {
       request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
     }
@@ -13910,6 +14265,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -13966,6 +14325,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -14017,6 +14380,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxSheetRow)) {
       query["MaxSheetRow"] = request.maxSheetRow;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -14198,11 +14565,19 @@ export default class Client extends OpenApi {
       request.customLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customLabels, "CustomLabels", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
+    }
+
     if (!Util.isUnset(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
     }
@@ -14366,6 +14741,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -14373,6 +14752,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -14425,6 +14808,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.scenes)) {
       request.scenesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scenes, "Scenes", "json");
     }
@@ -14444,6 +14831,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxFrames)) {
       query["MaxFrames"] = request.maxFrames;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -15214,6 +15605,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     if (!Util.isUnset(tmpReq.permission)) {
       request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
     }
@@ -15245,6 +15640,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hidecmb)) {
       query["Hidecmb"] = request.hidecmb;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
@@ -15704,6 +16103,10 @@ export default class Client extends OpenApi {
       request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.file, "File", "json");
     }
 
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -15711,6 +16114,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileShrink)) {
       query["File"] = request.fileShrink;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
