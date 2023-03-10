@@ -1860,6 +1860,78 @@ export class RenewAppInstanceGroupResponse extends $tea.Model {
   }
 }
 
+export class UnbindRequest extends $tea.Model {
+  appInstanceGroupId?: string;
+  appInstanceId?: string;
+  endUserId?: string;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      endUserId: 'EndUserId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      endUserId: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAppInstanceGroupImageRequest extends $tea.Model {
   appCenterImageId?: string;
   appInstanceGroupId?: string;
@@ -4002,6 +4074,47 @@ export default class Client extends OpenApi {
   async renewAppInstanceGroup(request: RenewAppInstanceGroupRequest): Promise<RenewAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!Util.isUnset(request.appInstanceId)) {
+      body["AppInstanceId"] = request.appInstanceId;
+    }
+
+    if (!Util.isUnset(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Unbind",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
+  }
+
+  async unbind(request: UnbindRequest): Promise<UnbindResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindWithOptions(request, runtime);
   }
 
   async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
