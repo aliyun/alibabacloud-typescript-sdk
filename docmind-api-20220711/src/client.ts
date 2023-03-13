@@ -721,11 +721,13 @@ export class SubmitConvertImageToWordJobResponse extends $tea.Model {
 export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
   fileName?: string;
   fileUrl?: string;
+  forceExportInnerImage?: boolean;
   forceMergeExcel?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      forceExportInnerImage: 'ForceExportInnerImage',
       forceMergeExcel: 'ForceMergeExcel',
     };
   }
@@ -734,6 +736,7 @@ export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrl: 'string',
+      forceExportInnerImage: 'boolean',
       forceMergeExcel: 'boolean',
     };
   }
@@ -746,11 +749,13 @@ export class SubmitConvertPdfToExcelJobRequest extends $tea.Model {
 export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileUrlObject?: Readable;
+  forceExportInnerImage?: boolean;
   forceMergeExcel?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
+      forceExportInnerImage: 'ForceExportInnerImage',
       forceMergeExcel: 'ForceMergeExcel',
     };
   }
@@ -759,6 +764,7 @@ export class SubmitConvertPdfToExcelJobAdvanceRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrlObject: 'Readable',
+      forceExportInnerImage: 'boolean',
       forceMergeExcel: 'boolean',
     };
   }
@@ -921,10 +927,12 @@ export class SubmitConvertPdfToImageJobResponse extends $tea.Model {
 export class SubmitConvertPdfToWordJobRequest extends $tea.Model {
   fileName?: string;
   fileUrl?: string;
+  forceExportInnerImage?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      forceExportInnerImage: 'ForceExportInnerImage',
     };
   }
 
@@ -932,6 +940,7 @@ export class SubmitConvertPdfToWordJobRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrl: 'string',
+      forceExportInnerImage: 'boolean',
     };
   }
 
@@ -943,10 +952,12 @@ export class SubmitConvertPdfToWordJobRequest extends $tea.Model {
 export class SubmitConvertPdfToWordJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileUrlObject?: Readable;
+  forceExportInnerImage?: boolean;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
+      forceExportInnerImage: 'ForceExportInnerImage',
     };
   }
 
@@ -954,6 +965,7 @@ export class SubmitConvertPdfToWordJobAdvanceRequest extends $tea.Model {
     return {
       fileName: 'string',
       fileUrlObject: 'Readable',
+      forceExportInnerImage: 'boolean',
     };
   }
 
@@ -2005,6 +2017,10 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!Util.isUnset(request.forceExportInnerImage)) {
+      query["ForceExportInnerImage"] = request.forceExportInnerImage;
+    }
+
     if (!Util.isUnset(request.forceMergeExcel)) {
       query["ForceMergeExcel"] = request.forceMergeExcel;
     }
@@ -2221,6 +2237,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.forceExportInnerImage)) {
+      query["ForceExportInnerImage"] = request.forceExportInnerImage;
     }
 
     let req = new $OpenApi.OpenApiRequest({
