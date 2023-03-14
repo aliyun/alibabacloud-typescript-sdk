@@ -439,6 +439,106 @@ export class AddDirectionalGroupResponse extends $tea.Model {
   }
 }
 
+export class AddTagsToCardRequest extends $tea.Model {
+  iccid?: string;
+  tagNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      tagNameList: 'TagNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      tagNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTagsToCardShrinkRequest extends $tea.Model {
+  iccid?: string;
+  tagNameListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      tagNameListShrink: 'TagNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      tagNameListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTagsToCardResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddTagsToCardResponseBodyData[];
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': AddTagsToCardResponseBodyData },
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTagsToCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddTagsToCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddTagsToCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchAddDirectionalAddressRequest extends $tea.Model {
   addressType?: string;
   groupId?: number;
@@ -1010,6 +1110,115 @@ export class GetCardLatestFlowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCardLatestFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRealStatusRequest extends $tea.Model {
+  iccid?: string;
+  msisdn?: string;
+  serialNo?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      msisdn: 'Msisdn',
+      serialNo: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      msisdn: 'string',
+      serialNo: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRealStatusShrinkRequest extends $tea.Model {
+  iccid?: string;
+  msisdn?: string;
+  serialNoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      msisdn: 'Msisdn',
+      serialNoShrink: 'SerialNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      msisdn: 'string',
+      serialNoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRealStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCardRealStatusResponseBodyData[];
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetCardRealStatusResponseBodyData },
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRealStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardRealStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardRealStatusResponseBody,
     };
   }
 
@@ -2516,6 +2725,28 @@ export class AddCardToDirectionalGroupResponseBodyData extends $tea.Model {
   }
 }
 
+export class AddTagsToCardResponseBodyData extends $tea.Model {
+  tagId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCardDetailResponseBodyDataListPsimCards extends $tea.Model {
   apnName?: string;
   certifyStatus?: string;
@@ -2880,6 +3111,37 @@ export class GetCardFlowInfoResponseBodyData extends $tea.Model {
       listCardMonthFlow: { 'type': 'array', 'itemType': GetCardFlowInfoResponseBodyDataListCardMonthFlow },
       listPackageDTO: { 'type': 'array', 'itemType': GetCardFlowInfoResponseBodyDataListPackageDTO },
       listVendorDetail: { 'type': 'array', 'itemType': GetCardFlowInfoResponseBodyDataListVendorDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRealStatusResponseBodyData extends $tea.Model {
+  gprs?: boolean;
+  iccid?: string;
+  online?: boolean;
+  serialNo?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gprs: 'Gprs',
+      iccid: 'Iccid',
+      online: 'Online',
+      serialNo: 'SerialNo',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gprs: 'boolean',
+      iccid: 'string',
+      online: 'boolean',
+      serialNo: 'string',
+      status: 'string',
     };
   }
 
@@ -4064,6 +4326,45 @@ export default class Client extends OpenApi {
     return await this.addDirectionalGroupWithOptions(request, runtime);
   }
 
+  async addTagsToCardWithOptions(tmpReq: AddTagsToCardRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsToCardResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddTagsToCardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tagNameList)) {
+      request.tagNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagNameList, "TagNameList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    if (!Util.isUnset(request.tagNameListShrink)) {
+      query["TagNameList"] = request.tagNameListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTagsToCard",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagsToCardResponse>(await this.callApi(params, req, runtime), new AddTagsToCardResponse({}));
+  }
+
+  async addTagsToCard(request: AddTagsToCardRequest): Promise<AddTagsToCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addTagsToCardWithOptions(request, runtime);
+  }
+
   async batchAddDirectionalAddressWithOptions(request: BatchAddDirectionalAddressRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDirectionalAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4309,6 +4610,49 @@ export default class Client extends OpenApi {
   async getCardLatestFlow(request: GetCardLatestFlowRequest): Promise<GetCardLatestFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCardLatestFlowWithOptions(request, runtime);
+  }
+
+  async getCardRealStatusWithOptions(tmpReq: GetCardRealStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCardRealStatusResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetCardRealStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serialNo)) {
+      request.serialNoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serialNo, "SerialNo", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    if (!Util.isUnset(request.msisdn)) {
+      query["Msisdn"] = request.msisdn;
+    }
+
+    if (!Util.isUnset(request.serialNoShrink)) {
+      query["SerialNo"] = request.serialNoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCardRealStatus",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardRealStatusResponse>(await this.callApi(params, req, runtime), new GetCardRealStatusResponse({}));
+  }
+
+  async getCardRealStatus(request: GetCardRealStatusRequest): Promise<GetCardRealStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardRealStatusWithOptions(request, runtime);
   }
 
   async getCardStatusStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCardStatusStatisticsResponse> {
