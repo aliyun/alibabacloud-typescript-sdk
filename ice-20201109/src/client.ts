@@ -829,6 +829,7 @@ export class CreateEditingProjectRequest extends $tea.Model {
   materialMaps?: string;
   projectType?: string;
   templateId?: string;
+  templateType?: string;
   timeline?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -840,6 +841,7 @@ export class CreateEditingProjectRequest extends $tea.Model {
       materialMaps: 'MaterialMaps',
       projectType: 'ProjectType',
       templateId: 'TemplateId',
+      templateType: 'TemplateType',
       timeline: 'Timeline',
       title: 'Title',
     };
@@ -854,6 +856,7 @@ export class CreateEditingProjectRequest extends $tea.Model {
       materialMaps: 'string',
       projectType: 'string',
       templateId: 'string',
+      templateType: 'string',
       timeline: 'string',
       title: 'string',
     };
@@ -29055,6 +29058,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
     }
 
     if (!Util.isUnset(request.timeline)) {
