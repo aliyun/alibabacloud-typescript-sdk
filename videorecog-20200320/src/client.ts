@@ -472,10 +472,14 @@ export class RecognizeVideoCastCrewListResponse extends $tea.Model {
 }
 
 export class SplitVideoPartsRequest extends $tea.Model {
+  maxTime?: number;
+  minTime?: number;
   template?: string;
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      maxTime: 'MaxTime',
+      minTime: 'MinTime',
       template: 'Template',
       videoUrl: 'VideoUrl',
     };
@@ -483,6 +487,8 @@ export class SplitVideoPartsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxTime: 'number',
+      minTime: 'number',
       template: 'string',
       videoUrl: 'string',
     };
@@ -494,10 +500,14 @@ export class SplitVideoPartsRequest extends $tea.Model {
 }
 
 export class SplitVideoPartsAdvanceRequest extends $tea.Model {
+  maxTime?: number;
+  minTime?: number;
   template?: string;
   videoUrlObject?: Readable;
   static names(): { [key: string]: string } {
     return {
+      maxTime: 'MaxTime',
+      minTime: 'MinTime',
       template: 'Template',
       videoUrlObject: 'VideoUrl',
     };
@@ -505,6 +515,8 @@ export class SplitVideoPartsAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxTime: 'number',
+      minTime: 'number',
       template: 'string',
       videoUrlObject: 'Readable',
     };
@@ -1721,6 +1733,14 @@ export default class Client extends OpenApi {
   async splitVideoPartsWithOptions(request: SplitVideoPartsRequest, runtime: $Util.RuntimeOptions): Promise<SplitVideoPartsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxTime)) {
+      body["MaxTime"] = request.maxTime;
+    }
+
+    if (!Util.isUnset(request.minTime)) {
+      body["MinTime"] = request.minTime;
+    }
+
     if (!Util.isUnset(request.template)) {
       body["Template"] = request.template;
     }
