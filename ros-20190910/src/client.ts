@@ -3563,6 +3563,90 @@ export class GetTemplateParameterConstraintsResponse extends $tea.Model {
   }
 }
 
+export class GetTemplateRecommendParametersRequest extends $tea.Model {
+  clientToken?: string;
+  parameters?: GetTemplateRecommendParametersRequestParameters[];
+  regionId?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetTemplateRecommendParametersRequestParameters },
+      regionId: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRecommendParametersResponseBody extends $tea.Model {
+  recommendParameterValues?: GetTemplateRecommendParametersResponseBodyRecommendParameterValues[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recommendParameterValues: 'RecommendParameterValues',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recommendParameterValues: { 'type': 'array', 'itemType': GetTemplateRecommendParametersResponseBodyRecommendParameterValues },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRecommendParametersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTemplateRecommendParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTemplateRecommendParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateScratchRequest extends $tea.Model {
   regionId?: string;
   showDataOption?: string;
@@ -8635,6 +8719,53 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   }
 }
 
+export class GetTemplateRecommendParametersRequestParameters extends $tea.Model {
+  parameterCandidateValues?: string[];
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterCandidateValues: 'ParameterCandidateValues',
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterCandidateValues: { 'type': 'array', 'itemType': 'string' },
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRecommendParametersResponseBodyRecommendParameterValues extends $tea.Model {
+  parameterKey?: string;
+  recommendValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      recommendValue: 'RecommendValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      recommendValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -10612,6 +10743,13 @@ export default class Client extends OpenApi {
     return await this.cancelUpdateStackWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to continue to create a stack that failed to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` failed to be created in the China (Hangzhou) region.
+    *
+    * @param request ContinueCreateStackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ContinueCreateStackResponse
+   */
   async continueCreateStackWithOptions(request: ContinueCreateStackRequest, runtime: $Util.RuntimeOptions): Promise<ContinueCreateStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10684,11 +10822,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinueCreateStackResponse>(await this.callApi(params, req, runtime), new ContinueCreateStackResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to continue to create a stack that failed to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` failed to be created in the China (Hangzhou) region.
+    *
+    * @param request ContinueCreateStackRequest
+    * @return ContinueCreateStackResponse
+   */
   async continueCreateStack(request: ContinueCreateStackRequest): Promise<ContinueCreateStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.continueCreateStackWithOptions(request, runtime);
   }
 
+  /**
+    * You can create and execute change sets to update running stacks. For more information about change sets, see [Overview](~~156038~~).
+    * ## Limits
+    * - A stack can contain up to 20 change sets.
+    * - Change sets reflect only the changes of stacks. Change sets do not reflect whether stacks are updated.
+    * - You cannot use change sets to check the following items: whether the upper limit of your account is reached, whether to update resources that cannot be updated, and whether your account is not granted the required permissions to modify resources. These items may cause stack updates to fail. If stacks fail to be updated, Resource Orchestration Service (ROS) attempts to roll back the resources to the original status.
+    * This topic provides an example on how to create a change set. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The change set is used to change the template body of a stack to `{"ROSTemplateFormatVersion":"2015-09-01"}`. The ID of the stack is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`.
+    *
+    * @param request CreateChangeSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateChangeSetResponse
+   */
   async createChangeSetWithOptions(request: CreateChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10809,11 +10965,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateChangeSetResponse>(await this.callApi(params, req, runtime), new CreateChangeSetResponse({}));
   }
 
+  /**
+    * You can create and execute change sets to update running stacks. For more information about change sets, see [Overview](~~156038~~).
+    * ## Limits
+    * - A stack can contain up to 20 change sets.
+    * - Change sets reflect only the changes of stacks. Change sets do not reflect whether stacks are updated.
+    * - You cannot use change sets to check the following items: whether the upper limit of your account is reached, whether to update resources that cannot be updated, and whether your account is not granted the required permissions to modify resources. These items may cause stack updates to fail. If stacks fail to be updated, Resource Orchestration Service (ROS) attempts to roll back the resources to the original status.
+    * This topic provides an example on how to create a change set. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The change set is used to change the template body of a stack to `{"ROSTemplateFormatVersion":"2015-09-01"}`. The ID of the stack is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`.
+    *
+    * @param request CreateChangeSetRequest
+    * @return CreateChangeSetResponse
+   */
   async createChangeSet(request: CreateChangeSetRequest): Promise<CreateChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createChangeSetWithOptions(request, runtime);
   }
 
+  /**
+    * A stack is a collection of Resource Orchestration Service (ROS) resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).
+    * When you call this operation, you must take note of the following limits:
+    * *   You can create up to 200 stacks within an Alibaba Cloud account.
+    * *   You can create up to 200 resources in a stack.
+    * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region. The template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+    *
+    * @param request CreateStackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateStackResponse
+   */
   async createStackWithOptions(request: CreateStackRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10918,11 +11096,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStackResponse>(await this.callApi(params, req, runtime), new CreateStackResponse({}));
   }
 
+  /**
+    * A stack is a collection of Resource Orchestration Service (ROS) resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](~~172973~~).
+    * When you call this operation, you must take note of the following limits:
+    * *   You can create up to 200 stacks within an Alibaba Cloud account.
+    * *   You can create up to 200 resources in a stack.
+    * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region. The template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+    *
+    * @param request CreateStackRequest
+    * @return CreateStackResponse
+   */
   async createStack(request: CreateStackRequest): Promise<CreateStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStackWithOptions(request, runtime);
   }
 
+  /**
+    * A stack group is a collection of Resource Orchestration Service (ROS) stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts in multiple regions.
+    * You can create a stack group that is granted self-managed or service-managed permissions:
+    * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
+    * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member of the resource directory.
+    * For more information about stack groups, see [Overview](~~154578~~).
+    * This topic provides an example on how to create a self-managed stack group named `MyStackGroup` by using a template. In this example, the template ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`. The region ID of the stack group is `cn-hangzhou`.
+    *
+    * @param tmpReq CreateStackGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateStackGroupResponse
+   */
   async createStackGroupWithOptions(tmpReq: CreateStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateStackGroupShrinkRequest({ });
@@ -11009,11 +11209,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStackGroupResponse>(await this.callApi(params, req, runtime), new CreateStackGroupResponse({}));
   }
 
+  /**
+    * A stack group is a collection of Resource Orchestration Service (ROS) stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts in multiple regions.
+    * You can create a stack group that is granted self-managed or service-managed permissions:
+    * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
+    * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member of the resource directory.
+    * For more information about stack groups, see [Overview](~~154578~~).
+    * This topic provides an example on how to create a self-managed stack group named `MyStackGroup` by using a template. In this example, the template ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`. The region ID of the stack group is `cn-hangzhou`.
+    *
+    * @param request CreateStackGroupRequest
+    * @return CreateStackGroupResponse
+   */
   async createStackGroup(request: CreateStackGroupRequest): Promise<CreateStackGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStackGroupWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](~~151333~~).
+    * This topic provides an example on how to create stacks in a stack group. In this example, stacks are created in a stack group named `MyStackGroup`. The stacks are created within the `151266687691****` and `141261387191****` Alibaba Cloud accounts in the China (Hangzhou) and China (Beijing) regions. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param tmpReq CreateStackInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateStackInstancesResponse
+   */
   async createStackInstancesWithOptions(tmpReq: CreateStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateStackInstancesShrinkRequest({ });
@@ -11096,11 +11315,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStackInstancesResponse>(await this.callApi(params, req, runtime), new CreateStackInstancesResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](~~151333~~).
+    * This topic provides an example on how to create stacks in a stack group. In this example, stacks are created in a stack group named `MyStackGroup`. The stacks are created within the `151266687691****` and `141261387191****` Alibaba Cloud accounts in the China (Hangzhou) and China (Beijing) regions. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param request CreateStackInstancesRequest
+    * @return CreateStackInstancesResponse
+   */
   async createStackInstances(request: CreateStackInstancesRequest): Promise<CreateStackInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStackInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create a template. In this example, a template named `MyTemplate` is created in the `China (Hangzhou)` region. The `TemplateBody` parameter is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+    *
+    * @param request CreateTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTemplateResponse
+   */
   async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11145,11 +11378,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create a template. In this example, a template named `MyTemplate` is created in the `China (Hangzhou)` region. The `TemplateBody` parameter is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+    *
+    * @param request CreateTemplateRequest
+    * @return CreateTemplateResponse
+   */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](~~352074~~).
+    * This topic provides an example on how to create a scenario of the resource replication type in the China (Hangzhou) region. In this example, a virtual private cloud (VPC) named `vpc-bp1m6fww66xbntjyc****` is replicated by using the scenario.
+    *
+    * @param tmpReq CreateTemplateScratchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTemplateScratchResponse
+   */
   async createTemplateScratchWithOptions(tmpReq: CreateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateScratchResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateTemplateScratchShrinkRequest({ });
@@ -11232,11 +11479,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateScratchResponse>(await this.callApi(params, req, runtime), new CreateTemplateScratchResponse({}));
   }
 
+  /**
+    * You can call this operation to create a scenario that allows you to specify a resource scope on a visualized interface and easily replicate and manage the resources that you specify. For more information about scenarios, see [Overview](~~352074~~).
+    * This topic provides an example on how to create a scenario of the resource replication type in the China (Hangzhou) region. In this example, a virtual private cloud (VPC) named `vpc-bp1m6fww66xbntjyc****` is replicated by using the scenario.
+    *
+    * @param request CreateTemplateScratchRequest
+    * @return CreateTemplateScratchResponse
+   */
   async createTemplateScratch(request: CreateTemplateScratchRequest): Promise<CreateTemplateScratchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTemplateScratchWithOptions(request, runtime);
   }
 
+  /**
+    * Limits:
+    * *   Before you call this operation, make sure that the following requirements are met:
+    *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+    *     *   The execution status is UNAVAILABLE or AVAILABLE.
+    * *   After a change set is executed, other change sets associated with the same stack as this change set are deleted.
+    * *   After a stack is deleted, change sets associated with the stack are deleted.
+    * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+    * In this example, a change set in the China (Hangzhou) region whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted.
+    *
+    * @param request DeleteChangeSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteChangeSetResponse
+   */
   async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11265,6 +11533,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteChangeSetResponse>(await this.callApi(params, req, runtime), new DeleteChangeSetResponse({}));
   }
 
+  /**
+    * Limits:
+    * *   Before you call this operation, make sure that the following requirements are met:
+    *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+    *     *   The execution status is UNAVAILABLE or AVAILABLE.
+    * *   After a change set is executed, other change sets associated with the same stack as this change set are deleted.
+    * *   After a stack is deleted, change sets associated with the stack are deleted.
+    * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+    * In this example, a change set in the China (Hangzhou) region whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted.
+    *
+    * @param request DeleteChangeSetRequest
+    * @return DeleteChangeSetResponse
+   */
   async deleteChangeSet(request: DeleteChangeSetRequest): Promise<DeleteChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChangeSetWithOptions(request, runtime);
@@ -11315,6 +11596,14 @@ export default class Client extends OpenApi {
     return await this.deleteStackWithOptions(request, runtime);
   }
 
+  /**
+    * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](~~151715~~) operation to delete stacks.
+    * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+    *
+    * @param request DeleteStackGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteStackGroupResponse
+   */
   async deleteStackGroupWithOptions(request: DeleteStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11343,11 +11632,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStackGroupResponse>(await this.callApi(params, req, runtime), new DeleteStackGroupResponse({}));
   }
 
+  /**
+    * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](~~151715~~) operation to delete stacks.
+    * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+    *
+    * @param request DeleteStackGroupRequest
+    * @return DeleteStackGroupResponse
+   */
   async deleteStackGroup(request: DeleteStackGroupRequest): Promise<DeleteStackGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStackGroupWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to delete stacks from a stack group. In this example, the stacks that are deployed within the `151266687691****` Alibaba Cloud account in the China (Beijing) region are deleted from a stack group named `MyStackGroup`. The stack group is deployed in the China (Hangzhou) region and granted self-managed permissions.
+    *
+    * @param tmpReq DeleteStackInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteStackInstancesResponse
+   */
   async deleteStackInstancesWithOptions(tmpReq: DeleteStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteStackInstancesShrinkRequest({ });
@@ -11422,11 +11725,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStackInstancesResponse>(await this.callApi(params, req, runtime), new DeleteStackInstancesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to delete stacks from a stack group. In this example, the stacks that are deployed within the `151266687691****` Alibaba Cloud account in the China (Beijing) region are deleted from a stack group named `MyStackGroup`. The stack group is deployed in the China (Hangzhou) region and granted self-managed permissions.
+    *
+    * @param request DeleteStackInstancesRequest
+    * @return DeleteStackInstancesResponse
+   */
   async deleteStackInstances(request: DeleteStackInstancesRequest): Promise<DeleteStackInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStackInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * If the template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+    *
+    * @param request DeleteTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11451,11 +11767,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
+  /**
+    * If the template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+    *
+    * @param request DeleteTemplateRequest
+    * @return DeleteTemplateResponse
+   */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to delete a scenario. In this topic, the `ts-4f83704400994409****` scenario in the China (Hangzhou) region is deleted.
+    *
+    * @param request DeleteTemplateScratchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTemplateScratchResponse
+   */
   async deleteTemplateScratchWithOptions(request: DeleteTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateScratchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11484,6 +11813,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateScratchResponse>(await this.callApi(params, req, runtime), new DeleteTemplateScratchResponse({}));
   }
 
+  /**
+    * This topic describes how to delete a scenario. In this topic, the `ts-4f83704400994409****` scenario in the China (Hangzhou) region is deleted.
+    *
+    * @param request DeleteTemplateScratchRequest
+    * @return DeleteTemplateScratchResponse
+   */
   async deleteTemplateScratch(request: DeleteTemplateScratchRequest): Promise<DeleteTemplateScratchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplateScratchWithOptions(request, runtime);
@@ -11647,6 +11982,13 @@ export default class Client extends OpenApi {
     return await this.detectStackResourceDriftWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, a change set in the `China (Hangzhou)` region whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed.
+    *
+    * @param request ExecuteChangeSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExecuteChangeSetResponse
+   */
   async executeChangeSetWithOptions(request: ExecuteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11679,11 +12021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteChangeSetResponse>(await this.callApi(params, req, runtime), new ExecuteChangeSetResponse({}));
   }
 
+  /**
+    * In this example, a change set in the `China (Hangzhou)` region whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed.
+    *
+    * @param request ExecuteChangeSetRequest
+    * @return ExecuteChangeSetResponse
+   */
   async executeChangeSet(request: ExecuteChangeSetRequest): Promise<ExecuteChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeChangeSetWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to create a template for a scenario. In this topic, the `ts-aa9c62feab844a6b****` scenario of the Resource Management type in the China (Hangzhou) region is used.
+    *
+    * @param request GenerateTemplateByScratchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateTemplateByScratchResponse
+   */
   async generateTemplateByScratchWithOptions(request: GenerateTemplateByScratchRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplateByScratchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11716,11 +12071,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateTemplateByScratchResponse>(await this.callApi(params, req, runtime), new GenerateTemplateByScratchResponse({}));
   }
 
+  /**
+    * This topic describes how to create a template for a scenario. In this topic, the `ts-aa9c62feab844a6b****` scenario of the Resource Management type in the China (Hangzhou) region is used.
+    *
+    * @param request GenerateTemplateByScratchRequest
+    * @return GenerateTemplateByScratchResponse
+   */
   async generateTemplateByScratch(request: GenerateTemplateByScratchRequest): Promise<GenerateTemplateByScratchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateTemplateByScratchWithOptions(request, runtime);
   }
 
+  /**
+    * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+    * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+    *
+    * @param request GenerateTemplatePolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateTemplatePolicyResponse
+   */
   async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11761,11 +12130,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateTemplatePolicyResponse>(await this.callApi(params, req, runtime), new GenerateTemplatePolicyResponse({}));
   }
 
+  /**
+    * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+    * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+    *
+    * @param request GenerateTemplatePolicyRequest
+    * @return GenerateTemplatePolicyResponse
+   */
   async generateTemplatePolicy(request: GenerateTemplatePolicyRequest): Promise<GenerateTemplatePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateTemplatePolicyWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the information of the change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried.
+    *
+    * @param request GetChangeSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChangeSetResponse
+   */
   async getChangeSetWithOptions(request: GetChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<GetChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11798,11 +12181,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChangeSetResponse>(await this.callApi(params, req, runtime), new GetChangeSetResponse({}));
   }
 
+  /**
+    * In this example, the information of the change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried.
+    *
+    * @param request GetChangeSetRequest
+    * @return GetChangeSetResponse
+   */
   async getChangeSet(request: GetChangeSetRequest): Promise<GetChangeSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChangeSetWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+    * >  In the Examples section, only part of the sample code is provided.
+    *
+    * @param request GetFeatureDetailsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFeatureDetailsResponse
+   */
   async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11831,11 +12229,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFeatureDetailsResponse>(await this.callApi(params, req, runtime), new GetFeatureDetailsResponse({}));
   }
 
+  /**
+    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+    * >  In the Examples section, only part of the sample code is provided.
+    *
+    * @param request GetFeatureDetailsRequest
+    * @return GetFeatureDetailsResponse
+   */
   async getFeatureDetails(request: GetFeatureDetailsRequest): Promise<GetFeatureDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFeatureDetailsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+    *
+    * @param request GetResourceTypeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetResourceTypeResponse
+   */
   async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11860,6 +12273,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+    *
+    * @param request GetResourceTypeRequest
+    * @return GetResourceTypeResponse
+   */
   async getResourceType(request: GetResourceTypeRequest): Promise<GetResourceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceTypeWithOptions(request, runtime);
@@ -11894,6 +12313,14 @@ export default class Client extends OpenApi {
     return await this.getResourceTypeTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+    * >  Make sure that you have obtained the permissions on the [GetRole](~~28711~~) operation.
+    *
+    * @param request GetServiceProvisionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetServiceProvisionsResponse
+   */
   async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11942,11 +12369,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
   }
 
+  /**
+    * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+    * >  Make sure that you have obtained the permissions on the [GetRole](~~28711~~) operation.
+    *
+    * @param request GetServiceProvisionsRequest
+    * @return GetServiceProvisionsResponse
+   */
   async getServiceProvisions(request: GetServiceProvisionsRequest): Promise<GetServiceProvisionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceProvisionsWithOptions(request, runtime);
   }
 
+  /**
+    * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackResponse
+   */
   async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11991,11 +12432,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
   }
 
+  /**
+    * In this topic, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackRequest
+    * @return GetStackResponse
+   */
   async getStack(request: GetStackRequest): Promise<GetStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackWithOptions(request, runtime);
   }
 
+  /**
+    * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+    *
+    * @param request GetStackDriftDetectionStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackDriftDetectionStatusResponse
+   */
   async getStackDriftDetectionStatusWithOptions(request: GetStackDriftDetectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetStackDriftDetectionStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12024,11 +12478,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackDriftDetectionStatusResponse>(await this.callApi(params, req, runtime), new GetStackDriftDetectionStatusResponse({}));
   }
 
+  /**
+    * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+    *
+    * @param request GetStackDriftDetectionStatusRequest
+    * @return GetStackDriftDetectionStatusResponse
+   */
   async getStackDriftDetectionStatus(request: GetStackDriftDetectionStatusRequest): Promise<GetStackDriftDetectionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackDriftDetectionStatusWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the information about a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param request GetStackGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackGroupResponse
+   */
   async getStackGroupWithOptions(request: GetStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12061,11 +12528,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackGroupResponse>(await this.callApi(params, req, runtime), new GetStackGroupResponse({}));
   }
 
+  /**
+    * In this example, the information about a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param request GetStackGroupRequest
+    * @return GetStackGroupResponse
+   */
   async getStackGroup(request: GetStackGroupRequest): Promise<GetStackGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackGroupWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the details of an operation that you perform on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackGroupOperationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackGroupOperationResponse
+   */
   async getStackGroupOperationWithOptions(request: GetStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12094,11 +12574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackGroupOperationResponse>(await this.callApi(params, req, runtime), new GetStackGroupOperationResponse({}));
   }
 
+  /**
+    * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the details of an operation that you perform on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackGroupOperationRequest
+    * @return GetStackGroupOperationResponse
+   */
   async getStackGroupOperation(request: GetStackGroupOperationRequest): Promise<GetStackGroupOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackGroupOperationWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the details of a stack that is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account are queried. The stack is deployed in a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackInstanceResponse
+   */
   async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12135,11 +12628,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackInstanceResponse>(await this.callApi(params, req, runtime), new GetStackInstanceResponse({}));
   }
 
+  /**
+    * In this example, the details of a stack that is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account are queried. The stack is deployed in a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackInstanceRequest
+    * @return GetStackInstanceResponse
+   */
   async getStackInstance(request: GetStackInstanceRequest): Promise<GetStackInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackPolicyResponse
+   */
   async getStackPolicyWithOptions(request: GetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetStackPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12168,11 +12674,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackPolicyResponse>(await this.callApi(params, req, runtime), new GetStackPolicyResponse({}));
   }
 
+  /**
+    * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackPolicyRequest
+    * @return GetStackPolicyResponse
+   */
   async getStackPolicy(request: GetStackPolicyRequest): Promise<GetStackPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * In this topic, a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackResourceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStackResourceResponse
+   */
   async getStackResourceWithOptions(request: GetStackResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12217,11 +12736,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackResourceResponse>(await this.callApi(params, req, runtime), new GetStackResourceResponse({}));
   }
 
+  /**
+    * In this topic, a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request GetStackResourceRequest
+    * @return GetStackResourceResponse
+   */
   async getStackResource(request: GetStackResourceRequest): Promise<GetStackResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackResourceWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` and region ID is `cn-hangzhou` are queried.
+    *
+    * @param request GetTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTemplateResponse
+   */
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12278,11 +12810,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
+  /**
+    * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` and region ID is `cn-hangzhou` are queried.
+    *
+    * @param request GetTemplateRequest
+    * @return GetTemplateResponse
+   */
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the **Resource types that support price inquiry** section of the [Estimate resource prices](~~203165~~) topic.
+    * *   For more information about the resources that support price inquiry in Terraform templates, see the "ROS resources supported by Terraform" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.****
+    * This topic provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create by using a template. In this example, the template body is `{"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month", "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": { "Ref": "Netmode"},"Bandwidth": 5}}}}`.
+    *
+    * @param request GetTemplateEstimateCostRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTemplateEstimateCostResponse
+   */
   async getTemplateEstimateCostWithOptions(request: GetTemplateEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateEstimateCostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12339,11 +12886,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateEstimateCostResponse>(await this.callApi(params, req, runtime), new GetTemplateEstimateCostResponse({}));
   }
 
+  /**
+    * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the **Resource types that support price inquiry** section of the [Estimate resource prices](~~203165~~) topic.
+    * *   For more information about the resources that support price inquiry in Terraform templates, see the "ROS resources supported by Terraform" section of the [ROS features and resources supported by Terraform](~~184389~~) topic.****
+    * This topic provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create by using a template. In this example, the template body is `{"ROSTemplateFormatVersion": "2015-09-01", "Parameters": {"Isp": {"Type": "String"}, "Name": {"Type": "String"},"Netmode": {"Type": "String"}, "Bandwidth": {"Type": "Number", "Default": 5}}, "Resources": {"NewEip": {"Type": "ALIYUN::VPC::EIP","Properties": {"InstanceChargeType": "Prepaid", "PricingCycle": "Month", "Isp": {"Ref": "Isp"}, "Period": 1, "DeletionProtection": false, "AutoPay": false, "Name": {"Ref": "Name"}, "InternetChargeType": "PayByTraffic", "Netmode": { "Ref": "Netmode"},"Bandwidth": 5}}}}`.
+    *
+    * @param request GetTemplateEstimateCostRequest
+    * @return GetTemplateEstimateCostResponse
+   */
   async getTemplateEstimateCost(request: GetTemplateEstimateCostRequest): Promise<GetTemplateEstimateCostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateEstimateCostWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+    * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](~~432820~~).
+    *
+    * @param tmpReq GetTemplateParameterConstraintsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTemplateParameterConstraintsResponse
+   */
   async getTemplateParameterConstraintsWithOptions(tmpReq: GetTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParameterConstraintsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetTemplateParameterConstraintsShrinkRequest({ });
@@ -12414,11 +12977,78 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+    * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](~~432820~~).
+    *
+    * @param request GetTemplateParameterConstraintsRequest
+    * @return GetTemplateParameterConstraintsResponse
+   */
   async getTemplateParameterConstraints(request: GetTemplateParameterConstraintsRequest): Promise<GetTemplateParameterConstraintsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateParameterConstraintsWithOptions(request, runtime);
   }
 
+  async getTemplateRecommendParametersWithOptions(request: GetTemplateRecommendParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateRecommendParametersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemplateRecommendParameters",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateRecommendParametersResponse>(await this.callApi(params, req, runtime), new GetTemplateRecommendParametersResponse({}));
+  }
+
+  async getTemplateRecommendParameters(request: GetTemplateRecommendParametersRequest): Promise<GetTemplateRecommendParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateRecommendParametersWithOptions(request, runtime);
+  }
+
+  /**
+    * In this topic, the details about the `ts-7f7a704cf71c49a6****` scenario in the China (Hangzhou) region are queried. The source node data is displayed.
+    *
+    * @param request GetTemplateScratchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTemplateScratchResponse
+   */
   async getTemplateScratchWithOptions(request: GetTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateScratchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12451,6 +13081,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateScratchResponse>(await this.callApi(params, req, runtime), new GetTemplateScratchResponse({}));
   }
 
+  /**
+    * In this topic, the details about the `ts-7f7a704cf71c49a6****` scenario in the China (Hangzhou) region are queried. The source node data is displayed.
+    *
+    * @param request GetTemplateScratchRequest
+    * @return GetTemplateScratchResponse
+   */
   async getTemplateScratch(request: GetTemplateScratchRequest): Promise<GetTemplateScratchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateScratchWithOptions(request, runtime);
@@ -12578,6 +13214,13 @@ export default class Client extends OpenApi {
     return await this.listChangeSetsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+    *
+    * @param request ListResourceTypesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListResourceTypesResponse
+   */
   async listResourceTypesWithOptions(request: ListResourceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12602,6 +13245,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+    *
+    * @param request ListResourceTypesRequest
+    * @return ListResourceTypesResponse
+   */
   async listResourceTypes(request: ListResourceTypesRequest): Promise<ListResourceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceTypesWithOptions(request, runtime);
@@ -12660,6 +13309,13 @@ export default class Client extends OpenApi {
     return await this.listStackEventsWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param request ListStackGroupOperationResultsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStackGroupOperationResultsResponse
+   */
   async listStackGroupOperationResultsWithOptions(request: ListStackGroupOperationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationResultsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12696,6 +13352,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStackGroupOperationResultsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationResultsResponse({}));
   }
 
+  /**
+    * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+    *
+    * @param request ListStackGroupOperationResultsRequest
+    * @return ListStackGroupOperationResultsResponse
+   */
   async listStackGroupOperationResults(request: ListStackGroupOperationResultsRequest): Promise<ListStackGroupOperationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStackGroupOperationResultsWithOptions(request, runtime);
@@ -12742,6 +13404,13 @@ export default class Client extends OpenApi {
     return await this.listStackGroupOperationsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the list of stack groups. In this example, the stack groups that are in the active state and deployed in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStackGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStackGroupsResponse
+   */
   async listStackGroupsWithOptions(request: ListStackGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12786,11 +13455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStackGroupsResponse>(await this.callApi(params, req, runtime), new ListStackGroupsResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the list of stack groups. In this example, the stack groups that are in the active state and deployed in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStackGroupsRequest
+    * @return ListStackGroupsResponse
+   */
   async listStackGroups(request: ListStackGroupsRequest): Promise<ListStackGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStackGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the stacks that are deployed in a stack group named `MyStackGroup` are queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request ListStackInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStackInstancesResponse
+   */
   async listStackInstancesWithOptions(request: ListStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12835,11 +13517,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStackInstancesResponse>(await this.callApi(params, req, runtime), new ListStackInstancesResponse({}));
   }
 
+  /**
+    * In this example, the stacks that are deployed in a stack group named `MyStackGroup` are queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request ListStackInstancesRequest
+    * @return ListStackInstancesResponse
+   */
   async listStackInstances(request: ListStackInstancesRequest): Promise<ListStackInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStackInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * The ListStackOperationRisks operation is suitable for the following scenarios:
+    * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the reason for each risk in a resource.
+    * *   You want to detect risks of creation failure that may arise when you create a stack. In this case, Resource Orchestration Service (ROS) allows you to detect only the required permissions that are not granted to the Alibaba Cloud account of the caller.
+    *
+    * @param request ListStackOperationRisksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStackOperationRisksResponse
+   */
   async listStackOperationRisksWithOptions(request: ListStackOperationRisksRequest, runtime: $Util.RuntimeOptions): Promise<ListStackOperationRisksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12904,6 +13601,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStackOperationRisksResponse>(await this.callApi(params, req, runtime), new ListStackOperationRisksResponse({}));
   }
 
+  /**
+    * The ListStackOperationRisks operation is suitable for the following scenarios:
+    * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the reason for each risk in a resource.
+    * *   You want to detect risks of creation failure that may arise when you create a stack. In this case, Resource Orchestration Service (ROS) allows you to detect only the required permissions that are not granted to the Alibaba Cloud account of the caller.
+    *
+    * @param request ListStackOperationRisksRequest
+    * @return ListStackOperationRisksResponse
+   */
   async listStackOperationRisks(request: ListStackOperationRisksRequest): Promise<ListStackOperationRisksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStackOperationRisksWithOptions(request, runtime);
@@ -12954,6 +13659,13 @@ export default class Client extends OpenApi {
     return await this.listStackResourceDriftsWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStackResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStackResourcesResponse
+   */
   async listStackResourcesWithOptions(request: ListStackResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12982,11 +13694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStackResourcesResponse>(await this.callApi(params, req, runtime), new ListStackResourcesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStackResourcesRequest
+    * @return ListStackResourcesResponse
+   */
   async listStackResources(request: ListStackResourcesRequest): Promise<ListStackResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStackResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStacksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListStacksResponse
+   */
   async listStacksWithOptions(request: ListStacksRequest, runtime: $Util.RuntimeOptions): Promise<ListStacksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13051,11 +13776,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStacksResponse>(await this.callApi(params, req, runtime), new ListStacksResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+    *
+    * @param request ListStacksRequest
+    * @return ListStacksResponse
+   */
   async listStacks(request: ListStacksRequest): Promise<ListStacksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStacksWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+    *
+    * @param request ListTagKeysRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13088,11 +13826,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+    * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+    *
+    * @param request ListTagKeysRequest
+    * @return ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+    * *   To specify the query object, you must specify the ResourceId.N or Tag.N parameter in the request. Tag.N consists of Tag.N.Key and Tag.N.Value.
+    * *   If you specify the Tag.N and ResourceId.N parameters, ROS resources that match both the parameters are returned.
+    * This topic provides an example on how to query the tags that are added to a resource in a stack. In this example, the resource ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13133,11 +13886,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * *   To specify the query object, you must specify the ResourceId.N or Tag.N parameter in the request. Tag.N consists of Tag.N.Key and Tag.N.Value.
+    * *   If you specify the Tag.N and ResourceId.N parameters, ROS resources that match both the parameters are returned.
+    * This topic provides an example on how to query the tags that are added to a resource in a stack. In this example, the resource ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+    *
+    * @param request ListTagValuesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagValuesResponse
+   */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13174,11 +13942,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
+  /**
+    * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+    *
+    * @param request ListTagValuesRequest
+    * @return ListTagValuesResponse
+   */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the list of scenarios. In this example, the scenarios that are created in the China (Hangzhou) region are queried. The following scenarios are returned: resource management and resource replication scenarios.
+    *
+    * @param request ListTemplateScratchesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTemplateScratchesResponse
+   */
   async listTemplateScratchesWithOptions(request: ListTemplateScratchesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateScratchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13227,6 +14008,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplateScratchesResponse>(await this.callApi(params, req, runtime), new ListTemplateScratchesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the list of scenarios. In this example, the scenarios that are created in the China (Hangzhou) region are queried. The following scenarios are returned: resource management and resource replication scenarios.
+    *
+    * @param request ListTemplateScratchesRequest
+    * @return ListTemplateScratchesResponse
+   */
   async listTemplateScratches(request: ListTemplateScratchesRequest): Promise<ListTemplateScratchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplateScratchesWithOptions(request, runtime);
@@ -13322,6 +14109,13 @@ export default class Client extends OpenApi {
     return await this.listTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+    *
+    * @param request MoveResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13358,11 +14152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+    * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+    *
+    * @param request MoveResourceGroupRequest
+    * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region and preview the information about the stack. In this example, the template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+    *
+    * @param request PreviewStackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PreviewStackResponse
+   */
   async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13451,6 +14258,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PreviewStackResponse>(await this.callApi(params, req, runtime), new PreviewStackResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region and preview the information about the stack. In this example, the template body of the stack is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+    *
+    * @param request PreviewStackRequest
+    * @return PreviewStackResponse
+   */
   async previewStack(request: PreviewStackRequest): Promise<PreviewStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.previewStackWithOptions(request, runtime);
@@ -13493,6 +14306,13 @@ export default class Client extends OpenApi {
     return await this.setDeletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+    *
+    * @param request SetStackPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetStackPolicyResponse
+   */
   async setStackPolicyWithOptions(request: SetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetStackPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13529,11 +14349,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetStackPolicyResponse>(await this.callApi(params, req, runtime), new SetStackPolicyResponse({}));
   }
 
+  /**
+    * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+    *
+    * @param request SetStackPolicyRequest
+    * @return SetStackPolicyResponse
+   */
   async setStackPolicy(request: SetStackPolicyRequest): Promise<SetStackPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setStackPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account whose ID is `151266687691****`.
+    * >  The account can authorize an RAM user to use the shared template.``
+    *
+    * @param request SetTemplatePermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetTemplatePermissionResponse
+   */
   async setTemplatePermissionWithOptions(request: SetTemplatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetTemplatePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13574,6 +14408,13 @@ export default class Client extends OpenApi {
     return $tea.cast<SetTemplatePermissionResponse>(await this.callApi(params, req, runtime), new SetTemplatePermissionResponse({}));
   }
 
+  /**
+    * In this example, a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account whose ID is `151266687691****`.
+    * >  The account can authorize an RAM user to use the shared template.``
+    *
+    * @param request SetTemplatePermissionRequest
+    * @return SetTemplatePermissionResponse
+   */
   async setTemplatePermission(request: SetTemplatePermissionRequest): Promise<SetTemplatePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setTemplatePermissionWithOptions(request, runtime);
@@ -13628,6 +14469,13 @@ export default class Client extends OpenApi {
     return await this.signalResourceWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+    *
+    * @param request StopStackGroupOperationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopStackGroupOperationResponse
+   */
   async stopStackGroupOperationWithOptions(request: StopStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<StopStackGroupOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13656,11 +14504,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopStackGroupOperationResponse>(await this.callApi(params, req, runtime), new StopStackGroupOperationResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+    *
+    * @param request StopStackGroupOperationRequest
+    * @return StopStackGroupOperationResponse
+   */
   async stopStackGroupOperation(request: StopStackGroupOperationRequest): Promise<StopStackGroupOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopStackGroupOperationWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create a tag and add the tag to a resource in a stack. In this example, the resource ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+    *
+    * @param request TagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13697,11 +14558,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create a tag and add the tag to a resource in a stack. In this example, the resource ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+    *
+    * @param request TagResourcesRequest
+    * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the ID of the stack is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+    *
+    * @param request UntagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13742,11 +14616,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the ID of the stack is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+    *
+    * @param request UntagResourcesRequest
+    * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+    * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
+    * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
+    * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+    *
+    * @param request UpdateStackRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateStackResponse
+   */
   async updateStackWithOptions(request: UpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13851,11 +14741,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStackResponse>(await this.callApi(params, req, runtime), new UpdateStackResponse({}));
   }
 
+  /**
+    * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+    * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
+    * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
+    * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+    *
+    * @param request UpdateStackRequest
+    * @return UpdateStackResponse
+   */
   async updateStack(request: UpdateStackRequest): Promise<UpdateStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStackWithOptions(request, runtime);
   }
 
+  /**
+    * In this example, the template content `{"ROSTemplateFormatVersion": "2015-09-01"}` is specified to update a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param tmpReq UpdateStackGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateStackGroupResponse
+   */
   async updateStackGroupWithOptions(tmpReq: UpdateStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateStackGroupShrinkRequest({ });
@@ -13970,11 +14876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStackGroupResponse>(await this.callApi(params, req, runtime), new UpdateStackGroupResponse({}));
   }
 
+  /**
+    * In this example, the template content `{"ROSTemplateFormatVersion": "2015-09-01"}` is specified to update a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request UpdateStackGroupRequest
+    * @return UpdateStackGroupResponse
+   */
   async updateStackGroup(request: UpdateStackGroupRequest): Promise<UpdateStackGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStackGroupWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to update stacks in a stack group. In this example, the stacks that are deployed in a stack group named `MyStackGroup` are updated. The stacks are deployed within the `151266687691****` and `141261387191****` Alibaba Cloud accounts in the China (Hangzhou) and China (Beijing) regions. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param tmpReq UpdateStackInstancesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateStackInstancesResponse
+   */
   async updateStackInstancesWithOptions(tmpReq: UpdateStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateStackInstancesShrinkRequest({ });
@@ -14053,11 +14972,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStackInstancesResponse>(await this.callApi(params, req, runtime), new UpdateStackInstancesResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to update stacks in a stack group. In this example, the stacks that are deployed in a stack group named `MyStackGroup` are updated. The stacks are deployed within the `151266687691****` and `141261387191****` Alibaba Cloud accounts in the China (Hangzhou) and China (Beijing) regions. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+    *
+    * @param request UpdateStackInstancesRequest
+    * @return UpdateStackInstancesResponse
+   */
   async updateStackInstances(request: UpdateStackInstancesRequest): Promise<UpdateStackInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStackInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](~~155094~~) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](~~155097~~) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+    * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request UpdateStackTemplateByResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateStackTemplateByResourcesResponse
+   */
   async updateStackTemplateByResourcesWithOptions(request: UpdateStackTemplateByResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackTemplateByResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14102,11 +15035,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStackTemplateByResourcesResponse>(await this.callApi(params, req, runtime), new UpdateStackTemplateByResourcesResponse({}));
   }
 
+  /**
+    * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](~~155094~~) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](~~155097~~) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+    * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+    *
+    * @param request UpdateStackTemplateByResourcesRequest
+    * @return UpdateStackTemplateByResourcesResponse
+   */
   async updateStackTemplateByResources(request: UpdateStackTemplateByResourcesRequest): Promise<UpdateStackTemplateByResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStackTemplateByResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * Take note of the following items:
+    * *   If you specify the TemplateBody or TemplateURL parameter, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to V2.
+    * *   If you do not specify the TemplateBody or TemplateURL parameter, the version number remains unchanged.
+    * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+    *
+    * @param request UpdateTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14147,11 +15097,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
+  /**
+    * Take note of the following items:
+    * *   If you specify the TemplateBody or TemplateURL parameter, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to V2.
+    * *   If you do not specify the TemplateBody or TemplateURL parameter, the version number remains unchanged.
+    * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+    *
+    * @param request UpdateTemplateRequest
+    * @return UpdateTemplateResponse
+   */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * In this topic, the `ts-7f7a704cf71c49a6****` scenario that is created in the China (Hangzhou) region is updated. In this scenario, the ID of the virtual private cloud (VPC) is updated to `ts-7f7a704cf71c49a6****`.
+    *
+    * @param tmpReq UpdateTemplateScratchRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateTemplateScratchResponse
+   */
   async updateTemplateScratchWithOptions(tmpReq: UpdateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateScratchResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTemplateScratchShrinkRequest({ });
@@ -14230,11 +15196,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateScratchResponse>(await this.callApi(params, req, runtime), new UpdateTemplateScratchResponse({}));
   }
 
+  /**
+    * In this topic, the `ts-7f7a704cf71c49a6****` scenario that is created in the China (Hangzhou) region is updated. In this scenario, the ID of the virtual private cloud (VPC) is updated to `ts-7f7a704cf71c49a6****`.
+    *
+    * @param request UpdateTemplateScratchRequest
+    * @return UpdateTemplateScratchResponse
+   */
   async updateTemplateScratch(request: UpdateTemplateScratchRequest): Promise<UpdateTemplateScratchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTemplateScratchWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to validate a template that you want to use to create a stack. In this example, the `TemplateURL` parameter is set to `oss://ros/template/demo`.
+    *
+    * @param request ValidateTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ValidateTemplateResponse
+   */
   async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14275,6 +15254,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateTemplateResponse>(await this.callApi(params, req, runtime), new ValidateTemplateResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to validate a template that you want to use to create a stack. In this example, the `TemplateURL` parameter is set to `oss://ros/template/demo`.
+    *
+    * @param request ValidateTemplateRequest
+    * @return ValidateTemplateResponse
+   */
   async validateTemplate(request: ValidateTemplateRequest): Promise<ValidateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateTemplateWithOptions(request, runtime);
