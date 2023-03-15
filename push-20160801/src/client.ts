@@ -829,10 +829,13 @@ export class PushRequest extends $tea.Model {
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
   androidExtParameters?: string;
+  androidHuaweiReceiptId?: string;
+  androidHuaweiTargetUserType?: number;
   androidImageUrl?: string;
   androidInboxBody?: string;
   androidMessageHuaweiCategory?: string;
   androidMessageHuaweiUrgency?: string;
+  androidMessageVivoCategory?: string;
   androidMusic?: string;
   androidNotificationBarPriority?: number;
   androidNotificationBarType?: number;
@@ -898,10 +901,13 @@ export class PushRequest extends $tea.Model {
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
+      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
+      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
       androidImageUrl: 'AndroidImageUrl',
       androidInboxBody: 'AndroidInboxBody',
       androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
       androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
       androidMusic: 'AndroidMusic',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
       androidNotificationBarType: 'AndroidNotificationBarType',
@@ -970,10 +976,13 @@ export class PushRequest extends $tea.Model {
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
       androidExtParameters: 'string',
+      androidHuaweiReceiptId: 'string',
+      androidHuaweiTargetUserType: 'number',
       androidImageUrl: 'string',
       androidInboxBody: 'string',
       androidMessageHuaweiCategory: 'string',
       androidMessageHuaweiUrgency: 'string',
+      androidMessageVivoCategory: 'string',
       androidMusic: 'string',
       androidNotificationBarPriority: 'number',
       androidNotificationBarType: 'number',
@@ -2616,10 +2625,13 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidBigPictureUrl?: string;
   androidBigTitle?: string;
   androidExtParameters?: string;
+  androidHuaweiReceiptId?: string;
+  androidHuaweiTargetUserType?: number;
   androidImageUrl?: string;
   androidInboxBody?: string;
   androidMessageHuaweiCategory?: string;
   androidMessageHuaweiUrgency?: string;
+  androidMessageVivoCategory?: string;
   androidMusic?: string;
   androidNotificationBarPriority?: number;
   androidNotificationBarType?: number;
@@ -2679,10 +2691,13 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidBigPictureUrl: 'AndroidBigPictureUrl',
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
+      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
+      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
       androidImageUrl: 'AndroidImageUrl',
       androidInboxBody: 'AndroidInboxBody',
       androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
       androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
       androidMusic: 'AndroidMusic',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
       androidNotificationBarType: 'AndroidNotificationBarType',
@@ -2745,10 +2760,13 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidBigPictureUrl: 'string',
       androidBigTitle: 'string',
       androidExtParameters: 'string',
+      androidHuaweiReceiptId: 'string',
+      androidHuaweiTargetUserType: 'number',
       androidImageUrl: 'string',
       androidInboxBody: 'string',
       androidMessageHuaweiCategory: 'string',
       androidMessageHuaweiUrgency: 'string',
+      androidMessageVivoCategory: 'string',
       androidMusic: 'string',
       androidNotificationBarPriority: 'number',
       androidNotificationBarType: 'number',
@@ -3530,6 +3548,14 @@ export default class Client extends OpenApi {
     return await this.checkCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CheckDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckDeviceResponse
+   */
+  // Deprecated
   async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3558,6 +3584,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDeviceResponse>(await this.callApi(params, req, runtime), new CheckDeviceResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request CheckDeviceRequest
+    * @return CheckDeviceResponse
+   */
+  // Deprecated
   async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDeviceWithOptions(request, runtime);
@@ -3670,6 +3703,14 @@ export default class Client extends OpenApi {
     return await this.continuouslyPushWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated
+    *
+    * @param request ListSummaryAppsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSummaryAppsResponse
+   */
+  // Deprecated
   async listSummaryAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSummaryAppsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3686,6 +3727,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new ListSummaryAppsResponse({}));
   }
 
+  /**
+    * @deprecated
+    *
+    * @return ListSummaryAppsResponse
+   */
+  // Deprecated
   async listSummaryApps(): Promise<ListSummaryAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSummaryAppsWithOptions(runtime);
@@ -3778,6 +3825,14 @@ export default class Client extends OpenApi {
       query["AndroidExtParameters"] = request.androidExtParameters;
     }
 
+    if (!Util.isUnset(request.androidHuaweiReceiptId)) {
+      query["AndroidHuaweiReceiptId"] = request.androidHuaweiReceiptId;
+    }
+
+    if (!Util.isUnset(request.androidHuaweiTargetUserType)) {
+      query["AndroidHuaweiTargetUserType"] = request.androidHuaweiTargetUserType;
+    }
+
     if (!Util.isUnset(request.androidImageUrl)) {
       query["AndroidImageUrl"] = request.androidImageUrl;
     }
@@ -3792,6 +3847,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.androidMessageHuaweiUrgency)) {
       query["AndroidMessageHuaweiUrgency"] = request.androidMessageHuaweiUrgency;
+    }
+
+    if (!Util.isUnset(request.androidMessageVivoCategory)) {
+      query["AndroidMessageVivoCategory"] = request.androidMessageVivoCategory;
     }
 
     if (!Util.isUnset(request.androidMusic)) {
