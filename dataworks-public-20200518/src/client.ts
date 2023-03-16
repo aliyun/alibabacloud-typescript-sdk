@@ -22339,16 +22339,8 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $tea.Model {
   beginRunningTime?: number;
   beginWaitResTime?: number;
   beginWaitTimeTime?: number;
-  bizdate?: number;
-  cycTime?: number;
   endCast?: number;
   finishTime?: number;
-  inGroupId?: number;
-  instanceId?: number;
-  nodeId?: number;
-  nodeName?: string;
-  owner?: string;
-  projectId?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22357,16 +22349,8 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $tea.Model {
       beginRunningTime: 'BeginRunningTime',
       beginWaitResTime: 'BeginWaitResTime',
       beginWaitTimeTime: 'BeginWaitTimeTime',
-      bizdate: 'Bizdate',
-      cycTime: 'CycTime',
       endCast: 'EndCast',
       finishTime: 'FinishTime',
-      inGroupId: 'InGroupId',
-      instanceId: 'InstanceId',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      owner: 'Owner',
-      projectId: 'ProjectId',
       status: 'Status',
     };
   }
@@ -22378,16 +22362,8 @@ export class GetBaselineKeyPathResponseBodyDataRuns extends $tea.Model {
       beginRunningTime: 'number',
       beginWaitResTime: 'number',
       beginWaitTimeTime: 'number',
-      bizdate: 'number',
-      cycTime: 'number',
       endCast: 'number',
       finishTime: 'number',
-      inGroupId: 'number',
-      instanceId: 'number',
-      nodeId: 'number',
-      nodeName: 'string',
-      owner: 'string',
-      projectId: 'number',
       status: 'string',
     };
   }
@@ -22401,7 +22377,7 @@ export class GetBaselineKeyPathResponseBodyDataTopics extends $tea.Model {
   addTime?: number;
   instanceId?: number;
   topicId?: number;
-  topicName?: number;
+  topicName?: string;
   static names(): { [key: string]: string } {
     return {
       addTime: 'AddTime',
@@ -22416,7 +22392,7 @@ export class GetBaselineKeyPathResponseBodyDataTopics extends $tea.Model {
       addTime: 'number',
       instanceId: 'number',
       topicId: 'number',
-      topicName: 'number',
+      topicName: 'string',
     };
   }
 
@@ -44113,6 +44089,13 @@ export default class Client extends OpenApi {
     return await this.updateConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    *
+    * @param request UpdateDIProjectConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDIProjectConfigResponse
+   */
   async updateDIProjectConfigWithOptions(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44149,6 +44132,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDIProjectConfigResponse>(await this.callApi(params, req, runtime), new UpdateDIProjectConfigResponse({}));
   }
 
+  /**
+    * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](~~199008~~).
+    *
+    * @param request UpdateDIProjectConfigRequest
+    * @return UpdateDIProjectConfigResponse
+   */
   async updateDIProjectConfig(request: UpdateDIProjectConfigRequest): Promise<UpdateDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIProjectConfigWithOptions(request, runtime);
