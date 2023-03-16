@@ -2096,6 +2096,8 @@ export class ListSnapshotResponse extends $tea.Model {
 export class ListSnapshotLinksRequest extends $tea.Model {
   filterKey?: string;
   filterValue?: string;
+  fsIds?: string;
+  linkIds?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
@@ -2103,6 +2105,8 @@ export class ListSnapshotLinksRequest extends $tea.Model {
     return {
       filterKey: 'FilterKey',
       filterValue: 'FilterValue',
+      fsIds: 'FsIds',
+      linkIds: 'LinkIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -2113,6 +2117,8 @@ export class ListSnapshotLinksRequest extends $tea.Model {
     return {
       filterKey: 'string',
       filterValue: 'string',
+      fsIds: 'string',
+      linkIds: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -3423,6 +3429,7 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  imageId?: string;
   instanceTypeFamily?: string;
   OSName?: string;
   status?: string;
@@ -3431,6 +3438,7 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      imageId: 'ImageId',
       instanceTypeFamily: 'InstanceTypeFamily',
       OSName: 'OSName',
       status: 'Status',
@@ -3442,6 +3450,7 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      imageId: 'string',
       instanceTypeFamily: 'string',
       OSName: 'string',
       status: 'string',
@@ -4794,6 +4803,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.filterValue)) {
       query["FilterValue"] = request.filterValue;
+    }
+
+    if (!Util.isUnset(request.fsIds)) {
+      query["FsIds"] = request.fsIds;
+    }
+
+    if (!Util.isUnset(request.linkIds)) {
+      query["LinkIds"] = request.linkIds;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
