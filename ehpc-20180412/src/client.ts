@@ -3795,6 +3795,7 @@ export class GetAutoScaleConfigRequest extends $tea.Model {
 export class GetAutoScaleConfigResponseBody extends $tea.Model {
   clusterId?: string;
   clusterType?: string;
+  computeEnableHt?: boolean;
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
   excludeNodes?: string;
@@ -3815,6 +3816,7 @@ export class GetAutoScaleConfigResponseBody extends $tea.Model {
     return {
       clusterId: 'ClusterId',
       clusterType: 'ClusterType',
+      computeEnableHt: 'ComputeEnableHt',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
       excludeNodes: 'ExcludeNodes',
@@ -3838,6 +3840,7 @@ export class GetAutoScaleConfigResponseBody extends $tea.Model {
     return {
       clusterId: 'string',
       clusterType: 'string',
+      computeEnableHt: 'boolean',
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
       excludeNodes: 'string',
@@ -8701,6 +8704,7 @@ export class RunCloudMetricProfilingResponse extends $tea.Model {
 
 export class SetAutoScaleConfigRequest extends $tea.Model {
   clusterId?: string;
+  computeEnableHt?: boolean;
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
   excludeNodes?: string;
@@ -8718,6 +8722,7 @@ export class SetAutoScaleConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      computeEnableHt: 'ComputeEnableHt',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
       excludeNodes: 'ExcludeNodes',
@@ -8738,6 +8743,7 @@ export class SetAutoScaleConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      computeEnableHt: 'boolean',
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
       excludeNodes: 'string',
@@ -10906,9 +10912,9 @@ export class CreateClusterRequestEcsOrderManager extends $tea.Model {
 }
 
 export class CreateClusterRequestEcsOrder extends $tea.Model {
-  compute: CreateClusterRequestEcsOrderCompute;
-  login: CreateClusterRequestEcsOrderLogin;
-  manager: CreateClusterRequestEcsOrderManager;
+  compute?: CreateClusterRequestEcsOrderCompute;
+  login?: CreateClusterRequestEcsOrderLogin;
+  manager?: CreateClusterRequestEcsOrderManager;
   static names(): { [key: string]: string } {
     return {
       compute: 'Compute',
@@ -11097,8 +11103,8 @@ export class CreateHybridClusterRequestEcsOrderManager extends $tea.Model {
 }
 
 export class CreateHybridClusterRequestEcsOrder extends $tea.Model {
-  compute: CreateHybridClusterRequestEcsOrderCompute;
-  manager: CreateHybridClusterRequestEcsOrderManager;
+  compute?: CreateHybridClusterRequestEcsOrderCompute;
+  manager?: CreateHybridClusterRequestEcsOrderManager;
   static names(): { [key: string]: string } {
     return {
       compute: 'Compute',
@@ -16330,6 +16336,7 @@ export class UpdateClusterVolumesRequestAdditionalVolumes extends $tea.Model {
   remoteDirectory?: string;
   roles?: UpdateClusterVolumesRequestAdditionalVolumesRoles[];
   volumeId?: string;
+  volumeMountOption?: string;
   volumeMountpoint?: string;
   volumeProtocol?: string;
   volumeType?: string;
@@ -16341,6 +16348,7 @@ export class UpdateClusterVolumesRequestAdditionalVolumes extends $tea.Model {
       remoteDirectory: 'RemoteDirectory',
       roles: 'Roles',
       volumeId: 'VolumeId',
+      volumeMountOption: 'VolumeMountOption',
       volumeMountpoint: 'VolumeMountpoint',
       volumeProtocol: 'VolumeProtocol',
       volumeType: 'VolumeType',
@@ -16355,6 +16363,7 @@ export class UpdateClusterVolumesRequestAdditionalVolumes extends $tea.Model {
       remoteDirectory: 'string',
       roles: { 'type': 'array', 'itemType': UpdateClusterVolumesRequestAdditionalVolumesRoles },
       volumeId: 'string',
+      volumeMountOption: 'string',
       volumeMountpoint: 'string',
       volumeProtocol: 'string',
       volumeType: 'string',
@@ -19707,6 +19716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
     *
     * @param request SubmitJobRequest
@@ -19734,6 +19744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Description
     * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
     *
     * @param request SubmitJobRequest
