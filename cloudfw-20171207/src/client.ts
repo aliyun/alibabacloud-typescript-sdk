@@ -1998,6 +1998,7 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
   dstIP?: string;
   dstNetworkInstanceId?: string;
   endTime?: string;
+  eventName?: string;
   firewallType?: string;
   lang?: string;
   noLocation?: string;
@@ -2021,6 +2022,7 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       dstIP: 'DstIP',
       dstNetworkInstanceId: 'DstNetworkInstanceId',
       endTime: 'EndTime',
+      eventName: 'EventName',
       firewallType: 'FirewallType',
       lang: 'Lang',
       noLocation: 'NoLocation',
@@ -2047,6 +2049,7 @@ export class DescribeRiskEventGroupRequest extends $tea.Model {
       dstIP: 'string',
       dstNetworkInstanceId: 'string',
       endTime: 'string',
+      eventName: 'string',
       firewallType: 'string',
       lang: 'string',
       noLocation: 'string',
@@ -7961,6 +7964,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
     }
 
     if (!Util.isUnset(request.firewallType)) {
