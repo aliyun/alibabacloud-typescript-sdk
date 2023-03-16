@@ -850,6 +850,28 @@ export class GrantUserPermissionsRequest extends $tea.Model {
   }
 }
 
+export class GrantUserPermissionsShrinkRequest extends $tea.Model {
+  permissionsShrink?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      permissionsShrink: 'Permissions',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permissionsShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GrantUserPermissionsResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1764,16 +1786,12 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeUserPermissionsResponseBodyPermissions extends $tea.Model {
-  ownerId?: string;
-  parentId?: string;
   resourceId?: string;
   resourceType?: string;
   roleName?: string;
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      parentId: 'ParentId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       roleName: 'RoleName',
@@ -1783,8 +1801,6 @@ export class DescribeUserPermissionsResponseBodyPermissions extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
-      parentId: 'string',
       resourceId: 'string',
       resourceType: 'string',
       roleName: 'string',
@@ -2267,11 +2283,17 @@ export default class Client extends OpenApi {
     return await this.detachClusterFromHubWithOptions(request, runtime);
   }
 
-  async grantUserPermissionsWithOptions(request: GrantUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionsResponse> {
-    Util.validateModel(request);
+  async grantUserPermissionsWithOptions(tmpReq: GrantUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GrantUserPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
     let query = { };
-    if (!Util.isUnset(request.permissions)) {
-      query["Permissions"] = request.permissions;
+    if (!Util.isUnset(request.permissionsShrink)) {
+      query["Permissions"] = request.permissionsShrink;
     }
 
     if (!Util.isUnset(request.userId)) {
