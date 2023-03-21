@@ -3829,10 +3829,14 @@ export class LinkInstanceCategoryResponse extends $tea.Model {
 }
 
 export class ListAgentRequest extends $tea.Model {
+  agentName?: string;
+  goodsCodes?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentName: 'AgentName',
+      goodsCodes: 'GoodsCodes',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -3840,6 +3844,8 @@ export class ListAgentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentName: 'string',
+      goodsCodes: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -6649,11 +6655,13 @@ export class ListAgentResponseBodyData extends $tea.Model {
   agentId?: number;
   agentKey?: string;
   agentName?: string;
+  instanceInfos?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
       agentKey: 'AgentKey',
       agentName: 'AgentName',
+      instanceInfos: 'InstanceInfos',
     };
   }
 
@@ -6662,6 +6670,7 @@ export class ListAgentResponseBodyData extends $tea.Model {
       agentId: 'number',
       agentKey: 'string',
       agentName: 'string',
+      instanceInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -9325,6 +9334,14 @@ export default class Client extends OpenApi {
   async listAgentWithOptions(request: ListAgentRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!Util.isUnset(request.goodsCodes)) {
+      query["GoodsCodes"] = request.goodsCodes;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
