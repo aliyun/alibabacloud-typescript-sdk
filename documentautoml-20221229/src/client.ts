@@ -116,7 +116,7 @@ export class PredictModelRequest extends $tea.Model {
 
 export class PredictModelResponseBody extends $tea.Model {
   code?: number;
-  data?: string;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -131,7 +131,7 @@ export class PredictModelResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
     };
