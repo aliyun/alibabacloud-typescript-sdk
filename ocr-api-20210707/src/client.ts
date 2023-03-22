@@ -4571,6 +4571,7 @@ export class RecognizeSocialSecurityCardVersionIIResponse extends $tea.Model {
 }
 
 export class RecognizeTableOcrRequest extends $tea.Model {
+  isHandWriting?: string;
   lineLess?: boolean;
   needRotate?: boolean;
   skipDetection?: boolean;
@@ -4578,6 +4579,7 @@ export class RecognizeTableOcrRequest extends $tea.Model {
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      isHandWriting: 'IsHandWriting',
       lineLess: 'LineLess',
       needRotate: 'NeedRotate',
       skipDetection: 'SkipDetection',
@@ -4588,6 +4590,7 @@ export class RecognizeTableOcrRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      isHandWriting: 'string',
       lineLess: 'boolean',
       needRotate: 'boolean',
       skipDetection: 'boolean',
@@ -5105,81 +5108,6 @@ export class RecognizeTrainInvoiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RecognizeTrainInvoiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTravelCardRequest extends $tea.Model {
-  url?: string;
-  body?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-      body: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTravelCardResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTravelCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeTravelCardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeTravelCardResponseBody,
     };
   }
 
@@ -7775,6 +7703,10 @@ export default class Client extends OpenApi {
   async recognizeTableOcrWithOptions(request: RecognizeTableOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableOcrResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.isHandWriting)) {
+      query["IsHandWriting"] = request.isHandWriting;
+    }
+
     if (!Util.isUnset(request.lineLess)) {
       query["LineLess"] = request.lineLess;
     }
@@ -8011,37 +7943,6 @@ export default class Client extends OpenApi {
   async recognizeTrainInvoice(request: RecognizeTrainInvoiceRequest): Promise<RecognizeTrainInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeTrainInvoiceWithOptions(request, runtime);
-  }
-
-  async recognizeTravelCardWithOptions(request: RecognizeTravelCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTravelCardResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.url)) {
-      query["Url"] = request.url;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: request.body,
-      stream: request.body,
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeTravelCard",
-      version: "2021-07-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeTravelCardResponse>(await this.callApi(params, req, runtime), new RecognizeTravelCardResponse({}));
-  }
-
-  async recognizeTravelCard(request: RecognizeTravelCardRequest): Promise<RecognizeTravelCardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeTravelCardWithOptions(request, runtime);
   }
 
   async recognizeUsedCarInvoiceWithOptions(request: RecognizeUsedCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeUsedCarInvoiceResponse> {
