@@ -168,10 +168,12 @@ export class PredictModelResponse extends $tea.Model {
 }
 
 export class PredictTemplateModelRequest extends $tea.Model {
+  binaryToText?: boolean;
   content?: string;
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
+      binaryToText: 'BinaryToText',
       content: 'Content',
       taskId: 'TaskId',
     };
@@ -179,6 +181,7 @@ export class PredictTemplateModelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      binaryToText: 'boolean',
       content: 'string',
       taskId: 'number',
     };
@@ -346,6 +349,10 @@ export default class Client extends OpenApi {
   async predictTemplateModelWithOptions(request: PredictTemplateModelRequest, runtime: $Util.RuntimeOptions): Promise<PredictTemplateModelResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.binaryToText)) {
+      query["BinaryToText"] = request.binaryToText;
+    }
+
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
     }
