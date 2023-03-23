@@ -257,6 +257,93 @@ export class CreateClientCertificateWithCsrResponse extends $tea.Model {
   }
 }
 
+export class CreateCustomCertificateRequest extends $tea.Model {
+  apiPassthrough?: CreateCustomCertificateRequestApiPassthrough;
+  csr?: string;
+  immediately?: number;
+  parentIdentifier?: string;
+  validity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiPassthrough: 'ApiPassthrough',
+      csr: 'Csr',
+      immediately: 'Immediately',
+      parentIdentifier: 'ParentIdentifier',
+      validity: 'Validity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiPassthrough: CreateCustomCertificateRequestApiPassthrough,
+      csr: 'string',
+      immediately: 'number',
+      parentIdentifier: 'string',
+      validity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateResponseBody extends $tea.Model {
+  certificate?: string;
+  certificateChain?: string;
+  identifier?: string;
+  requestId?: string;
+  serialNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      certificateChain: 'CertificateChain',
+      identifier: 'Identifier',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      certificateChain: 'string',
+      identifier: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCustomCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRevokeClientCertificateRequest extends $tea.Model {
   identifier?: string;
   static names(): { [key: string]: string } {
@@ -660,10 +747,12 @@ export class CreateSubCACertificateRequest extends $tea.Model {
   algorithm?: string;
   commonName?: string;
   countryCode?: string;
+  extendedKeyUsages?: string[];
   locality?: string;
   organization?: string;
   organizationUnit?: string;
   parentIdentifier?: string;
+  pathLenConstraint?: number;
   state?: string;
   years?: number;
   static names(): { [key: string]: string } {
@@ -671,10 +760,12 @@ export class CreateSubCACertificateRequest extends $tea.Model {
       algorithm: 'Algorithm',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
+      extendedKeyUsages: 'ExtendedKeyUsages',
       locality: 'Locality',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      pathLenConstraint: 'PathLenConstraint',
       state: 'State',
       years: 'Years',
     };
@@ -685,10 +776,12 @@ export class CreateSubCACertificateRequest extends $tea.Model {
       algorithm: 'string',
       commonName: 'string',
       countryCode: 'string',
+      extendedKeyUsages: { 'type': 'array', 'itemType': 'string' },
       locality: 'string',
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      pathLenConstraint: 'number',
       state: 'string',
       years: 'number',
     };
@@ -1507,6 +1600,149 @@ export class UpdateCACertificateStatusResponse extends $tea.Model {
   }
 }
 
+export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage extends $tea.Model {
+  contentCommitment?: boolean;
+  dataEncipherment?: boolean;
+  decipherOnly?: boolean;
+  digitalSignature?: boolean;
+  encipherOnly?: boolean;
+  keyAgreement?: boolean;
+  keyEncipherment?: boolean;
+  nonRepudiation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      contentCommitment: 'ContentCommitment',
+      dataEncipherment: 'DataEncipherment',
+      decipherOnly: 'DecipherOnly',
+      digitalSignature: 'DigitalSignature',
+      encipherOnly: 'EncipherOnly',
+      keyAgreement: 'KeyAgreement',
+      keyEncipherment: 'KeyEncipherment',
+      nonRepudiation: 'NonRepudiation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentCommitment: 'boolean',
+      dataEncipherment: 'boolean',
+      decipherOnly: 'boolean',
+      digitalSignature: 'boolean',
+      encipherOnly: 'boolean',
+      keyAgreement: 'boolean',
+      keyEncipherment: 'boolean',
+      nonRepudiation: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames extends $tea.Model {
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateRequestApiPassthroughExtensions extends $tea.Model {
+  extendedKeyUsages?: string[];
+  keyUsage?: CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage;
+  subjectAlternativeNames?: CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames[];
+  static names(): { [key: string]: string } {
+    return {
+      extendedKeyUsages: 'ExtendedKeyUsages',
+      keyUsage: 'KeyUsage',
+      subjectAlternativeNames: 'SubjectAlternativeNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendedKeyUsages: { 'type': 'array', 'itemType': 'string' },
+      keyUsage: CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage,
+      subjectAlternativeNames: { 'type': 'array', 'itemType': CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateRequestApiPassthroughSubject extends $tea.Model {
+  commonName?: string;
+  country?: string;
+  locality?: string;
+  organization?: string;
+  organizationUnit?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      country: 'Country',
+      locality: 'Locality',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      country: 'string',
+      locality: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCertificateRequestApiPassthrough extends $tea.Model {
+  extensions?: CreateCustomCertificateRequestApiPassthroughExtensions;
+  subject?: CreateCustomCertificateRequestApiPassthroughSubject;
+  static names(): { [key: string]: string } {
+    return {
+      extensions: 'Extensions',
+      subject: 'Subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensions: CreateCustomCertificateRequestApiPassthroughExtensions,
+      subject: CreateCustomCertificateRequestApiPassthroughSubject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
   afterDate?: number;
   algorithm?: string;
@@ -2283,6 +2519,51 @@ export default class Client extends OpenApi {
     return await this.createClientCertificateWithCsrWithOptions(request, runtime);
   }
 
+  async createCustomCertificateWithOptions(request: CreateCustomCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiPassthrough)) {
+      query["ApiPassthrough"] = request.apiPassthrough;
+    }
+
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.immediately)) {
+      query["Immediately"] = request.immediately;
+    }
+
+    if (!Util.isUnset(request.parentIdentifier)) {
+      query["ParentIdentifier"] = request.parentIdentifier;
+    }
+
+    if (!Util.isUnset(request.validity)) {
+      query["Validity"] = request.validity;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomCertificateResponse>(await this.callApi(params, req, runtime), new CreateCustomCertificateResponse({}));
+  }
+
+  async createCustomCertificate(request: CreateCustomCertificateRequest): Promise<CreateCustomCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomCertificateWithOptions(request, runtime);
+  }
+
   /**
     * After a client certificate or a server certificate is revoked, the client or the server on which the certificate is installed cannot establish HTTPS connections with other devices.
     * After a client certificate or a server certificate is revoked, you can call the [DeleteClientCertificate](~~330880~~) operation to permanently delete the certificate.
@@ -2648,6 +2929,10 @@ export default class Client extends OpenApi {
       query["CountryCode"] = request.countryCode;
     }
 
+    if (!Util.isUnset(request.extendedKeyUsages)) {
+      query["ExtendedKeyUsages"] = request.extendedKeyUsages;
+    }
+
     if (!Util.isUnset(request.locality)) {
       query["Locality"] = request.locality;
     }
@@ -2662,6 +2947,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parentIdentifier)) {
       query["ParentIdentifier"] = request.parentIdentifier;
+    }
+
+    if (!Util.isUnset(request.pathLenConstraint)) {
+      query["PathLenConstraint"] = request.pathLenConstraint;
     }
 
     if (!Util.isUnset(request.state)) {
