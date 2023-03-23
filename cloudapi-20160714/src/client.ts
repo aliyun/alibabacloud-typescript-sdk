@@ -924,7 +924,6 @@ export class CreateAppRequest extends $tea.Model {
   appSecret?: string;
   description?: string;
   securityToken?: string;
-  source?: string;
   tag?: CreateAppRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -934,7 +933,6 @@ export class CreateAppRequest extends $tea.Model {
       appSecret: 'AppSecret',
       description: 'Description',
       securityToken: 'SecurityToken',
-      source: 'Source',
       tag: 'Tag',
     };
   }
@@ -947,7 +945,6 @@ export class CreateAppRequest extends $tea.Model {
       appSecret: 'string',
       description: 'string',
       securityToken: 'string',
-      source: 'string',
       tag: { 'type': 'array', 'itemType': CreateAppRequestTag },
     };
   }
@@ -1321,24 +1318,32 @@ export class CreateInstanceRequest extends $tea.Model {
   chargeType?: string;
   duration?: number;
   httpsPolicy?: string;
+  instanceCidr?: string;
   instanceName?: string;
   instanceSpec?: string;
+  instanceType?: string;
   pricingCycle?: string;
   tag?: CreateInstanceRequestTag[];
   token?: string;
+  userVpcId?: string;
   zoneId?: string;
+  zoneVSwitchSecurityGroup?: CreateInstanceRequestZoneVSwitchSecurityGroup[];
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       chargeType: 'ChargeType',
       duration: 'Duration',
       httpsPolicy: 'HttpsPolicy',
+      instanceCidr: 'InstanceCidr',
       instanceName: 'InstanceName',
       instanceSpec: 'InstanceSpec',
+      instanceType: 'InstanceType',
       pricingCycle: 'PricingCycle',
       tag: 'Tag',
       token: 'Token',
+      userVpcId: 'UserVpcId',
       zoneId: 'ZoneId',
+      zoneVSwitchSecurityGroup: 'ZoneVSwitchSecurityGroup',
     };
   }
 
@@ -1348,12 +1353,16 @@ export class CreateInstanceRequest extends $tea.Model {
       chargeType: 'string',
       duration: 'number',
       httpsPolicy: 'string',
+      instanceCidr: 'string',
       instanceName: 'string',
       instanceSpec: 'string',
+      instanceType: 'string',
       pricingCycle: 'string',
       tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
       token: 'string',
+      userVpcId: 'string',
       zoneId: 'string',
+      zoneVSwitchSecurityGroup: { 'type': 'array', 'itemType': CreateInstanceRequestZoneVSwitchSecurityGroup },
     };
   }
 
@@ -4133,6 +4142,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   customDomains?: DescribeApiGroupResponseBodyCustomDomains;
   customTraceConfig?: string;
   customerConfigs?: string;
+  dedicatedInstanceType?: string;
   defaultDomain?: string;
   description?: string;
   groupId?: string;
@@ -4167,6 +4177,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       customDomains: 'CustomDomains',
       customTraceConfig: 'CustomTraceConfig',
       customerConfigs: 'CustomerConfigs',
+      dedicatedInstanceType: 'DedicatedInstanceType',
       defaultDomain: 'DefaultDomain',
       description: 'Description',
       groupId: 'GroupId',
@@ -4204,6 +4215,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       customDomains: DescribeApiGroupResponseBodyCustomDomains,
       customTraceConfig: 'string',
       customerConfigs: 'string',
+      dedicatedInstanceType: 'string',
       defaultDomain: 'string',
       description: 'string',
       groupId: 'string',
@@ -7214,6 +7226,8 @@ export class DescribeDomainResponseBody extends $tea.Model {
   certificateId?: string;
   certificateName?: string;
   certificatePrivateKey?: string;
+  certificateValidEnd?: number;
+  certificateValidStart?: number;
   domainBindingStatus?: string;
   domainCNAMEStatus?: string;
   domainLegalStatus?: string;
@@ -7229,6 +7243,8 @@ export class DescribeDomainResponseBody extends $tea.Model {
       certificateId: 'CertificateId',
       certificateName: 'CertificateName',
       certificatePrivateKey: 'CertificatePrivateKey',
+      certificateValidEnd: 'CertificateValidEnd',
+      certificateValidStart: 'CertificateValidStart',
       domainBindingStatus: 'DomainBindingStatus',
       domainCNAMEStatus: 'DomainCNAMEStatus',
       domainLegalStatus: 'DomainLegalStatus',
@@ -7247,6 +7263,8 @@ export class DescribeDomainResponseBody extends $tea.Model {
       certificateId: 'string',
       certificateName: 'string',
       certificatePrivateKey: 'string',
+      certificateValidEnd: 'number',
+      certificateValidStart: 'number',
       domainBindingStatus: 'string',
       domainCNAMEStatus: 'string',
       domainLegalStatus: 'string',
@@ -7449,6 +7467,708 @@ export class DescribeImportOASTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeImportOASTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropConnectionsRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  sbcName?: string;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sbcName: 'SbcName',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      sbcName: 'string',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropConnectionsResponseBody extends $tea.Model {
+  instanceDropConnections?: DescribeInstanceDropConnectionsResponseBodyInstanceDropConnections;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceDropConnections: 'InstanceDropConnections',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceDropConnections: DescribeInstanceDropConnectionsResponseBodyInstanceDropConnections,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropConnectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceDropConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceDropConnectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropPacketRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  sbcName?: string;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sbcName: 'SbcName',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      sbcName: 'string',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropPacketResponseBody extends $tea.Model {
+  instanceDropPacket?: DescribeInstanceDropPacketResponseBodyInstanceDropPacket;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceDropPacket: 'InstanceDropPacket',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceDropPacket: DescribeInstanceDropPacketResponseBodyInstanceDropPacket,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropPacketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceDropPacketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceDropPacketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeResponseBody extends $tea.Model {
+  instanceHttpCode?: DescribeInstanceHttpCodeResponseBodyInstanceHttpCode;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceHttpCode: 'InstanceHttpCode',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceHttpCode: DescribeInstanceHttpCodeResponseBodyInstanceHttpCode,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceHttpCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceHttpCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLatencyRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLatencyResponseBody extends $tea.Model {
+  instanceLatency?: DescribeInstanceLatencyResponseBodyInstanceLatency;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceLatency: 'InstanceLatency',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceLatency: DescribeInstanceLatencyResponseBodyInstanceLatency,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLatencyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceLatencyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceLatencyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceNewConnectionsRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  sbcName?: string;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sbcName: 'SbcName',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      sbcName: 'string',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceNewConnectionsResponseBody extends $tea.Model {
+  instanceNewConnections?: DescribeInstanceNewConnectionsResponseBodyInstanceNewConnections;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceNewConnections: 'InstanceNewConnections',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceNewConnections: DescribeInstanceNewConnectionsResponseBodyInstanceNewConnections,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceNewConnectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceNewConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceNewConnectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancePacketsRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  sbcName?: string;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sbcName: 'SbcName',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      sbcName: 'string',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancePacketsResponseBody extends $tea.Model {
+  instancePackets?: DescribeInstancePacketsResponseBodyInstancePackets;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instancePackets: 'InstancePackets',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instancePackets: DescribeInstancePacketsResponseBodyInstancePackets,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancePacketsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstancePacketsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstancePacketsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceQpsRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceQpsResponseBody extends $tea.Model {
+  instanceQps?: DescribeInstanceQpsResponseBodyInstanceQps;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceQps: 'InstanceQps',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceQps: DescribeInstanceQpsResponseBodyInstanceQps,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceQpsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceQpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceQpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSlbConnectRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  sbcName?: string;
+  securityToken?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sbcName: 'SbcName',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      sbcName: 'string',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSlbConnectResponseBody extends $tea.Model {
+  instanceSlbConnect?: DescribeInstanceSlbConnectResponseBodyInstanceSlbConnect;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSlbConnect: 'InstanceSlbConnect',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSlbConnect: DescribeInstanceSlbConnectResponseBodyInstanceSlbConnect,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSlbConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceSlbConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceSlbConnectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTrafficRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
+  securityToken?: string;
+  stageName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTrafficResponseBody extends $tea.Model {
+  instanceTraffic?: DescribeInstanceTrafficResponseBodyInstanceTraffic;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTraffic: 'InstanceTraffic',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTraffic: DescribeInstanceTrafficResponseBodyInstanceTraffic,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTrafficResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceTrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceTrafficResponseBody,
     };
   }
 
@@ -8285,12 +9005,16 @@ export class DescribePluginsResponse extends $tea.Model {
 export class DescribePluginsByApiRequest extends $tea.Model {
   apiId?: string;
   groupId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       groupId: 'GroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
@@ -8300,6 +9024,8 @@ export class DescribePluginsByApiRequest extends $tea.Model {
     return {
       apiId: 'string',
       groupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       securityToken: 'string',
       stageName: 'string',
     };
@@ -13347,6 +14073,75 @@ export class SetDomainWebSocketStatusResponse extends $tea.Model {
   }
 }
 
+export class SetGroupAuthAppCodeRequest extends $tea.Model {
+  authAppCode?: string;
+  groupId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAppCode: 'AuthAppCode',
+      groupId: 'GroupId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAppCode: 'string',
+      groupId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGroupAuthAppCodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGroupAuthAppCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetGroupAuthAppCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetGroupAuthAppCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetIpControlApisRequest extends $tea.Model {
   apiIds?: string;
   groupId?: string;
@@ -14058,6 +14853,34 @@ export class CreateInstanceRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestZoneVSwitchSecurityGroup extends $tea.Model {
+  cidrBlock?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -16897,6 +17720,47 @@ export class DescribeApisResponseBodyApiSummarysApiSummaryDeployedInfos extends 
   }
 }
 
+export class DescribeApisResponseBodyApiSummarysApiSummaryTagListTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisResponseBodyApiSummarysApiSummaryTagList extends $tea.Model {
+  tag?: DescribeApisResponseBodyApiSummarysApiSummaryTagListTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeApisResponseBodyApiSummarysApiSummaryTagListTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
   apiId?: string;
   apiMethod?: string;
@@ -16909,6 +17773,7 @@ export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
   groupName?: string;
   modifiedTime?: string;
   regionId?: string;
+  tagList?: DescribeApisResponseBodyApiSummarysApiSummaryTagList;
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16923,6 +17788,7 @@ export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
       groupName: 'GroupName',
       modifiedTime: 'ModifiedTime',
       regionId: 'RegionId',
+      tagList: 'TagList',
       visibility: 'Visibility',
     };
   }
@@ -16940,6 +17806,7 @@ export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
       groupName: 'string',
       modifiedTime: 'string',
       regionId: 'string',
+      tagList: DescribeApisResponseBodyApiSummarysApiSummaryTagList,
       visibility: 'string',
     };
   }
@@ -19024,6 +19891,390 @@ export class DescribeImportOASTaskResponseBodyModelResults extends $tea.Model {
   }
 }
 
+export class DescribeInstanceDropConnectionsResponseBodyInstanceDropConnectionsMonitorItem extends $tea.Model {
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropConnectionsResponseBodyInstanceDropConnections extends $tea.Model {
+  monitorItem?: DescribeInstanceDropConnectionsResponseBodyInstanceDropConnectionsMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceDropConnectionsResponseBodyInstanceDropConnectionsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropPacketResponseBodyInstanceDropPacketMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceDropPacketResponseBodyInstanceDropPacket extends $tea.Model {
+  monitorItem?: DescribeInstanceDropPacketResponseBodyInstanceDropPacketMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceDropPacketResponseBodyInstanceDropPacketMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem extends $tea.Model {
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCode extends $tea.Model {
+  monitorItem?: DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLatencyResponseBodyInstanceLatencyMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLatencyResponseBodyInstanceLatency extends $tea.Model {
+  monitorItem?: DescribeInstanceLatencyResponseBodyInstanceLatencyMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceLatencyResponseBodyInstanceLatencyMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceNewConnectionsResponseBodyInstanceNewConnectionsMonitorItem extends $tea.Model {
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceNewConnectionsResponseBodyInstanceNewConnections extends $tea.Model {
+  monitorItem?: DescribeInstanceNewConnectionsResponseBodyInstanceNewConnectionsMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceNewConnectionsResponseBodyInstanceNewConnectionsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancePacketsResponseBodyInstancePacketsMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancePacketsResponseBodyInstancePackets extends $tea.Model {
+  monitorItem?: DescribeInstancePacketsResponseBodyInstancePacketsMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstancePacketsResponseBodyInstancePacketsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceQpsResponseBodyInstanceQpsMonitorItem extends $tea.Model {
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceQpsResponseBodyInstanceQps extends $tea.Model {
+  monitorItem?: DescribeInstanceQpsResponseBodyInstanceQpsMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceQpsResponseBodyInstanceQpsMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSlbConnectResponseBodyInstanceSlbConnectMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSlbConnectResponseBodyInstanceSlbConnect extends $tea.Model {
+  monitorItem?: DescribeInstanceSlbConnectResponseBodyInstanceSlbConnectMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceSlbConnectResponseBodyInstanceSlbConnectMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTrafficResponseBodyInstanceTrafficMonitorItem extends $tea.Model {
+  item?: string;
+  itemTime?: string;
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTrafficResponseBodyInstanceTraffic extends $tea.Model {
+  monitorItem?: DescribeInstanceTrafficResponseBodyInstanceTrafficMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceTrafficResponseBodyInstanceTrafficMonitorItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -19087,13 +20338,65 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpec
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributesNetworkInterfaceAttribute extends $tea.Model {
+  cidrBlock?: string;
+  networkInterfaceId?: string;
+  securityGroupId?: string;
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      networkInterfaceId: 'NetworkInterfaceId',
+      securityGroupId: 'SecurityGroupId',
+      vswitchId: 'VswitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      networkInterfaceId: 'string',
+      securityGroupId: 'string',
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes extends $tea.Model {
+  networkInterfaceAttribute?: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributesNetworkInterfaceAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceAttribute: 'NetworkInterfaceAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceAttribute: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributesNetworkInterfaceAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $tea.Model {
   aclId?: string;
   aclName?: string;
   aclStatus?: string;
   aclType?: string;
   classicEgressAddress?: string;
+  connectVpcId?: string;
   createdTime?: string;
+  dedicatedInstanceType?: string;
   egressIpv6Enable?: boolean;
   expiredTime?: string;
   httpsPolicies?: string;
@@ -19102,6 +20405,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   IPV6AclStatus?: string;
   IPV6AclType?: string;
   instanceChargeType?: string;
+  instanceCidrBlock?: string;
   instanceId?: string;
   instanceName?: string;
   instanceRpsLimit?: number;
@@ -19110,6 +20414,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   instanceType?: string;
   internetEgressAddress?: string;
   intranetSegments?: string;
+  networkInterfaceAttributes?: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes;
   regionId?: string;
   status?: string;
   supportIpv6?: boolean;
@@ -19129,7 +20434,9 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclStatus: 'AclStatus',
       aclType: 'AclType',
       classicEgressAddress: 'ClassicEgressAddress',
+      connectVpcId: 'ConnectVpcId',
       createdTime: 'CreatedTime',
+      dedicatedInstanceType: 'DedicatedInstanceType',
       egressIpv6Enable: 'EgressIpv6Enable',
       expiredTime: 'ExpiredTime',
       httpsPolicies: 'HttpsPolicies',
@@ -19138,6 +20445,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       IPV6AclStatus: 'IPV6AclStatus',
       IPV6AclType: 'IPV6AclType',
       instanceChargeType: 'InstanceChargeType',
+      instanceCidrBlock: 'InstanceCidrBlock',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceRpsLimit: 'InstanceRpsLimit',
@@ -19146,6 +20454,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceType: 'InstanceType',
       internetEgressAddress: 'InternetEgressAddress',
       intranetSegments: 'IntranetSegments',
+      networkInterfaceAttributes: 'NetworkInterfaceAttributes',
       regionId: 'RegionId',
       status: 'Status',
       supportIpv6: 'SupportIpv6',
@@ -19168,7 +20477,9 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclStatus: 'string',
       aclType: 'string',
       classicEgressAddress: 'string',
+      connectVpcId: 'string',
       createdTime: 'string',
+      dedicatedInstanceType: 'string',
       egressIpv6Enable: 'boolean',
       expiredTime: 'string',
       httpsPolicies: 'string',
@@ -19177,6 +20488,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       IPV6AclStatus: 'string',
       IPV6AclType: 'string',
       instanceChargeType: 'string',
+      instanceCidrBlock: 'string',
       instanceId: 'string',
       instanceName: 'string',
       instanceRpsLimit: 'number',
@@ -19185,6 +20497,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceType: 'string',
       internetEgressAddress: 'string',
       intranetSegments: 'string',
+      networkInterfaceAttributes: DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes,
       regionId: 'string',
       status: 'string',
       supportIpv6: 'boolean',
@@ -21284,6 +22597,11 @@ export class ModifyPluginRequestTag extends $tea.Model {
 export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Model {
   apiId?: string;
   apiName?: string;
+  appName?: string;
+  backendRequestEnd?: number;
+  backendRequestStart?: number;
+  backendResponseEnd?: number;
+  backendResponseStart?: number;
   clientIp?: string;
   clientNonce?: string;
   consumerAppId?: string;
@@ -21293,6 +22611,10 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
   errorCode?: string;
   errorMessage?: string;
   exception?: string;
+  frontRequestEnd?: number;
+  frontRequestStart?: number;
+  frontResponseEnd?: number;
+  frontResponseStart?: number;
   groupId?: string;
   groupName?: string;
   httpMethod?: string;
@@ -21321,6 +22643,11 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
     return {
       apiId: 'ApiId',
       apiName: 'ApiName',
+      appName: 'AppName',
+      backendRequestEnd: 'BackendRequestEnd',
+      backendRequestStart: 'BackendRequestStart',
+      backendResponseEnd: 'BackendResponseEnd',
+      backendResponseStart: 'BackendResponseStart',
       clientIp: 'ClientIp',
       clientNonce: 'ClientNonce',
       consumerAppId: 'ConsumerAppId',
@@ -21330,6 +22657,10 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       exception: 'Exception',
+      frontRequestEnd: 'FrontRequestEnd',
+      frontRequestStart: 'FrontRequestStart',
+      frontResponseEnd: 'FrontResponseEnd',
+      frontResponseStart: 'FrontResponseStart',
       groupId: 'GroupId',
       groupName: 'GroupName',
       httpMethod: 'HttpMethod',
@@ -21361,6 +22692,11 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
     return {
       apiId: 'string',
       apiName: 'string',
+      appName: 'string',
+      backendRequestEnd: 'number',
+      backendRequestStart: 'number',
+      backendResponseEnd: 'number',
+      backendResponseStart: 'number',
       clientIp: 'string',
       clientNonce: 'string',
       consumerAppId: 'string',
@@ -21370,6 +22706,10 @@ export class QueryRequestLogsResponseBodyRequestLogsRequestLog extends $tea.Mode
       errorCode: 'string',
       errorMessage: 'string',
       exception: 'string',
+      frontRequestEnd: 'number',
+      frontRequestStart: 'number',
+      frontResponseEnd: 'number',
+      frontResponseStart: 'number',
       groupId: 'string',
       groupName: 'string',
       httpMethod: 'string',
@@ -22259,10 +23599,6 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -22495,12 +23831,20 @@ export default class Client extends OpenApi {
       query["HttpsPolicy"] = request.httpsPolicy;
     }
 
+    if (!Util.isUnset(request.instanceCidr)) {
+      query["InstanceCidr"] = request.instanceCidr;
+    }
+
     if (!Util.isUnset(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
     if (!Util.isUnset(request.instanceSpec)) {
       query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
     }
 
     if (!Util.isUnset(request.pricingCycle)) {
@@ -22515,8 +23859,16 @@ export default class Client extends OpenApi {
       query["Token"] = request.token;
     }
 
+    if (!Util.isUnset(request.userVpcId)) {
+      query["UserVpcId"] = request.userVpcId;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset(request.zoneVSwitchSecurityGroup)) {
+      query["ZoneVSwitchSecurityGroup"] = request.zoneVSwitchSecurityGroup;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24404,8 +25756,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+    * You can call this operation to query the definition of a specified published version of an API.
+    * *   This operation is intended for API providers.
+    * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
     *
     * @param request DescribeApiHistoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24452,8 +25805,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+    * You can call this operation to query the definition of a specified published version of an API.
+    * *   This operation is intended for API providers.
+    * *   Each time an API is published, API Gateway records the publishing details, such as the time and the API definition. You can use the version number obtained from other API operations to query the details of an API definition that is published on a specific occasion.
     *
     * @param request DescribeApiHistoryRequest
     * @return DescribeApiHistoryResponse
@@ -26137,6 +27491,411 @@ export default class Client extends OpenApi {
     return await this.describeImportOASTaskWithOptions(request, runtime);
   }
 
+  async describeInstanceDropConnectionsWithOptions(request: DescribeInstanceDropConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDropConnectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sbcName)) {
+      query["SbcName"] = request.sbcName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceDropConnections",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceDropConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDropConnectionsResponse({}));
+  }
+
+  async describeInstanceDropConnections(request: DescribeInstanceDropConnectionsRequest): Promise<DescribeInstanceDropConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceDropConnectionsWithOptions(request, runtime);
+  }
+
+  async describeInstanceDropPacketWithOptions(request: DescribeInstanceDropPacketRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDropPacketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sbcName)) {
+      query["SbcName"] = request.sbcName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceDropPacket",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceDropPacketResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDropPacketResponse({}));
+  }
+
+  async describeInstanceDropPacket(request: DescribeInstanceDropPacketRequest): Promise<DescribeInstanceDropPacketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceDropPacketWithOptions(request, runtime);
+  }
+
+  async describeInstanceHttpCodeWithOptions(request: DescribeInstanceHttpCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceHttpCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceHttpCode",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceHttpCodeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceHttpCodeResponse({}));
+  }
+
+  async describeInstanceHttpCode(request: DescribeInstanceHttpCodeRequest): Promise<DescribeInstanceHttpCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceHttpCodeWithOptions(request, runtime);
+  }
+
+  async describeInstanceLatencyWithOptions(request: DescribeInstanceLatencyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLatencyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceLatency",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceLatencyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceLatencyResponse({}));
+  }
+
+  async describeInstanceLatency(request: DescribeInstanceLatencyRequest): Promise<DescribeInstanceLatencyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceLatencyWithOptions(request, runtime);
+  }
+
+  async describeInstanceNewConnectionsWithOptions(request: DescribeInstanceNewConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceNewConnectionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sbcName)) {
+      query["SbcName"] = request.sbcName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceNewConnections",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceNewConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceNewConnectionsResponse({}));
+  }
+
+  async describeInstanceNewConnections(request: DescribeInstanceNewConnectionsRequest): Promise<DescribeInstanceNewConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceNewConnectionsWithOptions(request, runtime);
+  }
+
+  async describeInstancePacketsWithOptions(request: DescribeInstancePacketsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancePacketsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sbcName)) {
+      query["SbcName"] = request.sbcName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstancePackets",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstancePacketsResponse>(await this.callApi(params, req, runtime), new DescribeInstancePacketsResponse({}));
+  }
+
+  async describeInstancePackets(request: DescribeInstancePacketsRequest): Promise<DescribeInstancePacketsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstancePacketsWithOptions(request, runtime);
+  }
+
+  async describeInstanceQpsWithOptions(request: DescribeInstanceQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceQpsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceQps",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceQpsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceQpsResponse({}));
+  }
+
+  async describeInstanceQps(request: DescribeInstanceQpsRequest): Promise<DescribeInstanceQpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceQpsWithOptions(request, runtime);
+  }
+
+  async describeInstanceSlbConnectWithOptions(request: DescribeInstanceSlbConnectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSlbConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sbcName)) {
+      query["SbcName"] = request.sbcName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSlbConnect",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSlbConnectResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSlbConnectResponse({}));
+  }
+
+  async describeInstanceSlbConnect(request: DescribeInstanceSlbConnectRequest): Promise<DescribeInstanceSlbConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceSlbConnectWithOptions(request, runtime);
+  }
+
+  async describeInstanceTrafficWithOptions(request: DescribeInstanceTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTrafficResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceTraffic",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceTrafficResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTrafficResponse({}));
+  }
+
+  async describeInstanceTraffic(request: DescribeInstanceTrafficRequest): Promise<DescribeInstanceTrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceTrafficWithOptions(request, runtime);
+  }
+
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26244,9 +28003,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
     * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the [DescribeIpControlPolicyItems](https://help.aliyun.com/document_detail/65532.html?spm=a2c4g.11186623.2.14.615b13acrFZFaH) operation.
+    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
     *
     * @param request DescribeIpControlsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26298,9 +28057,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
     * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the [DescribeIpControlPolicyItems](https://help.aliyun.com/document_detail/65532.html?spm=a2c4g.11186623.2.14.615b13acrFZFaH) operation.
+    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~65532~~) operation.
     *
     * @param request DescribeIpControlsRequest
     * @return DescribeIpControlsResponse
@@ -26642,7 +28401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
+    * *   This operation is intended for API callers.
     * *   This operation supports pagination.
     *
     * @param request DescribePluginsByApiRequest
@@ -26658,6 +28417,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.securityToken)) {
@@ -26686,7 +28453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
+    * *   This operation is intended for API callers.
     * *   This operation supports pagination.
     *
     * @param request DescribePluginsByApiRequest
@@ -29519,6 +31286,13 @@ export default class Client extends OpenApi {
     return await this.removeVpcAccessAndAbolishApisWithOptions(request, runtime);
   }
 
+  /**
+    * The new AppCode takes effect about 2 seconds after you call this operation.
+    *
+    * @param request ResetAppCodeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetAppCodeResponse
+   */
   async resetAppCodeWithOptions(request: ResetAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29551,6 +31325,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAppCodeResponse>(await this.callApi(params, req, runtime), new ResetAppCodeResponse({}));
   }
 
+  /**
+    * The new AppCode takes effect about 2 seconds after you call this operation.
+    *
+    * @param request ResetAppCodeRequest
+    * @return ResetAppCodeResponse
+   */
   async resetAppCode(request: ResetAppCodeRequest): Promise<ResetAppCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAppCodeWithOptions(request, runtime);
@@ -30064,6 +31844,43 @@ export default class Client extends OpenApi {
   async setDomainWebSocketStatus(request: SetDomainWebSocketStatusRequest): Promise<SetDomainWebSocketStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainWebSocketStatusWithOptions(request, runtime);
+  }
+
+  async setGroupAuthAppCodeWithOptions(request: SetGroupAuthAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<SetGroupAuthAppCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authAppCode)) {
+      query["AuthAppCode"] = request.authAppCode;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetGroupAuthAppCode",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetGroupAuthAppCodeResponse>(await this.callApi(params, req, runtime), new SetGroupAuthAppCodeResponse({}));
+  }
+
+  async setGroupAuthAppCode(request: SetGroupAuthAppCodeRequest): Promise<SetGroupAuthAppCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setGroupAuthAppCodeWithOptions(request, runtime);
   }
 
   /**
