@@ -183,43 +183,6 @@ export class SavedSearch extends $tea.Model {
   }
 }
 
-export class Alert extends $tea.Model {
-  configuration?: Configuration;
-  description?: string;
-  displayName?: string;
-  name?: string;
-  schedule?: Schedule;
-  state?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configuration: 'configuration',
-      description: 'description',
-      displayName: 'displayName',
-      name: 'name',
-      schedule: 'schedule',
-      state: 'state',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configuration: Configuration,
-      description: 'string',
-      displayName: 'string',
-      name: 'string',
-      schedule: Schedule,
-      state: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class Chart extends $tea.Model {
   action?: { [key: string]: any };
   display?: { [key: string]: any };
@@ -251,70 +214,6 @@ export class Chart extends $tea.Model {
   }
 }
 
-export class Configuration extends $tea.Model {
-  annotations?: ConfigurationAnnotations[];
-  autoAnnotation?: boolean;
-  dashboard?: string;
-  groupConfiguration?: ConfigurationGroupConfiguration;
-  joinConfigurations?: ConfigurationJoinConfigurations[];
-  labels?: ConfigurationLabels[];
-  noDataFire?: boolean;
-  noDataSeverity?: number;
-  policyConfiguration?: ConfigurationPolicyConfiguration;
-  queryList?: ConfigurationQueryList;
-  sendResolved?: boolean;
-  severityConfigurations?: ConfigurationSeverityConfigurations[];
-  tags?: string[];
-  threshold?: number;
-  type?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      annotations: 'annotations',
-      autoAnnotation: 'autoAnnotation',
-      dashboard: 'dashboard',
-      groupConfiguration: 'groupConfiguration',
-      joinConfigurations: 'joinConfigurations',
-      labels: 'labels',
-      noDataFire: 'noDataFire',
-      noDataSeverity: 'noDataSeverity',
-      policyConfiguration: 'policyConfiguration',
-      queryList: 'queryList',
-      sendResolved: 'sendResolved',
-      severityConfigurations: 'severityConfigurations',
-      tags: 'tags',
-      threshold: 'threshold',
-      type: 'type',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      annotations: { 'type': 'array', 'itemType': ConfigurationAnnotations },
-      autoAnnotation: 'boolean',
-      dashboard: 'string',
-      groupConfiguration: ConfigurationGroupConfiguration,
-      joinConfigurations: { 'type': 'array', 'itemType': ConfigurationJoinConfigurations },
-      labels: { 'type': 'array', 'itemType': ConfigurationLabels },
-      noDataFire: 'boolean',
-      noDataSeverity: 'number',
-      policyConfiguration: ConfigurationPolicyConfiguration,
-      queryList: ConfigurationQueryList,
-      sendResolved: 'boolean',
-      severityConfigurations: { 'type': 'array', 'itemType': ConfigurationSeverityConfigurations },
-      tags: { 'type': 'array', 'itemType': 'string' },
-      threshold: 'number',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class Dashboard extends $tea.Model {
   attribute?: { [key: string]: string };
   charts?: Chart[];
@@ -338,25 +237,6 @@ export class Dashboard extends $tea.Model {
       dashboardName: 'string',
       description: 'string',
       displayName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EtlFunctionConfig extends $tea.Model {
-  functionProvider?: string;
-  static names(): { [key: string]: string } {
-    return {
-      functionProvider: 'functionProvider',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      functionProvider: 'string',
     };
   }
 
@@ -402,31 +282,6 @@ export class EtlJob extends $tea.Model {
   }
 }
 
-export class EtlLogConfig extends $tea.Model {
-  endpoint?: string;
-  logstoreName?: string;
-  projectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'endpoint',
-      logstoreName: 'logstoreName',
-      projectName: 'projectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      logstoreName: 'string',
-      projectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EtlMeta extends $tea.Model {
   enable?: boolean;
   etlMetaKey?: string;
@@ -450,56 +305,6 @@ export class EtlMeta extends $tea.Model {
       etlMetaName: 'string',
       etlMetaTag: 'string',
       etlMetaValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EtlSourceConfig extends $tea.Model {
-  logstoreName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logstoreName: 'logstoreName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logstoreName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EtlTriggerConfig extends $tea.Model {
-  maxRetryTime?: number;
-  roleArn?: string;
-  startingPosition?: string;
-  startingUnixtime?: number;
-  triggerInterval?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxRetryTime: 'maxRetryTime',
-      roleArn: 'roleArn',
-      startingPosition: 'startingPosition',
-      startingUnixtime: 'startingUnixtime',
-      triggerInterval: 'triggerInterval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxRetryTime: 'number',
-      roleArn: 'string',
-      startingPosition: 'string',
-      startingUnixtime: 'number',
-      triggerInterval: 'number',
     };
   }
 
@@ -720,6 +525,7 @@ export class Project extends $tea.Model {
   projectOwner?: string;
   projectStatus?: string;
   region?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
@@ -729,6 +535,7 @@ export class Project extends $tea.Model {
       projectOwner: 'projectOwner',
       projectStatus: 'projectStatus',
       region: 'region',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -741,40 +548,7 @@ export class Project extends $tea.Model {
       projectOwner: 'string',
       projectStatus: 'string',
       region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Schedule extends $tea.Model {
-  cronExpression?: string;
-  dayOfWeek?: number;
-  hour?: number;
-  interval?: string;
-  runImmediately?: boolean;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cronExpression: 'cronExpression',
-      dayOfWeek: 'dayOfWeek',
-      hour: 'hour',
-      interval: 'interval',
-      runImmediately: 'runImmediately',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cronExpression: 'string',
-      dayOfWeek: 'number',
-      hour: 'number',
-      interval: 'string',
-      runImmediately: 'boolean',
-      type: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1708,25 +1482,6 @@ export class DeleteMachineGroupResponse extends $tea.Model {
   }
 }
 
-export class DeleteProjectRequest extends $tea.Model {
-  project?: string;
-  static names(): { [key: string]: string } {
-    return {
-      project: 'project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2447,6 +2202,25 @@ export class GetMachineGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MachineGroup,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectRequest extends $tea.Model {
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: 'string',
     };
   }
 
@@ -4142,18 +3916,15 @@ export class UpdateOssShipperResponse extends $tea.Model {
 
 export class UpdateProjectRequest extends $tea.Model {
   description?: string;
-  project?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
-      project: 'project',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
-      project: 'string',
     };
   }
 
@@ -4301,209 +4072,6 @@ export class LogtailConfigOutputDetail extends $tea.Model {
       endpoint: 'string',
       logstoreName: 'string',
       region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationAnnotations extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationGroupConfiguration extends $tea.Model {
-  fields?: string[];
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fields: 'fields',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fields: { 'type': 'array', 'itemType': 'string' },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationJoinConfigurations extends $tea.Model {
-  condition?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      condition: 'condition',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      condition: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationLabels extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationPolicyConfiguration extends $tea.Model {
-  actionPolicyId?: string;
-  alertPolicyId?: string;
-  repeatInterval?: string;
-  useDefault?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      actionPolicyId: 'actionPolicyId',
-      alertPolicyId: 'alertPolicyId',
-      repeatInterval: 'repeatInterval',
-      useDefault: 'useDefault',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionPolicyId: 'string',
-      alertPolicyId: 'string',
-      repeatInterval: 'string',
-      useDefault: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationQueryList extends $tea.Model {
-  powerSqlMode?: string;
-  project?: string;
-  query?: string;
-  region?: string;
-  roleArn?: string;
-  start?: string;
-  store?: string;
-  storeType?: string;
-  timeSpanType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      powerSqlMode: 'powerSqlMode',
-      project: 'project',
-      query: 'query',
-      region: 'region',
-      roleArn: 'roleArn',
-      start: 'start',
-      store: 'store',
-      storeType: 'storeType',
-      timeSpanType: 'timeSpanType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      powerSqlMode: 'string',
-      project: 'string',
-      query: 'string',
-      region: 'string',
-      roleArn: 'string',
-      start: 'string',
-      store: 'string',
-      storeType: 'string',
-      timeSpanType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationSeverityConfigurationsEvalCondition extends $tea.Model {
-  condition?: string;
-  countCondition?: string;
-  static names(): { [key: string]: string } {
-    return {
-      condition: 'condition',
-      countCondition: 'countCondition',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      condition: 'string',
-      countCondition: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigurationSeverityConfigurations extends $tea.Model {
-  evalCondition?: ConfigurationSeverityConfigurationsEvalCondition;
-  severity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      evalCondition: 'evalCondition',
-      severity: 'severity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      evalCondition: ConfigurationSeverityConfigurationsEvalCondition,
-      severity: 'number',
     };
   }
 
@@ -6307,16 +5875,12 @@ export default class Client extends OpenApi {
     return await this.deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
-  async deleteProjectWithOptions(request: DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.project)) {
-      query["project"] = request.project;
-    }
-
+  async deleteProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
     let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
       headers: headers,
-      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProject",
@@ -6332,10 +5896,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
   }
 
-  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+  async deleteProject(project: string): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteProjectWithOptions(request, headers, runtime);
+    return await this.deleteProjectWithOptions(project, headers, runtime);
   }
 
   async deleteProjectPolicyWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectPolicyResponse> {
@@ -6868,12 +6432,16 @@ export default class Client extends OpenApi {
     return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
-  async getProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
-    let hostMap : {[key: string ]: string} = { };
-    hostMap["project"] = project;
+  async getProjectWithOptions(request: GetProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.project)) {
+      query["project"] = request.project;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetProject",
@@ -6889,10 +6457,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
   }
 
-  async getProject(project: string): Promise<GetProjectResponse> {
+  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectWithOptions(project, headers, runtime);
+    return await this.getProjectWithOptions(request, headers, runtime);
   }
 
   async getProjectLogsWithOptions(project: string, request: GetProjectLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectLogsResponse> {
@@ -8141,21 +7709,18 @@ export default class Client extends OpenApi {
     return await this.updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
   }
 
-  async updateProjectWithOptions(request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+  async updateProjectWithOptions(project: string, request: UpdateProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.project)) {
-      query["project"] = request.project;
-    }
-
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
       headers: headers,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -8172,10 +7737,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
   }
 
-  async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
+  async updateProject(project: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateProjectWithOptions(request, headers, runtime);
+    return await this.updateProjectWithOptions(project, request, headers, runtime);
   }
 
   async updateRdsExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRdsExternalStoreResponse> {
