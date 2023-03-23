@@ -430,6 +430,108 @@ export class ExtraPodSpec extends $tea.Model {
   }
 }
 
+export class FreeResourceClusterControlItem extends $tea.Model {
+  clusterID?: string;
+  clusterName?: string;
+  crossClusters?: boolean;
+  enableFreeResource?: boolean;
+  freeResourceClusterControlId?: string;
+  gmtCreateTime?: string;
+  gmtModifyTime?: string;
+  regionID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterID: 'ClusterID',
+      clusterName: 'ClusterName',
+      crossClusters: 'CrossClusters',
+      enableFreeResource: 'EnableFreeResource',
+      freeResourceClusterControlId: 'FreeResourceClusterControlId',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifyTime: 'GmtModifyTime',
+      regionID: 'RegionID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterID: 'string',
+      clusterName: 'string',
+      crossClusters: 'boolean',
+      enableFreeResource: 'boolean',
+      freeResourceClusterControlId: 'string',
+      gmtCreateTime: 'string',
+      gmtModifyTime: 'string',
+      regionID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FreeResourceDetail extends $tea.Model {
+  amount?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FreeResourceItem extends $tea.Model {
+  availableNumber?: number;
+  clusterID?: string;
+  clusterName?: string;
+  freeResourceId?: string;
+  gmtCreateTime?: string;
+  gmtModifyTime?: string;
+  regionID?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableNumber: 'AvailableNumber',
+      clusterID: 'ClusterID',
+      clusterName: 'ClusterName',
+      freeResourceId: 'FreeResourceId',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifyTime: 'GmtModifyTime',
+      regionID: 'RegionID',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableNumber: 'number',
+      clusterID: 'string',
+      clusterName: 'string',
+      freeResourceId: 'string',
+      gmtCreateTime: 'string',
+      gmtModifyTime: 'string',
+      regionID: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GPUDetail extends $tea.Model {
   GPU?: string;
   GPUType?: string;
@@ -447,6 +549,34 @@ export class GPUDetail extends $tea.Model {
       GPU: 'string',
       GPUType: 'string',
       GPUTypeFullName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageConfig extends $tea.Model {
+  auth?: string;
+  dockerRegistry?: string;
+  password?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auth: 'Auth',
+      dockerRegistry: 'DockerRegistry',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auth: 'string',
+      dockerRegistry: 'string',
+      password: 'string',
+      username: 'string',
     };
   }
 
@@ -521,14 +651,20 @@ export class JobDebuggerConfig extends $tea.Model {
 }
 
 export class JobElasticSpec extends $tea.Model {
+  AIMasterDockerImage?: string;
   AIMasterType?: string;
+  enableAIMaster?: boolean;
   enableElasticTraining?: boolean;
+  enablePsJobElasticWorker?: boolean;
   maxParallelism?: number;
   minParallelism?: number;
   static names(): { [key: string]: string } {
     return {
+      AIMasterDockerImage: 'AIMasterDockerImage',
       AIMasterType: 'AIMasterType',
+      enableAIMaster: 'EnableAIMaster',
       enableElasticTraining: 'EnableElasticTraining',
+      enablePsJobElasticWorker: 'EnablePsJobElasticWorker',
       maxParallelism: 'MaxParallelism',
       minParallelism: 'MinParallelism',
     };
@@ -536,8 +672,11 @@ export class JobElasticSpec extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AIMasterDockerImage: 'string',
       AIMasterType: 'string',
+      enableAIMaster: 'boolean',
       enableElasticTraining: 'boolean',
+      enablePsJobElasticWorker: 'boolean',
       maxParallelism: 'number',
       minParallelism: 'number',
     };
@@ -573,6 +712,7 @@ export class JobItem extends $tea.Model {
   resourceName?: string;
   settings?: JobSettings;
   status?: string;
+  subStatus?: string;
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
   userCommand?: string;
@@ -605,6 +745,7 @@ export class JobItem extends $tea.Model {
       resourceName: 'ResourceName',
       settings: 'Settings',
       status: 'Status',
+      subStatus: 'SubStatus',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
@@ -640,6 +781,7 @@ export class JobItem extends $tea.Model {
       resourceName: 'string',
       settings: JobSettings,
       status: 'string',
+      subStatus: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',
@@ -655,6 +797,7 @@ export class JobItem extends $tea.Model {
 }
 
 export class JobSettings extends $tea.Model {
+  advancedSettings?: { [key: string]: any };
   businessUserId?: string;
   caller?: string;
   enableErrorMonitoringInAIMaster?: boolean;
@@ -662,10 +805,12 @@ export class JobSettings extends $tea.Model {
   enableRDMA?: boolean;
   enableTideResource?: boolean;
   errorMonitoringArgs?: string;
+  oversoldType?: string;
   pipelineId?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
+      advancedSettings: 'AdvancedSettings',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
@@ -673,6 +818,7 @@ export class JobSettings extends $tea.Model {
       enableRDMA: 'EnableRDMA',
       enableTideResource: 'EnableTideResource',
       errorMonitoringArgs: 'ErrorMonitoringArgs',
+      oversoldType: 'OversoldType',
       pipelineId: 'PipelineId',
       tags: 'Tags',
     };
@@ -680,6 +826,7 @@ export class JobSettings extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       businessUserId: 'string',
       caller: 'string',
       enableErrorMonitoringInAIMaster: 'boolean',
@@ -687,6 +834,7 @@ export class JobSettings extends $tea.Model {
       enableRDMA: 'boolean',
       enableTideResource: 'boolean',
       errorMonitoringArgs: 'string',
+      oversoldType: 'string',
       pipelineId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
@@ -701,6 +849,7 @@ export class JobSpec extends $tea.Model {
   ecsSpec?: string;
   extraPodSpec?: ExtraPodSpec;
   image?: string;
+  imageConfig?: ImageConfig;
   podCount?: number;
   resourceConfig?: ResourceConfig;
   type?: string;
@@ -710,6 +859,7 @@ export class JobSpec extends $tea.Model {
       ecsSpec: 'EcsSpec',
       extraPodSpec: 'ExtraPodSpec',
       image: 'Image',
+      imageConfig: 'ImageConfig',
       podCount: 'PodCount',
       resourceConfig: 'ResourceConfig',
       type: 'Type',
@@ -722,6 +872,7 @@ export class JobSpec extends $tea.Model {
       ecsSpec: 'string',
       extraPodSpec: ExtraPodSpec,
       image: 'string',
+      imageConfig: ImageConfig,
       podCount: 'number',
       resourceConfig: ResourceConfig,
       type: 'string',
@@ -1297,12 +1448,14 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class CreateTensorboardRequest extends $tea.Model {
+  cpu?: number;
   dataSourceId?: string;
   dataSourceType?: string;
   dataSources?: DataSourceItem[];
   displayName?: string;
   jobId?: string;
   maxRunningTimeMinutes?: number;
+  memory?: number;
   options?: string;
   sourceId?: string;
   sourceType?: string;
@@ -1312,12 +1465,14 @@ export class CreateTensorboardRequest extends $tea.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cpu: 'Cpu',
       dataSourceId: 'DataSourceId',
       dataSourceType: 'DataSourceType',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       jobId: 'JobId',
       maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
+      memory: 'Memory',
       options: 'Options',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
@@ -1330,12 +1485,14 @@ export class CreateTensorboardRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cpu: 'number',
       dataSourceId: 'string',
       dataSourceType: 'string',
       dataSources: { 'type': 'array', 'itemType': DataSourceItem },
       displayName: 'string',
       jobId: 'string',
       maxRunningTimeMinutes: 'number',
+      memory: 'number',
       options: 'string',
       sourceId: 'string',
       sourceType: 'string',
@@ -1543,8 +1700,10 @@ export class GetJobResponseBody extends $tea.Model {
   requestId?: string;
   resourceId?: string;
   resourceLevel?: string;
+  restartTimes?: string;
   settings?: JobSettings;
   status?: string;
+  subStatus?: string;
   thirdpartyLibDir?: string;
   thirdpartyLibs?: string[];
   userCommand?: string;
@@ -1578,8 +1737,10 @@ export class GetJobResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
+      restartTimes: 'RestartTimes',
       settings: 'Settings',
       status: 'Status',
+      subStatus: 'SubStatus',
       thirdpartyLibDir: 'ThirdpartyLibDir',
       thirdpartyLibs: 'ThirdpartyLibs',
       userCommand: 'UserCommand',
@@ -1616,8 +1777,10 @@ export class GetJobResponseBody extends $tea.Model {
       requestId: 'string',
       resourceId: 'string',
       resourceLevel: 'string',
+      restartTimes: 'string',
       settings: JobSettings,
       status: 'string',
+      subStatus: 'string',
       thirdpartyLibDir: 'string',
       thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
       userCommand: 'string',
@@ -1685,7 +1848,7 @@ export class GetJobEventsRequest extends $tea.Model {
 export class GetJobEventsResponseBody extends $tea.Model {
   events?: string[];
   jobId?: string;
-  requestId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       events: 'Events',
@@ -1698,7 +1861,7 @@ export class GetJobEventsResponseBody extends $tea.Model {
     return {
       events: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
-      requestId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -2909,7 +3072,9 @@ export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
   ip?: string;
   podId?: string;
   podUid?: string;
+  resourceType?: string;
   status?: string;
+  subStatus?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2919,7 +3084,9 @@ export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
       ip: 'Ip',
       podId: 'PodId',
       podUid: 'PodUid',
+      resourceType: 'ResourceType',
       status: 'Status',
+      subStatus: 'SubStatus',
       type: 'Type',
     };
   }
@@ -2932,7 +3099,9 @@ export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
       ip: 'string',
       podId: 'string',
       podUid: 'string',
+      resourceType: 'string',
       status: 'string',
+      subStatus: 'string',
       type: 'string',
     };
   }
@@ -2950,7 +3119,9 @@ export class GetJobResponseBodyPods extends $tea.Model {
   ip?: string;
   podId?: string;
   podUid?: string;
+  resourceType?: string;
   status?: string;
+  subStatus?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2961,7 +3132,9 @@ export class GetJobResponseBodyPods extends $tea.Model {
       ip: 'Ip',
       podId: 'PodId',
       podUid: 'PodUid',
+      resourceType: 'ResourceType',
       status: 'Status',
+      subStatus: 'SubStatus',
       type: 'Type',
     };
   }
@@ -2975,7 +3148,9 @@ export class GetJobResponseBodyPods extends $tea.Model {
       ip: 'string',
       podId: 'string',
       podUid: 'string',
+      resourceType: 'string',
       status: 'string',
+      subStatus: 'string',
       type: 'string',
     };
   }
@@ -3166,6 +3341,10 @@ export default class Client extends OpenApi {
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cpu)) {
+      body["Cpu"] = request.cpu;
+    }
+
     if (!Util.isUnset(request.dataSourceId)) {
       body["DataSourceId"] = request.dataSourceId;
     }
@@ -3188,6 +3367,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxRunningTimeMinutes)) {
       body["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      body["Memory"] = request.memory;
     }
 
     if (!Util.isUnset(request.options)) {
