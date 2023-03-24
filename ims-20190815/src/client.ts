@@ -4001,6 +4001,7 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
   loginSessionDuration?: number;
   MFAOperationForLogin?: string;
   operationForRiskLogin?: string;
+  verificationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
@@ -4012,6 +4013,7 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
       loginSessionDuration: 'LoginSessionDuration',
       MFAOperationForLogin: 'MFAOperationForLogin',
       operationForRiskLogin: 'OperationForRiskLogin',
+      verificationTypes: 'VerificationTypes',
     };
   }
 
@@ -4026,6 +4028,53 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
       loginSessionDuration: 'number',
       MFAOperationForLogin: 'string',
       operationForRiskLogin: 'string',
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
+  allowUserToChangePassword?: boolean;
+  allowUserToManageAccessKeys?: boolean;
+  allowUserToManageMFADevices?: boolean;
+  allowUserToManagePersonalDingTalk?: boolean;
+  enableSaveMFATicket?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
+  MFAOperationForLogin?: string;
+  operationForRiskLogin?: string;
+  verificationTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
+      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+      MFAOperationForLogin: 'MFAOperationForLogin',
+      operationForRiskLogin: 'OperationForRiskLogin',
+      verificationTypesShrink: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      allowUserToManageAccessKeys: 'boolean',
+      allowUserToManageMFADevices: 'boolean',
+      allowUserToManagePersonalDingTalk: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+      MFAOperationForLogin: 'string',
+      operationForRiskLogin: 'string',
+      verificationTypesShrink: 'string',
     };
   }
 
@@ -6080,17 +6129,38 @@ export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPref
   }
 }
 
+export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+  verificationTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      verificationTypes: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   personalInfoPreference?: GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference;
+  verificationPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
       personalInfoPreference: 'PersonalInfoPreference',
+      verificationPreference: 'VerificationPreference',
     };
   }
 
@@ -6100,6 +6170,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       loginProfilePreference: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       personalInfoPreference: GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
+      verificationPreference: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
   }
 
@@ -6839,56 +6910,13 @@ export class ListUserBasicInfosRequestTag extends $tea.Model {
   }
 }
 
-export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag extends $tea.Model {
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags extends $tea.Model {
-  tag?: ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $tea.Model {
   displayName?: string;
-  tags?: ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags;
   userId?: string;
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
-      tags: 'Tags',
       userId: 'UserId',
       userPrincipalName: 'UserPrincipalName',
     };
@@ -6897,7 +6925,6 @@ export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $
   static types(): { [key: string]: any } {
     return {
       displayName: 'string',
-      tags: ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags,
       userId: 'string',
       userPrincipalName: 'string',
     };
@@ -7406,17 +7433,38 @@ export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPref
   }
 }
 
+export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+  verificationTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      verificationTypes: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   personalInfoPreference?: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference;
+  verificationPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
       personalInfoPreference: 'PersonalInfoPreference',
+      verificationPreference: 'VerificationPreference',
     };
   }
 
@@ -7426,6 +7474,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       loginProfilePreference: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       personalInfoPreference: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
+      verificationPreference: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
   }
 
@@ -7845,6 +7894,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request AddClientIdToOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddClientIdToOIDCProviderResponse
+   */
   async addClientIdToOIDCProviderWithOptions(request: AddClientIdToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddClientIdToOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7873,11 +7929,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request AddClientIdToOIDCProviderRequest
+    * @return AddClientIdToOIDCProviderResponse
+   */
   async addClientIdToOIDCProvider(request: AddClientIdToOIDCProviderRequest): Promise<AddClientIdToOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addClientIdToOIDCProviderWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request AddFingerprintToOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddFingerprintToOIDCProviderResponse
+   */
   async addFingerprintToOIDCProviderWithOptions(request: AddFingerprintToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddFingerprintToOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7906,6 +7975,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request AddFingerprintToOIDCProviderRequest
+    * @return AddFingerprintToOIDCProviderResponse
+   */
   async addFingerprintToOIDCProvider(request: AddFingerprintToOIDCProviderRequest): Promise<AddFingerprintToOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addFingerprintToOIDCProviderWithOptions(request, runtime);
@@ -7985,6 +8060,13 @@ export default class Client extends OpenApi {
     return await this.bindMFADeviceWithOptions(request, runtime);
   }
 
+  /**
+    * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](~~43765~~) is set to `True`. The value True indicates that RAM users can change their passwords.
+    *
+    * @param request ChangePasswordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChangePasswordResponse
+   */
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8013,6 +8095,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
+  /**
+    * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](~~43765~~) is set to `True`. The value True indicates that RAM users can change their passwords.
+    *
+    * @param request ChangePasswordRequest
+    * @return ChangePasswordResponse
+   */
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changePasswordWithOptions(request, runtime);
@@ -8219,6 +8307,19 @@ export default class Client extends OpenApi {
     return await this.createLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+    * ## Prerequisites
+    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
+    * ## Limits
+    * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+    * - You can add a maximum of 20 client IDs to an OIDC IdP.
+    * - You can add a maximum of five fingerprints to an OIDC IdP.
+    *
+    * @param request CreateOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOIDCProviderResponse
+   */
   async createOIDCProviderWithOptions(request: CreateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8259,6 +8360,18 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+    * ## Prerequisites
+    * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
+    * ## Limits
+    * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+    * - You can add a maximum of 20 client IDs to an OIDC IdP.
+    * - You can add a maximum of five fingerprints to an OIDC IdP.
+    *
+    * @param request CreateOIDCProviderRequest
+    * @return CreateOIDCProviderResponse
+   */
   async createOIDCProvider(request: CreateOIDCProviderRequest): Promise<CreateOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOIDCProviderWithOptions(request, runtime);
@@ -8301,6 +8414,13 @@ export default class Client extends OpenApi {
     return await this.createSAMLProviderWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to create a RAM user named `test`.
+    *
+    * @param request CreateUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateUserResponse
+   */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8345,6 +8465,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to create a RAM user named `test`.
+    *
+    * @param request CreateUserRequest
+    * @return CreateUserResponse
+   */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
@@ -8474,6 +8600,13 @@ export default class Client extends OpenApi {
     return await this.deleteApplicationWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+    *
+    * @param request DeleteGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteGroupResponse
+   */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8498,6 +8631,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
+  /**
+    * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+    *
+    * @param request DeleteGroupRequest
+    * @return DeleteGroupResponse
+   */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
@@ -8532,6 +8671,13 @@ export default class Client extends OpenApi {
     return await this.deleteLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request DeleteOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteOIDCProviderResponse
+   */
   async deleteOIDCProviderWithOptions(request: DeleteOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8556,6 +8702,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request DeleteOIDCProviderRequest
+    * @return DeleteOIDCProviderResponse
+   */
   async deleteOIDCProvider(request: DeleteOIDCProviderRequest): Promise<DeleteOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOIDCProviderWithOptions(request, runtime);
@@ -8960,6 +9112,13 @@ export default class Client extends OpenApi {
     return await this.getLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request GetOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetOIDCProviderResponse
+   */
   async getOIDCProviderWithOptions(request: GetOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8984,6 +9143,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request GetOIDCProviderRequest
+    * @return GetOIDCProviderResponse
+   */
   async getOIDCProvider(request: GetOIDCProviderRequest): Promise<GetOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOIDCProviderWithOptions(request, runtime);
@@ -9060,6 +9225,13 @@ export default class Client extends OpenApi {
     return await this.getSecurityPreferenceWithOptions(runtime);
   }
 
+  /**
+    * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+    *
+    * @param request GetUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9092,6 +9264,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+    * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+    *
+    * @param request GetUserRequest
+    * @return GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
@@ -9288,6 +9466,13 @@ export default class Client extends OpenApi {
     return await this.listGroupsForUserWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request ListOIDCProvidersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOIDCProvidersResponse
+   */
   async listOIDCProvidersWithOptions(request: ListOIDCProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListOIDCProvidersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9316,6 +9501,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request ListOIDCProvidersRequest
+    * @return ListOIDCProvidersResponse
+   */
   async listOIDCProviders(request: ListOIDCProvidersRequest): Promise<ListOIDCProvidersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOIDCProvidersWithOptions(request, runtime);
@@ -9383,6 +9574,16 @@ export default class Client extends OpenApi {
     return await this.listSAMLProvidersWithOptions(request, runtime);
   }
 
+  /**
+    * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+    * *   `ResourceId.N`
+    * *   `Tag.N.Key`
+    * *   `Tag.N.Key` and `Tag.N.Value`
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9427,11 +9628,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+    * *   `ResourceId.N`
+    * *   `Tag.N.Key`
+    * *   `Tag.N.Key` and `Tag.N.Value`
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the following API operations to query the information about all RAM users:
+    * *   ListUsers: queries the details of all RAM users.
+    * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+    *
+    * @param request ListUserBasicInfosRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListUserBasicInfosResponse
+   */
   async listUserBasicInfosWithOptions(request: ListUserBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBasicInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9464,11 +9683,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
   }
 
+  /**
+    * You can call the following API operations to query the information about all RAM users:
+    * *   ListUsers: queries the details of all RAM users.
+    * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+    *
+    * @param request ListUserBasicInfosRequest
+    * @return ListUserBasicInfosResponse
+   */
   async listUserBasicInfos(request: ListUserBasicInfosRequest): Promise<ListUserBasicInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserBasicInfosWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the following API operations to query the information about all RAM users:
+    * *   ListUsers: queries the details of all RAM users.
+    * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+    *
+    * @param request ListUsersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9501,6 +9737,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+    * You can call the following API operations to query the information about all RAM users:
+    * *   ListUsers: queries the details of all RAM users.
+    * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+    *
+    * @param request ListUsersRequest
+    * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
@@ -9576,6 +9820,13 @@ export default class Client extends OpenApi {
     return await this.listVirtualMFADevicesWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request RemoveClientIdFromOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveClientIdFromOIDCProviderResponse
+   */
   async removeClientIdFromOIDCProviderWithOptions(request: RemoveClientIdFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientIdFromOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9604,11 +9855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request RemoveClientIdFromOIDCProviderRequest
+    * @return RemoveClientIdFromOIDCProviderResponse
+   */
   async removeClientIdFromOIDCProvider(request: RemoveClientIdFromOIDCProviderRequest): Promise<RemoveClientIdFromOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeClientIdFromOIDCProviderWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request RemoveFingerprintFromOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveFingerprintFromOIDCProviderResponse
+   */
   async removeFingerprintFromOIDCProviderWithOptions(request: RemoveFingerprintFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFingerprintFromOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9637,6 +9901,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+    *
+    * @param request RemoveFingerprintFromOIDCProviderRequest
+    * @return RemoveFingerprintFromOIDCProviderResponse
+   */
   async removeFingerprintFromOIDCProvider(request: RemoveFingerprintFromOIDCProviderRequest): Promise<RemoveFingerprintFromOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeFingerprintFromOIDCProviderWithOptions(request, runtime);
@@ -9773,8 +10043,21 @@ export default class Client extends OpenApi {
     return await this.setPasswordPolicyWithOptions(request, runtime);
   }
 
-  async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
-    Util.validateModel(request);
+  /**
+    * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+    *
+    * @param tmpReq SetSecurityPreferenceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetSecurityPreferenceResponse
+   */
+  async setSecurityPreferenceWithOptions(tmpReq: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetSecurityPreferenceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.verificationTypes)) {
+      request.verificationTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verificationTypes, "VerificationTypes", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.allowUserToChangePassword)) {
       query["AllowUserToChangePassword"] = request.allowUserToChangePassword;
@@ -9812,6 +10095,10 @@ export default class Client extends OpenApi {
       query["OperationForRiskLogin"] = request.operationForRiskLogin;
     }
 
+    if (!Util.isUnset(request.verificationTypesShrink)) {
+      query["VerificationTypes"] = request.verificationTypesShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9829,6 +10116,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+    *
+    * @param request SetSecurityPreferenceRequest
+    * @return SetSecurityPreferenceResponse
+   */
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSecurityPreferenceWithOptions(request, runtime);
@@ -10166,6 +10459,13 @@ export default class Client extends OpenApi {
     return await this.updateLoginProfileWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+    *
+    * @param request UpdateOIDCProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateOIDCProviderResponse
+   */
   async updateOIDCProviderWithOptions(request: UpdateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOIDCProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10198,11 +10498,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+    *
+    * @param request UpdateOIDCProviderRequest
+    * @return UpdateOIDCProviderResponse
+   */
   async updateOIDCProvider(request: UpdateOIDCProviderRequest): Promise<UpdateOIDCProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOIDCProviderWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+    *
+    * @param request UpdateSAMLProviderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateSAMLProviderResponse
+   */
   async updateSAMLProviderWithOptions(request: UpdateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSAMLProviderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10235,11 +10548,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
   }
 
+  /**
+    * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+    *
+    * @param request UpdateSAMLProviderRequest
+    * @return UpdateSAMLProviderResponse
+   */
   async updateSAMLProvider(request: UpdateSAMLProviderRequest): Promise<UpdateSAMLProviderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSAMLProviderWithOptions(request, runtime);
   }
 
+  /**
+    * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+    *
+    * @param request UpdateUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10288,6 +10614,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+    * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+    *
+    * @param request UpdateUserRequest
+    * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
