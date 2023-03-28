@@ -932,10 +932,12 @@ export class DetectLymphAdvanceRequest extends $tea.Model {
 
 export class DetectLymphResponseBody extends $tea.Model {
   data?: DetectLymphResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -943,6 +945,7 @@ export class DetectLymphResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectLymphResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1023,10 +1026,12 @@ export class DetectPancAdvanceRequest extends $tea.Model {
 
 export class DetectPancResponseBody extends $tea.Model {
   data?: DetectPancResponseBodyData;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -1034,6 +1039,7 @@ export class DetectPancResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: DetectPancResponseBodyData,
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1939,6 +1945,118 @@ export class ScreenECResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ScreenECResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeRequest extends $tea.Model {
+  bodyPart?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: SegmentLymphNodeRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      bodyPart: 'BodyPart',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyPart: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': SegmentLymphNodeRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeAdvanceRequest extends $tea.Model {
+  bodyPart?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  URLList?: SegmentLymphNodeAdvanceRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      bodyPart: 'BodyPart',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyPart: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': SegmentLymphNodeAdvanceRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeResponseBody extends $tea.Model {
+  data?: SegmentLymphNodeResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SegmentLymphNodeResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SegmentLymphNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SegmentLymphNodeResponseBody,
     };
   }
 
@@ -4377,6 +4495,63 @@ export class ScreenECResponseBodyData extends $tea.Model {
   }
 }
 
+export class SegmentLymphNodeRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeAdvanceRequestURLList extends $tea.Model {
+  URLObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      URLObject: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentLymphNodeResponseBodyData extends $tea.Model {
+  resultURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SegmentOARRequestURLList extends $tea.Model {
   URL?: string;
   static names(): { [key: string]: string } {
@@ -6643,6 +6818,134 @@ export default class Client extends OpenApi {
   async screenEC(request: ScreenECRequest): Promise<ScreenECResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.screenECWithOptions(request, runtime);
+  }
+
+  async segmentLymphNodeWithOptions(request: SegmentLymphNodeRequest, runtime: $Util.RuntimeOptions): Promise<SegmentLymphNodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bodyPart)) {
+      body["BodyPart"] = request.bodyPart;
+    }
+
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SegmentLymphNode",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SegmentLymphNodeResponse>(await this.callApi(params, req, runtime), new SegmentLymphNodeResponse({}));
+  }
+
+  async segmentLymphNode(request: SegmentLymphNodeRequest): Promise<SegmentLymphNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentLymphNodeWithOptions(request, runtime);
+  }
+
+  async segmentLymphNodeAdvance(request: SegmentLymphNodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentLymphNodeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let segmentLymphNodeReq = new SegmentLymphNodeRequest({ });
+    OpenApiUtil.convert(request, segmentLymphNodeReq);
+    if (!Util.isUnset(request.URLList)) {
+      let i0 : number = 0;
+
+      for (let item0 of request.URLList) {
+        if (!Util.isUnset(item0.URLObject)) {
+          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+          ossConfig.accessKeyId = authResponse.body.accessKeyId;
+          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+          ossClient = new OSS(ossConfig);
+          fileObj = new $FileForm.FileField({
+            filename: authResponse.body.objectKey,
+            content: item0.URLObject,
+            contentType: "",
+          });
+          ossHeader = new $OSS.PostObjectRequestHeader({
+            accessKeyId: authResponse.body.accessKeyId,
+            policy: authResponse.body.encodedPolicy,
+            signature: authResponse.body.signature,
+            key: authResponse.body.objectKey,
+            file: fileObj,
+            successActionStatus: "201",
+          });
+          uploadRequest = new $OSS.PostObjectRequest({
+            bucketName: authResponse.body.bucket,
+            header: ossHeader,
+          });
+          await ossClient.postObject(uploadRequest, ossRuntime);
+          let tmp : SegmentLymphNodeRequestURLList = segmentLymphNodeReq.URLList[i0];
+          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+        }
+
+      }
+    }
+
+    let segmentLymphNodeResp = await this.segmentLymphNodeWithOptions(segmentLymphNodeReq, runtime);
+    return segmentLymphNodeResp;
   }
 
   async segmentOARWithOptions(request: SegmentOARRequest, runtime: $Util.RuntimeOptions): Promise<SegmentOARResponse> {
