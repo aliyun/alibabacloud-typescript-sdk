@@ -15225,10 +15225,6 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.templateBody)) {
-      query["TemplateBody"] = request.templateBody;
-    }
-
     if (!Util.isUnset(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
     }
@@ -15237,8 +15233,14 @@ export default class Client extends OpenApi {
       query["ValidationOption"] = request.validationOption;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateBody)) {
+      body["TemplateBody"] = request.templateBody;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ValidateTemplate",
