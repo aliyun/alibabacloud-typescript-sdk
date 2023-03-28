@@ -719,6 +719,94 @@ export class DeleteFaceVideoTemplateResponse extends $tea.Model {
   }
 }
 
+export class EnhancePortraitVideoRequest extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnhancePortraitVideoAdvanceRequest extends $tea.Model {
+  videoUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnhancePortraitVideoResponseBody extends $tea.Model {
+  data?: EnhancePortraitVideoResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: EnhancePortraitVideoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnhancePortraitVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnhancePortraitVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnhancePortraitVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnhanceVideoQualityRequest extends $tea.Model {
   bitrate?: number;
   frameRate?: number;
@@ -1711,6 +1799,94 @@ export class QueryFaceVideoTemplateResponse extends $tea.Model {
   }
 }
 
+export class ReduceVideoNoiseRequest extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReduceVideoNoiseAdvanceRequest extends $tea.Model {
+  videoUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReduceVideoNoiseResponseBody extends $tea.Model {
+  data?: ReduceVideoNoiseResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ReduceVideoNoiseResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReduceVideoNoiseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReduceVideoNoiseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReduceVideoNoiseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SuperResolveVideoRequest extends $tea.Model {
   bitRate?: number;
   videoUrl?: string;
@@ -2017,6 +2193,25 @@ export class ConvertHdrVideoResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnhancePortraitVideoResponseBodyData extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
     };
   }
 
@@ -2359,6 +2554,25 @@ export class QueryFaceVideoTemplateResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': QueryFaceVideoTemplateResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReduceVideoNoiseResponseBodyData extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
     };
   }
 
@@ -3149,6 +3363,109 @@ export default class Client extends OpenApi {
   async deleteFaceVideoTemplate(request: DeleteFaceVideoTemplateRequest): Promise<DeleteFaceVideoTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaceVideoTemplateWithOptions(request, runtime);
+  }
+
+  async enhancePortraitVideoWithOptions(request: EnhancePortraitVideoRequest, runtime: $Util.RuntimeOptions): Promise<EnhancePortraitVideoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnhancePortraitVideo",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnhancePortraitVideoResponse>(await this.callApi(params, req, runtime), new EnhancePortraitVideoResponse({}));
+  }
+
+  async enhancePortraitVideo(request: EnhancePortraitVideoRequest): Promise<EnhancePortraitVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enhancePortraitVideoWithOptions(request, runtime);
+  }
+
+  async enhancePortraitVideoAdvance(request: EnhancePortraitVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EnhancePortraitVideoResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let enhancePortraitVideoReq = new EnhancePortraitVideoRequest({ });
+    OpenApiUtil.convert(request, enhancePortraitVideoReq);
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      enhancePortraitVideoReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let enhancePortraitVideoResp = await this.enhancePortraitVideoWithOptions(enhancePortraitVideoReq, runtime);
+    return enhancePortraitVideoResp;
   }
 
   async enhanceVideoQualityWithOptions(request: EnhanceVideoQualityRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
@@ -4170,6 +4487,109 @@ export default class Client extends OpenApi {
   async queryFaceVideoTemplate(request: QueryFaceVideoTemplateRequest): Promise<QueryFaceVideoTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFaceVideoTemplateWithOptions(request, runtime);
+  }
+
+  async reduceVideoNoiseWithOptions(request: ReduceVideoNoiseRequest, runtime: $Util.RuntimeOptions): Promise<ReduceVideoNoiseResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReduceVideoNoise",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReduceVideoNoiseResponse>(await this.callApi(params, req, runtime), new ReduceVideoNoiseResponse({}));
+  }
+
+  async reduceVideoNoise(request: ReduceVideoNoiseRequest): Promise<ReduceVideoNoiseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reduceVideoNoiseWithOptions(request, runtime);
+  }
+
+  async reduceVideoNoiseAdvance(request: ReduceVideoNoiseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ReduceVideoNoiseResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let reduceVideoNoiseReq = new ReduceVideoNoiseRequest({ });
+    OpenApiUtil.convert(request, reduceVideoNoiseReq);
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      reduceVideoNoiseReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let reduceVideoNoiseResp = await this.reduceVideoNoiseWithOptions(reduceVideoNoiseReq, runtime);
+    return reduceVideoNoiseResp;
   }
 
   async superResolveVideoWithOptions(request: SuperResolveVideoRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
