@@ -4442,6 +4442,28 @@ export class GetPtsSceneResponseBodySceneGlobalParameterList extends $tea.Model 
   }
 }
 
+export class GetPtsSceneResponseBodySceneHeaders extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPtsSceneResponseBodySceneLoadConfigApiLoadConfigList extends $tea.Model {
   apiId?: string;
   rpsBegin?: number;
@@ -4801,6 +4823,7 @@ export class GetPtsSceneResponseBodyScene extends $tea.Model {
   createTime?: string;
   fileParameterList?: GetPtsSceneResponseBodySceneFileParameterList[];
   globalParameterList?: GetPtsSceneResponseBodySceneGlobalParameterList[];
+  headers?: GetPtsSceneResponseBodySceneHeaders[];
   loadConfig?: GetPtsSceneResponseBodySceneLoadConfig;
   modifiedTime?: string;
   relationList?: GetPtsSceneResponseBodySceneRelationList[];
@@ -4813,6 +4836,7 @@ export class GetPtsSceneResponseBodyScene extends $tea.Model {
       createTime: 'CreateTime',
       fileParameterList: 'FileParameterList',
       globalParameterList: 'GlobalParameterList',
+      headers: 'Headers',
       loadConfig: 'LoadConfig',
       modifiedTime: 'ModifiedTime',
       relationList: 'RelationList',
@@ -4828,6 +4852,7 @@ export class GetPtsSceneResponseBodyScene extends $tea.Model {
       createTime: 'string',
       fileParameterList: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneFileParameterList },
       globalParameterList: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneGlobalParameterList },
+      headers: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneHeaders },
       loadConfig: GetPtsSceneResponseBodySceneLoadConfig,
       modifiedTime: 'string',
       relationList: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneRelationList },
