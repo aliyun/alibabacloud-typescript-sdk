@@ -1189,6 +1189,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
   imageId?: string;
   instanceType?: string;
   keyPairName?: string;
+  nameSpace?: string;
   payType?: string;
   period?: number;
   periodUnit?: string;
@@ -1203,6 +1204,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       imageId: 'ImageId',
       instanceType: 'InstanceType',
       keyPairName: 'KeyPairName',
+      nameSpace: 'NameSpace',
       payType: 'PayType',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -1220,6 +1222,7 @@ export class CreateARMServerInstancesRequest extends $tea.Model {
       imageId: 'string',
       instanceType: 'string',
       keyPairName: 'string',
+      nameSpace: 'string',
       payType: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -17279,6 +17282,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
   creationTime?: string;
   ensRegionId?: string;
   expiredTime?: string;
+  namespace?: string;
   serverId?: string;
   specName?: string;
   state?: string;
@@ -17289,6 +17293,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
       creationTime: 'CreationTime',
       ensRegionId: 'EnsRegionId',
       expiredTime: 'ExpiredTime',
+      namespace: 'Namespace',
       serverId: 'ServerId',
       specName: 'SpecName',
       state: 'State',
@@ -17302,6 +17307,7 @@ export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
       creationTime: 'string',
       ensRegionId: 'string',
       expiredTime: 'string',
+      namespace: 'string',
       serverId: 'string',
       specName: 'string',
       state: 'string',
@@ -24148,6 +24154,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.keyPairName)) {
       query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.nameSpace)) {
+      query["NameSpace"] = request.nameSpace;
     }
 
     if (!Util.isUnset(request.payType)) {
