@@ -705,12 +705,14 @@ export class DescribeZonesResponse extends $tea.Model {
 export class ExtendClusterRequest extends $tea.Model {
   clusterId?: string;
   ignoreFailedNodeTasks?: boolean;
+  ipAllocationPolicy?: ExtendClusterRequestIpAllocationPolicy[];
   nodeGroups?: ExtendClusterRequestNodeGroups[];
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      ipAllocationPolicy: 'IpAllocationPolicy',
       nodeGroups: 'NodeGroups',
       vpdSubnets: 'VpdSubnets',
     };
@@ -720,6 +722,7 @@ export class ExtendClusterRequest extends $tea.Model {
     return {
       clusterId: 'string',
       ignoreFailedNodeTasks: 'boolean',
+      ipAllocationPolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicy },
       nodeGroups: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroups },
       vpdSubnets: { 'type': 'array', 'itemType': 'string' },
     };
@@ -733,12 +736,14 @@ export class ExtendClusterRequest extends $tea.Model {
 export class ExtendClusterShrinkRequest extends $tea.Model {
   clusterId?: string;
   ignoreFailedNodeTasks?: boolean;
+  ipAllocationPolicyShrink?: string;
   nodeGroupsShrink?: string;
   vpdSubnetsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       ignoreFailedNodeTasks: 'IgnoreFailedNodeTasks',
+      ipAllocationPolicyShrink: 'IpAllocationPolicy',
       nodeGroupsShrink: 'NodeGroups',
       vpdSubnetsShrink: 'VpdSubnets',
     };
@@ -748,6 +753,7 @@ export class ExtendClusterShrinkRequest extends $tea.Model {
     return {
       clusterId: 'string',
       ignoreFailedNodeTasks: 'boolean',
+      ipAllocationPolicyShrink: 'string',
       nodeGroupsShrink: 'string',
       vpdSubnetsShrink: 'string',
     };
@@ -1596,6 +1602,163 @@ export class CreateClusterRequestComponents extends $tea.Model {
   }
 }
 
+export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $tea.Model {
+  bondDefaultSubnet?: string;
+  bonds?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds[];
+  static names(): { [key: string]: string } {
+    return {
+      bondDefaultSubnet: 'BondDefaultSubnet',
+      bonds: 'Bonds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondDefaultSubnet: 'string',
+      bonds: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+  bonds?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds[];
+  machineType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bonds: 'Bonds',
+      machineType: 'MachineType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bonds: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds },
+      machineType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $tea.Model {
+  bonds?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds[];
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bonds: 'Bonds',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bonds: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds },
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNetworksIpAllocationPolicy extends $tea.Model {
+  bondPolicy?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicy;
+  machineTypePolicy?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy[];
+  nodePolicy?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      bondPolicy: 'BondPolicy',
+      machineTypePolicy: 'MachineTypePolicy',
+      nodePolicy: 'NodePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondPolicy: CreateClusterRequestNetworksIpAllocationPolicyBondPolicy,
+      machineTypePolicy: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy },
+      nodePolicy: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicyNodePolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $tea.Model {
   subnetCidr?: string;
   subnetType?: string;
@@ -1681,10 +1844,12 @@ export class CreateClusterRequestNetworksVpdInfo extends $tea.Model {
 }
 
 export class CreateClusterRequestNetworks extends $tea.Model {
+  ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
   newVpdInfo?: CreateClusterRequestNetworksNewVpdInfo;
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {
     return {
+      ipAllocationPolicy: 'IpAllocationPolicy',
       newVpdInfo: 'NewVpdInfo',
       vpdInfo: 'VpdInfo',
     };
@@ -1692,6 +1857,7 @@ export class CreateClusterRequestNetworks extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipAllocationPolicy: { 'type': 'array', 'itemType': CreateClusterRequestNetworksIpAllocationPolicy },
       newVpdInfo: CreateClusterRequestNetworksNewVpdInfo,
       vpdInfo: CreateClusterRequestNetworksVpdInfo,
     };
@@ -1984,6 +2150,163 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
     return {
       localName: 'string',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyBondPolicy extends $tea.Model {
+  bondDefaultSubnet?: string;
+  bonds?: ExtendClusterRequestIpAllocationPolicyBondPolicyBonds[];
+  static names(): { [key: string]: string } {
+    return {
+      bondDefaultSubnet: 'BondDefaultSubnet',
+      bonds: 'Bonds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondDefaultSubnet: 'string',
+      bonds: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyBondPolicyBonds },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy extends $tea.Model {
+  bonds?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds[];
+  machineType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bonds: 'Bonds',
+      machineType: 'MachineType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bonds: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds },
+      machineType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds extends $tea.Model {
+  name?: string;
+  subnet?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      subnet: 'Subnet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      subnet: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $tea.Model {
+  bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bonds: 'Bonds',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bonds: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyNodePolicyBonds },
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestIpAllocationPolicy extends $tea.Model {
+  bondPolicy?: ExtendClusterRequestIpAllocationPolicyBondPolicy;
+  machineTypePolicy?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicy[];
+  nodePolicy?: ExtendClusterRequestIpAllocationPolicyNodePolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      bondPolicy: 'BondPolicy',
+      machineTypePolicy: 'MachineTypePolicy',
+      nodePolicy: 'NodePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondPolicy: ExtendClusterRequestIpAllocationPolicyBondPolicy,
+      machineTypePolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyMachineTypePolicy },
+      nodePolicy: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyNodePolicy },
     };
   }
 
@@ -2680,6 +3003,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ExtendClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ipAllocationPolicy)) {
+      request.ipAllocationPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipAllocationPolicy, "IpAllocationPolicy", "json");
+    }
+
     if (!Util.isUnset(tmpReq.nodeGroups)) {
       request.nodeGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroups, "NodeGroups", "json");
     }
@@ -2695,6 +3022,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ignoreFailedNodeTasks)) {
       body["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
+    }
+
+    if (!Util.isUnset(request.ipAllocationPolicyShrink)) {
+      body["IpAllocationPolicy"] = request.ipAllocationPolicyShrink;
     }
 
     if (!Util.isUnset(request.nodeGroupsShrink)) {
