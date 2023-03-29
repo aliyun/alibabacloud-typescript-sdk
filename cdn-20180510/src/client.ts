@@ -3725,6 +3725,8 @@ export class DescribeCdnUserQuotaResponseBody extends $tea.Model {
   blockQuota?: number;
   blockRemain?: number;
   domainQuota?: number;
+  ignoreParamsQuota?: number;
+  ignoreParamsRemain?: number;
   preloadQuota?: number;
   preloadRemain?: number;
   refreshDirQuota?: number;
@@ -3737,6 +3739,8 @@ export class DescribeCdnUserQuotaResponseBody extends $tea.Model {
       blockQuota: 'BlockQuota',
       blockRemain: 'BlockRemain',
       domainQuota: 'DomainQuota',
+      ignoreParamsQuota: 'IgnoreParamsQuota',
+      ignoreParamsRemain: 'IgnoreParamsRemain',
       preloadQuota: 'PreloadQuota',
       preloadRemain: 'PreloadRemain',
       refreshDirQuota: 'RefreshDirQuota',
@@ -3752,6 +3756,8 @@ export class DescribeCdnUserQuotaResponseBody extends $tea.Model {
       blockQuota: 'number',
       blockRemain: 'number',
       domainQuota: 'number',
+      ignoreParamsQuota: 'number',
+      ignoreParamsRemain: 'number',
       preloadQuota: 'number',
       preloadRemain: 'number',
       refreshDirQuota: 'number',
@@ -8691,6 +8697,8 @@ export class DescribeRefreshQuotaResponseBody extends $tea.Model {
   blockRemain?: string;
   dirQuota?: string;
   dirRemain?: string;
+  ignoreParamsQuota?: string;
+  ignoreParamsRemain?: string;
   preloadEdgeQuota?: string;
   preloadEdgeRemain?: string;
   preloadQuota?: string;
@@ -8706,6 +8714,8 @@ export class DescribeRefreshQuotaResponseBody extends $tea.Model {
       blockRemain: 'BlockRemain',
       dirQuota: 'DirQuota',
       dirRemain: 'DirRemain',
+      ignoreParamsQuota: 'IgnoreParamsQuota',
+      ignoreParamsRemain: 'IgnoreParamsRemain',
       preloadEdgeQuota: 'PreloadEdgeQuota',
       preloadEdgeRemain: 'PreloadEdgeRemain',
       preloadQuota: 'PreloadQuota',
@@ -8724,6 +8734,8 @@ export class DescribeRefreshQuotaResponseBody extends $tea.Model {
       blockRemain: 'string',
       dirQuota: 'string',
       dirRemain: 'string',
+      ignoreParamsQuota: 'string',
+      ignoreParamsRemain: 'string',
       preloadEdgeQuota: 'string',
       preloadEdgeRemain: 'string',
       preloadQuota: 'string',
