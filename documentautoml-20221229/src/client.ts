@@ -8,6 +8,165 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateModelAsyncPredictRequest extends $tea.Model {
+  binaryToText?: boolean;
+  content?: string;
+  modelId?: number;
+  modelVersion?: string;
+  serviceName?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      binaryToText: 'BinaryToText',
+      content: 'Content',
+      modelId: 'ModelId',
+      modelVersion: 'ModelVersion',
+      serviceName: 'ServiceName',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      binaryToText: 'boolean',
+      content: 'string',
+      modelId: 'number',
+      modelVersion: 'string',
+      serviceName: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateModelAsyncPredictResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateModelAsyncPredictResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateModelAsyncPredictResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateModelAsyncPredictResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelAsyncPredictRequest extends $tea.Model {
+  asyncPredictId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asyncPredictId: 'AsyncPredictId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncPredictId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelAsyncPredictResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelAsyncPredictResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetModelAsyncPredictResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetModelAsyncPredictResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PredictClassifierModelRequest extends $tea.Model {
   autoPrediction?: boolean;
   classifierId?: number;
@@ -35,7 +194,7 @@ export class PredictClassifierModelRequest extends $tea.Model {
 
 export class PredictClassifierModelResponseBody extends $tea.Model {
   code?: number;
-  data?: string;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -50,7 +209,7 @@ export class PredictClassifierModelResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
     };
@@ -194,7 +353,7 @@ export class PredictTemplateModelRequest extends $tea.Model {
 
 export class PredictTemplateModelResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -209,7 +368,7 @@ export class PredictTemplateModelResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
     };
@@ -266,6 +425,84 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async createModelAsyncPredictWithOptions(request: CreateModelAsyncPredictRequest, runtime: $Util.RuntimeOptions): Promise<CreateModelAsyncPredictResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.binaryToText)) {
+      query["BinaryToText"] = request.binaryToText;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateModelAsyncPredict",
+      version: "2022-12-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateModelAsyncPredictResponse>(await this.callApi(params, req, runtime), new CreateModelAsyncPredictResponse({}));
+  }
+
+  async createModelAsyncPredict(request: CreateModelAsyncPredictRequest): Promise<CreateModelAsyncPredictResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createModelAsyncPredictWithOptions(request, runtime);
+  }
+
+  async getModelAsyncPredictWithOptions(request: GetModelAsyncPredictRequest, runtime: $Util.RuntimeOptions): Promise<GetModelAsyncPredictResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.asyncPredictId)) {
+      query["AsyncPredictId"] = request.asyncPredictId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetModelAsyncPredict",
+      version: "2022-12-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModelAsyncPredictResponse>(await this.callApi(params, req, runtime), new GetModelAsyncPredictResponse({}));
+  }
+
+  async getModelAsyncPredict(request: GetModelAsyncPredictRequest): Promise<GetModelAsyncPredictResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getModelAsyncPredictWithOptions(request, runtime);
   }
 
   async predictClassifierModelWithOptions(request: PredictClassifierModelRequest, runtime: $Util.RuntimeOptions): Promise<PredictClassifierModelResponse> {

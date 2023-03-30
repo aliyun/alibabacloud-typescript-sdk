@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/documentautoml20221229",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
