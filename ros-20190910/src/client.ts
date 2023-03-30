@@ -1128,6 +1128,7 @@ export class DeleteChangeSetResponse extends $tea.Model {
 }
 
 export class DeleteStackRequest extends $tea.Model {
+  deleteOptions?: string[];
   ramRoleName?: string;
   regionId?: string;
   retainAllResources?: boolean;
@@ -1135,6 +1136,7 @@ export class DeleteStackRequest extends $tea.Model {
   stackId?: string;
   static names(): { [key: string]: string } {
     return {
+      deleteOptions: 'DeleteOptions',
       ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       retainAllResources: 'RetainAllResources',
@@ -1145,6 +1147,7 @@ export class DeleteStackRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteOptions: { 'type': 'array', 'itemType': 'string' },
       ramRoleName: 'string',
       regionId: 'string',
       retainAllResources: 'boolean',
@@ -2238,15 +2241,19 @@ export class GetFeatureDetailsRequest extends $tea.Model {
 }
 
 export class GetFeatureDetailsResponseBody extends $tea.Model {
+  driftDetection?: GetFeatureDetailsResponseBodyDriftDetection;
   requestId?: string;
   resourceCleaner?: GetFeatureDetailsResponseBodyResourceCleaner;
+  resourceImport?: GetFeatureDetailsResponseBodyResourceImport;
   templateParameterConstraints?: GetFeatureDetailsResponseBodyTemplateParameterConstraints;
   templateScratch?: GetFeatureDetailsResponseBodyTemplateScratch;
   terraform?: GetFeatureDetailsResponseBodyTerraform;
   static names(): { [key: string]: string } {
     return {
+      driftDetection: 'DriftDetection',
       requestId: 'RequestId',
       resourceCleaner: 'ResourceCleaner',
+      resourceImport: 'ResourceImport',
       templateParameterConstraints: 'TemplateParameterConstraints',
       templateScratch: 'TemplateScratch',
       terraform: 'Terraform',
@@ -2255,8 +2262,10 @@ export class GetFeatureDetailsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      driftDetection: GetFeatureDetailsResponseBodyDriftDetection,
       requestId: 'string',
       resourceCleaner: GetFeatureDetailsResponseBodyResourceCleaner,
+      resourceImport: GetFeatureDetailsResponseBodyResourceImport,
       templateParameterConstraints: GetFeatureDetailsResponseBodyTemplateParameterConstraints,
       templateScratch: GetFeatureDetailsResponseBodyTemplateScratch,
       terraform: GetFeatureDetailsResponseBodyTerraform,
@@ -7496,6 +7505,25 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class GetFeatureDetailsResponseBodyDriftDetection extends $tea.Model {
+  supportedResourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes extends $tea.Model {
   resourceType?: string;
   sideEffects?: string[];
@@ -7532,6 +7560,47 @@ export class GetFeatureDetailsResponseBodyResourceCleaner extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes extends $tea.Model {
+  resourceIdentifiers?: string[];
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceIdentifiers: 'ResourceIdentifiers',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceImport extends $tea.Model {
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes },
     };
   }
 
@@ -11554,6 +11623,10 @@ export default class Client extends OpenApi {
   async deleteStackWithOptions(request: DeleteStackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.deleteOptions)) {
+      query["DeleteOptions"] = request.deleteOptions;
+    }
+
     if (!Util.isUnset(request.ramRoleName)) {
       query["RamRoleName"] = request.ramRoleName;
     }
