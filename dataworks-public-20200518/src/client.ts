@@ -1369,6 +1369,7 @@ export class CreateDataServiceApiRequest extends $tea.Model {
   projectId?: number;
   protocols?: string;
   registrationDetails?: string;
+  requestContentType?: number;
   requestMethod?: number;
   resourceGroupId?: number;
   responseContentType?: number;
@@ -1389,6 +1390,7 @@ export class CreateDataServiceApiRequest extends $tea.Model {
       projectId: 'ProjectId',
       protocols: 'Protocols',
       registrationDetails: 'RegistrationDetails',
+      requestContentType: 'RequestContentType',
       requestMethod: 'RequestMethod',
       resourceGroupId: 'ResourceGroupId',
       responseContentType: 'ResponseContentType',
@@ -1412,6 +1414,7 @@ export class CreateDataServiceApiRequest extends $tea.Model {
       projectId: 'number',
       protocols: 'string',
       registrationDetails: 'string',
+      requestContentType: 'number',
       requestMethod: 'number',
       resourceGroupId: 'number',
       responseContentType: 'number',
@@ -34483,6 +34486,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.registrationDetails)) {
       body["RegistrationDetails"] = request.registrationDetails;
+    }
+
+    if (!Util.isUnset(request.requestContentType)) {
+      body["RequestContentType"] = request.requestContentType;
     }
 
     if (!Util.isUnset(request.requestMethod)) {
