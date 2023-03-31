@@ -15,6 +15,7 @@ export class CreateModelAsyncPredictRequest extends $tea.Model {
   modelVersion?: string;
   serviceName?: string;
   serviceVersion?: string;
+  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
@@ -23,6 +24,7 @@ export class CreateModelAsyncPredictRequest extends $tea.Model {
       modelVersion: 'ModelVersion',
       serviceName: 'ServiceName',
       serviceVersion: 'ServiceVersion',
+      body: 'body',
     };
   }
 
@@ -34,6 +36,7 @@ export class CreateModelAsyncPredictRequest extends $tea.Model {
       modelVersion: 'string',
       serviceName: 'string',
       serviceVersion: 'string',
+      body: 'string',
     };
   }
 
@@ -171,11 +174,13 @@ export class PredictClassifierModelRequest extends $tea.Model {
   autoPrediction?: boolean;
   classifierId?: number;
   content?: string;
+  body?: string;
   static names(): { [key: string]: string } {
     return {
       autoPrediction: 'AutoPrediction',
       classifierId: 'ClassifierId',
       content: 'Content',
+      body: 'body',
     };
   }
 
@@ -184,6 +189,7 @@ export class PredictClassifierModelRequest extends $tea.Model {
       autoPrediction: 'boolean',
       classifierId: 'number',
       content: 'string',
+      body: 'string',
     };
   }
 
@@ -250,12 +256,14 @@ export class PredictModelRequest extends $tea.Model {
   content?: string;
   modelId?: number;
   modelVersion?: string;
+  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
       content: 'Content',
       modelId: 'ModelId',
       modelVersion: 'ModelVersion',
+      body: 'body',
     };
   }
 
@@ -265,6 +273,7 @@ export class PredictModelRequest extends $tea.Model {
       content: 'string',
       modelId: 'number',
       modelVersion: 'string',
+      body: 'string',
     };
   }
 
@@ -330,11 +339,13 @@ export class PredictTemplateModelRequest extends $tea.Model {
   binaryToText?: boolean;
   content?: string;
   taskId?: number;
+  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
       content: 'Content',
       taskId: 'TaskId',
+      body: 'body',
     };
   }
 
@@ -343,6 +354,7 @@ export class PredictTemplateModelRequest extends $tea.Model {
       binaryToText: 'boolean',
       content: 'string',
       taskId: 'number',
+      body: 'string',
     };
   }
 
@@ -456,6 +468,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "CreateModelAsyncPredict",
@@ -522,6 +535,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "PredictClassifierModel",
@@ -563,6 +577,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "PredictModel",
@@ -600,6 +615,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: request.body,
     });
     let params = new $OpenApi.Params({
       action: "PredictTemplateModel",
