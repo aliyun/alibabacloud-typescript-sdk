@@ -1167,6 +1167,7 @@ export class ListAppInstancesResponse extends $tea.Model {
 export class ListNodeInstanceTypeRequest extends $tea.Model {
   bizRegionId?: string;
   language?: string;
+  nodeInstanceType?: string;
   osType?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -1175,6 +1176,7 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
     return {
       bizRegionId: 'BizRegionId',
       language: 'Language',
+      nodeInstanceType: 'NodeInstanceType',
       osType: 'OsType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -1186,6 +1188,7 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
     return {
       bizRegionId: 'string',
       language: 'string',
+      nodeInstanceType: 'string',
       osType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -2514,6 +2517,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
   appInstanceType?: string;
+  appPolicyId?: string;
   apps?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
   chargeType?: string;
   expiredTime?: string;
@@ -2535,6 +2539,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
       appInstanceType: 'AppInstanceType',
+      appPolicyId: 'AppPolicyId',
       apps: 'Apps',
       chargeType: 'ChargeType',
       expiredTime: 'ExpiredTime',
@@ -2559,6 +2564,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
       appInstanceType: 'string',
+      appPolicyId: 'string',
       apps: { 'type': 'array', 'itemType': GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps },
       chargeType: 'string',
       expiredTime: 'string',
@@ -3209,29 +3215,94 @@ export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
   }
 }
 
+export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $tea.Model {
+  amount?: number;
+  endTime?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $tea.Model {
+  recurrenceType?: string;
+  recurrenceValues?: number[];
+  timerPeriods?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods[];
+  static names(): { [key: string]: string } {
+    return {
+      recurrenceType: 'RecurrenceType',
+      recurrenceValues: 'RecurrenceValues',
+      timerPeriods: 'TimerPeriods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recurrenceType: 'string',
+      recurrenceValues: { 'type': 'array', 'itemType': 'number' },
+      timerPeriods: { 'type': 'array', 'itemType': ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
   maxScalingAmount?: number;
+  nodeAmount?: number;
+  recurrenceSchedules?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules[];
   scalingDownAfterIdleMinutes?: number;
   scalingStep?: number;
   scalingUsageThreshold?: string;
+  strategyDisableDate?: string;
+  strategyEnableDate?: string;
   strategyType?: string;
+  warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
       maxScalingAmount: 'MaxScalingAmount',
+      nodeAmount: 'NodeAmount',
+      recurrenceSchedules: 'RecurrenceSchedules',
       scalingDownAfterIdleMinutes: 'ScalingDownAfterIdleMinutes',
       scalingStep: 'ScalingStep',
       scalingUsageThreshold: 'ScalingUsageThreshold',
+      strategyDisableDate: 'StrategyDisableDate',
+      strategyEnableDate: 'StrategyEnableDate',
       strategyType: 'StrategyType',
+      warmUp: 'WarmUp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       maxScalingAmount: 'number',
+      nodeAmount: 'number',
+      recurrenceSchedules: { 'type': 'array', 'itemType': ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules },
       scalingDownAfterIdleMinutes: 'number',
       scalingStep: 'number',
       scalingUsageThreshold: 'string',
+      strategyDisableDate: 'string',
+      strategyEnableDate: 'string',
       strategyType: 'string',
+      warmUp: 'boolean',
     };
   }
 
@@ -3903,6 +3974,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.nodeInstanceType)) {
+      query["NodeInstanceType"] = request.nodeInstanceType;
     }
 
     if (!Util.isUnset(request.osType)) {
