@@ -446,6 +446,87 @@ export class GetVideoTaskInfoResponse extends $tea.Model {
   }
 }
 
+export class LicenseAuthRequest extends $tea.Model {
+  appId?: string;
+  license?: string;
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      license: 'License',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      license: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseAuthResponseBody extends $tea.Model {
+  code?: string;
+  data?: LicenseAuthResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: LicenseAuthResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LicenseAuthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LicenseAuthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LicenseAuthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryRunningInstanceRequest extends $tea.Model {
   app?: QueryRunningInstanceRequestApp;
   sessionId?: string;
@@ -1595,6 +1676,25 @@ export class GetVideoTaskInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class LicenseAuthResponseBodyData extends $tea.Model {
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryRunningInstanceRequestApp extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -2471,6 +2571,43 @@ export default class Client extends OpenApi {
   async getVideoTaskInfo(request: GetVideoTaskInfoRequest): Promise<GetVideoTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoTaskInfoWithOptions(request, runtime);
+  }
+
+  async licenseAuthWithOptions(request: LicenseAuthRequest, runtime: $Util.RuntimeOptions): Promise<LicenseAuthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.license)) {
+      query["License"] = request.license;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LicenseAuth",
+      version: "2022-01-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LicenseAuthResponse>(await this.callApi(params, req, runtime), new LicenseAuthResponse({}));
+  }
+
+  async licenseAuth(request: LicenseAuthRequest): Promise<LicenseAuthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.licenseAuthWithOptions(request, runtime);
   }
 
   async queryRunningInstanceWithOptions(tmpReq: QueryRunningInstanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryRunningInstanceResponse> {
