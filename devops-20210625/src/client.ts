@@ -10900,6 +10900,102 @@ export class UpdateFlowTagGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateGroupRequest extends $tea.Model {
+  accessToken?: string;
+  avatarUrl?: string;
+  description?: string;
+  name?: string;
+  path?: string;
+  pathWithNamespace?: string;
+  visibilityLevel?: number;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      avatarUrl: 'avatarUrl',
+      description: 'description',
+      name: 'name',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      visibilityLevel: 'visibilityLevel',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      avatarUrl: 'string',
+      description: 'string',
+      name: 'string',
+      path: 'string',
+      pathWithNamespace: 'string',
+      visibilityLevel: 'number',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: UpdateGroupResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: UpdateGroupResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGroupMemberRequest extends $tea.Model {
   accessToken?: string;
   aliyunPk?: string;
@@ -19728,6 +19824,58 @@ export class UpdateFileResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdateGroupResponseBodyResult extends $tea.Model {
+  avatarUrl?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  nameWithNamespace?: string;
+  ownerId?: number;
+  parentId?: number;
+  path?: string;
+  pathWithNamespace?: string;
+  type?: string;
+  visibilityLevel?: number;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarUrl: 'avatarUrl',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      ownerId: 'ownerId',
+      parentId: 'parentId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      type: 'type',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarUrl: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      nameWithNamespace: 'string',
+      ownerId: 'number',
+      parentId: 'number',
+      path: 'string',
+      pathWithNamespace: 'string',
+      type: 'string',
+      visibilityLevel: 'number',
+      webUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGroupMemberResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   avatarUrl?: string;
@@ -26280,6 +26428,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFlowTagGroupWithOptions(organizationId, id, request, headers, runtime);
+  }
+
+  async updateGroupWithOptions(request: UpdateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatarUrl)) {
+      body["avatarUrl"] = request.avatarUrl;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      body["path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.pathWithNamespace)) {
+      body["pathWithNamespace"] = request.pathWithNamespace;
+    }
+
+    if (!Util.isUnset(request.visibilityLevel)) {
+      body["visibilityLevel"] = request.visibilityLevel;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/groups/modify`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
+  }
+
+  async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGroupWithOptions(request, headers, runtime);
   }
 
   async updateGroupMemberWithOptions(groupId: string, request: UpdateGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGroupMemberResponse> {
