@@ -17782,11 +17782,13 @@ export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extend
   count?: string;
   domainName?: string;
   domainType?: string;
+  subDomain?: string;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       domainName: 'DomainName',
       domainType: 'DomainType',
+      subDomain: 'SubDomain',
     };
   }
 
@@ -17795,6 +17797,7 @@ export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extend
       count: 'string',
       domainName: 'string',
       domainType: 'string',
+      subDomain: 'string',
     };
   }
 
