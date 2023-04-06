@@ -154,6 +154,61 @@ export class AddressGroup extends $tea.Model {
   }
 }
 
+export class Domain extends $tea.Model {
+  createdAt?: string;
+  description?: string;
+  domainId?: string;
+  domainName?: string;
+  initDriveEnable?: boolean;
+  initDriveSize?: number;
+  parentDomainId?: string;
+  sizeQuota?: number;
+  sizeQuotaUsed?: number;
+  status?: number;
+  updatedAt?: string;
+  usedSize?: number;
+  userCountQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'created_at',
+      description: 'description',
+      domainId: 'domain_id',
+      domainName: 'domain_name',
+      initDriveEnable: 'init_drive_enable',
+      initDriveSize: 'init_drive_size',
+      parentDomainId: 'parent_domain_id',
+      sizeQuota: 'size_quota',
+      sizeQuotaUsed: 'size_quota_used',
+      status: 'status',
+      updatedAt: 'updated_at',
+      usedSize: 'used_size',
+      userCountQuota: 'user_count_quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      description: 'string',
+      domainId: 'string',
+      domainName: 'string',
+      initDriveEnable: 'boolean',
+      initDriveSize: 'number',
+      parentDomainId: 'string',
+      sizeQuota: 'number',
+      sizeQuotaUsed: 'number',
+      status: 'number',
+      updatedAt: 'string',
+      usedSize: 'number',
+      userCountQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Drive extends $tea.Model {
   createdAt?: string;
   creator?: string;
@@ -1032,6 +1087,53 @@ export class VideoPreviewPlayMeta extends $tea.Model {
   }
 }
 
+export class AddGroupMemberRequest extends $tea.Model {
+  groupId?: string;
+  memberId?: string;
+  memberType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'group_id',
+      memberId: 'member_id',
+      memberType: 'member_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      memberId: 'string',
+      memberType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGroupMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeRequest extends $tea.Model {
   clientId?: string;
   hideConsent?: boolean;
@@ -1427,6 +1529,68 @@ export class CopyFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CopyFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainRequest extends $tea.Model {
+  description?: string;
+  domainName?: string;
+  initDriveEnable?: boolean;
+  initDriveSize?: number;
+  parentDomainId?: string;
+  sizeQuota?: number;
+  userCountQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      domainName: 'domain_name',
+      initDriveEnable: 'init_drive_enable',
+      initDriveSize: 'init_drive_size',
+      parentDomainId: 'parent_domain_id',
+      sizeQuota: 'size_quota',
+      userCountQuota: 'user_count_quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domainName: 'string',
+      initDriveEnable: 'boolean',
+      initDriveSize: 'number',
+      parentDomainId: 'string',
+      sizeQuota: 'number',
+      userCountQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Domain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Domain,
     };
   }
 
@@ -1935,6 +2099,47 @@ export class CreateUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainRequest extends $tea.Model {
+  domainId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domain_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -2681,6 +2886,53 @@ export class GetDefaultDriveResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Drive,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainRequest extends $tea.Model {
+  domainId?: string;
+  getQuotaUsed?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domain_id',
+      getQuotaUsed: 'get_quota_used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      getQuotaUsed: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Domain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Domain,
     };
   }
 
@@ -3469,6 +3721,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
   getWithoutUrl?: boolean;
   shareId?: string;
   templateId?: string;
+  urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'category',
@@ -3477,6 +3730,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
       getWithoutUrl: 'get_without_url',
       shareId: 'share_id',
       templateId: 'template_id',
+      urlExpireSec: 'url_expire_sec',
     };
   }
 
@@ -3488,6 +3742,7 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
       getWithoutUrl: 'boolean',
       shareId: 'string',
       templateId: 'string',
+      urlExpireSec: 'number',
     };
   }
 
@@ -3910,6 +4165,78 @@ export class ListDeltaResponse extends $tea.Model {
   }
 }
 
+export class ListDomainsRequest extends $tea.Model {
+  limit?: number;
+  marker?: string;
+  parentDomainId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      marker: 'marker',
+      parentDomainId: 'parent_domain_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      marker: 'string',
+      parentDomainId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBody extends $tea.Model {
+  items?: Domain[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': Domain },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDriveRequest extends $tea.Model {
   limit?: number;
   marker?: string;
@@ -4154,7 +4481,7 @@ export class ListFileResponse extends $tea.Model {
 }
 
 export class ListGroupRequest extends $tea.Model {
-  limit?: string;
+  limit?: number;
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4165,7 +4492,7 @@ export class ListGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      limit: 'string',
+      limit: 'number',
       marker: 'string',
     };
   }
@@ -4214,6 +4541,84 @@ export class ListGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupMemberRequest extends $tea.Model {
+  groupId?: string;
+  limit?: number;
+  marker?: string;
+  memberType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'group_id',
+      limit: 'limit',
+      marker: 'marker',
+      memberType: 'member_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      limit: 'number',
+      marker: 'string',
+      memberType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupMemberResponseBody extends $tea.Model {
+  groupItems?: Group[];
+  nextMarker?: string;
+  userItems?: User[];
+  static names(): { [key: string]: string } {
+    return {
+      groupItems: 'group_items',
+      nextMarker: 'next_marker',
+      userItems: 'user_items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupItems: { 'type': 'array', 'itemType': Group },
+      nextMarker: 'string',
+      userItems: { 'type': 'array', 'itemType': User },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGroupMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupMemberResponseBody,
     };
   }
 
@@ -4283,6 +4688,144 @@ export class ListMyDrivesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListMyDrivesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMyGroupDriveRequest extends $tea.Model {
+  limit?: number;
+  marker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      marker: 'marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      marker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMyGroupDriveResponseBody extends $tea.Model {
+  items?: Drive[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': Drive },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMyGroupDriveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMyGroupDriveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMyGroupDriveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReceivedFileRequest extends $tea.Model {
+  limit?: number;
+  marker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      marker: 'marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      marker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReceivedFileResponseBody extends $tea.Model {
+  items?: File[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': File },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReceivedFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListReceivedFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListReceivedFileResponseBody,
     };
   }
 
@@ -4953,6 +5496,53 @@ export class RemoveFaceGroupFileResponse extends $tea.Model {
   }
 }
 
+export class RemoveGroupMemberRequest extends $tea.Model {
+  groupId?: string;
+  memberId?: string;
+  memberType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'group_id',
+      memberId: 'member_id',
+      memberType: 'member_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      memberId: 'string',
+      memberType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveGroupMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestoreFileRequest extends $tea.Model {
   driveId?: string;
   fileId?: string;
@@ -5226,6 +5816,81 @@ export class SearchAddressGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SearchAddressGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDomainsRequest extends $tea.Model {
+  limit?: number;
+  marker?: string;
+  name?: string;
+  orderBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      marker: 'marker',
+      name: 'name',
+      orderBy: 'order_by',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      marker: 'string',
+      name: 'string',
+      orderBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDomainsResponseBody extends $tea.Model {
+  items?: Domain[];
+  nextMarker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      nextMarker: 'next_marker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': Domain },
+      nextMarker: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchDomainsResponseBody,
     };
   }
 
@@ -5702,6 +6367,68 @@ export class TrashFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TrashFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainRequest extends $tea.Model {
+  description?: string;
+  domainId?: string;
+  domainName?: string;
+  initDriveEnable?: boolean;
+  initDriveSize?: number;
+  sizeQuota?: number;
+  userCountQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      domainId: 'domain_id',
+      domainName: 'domain_name',
+      initDriveEnable: 'init_drive_enable',
+      initDriveSize: 'init_drive_size',
+      sizeQuota: 'size_quota',
+      userCountQuota: 'user_count_quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domainId: 'string',
+      domainName: 'string',
+      initDriveEnable: 'boolean',
+      initDriveSize: 'number',
+      sizeQuota: 'number',
+      userCountQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Domain;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Domain,
     };
   }
 
@@ -6595,10 +7322,46 @@ export default class Client extends OpenApi {
   }
 
 
-  async authorize(request: AuthorizeRequest): Promise<AuthorizeResponse> {
+  async addGroupMemberWithOptions(domainId: string, request: AddGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupMemberResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["domain_id"] = domainId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      body["group_id"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.memberId)) {
+      body["member_id"] = request.memberId;
+    }
+
+    if (!Util.isUnset(request.memberType)) {
+      body["member_type"] = request.memberType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddGroupMember",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/group/add_member`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGroupMemberResponse>(await this.execute(params, req, runtime), new AddGroupMemberResponse({}));
+  }
+
+  async addGroupMember(domainId: string, request: AddGroupMemberRequest): Promise<AddGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.authorizeWithOptions(request, headers, runtime);
+    return await this.addGroupMemberWithOptions(domainId, request, headers, runtime);
   }
 
   async authorizeWithOptions(tmpReq: AuthorizeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResponse> {
@@ -6656,10 +7419,10 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeResponse>(await this.execute(params, req, runtime), new AuthorizeResponse({}));
   }
 
-  async batch(request: BatchRequest): Promise<BatchResponse> {
+  async authorize(request: AuthorizeRequest): Promise<AuthorizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.batchWithOptions(request, headers, runtime);
+    return await this.authorizeWithOptions(request, headers, runtime);
   }
 
   async batchWithOptions(request: BatchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchResponse> {
@@ -6691,10 +7454,10 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchResponse>(await this.execute(params, req, runtime), new BatchResponse({}));
   }
 
-  async cancelShareLink(request: CancelShareLinkRequest): Promise<CancelShareLinkResponse> {
+  async batch(request: BatchRequest): Promise<BatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.cancelShareLinkWithOptions(request, headers, runtime);
+    return await this.batchWithOptions(request, headers, runtime);
   }
 
   async cancelShareLinkWithOptions(request: CancelShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelShareLinkResponse> {
@@ -6722,10 +7485,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelShareLinkResponse>(await this.execute(params, req, runtime), new CancelShareLinkResponse({}));
   }
 
-  async clearRecyclebin(request: ClearRecyclebinRequest): Promise<ClearRecyclebinResponse> {
+  async cancelShareLink(request: CancelShareLinkRequest): Promise<CancelShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.clearRecyclebinWithOptions(request, headers, runtime);
+    return await this.cancelShareLinkWithOptions(request, headers, runtime);
   }
 
   async clearRecyclebinWithOptions(request: ClearRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ClearRecyclebinResponse> {
@@ -6753,10 +7516,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearRecyclebinResponse>(await this.execute(params, req, runtime), new ClearRecyclebinResponse({}));
   }
 
-  async completeFile(request: CompleteFileRequest): Promise<CompleteFileResponse> {
+  async clearRecyclebin(request: ClearRecyclebinRequest): Promise<ClearRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.completeFileWithOptions(request, headers, runtime);
+    return await this.clearRecyclebinWithOptions(request, headers, runtime);
   }
 
   async completeFileWithOptions(request: CompleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CompleteFileResponse> {
@@ -6792,10 +7555,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CompleteFileResponse>(await this.execute(params, req, runtime), new CompleteFileResponse({}));
   }
 
-  async copyFile(request: CopyFileRequest): Promise<CopyFileResponse> {
+  async completeFile(request: CompleteFileRequest): Promise<CompleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.copyFileWithOptions(request, headers, runtime);
+    return await this.completeFileWithOptions(request, headers, runtime);
   }
 
   async copyFileWithOptions(request: CopyFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CopyFileResponse> {
@@ -6835,10 +7598,65 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyFileResponse>(await this.execute(params, req, runtime), new CopyFileResponse({}));
   }
 
-  async createDrive(request: CreateDriveRequest): Promise<CreateDriveResponse> {
+  async copyFile(request: CopyFileRequest): Promise<CopyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createDriveWithOptions(request, headers, runtime);
+    return await this.copyFileWithOptions(request, headers, runtime);
+  }
+
+  async createDomainWithOptions(request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["domain_name"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.initDriveEnable)) {
+      body["init_drive_enable"] = request.initDriveEnable;
+    }
+
+    if (!Util.isUnset(request.initDriveSize)) {
+      body["init_drive_size"] = request.initDriveSize;
+    }
+
+    if (!Util.isUnset(request.parentDomainId)) {
+      body["parent_domain_id"] = request.parentDomainId;
+    }
+
+    if (!Util.isUnset(request.sizeQuota)) {
+      body["size_quota"] = request.sizeQuota;
+    }
+
+    if (!Util.isUnset(request.userCountQuota)) {
+      body["user_count_quota"] = request.userCountQuota;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDomain",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
+  }
+
+  async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDomainWithOptions(request, headers, runtime);
   }
 
   async createDriveWithOptions(request: CreateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDriveResponse> {
@@ -6894,10 +7712,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDriveResponse>(await this.execute(params, req, runtime), new CreateDriveResponse({}));
   }
 
-  async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
+  async createDrive(request: CreateDriveRequest): Promise<CreateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createFileWithOptions(request, headers, runtime);
+    return await this.createDriveWithOptions(request, headers, runtime);
   }
 
   async createFileWithOptions(request: CreateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
@@ -6935,7 +7753,7 @@ export default class Client extends OpenApi {
       body["hidden"] = request.hidden;
     }
 
-    if (!Util.isUnset($tea.toMap(request.imageMediaMetadata))) {
+    if (!Util.isUnset(request.imageMediaMetadata)) {
       body["image_media_metadata"] = request.imageMediaMetadata;
     }
 
@@ -6983,7 +7801,7 @@ export default class Client extends OpenApi {
       body["user_tags"] = request.userTags;
     }
 
-    if (!Util.isUnset($tea.toMap(request.videoMediaMetadata))) {
+    if (!Util.isUnset(request.videoMediaMetadata)) {
       body["video_media_metadata"] = request.videoMediaMetadata;
     }
 
@@ -7005,10 +7823,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileResponse>(await this.execute(params, req, runtime), new CreateFileResponse({}));
   }
 
-  async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
+  async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createGroupWithOptions(request, headers, runtime);
+    return await this.createFileWithOptions(request, headers, runtime);
   }
 
   async createGroupWithOptions(request: CreateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
@@ -7048,10 +7866,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupResponse>(await this.execute(params, req, runtime), new CreateGroupResponse({}));
   }
 
-  async createShareLink(request: CreateShareLinkRequest): Promise<CreateShareLinkResponse> {
+  async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createShareLinkWithOptions(request, headers, runtime);
+    return await this.createGroupWithOptions(request, headers, runtime);
   }
 
   async createShareLinkWithOptions(request: CreateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateShareLinkResponse> {
@@ -7127,10 +7945,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateShareLinkResponse>(await this.execute(params, req, runtime), new CreateShareLinkResponse({}));
   }
 
-  async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
+  async createShareLink(request: CreateShareLinkRequest): Promise<CreateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createUserWithOptions(request, headers, runtime);
+    return await this.createShareLinkWithOptions(request, headers, runtime);
   }
 
   async createUserWithOptions(request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
@@ -7198,10 +8016,41 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.execute(params, req, runtime), new CreateUserResponse({}));
   }
 
-  async deleteDrive(request: DeleteDriveRequest): Promise<DeleteDriveResponse> {
+  async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDriveWithOptions(request, headers, runtime);
+    return await this.createUserWithOptions(request, headers, runtime);
+  }
+
+  async deleteDomainWithOptions(request: DeleteDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainId)) {
+      body["domain_id"] = request.domainId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDomain",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
+  }
+
+  async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDomainWithOptions(request, headers, runtime);
   }
 
   async deleteDriveWithOptions(request: DeleteDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDriveResponse> {
@@ -7229,10 +8078,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDriveResponse>(await this.execute(params, req, runtime), new DeleteDriveResponse({}));
   }
 
-  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
+  async deleteDrive(request: DeleteDriveRequest): Promise<DeleteDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFileWithOptions(request, headers, runtime);
+    return await this.deleteDriveWithOptions(request, headers, runtime);
   }
 
   async deleteFileWithOptions(request: DeleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
@@ -7264,10 +8113,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileResponse>(await this.execute(params, req, runtime), new DeleteFileResponse({}));
   }
 
-  async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
+  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteGroupWithOptions(request, headers, runtime);
+    return await this.deleteFileWithOptions(request, headers, runtime);
   }
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
@@ -7295,10 +8144,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.execute(params, req, runtime), new DeleteGroupResponse({}));
   }
 
-  async deleteRevision(request: DeleteRevisionRequest): Promise<DeleteRevisionResponse> {
+  async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRevisionWithOptions(request, headers, runtime);
+    return await this.deleteGroupWithOptions(request, headers, runtime);
   }
 
   async deleteRevisionWithOptions(request: DeleteRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRevisionResponse> {
@@ -7334,10 +8183,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRevisionResponse>(await this.execute(params, req, runtime), new DeleteRevisionResponse({}));
   }
 
-  async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
+  async deleteRevision(request: DeleteRevisionRequest): Promise<DeleteRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteUserWithOptions(request, headers, runtime);
+    return await this.deleteRevisionWithOptions(request, headers, runtime);
   }
 
   async deleteUserWithOptions(request: DeleteUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
@@ -7365,10 +8214,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.execute(params, req, runtime), new DeleteUserResponse({}));
   }
 
-  async deltaGetLastCursor(request: DeltaGetLastCursorRequest): Promise<DeltaGetLastCursorResponse> {
+  async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deltaGetLastCursorWithOptions(request, headers, runtime);
+    return await this.deleteUserWithOptions(request, headers, runtime);
   }
 
   async deltaGetLastCursorWithOptions(request: DeltaGetLastCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeltaGetLastCursorResponse> {
@@ -7400,10 +8249,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeltaGetLastCursorResponse>(await this.execute(params, req, runtime), new DeltaGetLastCursorResponse({}));
   }
 
-  async downloadFile(request: DownloadFileRequest): Promise<DownloadFileResponse> {
+  async deltaGetLastCursor(request: DeltaGetLastCursorRequest): Promise<DeltaGetLastCursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.downloadFileWithOptions(request, headers, runtime);
+    return await this.deltaGetLastCursorWithOptions(request, headers, runtime);
   }
 
   async downloadFileWithOptions(request: DownloadFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DownloadFileResponse> {
@@ -7447,10 +8296,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadFileResponse>(await this.execute(params, req, runtime), new DownloadFileResponse({}));
   }
 
-  async fileAddPermission(request: FileAddPermissionRequest): Promise<FileAddPermissionResponse> {
+  async downloadFile(request: DownloadFileRequest): Promise<DownloadFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileAddPermissionWithOptions(request, headers, runtime);
+    return await this.downloadFileWithOptions(request, headers, runtime);
   }
 
   async fileAddPermissionWithOptions(request: FileAddPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAddPermissionResponse> {
@@ -7486,10 +8335,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FileAddPermissionResponse>(await this.execute(params, req, runtime), new FileAddPermissionResponse({}));
   }
 
-  async fileDeleteUserTags(request: FileDeleteUserTagsRequest): Promise<FileDeleteUserTagsResponse> {
+  async fileAddPermission(request: FileAddPermissionRequest): Promise<FileAddPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileDeleteUserTagsWithOptions(request, headers, runtime);
+    return await this.fileAddPermissionWithOptions(request, headers, runtime);
   }
 
   async fileDeleteUserTagsWithOptions(request: FileDeleteUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileDeleteUserTagsResponse> {
@@ -7525,10 +8374,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FileDeleteUserTagsResponse>(await this.execute(params, req, runtime), new FileDeleteUserTagsResponse({}));
   }
 
-  async fileListPermission(request: FileListPermissionRequest): Promise<FileListPermissionResponse> {
+  async fileDeleteUserTags(request: FileDeleteUserTagsRequest): Promise<FileDeleteUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileListPermissionWithOptions(request, headers, runtime);
+    return await this.fileDeleteUserTagsWithOptions(request, headers, runtime);
   }
 
   async fileListPermissionWithOptions(request: FileListPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileListPermissionResponse> {
@@ -7560,10 +8409,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FileListPermissionResponse>(await this.execute(params, req, runtime), new FileListPermissionResponse({}));
   }
 
-  async filePutUserTags(request: FilePutUserTagsRequest): Promise<FilePutUserTagsResponse> {
+  async fileListPermission(request: FileListPermissionRequest): Promise<FileListPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.filePutUserTagsWithOptions(request, headers, runtime);
+    return await this.fileListPermissionWithOptions(request, headers, runtime);
   }
 
   async filePutUserTagsWithOptions(request: FilePutUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FilePutUserTagsResponse> {
@@ -7599,10 +8448,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FilePutUserTagsResponse>(await this.execute(params, req, runtime), new FilePutUserTagsResponse({}));
   }
 
-  async fileRemovePermission(request: FileRemovePermissionRequest): Promise<FileRemovePermissionResponse> {
+  async filePutUserTags(request: FilePutUserTagsRequest): Promise<FilePutUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.fileRemovePermissionWithOptions(request, headers, runtime);
+    return await this.filePutUserTagsWithOptions(request, headers, runtime);
   }
 
   async fileRemovePermissionWithOptions(request: FileRemovePermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileRemovePermissionResponse> {
@@ -7638,10 +8487,10 @@ export default class Client extends OpenApi {
     return $tea.cast<FileRemovePermissionResponse>(await this.execute(params, req, runtime), new FileRemovePermissionResponse({}));
   }
 
-  async getAsyncTask(request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
+  async fileRemovePermission(request: FileRemovePermissionRequest): Promise<FileRemovePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAsyncTaskWithOptions(request, headers, runtime);
+    return await this.fileRemovePermissionWithOptions(request, headers, runtime);
   }
 
   async getAsyncTaskWithOptions(request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
@@ -7669,10 +8518,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncTaskResponse>(await this.execute(params, req, runtime), new GetAsyncTaskResponse({}));
   }
 
-  async getDefaultDrive(request: GetDefaultDriveRequest): Promise<GetDefaultDriveResponse> {
+  async getAsyncTask(request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDefaultDriveWithOptions(request, headers, runtime);
+    return await this.getAsyncTaskWithOptions(request, headers, runtime);
   }
 
   async getDefaultDriveWithOptions(request: GetDefaultDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDefaultDriveResponse> {
@@ -7700,10 +8549,45 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDefaultDriveResponse>(await this.execute(params, req, runtime), new GetDefaultDriveResponse({}));
   }
 
-  async getDownloadUrl(request: GetDownloadUrlRequest): Promise<GetDownloadUrlResponse> {
+  async getDefaultDrive(request: GetDefaultDriveRequest): Promise<GetDefaultDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDownloadUrlWithOptions(request, headers, runtime);
+    return await this.getDefaultDriveWithOptions(request, headers, runtime);
+  }
+
+  async getDomainWithOptions(request: GetDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainId)) {
+      body["domain_id"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.getQuotaUsed)) {
+      body["get_quota_used"] = request.getQuotaUsed;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDomain",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/get`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDomainResponse>(await this.execute(params, req, runtime), new GetDomainResponse({}));
+  }
+
+  async getDomain(request: GetDomainRequest): Promise<GetDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDomainWithOptions(request, headers, runtime);
   }
 
   async getDownloadUrlWithOptions(request: GetDownloadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDownloadUrlResponse> {
@@ -7743,10 +8627,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDownloadUrlResponse>(await this.execute(params, req, runtime), new GetDownloadUrlResponse({}));
   }
 
-  async getDrive(request: GetDriveRequest): Promise<GetDriveResponse> {
+  async getDownloadUrl(request: GetDownloadUrlRequest): Promise<GetDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDriveWithOptions(request, headers, runtime);
+    return await this.getDownloadUrlWithOptions(request, headers, runtime);
   }
 
   async getDriveWithOptions(request: GetDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDriveResponse> {
@@ -7774,10 +8658,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDriveResponse>(await this.execute(params, req, runtime), new GetDriveResponse({}));
   }
 
-  async getFile(request: GetFileRequest): Promise<GetFileResponse> {
+  async getDrive(request: GetDriveRequest): Promise<GetDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getFileWithOptions(request, headers, runtime);
+    return await this.getDriveWithOptions(request, headers, runtime);
   }
 
   async getFileWithOptions(request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
@@ -7817,10 +8701,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileResponse>(await this.execute(params, req, runtime), new GetFileResponse({}));
   }
 
-  async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
+  async getFile(request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getGroupWithOptions(request, headers, runtime);
+    return await this.getFileWithOptions(request, headers, runtime);
   }
 
   async getGroupWithOptions(request: GetGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
@@ -7848,10 +8732,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGroupResponse>(await this.execute(params, req, runtime), new GetGroupResponse({}));
   }
 
-  async getLinkInfo(request: GetLinkInfoRequest): Promise<GetLinkInfoResponse> {
+  async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLinkInfoWithOptions(request, headers, runtime);
+    return await this.getGroupWithOptions(request, headers, runtime);
   }
 
   async getLinkInfoWithOptions(request: GetLinkInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoResponse> {
@@ -7887,10 +8771,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLinkInfoResponse>(await this.execute(params, req, runtime), new GetLinkInfoResponse({}));
   }
 
-  async getLinkInfoByUserId(request: GetLinkInfoByUserIdRequest): Promise<GetLinkInfoByUserIdResponse> {
+  async getLinkInfo(request: GetLinkInfoRequest): Promise<GetLinkInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLinkInfoByUserIdWithOptions(request, headers, runtime);
+    return await this.getLinkInfoWithOptions(request, headers, runtime);
   }
 
   async getLinkInfoByUserIdWithOptions(request: GetLinkInfoByUserIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoByUserIdResponse> {
@@ -7918,10 +8802,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLinkInfoByUserIdResponse>(await this.execute(params, req, runtime), new GetLinkInfoByUserIdResponse({}));
   }
 
-  async getRevision(request: GetRevisionRequest): Promise<GetRevisionResponse> {
+  async getLinkInfoByUserId(request: GetLinkInfoByUserIdRequest): Promise<GetLinkInfoByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRevisionWithOptions(request, headers, runtime);
+    return await this.getLinkInfoByUserIdWithOptions(request, headers, runtime);
   }
 
   async getRevisionWithOptions(request: GetRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRevisionResponse> {
@@ -7965,10 +8849,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRevisionResponse>(await this.execute(params, req, runtime), new GetRevisionResponse({}));
   }
 
-  async getShareLink(request: GetShareLinkRequest): Promise<GetShareLinkResponse> {
+  async getRevision(request: GetRevisionRequest): Promise<GetRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getShareLinkWithOptions(request, headers, runtime);
+    return await this.getRevisionWithOptions(request, headers, runtime);
   }
 
   async getShareLinkWithOptions(request: GetShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkResponse> {
@@ -7996,10 +8880,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShareLinkResponse>(await this.execute(params, req, runtime), new GetShareLinkResponse({}));
   }
 
-  async getShareLinkByAnonymous(request: GetShareLinkByAnonymousRequest): Promise<GetShareLinkByAnonymousResponse> {
+  async getShareLink(request: GetShareLinkRequest): Promise<GetShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getShareLinkByAnonymousWithOptions(request, headers, runtime);
+    return await this.getShareLinkWithOptions(request, headers, runtime);
   }
 
   async getShareLinkByAnonymousWithOptions(request: GetShareLinkByAnonymousRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkByAnonymousResponse> {
@@ -8027,10 +8911,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShareLinkByAnonymousResponse>(await this.execute(params, req, runtime), new GetShareLinkByAnonymousResponse({}));
   }
 
-  async getShareLinkToken(request: GetShareLinkTokenRequest): Promise<GetShareLinkTokenResponse> {
+  async getShareLinkByAnonymous(request: GetShareLinkByAnonymousRequest): Promise<GetShareLinkByAnonymousResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getShareLinkTokenWithOptions(request, headers, runtime);
+    return await this.getShareLinkByAnonymousWithOptions(request, headers, runtime);
   }
 
   async getShareLinkTokenWithOptions(request: GetShareLinkTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkTokenResponse> {
@@ -8066,10 +8950,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetShareLinkTokenResponse>(await this.execute(params, req, runtime), new GetShareLinkTokenResponse({}));
   }
 
-  async getUploadUrl(request: GetUploadUrlRequest): Promise<GetUploadUrlResponse> {
+  async getShareLinkToken(request: GetShareLinkTokenRequest): Promise<GetShareLinkTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUploadUrlWithOptions(request, headers, runtime);
+    return await this.getShareLinkTokenWithOptions(request, headers, runtime);
   }
 
   async getUploadUrlWithOptions(request: GetUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUploadUrlResponse> {
@@ -8113,10 +8997,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadUrlResponse>(await this.execute(params, req, runtime), new GetUploadUrlResponse({}));
   }
 
-  async getUser(request: GetUserRequest): Promise<GetUserResponse> {
+  async getUploadUrl(request: GetUploadUrlRequest): Promise<GetUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUserWithOptions(request, headers, runtime);
+    return await this.getUploadUrlWithOptions(request, headers, runtime);
   }
 
   async getUserWithOptions(request: GetUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
@@ -8144,10 +9028,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.execute(params, req, runtime), new GetUserResponse({}));
   }
 
-  async getVideoPreviewPlayInfo(request: GetVideoPreviewPlayInfoRequest): Promise<GetVideoPreviewPlayInfoResponse> {
+  async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getVideoPreviewPlayInfoWithOptions(request, headers, runtime);
+    return await this.getUserWithOptions(request, headers, runtime);
   }
 
   async getVideoPreviewPlayInfoWithOptions(request: GetVideoPreviewPlayInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayInfoResponse> {
@@ -8177,6 +9061,10 @@ export default class Client extends OpenApi {
       body["template_id"] = request.templateId;
     }
 
+    if (!Util.isUnset(request.urlExpireSec)) {
+      body["url_expire_sec"] = request.urlExpireSec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -8195,10 +9083,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoPreviewPlayInfoResponse>(await this.execute(params, req, runtime), new GetVideoPreviewPlayInfoResponse({}));
   }
 
-  async getVideoPreviewPlayMeta(request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
+  async getVideoPreviewPlayInfo(request: GetVideoPreviewPlayInfoRequest): Promise<GetVideoPreviewPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getVideoPreviewPlayMetaWithOptions(request, headers, runtime);
+    return await this.getVideoPreviewPlayInfoWithOptions(request, headers, runtime);
   }
 
   async getVideoPreviewPlayMetaWithOptions(request: GetVideoPreviewPlayMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayMetaResponse> {
@@ -8238,10 +9126,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoPreviewPlayMetaResponse>(await this.execute(params, req, runtime), new GetVideoPreviewPlayMetaResponse({}));
   }
 
-  async importUser(request: ImportUserRequest): Promise<ImportUserResponse> {
+  async getVideoPreviewPlayMeta(request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.importUserWithOptions(request, headers, runtime);
+    return await this.getVideoPreviewPlayMetaWithOptions(request, headers, runtime);
   }
 
   async importUserWithOptions(request: ImportUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImportUserResponse> {
@@ -8297,10 +9185,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportUserResponse>(await this.execute(params, req, runtime), new ImportUserResponse({}));
   }
 
-  async linkAccount(request: LinkAccountRequest): Promise<LinkAccountResponse> {
+  async importUser(request: ImportUserRequest): Promise<ImportUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.linkAccountWithOptions(request, headers, runtime);
+    return await this.importUserWithOptions(request, headers, runtime);
   }
 
   async linkAccountWithOptions(request: LinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LinkAccountResponse> {
@@ -8340,10 +9228,10 @@ export default class Client extends OpenApi {
     return $tea.cast<LinkAccountResponse>(await this.execute(params, req, runtime), new LinkAccountResponse({}));
   }
 
-  async listAddressGroups(request: ListAddressGroupsRequest): Promise<ListAddressGroupsResponse> {
+  async linkAccount(request: LinkAccountRequest): Promise<LinkAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listAddressGroupsWithOptions(request, headers, runtime);
+    return await this.linkAccountWithOptions(request, headers, runtime);
   }
 
   async listAddressGroupsWithOptions(request: ListAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAddressGroupsResponse> {
@@ -8387,10 +9275,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAddressGroupsResponse>(await this.execute(params, req, runtime), new ListAddressGroupsResponse({}));
   }
 
-  async listDelta(request: ListDeltaRequest): Promise<ListDeltaResponse> {
+  async listAddressGroups(request: ListAddressGroupsRequest): Promise<ListAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDeltaWithOptions(request, headers, runtime);
+    return await this.listAddressGroupsWithOptions(request, headers, runtime);
   }
 
   async listDeltaWithOptions(request: ListDeltaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeltaResponse> {
@@ -8430,10 +9318,49 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeltaResponse>(await this.execute(params, req, runtime), new ListDeltaResponse({}));
   }
 
-  async listDrive(request: ListDriveRequest): Promise<ListDriveResponse> {
+  async listDelta(request: ListDeltaRequest): Promise<ListDeltaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDriveWithOptions(request, headers, runtime);
+    return await this.listDeltaWithOptions(request, headers, runtime);
+  }
+
+  async listDomainsWithOptions(request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.parentDomainId)) {
+      body["parent_domain_id"] = request.parentDomainId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDomains",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
+  }
+
+  async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDomainsWithOptions(request, headers, runtime);
   }
 
   async listDriveWithOptions(request: ListDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDriveResponse> {
@@ -8473,10 +9400,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDriveResponse>(await this.execute(params, req, runtime), new ListDriveResponse({}));
   }
 
-  async listFacegroups(request: ListFacegroupsRequest): Promise<ListFacegroupsResponse> {
+  async listDrive(request: ListDriveRequest): Promise<ListDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listFacegroupsWithOptions(request, headers, runtime);
+    return await this.listDriveWithOptions(request, headers, runtime);
   }
 
   async listFacegroupsWithOptions(request: ListFacegroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFacegroupsResponse> {
@@ -8516,10 +9443,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFacegroupsResponse>(await this.execute(params, req, runtime), new ListFacegroupsResponse({}));
   }
 
-  async listFile(request: ListFileRequest): Promise<ListFileResponse> {
+  async listFacegroups(request: ListFacegroupsRequest): Promise<ListFacegroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listFileWithOptions(request, headers, runtime);
+    return await this.listFacegroupsWithOptions(request, headers, runtime);
   }
 
   async listFileWithOptions(request: ListFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
@@ -8583,10 +9510,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileResponse>(await this.execute(params, req, runtime), new ListFileResponse({}));
   }
 
-  async listGroup(request: ListGroupRequest): Promise<ListGroupResponse> {
+  async listFile(request: ListFileRequest): Promise<ListFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGroupWithOptions(request, headers, runtime);
+    return await this.listFileWithOptions(request, headers, runtime);
   }
 
   async listGroupWithOptions(request: ListGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupResponse> {
@@ -8618,10 +9545,56 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupResponse>(await this.execute(params, req, runtime), new ListGroupResponse({}));
   }
 
-  async listMyDrives(request: ListMyDrivesRequest): Promise<ListMyDrivesResponse> {
+  async listGroup(request: ListGroupRequest): Promise<ListGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMyDrivesWithOptions(request, headers, runtime);
+    return await this.listGroupWithOptions(request, headers, runtime);
+  }
+
+  async listGroupMemberWithOptions(domainId: string, request: ListGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupMemberResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["domain_id"] = domainId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      body["group_id"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.memberType)) {
+      body["member_type"] = request.memberType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupMember",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/group/list_member`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupMemberResponse>(await this.execute(params, req, runtime), new ListGroupMemberResponse({}));
+  }
+
+  async listGroupMember(domainId: string, request: ListGroupMemberRequest): Promise<ListGroupMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGroupMemberWithOptions(domainId, request, headers, runtime);
   }
 
   async listMyDrivesWithOptions(request: ListMyDrivesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyDrivesResponse> {
@@ -8653,10 +9626,83 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMyDrivesResponse>(await this.execute(params, req, runtime), new ListMyDrivesResponse({}));
   }
 
-  async listRecyclebin(request: ListRecyclebinRequest): Promise<ListRecyclebinResponse> {
+  async listMyDrives(request: ListMyDrivesRequest): Promise<ListMyDrivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRecyclebinWithOptions(request, headers, runtime);
+    return await this.listMyDrivesWithOptions(request, headers, runtime);
+  }
+
+  async listMyGroupDriveWithOptions(domainId: string, request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["domain_id"] = domainId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMyGroupDrive",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/drive/list_my_group_drive`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMyGroupDriveResponse>(await this.execute(params, req, runtime), new ListMyGroupDriveResponse({}));
+  }
+
+  async listMyGroupDrive(domainId: string, request: ListMyGroupDriveRequest): Promise<ListMyGroupDriveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMyGroupDriveWithOptions(domainId, request, headers, runtime);
+  }
+
+  async listReceivedFileWithOptions(request: ListReceivedFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReceivedFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListReceivedFile",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/file/list_received_file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListReceivedFileResponse>(await this.execute(params, req, runtime), new ListReceivedFileResponse({}));
+  }
+
+  async listReceivedFile(request: ListReceivedFileRequest): Promise<ListReceivedFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listReceivedFileWithOptions(request, headers, runtime);
   }
 
   async listRecyclebinWithOptions(request: ListRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRecyclebinResponse> {
@@ -8696,10 +9742,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRecyclebinResponse>(await this.execute(params, req, runtime), new ListRecyclebinResponse({}));
   }
 
-  async listRevision(request: ListRevisionRequest): Promise<ListRevisionResponse> {
+  async listRecyclebin(request: ListRecyclebinRequest): Promise<ListRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listRevisionWithOptions(request, headers, runtime);
+    return await this.listRecyclebinWithOptions(request, headers, runtime);
   }
 
   async listRevisionWithOptions(request: ListRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRevisionResponse> {
@@ -8743,10 +9789,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRevisionResponse>(await this.execute(params, req, runtime), new ListRevisionResponse({}));
   }
 
-  async listShareLink(request: ListShareLinkRequest): Promise<ListShareLinkResponse> {
+  async listRevision(request: ListRevisionRequest): Promise<ListRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listShareLinkWithOptions(request, headers, runtime);
+    return await this.listRevisionWithOptions(request, headers, runtime);
   }
 
   async listShareLinkWithOptions(request: ListShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShareLinkResponse> {
@@ -8794,10 +9840,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShareLinkResponse>(await this.execute(params, req, runtime), new ListShareLinkResponse({}));
   }
 
-  async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
+  async listShareLink(request: ListShareLinkRequest): Promise<ListShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTagsWithOptions(request, headers, runtime);
+    return await this.listShareLinkWithOptions(request, headers, runtime);
   }
 
   async listTagsWithOptions(request: ListTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
@@ -8833,10 +9879,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsResponse>(await this.execute(params, req, runtime), new ListTagsResponse({}));
   }
 
-  async listUploadedParts(request: ListUploadedPartsRequest): Promise<ListUploadedPartsResponse> {
+  async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listUploadedPartsWithOptions(request, headers, runtime);
+    return await this.listTagsWithOptions(request, headers, runtime);
   }
 
   async listUploadedPartsWithOptions(request: ListUploadedPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUploadedPartsResponse> {
@@ -8884,10 +9930,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUploadedPartsResponse>(await this.execute(params, req, runtime), new ListUploadedPartsResponse({}));
   }
 
-  async listUser(request: ListUserRequest): Promise<ListUserResponse> {
+  async listUploadedParts(request: ListUploadedPartsRequest): Promise<ListUploadedPartsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listUserWithOptions(request, headers, runtime);
+    return await this.listUploadedPartsWithOptions(request, headers, runtime);
   }
 
   async listUserWithOptions(request: ListUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserResponse> {
@@ -8919,10 +9965,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserResponse>(await this.execute(params, req, runtime), new ListUserResponse({}));
   }
 
-  async moveFile(request: MoveFileRequest): Promise<MoveFileResponse> {
+  async listUser(request: ListUserRequest): Promise<ListUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.moveFileWithOptions(request, headers, runtime);
+    return await this.listUserWithOptions(request, headers, runtime);
   }
 
   async moveFileWithOptions(request: MoveFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveFileResponse> {
@@ -8962,10 +10008,10 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveFileResponse>(await this.execute(params, req, runtime), new MoveFileResponse({}));
   }
 
-  async parseKeywords(request: ParseKeywordsRequest): Promise<ParseKeywordsResponse> {
+  async moveFile(request: MoveFileRequest): Promise<MoveFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.parseKeywordsWithOptions(request, headers, runtime);
+    return await this.moveFileWithOptions(request, headers, runtime);
   }
 
   async parseKeywordsWithOptions(request: ParseKeywordsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ParseKeywordsResponse> {
@@ -8993,10 +10039,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ParseKeywordsResponse>(await this.execute(params, req, runtime), new ParseKeywordsResponse({}));
   }
 
-  async removeFaceGroupFile(request: RemoveFaceGroupFileRequest): Promise<RemoveFaceGroupFileResponse> {
+  async parseKeywords(request: ParseKeywordsRequest): Promise<ParseKeywordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeFaceGroupFileWithOptions(request, headers, runtime);
+    return await this.parseKeywordsWithOptions(request, headers, runtime);
   }
 
   async removeFaceGroupFileWithOptions(request: RemoveFaceGroupFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveFaceGroupFileResponse> {
@@ -9032,10 +10078,52 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveFaceGroupFileResponse>(await this.execute(params, req, runtime), new RemoveFaceGroupFileResponse({}));
   }
 
-  async restoreFile(request: RestoreFileRequest): Promise<RestoreFileResponse> {
+  async removeFaceGroupFile(request: RemoveFaceGroupFileRequest): Promise<RemoveFaceGroupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restoreFileWithOptions(request, headers, runtime);
+    return await this.removeFaceGroupFileWithOptions(request, headers, runtime);
+  }
+
+  async removeGroupMemberWithOptions(domainId: string, request: RemoveGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveGroupMemberResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["domain_id"] = domainId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      body["group_id"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.memberId)) {
+      body["member_id"] = request.memberId;
+    }
+
+    if (!Util.isUnset(request.memberType)) {
+      body["member_type"] = request.memberType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveGroupMember",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/group/remove_member`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveGroupMemberResponse>(await this.execute(params, req, runtime), new RemoveGroupMemberResponse({}));
+  }
+
+  async removeGroupMember(domainId: string, request: RemoveGroupMemberRequest): Promise<RemoveGroupMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeGroupMemberWithOptions(domainId, request, headers, runtime);
   }
 
   async restoreFileWithOptions(request: RestoreFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreFileResponse> {
@@ -9067,10 +10155,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreFileResponse>(await this.execute(params, req, runtime), new RestoreFileResponse({}));
   }
 
-  async restoreRevision(request: RestoreRevisionRequest): Promise<RestoreRevisionResponse> {
+  async restoreFile(request: RestoreFileRequest): Promise<RestoreFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restoreRevisionWithOptions(request, headers, runtime);
+    return await this.restoreFileWithOptions(request, headers, runtime);
   }
 
   async restoreRevisionWithOptions(request: RestoreRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreRevisionResponse> {
@@ -9106,10 +10194,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreRevisionResponse>(await this.execute(params, req, runtime), new RestoreRevisionResponse({}));
   }
 
-  async scanFile(request: ScanFileRequest): Promise<ScanFileResponse> {
+  async restoreRevision(request: RestoreRevisionRequest): Promise<RestoreRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.scanFileWithOptions(request, headers, runtime);
+    return await this.restoreRevisionWithOptions(request, headers, runtime);
   }
 
   async scanFileWithOptions(request: ScanFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScanFileResponse> {
@@ -9149,10 +10237,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ScanFileResponse>(await this.execute(params, req, runtime), new ScanFileResponse({}));
   }
 
-  async searchAddressGroups(request: SearchAddressGroupsRequest): Promise<SearchAddressGroupsResponse> {
+  async scanFile(request: ScanFileRequest): Promise<ScanFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchAddressGroupsWithOptions(request, headers, runtime);
+    return await this.scanFileWithOptions(request, headers, runtime);
   }
 
   async searchAddressGroupsWithOptions(request: SearchAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchAddressGroupsResponse> {
@@ -9204,10 +10292,53 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchAddressGroupsResponse>(await this.execute(params, req, runtime), new SearchAddressGroupsResponse({}));
   }
 
-  async searchDrive(request: SearchDriveRequest): Promise<SearchDriveResponse> {
+  async searchAddressGroups(request: SearchAddressGroupsRequest): Promise<SearchAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchDriveWithOptions(request, headers, runtime);
+    return await this.searchAddressGroupsWithOptions(request, headers, runtime);
+  }
+
+  async searchDomainsWithOptions(request: SearchDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDomainsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      body["marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      body["order_by"] = request.orderBy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchDomains",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchDomainsResponse>(await this.execute(params, req, runtime), new SearchDomainsResponse({}));
+  }
+
+  async searchDomains(request: SearchDomainsRequest): Promise<SearchDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchDomainsWithOptions(request, headers, runtime);
   }
 
   async searchDriveWithOptions(request: SearchDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDriveResponse> {
@@ -9251,10 +10382,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDriveResponse>(await this.execute(params, req, runtime), new SearchDriveResponse({}));
   }
 
-  async searchFile(request: SearchFileRequest): Promise<SearchFileResponse> {
+  async searchDrive(request: SearchDriveRequest): Promise<SearchDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchFileWithOptions(request, headers, runtime);
+    return await this.searchDriveWithOptions(request, headers, runtime);
   }
 
   async searchFileWithOptions(request: SearchFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchFileResponse> {
@@ -9302,10 +10433,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchFileResponse>(await this.execute(params, req, runtime), new SearchFileResponse({}));
   }
 
-  async searchShareLink(request: SearchShareLinkRequest): Promise<SearchShareLinkResponse> {
+  async searchFile(request: SearchFileRequest): Promise<SearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchShareLinkWithOptions(request, headers, runtime);
+    return await this.searchFileWithOptions(request, headers, runtime);
   }
 
   async searchShareLinkWithOptions(request: SearchShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchShareLinkResponse> {
@@ -9357,10 +10488,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchShareLinkResponse>(await this.execute(params, req, runtime), new SearchShareLinkResponse({}));
   }
 
-  async searchUser(request: SearchUserRequest): Promise<SearchUserResponse> {
+  async searchShareLink(request: SearchShareLinkRequest): Promise<SearchShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.searchUserWithOptions(request, headers, runtime);
+    return await this.searchShareLinkWithOptions(request, headers, runtime);
   }
 
   async searchUserWithOptions(request: SearchUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchUserResponse> {
@@ -9420,10 +10551,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchUserResponse>(await this.execute(params, req, runtime), new SearchUserResponse({}));
   }
 
-  async token(request: TokenRequest): Promise<TokenResponse> {
+  async searchUser(request: SearchUserRequest): Promise<SearchUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.tokenWithOptions(request, headers, runtime);
+    return await this.searchUserWithOptions(request, headers, runtime);
   }
 
   async tokenWithOptions(request: TokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TokenResponse> {
@@ -9475,10 +10606,10 @@ export default class Client extends OpenApi {
     return $tea.cast<TokenResponse>(await this.execute(params, req, runtime), new TokenResponse({}));
   }
 
-  async trashFile(request: TrashFileRequest): Promise<TrashFileResponse> {
+  async token(request: TokenRequest): Promise<TokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.trashFileWithOptions(request, headers, runtime);
+    return await this.tokenWithOptions(request, headers, runtime);
   }
 
   async trashFileWithOptions(request: TrashFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrashFileResponse> {
@@ -9510,10 +10641,65 @@ export default class Client extends OpenApi {
     return $tea.cast<TrashFileResponse>(await this.execute(params, req, runtime), new TrashFileResponse({}));
   }
 
-  async updateDrive(request: UpdateDriveRequest): Promise<UpdateDriveResponse> {
+  async trashFile(request: TrashFileRequest): Promise<TrashFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateDriveWithOptions(request, headers, runtime);
+    return await this.trashFileWithOptions(request, headers, runtime);
+  }
+
+  async updateDomainWithOptions(request: UpdateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.domainId)) {
+      body["domain_id"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["domain_name"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.initDriveEnable)) {
+      body["init_drive_enable"] = request.initDriveEnable;
+    }
+
+    if (!Util.isUnset(request.initDriveSize)) {
+      body["init_drive_size"] = request.initDriveSize;
+    }
+
+    if (!Util.isUnset(request.sizeQuota)) {
+      body["size_quota"] = request.sizeQuota;
+    }
+
+    if (!Util.isUnset(request.userCountQuota)) {
+      body["user_count_quota"] = request.userCountQuota;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDomain",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/domain/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainResponse>(await this.execute(params, req, runtime), new UpdateDomainResponse({}));
+  }
+
+  async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDomainWithOptions(request, headers, runtime);
   }
 
   async updateDriveWithOptions(request: UpdateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDriveResponse> {
@@ -9557,10 +10743,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDriveResponse>(await this.execute(params, req, runtime), new UpdateDriveResponse({}));
   }
 
-  async updateFacegroup(request: UpdateFacegroupRequest): Promise<UpdateFacegroupResponse> {
+  async updateDrive(request: UpdateDriveRequest): Promise<UpdateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateFacegroupWithOptions(request, headers, runtime);
+    return await this.updateDriveWithOptions(request, headers, runtime);
   }
 
   async updateFacegroupWithOptions(request: UpdateFacegroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFacegroupResponse> {
@@ -9604,10 +10790,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFacegroupResponse>(await this.execute(params, req, runtime), new UpdateFacegroupResponse({}));
   }
 
-  async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
+  async updateFacegroup(request: UpdateFacegroupRequest): Promise<UpdateFacegroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateFileWithOptions(request, headers, runtime);
+    return await this.updateFacegroupWithOptions(request, headers, runtime);
   }
 
   async updateFileWithOptions(request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
@@ -9667,10 +10853,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileResponse>(await this.execute(params, req, runtime), new UpdateFileResponse({}));
   }
 
-  async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
+  async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateGroupWithOptions(request, headers, runtime);
+    return await this.updateFileWithOptions(request, headers, runtime);
   }
 
   async updateGroupWithOptions(request: UpdateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
@@ -9706,10 +10892,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupResponse>(await this.execute(params, req, runtime), new UpdateGroupResponse({}));
   }
 
-  async updateRevision(request: UpdateRevisionRequest): Promise<UpdateRevisionResponse> {
+  async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateRevisionWithOptions(request, headers, runtime);
+    return await this.updateGroupWithOptions(request, headers, runtime);
   }
 
   async updateRevisionWithOptions(request: UpdateRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRevisionResponse> {
@@ -9753,10 +10939,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRevisionResponse>(await this.execute(params, req, runtime), new UpdateRevisionResponse({}));
   }
 
-  async updateShareLink(request: UpdateShareLinkRequest): Promise<UpdateShareLinkResponse> {
+  async updateRevision(request: UpdateRevisionRequest): Promise<UpdateRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateShareLinkWithOptions(request, headers, runtime);
+    return await this.updateRevisionWithOptions(request, headers, runtime);
   }
 
   async updateShareLinkWithOptions(request: UpdateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateShareLinkResponse> {
@@ -9848,10 +11034,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateShareLinkResponse>(await this.execute(params, req, runtime), new UpdateShareLinkResponse({}));
   }
 
-  async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+  async updateShareLink(request: UpdateShareLinkRequest): Promise<UpdateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateUserWithOptions(request, headers, runtime);
+    return await this.updateShareLinkWithOptions(request, headers, runtime);
   }
 
   async updateUserWithOptions(request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
@@ -9913,6 +11099,12 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateUserResponse>(await this.execute(params, req, runtime), new UpdateUserResponse({}));
+  }
+
+  async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUserWithOptions(request, headers, runtime);
   }
 
 }

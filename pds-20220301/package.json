@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/pds20220301",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@alicloud/gateway-spi": "^0.0.8",
     "@alicloud/gateway-pds": "^0.0.5",
     "@alicloud/openapi-client": "^0.4.4",
-    "@alicloud/openapi-util": "^0.3.0"
+    "@alicloud/openapi-util": "^0.3.1"
   },
   "files": [
     "dist",
