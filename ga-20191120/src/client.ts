@@ -734,6 +734,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
   spec?: string;
+  tag?: CreateAcceleratorRequestTag[];
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -750,6 +751,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
+      tag: 'Tag',
     };
   }
 
@@ -769,6 +771,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       spec: 'string',
+      tag: { 'type': 'array', 'itemType': CreateAcceleratorRequestTag },
     };
   }
 
@@ -835,6 +838,7 @@ export class CreateAclRequest extends $tea.Model {
   dryRun?: boolean;
   regionId?: string;
   resourceGroupId?: string;
+  tag?: CreateAclRequestTag[];
   static names(): { [key: string]: string } {
     return {
       aclEntries: 'AclEntries',
@@ -844,6 +848,7 @@ export class CreateAclRequest extends $tea.Model {
       dryRun: 'DryRun',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -856,6 +861,7 @@ export class CreateAclRequest extends $tea.Model {
       dryRun: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateAclRequestTag },
     };
   }
 
@@ -1025,6 +1031,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
   ratio?: number;
   regionId?: string;
   resourceGroupId?: string;
+  tag?: CreateBandwidthPackageRequestTag[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1045,6 +1052,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       ratio: 'Ratio',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
       type: 'Type',
     };
   }
@@ -1068,6 +1076,7 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
       ratio: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateBandwidthPackageRequestTag },
       type: 'string',
     };
   }
@@ -2224,6 +2233,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
   name?: string;
   portOverrides?: CreateEndpointGroupRequestPortOverrides[];
   regionId?: string;
+  tag?: CreateEndpointGroupRequestTag[];
   thresholdCount?: number;
   trafficPercentage?: number;
   static names(): { [key: string]: string } {
@@ -2244,6 +2254,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
       name: 'Name',
       portOverrides: 'PortOverrides',
       regionId: 'RegionId',
+      tag: 'Tag',
       thresholdCount: 'ThresholdCount',
       trafficPercentage: 'TrafficPercentage',
     };
@@ -2267,6 +2278,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
       name: 'string',
       portOverrides: { 'type': 'array', 'itemType': CreateEndpointGroupRequestPortOverrides },
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateEndpointGroupRequestTag },
       thresholdCount: 'number',
       trafficPercentage: 'number',
     };
@@ -4360,6 +4372,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   cenId?: string;
   createTime?: number;
   crossBorderMode?: string;
+  crossBorderStatus?: boolean;
   crossDomainBandwidthPackage?: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage;
   crossPrivateState?: string;
   ddosId?: string;
@@ -4384,6 +4397,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       cenId: 'CenId',
       createTime: 'CreateTime',
       crossBorderMode: 'CrossBorderMode',
+      crossBorderStatus: 'CrossBorderStatus',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       crossPrivateState: 'CrossPrivateState',
       ddosId: 'DdosId',
@@ -4411,6 +4425,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       cenId: 'string',
       createTime: 'number',
       crossBorderMode: 'string',
+      crossBorderStatus: 'boolean',
       crossDomainBandwidthPackage: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage,
       crossPrivateState: 'string',
       ddosId: 'string',
@@ -5449,7 +5464,6 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
   state?: string;
   tags?: DescribeEndpointGroupResponseBodyTags[];
   thresholdCount?: number;
-  totalCount?: number;
   trafficPercentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5480,7 +5494,6 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       state: 'State',
       tags: 'Tags',
       thresholdCount: 'ThresholdCount',
-      totalCount: 'TotalCount',
       trafficPercentage: 'TrafficPercentage',
     };
   }
@@ -5514,7 +5527,6 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       state: 'string',
       tags: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyTags },
       thresholdCount: 'number',
-      totalCount: 'number',
       trafficPercentage: 'number',
     };
   }
@@ -6713,6 +6725,7 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
   basicIpSetId?: string;
   cenId?: string;
   createTime?: number;
+  crossBorderStatus?: boolean;
   crossDomainBandwidthPackage?: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage;
   crossPrivateState?: string;
   description?: string;
@@ -6733,6 +6746,7 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
       basicIpSetId: 'BasicIpSetId',
       cenId: 'CenId',
       createTime: 'CreateTime',
+      crossBorderStatus: 'CrossBorderStatus',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       crossPrivateState: 'CrossPrivateState',
       description: 'Description',
@@ -6756,6 +6770,7 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
       basicIpSetId: 'string',
       cenId: 'string',
       createTime: 'number',
+      crossBorderStatus: 'boolean',
       crossDomainBandwidthPackage: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage,
       crossPrivateState: 'string',
       description: 'string',
@@ -9564,10 +9579,12 @@ export class ListIpSetsResponse extends $tea.Model {
 }
 
 export class ListIspTypesRequest extends $tea.Model {
+  acceleratorId?: string;
   acceleratorType?: string;
   businessRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      acceleratorId: 'AcceleratorId',
       acceleratorType: 'AcceleratorType',
       businessRegionId: 'BusinessRegionId',
     };
@@ -9575,6 +9592,7 @@ export class ListIspTypesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
       acceleratorType: 'string',
       businessRegionId: 'string',
     };
@@ -10041,72 +10059,6 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCrossPrivatePermissionRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCrossPrivatePermissionResponseBody extends $tea.Model {
-  crossPrivatePermission?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      crossPrivatePermission: 'CrossPrivatePermission',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crossPrivatePermission: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCrossPrivatePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCrossPrivatePermissionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryCrossPrivatePermissionResponseBody,
     };
   }
 
@@ -10644,6 +10596,78 @@ export class UpdateAcceleratorConfirmResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAcceleratorConfirmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderModeRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  crossBorderMode?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      crossBorderMode: 'CrossBorderMode',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      crossBorderMode: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderModeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorCrossBorderModeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAcceleratorCrossBorderModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAcceleratorCrossBorderModeResponseBody,
     };
   }
 
@@ -11391,78 +11415,6 @@ export class UpdateBasicIpSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateBasicIpSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCrossPrivateStateRequest extends $tea.Model {
-  acceleratorId?: string;
-  crossPrivateState?: boolean;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceleratorId: 'AcceleratorId',
-      crossPrivateState: 'CrossPrivateState',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceleratorId: 'string',
-      crossPrivateState: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCrossPrivateStateResponseBody extends $tea.Model {
-  crossPrivateState?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      crossPrivateState: 'CrossPrivateState',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crossPrivateState: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCrossPrivateStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCrossPrivateStateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateCrossPrivateStateResponseBody,
     };
   }
 
@@ -12551,6 +12503,28 @@ export class CreateAcceleratorRequestIpSetConfig extends $tea.Model {
   }
 }
 
+export class CreateAcceleratorRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAclRequestAclEntries extends $tea.Model {
   entry?: string;
   entryDescription?: string;
@@ -12565,6 +12539,50 @@ export class CreateAclRequestAclEntries extends $tea.Model {
     return {
       entry: 'string',
       entryDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAclRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBandwidthPackageRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -12968,6 +12986,28 @@ export class CreateEndpointGroupRequestPortOverrides extends $tea.Model {
     return {
       endpointPort: 'number',
       listenerPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -14134,6 +14174,7 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges ex
 
 export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $tea.Model {
   enableClientIPPreservation?: boolean;
+  enableProxyProtocol?: boolean;
   endpoint?: string;
   probePort?: number;
   probeProtocol?: string;
@@ -14142,6 +14183,7 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
   static names(): { [key: string]: string } {
     return {
       enableClientIPPreservation: 'EnableClientIPPreservation',
+      enableProxyProtocol: 'EnableProxyProtocol',
       endpoint: 'Endpoint',
       probePort: 'ProbePort',
       probeProtocol: 'ProbeProtocol',
@@ -14153,6 +14195,7 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
   static types(): { [key: string]: any } {
     return {
       enableClientIPPreservation: 'boolean',
+      enableProxyProtocol: 'boolean',
       endpoint: 'string',
       probePort: 'number',
       probeProtocol: 'string',
@@ -14719,6 +14762,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   cenId?: string;
   createTime?: number;
   crossBorderMode?: string;
+  crossBorderStatus?: boolean;
   crossDomainBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
   ddosId?: string;
   description?: string;
@@ -14743,6 +14787,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       cenId: 'CenId',
       createTime: 'CreateTime',
       crossBorderMode: 'CrossBorderMode',
+      crossBorderStatus: 'CrossBorderStatus',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       ddosId: 'DdosId',
       description: 'Description',
@@ -14770,6 +14815,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       cenId: 'string',
       createTime: 'number',
       crossBorderMode: 'string',
+      crossBorderStatus: 'boolean',
       crossDomainBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
       ddosId: 'string',
       description: 'string',
@@ -15404,6 +15450,7 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
   basicEndpointGroupId?: string;
   basicIpSetId?: string;
   createTime?: number;
+  crossBorderStatus?: boolean;
   crossDomainBandwidthPackage?: ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
   description?: string;
   expiredTime?: number;
@@ -15422,6 +15469,7 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
       basicEndpointGroupId: 'BasicEndpointGroupId',
       basicIpSetId: 'BasicIpSetId',
       createTime: 'CreateTime',
+      crossBorderStatus: 'CrossBorderStatus',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
       description: 'Description',
       expiredTime: 'ExpiredTime',
@@ -15443,6 +15491,7 @@ export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
       basicEndpointGroupId: 'string',
       basicIpSetId: 'string',
       createTime: 'number',
+      crossBorderStatus: 'boolean',
       crossDomainBandwidthPackage: ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
       description: 'string',
       expiredTime: 'number',
@@ -17755,6 +17804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request ChangeResourceGroupRequest
@@ -17802,6 +17852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request ChangeResourceGroupRequest
@@ -17889,7 +17940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
     * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
     *
@@ -17956,6 +18007,10 @@ export default class Client extends OpenApi {
       query["Spec"] = request.spec;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17974,7 +18029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
     * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
     *
@@ -18024,6 +18079,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18149,12 +18208,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ##
     * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
     * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
     * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
     * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
     * When you call this operation, take note of the following items:
-    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+    * *   The **CreateBandwidthPackage** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan.
     *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
     *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
     * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -18234,6 +18294,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -18256,12 +18320,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ##
     * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
     * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
     * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
     * *   **Premium**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
     * When you call this operation, take note of the following items:
-    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan.
+    * *   The **CreateBandwidthPackage** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan.
     *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
     *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
     * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -18459,10 +18524,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
-    * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
-    * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
-    * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+    * **CreateBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+    * *   If the basic GA instance is in the **init** state, it indicates the basic GA instance is being created. In this case, you can perform only query operations.
+    * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
     *
     * @param request CreateBasicAcceleratorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18541,10 +18607,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * ## Usage notes
     * Basic GA instances use high-quality global network bandwidth and the transmission network of Alibaba Cloud to provide users with point-to-point acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP protocols). For more information, see [Overview of GA instances](~~153127~~).
-    * The **CreateBasicAccelerator** operation is asynchronous. After you send a request, the system returns the ID of a basic GA instance, but the operation is still being performed in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
-    * *   If a basic GA instance is in the **init** state, the basic GA instance is being created. In this case, you can perform only query operations.
-    * *   If a basic GA instance is in the **active** state, the basic GA instance is created.
+    * **CreateBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
+    * *   If the basic GA instance is in the **init** state, it indicates the basic GA instance is being created. In this case, you can perform only query operations.
+    * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
     *
     * @param request CreateBasicAcceleratorRequest
     * @return CreateBasicAcceleratorResponse
@@ -18639,13 +18706,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
-    * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
-    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    * ##
+    * *   The **CreateBasicEndpointGroup** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of an endpoint group.
     *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, the endpoint group is created.
-    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request CreateBasicEndpointGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18708,13 +18773,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   You can add only one endpoint group and one endpoint for each basic GA instance. The endpoint must be a Classic Load Balancer (CLB) instance of the Virtual Private Cloud (VPC) type or a secondary elastic network interface (ENI).
-    * *   You cannot add a secondary ENI or CLB instance as an endpoint for a basic GA instance if the secondary ENI or CLB instance is associated with an elastic IP address (EIP).
-    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
+    * ##
+    * *   The **CreateBasicEndpointGroup** operation is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of an endpoint group.
     *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, the endpoint group is created.
-    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * *   The **CreateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request CreateBasicEndpointGroupRequest
     * @return CreateBasicEndpointGroupResponse
@@ -18725,10 +18788,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
-    *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
-    *     *   If all endpoints are in the **active** state, the endpoints are created.
-    * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    * ### Usage notes
+    * *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations. - If all endpoints are in the **active** state, the endpoints are created.
+    * *   The **CreateBasicEndpoints** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request CreateBasicEndpointsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18775,10 +18837,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of endpoints.
-    *     *   If the endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations.
-    *     *   If all endpoints are in the **active** state, the endpoints are created.
-    * *   The **CreateBasicEndpointGroup** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    * ### Usage notes
+    * *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, the endpoints are being created. In this case, you can perform only query operations. - If all endpoints are in the **active** state, the endpoints are created.
+    * *   The **CreateBasicEndpoints** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request CreateBasicEndpointsRequest
     * @return CreateBasicEndpointsResponse
@@ -18789,9 +18850,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
+    * Before you call this operation, take note of the following limits:
     * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
-    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region.
     *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
     *     *   If the acceleration region is in the **active** state, the acceleration region is created.
     * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -18845,9 +18906,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
+    * Before you call this operation, take note of the following limits:
     * *   You can add only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
-    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicIpSet](~~362987~~) operation to query the state of an acceleration region.
+    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region.
     *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
     *     *   If the acceleration region is in the **active** state, the acceleration region is created.
     * *   The **CreateBasicIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -18861,20 +18922,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.  
-    * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items: 
-    * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
-    *     
-    *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
-    * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the GA instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to the specified IP addresses and ports in the vSwitches.
+    * You can call this operation to create mapping configurations for an endpoint group of a custom routing listener. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether mapping configurations are created for the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that mapping configurations are being created for the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that mapping configurations are created for the endpoint group.
+    * *   The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * Make sure that the following operations are performed before you call this operation:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18921,20 +18981,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.  
-    * This operation is used to create endpoint group mappings for custom routing listeners. When you call this operation, take note of the following items: 
-    * - **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of a specified endpoint group and determine whether mappings are created in the endpoint group.
-    *     
-    *     - If the endpoint group is in the **updating** state, it indicates that mappings are being created in the endpoint group. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, it indicates that mappings are created in the endpoint group.
-    * - The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the GA instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to the specified IP addresses and ports in the vSwitches.
+    * You can call this operation to create mapping configurations for an endpoint group of a custom routing listener. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether mapping configurations are created for the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that mapping configurations are being created for the endpoint group. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that mapping configurations are created for the endpoint group.
+    * *   The **CreateCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * Make sure that the following operations are performed before you call this operation:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
     * @return CreateCustomRoutingEndpointGroupDestinationsResponse
@@ -18945,22 +19004,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.  
-    * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
-    * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).  
+    * Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+    * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+    * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](~~153259~~).
     * When you call this operation, take note of the following items:
-    * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
-    *     
-    *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
-    *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
-    * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) or [ListCustomRoutingEndpointGroups](~~449374~~) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+    *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+    *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+    * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * Make sure that the following requirements are met before you call this operation:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
     *
     * @param request CreateCustomRoutingEndpointGroupsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19011,22 +19069,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * GA forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.  
-    * - After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
-    * - After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches) and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * This operation is used to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/createendpointgroup).  
+    * Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+    * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+    * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](~~153259~~).
     * When you call this operation, take note of the following items:
-    * - **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) or [ListCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/listcustomroutingendpointgroups) operation to query the status of the endpoint groups that are associated with custom routing listeners.
-    *     
-    *     - If one or more endpoints groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
-    *     - If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
-    * - The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the standard GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
+    * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) or [ListCustomRoutingEndpointGroups](~~449374~~) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+    *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+    *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+    * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * Make sure that the following requirements are met before you call this operation:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
     *
     * @param request CreateCustomRoutingEndpointGroupsRequest
     * @return CreateCustomRoutingEndpointGroupsResponse
@@ -19037,21 +19094,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.  
+    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. The CreateCustomRoutingEndpointTrafficPolicies operation takes effect only when **TrafficToEndpointPolicy** of an endpoint is set to **AllowCustom**.
     * When you call this operation, take note of the following items:
-    * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group. 
-    *     
-    *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
-    * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
-    * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether traffic destinations are created for an endpoint in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, traffic destinations are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, traffic destinations are created.
+    * *   You cannot repeatedly call the **CreateCustomRoutingEndpointTrafficPolicies** operation for the same Global Accelerator (GA) instance within a specific period of time.
+    * ### Prerequisites
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
+    * *   An endpoint is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
     *
     * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19094,21 +19150,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when traffic is allowed to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpoint) operation to query the access policy of traffic for the specified endpoint. This operation takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.  
+    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. The CreateCustomRoutingEndpointTrafficPolicies operation takes effect only when **TrafficToEndpointPolicy** of an endpoint is set to **AllowCustom**.
     * When you call this operation, take note of the following items:
-    * - **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of an endpoint group to check whether access policies of traffic are created for endpoints in the endpoint group. 
-    *     
-    *      - If the endpoint group is in the **updating** state, access policies of traffic are being created for endpoints in the endpoint group. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, access policies of traffic are created for endpoints in the endpoint group.
-    * - The **CreateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    * ## Prerequisites
-    * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners and create custom routing listeners for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create endpoint groups for the custom routing listeners. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
-    * - Create endpoints for the custom routing listeners. For more information, see [CreateCustomRoutingEndpoints](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpoints).
+    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether traffic destinations are created for an endpoint in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, traffic destinations are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, traffic destinations are created.
+    * *   You cannot repeatedly call the **CreateCustomRoutingEndpointTrafficPolicies** operation for the same Global Accelerator (GA) instance within a specific period of time.
+    * ### Prerequisites
+    * Before you call this operation, make sure that the following requirements are met:
+    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
+    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
+    * *   An endpoint is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
     *
     * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
@@ -19119,20 +19174,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches. 
-    * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items: 
-    * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group. 
-    *    
-    *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
-    * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
     * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
+    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19175,20 +19229,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches. 
-    * This operation is used to create endpoints for custom routing listeners. When you call this operation to create endpoints in an endpoint group, take note of the following items: 
-    * - **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://www.alibabacloud.com/help/en/global-accelerator/latest/describecustomroutingendpointgroup) operation to query the state of the endpoint group and determine whether endpoints are created in the endpoint group. 
-    *    
-    *     - If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
-    *     - If the endpoint group is in the **active** state, it indicates that endpoints are created.
-    * - The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ## Prerequisites
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
     * The following operations are complete before you call this operation:
-    * - Create a standard GA instance. For more information, see [CreateAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/createaccelerator).
-    * - Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://www.alibabacloud.com/help/en/global-accelerator/latest/bandwidthpackageaddaccelerator).
-    * - Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * - Apply for permissions to use custom routing listeners, and create a custom routing listener for the standard GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://www.alibabacloud.com/help/en/global-accelerator/latest/createlistener).
-    * - Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://www.alibabacloud.com/help/en/global-accelerator/latest/createcustomroutingendpointgroups).
+    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
+    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointsRequest
     * @return CreateCustomRoutingEndpointsResponse
@@ -19199,7 +19252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+    * After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
     * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
     * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
     * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
@@ -19242,7 +19295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you associate an accelerated domain name for which an ICP number is obtained with a GA instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+    * After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
     * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
     * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
     * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
@@ -19331,6 +19384,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.thresholdCount)) {
@@ -19509,7 +19566,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+    * ## Usage notes
+    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
     *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
     *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
     * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
@@ -19555,7 +19613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
+    * ## Usage notes
+    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of acceleration regions.
     *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
     *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
     * *   The **CreateIpSets** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
@@ -19571,10 +19630,10 @@ export default class Client extends OpenApi {
   /**
     * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
     * Before you call this operation, take note of the following limits:
-    * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+    * *   **CreateListener** is an asynchronous operation. After you send a request, the system returns a listener ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
     *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
     *     *   If a listener is in the **active** state, the listener is created.
-    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+    * *   The **CreateListener** operation cannot be repeatedly called to create listeners for the same GA instance in a specific period of time.
     *
     * @param request CreateListenerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19663,10 +19722,10 @@ export default class Client extends OpenApi {
   /**
     * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
     * Before you call this operation, take note of the following limits:
-    * *   The **CreateListener** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
+    * *   **CreateListener** is an asynchronous operation. After you send a request, the system returns a listener ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
     *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
     *     *   If a listener is in the **active** state, the listener is created.
-    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+    * *   The **CreateListener** operation cannot be repeatedly called to create listeners for the same GA instance in a specific period of time.
     *
     * @param request CreateListenerRequest
     * @return CreateListenerResponse
@@ -19911,9 +19970,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   By default, subscription bandwidth plans cannot be deleted. If you want to delete subscription bandwidth plans, contact your account manager.
     * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to delete.
     *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
     *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
     * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
@@ -19955,9 +20014,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. To delete a subscription bandwidth plan by calling this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+    * *   By default, subscription bandwidth plans cannot be deleted. If you want to delete subscription bandwidth plans, contact your account manager.
     * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to delete.
+    * *   **DeleteBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to delete.
     *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
     *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
     * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
@@ -20309,9 +20368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+    * ### Usage notes
+    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and verify whether mappings are deleted from the endpoint group.
     *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+    *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response of the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, the mappings are deleted from the endpoint group.
     * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
@@ -20359,9 +20419,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the state of an endpoint group and determine whether mappings are deleted from the endpoint group.
+    * ### Usage notes
+    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and verify whether mappings are deleted from the endpoint group.
     *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and no information about the mappings that you attempt to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
+    *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response of the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, the mappings are deleted from the endpoint group.
     * *   The **DeleteCustomRoutingEndpointGroupDestinations** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
@@ -20376,7 +20437,7 @@ export default class Client extends OpenApi {
     * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
     *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
     *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
-    * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
     *
     * @param request DeleteCustomRoutingEndpointGroupsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20426,7 +20487,7 @@ export default class Client extends OpenApi {
     * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
     *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
     *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
-    * *   The **DeleteCustomRoutingEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
     *
     * @param request DeleteCustomRoutingEndpointGroupsRequest
     * @return DeleteCustomRoutingEndpointGroupsResponse
@@ -20437,9 +20498,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
-    *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
+    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the traffic destinations are deleted.
     * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
@@ -20483,9 +20544,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group to check whether access policies of traffic for endpoints in the endpoint group are deleted.
-    *     *   If the endpoint group is in the **updating** state, access policies of traffic for endpoints in the endpoint group are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and access policies of traffic that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the access policies of traffic for endpoints in the endpoint group are deleted.
+    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
+    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the traffic destinations are deleted.
     * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
@@ -20497,9 +20558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
-    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+    * ### Usage notes
+    * *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and check whether endpoints are deleted.
+    *     *   If an endpoint group is in the **updating** state, the endpoints are being deleted. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state and the endpoints cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoints are deleted.
     * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
     *
     * @param request DeleteCustomRoutingEndpointsRequest
@@ -20543,9 +20605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeleteCustomRoutingEndpoints** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of an endpoint group and check whether an endpoint is deleted.
-    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
+    * ### Usage notes
+    * *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and check whether endpoints are deleted.
+    *     *   If an endpoint group is in the **updating** state, the endpoints are being deleted. In this case, you can perform only query operations.
+    *     *   If an endpoint group is in the **active** state and the endpoints cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoints are deleted.
     * *   You cannot repeatedly call the **DeleteCustomRoutingEndpoints** operation for the same Global Accelerator (GA) instance within the specified period of time.
     *
     * @param request DeleteCustomRoutingEndpointsRequest
@@ -20557,7 +20620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+    * You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
     *
     * @param request DeleteDomainAcceleratorRelationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20596,7 +20659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteDomainAcceleratorRelation** operation by using the same Alibaba Cloud account within a specific period of time.
+    * You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
     *
     * @param request DeleteDomainAcceleratorRelationRequest
     * @return DeleteDomainAcceleratorRelationResponse
@@ -22985,6 +23048,13 @@ export default class Client extends OpenApi {
     return await this.listBusiRegionsWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
+    *
+    * @param request ListCommonAreasRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCommonAreasResponse
+   */
   async listCommonAreasWithOptions(request: ListCommonAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonAreasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23017,6 +23087,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCommonAreasResponse>(await this.callApi(params, req, runtime), new ListCommonAreasResponse({}));
   }
 
+  /**
+    * You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
+    *
+    * @param request ListCommonAreasRequest
+    * @return ListCommonAreasResponse
+   */
   async listCommonAreas(request: ListCommonAreasRequest): Promise<ListCommonAreasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCommonAreasWithOptions(request, runtime);
@@ -23456,7 +23532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+    * >  You can call this operation to query only custom forwarding rules. You cannot call this operation to query the default forwarding rule.
     *
     * @param request ListForwardingRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23511,7 +23587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+    * >  You can call this operation to query only custom forwarding rules. You cannot call this operation to query the default forwarding rule.
     *
     * @param request ListForwardingRulesRequest
     * @return ListForwardingRulesResponse
@@ -23565,6 +23641,10 @@ export default class Client extends OpenApi {
   async listIspTypesWithOptions(request: ListIspTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListIspTypesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
     if (!Util.isUnset(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
     }
@@ -23789,6 +23869,16 @@ export default class Client extends OpenApi {
     return await this.listSystemSecurityPoliciesWithOptions(request, runtime);
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.********
+    * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23833,38 +23923,18 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+    * *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.********
+    * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+    *
+    * @param request ListTagResourcesRequest
+    * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
-  }
-
-  async queryCrossPrivatePermissionWithOptions(request: QueryCrossPrivatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<QueryCrossPrivatePermissionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryCrossPrivatePermission",
-      version: "2019-11-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryCrossPrivatePermissionResponse>(await this.callApi(params, req, runtime), new QueryCrossPrivatePermissionResponse({}));
-  }
-
-  async queryCrossPrivatePermission(request: QueryCrossPrivatePermissionRequest): Promise<QueryCrossPrivatePermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryCrossPrivatePermissionWithOptions(request, runtime);
   }
 
   /**
@@ -23996,7 +24066,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+    * ### Description
+    * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
     *
     * @param request TagResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24043,7 +24114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can add up to 20 tags to a single Global Accelerator (GA) resource. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+    * ### Description
+    * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
     *
     * @param request TagResourcesRequest
     * @return TagResourcesResponse
@@ -24103,7 +24175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state, the GA instance is modified.
     * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -24165,7 +24237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
     *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
     *     *   If the GA instance is in the **active** state, the GA instance is modified.
     * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -24296,6 +24368,47 @@ export default class Client extends OpenApi {
   async updateAcceleratorConfirm(request: UpdateAcceleratorConfirmRequest): Promise<UpdateAcceleratorConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorConfirmWithOptions(request, runtime);
+  }
+
+  async updateAcceleratorCrossBorderModeWithOptions(request: UpdateAcceleratorCrossBorderModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorCrossBorderModeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossBorderMode)) {
+      query["CrossBorderMode"] = request.crossBorderMode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAcceleratorCrossBorderMode",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorCrossBorderModeResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorCrossBorderModeResponse({}));
+  }
+
+  async updateAcceleratorCrossBorderMode(request: UpdateAcceleratorCrossBorderModeRequest): Promise<UpdateAcceleratorCrossBorderModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAcceleratorCrossBorderModeWithOptions(request, runtime);
   }
 
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
@@ -24885,43 +24998,6 @@ export default class Client extends OpenApi {
     return await this.updateBasicIpSetWithOptions(request, runtime);
   }
 
-  async updateCrossPrivateStateWithOptions(request: UpdateCrossPrivateStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCrossPrivateStateResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.acceleratorId)) {
-      query["AcceleratorId"] = request.acceleratorId;
-    }
-
-    if (!Util.isUnset(request.crossPrivateState)) {
-      query["CrossPrivateState"] = request.crossPrivateState;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateCrossPrivateState",
-      version: "2019-11-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCrossPrivateStateResponse>(await this.callApi(params, req, runtime), new UpdateCrossPrivateStateResponse({}));
-  }
-
-  async updateCrossPrivateState(request: UpdateCrossPrivateStateRequest): Promise<UpdateCrossPrivateStateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateCrossPrivateStateWithOptions(request, runtime);
-  }
-
   async updateCustomRoutingEndpointGroupAttributeWithOptions(request: UpdateCustomRoutingEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24968,9 +25044,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
-    *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
+    *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
     * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
@@ -25018,9 +25094,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of an endpoint group associated with a custom route listener to check whether the mappings of the endpoint group is modified.
-    *     *   If the endpoint group is in the **updating** state, the mappings of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the mappings of the endpoint group are modified.
+    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
+    *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
     * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
@@ -25151,6 +25227,15 @@ export default class Client extends OpenApi {
     return await this.updateCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
+  /**
+    * ### Usage notes
+    * You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+    * You cannot repeatedly call the \\*\\* UpdateDomain\\*\\* operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request UpdateDomainRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDomainResponse
+   */
   async updateDomainWithOptions(request: UpdateDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25183,11 +25268,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainResponse>(await this.callApi(params, req, runtime), new UpdateDomainResponse({}));
   }
 
+  /**
+    * ### Usage notes
+    * You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+    * You cannot repeatedly call the \\*\\* UpdateDomain\\*\\* operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request UpdateDomainRequest
+    * @return UpdateDomainResponse
+   */
   async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to obtain and update the ICP filing status of an accelerated domain name.
+    * You cannot repeatedly call the **UpdateDomainState** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request UpdateDomainStateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDomainStateResponse
+   */
   async updateDomainStateWithOptions(request: UpdateDomainStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25216,6 +25317,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainStateResponse>(await this.callApi(params, req, runtime), new UpdateDomainStateResponse({}));
   }
 
+  /**
+    * You can call this operation to obtain and update the ICP filing status of an accelerated domain name.
+    * You cannot repeatedly call the **UpdateDomainState** operation by using the same Alibaba Cloud account within a specific period of time.
+    *
+    * @param request UpdateDomainStateRequest
+    * @return UpdateDomainStateResponse
+   */
   async updateDomainState(request: UpdateDomainStateRequest): Promise<UpdateDomainStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainStateWithOptions(request, runtime);
@@ -25223,9 +25331,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If the endpoint group is in the **updating** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request UpdateEndpointGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25317,9 +25425,9 @@ export default class Client extends OpenApi {
 
   /**
     * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If the endpoint group is in the **updating** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, the configurations of the endpoint group are modified.
+    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request UpdateEndpointGroupRequest
     * @return UpdateEndpointGroupResponse
@@ -25503,7 +25611,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    * ## Usage notes
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
     *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
     *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
     * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
@@ -25549,7 +25658,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    * ## Usage notes
+    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
     *     *   If the acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
     *     *   If the acceleration region is in the **active** state, the acceleration region is modified.
     * *   The **UpdateIpSet** operation cannot be repeatedly called for the same GA instance within a specific period of time.
