@@ -10,33 +10,33 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateModelAsyncPredictRequest extends $tea.Model {
   binaryToText?: boolean;
+  body?: string;
   content?: string;
   modelId?: number;
   modelVersion?: string;
   serviceName?: string;
   serviceVersion?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
+      body: 'Body',
       content: 'Content',
       modelId: 'ModelId',
       modelVersion: 'ModelVersion',
       serviceName: 'ServiceName',
       serviceVersion: 'ServiceVersion',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       binaryToText: 'boolean',
+      body: 'string',
       content: 'string',
       modelId: 'number',
       modelVersion: 'string',
       serviceName: 'string',
       serviceVersion: 'string',
-      body: 'string',
     };
   }
 
@@ -172,24 +172,24 @@ export class GetModelAsyncPredictResponse extends $tea.Model {
 
 export class PredictClassifierModelRequest extends $tea.Model {
   autoPrediction?: boolean;
+  body?: string;
   classifierId?: number;
   content?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       autoPrediction: 'AutoPrediction',
+      body: 'Body',
       classifierId: 'ClassifierId',
       content: 'Content',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       autoPrediction: 'boolean',
+      body: 'string',
       classifierId: 'number',
       content: 'string',
-      body: 'string',
     };
   }
 
@@ -253,27 +253,27 @@ export class PredictClassifierModelResponse extends $tea.Model {
 
 export class PredictModelRequest extends $tea.Model {
   binaryToText?: boolean;
+  body?: string;
   content?: string;
   modelId?: number;
   modelVersion?: string;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
+      body: 'Body',
       content: 'Content',
       modelId: 'ModelId',
       modelVersion: 'ModelVersion',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       binaryToText: 'boolean',
+      body: 'string',
       content: 'string',
       modelId: 'number',
       modelVersion: 'string',
-      body: 'string',
     };
   }
 
@@ -337,24 +337,24 @@ export class PredictModelResponse extends $tea.Model {
 
 export class PredictTemplateModelRequest extends $tea.Model {
   binaryToText?: boolean;
+  body?: string;
   content?: string;
   taskId?: number;
-  body?: string;
   static names(): { [key: string]: string } {
     return {
       binaryToText: 'BinaryToText',
+      body: 'Body',
       content: 'Content',
       taskId: 'TaskId',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       binaryToText: 'boolean',
+      body: 'string',
       content: 'string',
       taskId: 'number',
-      body: 'string',
     };
   }
 
@@ -466,9 +466,14 @@ export default class Client extends OpenApi {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateModelAsyncPredict",
@@ -533,9 +538,14 @@ export default class Client extends OpenApi {
       query["Content"] = request.content;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PredictClassifierModel",
@@ -575,9 +585,14 @@ export default class Client extends OpenApi {
       query["ModelVersion"] = request.modelVersion;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PredictModel",
@@ -613,9 +628,14 @@ export default class Client extends OpenApi {
       query["TaskId"] = request.taskId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PredictTemplateModel",
