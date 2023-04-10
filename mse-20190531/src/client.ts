@@ -1130,7 +1130,6 @@ export class AddGatewaySlbResponse extends $tea.Model {
 export class AddMigrationTaskRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterType?: string;
-  id?: string;
   originInstanceAddress?: string;
   originInstanceName?: string;
   originInstanceNamespace?: string;
@@ -1143,7 +1142,6 @@ export class AddMigrationTaskRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterType: 'ClusterType',
-      id: 'Id',
       originInstanceAddress: 'OriginInstanceAddress',
       originInstanceName: 'OriginInstanceName',
       originInstanceNamespace: 'OriginInstanceNamespace',
@@ -1159,7 +1157,6 @@ export class AddMigrationTaskRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterType: 'string',
-      id: 'string',
       originInstanceAddress: 'string',
       originInstanceName: 'string',
       originInstanceNamespace: 'string',
@@ -1179,7 +1176,6 @@ export class AddMigrationTaskRequest extends $tea.Model {
 export class AddMigrationTaskResponseBody extends $tea.Model {
   data?: AddMigrationTaskResponseBodyData;
   errorCode?: string;
-  httpCode?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -1187,7 +1183,6 @@ export class AddMigrationTaskResponseBody extends $tea.Model {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
-      httpCode: 'HttpCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -1198,7 +1193,6 @@ export class AddMigrationTaskResponseBody extends $tea.Model {
     return {
       data: AddMigrationTaskResponseBodyData,
       errorCode: 'string',
-      httpCode: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -18568,8 +18562,6 @@ export class AddGatewayRouteRequestServices extends $tea.Model {
 
 export class AddMigrationTaskResponseBodyData extends $tea.Model {
   clusterType?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
   id?: string;
   originInstanceAddress?: string;
   originInstanceName?: string;
@@ -18582,8 +18574,6 @@ export class AddMigrationTaskResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
       id: 'Id',
       originInstanceAddress: 'OriginInstanceAddress',
       originInstanceName: 'OriginInstanceName',
@@ -18599,8 +18589,6 @@ export class AddMigrationTaskResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterType: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
       id: 'string',
       originInstanceAddress: 'string',
       originInstanceName: 'string',
@@ -27281,10 +27269,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterType)) {
       query["ClusterType"] = request.clusterType;
-    }
-
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
     }
 
     if (!Util.isUnset(request.originInstanceAddress)) {
