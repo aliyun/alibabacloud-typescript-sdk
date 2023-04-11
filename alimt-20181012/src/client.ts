@@ -935,6 +935,78 @@ export class GetTitleIntelligenceResponse extends $tea.Model {
   }
 }
 
+export class GetTranslateImageBatchResultRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTranslateImageBatchResultResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetTranslateImageBatchResultResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetTranslateImageBatchResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTranslateImageBatchResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTranslateImageBatchResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTranslateImageBatchResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTranslateReportRequest extends $tea.Model {
   apiName?: string;
   beginTime?: string;
@@ -1542,6 +1614,93 @@ export class TranslateImageResponse extends $tea.Model {
   }
 }
 
+export class TranslateImageBatchRequest extends $tea.Model {
+  customTaskId?: string;
+  ext?: string;
+  field?: string;
+  imageUrls?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customTaskId: 'CustomTaskId',
+      ext: 'Ext',
+      field: 'Field',
+      imageUrls: 'ImageUrls',
+      sourceLanguage: 'SourceLanguage',
+      targetLanguage: 'TargetLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customTaskId: 'string',
+      ext: 'string',
+      field: 'string',
+      imageUrls: 'string',
+      sourceLanguage: 'string',
+      targetLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageBatchResponseBody extends $tea.Model {
+  code?: number;
+  data?: TranslateImageBatchResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TranslateImageBatchResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TranslateImageBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TranslateImageBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageTranslateTaskResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1708,6 +1867,65 @@ export class GetTitleIntelligenceResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTranslateImageBatchResultResponseBodyDataResult extends $tea.Model {
+  code?: number;
+  finalImageUrl?: string;
+  inPaintingUrl?: string;
+  message?: string;
+  sourceImageUrl?: string;
+  success?: boolean;
+  templateJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      finalImageUrl: 'FinalImageUrl',
+      inPaintingUrl: 'InPaintingUrl',
+      message: 'Message',
+      sourceImageUrl: 'SourceImageUrl',
+      success: 'Success',
+      templateJson: 'TemplateJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      finalImageUrl: 'string',
+      inPaintingUrl: 'string',
+      message: 'string',
+      sourceImageUrl: 'string',
+      success: 'boolean',
+      templateJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTranslateImageBatchResultResponseBodyData extends $tea.Model {
+  result?: GetTranslateImageBatchResultResponseBodyDataResult[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': GetTranslateImageBatchResultResponseBodyDataResult },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateResponseBodyData extends $tea.Model {
   translated?: string;
   wordCount?: string;
@@ -1838,6 +2056,25 @@ export class TranslateImageResponseBodyData extends $tea.Model {
       finalImageUrl: 'string',
       inPaintingUrl: 'string',
       templateJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageBatchResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
     };
   }
 
@@ -2443,6 +2680,35 @@ export default class Client extends OpenApi {
     return await this.getTitleIntelligenceWithOptions(request, runtime);
   }
 
+  async getTranslateImageBatchResultWithOptions(request: GetTranslateImageBatchResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTranslateImageBatchResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTranslateImageBatchResult",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTranslateImageBatchResultResponse>(await this.callApi(params, req, runtime), new GetTranslateImageBatchResultResponse({}));
+  }
+
+  async getTranslateImageBatchResult(request: GetTranslateImageBatchResultRequest): Promise<GetTranslateImageBatchResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTranslateImageBatchResultWithOptions(request, runtime);
+  }
+
   async getTranslateReportWithOptions(request: GetTranslateReportRequest, runtime: $Util.RuntimeOptions): Promise<GetTranslateReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2836,6 +3102,55 @@ export default class Client extends OpenApi {
   async translateImage(request: TranslateImageRequest): Promise<TranslateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateImageWithOptions(request, runtime);
+  }
+
+  async translateImageBatchWithOptions(request: TranslateImageBatchRequest, runtime: $Util.RuntimeOptions): Promise<TranslateImageBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customTaskId)) {
+      body["CustomTaskId"] = request.customTaskId;
+    }
+
+    if (!Util.isUnset(request.ext)) {
+      body["Ext"] = request.ext;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      body["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.imageUrls)) {
+      body["ImageUrls"] = request.imageUrls;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TranslateImageBatch",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateImageBatchResponse>(await this.callApi(params, req, runtime), new TranslateImageBatchResponse({}));
+  }
+
+  async translateImageBatch(request: TranslateImageBatchRequest): Promise<TranslateImageBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.translateImageBatchWithOptions(request, runtime);
   }
 
 }
