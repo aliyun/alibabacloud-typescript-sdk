@@ -5250,7 +5250,6 @@ export class FetchLosslessRuleListRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
-  source?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -5260,7 +5259,6 @@ export class FetchLosslessRuleListRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
-      source: 'Source',
     };
   }
 
@@ -5273,7 +5271,6 @@ export class FetchLosslessRuleListRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
-      source: 'string',
     };
   }
 
@@ -5283,9 +5280,10 @@ export class FetchLosslessRuleListRequest extends $tea.Model {
 }
 
 export class FetchLosslessRuleListResponseBody extends $tea.Model {
-  code?: string;
+  code?: number;
   data?: FetchLosslessRuleListResponseBodyData;
-  httpCode?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -5293,7 +5291,8 @@ export class FetchLosslessRuleListResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
-      httpCode: 'HttpCode',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -5302,9 +5301,10 @@ export class FetchLosslessRuleListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
+      code: 'number',
       data: FetchLosslessRuleListResponseBodyData,
-      httpCode: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -11820,8 +11820,6 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
   notice?: boolean;
   regionId?: string;
   related?: boolean;
-  shutdownWaitSeconds?: number;
-  source?: string;
   warmupTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11837,8 +11835,6 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       notice: 'Notice',
       regionId: 'RegionId',
       related: 'Related',
-      shutdownWaitSeconds: 'ShutdownWaitSeconds',
-      source: 'Source',
       warmupTime: 'WarmupTime',
     };
   }
@@ -11857,8 +11853,6 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
       notice: 'boolean',
       regionId: 'string',
       related: 'boolean',
-      shutdownWaitSeconds: 'number',
-      source: 'string',
       warmupTime: 'number',
     };
   }
@@ -11869,15 +11863,19 @@ export class ModifyLosslessRuleRequest extends $tea.Model {
 }
 
 export class ModifyLosslessRuleResponseBody extends $tea.Model {
+  code?: number;
+  data?: any;
   errorCode?: string;
-  httpCode?: string;
+  httpStatusCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       errorCode: 'ErrorCode',
-      httpCode: 'HttpCode',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -11886,8 +11884,10 @@ export class ModifyLosslessRuleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: 'any',
       errorCode: 'string',
-      httpCode: 'string',
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -19667,7 +19667,6 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $tea.Model {
   lossLessDetail?: boolean;
   notice?: boolean;
   related?: boolean;
-  shutdownWaitSeconds?: number;
   warmupTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19681,7 +19680,6 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $tea.Model {
       lossLessDetail: 'LossLessDetail',
       notice: 'Notice',
       related: 'Related',
-      shutdownWaitSeconds: 'ShutdownWaitSeconds',
       warmupTime: 'WarmupTime',
     };
   }
@@ -19698,7 +19696,6 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $tea.Model {
       lossLessDetail: 'boolean',
       notice: 'boolean',
       related: 'boolean',
-      shutdownWaitSeconds: 'number',
       warmupTime: 'number',
     };
   }
@@ -29575,7 +29572,35 @@ export default class Client extends OpenApi {
    */
   async fetchLosslessRuleListWithOptions(request: FetchLosslessRuleListRequest, runtime: $Util.RuntimeOptions): Promise<FetchLosslessRuleListResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -29584,7 +29609,7 @@ export default class Client extends OpenApi {
       version: "2019-05-31",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -32511,14 +32536,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.related)) {
       query["Related"] = request.related;
-    }
-
-    if (!Util.isUnset(request.shutdownWaitSeconds)) {
-      query["ShutdownWaitSeconds"] = request.shutdownWaitSeconds;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.warmupTime)) {
