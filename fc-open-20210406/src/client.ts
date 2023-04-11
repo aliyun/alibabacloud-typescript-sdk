@@ -484,11 +484,13 @@ export class EventSourceParameters extends $tea.Model {
 }
 
 export class HTTPTriggerConfig extends $tea.Model {
+  authConfig?: string;
   authType?: string;
   disableURLInternet?: boolean;
   methods?: string[];
   static names(): { [key: string]: string } {
     return {
+      authConfig: 'authConfig',
       authType: 'authType',
       disableURLInternet: 'disableURLInternet',
       methods: 'methods',
@@ -497,6 +499,7 @@ export class HTTPTriggerConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authConfig: 'string',
       authType: 'string',
       disableURLInternet: 'boolean',
       methods: { 'type': 'array', 'itemType': 'string' },
@@ -522,6 +525,37 @@ export class InstanceLifecycleConfig extends $tea.Model {
     return {
       preFreeze: LifecycleHook,
       preStop: LifecycleHook,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JWTAuthConfig extends $tea.Model {
+  blackList?: string;
+  claimPassBy?: string[];
+  jwks?: string;
+  tokenLookup?: string[];
+  whiteList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      blackList: 'blackList',
+      claimPassBy: 'claimPassBy',
+      jwks: 'jwks',
+      tokenLookup: 'tokenLookup',
+      whiteList: 'whiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackList: 'string',
+      claimPassBy: { 'type': 'array', 'itemType': 'string' },
+      jwks: 'string',
+      tokenLookup: { 'type': 'array', 'itemType': 'string' },
+      whiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1021,10 +1055,10 @@ export class PathConfig extends $tea.Model {
 }
 
 export class PolicyItem extends $tea.Model {
-  key?: Buffer;
-  operator?: Buffer;
-  type?: Buffer;
-  value?: Buffer;
+  key?: string;
+  operator?: string;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'key',
@@ -1036,10 +1070,10 @@ export class PolicyItem extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      key: 'Buffer',
-      operator: 'Buffer',
-      type: 'Buffer',
-      value: 'Buffer',
+      key: 'string',
+      operator: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -1187,8 +1221,8 @@ export class RouteConfig extends $tea.Model {
 }
 
 export class RoutePolicy extends $tea.Model {
-  condition?: Buffer;
-  policyItems?: PolicyItem;
+  condition?: string;
+  policyItems?: PolicyItem[];
   static names(): { [key: string]: string } {
     return {
       condition: 'condition',
@@ -1198,8 +1232,8 @@ export class RoutePolicy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      condition: 'Buffer',
-      policyItems: PolicyItem,
+      condition: 'string',
+      policyItems: { 'type': 'array', 'itemType': PolicyItem },
     };
   }
 
