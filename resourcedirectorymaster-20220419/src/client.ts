@@ -74,6 +74,153 @@ export class AcceptHandshakeResponse extends $tea.Model {
   }
 }
 
+export class AddMessageContactRequest extends $tea.Model {
+  emailAddress?: string;
+  messageTypes?: string[];
+  name?: string;
+  phoneNumber?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      emailAddress: 'EmailAddress',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emailAddress: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactResponseBody extends $tea.Model {
+  contact?: AddMessageContactResponseBodyContact;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contact: 'Contact',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contact: AddMessageContactResponseBodyContact,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMessageContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersRequest extends $tea.Model {
+  contactId?: string;
+  members?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersResponseBody extends $tea.Model {
+  members?: AssociateMembersResponseBodyMembers[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      members: 'Members',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      members: { 'type': 'array', 'itemType': AssociateMembersResponseBodyMembers },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AssociateMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachControlPolicyRequest extends $tea.Model {
   policyId?: string;
   targetId?: string;
@@ -330,6 +477,75 @@ export class CancelHandshakeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CancelHandshakeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateRequest extends $tea.Model {
+  contactId?: string;
+  emailAddress?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelMessageContactUpdateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelMessageContactUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelMessageContactUpdateResponseBody,
     };
   }
 
@@ -975,6 +1191,75 @@ export class DeleteFolderResponse extends $tea.Model {
   }
 }
 
+export class DeleteMessageContactRequest extends $tea.Model {
+  contactId?: string;
+  retainContactInMembers?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      retainContactInMembers: 'RetainContactInMembers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      retainContactInMembers: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMessageContactResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMessageContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeregisterDelegatedAdministratorRequest extends $tea.Model {
   accountId?: string;
   servicePrincipal?: string;
@@ -1190,6 +1475,75 @@ export class DisableControlPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DisableControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersRequest extends $tea.Model {
+  contactId?: string;
+  members?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersResponseBody extends $tea.Model {
+  members?: DisassociateMembersResponseBodyMembers[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      members: 'Members',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      members: { 'type': 'array', 'itemType': DisassociateMembersResponseBodyMembers },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisassociateMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisassociateMembersResponseBody,
     };
   }
 
@@ -1761,6 +2115,138 @@ export class GetHandshakeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetHandshakeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactRequest extends $tea.Model {
+  contactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactResponseBody extends $tea.Model {
+  contact?: GetMessageContactResponseBodyContact;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contact: 'Contact',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contact: GetMessageContactResponseBodyContact,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusRequest extends $tea.Model {
+  contactId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponseBody extends $tea.Model {
+  contactDeletionStatus?: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactDeletionStatus: 'ContactDeletionStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactDeletionStatus: GetMessageContactDeletionStatusResponseBodyContactDeletionStatus,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMessageContactDeletionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageContactDeletionStatusResponseBody,
     };
   }
 
@@ -2743,6 +3229,171 @@ export class ListHandshakesForResourceDirectoryResponse extends $tea.Model {
   }
 }
 
+export class ListMessageContactVerificationsRequest extends $tea.Model {
+  contactId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactVerificationsResponseBody extends $tea.Model {
+  contactVerifications?: ListMessageContactVerificationsResponseBodyContactVerifications[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactVerifications: 'ContactVerifications',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactVerifications: { 'type': 'array', 'itemType': ListMessageContactVerificationsResponseBodyContactVerifications },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactVerificationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMessageContactVerificationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageContactVerificationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsRequest extends $tea.Model {
+  contactId?: string;
+  member?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      member: 'Member',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      member: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsResponseBody extends $tea.Model {
+  contacts?: ListMessageContactsResponseBodyContacts[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contacts: 'Contacts',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contacts: { 'type': 'array', 'itemType': ListMessageContactsResponseBodyContacts },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMessageContactsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageContactsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -3236,6 +3887,138 @@ export class RetryChangeAccountEmailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RetryChangeAccountEmailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactRequest extends $tea.Model {
+  contactId?: string;
+  emailAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendEmailVerificationForMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendEmailVerificationForMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendEmailVerificationForMessageContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactRequest extends $tea.Model {
+  contactId?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendPhoneVerificationForMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendPhoneVerificationForMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendPhoneVerificationForMessageContactResponseBody,
     };
   }
 
@@ -3805,6 +4588,84 @@ export class UpdateFolderResponse extends $tea.Model {
   }
 }
 
+export class UpdateMessageContactRequest extends $tea.Model {
+  contactId?: string;
+  emailAddress?: string;
+  messageTypes?: string[];
+  name?: string;
+  phoneNumber?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      emailAddress: 'EmailAddress',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      emailAddress: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageContactResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMessageContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMessageContactResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMessageContactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AcceptHandshakeResponseBodyHandshake extends $tea.Model {
   createTime?: string;
   expireTime?: string;
@@ -3846,6 +4707,53 @@ export class AcceptHandshakeResponseBodyHandshake extends $tea.Model {
       status: 'string',
       targetEntity: 'string',
       targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMessageContactResponseBodyContact extends $tea.Model {
+  contactId?: string;
+  createDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      createDate: 'CreateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      createDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateMembersResponseBodyMembers extends $tea.Model {
+  contactId?: string;
+  memberId?: string;
+  modifyDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      memberId: 'MemberId',
+      modifyDate: 'ModifyDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      memberId: 'string',
+      modifyDate: 'string',
     };
   }
 
@@ -4080,6 +4988,31 @@ export class DeclineHandshakeResponseBodyHandshake extends $tea.Model {
       status: 'string',
       targetEntity: 'string',
       targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisassociateMembersResponseBodyMembers extends $tea.Model {
+  contactId?: string;
+  memberId?: string;
+  modifyDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      memberId: 'MemberId',
+      modifyDate: 'ModifyDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      memberId: 'string',
+      modifyDate: 'string',
     };
   }
 
@@ -4457,6 +5390,96 @@ export class GetHandshakeResponseBodyHandshake extends $tea.Model {
       status: 'string',
       targetEntity: 'string',
       targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactResponseBodyContact extends $tea.Model {
+  contactId?: string;
+  createDate?: string;
+  emailAddress?: string;
+  members?: string[];
+  messageTypes?: string[];
+  name?: string;
+  phoneNumber?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      createDate: 'CreateDate',
+      emailAddress: 'EmailAddress',
+      members: 'Members',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      createDate: 'string',
+      emailAddress: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFailReasonList extends $tea.Model {
+  accountId?: string;
+  messageTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      messageTypes: 'MessageTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatus extends $tea.Model {
+  contactId?: string;
+  failReasonList?: GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFailReasonList[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      failReasonList: 'FailReasonList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      failReasonList: { 'type': 'array', 'itemType': GetMessageContactDeletionStatusResponseBodyContactDeletionStatusFailReasonList },
+      status: 'string',
     };
   }
 
@@ -5271,6 +6294,74 @@ export class ListHandshakesForResourceDirectoryResponseBodyHandshakes extends $t
   }
 }
 
+export class ListMessageContactVerificationsResponseBodyContactVerifications extends $tea.Model {
+  contactId?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageContactsResponseBodyContacts extends $tea.Model {
+  associatedDate?: string;
+  contactId?: string;
+  createDate?: string;
+  emailAddress?: string;
+  members?: string[];
+  messageTypes?: string[];
+  name?: string;
+  phoneNumber?: string;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associatedDate: 'AssociatedDate',
+      contactId: 'ContactId',
+      createDate: 'CreateDate',
+      emailAddress: 'EmailAddress',
+      members: 'Members',
+      messageTypes: 'MessageTypes',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associatedDate: 'string',
+      contactId: 'string',
+      createDate: 'string',
+      emailAddress: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      phoneNumber: 'string',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -5568,6 +6659,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+    *
+    * @param request AcceptHandshakeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AcceptHandshakeResponse
+   */
   async acceptHandshakeWithOptions(request: AcceptHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<AcceptHandshakeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5592,11 +6690,105 @@ export default class Client extends OpenApi {
     return $tea.cast<AcceptHandshakeResponse>(await this.callApi(params, req, runtime), new AcceptHandshakeResponse({}));
   }
 
+  /**
+    * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+    *
+    * @param request AcceptHandshakeRequest
+    * @return AcceptHandshakeResponse
+   */
   async acceptHandshake(request: AcceptHandshakeRequest): Promise<AcceptHandshakeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.acceptHandshakeWithOptions(request, runtime);
   }
 
+  async addMessageContactWithOptions(request: AddMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<AddMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.emailAddress)) {
+      query["EmailAddress"] = request.emailAddress;
+    }
+
+    if (!Util.isUnset(request.messageTypes)) {
+      query["MessageTypes"] = request.messageTypes;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMessageContactResponse>(await this.callApi(params, req, runtime), new AddMessageContactResponse({}));
+  }
+
+  async addMessageContact(request: AddMessageContactRequest): Promise<AddMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMessageContactWithOptions(request, runtime);
+  }
+
+  async associateMembersWithOptions(request: AssociateMembersRequest, runtime: $Util.RuntimeOptions): Promise<AssociateMembersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.members)) {
+      query["Members"] = request.members;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateMembers",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateMembersResponse>(await this.callApi(params, req, runtime), new AssociateMembersResponse({}));
+  }
+
+  async associateMembers(request: AssociateMembersRequest): Promise<AssociateMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateMembersWithOptions(request, runtime);
+  }
+
+  /**
+    * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+    * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+    * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+    * A maximum of 10 access control policies can be attached to a folder or member.
+    *
+    * @param request AttachControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachControlPolicyResponse
+   */
   async attachControlPolicyWithOptions(request: AttachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5625,11 +6817,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachControlPolicyResponse>(await this.callApi(params, req, runtime), new AttachControlPolicyResponse({}));
   }
 
+  /**
+    * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+    * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+    * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+    * A maximum of 10 access control policies can be attached to a folder or member.
+    *
+    * @param request AttachControlPolicyRequest
+    * @return AttachControlPolicyResponse
+   */
   async attachControlPolicy(request: AttachControlPolicyRequest): Promise<AttachControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+    * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+    *
+    * @param request BindSecureMobilePhoneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindSecureMobilePhoneResponse
+   */
   async bindSecureMobilePhoneWithOptions(request: BindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindSecureMobilePhoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5662,6 +6871,13 @@ export default class Client extends OpenApi {
     return $tea.cast<BindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new BindSecureMobilePhoneResponse({}));
   }
 
+  /**
+    * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+    * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+    *
+    * @param request BindSecureMobilePhoneRequest
+    * @return BindSecureMobilePhoneResponse
+   */
   async bindSecureMobilePhone(request: BindSecureMobilePhoneRequest): Promise<BindSecureMobilePhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindSecureMobilePhoneWithOptions(request, runtime);
@@ -5725,6 +6941,43 @@ export default class Client extends OpenApi {
     return await this.cancelHandshakeWithOptions(request, runtime);
   }
 
+  async cancelMessageContactUpdateWithOptions(request: CancelMessageContactUpdateRequest, runtime: $Util.RuntimeOptions): Promise<CancelMessageContactUpdateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.emailAddress)) {
+      query["EmailAddress"] = request.emailAddress;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelMessageContactUpdate",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelMessageContactUpdateResponse>(await this.callApi(params, req, runtime), new CancelMessageContactUpdateResponse({}));
+  }
+
+  async cancelMessageContactUpdate(request: CancelMessageContactUpdateRequest): Promise<CancelMessageContactUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelMessageContactUpdateWithOptions(request, runtime);
+  }
+
   async changeAccountEmailWithOptions(request: ChangeAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAccountEmailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5758,6 +7011,13 @@ export default class Client extends OpenApi {
     return await this.changeAccountEmailWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+    *
+    * @param request CheckAccountDeleteRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckAccountDeleteResponse
+   */
   async checkAccountDeleteWithOptions(request: CheckAccountDeleteRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccountDeleteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5782,6 +7042,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckAccountDeleteResponse>(await this.callApi(params, req, runtime), new CheckAccountDeleteResponse({}));
   }
 
+  /**
+    * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+    *
+    * @param request CheckAccountDeleteRequest
+    * @return CheckAccountDeleteResponse
+   */
   async checkAccountDelete(request: CheckAccountDeleteRequest): Promise<CheckAccountDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkAccountDeleteWithOptions(request, runtime);
@@ -5828,6 +7094,13 @@ export default class Client extends OpenApi {
     return await this.createControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * A maximum of five levels of folders can be created under the Root folder.
+    *
+    * @param request CreateFolderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFolderResponse
+   */
   async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5856,11 +7129,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
   }
 
+  /**
+    * A maximum of five levels of folders can be created under the Root folder.
+    *
+    * @param request CreateFolderRequest
+    * @return CreateFolderResponse
+   */
   async createFolder(request: CreateFolderRequest): Promise<CreateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFolderWithOptions(request, runtime);
   }
 
+  /**
+    * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+    * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+    *
+    * @param request CreateResourceAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateResourceAccountResponse
+   */
   async createResourceAccountWithOptions(request: CreateResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5905,6 +7192,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceAccountResponse>(await this.callApi(params, req, runtime), new CreateResourceAccountResponse({}));
   }
 
+  /**
+    * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+    * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+    *
+    * @param request CreateResourceAccountRequest
+    * @return CreateResourceAccountResponse
+   */
   async createResourceAccount(request: CreateResourceAccountRequest): Promise<CreateResourceAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createResourceAccountWithOptions(request, runtime);
@@ -5939,6 +7233,15 @@ export default class Client extends OpenApi {
     return await this.declineHandshakeWithOptions(request, runtime);
   }
 
+  /**
+    * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
+    * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+    * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+    *
+    * @param tmpReq DeleteAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteAccountResponse
+   */
   async deleteAccountWithOptions(tmpReq: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteAccountShrinkRequest({ });
@@ -5973,11 +7276,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
+  /**
+    * > The member deletion feature is in invitational preview. You can contact the customer business manager (CBM) of Alibaba Cloud to apply for a trial.
+    * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+    * After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](~~446078~~).
+    *
+    * @param request DeleteAccountRequest
+    * @return DeleteAccountResponse
+   */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
+  /**
+    * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+    *
+    * @param request DeleteControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteControlPolicyResponse
+   */
   async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6002,11 +7320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyResponse({}));
   }
 
+  /**
+    * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+    *
+    * @param request DeleteControlPolicyRequest
+    * @return DeleteControlPolicyResponse
+   */
   async deleteControlPolicy(request: DeleteControlPolicyRequest): Promise<DeleteControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+    *
+    * @param request DeleteFolderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFolderResponse
+   */
   async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6031,11 +7362,57 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
   }
 
+  /**
+    * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+    *
+    * @param request DeleteFolderRequest
+    * @return DeleteFolderResponse
+   */
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFolderWithOptions(request, runtime);
   }
 
+  async deleteMessageContactWithOptions(request: DeleteMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.retainContactInMembers)) {
+      query["RetainContactInMembers"] = request.retainContactInMembers;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMessageContactResponse>(await this.callApi(params, req, runtime), new DeleteMessageContactResponse({}));
+  }
+
+  async deleteMessageContact(request: DeleteMessageContactRequest): Promise<DeleteMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMessageContactWithOptions(request, runtime);
+  }
+
+  /**
+    * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+    *
+    * @param request DeregisterDelegatedAdministratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeregisterDelegatedAdministratorResponse
+   */
   async deregisterDelegatedAdministratorWithOptions(request: DeregisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterDelegatedAdministratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6064,11 +7441,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeregisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new DeregisterDelegatedAdministratorResponse({}));
   }
 
+  /**
+    * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+    *
+    * @param request DeregisterDelegatedAdministratorRequest
+    * @return DeregisterDelegatedAdministratorResponse
+   */
   async deregisterDelegatedAdministrator(request: DeregisterDelegatedAdministratorRequest): Promise<DeregisterDelegatedAdministratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deregisterDelegatedAdministratorWithOptions(request, runtime);
   }
 
+  /**
+    * Before you disable a resource directory, you must make sure that the following requirements are met:
+    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+    *
+    * @param request DestroyResourceDirectoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DestroyResourceDirectoryResponse
+   */
   async destroyResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<DestroyResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6085,11 +7477,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DestroyResourceDirectoryResponse>(await this.callApi(params, req, runtime), new DestroyResourceDirectoryResponse({}));
   }
 
+  /**
+    * Before you disable a resource directory, you must make sure that the following requirements are met:
+    * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
+    * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+    *
+    * @return DestroyResourceDirectoryResponse
+   */
   async destroyResourceDirectory(): Promise<DestroyResourceDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.destroyResourceDirectoryWithOptions(runtime);
   }
 
+  /**
+    * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+    * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+    *
+    * @param request DetachControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachControlPolicyResponse
+   */
   async detachControlPolicyWithOptions(request: DetachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachControlPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6118,11 +7525,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachControlPolicyResponse>(await this.callApi(params, req, runtime), new DetachControlPolicyResponse({}));
   }
 
+  /**
+    * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+    * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+    *
+    * @param request DetachControlPolicyRequest
+    * @return DetachControlPolicyResponse
+   */
   async detachControlPolicy(request: DetachControlPolicyRequest): Promise<DetachControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+    * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+    *
+    * @param request DisableControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableControlPolicyResponse
+   */
   async disableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableControlPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6139,11 +7561,57 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableControlPolicyResponse>(await this.callApi(params, req, runtime), new DisableControlPolicyResponse({}));
   }
 
+  /**
+    * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+    * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+    *
+    * @return DisableControlPolicyResponse
+   */
   async disableControlPolicy(): Promise<DisableControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableControlPolicyWithOptions(runtime);
   }
 
+  async disassociateMembersWithOptions(request: DisassociateMembersRequest, runtime: $Util.RuntimeOptions): Promise<DisassociateMembersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.members)) {
+      query["Members"] = request.members;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisassociateMembers",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisassociateMembersResponse>(await this.callApi(params, req, runtime), new DisassociateMembersResponse({}));
+  }
+
+  async disassociateMembers(request: DisassociateMembersRequest): Promise<DisassociateMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disassociateMembersWithOptions(request, runtime);
+  }
+
+  /**
+    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+    *
+    * @param request EnableControlPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableControlPolicyResponse
+   */
   async enableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableControlPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6160,11 +7628,23 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableControlPolicyResponse>(await this.callApi(params, req, runtime), new EnableControlPolicyResponse({}));
   }
 
+  /**
+    * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+    *
+    * @return EnableControlPolicyResponse
+   */
   async enableControlPolicy(): Promise<EnableControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableControlPolicyWithOptions(runtime);
   }
 
+  /**
+    * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+    *
+    * @param request EnableResourceDirectoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableResourceDirectoryResponse
+   */
   async enableResourceDirectoryWithOptions(request: EnableResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<EnableResourceDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6201,6 +7681,12 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableResourceDirectoryResponse>(await this.callApi(params, req, runtime), new EnableResourceDirectoryResponse({}));
   }
 
+  /**
+    * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+    *
+    * @param request EnableResourceDirectoryRequest
+    * @return EnableResourceDirectoryResponse
+   */
   async enableResourceDirectory(request: EnableResourceDirectoryRequest): Promise<EnableResourceDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableResourceDirectoryWithOptions(request, runtime);
@@ -6239,6 +7725,13 @@ export default class Client extends OpenApi {
     return await this.getAccountWithOptions(request, runtime);
   }
 
+  /**
+    * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+    *
+    * @param request GetAccountDeletionCheckResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAccountDeletionCheckResultResponse
+   */
   async getAccountDeletionCheckResultWithOptions(request: GetAccountDeletionCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountDeletionCheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6263,6 +7756,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccountDeletionCheckResultResponse>(await this.callApi(params, req, runtime), new GetAccountDeletionCheckResultResponse({}));
   }
 
+  /**
+    * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+    *
+    * @param request GetAccountDeletionCheckResultRequest
+    * @return GetAccountDeletionCheckResultResponse
+   */
   async getAccountDeletionCheckResult(request: GetAccountDeletionCheckResultRequest): Promise<GetAccountDeletionCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountDeletionCheckResultWithOptions(request, runtime);
@@ -6409,6 +7908,64 @@ export default class Client extends OpenApi {
     return await this.getHandshakeWithOptions(request, runtime);
   }
 
+  async getMessageContactWithOptions(request: GetMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMessageContactResponse>(await this.callApi(params, req, runtime), new GetMessageContactResponse({}));
+  }
+
+  async getMessageContact(request: GetMessageContactRequest): Promise<GetMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMessageContactWithOptions(request, runtime);
+  }
+
+  async getMessageContactDeletionStatusWithOptions(request: GetMessageContactDeletionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMessageContactDeletionStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMessageContactDeletionStatus",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMessageContactDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetMessageContactDeletionStatusResponse({}));
+  }
+
+  async getMessageContactDeletionStatus(request: GetMessageContactDeletionStatusRequest): Promise<GetMessageContactDeletionStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMessageContactDeletionStatusWithOptions(request, runtime);
+  }
+
   async getPayerForAccountWithOptions(request: GetPayerForAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetPayerForAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6500,6 +8057,13 @@ export default class Client extends OpenApi {
     return await this.inviteAccountToResourceDirectoryWithOptions(request, runtime);
   }
 
+  /**
+    * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+    *
+    * @param request ListAccountsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListAccountsResponse
+   */
   async listAccountsWithOptions(request: ListAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6540,6 +8104,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccountsResponse>(await this.callApi(params, req, runtime), new ListAccountsResponse({}));
   }
 
+  /**
+    * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+    *
+    * @param request ListAccountsRequest
+    * @return ListAccountsResponse
+   */
   async listAccounts(request: ListAccountsRequest): Promise<ListAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccountsWithOptions(request, runtime);
@@ -6763,6 +8333,13 @@ export default class Client extends OpenApi {
     return await this.listDelegatedServicesForAccountWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this API operation to view the information of only the first-level subfolders of a folder.
+    *
+    * @param request ListFoldersForParentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListFoldersForParentResponse
+   */
   async listFoldersForParentWithOptions(request: ListFoldersForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersForParentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6799,6 +8376,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFoldersForParentResponse>(await this.callApi(params, req, runtime), new ListFoldersForParentResponse({}));
   }
 
+  /**
+    * You can call this API operation to view the information of only the first-level subfolders of a folder.
+    *
+    * @param request ListFoldersForParentRequest
+    * @return ListFoldersForParentResponse
+   */
   async listFoldersForParent(request: ListFoldersForParentRequest): Promise<ListFoldersForParentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFoldersForParentWithOptions(request, runtime);
@@ -6868,6 +8451,84 @@ export default class Client extends OpenApi {
   async listHandshakesForResourceDirectory(request: ListHandshakesForResourceDirectoryRequest): Promise<ListHandshakesForResourceDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHandshakesForResourceDirectoryWithOptions(request, runtime);
+  }
+
+  async listMessageContactVerificationsWithOptions(request: ListMessageContactVerificationsRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageContactVerificationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMessageContactVerifications",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMessageContactVerificationsResponse>(await this.callApi(params, req, runtime), new ListMessageContactVerificationsResponse({}));
+  }
+
+  async listMessageContactVerifications(request: ListMessageContactVerificationsRequest): Promise<ListMessageContactVerificationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMessageContactVerificationsWithOptions(request, runtime);
+  }
+
+  async listMessageContactsWithOptions(request: ListMessageContactsRequest, runtime: $Util.RuntimeOptions): Promise<ListMessageContactsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.member)) {
+      query["Member"] = request.member;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMessageContacts",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMessageContactsResponse>(await this.callApi(params, req, runtime), new ListMessageContactsResponse({}));
+  }
+
+  async listMessageContacts(request: ListMessageContactsRequest): Promise<ListMessageContactsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMessageContactsWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -6952,6 +8613,13 @@ export default class Client extends OpenApi {
     return await this.listTargetAttachmentsForControlPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * Only a management account or delegated administrator account can be used to call this operation.
+    *
+    * @param request ListTrustedServiceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListTrustedServiceStatusResponse
+   */
   async listTrustedServiceStatusWithOptions(request: ListTrustedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListTrustedServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6984,6 +8652,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrustedServiceStatusResponse>(await this.callApi(params, req, runtime), new ListTrustedServiceStatusResponse({}));
   }
 
+  /**
+    * Only a management account or delegated administrator account can be used to call this operation.
+    *
+    * @param request ListTrustedServiceStatusRequest
+    * @return ListTrustedServiceStatusResponse
+   */
   async listTrustedServiceStatus(request: ListTrustedServiceStatusRequest): Promise<ListTrustedServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTrustedServiceStatusWithOptions(request, runtime);
@@ -7022,6 +8696,16 @@ export default class Client extends OpenApi {
     return await this.moveAccountWithOptions(request, runtime);
   }
 
+  /**
+    * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+    * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+    * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+    * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+    *
+    * @param request RegisterDelegatedAdministratorRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RegisterDelegatedAdministratorResponse
+   */
   async registerDelegatedAdministratorWithOptions(request: RegisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDelegatedAdministratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7050,6 +8734,15 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new RegisterDelegatedAdministratorResponse({}));
   }
 
+  /**
+    * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+    * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+    * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+    * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+    *
+    * @param request RegisterDelegatedAdministratorRequest
+    * @return RegisterDelegatedAdministratorResponse
+   */
   async registerDelegatedAdministrator(request: RegisterDelegatedAdministratorRequest): Promise<RegisterDelegatedAdministratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerDelegatedAdministratorWithOptions(request, runtime);
@@ -7113,6 +8806,79 @@ export default class Client extends OpenApi {
     return await this.retryChangeAccountEmailWithOptions(request, runtime);
   }
 
+  async sendEmailVerificationForMessageContactWithOptions(request: SendEmailVerificationForMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<SendEmailVerificationForMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.emailAddress)) {
+      query["EmailAddress"] = request.emailAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendEmailVerificationForMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendEmailVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendEmailVerificationForMessageContactResponse({}));
+  }
+
+  async sendEmailVerificationForMessageContact(request: SendEmailVerificationForMessageContactRequest): Promise<SendEmailVerificationForMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendEmailVerificationForMessageContactWithOptions(request, runtime);
+  }
+
+  async sendPhoneVerificationForMessageContactWithOptions(request: SendPhoneVerificationForMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<SendPhoneVerificationForMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendPhoneVerificationForMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendPhoneVerificationForMessageContactResponse>(await this.callApi(params, req, runtime), new SendPhoneVerificationForMessageContactResponse({}));
+  }
+
+  async sendPhoneVerificationForMessageContact(request: SendPhoneVerificationForMessageContactRequest): Promise<SendPhoneVerificationForMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendPhoneVerificationForMessageContactWithOptions(request, runtime);
+  }
+
+  /**
+    * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+    *
+    * @param request SendVerificationCodeForBindSecureMobilePhoneRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+   */
   async sendVerificationCodeForBindSecureMobilePhoneWithOptions(request: SendVerificationCodeForBindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7141,11 +8907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SendVerificationCodeForBindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForBindSecureMobilePhoneResponse({}));
   }
 
+  /**
+    * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+    *
+    * @param request SendVerificationCodeForBindSecureMobilePhoneRequest
+    * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+   */
   async sendVerificationCodeForBindSecureMobilePhone(request: SendVerificationCodeForBindSecureMobilePhoneRequest): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendVerificationCodeForBindSecureMobilePhoneWithOptions(request, runtime);
   }
 
+  /**
+    * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+    *
+    * @param request SendVerificationCodeForEnableRDRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendVerificationCodeForEnableRDResponse
+   */
   async sendVerificationCodeForEnableRDWithOptions(request: SendVerificationCodeForEnableRDRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForEnableRDResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7170,11 +8949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SendVerificationCodeForEnableRDResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForEnableRDResponse({}));
   }
 
+  /**
+    * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+    *
+    * @param request SendVerificationCodeForEnableRDRequest
+    * @return SendVerificationCodeForEnableRDResponse
+   */
   async sendVerificationCodeForEnableRD(request: SendVerificationCodeForEnableRDRequest): Promise<SendVerificationCodeForEnableRDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendVerificationCodeForEnableRDWithOptions(request, runtime);
   }
 
+  /**
+    * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+    *
+    * @param request SetMemberDeletionPermissionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetMemberDeletionPermissionResponse
+   */
   async setMemberDeletionPermissionWithOptions(request: SetMemberDeletionPermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetMemberDeletionPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7199,6 +8991,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SetMemberDeletionPermissionResponse>(await this.callApi(params, req, runtime), new SetMemberDeletionPermissionResponse({}));
   }
 
+  /**
+    * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+    *
+    * @param request SetMemberDeletionPermissionRequest
+    * @return SetMemberDeletionPermissionResponse
+   */
   async setMemberDeletionPermission(request: SetMemberDeletionPermissionRequest): Promise<SetMemberDeletionPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setMemberDeletionPermissionWithOptions(request, runtime);
@@ -7282,6 +9080,16 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * ### Prerequisites
+    * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+    * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+    * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+    *
+    * @param request UpdateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateAccountResponse
+   */
   async updateAccountWithOptions(request: UpdateAccountRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7314,6 +9122,15 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAccountResponse>(await this.callApi(params, req, runtime), new UpdateAccountResponse({}));
   }
 
+  /**
+    * ### Prerequisites
+    * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+    * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+    * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+    *
+    * @param request UpdateAccountRequest
+    * @return UpdateAccountResponse
+   */
   async updateAccount(request: UpdateAccountRequest): Promise<UpdateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccountWithOptions(request, runtime);
@@ -7391,6 +9208,55 @@ export default class Client extends OpenApi {
   async updateFolder(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFolderWithOptions(request, runtime);
+  }
+
+  async updateMessageContactWithOptions(request: UpdateMessageContactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMessageContactResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.emailAddress)) {
+      query["EmailAddress"] = request.emailAddress;
+    }
+
+    if (!Util.isUnset(request.messageTypes)) {
+      query["MessageTypes"] = request.messageTypes;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMessageContact",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMessageContactResponse>(await this.callApi(params, req, runtime), new UpdateMessageContactResponse({}));
+  }
+
+  async updateMessageContact(request: UpdateMessageContactRequest): Promise<UpdateMessageContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMessageContactWithOptions(request, runtime);
   }
 
 }
