@@ -619,128 +619,6 @@ export class AddOrUpdateHotelSettingResponse extends $tea.Model {
   }
 }
 
-export class AddOrUpdateNightModeHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateNightModeRequest extends $tea.Model {
-  hotelId?: string;
-  nightMode?: AddOrUpdateNightModeRequestNightMode;
-  static names(): { [key: string]: string } {
-    return {
-      hotelId: 'HotelId',
-      nightMode: 'NightMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotelId: 'string',
-      nightMode: AddOrUpdateNightModeRequestNightMode,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateNightModeShrinkRequest extends $tea.Model {
-  hotelId?: string;
-  nightModeShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hotelId: 'HotelId',
-      nightModeShrink: 'NightMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotelId: 'string',
-      nightModeShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateNightModeResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  result?: boolean;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      result: 'boolean',
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateNightModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddOrUpdateNightModeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddOrUpdateNightModeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddOrUpdateScreenSaverHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -1571,6 +1449,7 @@ export class CreateHotelRequest extends $tea.Model {
   hotelName?: string;
   phoneNumber?: string;
   relatedPk?: string;
+  relatedPks?: string[];
   remark?: string;
   roomNum?: number;
   tbOpenId?: string;
@@ -1583,6 +1462,7 @@ export class CreateHotelRequest extends $tea.Model {
       hotelName: 'HotelName',
       phoneNumber: 'PhoneNumber',
       relatedPk: 'RelatedPk',
+      relatedPks: 'RelatedPks',
       remark: 'Remark',
       roomNum: 'RoomNum',
       tbOpenId: 'TbOpenId',
@@ -1598,6 +1478,56 @@ export class CreateHotelRequest extends $tea.Model {
       hotelName: 'string',
       phoneNumber: 'string',
       relatedPk: 'string',
+      relatedPks: { 'type': 'array', 'itemType': 'string' },
+      remark: 'string',
+      roomNum: 'number',
+      tbOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHotelShrinkRequest extends $tea.Model {
+  appKey?: string;
+  estOpenTime?: string;
+  hotelAddress?: string;
+  hotelEmail?: string;
+  hotelName?: string;
+  phoneNumber?: string;
+  relatedPk?: string;
+  relatedPksShrink?: string;
+  remark?: string;
+  roomNum?: number;
+  tbOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      estOpenTime: 'EstOpenTime',
+      hotelAddress: 'HotelAddress',
+      hotelEmail: 'HotelEmail',
+      hotelName: 'HotelName',
+      phoneNumber: 'PhoneNumber',
+      relatedPk: 'RelatedPk',
+      relatedPksShrink: 'RelatedPks',
+      remark: 'Remark',
+      roomNum: 'RoomNum',
+      tbOpenId: 'TbOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      estOpenTime: 'string',
+      hotelAddress: 'string',
+      hotelEmail: 'string',
+      hotelName: 'string',
+      phoneNumber: 'string',
+      relatedPk: 'string',
+      relatedPksShrink: 'string',
       remark: 'string',
       roomNum: 'number',
       tbOpenId: 'string',
@@ -8019,6 +7949,11 @@ export class SyncDeviceStatusWithAkRequest extends $tea.Model {
   number?: string;
   roomNo?: string;
   switch?: number;
+  fanSpeed?: string;
+  mode?: string;
+  roomTemperature?: string;
+  temperature?: string;
+  value?: number;
   static names(): { [key: string]: string } {
     return {
       categoryCnName: 'CategoryCnName',
@@ -8030,6 +7965,11 @@ export class SyncDeviceStatusWithAkRequest extends $tea.Model {
       number: 'Number',
       roomNo: 'RoomNo',
       switch: 'Switch',
+      fanSpeed: 'fanSpeed',
+      mode: 'mode',
+      roomTemperature: 'roomTemperature',
+      temperature: 'temperature',
+      value: 'value',
     };
   }
 
@@ -8044,6 +7984,11 @@ export class SyncDeviceStatusWithAkRequest extends $tea.Model {
       number: 'string',
       roomNo: 'string',
       switch: 'number',
+      fanSpeed: 'string',
+      mode: 'string',
+      roomTemperature: 'string',
+      temperature: 'string',
+      value: 'number',
     };
   }
 
@@ -8414,6 +8359,7 @@ export class UpdateHotelRequest extends $tea.Model {
   hotelId?: string;
   hotelName?: string;
   phoneNumber?: string;
+  relatedPks?: string[];
   remark?: string;
   roomNum?: number;
   tbOpenId?: string;
@@ -8426,6 +8372,7 @@ export class UpdateHotelRequest extends $tea.Model {
       hotelId: 'HotelId',
       hotelName: 'HotelName',
       phoneNumber: 'PhoneNumber',
+      relatedPks: 'RelatedPks',
       remark: 'Remark',
       roomNum: 'RoomNum',
       tbOpenId: 'TbOpenId',
@@ -8441,6 +8388,56 @@ export class UpdateHotelRequest extends $tea.Model {
       hotelId: 'string',
       hotelName: 'string',
       phoneNumber: 'string',
+      relatedPks: { 'type': 'array', 'itemType': 'string' },
+      remark: 'string',
+      roomNum: 'number',
+      tbOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHotelShrinkRequest extends $tea.Model {
+  appKey?: string;
+  estOpenTime?: string;
+  hotelAddress?: string;
+  hotelEmail?: string;
+  hotelId?: string;
+  hotelName?: string;
+  phoneNumber?: string;
+  relatedPksShrink?: string;
+  remark?: string;
+  roomNum?: number;
+  tbOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      estOpenTime: 'EstOpenTime',
+      hotelAddress: 'HotelAddress',
+      hotelEmail: 'HotelEmail',
+      hotelId: 'HotelId',
+      hotelName: 'HotelName',
+      phoneNumber: 'PhoneNumber',
+      relatedPksShrink: 'RelatedPks',
+      remark: 'Remark',
+      roomNum: 'RoomNum',
+      tbOpenId: 'TbOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      estOpenTime: 'string',
+      hotelAddress: 'string',
+      hotelEmail: 'string',
+      hotelId: 'string',
+      hotelName: 'string',
+      phoneNumber: 'string',
+      relatedPksShrink: 'string',
       remark: 'string',
       roomNum: 'number',
       tbOpenId: 'string',
@@ -9224,18 +9221,18 @@ export class AddOrUpdateHotelSettingRequestHotelScreenSaver extends $tea.Model {
 }
 
 export class AddOrUpdateHotelSettingRequestNightMode extends $tea.Model {
+  defaultBright?: string;
+  defaultVolume?: string;
   enable?: boolean;
   end?: string;
-  maxBright?: string;
-  maxVolume?: string;
   standbyAction?: string;
   start?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultBright: 'DefaultBright',
+      defaultVolume: 'DefaultVolume',
       enable: 'Enable',
       end: 'End',
-      maxBright: 'MaxBright',
-      maxVolume: 'MaxVolume',
       standbyAction: 'StandbyAction',
       start: 'Start',
     };
@@ -9243,44 +9240,10 @@ export class AddOrUpdateHotelSettingRequestNightMode extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultBright: 'string',
+      defaultVolume: 'string',
       enable: 'boolean',
       end: 'string',
-      maxBright: 'string',
-      maxVolume: 'string',
-      standbyAction: 'string',
-      start: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateNightModeRequestNightMode extends $tea.Model {
-  enable?: boolean;
-  end?: string;
-  maxBright?: string;
-  maxVolume?: string;
-  standbyAction?: string;
-  start?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-      end: 'End',
-      maxBright: 'MaxBright',
-      maxVolume: 'MaxVolume',
-      standbyAction: 'StandbyAction',
-      start: 'Start',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      end: 'string',
-      maxBright: 'string',
-      maxVolume: 'string',
       standbyAction: 'string',
       start: 'string',
     };
@@ -10362,18 +10325,18 @@ export class GetHotelSettingResponseBodyResultHotelScreenSaver extends $tea.Mode
 }
 
 export class GetHotelSettingResponseBodyResultNightMode extends $tea.Model {
+  defaultBright?: string;
+  defaultVolume?: string;
   enable?: boolean;
   end?: string;
-  maxBright?: string;
-  maxVolume?: string;
   standbyAction?: string;
   start?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultBright: 'DefaultBright',
+      defaultVolume: 'DefaultVolume',
       enable: 'Enable',
       end: 'End',
-      maxBright: 'MaxBright',
-      maxVolume: 'MaxVolume',
       standbyAction: 'StandbyAction',
       start: 'Start',
     };
@@ -10381,10 +10344,10 @@ export class GetHotelSettingResponseBodyResultNightMode extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defaultBright: 'string',
+      defaultVolume: 'string',
       enable: 'boolean',
       end: 'string',
-      maxBright: 'string',
-      maxVolume: 'string',
       standbyAction: 'string',
       start: 'string',
     };
@@ -12951,60 +12914,6 @@ export default class Client extends OpenApi {
     return await this.addOrUpdateHotelSettingWithOptions(request, headers, runtime);
   }
 
-  async addOrUpdateNightModeWithOptions(tmpReq: AddOrUpdateNightModeRequest, headers: AddOrUpdateNightModeHeaders, runtime: $Util.RuntimeOptions): Promise<AddOrUpdateNightModeResponse> {
-    Util.validateModel(tmpReq);
-    let request = new AddOrUpdateNightModeShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nightMode)) {
-      request.nightModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nightMode, "NightMode", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.hotelId)) {
-      body["HotelId"] = request.hotelId;
-    }
-
-    if (!Util.isUnset(request.nightModeShrink)) {
-      body["NightMode"] = request.nightModeShrink;
-    }
-
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
-    }
-
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddOrUpdateNightMode",
-      version: "ip_1.0",
-      protocol: "HTTPS",
-      pathname: `/v1.0/ip/addOrUpdateNightMode`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddOrUpdateNightModeResponse>(await this.callApi(params, req, runtime), new AddOrUpdateNightModeResponse({}));
-  }
-
-  async addOrUpdateNightMode(request: AddOrUpdateNightModeRequest): Promise<AddOrUpdateNightModeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AddOrUpdateNightModeHeaders({ });
-    return await this.addOrUpdateNightModeWithOptions(request, headers, runtime);
-  }
-
   async addOrUpdateScreenSaverWithOptions(tmpReq: AddOrUpdateScreenSaverRequest, headers: AddOrUpdateScreenSaverHeaders, runtime: $Util.RuntimeOptions): Promise<AddOrUpdateScreenSaverResponse> {
     Util.validateModel(tmpReq);
     let request = new AddOrUpdateScreenSaverShrinkRequest({ });
@@ -13373,8 +13282,14 @@ export default class Client extends OpenApi {
     return await this.childAccountAuthWithOptions(request, headers, runtime);
   }
 
-  async createHotelWithOptions(request: CreateHotelRequest, headers: CreateHotelHeaders, runtime: $Util.RuntimeOptions): Promise<CreateHotelResponse> {
-    Util.validateModel(request);
+  async createHotelWithOptions(tmpReq: CreateHotelRequest, headers: CreateHotelHeaders, runtime: $Util.RuntimeOptions): Promise<CreateHotelResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateHotelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedPks)) {
+      request.relatedPksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedPks, "RelatedPks", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appKey)) {
       body["AppKey"] = request.appKey;
@@ -13402,6 +13317,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.relatedPk)) {
       body["RelatedPk"] = request.relatedPk;
+    }
+
+    if (!Util.isUnset(request.relatedPksShrink)) {
+      body["RelatedPks"] = request.relatedPksShrink;
     }
 
     if (!Util.isUnset(request.remark)) {
@@ -16397,6 +16316,26 @@ export default class Client extends OpenApi {
       body["Switch"] = request.switch;
     }
 
+    if (!Util.isUnset(request.fanSpeed)) {
+      body["fanSpeed"] = request.fanSpeed;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.roomTemperature)) {
+      body["roomTemperature"] = request.roomTemperature;
+    }
+
+    if (!Util.isUnset(request.temperature)) {
+      body["temperature"] = request.temperature;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["value"] = request.value;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -16600,8 +16539,14 @@ export default class Client extends OpenApi {
     return await this.updateCustomQAWithOptions(request, headers, runtime);
   }
 
-  async updateHotelWithOptions(request: UpdateHotelRequest, headers: UpdateHotelHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateHotelResponse> {
-    Util.validateModel(request);
+  async updateHotelWithOptions(tmpReq: UpdateHotelRequest, headers: UpdateHotelHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateHotelResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateHotelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedPks)) {
+      request.relatedPksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedPks, "RelatedPks", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appKey)) {
       body["AppKey"] = request.appKey;
@@ -16629,6 +16574,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.relatedPksShrink)) {
+      body["RelatedPks"] = request.relatedPksShrink;
     }
 
     if (!Util.isUnset(request.remark)) {
