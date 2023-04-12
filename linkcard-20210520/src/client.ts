@@ -1960,6 +1960,7 @@ export class ListDirectionalDetailResponse extends $tea.Model {
 }
 
 export class ListOrderRequest extends $tea.Model {
+  credentialNo?: string;
   endDate?: string;
   orderId?: string;
   orderStatus?: string;
@@ -1969,6 +1970,7 @@ export class ListOrderRequest extends $tea.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      credentialNo: 'CredentialNo',
       endDate: 'EndDate',
       orderId: 'OrderId',
       orderStatus: 'OrderStatus',
@@ -1981,6 +1983,7 @@ export class ListOrderRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      credentialNo: 'string',
       endDate: 'string',
       orderId: 'string',
       orderStatus: 'string',
@@ -3532,11 +3535,13 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class GetOperateResultResponseBodyData extends $tea.Model {
+  executeResult?: string;
   operateType?: string;
   result?: boolean;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      executeResult: 'ExecuteResult',
       operateType: 'OperateType',
       result: 'Result',
       status: 'Status',
@@ -3545,6 +3550,7 @@ export class GetOperateResultResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      executeResult: 'string',
       operateType: 'string',
       result: 'boolean',
       status: 'string',
@@ -5036,6 +5042,10 @@ export default class Client extends OpenApi {
   async listOrderWithOptions(request: ListOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.credentialNo)) {
+      query["CredentialNo"] = request.credentialNo;
+    }
+
     if (!Util.isUnset(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
