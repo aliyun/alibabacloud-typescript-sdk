@@ -398,6 +398,7 @@ export class CreateChangeSetResponse extends $tea.Model {
 export class CreateStackRequest extends $tea.Model {
   clientToken?: string;
   createOption?: string;
+  createOptions?: string[];
   deletionProtection?: string;
   disableRollback?: boolean;
   notificationURLs?: string[];
@@ -421,6 +422,7 @@ export class CreateStackRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       createOption: 'CreateOption',
+      createOptions: 'CreateOptions',
       deletionProtection: 'DeletionProtection',
       disableRollback: 'DisableRollback',
       notificationURLs: 'NotificationURLs',
@@ -447,6 +449,7 @@ export class CreateStackRequest extends $tea.Model {
     return {
       clientToken: 'string',
       createOption: 'string',
+      createOptions: { 'type': 'array', 'itemType': 'string' },
       deletionProtection: 'string',
       disableRollback: 'boolean',
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
@@ -4689,6 +4692,7 @@ export class ListStackResourcesResponse extends $tea.Model {
 }
 
 export class ListStacksRequest extends $tea.Model {
+  endTime?: string;
   pageNumber?: number;
   pageSize?: number;
   parentStackId?: string;
@@ -4698,10 +4702,12 @@ export class ListStacksRequest extends $tea.Model {
   stackId?: string;
   stackIds?: string[];
   stackName?: string[];
+  startTime?: string;
   status?: string[];
   tag?: ListStacksRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       parentStackId: 'ParentStackId',
@@ -4711,6 +4717,7 @@ export class ListStacksRequest extends $tea.Model {
       stackId: 'StackId',
       stackIds: 'StackIds',
       stackName: 'StackName',
+      startTime: 'StartTime',
       status: 'Status',
       tag: 'Tag',
     };
@@ -4718,6 +4725,7 @@ export class ListStacksRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       parentStackId: 'string',
@@ -4727,6 +4735,7 @@ export class ListStacksRequest extends $tea.Model {
       stackId: 'string',
       stackIds: { 'type': 'array', 'itemType': 'string' },
       stackName: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': ListStacksRequestTag },
     };
@@ -11072,6 +11081,10 @@ export default class Client extends OpenApi {
       query["CreateOption"] = request.createOption;
     }
 
+    if (!Util.isUnset(request.createOptions)) {
+      query["CreateOptions"] = request.createOptions;
+    }
+
     if (!Util.isUnset(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
     }
@@ -13788,6 +13801,10 @@ export default class Client extends OpenApi {
   async listStacksWithOptions(request: ListStacksRequest, runtime: $Util.RuntimeOptions): Promise<ListStacksResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -13822,6 +13839,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.stackName)) {
       query["StackName"] = request.stackName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!Util.isUnset(request.status)) {
