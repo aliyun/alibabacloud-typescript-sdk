@@ -479,6 +479,105 @@ export class GetAuthorizationUrlResponse extends $tea.Model {
   }
 }
 
+export class GetFusionAuthTokenRequest extends $tea.Model {
+  bundleId?: string;
+  durationSeconds?: number;
+  ownerId?: number;
+  packageName?: string;
+  packageSign?: string;
+  platform?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  schemeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bundleId: 'BundleId',
+      durationSeconds: 'DurationSeconds',
+      ownerId: 'OwnerId',
+      packageName: 'PackageName',
+      packageSign: 'PackageSign',
+      platform: 'Platform',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemeCode: 'SchemeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bundleId: 'string',
+      durationSeconds: 'number',
+      ownerId: 'number',
+      packageName: 'string',
+      packageSign: 'string',
+      platform: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFusionAuthTokenResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  model?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      model: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFusionAuthTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFusionAuthTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFusionAuthTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMobileRequest extends $tea.Model {
   accessToken?: string;
   outId?: string;
@@ -1166,6 +1265,90 @@ export class VerifySmsCodeResponse extends $tea.Model {
   }
 }
 
+export class VerifyWithFusionAuthTokenRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  verifyToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      verifyToken: 'VerifyToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      verifyToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyWithFusionAuthTokenResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  model?: VerifyWithFusionAuthTokenResponseBodyModel;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      model: VerifyWithFusionAuthTokenResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyWithFusionAuthTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyWithFusionAuthTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyWithFusionAuthTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVerifySchemeResponseBodyGateVerifySchemeDTO extends $tea.Model {
   schemeCode?: string;
   static names(): { [key: string]: string } {
@@ -1467,6 +1650,31 @@ export class VerifyPhoneWithTokenResponseBodyGateVerify extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       verifyId: 'string',
+      verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyWithFusionAuthTokenResponseBodyModel extends $tea.Model {
+  phoneNumber?: string;
+  phoneScore?: number;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      phoneScore: 'PhoneScore',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      phoneScore: 'number',
       verifyResult: 'string',
     };
   }
@@ -1783,6 +1991,67 @@ export default class Client extends OpenApi {
   async getAuthorizationUrl(request: GetAuthorizationUrlRequest): Promise<GetAuthorizationUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthorizationUrlWithOptions(request, runtime);
+  }
+
+  async getFusionAuthTokenWithOptions(request: GetFusionAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetFusionAuthTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bundleId)) {
+      query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.durationSeconds)) {
+      query["DurationSeconds"] = request.durationSeconds;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packageName)) {
+      query["PackageName"] = request.packageName;
+    }
+
+    if (!Util.isUnset(request.packageSign)) {
+      query["PackageSign"] = request.packageSign;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeCode)) {
+      query["SchemeCode"] = request.schemeCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFusionAuthToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFusionAuthTokenResponse>(await this.callApi(params, req, runtime), new GetFusionAuthTokenResponse({}));
+  }
+
+  async getFusionAuthToken(request: GetFusionAuthTokenRequest): Promise<GetFusionAuthTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFusionAuthTokenWithOptions(request, runtime);
   }
 
   async getMobileWithOptions(request: GetMobileRequest, runtime: $Util.RuntimeOptions): Promise<GetMobileResponse> {
@@ -2163,6 +2432,47 @@ export default class Client extends OpenApi {
   async verifySmsCode(request: VerifySmsCodeRequest): Promise<VerifySmsCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifySmsCodeWithOptions(request, runtime);
+  }
+
+  async verifyWithFusionAuthTokenWithOptions(request: VerifyWithFusionAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyWithFusionAuthTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.verifyToken)) {
+      query["VerifyToken"] = request.verifyToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyWithFusionAuthToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyWithFusionAuthTokenResponse>(await this.callApi(params, req, runtime), new VerifyWithFusionAuthTokenResponse({}));
+  }
+
+  async verifyWithFusionAuthToken(request: VerifyWithFusionAuthTokenRequest): Promise<VerifyWithFusionAuthTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyWithFusionAuthTokenWithOptions(request, runtime);
   }
 
 }
