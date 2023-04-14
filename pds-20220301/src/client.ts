@@ -324,6 +324,7 @@ export class File extends $tea.Model {
   fileExtension?: string;
   fileId?: string;
   hidden?: boolean;
+  investigationInfo?: FileInvestigationInfo;
   labels?: string;
   localCreatedAt?: string;
   localModifiedAt?: string;
@@ -353,6 +354,7 @@ export class File extends $tea.Model {
       fileExtension: 'file_extension',
       fileId: 'file_id',
       hidden: 'hidden',
+      investigationInfo: 'investigation_info',
       labels: 'labels',
       localCreatedAt: 'local_created_at',
       localModifiedAt: 'local_modified_at',
@@ -385,6 +387,7 @@ export class File extends $tea.Model {
       fileExtension: 'string',
       fileId: 'string',
       hidden: 'boolean',
+      investigationInfo: FileInvestigationInfo,
       labels: 'string',
       localCreatedAt: 'string',
       localModifiedAt: 'string',
@@ -599,6 +602,31 @@ export class ImageTag extends $tea.Model {
   }
 }
 
+export class InvestigationInfo extends $tea.Model {
+  status?: number;
+  suggestion?: string;
+  videoDetail?: InvestigationInfoVideoDetail;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      suggestion: 'suggestion',
+      videoDetail: 'video_detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      suggestion: 'string',
+      videoDetail: InvestigationInfoVideoDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class JWTPayload extends $tea.Model {
   aud?: string;
   autoCreate?: boolean;
@@ -728,12 +756,13 @@ export class ShareLink extends $tea.Model {
   driveId?: string;
   expiration?: string;
   expired?: boolean;
-  fileIdList?: string;
+  fileIdList?: string[];
   previewCount?: number;
   previewLimit?: number;
   reportCount?: number;
   saveCount?: number;
   saveLimit?: number;
+  shareAllFiles?: boolean;
   shareId?: string;
   shareName?: string;
   sharePwd?: string;
@@ -760,6 +789,7 @@ export class ShareLink extends $tea.Model {
       reportCount: 'report_count',
       saveCount: 'save_count',
       saveLimit: 'save_limit',
+      shareAllFiles: 'share_all_files',
       shareId: 'share_id',
       shareName: 'share_name',
       sharePwd: 'share_pwd',
@@ -783,12 +813,13 @@ export class ShareLink extends $tea.Model {
       driveId: 'string',
       expiration: 'string',
       expired: 'boolean',
-      fileIdList: 'string',
+      fileIdList: { 'type': 'array', 'itemType': 'string' },
       previewCount: 'number',
       previewLimit: 'number',
       reportCount: 'number',
       saveCount: 'number',
       saveLimit: 'number',
+      shareAllFiles: 'boolean',
       shareId: 'string',
       shareName: 'string',
       sharePwd: 'string',
@@ -1460,12 +1491,16 @@ export class CopyFileRequest extends $tea.Model {
   autoRename?: boolean;
   driveId?: string;
   fileId?: string;
+  shareId?: string;
+  toDriveId?: string;
   toParentFileId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRename: 'auto_rename',
       driveId: 'drive_id',
       fileId: 'file_id',
+      shareId: 'share_id',
+      toDriveId: 'to_drive_id',
       toParentFileId: 'to_parent_file_id',
     };
   }
@@ -1475,6 +1510,8 @@ export class CopyFileRequest extends $tea.Model {
       autoRename: 'boolean',
       driveId: 'string',
       fileId: 'string',
+      shareId: 'string',
+      toDriveId: 'string',
       toParentFileId: 'string',
     };
   }
@@ -1903,6 +1940,7 @@ export class CreateShareLinkRequest extends $tea.Model {
   fileIdList?: string[];
   previewLimit?: number;
   saveLimit?: number;
+  shareAllFiles?: boolean;
   shareName?: string;
   sharePwd?: string;
   userId?: string;
@@ -1918,6 +1956,7 @@ export class CreateShareLinkRequest extends $tea.Model {
       fileIdList: 'file_id_list',
       previewLimit: 'preview_limit',
       saveLimit: 'save_limit',
+      shareAllFiles: 'share_all_files',
       shareName: 'share_name',
       sharePwd: 'share_pwd',
       userId: 'user_id',
@@ -1936,6 +1975,7 @@ export class CreateShareLinkRequest extends $tea.Model {
       fileIdList: { 'type': 'array', 'itemType': 'string' },
       previewLimit: 'number',
       saveLimit: 'number',
+      shareAllFiles: 'boolean',
       shareName: 'string',
       sharePwd: 'string',
       userId: 'string',
@@ -2099,6 +2139,78 @@ export class CreateUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CsiGetFileInfoRequest extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  urlExpireSec?: number;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+      urlExpireSec: 'url_expire_sec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
+      urlExpireSec: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CsiGetFileInfoResponseBody extends $tea.Model {
+  investigationInfo?: InvestigationInfo;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      investigationInfo: 'investigation_info',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      investigationInfo: InvestigationInfo,
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CsiGetFileInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CsiGetFileInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CsiGetFileInfoResponseBody,
     };
   }
 
@@ -2464,6 +2576,7 @@ export class DownloadFileRequest extends $tea.Model {
   fileId?: string;
   imageThumbnailProcess?: string;
   officeThumbnailProcess?: string;
+  shareId?: string;
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2471,6 +2584,7 @@ export class DownloadFileRequest extends $tea.Model {
       fileId: 'file_id',
       imageThumbnailProcess: 'image_thumbnail_process',
       officeThumbnailProcess: 'office_thumbnail_process',
+      shareId: 'share_id',
       videoThumbnailProcess: 'video_thumbnail_process',
     };
   }
@@ -2481,6 +2595,7 @@ export class DownloadFileRequest extends $tea.Model {
       fileId: 'string',
       imageThumbnailProcess: 'string',
       officeThumbnailProcess: 'string',
+      shareId: 'string',
       videoThumbnailProcess: 'string',
     };
   }
@@ -2946,12 +3061,14 @@ export class GetDownloadUrlRequest extends $tea.Model {
   expireSec?: number;
   fileId?: string;
   fileName?: string;
+  shareId?: string;
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
       expireSec: 'expire_sec',
       fileId: 'file_id',
       fileName: 'file_name',
+      shareId: 'share_id',
     };
   }
 
@@ -2961,6 +3078,7 @@ export class GetDownloadUrlRequest extends $tea.Model {
       expireSec: 'number',
       fileId: 'string',
       fileName: 'string',
+      shareId: 'string',
     };
   }
 
@@ -3082,12 +3200,14 @@ export class GetFileRequest extends $tea.Model {
   driveId?: string;
   fields?: string;
   fileId?: string;
+  shareId?: string;
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
       fields: 'fields',
       fileId: 'file_id',
+      shareId: 'share_id',
       urlExpireSec: 'url_expire_sec',
     };
   }
@@ -3097,6 +3217,7 @@ export class GetFileRequest extends $tea.Model {
       driveId: 'string',
       fields: 'string',
       fileId: 'string',
+      shareId: 'string',
       urlExpireSec: 'number',
     };
   }
@@ -3956,6 +4077,47 @@ export class ImportUserResponse extends $tea.Model {
   }
 }
 
+export class InvestigateFileRequest extends $tea.Model {
+  driveFileIds?: InvestigateFileRequestDriveFileIds[];
+  static names(): { [key: string]: string } {
+    return {
+      driveFileIds: 'drive_file_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveFileIds: { 'type': 'array', 'itemType': InvestigateFileRequestDriveFileIds },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvestigateFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LinkAccountRequest extends $tea.Model {
   extra?: string;
   identity?: string;
@@ -4396,6 +4558,7 @@ export class ListFileRequest extends $tea.Model {
   orderBy?: string;
   orderDirection?: string;
   parentFileId?: string;
+  shareId?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -4408,6 +4571,7 @@ export class ListFileRequest extends $tea.Model {
       orderBy: 'order_by',
       orderDirection: 'order_direction',
       parentFileId: 'parent_file_id',
+      shareId: 'share_id',
       status: 'status',
       type: 'type',
     };
@@ -4423,6 +4587,7 @@ export class ListFileRequest extends $tea.Model {
       orderBy: 'string',
       orderDirection: 'string',
       parentFileId: 'string',
+      shareId: 'string',
       status: 'string',
       type: 'string',
     };
@@ -6441,6 +6606,7 @@ export class UpdateDriveRequest extends $tea.Model {
   description?: string;
   driveId?: string;
   driveName?: string;
+  owner?: string;
   status?: string;
   totalSize?: number;
   static names(): { [key: string]: string } {
@@ -6448,6 +6614,7 @@ export class UpdateDriveRequest extends $tea.Model {
       description: 'description',
       driveId: 'drive_id',
       driveName: 'drive_name',
+      owner: 'owner',
       status: 'status',
       totalSize: 'total_size',
     };
@@ -6458,6 +6625,7 @@ export class UpdateDriveRequest extends $tea.Model {
       description: 'string',
       driveId: 'string',
       driveName: 'string',
+      owner: 'string',
       status: 'string',
       totalSize: 'number',
     };
@@ -6936,6 +7104,72 @@ export class FaceGroupGroupCoverFaceBoundary extends $tea.Model {
   }
 }
 
+export class FileInvestigationInfo extends $tea.Model {
+  status?: number;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      suggestion: 'suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvestigationInfoVideoDetailBlockFrames extends $tea.Model {
+  label?: string;
+  offset?: number;
+  rate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'label',
+      offset: 'offset',
+      rate: 'rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      offset: 'number',
+      rate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvestigationInfoVideoDetail extends $tea.Model {
+  blockFrames?: InvestigationInfoVideoDetailBlockFrames[];
+  static names(): { [key: string]: string } {
+    return {
+      blockFrames: 'block_frames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockFrames: { 'type': 'array', 'itemType': InvestigationInfoVideoDetailBlockFrames },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadPartInfoParallelSha1Ctx extends $tea.Model {
   h?: number[];
   partOffset?: number;
@@ -7235,6 +7469,28 @@ export class GetUploadUrlRequestPartInfoList extends $tea.Model {
     return {
       parallelSha1Ctx: GetUploadUrlRequestPartInfoListParallelSha1Ctx,
       partNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvestigateFileRequestDriveFileIds extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
     };
   }
 
@@ -7576,6 +7832,14 @@ export default class Client extends OpenApi {
       body["file_id"] = request.fileId;
     }
 
+    if (!Util.isUnset(request.shareId)) {
+      body["share_id"] = request.shareId;
+    }
+
+    if (!Util.isUnset(request.toDriveId)) {
+      body["to_drive_id"] = request.toDriveId;
+    }
+
     if (!Util.isUnset(request.toParentFileId)) {
       body["to_parent_file_id"] = request.toParentFileId;
     }
@@ -7915,6 +8179,10 @@ export default class Client extends OpenApi {
       body["save_limit"] = request.saveLimit;
     }
 
+    if (!Util.isUnset(request.shareAllFiles)) {
+      body["share_all_files"] = request.shareAllFiles;
+    }
+
     if (!Util.isUnset(request.shareName)) {
       body["share_name"] = request.shareName;
     }
@@ -8020,6 +8288,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createUserWithOptions(request, headers, runtime);
+  }
+
+  async csiGetFileInfoWithOptions(request: CsiGetFileInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CsiGetFileInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["file_id"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.urlExpireSec)) {
+      body["url_expire_sec"] = request.urlExpireSec;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CsiGetFileInfo",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/csi/get_file_info`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CsiGetFileInfoResponse>(await this.execute(params, req, runtime), new CsiGetFileInfoResponse({}));
+  }
+
+  async csiGetFileInfo(request: CsiGetFileInfoRequest): Promise<CsiGetFileInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.csiGetFileInfoWithOptions(request, headers, runtime);
   }
 
   async deleteDomainWithOptions(request: DeleteDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
@@ -8272,6 +8579,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.officeThumbnailProcess)) {
       body["office_thumbnail_process"] = request.officeThumbnailProcess;
+    }
+
+    if (!Util.isUnset(request.shareId)) {
+      body["share_id"] = request.shareId;
     }
 
     if (!Util.isUnset(request.videoThumbnailProcess)) {
@@ -8609,6 +8920,10 @@ export default class Client extends OpenApi {
       body["file_name"] = request.fileName;
     }
 
+    if (!Util.isUnset(request.shareId)) {
+      body["share_id"] = request.shareId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -8677,6 +8992,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileId)) {
       body["file_id"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.shareId)) {
+      body["share_id"] = request.shareId;
     }
 
     if (!Util.isUnset(request.urlExpireSec)) {
@@ -9191,6 +9510,37 @@ export default class Client extends OpenApi {
     return await this.importUserWithOptions(request, headers, runtime);
   }
 
+  async investigateFileWithOptions(request: InvestigateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvestigateFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.driveFileIds)) {
+      body["drive_file_ids"] = request.driveFileIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "InvestigateFile",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/csi/investigate_file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<InvestigateFileResponse>(await this.execute(params, req, runtime), new InvestigateFileResponse({}));
+  }
+
+  async investigateFile(request: InvestigateFileRequest): Promise<InvestigateFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.investigateFileWithOptions(request, headers, runtime);
+  }
+
   async linkAccountWithOptions(request: LinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LinkAccountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9482,6 +9832,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.parentFileId)) {
       body["parent_file_id"] = request.parentFileId;
+    }
+
+    if (!Util.isUnset(request.shareId)) {
+      body["share_id"] = request.shareId;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -10715,6 +11069,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.driveName)) {
       body["drive_name"] = request.driveName;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["owner"] = request.owner;
     }
 
     if (!Util.isUnset(request.status)) {
