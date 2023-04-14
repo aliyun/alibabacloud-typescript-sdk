@@ -3335,6 +3335,112 @@ export class CostCenterSaveResponse extends $tea.Model {
   }
 }
 
+export class CreateSubCorpHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubCorpRequest extends $tea.Model {
+  outerCorpId?: string;
+  outerCorpName?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outerCorpId: 'outer_corp_id',
+      outerCorpName: 'outer_corp_name',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outerCorpId: 'string',
+      outerCorpName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubCorpResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CreateSubCorpResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: CreateSubCorpResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSubCorpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSubCorpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSubCorpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInvoiceEntityHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -6127,6 +6233,304 @@ export class FlightSearchListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightSearchListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupDepartSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupDepartSaveRequest extends $tea.Model {
+  deptName?: string;
+  managerIds?: string;
+  outerDeptId?: string;
+  outerDeptPid?: string;
+  status?: number;
+  subCorpIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerIds: 'manager_ids',
+      outerDeptId: 'outer_dept_id',
+      outerDeptPid: 'outer_dept_pid',
+      status: 'status',
+      subCorpIdList: 'sub_corp_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerIds: 'string',
+      outerDeptId: 'string',
+      outerDeptPid: 'string',
+      status: 'number',
+      subCorpIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupDepartSaveShrinkRequest extends $tea.Model {
+  deptName?: string;
+  managerIds?: string;
+  outerDeptId?: string;
+  outerDeptPid?: string;
+  status?: number;
+  subCorpIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'dept_name',
+      managerIds: 'manager_ids',
+      outerDeptId: 'outer_dept_id',
+      outerDeptPid: 'outer_dept_pid',
+      status: 'status',
+      subCorpIdListShrink: 'sub_corp_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      managerIds: 'string',
+      outerDeptId: 'string',
+      outerDeptPid: 'string',
+      status: 'number',
+      subCorpIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupDepartSaveResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupDepartSaveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GroupDepartSaveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GroupDepartSaveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupUserSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupUserSaveRequest extends $tea.Model {
+  jobNo?: string;
+  leaveStatus?: number;
+  phone?: string;
+  realNameEn?: string;
+  subCorpIdList?: GroupUserSaveRequestSubCorpIdList[];
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobNo: 'job_no',
+      leaveStatus: 'leave_status',
+      phone: 'phone',
+      realNameEn: 'real_name_en',
+      subCorpIdList: 'sub_corp_id_list',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobNo: 'string',
+      leaveStatus: 'number',
+      phone: 'string',
+      realNameEn: 'string',
+      subCorpIdList: { 'type': 'array', 'itemType': GroupUserSaveRequestSubCorpIdList },
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupUserSaveShrinkRequest extends $tea.Model {
+  jobNo?: string;
+  leaveStatus?: number;
+  phone?: string;
+  realNameEn?: string;
+  subCorpIdListShrink?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobNo: 'job_no',
+      leaveStatus: 'leave_status',
+      phone: 'phone',
+      realNameEn: 'real_name_en',
+      subCorpIdListShrink: 'sub_corp_id_list',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobNo: 'string',
+      leaveStatus: 'number',
+      phone: 'string',
+      realNameEn: 'string',
+      subCorpIdListShrink: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupUserSaveResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupUserSaveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GroupUserSaveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GroupUserSaveResponseBody,
     };
   }
 
@@ -14980,6 +15384,25 @@ export class CostCenterSaveResponseBodyModule extends $tea.Model {
   }
 }
 
+export class CreateSubCorpResponseBodyModule extends $tea.Model {
+  subCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subCorpId: 'sub_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInvoiceEntityRequestEntities extends $tea.Model {
   entityId?: string;
   entityType?: string;
@@ -15903,65 +16326,138 @@ export class FlightExceedApplyQueryResponseBodyModule extends $tea.Model {
   }
 }
 
-export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model {
-  billDate?: string;
-  build?: string;
-  costCenter?: string;
-  department?: string;
-  fuelSurcharge?: string;
-  insurance?: string;
-  invoiceTitle?: string;
-  itineraryNum?: string;
-  orderId?: number;
-  ossUrl?: string;
-  passengerName?: string;
-  project?: string;
-  taxAmount?: string;
-  taxRate?: string;
-  ticketNo?: string;
-  ticketPrice?: string;
-  totalPrice?: string;
+export class FlightItineraryScanQueryResponseBodyModuleItemsFlights extends $tea.Model {
+  arrivalStation?: string;
+  cabinClass?: string;
+  carrier?: string;
+  departureStation?: string;
+  flightDate?: string;
+  flightNumber?: string;
+  flightTime?: string;
+  freeBaggageAllowance?: string;
+  index?: string;
+  seatClass?: string;
+  validFromDate?: string;
+  validToDate?: string;
   static names(): { [key: string]: string } {
     return {
-      billDate: 'bill_date',
-      build: 'build',
-      costCenter: 'cost_center',
-      department: 'department',
-      fuelSurcharge: 'fuel_surcharge',
-      insurance: 'insurance',
-      invoiceTitle: 'invoice_title',
-      itineraryNum: 'itinerary_num',
-      orderId: 'order_id',
-      ossUrl: 'oss_url',
-      passengerName: 'passenger_name',
-      project: 'project',
-      taxAmount: 'tax_amount',
-      taxRate: 'tax_rate',
-      ticketNo: 'ticket_no',
-      ticketPrice: 'ticket_price',
-      totalPrice: 'total_price',
+      arrivalStation: 'arrival_station',
+      cabinClass: 'cabin_class',
+      carrier: 'carrier',
+      departureStation: 'departure_station',
+      flightDate: 'flight_date',
+      flightNumber: 'flight_number',
+      flightTime: 'flight_time',
+      freeBaggageAllowance: 'free_baggage_allowance',
+      index: 'index',
+      seatClass: 'seat_class',
+      validFromDate: 'valid_from_date',
+      validToDate: 'valid_to_date',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arrivalStation: 'string',
+      cabinClass: 'string',
+      carrier: 'string',
+      departureStation: 'string',
+      flightDate: 'string',
+      flightNumber: 'string',
+      flightTime: 'string',
+      freeBaggageAllowance: 'string',
+      index: 'string',
+      seatClass: 'string',
+      validFromDate: 'string',
+      validToDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightItineraryScanQueryResponseBodyModuleItems extends $tea.Model {
+  agentCode?: string;
+  billDate?: string;
+  build?: string;
+  costCenter?: string;
+  department?: string;
+  flights?: FlightItineraryScanQueryResponseBodyModuleItemsFlights[];
+  fuelSurcharge?: string;
+  id?: string;
+  insurance?: string;
+  invoiceTitle?: string;
+  issueCompany?: string;
+  issueDate?: string;
+  itineraryNum?: string;
+  orderId?: number;
+  ossUrl?: string;
+  passengerName?: string;
+  project?: string;
+  promptMessage?: string;
+  taxAmount?: string;
+  taxRate?: string;
+  ticketNo?: string;
+  ticketPrice?: string;
+  totalPrice?: string;
+  validationCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentCode: 'agent_code',
+      billDate: 'bill_date',
+      build: 'build',
+      costCenter: 'cost_center',
+      department: 'department',
+      flights: 'flights',
+      fuelSurcharge: 'fuel_surcharge',
+      id: 'id',
+      insurance: 'insurance',
+      invoiceTitle: 'invoice_title',
+      issueCompany: 'issue_company',
+      issueDate: 'issue_date',
+      itineraryNum: 'itinerary_num',
+      orderId: 'order_id',
+      ossUrl: 'oss_url',
+      passengerName: 'passenger_name',
+      project: 'project',
+      promptMessage: 'prompt_message',
+      taxAmount: 'tax_amount',
+      taxRate: 'tax_rate',
+      ticketNo: 'ticket_no',
+      ticketPrice: 'ticket_price',
+      totalPrice: 'total_price',
+      validationCode: 'validation_code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentCode: 'string',
       billDate: 'string',
       build: 'string',
       costCenter: 'string',
       department: 'string',
+      flights: { 'type': 'array', 'itemType': FlightItineraryScanQueryResponseBodyModuleItemsFlights },
       fuelSurcharge: 'string',
+      id: 'string',
       insurance: 'string',
       invoiceTitle: 'string',
+      issueCompany: 'string',
+      issueDate: 'string',
       itineraryNum: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passengerName: 'string',
       project: 'string',
+      promptMessage: 'string',
       taxAmount: 'string',
       taxRate: 'string',
       ticketNo: 'string',
       ticketPrice: 'string',
       totalPrice: 'string',
+      validationCode: 'string',
     };
   }
 
@@ -22397,6 +22893,31 @@ export class FlightSearchListResponseBodyModule extends $tea.Model {
   }
 }
 
+export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
+  departIds?: string[];
+  managerUserId?: string;
+  subCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departIds: 'depart_ids',
+      managerUserId: 'manager_user_id',
+      subCorpId: 'sub_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departIds: { 'type': 'array', 'itemType': 'string' },
+      managerUserId: 'string',
+      subCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
   applyId?: string;
@@ -23707,12 +24228,10 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
   cancelInfo?: HotelOrderDetailInfoResponseBodyModuleCancelInfo;
   checkIn?: string;
   checkOut?: string;
-  code?: string;
   confirmOrderTime?: string;
   contractName?: string;
   contractTel?: string;
   createOrderTime?: string;
-  desc?: string;
   earlyArrivalTime?: string;
   earlyDeparture?: boolean;
   guestCount?: number;
@@ -23748,12 +24267,10 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       cancelInfo: 'cancel_info',
       checkIn: 'check_in',
       checkOut: 'check_out',
-      code: 'code',
       confirmOrderTime: 'confirm_order_time',
       contractName: 'contract_name',
       contractTel: 'contract_tel',
       createOrderTime: 'create_order_time',
-      desc: 'desc',
       earlyArrivalTime: 'early_arrival_time',
       earlyDeparture: 'early_departure',
       guestCount: 'guest_count',
@@ -23792,12 +24309,10 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       cancelInfo: HotelOrderDetailInfoResponseBodyModuleCancelInfo,
       checkIn: 'string',
       checkOut: 'string',
-      code: 'string',
       confirmOrderTime: 'string',
       contractName: 'string',
       contractTel: 'string',
       createOrderTime: 'string',
-      desc: 'string',
       earlyArrivalTime: 'string',
       earlyDeparture: 'boolean',
       guestCount: 'number',
@@ -29041,6 +29556,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
   depStation?: string;
   depTime?: string;
   department?: string;
+  id?: string;
   invoiceTitle?: string;
   orderId?: number;
   ossUrl?: string;
@@ -29061,6 +29577,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
       depStation: 'dep_station',
       depTime: 'dep_time',
       department: 'department',
+      id: 'id',
       invoiceTitle: 'invoice_title',
       orderId: 'order_id',
       ossUrl: 'oss_url',
@@ -29084,6 +29601,7 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
       depStation: 'string',
       depTime: 'string',
       department: 'string',
+      id: 'string',
       invoiceTitle: 'string',
       orderId: 'number',
       ossUrl: 'string',
@@ -29190,43 +29708,116 @@ export class UserQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $tea.Model {
+  amount?: string;
+  index?: string;
+  itemName?: string;
+  quantity?: string;
+  specification?: string;
+  tax?: string;
+  taxRate?: string;
+  unit?: string;
+  unitPrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      index: 'index',
+      itemName: 'item_name',
+      quantity: 'quantity',
+      specification: 'specification',
+      tax: 'tax',
+      taxRate: 'tax_rate',
+      unit: 'unit',
+      unitPrice: 'unit_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      index: 'string',
+      itemName: 'string',
+      quantity: 'string',
+      specification: 'string',
+      tax: 'string',
+      taxRate: 'string',
+      unit: 'string',
+      unitPrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   amountWithTax?: string;
   amountWithoutTax?: string;
   billDate?: string;
+  checkCode?: string;
+  drawer?: string;
+  id?: string;
   invoiceCode?: string;
   invoiceDay?: string;
   invoiceDetail?: string;
+  invoiceDetails?: VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails[];
+  invoiceLocation?: string;
   invoiceNo?: string;
   invoiceSubTaskId?: number;
   invoiceType?: number;
   invoiceTypeDesc?: string;
   ossUrl?: string;
+  passwordArea?: string;
+  purchaserBankAccountInfo?: string;
+  purchaserContactInfo?: string;
   purchaserName?: string;
   purchaserTaxNo?: string;
+  recipient?: string;
+  remarks?: string;
+  reviewer?: string;
+  sellerBankAccountInfo?: string;
+  sellerContactInfo?: string;
   sellerName?: string;
   sellerTaxNo?: string;
+  smartCheckCode?: string;
   taxAmount?: string;
   taxRate?: string;
+  totalAmountInWords?: string;
   static names(): { [key: string]: string } {
     return {
       amountWithTax: 'amount_with_tax',
       amountWithoutTax: 'amount_without_tax',
       billDate: 'bill_date',
+      checkCode: 'check_code',
+      drawer: 'drawer',
+      id: 'id',
       invoiceCode: 'invoice_code',
       invoiceDay: 'invoice_day',
       invoiceDetail: 'invoice_detail',
+      invoiceDetails: 'invoice_details',
+      invoiceLocation: 'invoice_location',
       invoiceNo: 'invoice_no',
       invoiceSubTaskId: 'invoice_sub_task_id',
       invoiceType: 'invoice_type',
       invoiceTypeDesc: 'invoice_type_desc',
       ossUrl: 'oss_url',
+      passwordArea: 'password_area',
+      purchaserBankAccountInfo: 'purchaser_bank_account_info',
+      purchaserContactInfo: 'purchaser_contact_info',
       purchaserName: 'purchaser_name',
       purchaserTaxNo: 'purchaser_tax_no',
+      recipient: 'recipient',
+      remarks: 'remarks',
+      reviewer: 'reviewer',
+      sellerBankAccountInfo: 'seller_bank_account_info',
+      sellerContactInfo: 'seller_contact_info',
       sellerName: 'seller_name',
       sellerTaxNo: 'seller_tax_no',
+      smartCheckCode: 'smart_check_code',
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
+      totalAmountInWords: 'total_amount_in_words',
     };
   }
 
@@ -29235,20 +29826,35 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       amountWithTax: 'string',
       amountWithoutTax: 'string',
       billDate: 'string',
+      checkCode: 'string',
+      drawer: 'string',
+      id: 'string',
       invoiceCode: 'string',
       invoiceDay: 'string',
       invoiceDetail: 'string',
+      invoiceDetails: { 'type': 'array', 'itemType': VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails },
+      invoiceLocation: 'string',
       invoiceNo: 'string',
       invoiceSubTaskId: 'number',
       invoiceType: 'number',
       invoiceTypeDesc: 'string',
       ossUrl: 'string',
+      passwordArea: 'string',
+      purchaserBankAccountInfo: 'string',
+      purchaserContactInfo: 'string',
       purchaserName: 'string',
       purchaserTaxNo: 'string',
+      recipient: 'string',
+      remarks: 'string',
+      reviewer: 'string',
+      sellerBankAccountInfo: 'string',
+      sellerContactInfo: 'string',
       sellerName: 'string',
       sellerTaxNo: 'string',
+      smartCheckCode: 'string',
       taxAmount: 'string',
       taxRate: 'string',
+      totalAmountInWords: 'string',
     };
   }
 
@@ -31102,6 +31708,54 @@ export default class Client extends OpenApi {
     return await this.costCenterSaveWithOptions(request, headers, runtime);
   }
 
+  async createSubCorpWithOptions(request: CreateSubCorpRequest, headers: CreateSubCorpHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSubCorpResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.outerCorpId)) {
+      body["outer_corp_id"] = request.outerCorpId;
+    }
+
+    if (!Util.isUnset(request.outerCorpName)) {
+      body["outer_corp_name"] = request.outerCorpName;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSubCorp",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/sub_corps/v1/corps`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSubCorpResponse>(await this.callApi(params, req, runtime), new CreateSubCorpResponse({}));
+  }
+
+  async createSubCorp(request: CreateSubCorpRequest): Promise<CreateSubCorpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateSubCorpHeaders({ });
+    return await this.createSubCorpWithOptions(request, headers, runtime);
+  }
+
   async deleteInvoiceEntityWithOptions(tmpReq: DeleteInvoiceEntityRequest, headers: DeleteInvoiceEntityHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteInvoiceEntityResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteInvoiceEntityShrinkRequest({ });
@@ -32440,6 +33094,142 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightSearchListHeaders({ });
     return await this.flightSearchListWithOptions(request, headers, runtime);
+  }
+
+  async groupDepartSaveWithOptions(tmpReq: GroupDepartSaveRequest, headers: GroupDepartSaveHeaders, runtime: $Util.RuntimeOptions): Promise<GroupDepartSaveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GroupDepartSaveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subCorpIdList)) {
+      request.subCorpIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCorpIdList, "sub_corp_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deptName)) {
+      body["dept_name"] = request.deptName;
+    }
+
+    if (!Util.isUnset(request.managerIds)) {
+      body["manager_ids"] = request.managerIds;
+    }
+
+    if (!Util.isUnset(request.outerDeptId)) {
+      body["outer_dept_id"] = request.outerDeptId;
+    }
+
+    if (!Util.isUnset(request.outerDeptPid)) {
+      body["outer_dept_pid"] = request.outerDeptPid;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.subCorpIdListShrink)) {
+      body["sub_corp_id_list"] = request.subCorpIdListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GroupDepartSave",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/sub_corps/v1/departs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GroupDepartSaveResponse>(await this.callApi(params, req, runtime), new GroupDepartSaveResponse({}));
+  }
+
+  async groupDepartSave(request: GroupDepartSaveRequest): Promise<GroupDepartSaveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GroupDepartSaveHeaders({ });
+    return await this.groupDepartSaveWithOptions(request, headers, runtime);
+  }
+
+  async groupUserSaveWithOptions(tmpReq: GroupUserSaveRequest, headers: GroupUserSaveHeaders, runtime: $Util.RuntimeOptions): Promise<GroupUserSaveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GroupUserSaveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subCorpIdList)) {
+      request.subCorpIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCorpIdList, "sub_corp_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobNo)) {
+      body["job_no"] = request.jobNo;
+    }
+
+    if (!Util.isUnset(request.leaveStatus)) {
+      body["leave_status"] = request.leaveStatus;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.realNameEn)) {
+      body["real_name_en"] = request.realNameEn;
+    }
+
+    if (!Util.isUnset(request.subCorpIdListShrink)) {
+      body["sub_corp_id_list"] = request.subCorpIdListShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GroupUserSave",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/sub_corps/v1/users`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GroupUserSaveResponse>(await this.callApi(params, req, runtime), new GroupUserSaveResponse({}));
+  }
+
+  async groupUserSave(request: GroupUserSaveRequest): Promise<GroupUserSaveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GroupUserSaveHeaders({ });
+    return await this.groupUserSaveWithOptions(request, headers, runtime);
   }
 
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
