@@ -878,6 +878,7 @@ export class CreateChatappMigrationInitiateResponse extends $tea.Model {
 }
 
 export class CreateChatappTemplateRequest extends $tea.Model {
+  allowCategoryChange?: boolean;
   category?: string;
   components?: CreateChatappTemplateRequestComponents[];
   custSpaceId?: string;
@@ -889,6 +890,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowCategoryChange: 'AllowCategoryChange',
       category: 'Category',
       components: 'Components',
       custSpaceId: 'CustSpaceId',
@@ -903,6 +905,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowCategoryChange: 'boolean',
       category: 'string',
       components: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponents },
       custSpaceId: 'string',
@@ -921,6 +924,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
 }
 
 export class CreateChatappTemplateShrinkRequest extends $tea.Model {
+  allowCategoryChange?: boolean;
   category?: string;
   componentsShrink?: string;
   custSpaceId?: string;
@@ -932,6 +936,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      allowCategoryChange: 'AllowCategoryChange',
       category: 'Category',
       componentsShrink: 'Components',
       custSpaceId: 'CustSpaceId',
@@ -946,6 +951,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowCategoryChange: 'boolean',
       category: 'string',
       componentsShrink: 'string',
       custSpaceId: 'string',
@@ -1644,12 +1650,14 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
   listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
   message?: string;
   requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       listTemplate: 'ListTemplate',
       message: 'Message',
       requestId: 'RequestId',
+      total: 'Total',
     };
   }
 
@@ -1659,6 +1667,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
       listTemplate: { 'type': 'array', 'itemType': ListChatappTemplateResponseBodyListTemplate },
       message: 'string',
       requestId: 'string',
+      total: 'number',
     };
   }
 
@@ -2266,6 +2275,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
+  fallBackDuration?: number;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
@@ -2282,6 +2292,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
+      fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
@@ -2301,6 +2312,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
+      fallBackDuration: 'number',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
@@ -2324,6 +2336,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
+  fallBackDuration?: number;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
@@ -2340,6 +2353,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
+      fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
@@ -2359,6 +2373,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
+      fallBackDuration: 'number',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
@@ -2437,6 +2452,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
+  fallBackDuration?: number;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
@@ -2460,6 +2476,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
+      fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
@@ -2486,6 +2503,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
+      fallBackDuration: 'number',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
@@ -2516,6 +2534,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
   fallBackContent?: string;
+  fallBackDuration?: number;
   fallBackId?: string;
   from?: string;
   isvCode?: string;
@@ -2539,6 +2558,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       fallBackContent: 'FallBackContent',
+      fallBackDuration: 'FallBackDuration',
       fallBackId: 'FallBackId',
       from: 'From',
       isvCode: 'IsvCode',
@@ -2565,6 +2585,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       custSpaceId: 'string',
       custWabaId: 'string',
       fallBackContent: 'string',
+      fallBackDuration: 'number',
       fallBackId: 'string',
       from: 'string',
       isvCode: 'string',
@@ -3455,6 +3476,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   fileName?: string;
   fileType?: string;
   format?: string;
+  latitude?: string;
+  locationAddress?: string;
+  locationName?: string;
+  longitude?: string;
   text?: string;
   thumbUrl?: string;
   type?: string;
@@ -3467,6 +3492,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
       fileName: 'FileName',
       fileType: 'FileType',
       format: 'Format',
+      latitude: 'Latitude',
+      locationAddress: 'LocationAddress',
+      locationName: 'LocationName',
+      longitude: 'Longitude',
       text: 'Text',
       thumbUrl: 'ThumbUrl',
       type: 'Type',
@@ -3482,6 +3511,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
       fileName: 'string',
       fileType: 'string',
       format: 'string',
+      latitude: 'string',
+      locationAddress: 'string',
+      locationName: 'string',
+      longitude: 'string',
       text: 'string',
       thumbUrl: 'string',
       type: 'string',
@@ -3967,7 +4000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq BeeBotAssociateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4028,7 +4061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request BeeBotAssociateRequest
     * @return BeeBotAssociateResponse
@@ -4039,7 +4072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq BeeBotChatRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4120,7 +4153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request BeeBotChatRequest
     * @return BeeBotChatResponse
@@ -4500,7 +4533,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq CreateChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4518,18 +4551,21 @@ export default class Client extends OpenApi {
       request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
     }
 
-    let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
-      query["CustSpaceId"] = request.custSpaceId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.allowCategoryChange)) {
+      body["AllowCategoryChange"] = request.allowCategoryChange;
     }
 
-    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       body["Category"] = request.category;
     }
 
     if (!Util.isUnset(request.componentsShrink)) {
       body["Components"] = request.componentsShrink;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      body["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.custWabaId)) {
@@ -4557,7 +4593,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -4576,7 +4611,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request CreateChatappTemplateRequest
     * @return CreateChatappTemplateResponse
@@ -4588,7 +4623,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DeleteChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4632,7 +4667,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DeleteChatappTemplateRequest
     * @return DeleteChatappTemplateResponse
@@ -4644,7 +4679,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappTemplateDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4696,7 +4731,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappTemplateDetailRequest
     * @return GetChatappTemplateDetailResponse
@@ -4706,6 +4741,13 @@ export default class Client extends OpenApi {
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappUploadAuthorizationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappUploadAuthorizationResponse
+   */
   async getChatappUploadAuthorizationWithOptions(request: GetChatappUploadAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappUploadAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4730,6 +4772,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappUploadAuthorizationRequest
+    * @return GetChatappUploadAuthorizationResponse
+   */
   async getChatappUploadAuthorization(request: GetChatappUploadAuthorizationRequest): Promise<GetChatappUploadAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappUploadAuthorizationWithOptions(request, runtime);
@@ -4933,7 +4981,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq ListChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4999,7 +5047,7 @@ export default class Client extends OpenApi {
 
   /**
     * ### QPS limit
-    * You can call this operation up to 5 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request ListChatappTemplateRequest
     * @return ListChatappTemplateResponse
@@ -5172,7 +5220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request QueryChatappBindWabaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5207,7 +5255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request QueryChatappBindWabaRequest
     * @return QueryChatappBindWabaResponse
@@ -5218,7 +5266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request QueryChatappPhoneNumbersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5253,7 +5301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request QueryChatappPhoneNumbersRequest
     * @return QueryChatappPhoneNumbersResponse
@@ -5356,7 +5404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param tmpReq SendChatappMassMessageRequest
@@ -5386,6 +5434,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fallBackContent)) {
       body["FallBackContent"] = request.fallBackContent;
+    }
+
+    if (!Util.isUnset(request.fallBackDuration)) {
+      body["FallBackDuration"] = request.fallBackDuration;
     }
 
     if (!Util.isUnset(request.fallBackId)) {
@@ -5446,7 +5498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     * You can send messages to up to 1,000 phone numbers in a single request.
     *
     * @param request SendChatappMassMessageRequest
@@ -5458,7 +5510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq SendChatappMessageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5504,6 +5556,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fallBackContent)) {
       body["FallBackContent"] = request.fallBackContent;
+    }
+
+    if (!Util.isUnset(request.fallBackDuration)) {
+      body["FallBackDuration"] = request.fallBackDuration;
     }
 
     if (!Util.isUnset(request.fallBackId)) {
@@ -5581,7 +5637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request SendChatappMessageRequest
     * @return SendChatappMessageResponse
@@ -5591,6 +5647,13 @@ export default class Client extends OpenApi {
     return await this.sendChatappMessageWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SubmitIsvCustomerTermsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitIsvCustomerTermsResponse
+   */
   async submitIsvCustomerTermsWithOptions(request: SubmitIsvCustomerTermsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIsvCustomerTermsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5639,6 +5702,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request SubmitIsvCustomerTermsRequest
+    * @return SubmitIsvCustomerTermsResponse
+   */
   async submitIsvCustomerTerms(request: SubmitIsvCustomerTermsRequest): Promise<SubmitIsvCustomerTermsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitIsvCustomerTermsWithOptions(request, runtime);

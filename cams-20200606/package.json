@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cams20200606",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
