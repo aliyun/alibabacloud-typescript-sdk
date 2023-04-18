@@ -153,10 +153,12 @@ export class BeginSessionRequest extends $tea.Model {
 
 export class BeginSessionResponseBody extends $tea.Model {
   requestId?: string;
+  silenceReplyTimeout?: number;
   welcomeMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      silenceReplyTimeout: 'SilenceReplyTimeout',
       welcomeMessage: 'WelcomeMessage',
     };
   }
@@ -164,6 +166,7 @@ export class BeginSessionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      silenceReplyTimeout: 'number',
       welcomeMessage: 'string',
     };
   }
