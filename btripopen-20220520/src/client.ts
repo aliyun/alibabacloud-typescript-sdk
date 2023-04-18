@@ -9,18 +9,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AccessTokenRequest extends $tea.Model {
-  appKey?: string;
   appSecret?: string;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'app_key',
       appSecret: 'app_secret',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'string',
       appSecret: 'string',
     };
   }
@@ -29993,10 +29990,6 @@ export default class Client extends OpenApi {
   async accessTokenWithOptions(request: AccessTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AccessTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appKey)) {
-      query["app_key"] = request.appKey;
-    }
-
     if (!Util.isUnset(request.appSecret)) {
       query["app_secret"] = request.appSecret;
     }
