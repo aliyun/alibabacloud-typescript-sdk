@@ -177,32 +177,42 @@ export class FaceCompareResponse extends $tea.Model {
 }
 
 export class InitializeRequest extends $tea.Model {
+  crop?: string;
   docType?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
   flowType?: string;
+  idFaceQuality?: string;
+  idSpoof?: string;
   merchantBizId?: string;
   merchantUserId?: string;
   metaInfo?: string;
+  ocr?: string;
   operationMode?: string;
   pages?: string;
   productCode?: string;
   productConfig?: string;
+  returnUrl?: string;
   sceneCode?: string;
   serviceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      crop: 'Crop',
       docType: 'DocType',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
       flowType: 'FlowType',
+      idFaceQuality: 'IdFaceQuality',
+      idSpoof: 'IdSpoof',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
+      ocr: 'Ocr',
       operationMode: 'OperationMode',
       pages: 'Pages',
       productCode: 'ProductCode',
       productConfig: 'ProductConfig',
+      returnUrl: 'ReturnUrl',
       sceneCode: 'SceneCode',
       serviceLevel: 'ServiceLevel',
     };
@@ -210,17 +220,22 @@ export class InitializeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      crop: 'string',
       docType: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
       flowType: 'string',
+      idFaceQuality: 'string',
+      idSpoof: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       metaInfo: 'string',
+      ocr: 'string',
       operationMode: 'string',
       pages: 'string',
       productCode: 'string',
       productConfig: 'string',
+      returnUrl: 'string',
       sceneCode: 'string',
       serviceLevel: 'string',
     };
@@ -349,10 +364,12 @@ export class FaceCompareResponseBodyResult extends $tea.Model {
 export class InitializeResponseBodyResult extends $tea.Model {
   clientCfg?: string;
   transactionId?: string;
+  transactionUrl?: string;
   static names(): { [key: string]: string } {
     return {
       clientCfg: 'ClientCfg',
       transactionId: 'TransactionId',
+      transactionUrl: 'TransactionUrl',
     };
   }
 
@@ -360,6 +377,7 @@ export class InitializeResponseBodyResult extends $tea.Model {
     return {
       clientCfg: 'string',
       transactionId: 'string',
+      transactionUrl: 'string',
     };
   }
 
@@ -484,6 +502,10 @@ export default class Client extends OpenApi {
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.crop)) {
+      query["Crop"] = request.crop;
+    }
+
     if (!Util.isUnset(request.docType)) {
       query["DocType"] = request.docType;
     }
@@ -500,6 +522,14 @@ export default class Client extends OpenApi {
       query["FlowType"] = request.flowType;
     }
 
+    if (!Util.isUnset(request.idFaceQuality)) {
+      query["IdFaceQuality"] = request.idFaceQuality;
+    }
+
+    if (!Util.isUnset(request.idSpoof)) {
+      query["IdSpoof"] = request.idSpoof;
+    }
+
     if (!Util.isUnset(request.merchantBizId)) {
       query["MerchantBizId"] = request.merchantBizId;
     }
@@ -510,6 +540,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.metaInfo)) {
       query["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!Util.isUnset(request.ocr)) {
+      query["Ocr"] = request.ocr;
     }
 
     if (!Util.isUnset(request.operationMode)) {
@@ -526,6 +560,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productConfig)) {
       query["ProductConfig"] = request.productConfig;
+    }
+
+    if (!Util.isUnset(request.returnUrl)) {
+      query["ReturnUrl"] = request.returnUrl;
     }
 
     if (!Util.isUnset(request.sceneCode)) {
