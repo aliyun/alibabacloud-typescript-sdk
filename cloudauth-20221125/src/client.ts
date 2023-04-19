@@ -214,10 +214,12 @@ export class EntVerifyResponse extends $tea.Model {
 
 export class EntElementVerifyResponseBodyResult extends $tea.Model {
   bizCode?: string;
+  reasonCode?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       bizCode: 'BizCode',
+      reasonCode: 'ReasonCode',
       status: 'Status',
     };
   }
@@ -225,6 +227,7 @@ export class EntElementVerifyResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bizCode: 'string',
+      reasonCode: 'string',
       status: 'string',
     };
   }
