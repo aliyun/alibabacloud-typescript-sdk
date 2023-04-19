@@ -270,6 +270,7 @@ export class AttachLoadBalancersRequest extends $tea.Model {
   async?: boolean;
   clientToken?: string;
   forceAttach?: boolean;
+  loadBalancerConfigs?: AttachLoadBalancersRequestLoadBalancerConfigs[];
   loadBalancers?: string[];
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -279,6 +280,7 @@ export class AttachLoadBalancersRequest extends $tea.Model {
       async: 'Async',
       clientToken: 'ClientToken',
       forceAttach: 'ForceAttach',
+      loadBalancerConfigs: 'LoadBalancerConfigs',
       loadBalancers: 'LoadBalancers',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -291,6 +293,7 @@ export class AttachLoadBalancersRequest extends $tea.Model {
       async: 'boolean',
       clientToken: 'string',
       forceAttach: 'boolean',
+      loadBalancerConfigs: { 'type': 'array', 'itemType': AttachLoadBalancersRequestLoadBalancerConfigs },
       loadBalancers: { 'type': 'array', 'itemType': 'string' },
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -1164,6 +1167,7 @@ export class CreateNotificationConfigurationResponse extends $tea.Model {
 }
 
 export class CreateScalingConfigurationRequest extends $tea.Model {
+  imageOptions?: CreateScalingConfigurationRequestImageOptions;
   privatePoolOptions?: CreateScalingConfigurationRequestPrivatePoolOptions;
   systemDisk?: CreateScalingConfigurationRequestSystemDisk;
   affinity?: string;
@@ -1216,6 +1220,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      imageOptions: 'ImageOptions',
       privatePoolOptions: 'PrivatePoolOptions',
       systemDisk: 'SystemDisk',
       affinity: 'Affinity',
@@ -1271,6 +1276,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageOptions: CreateScalingConfigurationRequestImageOptions,
       privatePoolOptions: CreateScalingConfigurationRequestPrivatePoolOptions,
       systemDisk: CreateScalingConfigurationRequestSystemDisk,
       affinity: 'string',
@@ -1330,6 +1336,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
 }
 
 export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
+  imageOptions?: CreateScalingConfigurationShrinkRequestImageOptions;
   privatePoolOptions?: CreateScalingConfigurationShrinkRequestPrivatePoolOptions;
   systemDisk?: CreateScalingConfigurationShrinkRequestSystemDisk;
   affinity?: string;
@@ -1382,6 +1389,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      imageOptions: 'ImageOptions',
       privatePoolOptions: 'PrivatePoolOptions',
       systemDisk: 'SystemDisk',
       affinity: 'Affinity',
@@ -1437,6 +1445,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageOptions: CreateScalingConfigurationShrinkRequestImageOptions,
       privatePoolOptions: CreateScalingConfigurationShrinkRequestPrivatePoolOptions,
       systemDisk: CreateScalingConfigurationShrinkRequestSystemDisk,
       affinity: 'string',
@@ -1561,6 +1570,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
   launchTemplateOverrides?: CreateScalingGroupRequestLaunchTemplateOverrides[];
   launchTemplateVersion?: string;
   lifecycleHooks?: CreateScalingGroupRequestLifecycleHooks[];
+  loadBalancerConfigs?: CreateScalingGroupRequestLoadBalancerConfigs[];
   loadBalancerIds?: string;
   maxInstanceLifetime?: number;
   maxSize?: number;
@@ -1605,6 +1615,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       launchTemplateOverrides: 'LaunchTemplateOverrides',
       launchTemplateVersion: 'LaunchTemplateVersion',
       lifecycleHooks: 'LifecycleHooks',
+      loadBalancerConfigs: 'LoadBalancerConfigs',
       loadBalancerIds: 'LoadBalancerIds',
       maxInstanceLifetime: 'MaxInstanceLifetime',
       maxSize: 'MaxSize',
@@ -1652,6 +1663,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       launchTemplateOverrides: { 'type': 'array', 'itemType': CreateScalingGroupRequestLaunchTemplateOverrides },
       launchTemplateVersion: 'string',
       lifecycleHooks: { 'type': 'array', 'itemType': CreateScalingGroupRequestLifecycleHooks },
+      loadBalancerConfigs: { 'type': 'array', 'itemType': CreateScalingGroupRequestLoadBalancerConfigs },
       loadBalancerIds: 'string',
       maxInstanceLifetime: 'number',
       maxSize: 'number',
@@ -1734,6 +1746,7 @@ export class CreateScalingGroupResponse extends $tea.Model {
 export class CreateScalingRuleRequest extends $tea.Model {
   adjustmentType?: string;
   adjustmentValue?: number;
+  alarmDimensions?: CreateScalingRuleRequestAlarmDimensions[];
   cooldown?: number;
   disableScaleIn?: boolean;
   estimatedInstanceWarmup?: number;
@@ -1759,6 +1772,7 @@ export class CreateScalingRuleRequest extends $tea.Model {
     return {
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
+      alarmDimensions: 'AlarmDimensions',
       cooldown: 'Cooldown',
       disableScaleIn: 'DisableScaleIn',
       estimatedInstanceWarmup: 'EstimatedInstanceWarmup',
@@ -1787,6 +1801,7 @@ export class CreateScalingRuleRequest extends $tea.Model {
     return {
       adjustmentType: 'string',
       adjustmentValue: 'number',
+      alarmDimensions: { 'type': 'array', 'itemType': CreateScalingRuleRequestAlarmDimensions },
       cooldown: 'number',
       disableScaleIn: 'boolean',
       estimatedInstanceWarmup: 'number',
@@ -3086,6 +3101,7 @@ export class DescribeLimitationResponseBody extends $tea.Model {
   maxNumberOfLoadBalancers?: number;
   maxNumberOfMaxSize?: number;
   maxNumberOfMinSize?: number;
+  maxNumberOfNlbServerGroup?: number;
   maxNumberOfNotificationConfigurations?: number;
   maxNumberOfScalingConfigurations?: number;
   maxNumberOfScalingGroups?: number;
@@ -3102,6 +3118,7 @@ export class DescribeLimitationResponseBody extends $tea.Model {
       maxNumberOfLoadBalancers: 'MaxNumberOfLoadBalancers',
       maxNumberOfMaxSize: 'MaxNumberOfMaxSize',
       maxNumberOfMinSize: 'MaxNumberOfMinSize',
+      maxNumberOfNlbServerGroup: 'MaxNumberOfNlbServerGroup',
       maxNumberOfNotificationConfigurations: 'MaxNumberOfNotificationConfigurations',
       maxNumberOfScalingConfigurations: 'MaxNumberOfScalingConfigurations',
       maxNumberOfScalingGroups: 'MaxNumberOfScalingGroups',
@@ -3121,6 +3138,7 @@ export class DescribeLimitationResponseBody extends $tea.Model {
       maxNumberOfLoadBalancers: 'number',
       maxNumberOfMaxSize: 'number',
       maxNumberOfMinSize: 'number',
+      maxNumberOfNlbServerGroup: 'number',
       maxNumberOfNotificationConfigurations: 'number',
       maxNumberOfScalingConfigurations: 'number',
       maxNumberOfScalingGroups: 'number',
@@ -5938,6 +5956,7 @@ export class ModifyNotificationConfigurationResponse extends $tea.Model {
 }
 
 export class ModifyScalingConfigurationRequest extends $tea.Model {
+  imageOptions?: ModifyScalingConfigurationRequestImageOptions;
   privatePoolOptions?: ModifyScalingConfigurationRequestPrivatePoolOptions;
   systemDisk?: ModifyScalingConfigurationRequestSystemDisk;
   affinity?: string;
@@ -5986,6 +6005,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      imageOptions: 'ImageOptions',
       privatePoolOptions: 'PrivatePoolOptions',
       systemDisk: 'SystemDisk',
       affinity: 'Affinity',
@@ -6037,6 +6057,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageOptions: ModifyScalingConfigurationRequestImageOptions,
       privatePoolOptions: ModifyScalingConfigurationRequestPrivatePoolOptions,
       systemDisk: ModifyScalingConfigurationRequestSystemDisk,
       affinity: 'string',
@@ -6092,6 +6113,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
 }
 
 export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
+  imageOptions?: ModifyScalingConfigurationShrinkRequestImageOptions;
   privatePoolOptions?: ModifyScalingConfigurationShrinkRequestPrivatePoolOptions;
   systemDisk?: ModifyScalingConfigurationShrinkRequestSystemDisk;
   affinity?: string;
@@ -6140,6 +6162,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      imageOptions: 'ImageOptions',
       privatePoolOptions: 'PrivatePoolOptions',
       systemDisk: 'SystemDisk',
       affinity: 'Affinity',
@@ -6191,6 +6214,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageOptions: ModifyScalingConfigurationShrinkRequestImageOptions,
       privatePoolOptions: ModifyScalingConfigurationShrinkRequestPrivatePoolOptions,
       systemDisk: ModifyScalingConfigurationShrinkRequestSystemDisk,
       affinity: 'string',
@@ -6439,6 +6463,7 @@ export class ModifyScalingGroupResponse extends $tea.Model {
 export class ModifyScalingRuleRequest extends $tea.Model {
   adjustmentType?: string;
   adjustmentValue?: number;
+  alarmDimensions?: ModifyScalingRuleRequestAlarmDimensions[];
   cooldown?: number;
   disableScaleIn?: boolean;
   estimatedInstanceWarmup?: number;
@@ -6463,6 +6488,7 @@ export class ModifyScalingRuleRequest extends $tea.Model {
     return {
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
+      alarmDimensions: 'AlarmDimensions',
       cooldown: 'Cooldown',
       disableScaleIn: 'DisableScaleIn',
       estimatedInstanceWarmup: 'EstimatedInstanceWarmup',
@@ -6490,6 +6516,7 @@ export class ModifyScalingRuleRequest extends $tea.Model {
     return {
       adjustmentType: 'string',
       adjustmentValue: 'number',
+      alarmDimensions: { 'type': 'array', 'itemType': ModifyScalingRuleRequestAlarmDimensions },
       cooldown: 'number',
       disableScaleIn: 'boolean',
       estimatedInstanceWarmup: 'number',
@@ -7724,6 +7751,28 @@ export class AttachAlbServerGroupsRequestAlbServerGroups extends $tea.Model {
   }
 }
 
+export class AttachLoadBalancersRequestLoadBalancerConfigs extends $tea.Model {
+  loadBalancerId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachServerGroupsRequestServerGroups extends $tea.Model {
   port?: number;
   serverGroupId?: string;
@@ -7944,13 +7993,13 @@ export class CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocke
 }
 
 export class CreateEciScalingConfigurationRequestContainersLivenessProbe extends $tea.Model {
-  exec: CreateEciScalingConfigurationRequestContainersLivenessProbeExec;
+  exec?: CreateEciScalingConfigurationRequestContainersLivenessProbeExec;
   failureThreshold?: number;
-  httpGet: CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
+  httpGet?: CreateEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
+  tcpSocket?: CreateEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8047,13 +8096,13 @@ export class CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSock
 }
 
 export class CreateEciScalingConfigurationRequestContainersReadinessProbe extends $tea.Model {
-  exec: CreateEciScalingConfigurationRequestContainersReadinessProbeExec;
+  exec?: CreateEciScalingConfigurationRequestContainersReadinessProbeExec;
   failureThreshold?: number;
-  httpGet: CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
+  httpGet?: CreateEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
+  tcpSocket?: CreateEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8106,7 +8155,7 @@ export class CreateEciScalingConfigurationRequestContainersSecurityContextCapabi
 }
 
 export class CreateEciScalingConfigurationRequestContainersSecurityContext extends $tea.Model {
-  capability: CreateEciScalingConfigurationRequestContainersSecurityContextCapability;
+  capability?: CreateEciScalingConfigurationRequestContainersSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -8209,9 +8258,9 @@ export class CreateEciScalingConfigurationRequestContainersVolumeMounts extends 
 }
 
 export class CreateEciScalingConfigurationRequestContainers extends $tea.Model {
-  livenessProbe: CreateEciScalingConfigurationRequestContainersLivenessProbe;
-  readinessProbe: CreateEciScalingConfigurationRequestContainersReadinessProbe;
-  securityContext: CreateEciScalingConfigurationRequestContainersSecurityContext;
+  livenessProbe?: CreateEciScalingConfigurationRequestContainersLivenessProbe;
+  readinessProbe?: CreateEciScalingConfigurationRequestContainersReadinessProbe;
+  securityContext?: CreateEciScalingConfigurationRequestContainersSecurityContext;
   args?: string[];
   commands?: string[];
   cpu?: number;
@@ -8367,7 +8416,7 @@ export class CreateEciScalingConfigurationRequestInitContainersSecurityContextCa
 }
 
 export class CreateEciScalingConfigurationRequestInitContainersSecurityContext extends $tea.Model {
-  capability: CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability;
+  capability?: CreateEciScalingConfigurationRequestInitContainersSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -8470,7 +8519,7 @@ export class CreateEciScalingConfigurationRequestInitContainersInitContainerVolu
 }
 
 export class CreateEciScalingConfigurationRequestInitContainers extends $tea.Model {
-  securityContext: CreateEciScalingConfigurationRequestInitContainersSecurityContext;
+  securityContext?: CreateEciScalingConfigurationRequestInitContainersSecurityContext;
   args?: string[];
   commands?: string[];
   cpu?: number;
@@ -8710,11 +8759,11 @@ export class CreateEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFi
 }
 
 export class CreateEciScalingConfigurationRequestVolumes extends $tea.Model {
-  diskVolume: CreateEciScalingConfigurationRequestVolumesDiskVolume;
-  emptyDirVolume: CreateEciScalingConfigurationRequestVolumesEmptyDirVolume;
-  flexVolume: CreateEciScalingConfigurationRequestVolumesFlexVolume;
-  hostPathVolume: CreateEciScalingConfigurationRequestVolumesHostPathVolume;
-  NFSVolume: CreateEciScalingConfigurationRequestVolumesNFSVolume;
+  diskVolume?: CreateEciScalingConfigurationRequestVolumesDiskVolume;
+  emptyDirVolume?: CreateEciScalingConfigurationRequestVolumesEmptyDirVolume;
+  flexVolume?: CreateEciScalingConfigurationRequestVolumesFlexVolume;
+  hostPathVolume?: CreateEciScalingConfigurationRequestVolumesHostPathVolume;
+  NFSVolume?: CreateEciScalingConfigurationRequestVolumesNFSVolume;
   configFileVolumeConfigFileToPaths?: CreateEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPaths[];
   configFileVolumeDefaultMode?: number;
   name?: string;
@@ -8744,6 +8793,25 @@ export class CreateEciScalingConfigurationRequestVolumes extends $tea.Model {
       configFileVolumeDefaultMode: 'number',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingConfigurationRequestImageOptions extends $tea.Model {
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
     };
   }
 
@@ -8954,6 +9022,25 @@ export class CreateScalingConfigurationRequestSpotPriceLimits extends $tea.Model
     return {
       instanceType: 'string',
       priceLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingConfigurationShrinkRequestImageOptions extends $tea.Model {
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
     };
   }
 
@@ -9256,6 +9343,28 @@ export class CreateScalingGroupRequestLifecycleHooks extends $tea.Model {
   }
 }
 
+export class CreateScalingGroupRequestLoadBalancerConfigs extends $tea.Model {
+  loadBalancerId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingGroupRequestServerGroups extends $tea.Model {
   port?: number;
   serverGroupId?: string;
@@ -9345,6 +9454,28 @@ export class CreateScalingGroupRequestVServerGroups extends $tea.Model {
     return {
       loadBalancerId: 'string',
       VServerGroupAttributes: { 'type': 'array', 'itemType': CreateScalingGroupRequestVServerGroupsVServerGroupAttributes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingRuleRequestAlarmDimensions extends $tea.Model {
+  dimensionKey?: string;
+  dimensionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionKey: 'DimensionKey',
+      dimensionValue: 'DimensionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionKey: 'string',
+      dimensionValue: 'string',
     };
   }
 
@@ -10625,7 +10756,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsTags 
 }
 
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurations extends $tea.Model {
-  privatePoolOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions;
+  privatePoolOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions;
   affinity?: string;
   cpu?: number;
   creationTime?: string;
@@ -10638,6 +10769,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   imageFamily?: string;
   imageId?: string;
   imageName?: string;
+  imageOptionsLoginAsNonRoot?: boolean;
   imageOwnerAlias?: string;
   instanceDescription?: string;
   instanceGeneration?: string;
@@ -10700,6 +10832,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       imageFamily: 'ImageFamily',
       imageId: 'ImageId',
       imageName: 'ImageName',
+      imageOptionsLoginAsNonRoot: 'ImageOptionsLoginAsNonRoot',
       imageOwnerAlias: 'ImageOwnerAlias',
       instanceDescription: 'InstanceDescription',
       instanceGeneration: 'InstanceGeneration',
@@ -10765,6 +10898,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       imageFamily: 'string',
       imageId: 'string',
       imageName: 'string',
+      imageOptionsLoginAsNonRoot: 'boolean',
       imageOwnerAlias: 'string',
       instanceDescription: 'string',
       instanceGeneration: 'string',
@@ -10870,6 +11004,28 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrid
   }
 }
 
+export class DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs extends $tea.Model {
+  loadBalancerId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingGroupsResponseBodyScalingGroupsServerGroups extends $tea.Model {
   port?: number;
   serverGroupId?: string;
@@ -10967,6 +11123,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
   launchTemplateOverrides?: DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides[];
   launchTemplateVersion?: string;
   lifecycleState?: string;
+  loadBalancerConfigs?: DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs[];
   loadBalancerIds?: string[];
   maxInstanceLifetime?: number;
   maxSize?: number;
@@ -11024,6 +11181,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       launchTemplateOverrides: 'LaunchTemplateOverrides',
       launchTemplateVersion: 'LaunchTemplateVersion',
       lifecycleState: 'LifecycleState',
+      loadBalancerConfigs: 'LoadBalancerConfigs',
       loadBalancerIds: 'LoadBalancerIds',
       maxInstanceLifetime: 'MaxInstanceLifetime',
       maxSize: 'MaxSize',
@@ -11084,6 +11242,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       launchTemplateOverrides: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides },
       launchTemplateVersion: 'string',
       lifecycleState: 'string',
+      loadBalancerConfigs: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsLoadBalancerConfigs },
       loadBalancerIds: { 'type': 'array', 'itemType': 'string' },
       maxInstanceLifetime: 'number',
       maxSize: 'number',
@@ -11193,6 +11352,28 @@ export class DescribeScalingInstancesResponseBodyScalingInstances extends $tea.M
   }
 }
 
+export class DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions extends $tea.Model {
+  dimensionKey?: string;
+  dimensionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionKey: 'DimensionKey',
+      dimensionValue: 'DimensionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionKey: 'string',
+      dimensionValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingRulesResponseBodyScalingRulesAlarmsDimensions extends $tea.Model {
   dimensionKey?: string;
   dimensionValue?: string;
@@ -11286,6 +11467,7 @@ export class DescribeScalingRulesResponseBodyScalingRulesStepAdjustments extends
 export class DescribeScalingRulesResponseBodyScalingRules extends $tea.Model {
   adjustmentType?: string;
   adjustmentValue?: number;
+  alarmDimensions?: DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions[];
   alarms?: DescribeScalingRulesResponseBodyScalingRulesAlarms[];
   cooldown?: number;
   disableScaleIn?: boolean;
@@ -11312,6 +11494,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $tea.Model {
     return {
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
+      alarmDimensions: 'AlarmDimensions',
       alarms: 'Alarms',
       cooldown: 'Cooldown',
       disableScaleIn: 'DisableScaleIn',
@@ -11341,6 +11524,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $tea.Model {
     return {
       adjustmentType: 'string',
       adjustmentValue: 'number',
+      alarmDimensions: { 'type': 'array', 'itemType': DescribeScalingRulesResponseBodyScalingRulesAlarmDimensions },
       alarms: { 'type': 'array', 'itemType': DescribeScalingRulesResponseBodyScalingRulesAlarms },
       cooldown: 'number',
       disableScaleIn: 'boolean',
@@ -11740,13 +11924,13 @@ export class ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocke
 }
 
 export class ModifyEciScalingConfigurationRequestContainersLivenessProbe extends $tea.Model {
-  exec: ModifyEciScalingConfigurationRequestContainersLivenessProbeExec;
+  exec?: ModifyEciScalingConfigurationRequestContainersLivenessProbeExec;
   failureThreshold?: number;
-  httpGet: ModifyEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
+  httpGet?: ModifyEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
+  tcpSocket?: ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11843,13 +12027,13 @@ export class ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSock
 }
 
 export class ModifyEciScalingConfigurationRequestContainersReadinessProbe extends $tea.Model {
-  exec: ModifyEciScalingConfigurationRequestContainersReadinessProbeExec;
+  exec?: ModifyEciScalingConfigurationRequestContainersReadinessProbeExec;
   failureThreshold?: number;
-  httpGet: ModifyEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
+  httpGet?: ModifyEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
   initialDelaySeconds?: number;
   periodSeconds?: number;
   successThreshold?: number;
-  tcpSocket: ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
+  tcpSocket?: ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11902,7 +12086,7 @@ export class ModifyEciScalingConfigurationRequestContainersSecurityContextCapabi
 }
 
 export class ModifyEciScalingConfigurationRequestContainersSecurityContext extends $tea.Model {
-  capability: ModifyEciScalingConfigurationRequestContainersSecurityContextCapability;
+  capability?: ModifyEciScalingConfigurationRequestContainersSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -11946,7 +12130,7 @@ export class ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldR
 }
 
 export class ModifyEciScalingConfigurationRequestContainersEnvironmentVars extends $tea.Model {
-  fieldRef: ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef;
+  fieldRef?: ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -12024,9 +12208,9 @@ export class ModifyEciScalingConfigurationRequestContainersVolumeMounts extends 
 }
 
 export class ModifyEciScalingConfigurationRequestContainers extends $tea.Model {
-  livenessProbe: ModifyEciScalingConfigurationRequestContainersLivenessProbe;
-  readinessProbe: ModifyEciScalingConfigurationRequestContainersReadinessProbe;
-  securityContext: ModifyEciScalingConfigurationRequestContainersSecurityContext;
+  livenessProbe?: ModifyEciScalingConfigurationRequestContainersLivenessProbe;
+  readinessProbe?: ModifyEciScalingConfigurationRequestContainersReadinessProbe;
+  securityContext?: ModifyEciScalingConfigurationRequestContainersSecurityContext;
   args?: string[];
   commands?: string[];
   cpu?: number;
@@ -12182,7 +12366,7 @@ export class ModifyEciScalingConfigurationRequestInitContainersSecurityContextCa
 }
 
 export class ModifyEciScalingConfigurationRequestInitContainersSecurityContext extends $tea.Model {
-  capability: ModifyEciScalingConfigurationRequestInitContainersSecurityContextCapability;
+  capability?: ModifyEciScalingConfigurationRequestInitContainersSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
   static names(): { [key: string]: string } {
@@ -12226,7 +12410,7 @@ export class ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvi
 }
 
 export class ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars extends $tea.Model {
-  fieldRef: ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVarsFieldRef;
+  fieldRef?: ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVarsFieldRef;
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -12304,7 +12488,7 @@ export class ModifyEciScalingConfigurationRequestInitContainersInitContainerVolu
 }
 
 export class ModifyEciScalingConfigurationRequestInitContainers extends $tea.Model {
-  securityContext: ModifyEciScalingConfigurationRequestInitContainersSecurityContext;
+  securityContext?: ModifyEciScalingConfigurationRequestInitContainersSecurityContext;
   args?: string[];
   commands?: string[];
   cpu?: number;
@@ -12544,11 +12728,11 @@ export class ModifyEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFi
 }
 
 export class ModifyEciScalingConfigurationRequestVolumes extends $tea.Model {
-  diskVolume: ModifyEciScalingConfigurationRequestVolumesDiskVolume;
-  emptyDirVolume: ModifyEciScalingConfigurationRequestVolumesEmptyDirVolume;
-  flexVolume: ModifyEciScalingConfigurationRequestVolumesFlexVolume;
-  hostPathVolume: ModifyEciScalingConfigurationRequestVolumesHostPathVolume;
-  NFSVolume: ModifyEciScalingConfigurationRequestVolumesNFSVolume;
+  diskVolume?: ModifyEciScalingConfigurationRequestVolumesDiskVolume;
+  emptyDirVolume?: ModifyEciScalingConfigurationRequestVolumesEmptyDirVolume;
+  flexVolume?: ModifyEciScalingConfigurationRequestVolumesFlexVolume;
+  hostPathVolume?: ModifyEciScalingConfigurationRequestVolumesHostPathVolume;
+  NFSVolume?: ModifyEciScalingConfigurationRequestVolumesNFSVolume;
   configFileVolumeConfigFileToPath?: ModifyEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPath[];
   configFileVolumeDefaultMode?: number;
   name?: string;
@@ -12578,6 +12762,25 @@ export class ModifyEciScalingConfigurationRequestVolumes extends $tea.Model {
       configFileVolumeDefaultMode: 'number',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingConfigurationRequestImageOptions extends $tea.Model {
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
     };
   }
 
@@ -12788,6 +12991,25 @@ export class ModifyScalingConfigurationRequestSpotPriceLimits extends $tea.Model
     return {
       instanceType: 'string',
       priceLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingConfigurationShrinkRequestImageOptions extends $tea.Model {
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
     };
   }
 
@@ -13023,6 +13245,28 @@ export class ModifyScalingGroupRequestLaunchTemplateOverrides extends $tea.Model
       instanceType: 'string',
       spotPriceLimit: 'number',
       weightedCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingRuleRequestAlarmDimensions extends $tea.Model {
+  dimensionKey?: string;
+  dimensionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionKey: 'DimensionKey',
+      dimensionValue: 'DimensionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionKey: 'string',
+      dimensionValue: 'string',
     };
   }
 
@@ -13382,6 +13626,10 @@ export default class Client extends OpenApi {
       query["ForceAttach"] = request.forceAttach;
     }
 
+    if (!Util.isUnset(request.loadBalancerConfigs)) {
+      query["LoadBalancerConfigs"] = request.loadBalancerConfigs;
+    }
+
     if (!Util.isUnset(request.loadBalancers)) {
       query["LoadBalancers"] = request.loadBalancers;
     }
@@ -13608,7 +13856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation to end a lifecycle hook ahead of schedule, you can use the LifecycleActionResult parameter to specify the action that you want Auto Scaling to perform after the lifecycle hook ends. You can set the LifecycleActionResult parameter to CONTINUE or ABANDON.
+    * If you set the LifecycleActionResult parameter for a lifecycle hook of a scaling group to CONTINUE in the operation, Auto Scaling continues to complete the scaling activity in the scaling group after the lifecycle hook times out. If you set the LifecycleActionResult parameter to ABANDON, Auto Scaling stops the scaling activity in the scaling group after the lifecycle hook times out.
     *
     * @param request CompleteLifecycleActionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -13667,7 +13915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation to end a lifecycle hook ahead of schedule, you can use the LifecycleActionResult parameter to specify the action that you want Auto Scaling to perform after the lifecycle hook ends. You can set the LifecycleActionResult parameter to CONTINUE or ABANDON.
+    * If you set the LifecycleActionResult parameter for a lifecycle hook of a scaling group to CONTINUE in the operation, Auto Scaling continues to complete the scaling activity in the scaling group after the lifecycle hook times out. If you set the LifecycleActionResult parameter to ABANDON, Auto Scaling stops the scaling activity in the scaling group after the lifecycle hook times out.
     *
     * @param request CompleteLifecycleActionRequest
     * @return CompleteLifecycleActionResponse
@@ -14016,10 +14264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
-    * During a scale-out activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be added to the associated whitelist that manages access to the ApsaraDB RDS instance. The ECS instances also wait to be added to the backend server group of the associated Classic Load Balancer (CLB) instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are added to the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also added to the backend server group of the associated CLB instance. During a scale-in activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances also wait to be removed from the backend server group of the associated CLB instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also removed from the backend server group of the associated CLB instance.
-    * You can configure a notification method for a lifecycle hook. When the lifecycle hook is triggered, a notification can be sent to the specified Message Service (MNS) topic or queue, or an operation can be performed based on the specified Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](~~120810~~).
-    * > If your scaling group has existing ECS instances and you configured an OOS template that is used to add the private IP addresses of ECS instances to or remove the private IP addresses of ECS instances from the whitelists that manage access to cloud databases that are not ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the whitelists that manage access to the cloud databases.
+    * You can create up to six lifecycle hooks for each scaling group. Elastic Compute Service (ECS) instances are not immediately added to or removed from scaling groups that have effective lifecycle hooks during scaling activities. The ECS instances are added to or removed from the scaling groups only after the lifecycle hooks time out. The period of time before the lifecycle hooks time out is specified by the HeartbeatTimeout parameter. Before lifecycle hooks time out, you can initialize the configurations of ECS instances and query data on the ECS instances.
+    * If lifecycle hooks take effect for scale-out activities, the private IP addresses of ECS instances are added to the IP address whitelists of the associated ApsaraDB RDS instances and the ECS instances are added to the backend server groups of the associated Server Load Balancer (SLB) instances only after the lifecycle hooks time out. If lifecycle hooks take effect for scale-in activities, the private IP addresses of ECS instances are removed from the IP address whitelists of the disassociated ApsaraDB RDS instances and the ECS instances are removed from the backend server groups of the disassociated SLB instances only after the lifecycle hooks time out.
+    * You can configure a notification method for a lifecycle hook. When the lifecycle hook takes effect, a notification can be sent by using a Message Service (MNS) topic, an MNS queue, or an Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a RAM role for OOS. For more information, see [Grant RAM permissions to OOS](~~120810~~).
+    * > If your scaling group contains ECS instances and you configure an OOS template to add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the IP address whitelists of cloud databases other than ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to the IP address whitelists of the cloud databases.
     *
     * @param request CreateLifecycleHookRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14086,10 +14334,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
-    * During a scale-out activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be added to the associated whitelist that manages access to the ApsaraDB RDS instance. The ECS instances also wait to be added to the backend server group of the associated Classic Load Balancer (CLB) instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are added to the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also added to the backend server group of the associated CLB instance. During a scale-in activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances also wait to be removed from the backend server group of the associated CLB instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also removed from the backend server group of the associated CLB instance.
-    * You can configure a notification method for a lifecycle hook. When the lifecycle hook is triggered, a notification can be sent to the specified Message Service (MNS) topic or queue, or an operation can be performed based on the specified Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](~~120810~~).
-    * > If your scaling group has existing ECS instances and you configured an OOS template that is used to add the private IP addresses of ECS instances to or remove the private IP addresses of ECS instances from the whitelists that manage access to cloud databases that are not ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the whitelists that manage access to the cloud databases.
+    * You can create up to six lifecycle hooks for each scaling group. Elastic Compute Service (ECS) instances are not immediately added to or removed from scaling groups that have effective lifecycle hooks during scaling activities. The ECS instances are added to or removed from the scaling groups only after the lifecycle hooks time out. The period of time before the lifecycle hooks time out is specified by the HeartbeatTimeout parameter. Before lifecycle hooks time out, you can initialize the configurations of ECS instances and query data on the ECS instances.
+    * If lifecycle hooks take effect for scale-out activities, the private IP addresses of ECS instances are added to the IP address whitelists of the associated ApsaraDB RDS instances and the ECS instances are added to the backend server groups of the associated Server Load Balancer (SLB) instances only after the lifecycle hooks time out. If lifecycle hooks take effect for scale-in activities, the private IP addresses of ECS instances are removed from the IP address whitelists of the disassociated ApsaraDB RDS instances and the ECS instances are removed from the backend server groups of the disassociated SLB instances only after the lifecycle hooks time out.
+    * You can configure a notification method for a lifecycle hook. When the lifecycle hook takes effect, a notification can be sent by using a Message Service (MNS) topic, an MNS queue, or an Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a RAM role for OOS. For more information, see [Grant RAM permissions to OOS](~~120810~~).
+    * > If your scaling group contains ECS instances and you configure an OOS template to add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the IP address whitelists of cloud databases other than ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to the IP address whitelists of the cloud databases.
     *
     * @param request CreateLifecycleHookRequest
     * @return CreateLifecycleHookResponse
@@ -14162,13 +14410,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Auto Scaling automatically scales out Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be configured in the following modes:
-    * *   InstancePatternInfo.N: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. The system selects an instance type that is provided at the lowest price based on your configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode helps reduce the failures of scale-out activities caused by insufficient inventory of instance types.
+    * Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
+    * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the lowest-priced instance type based on your configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces the failures of scale-outs caused by insufficient inventory of instance types.
     * *   InstanceType: In this mode, you must specify one instance type.
-    * *   InstanceTypes.N: In this mode, you must specify multiple instance types.
-    * *   InstanceTypeOverride.N: In this mode, you must specify multiple instance types and specify weights for the instance types.
-    * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines a set of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling preferentially creates ECS instances of the instance type that is provided at the lowest price. This mode is available only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
-    * > You cannot use InstanceType, InstanceTypes, InstanceTypeOverride, and Cpu and Memory at the same time. You can use InstanceType and InstancePatternInfos or use InstanceTypes and InstancePatternInfos at the same time. If you use InstanceType and InstancePatternInfos or use InstanceTypes and InstancePatternInfos at the same time, Auto Scaling preferentially uses the instance types that are specified by InstanceType or InstanceTypes for scale-out activities. If the instance types that are specified by InstanceType or InstanceTypes do not have sufficient inventory, Auto Scaling uses the instance types that are specified by InstancePatternInfos for scale-out activities.
+    * *   InstanceTypes: In this mode, you can specify more than one instance type.
+    * *   InstanceTypeOverrides: In this mode, you can specify multiple instance types and weights for the instance types.
+    * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines the range of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling creates ECS instances of the lowest-priced instance type. This mode is available only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+    * > You cannot specify InstanceType, InstanceTypes, InstanceTypeOverrides, and Cpu and Memory parameters at the same time. You can specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfo at the same time. If you specify the InstanceType and InstancePatternInfos parameters or specify the InstanceTypes and InstancePatternInfos parameters at the same time, Auto Scaling preferentially uses the instance types that are specified by the InstanceType or InstanceTypes parameter for scale-outs. If the instance types that are specified by the InstanceType or InstanceTypes parameter do not have sufficient inventory, Auto Scaling uses the instance types that are specified by the InstancePatternInfos parameter for scale-outs.
     *
     * @param tmpReq CreateScalingConfigurationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14375,6 +14623,10 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
+    if (!Util.isUnset(request.imageOptions)) {
+      query["ImageOptions"] = request.imageOptions;
+    }
+
     if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
@@ -14401,13 +14653,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Auto Scaling automatically scales out Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be configured in the following modes:
-    * *   InstancePatternInfo.N: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. The system selects an instance type that is provided at the lowest price based on your configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode helps reduce the failures of scale-out activities caused by insufficient inventory of instance types.
+    * Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
+    * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the lowest-priced instance type based on your configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces the failures of scale-outs caused by insufficient inventory of instance types.
     * *   InstanceType: In this mode, you must specify one instance type.
-    * *   InstanceTypes.N: In this mode, you must specify multiple instance types.
-    * *   InstanceTypeOverride.N: In this mode, you must specify multiple instance types and specify weights for the instance types.
-    * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines a set of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling preferentially creates ECS instances of the instance type that is provided at the lowest price. This mode is available only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
-    * > You cannot use InstanceType, InstanceTypes, InstanceTypeOverride, and Cpu and Memory at the same time. You can use InstanceType and InstancePatternInfos or use InstanceTypes and InstancePatternInfos at the same time. If you use InstanceType and InstancePatternInfos or use InstanceTypes and InstancePatternInfos at the same time, Auto Scaling preferentially uses the instance types that are specified by InstanceType or InstanceTypes for scale-out activities. If the instance types that are specified by InstanceType or InstanceTypes do not have sufficient inventory, Auto Scaling uses the instance types that are specified by InstancePatternInfos for scale-out activities.
+    * *   InstanceTypes: In this mode, you can specify more than one instance type.
+    * *   InstanceTypeOverrides: In this mode, you can specify multiple instance types and weights for the instance types.
+    * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines the range of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling creates ECS instances of the lowest-priced instance type. This mode is available only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+    * > You cannot specify InstanceType, InstanceTypes, InstanceTypeOverrides, and Cpu and Memory parameters at the same time. You can specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfo at the same time. If you specify the InstanceType and InstancePatternInfos parameters or specify the InstanceTypes and InstancePatternInfos parameters at the same time, Auto Scaling preferentially uses the instance types that are specified by the InstanceType or InstanceTypes parameter for scale-outs. If the instance types that are specified by the InstanceType or InstanceTypes parameter do not have sufficient inventory, Auto Scaling uses the instance types that are specified by the InstancePatternInfos parameter for scale-outs.
     *
     * @param request CreateScalingConfigurationRequest
     * @return CreateScalingConfigurationResponse
@@ -14420,26 +14672,26 @@ export default class Client extends OpenApi {
   /**
     * A scaling group is a group of Elastic Compute Service (ECS) instances that can be used in similar business scenarios.
     * You can create only a limited number of scaling groups in a region. Go to Quota Center to check the quota of the scaling groups.
-    * A scaling group does not immediately take effect after you create it. You must call the EnableScalingGroup operation to enable a scaling group. After you enable a scaling group, Auto Scaling can execute scaling rules to trigger scaling activities in the scaling group.
-    * The Classic Load Balancer (CLB) instances and ApsaraDB RDS instances that you want to associate with a scaling group must reside in the same region as the scaling group. CLB instances are formerly known as Server Load Balancer (SLB) instances. For more information, see the "Regions and zones" topic in ECS Product Introduction.
-    * If you associate a CLB instance with a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the backend server group of the CLB instance. You can specify a server group to which ECS instances can be added. You can add ECS instances to the following types of server groups:
+    * A scaling group does not immediately take effect after you create the scaling group. You must call the EnableScalingGroup operation to enable the scaling group. After you enable the scaling group, Auto Scaling can execute scaling rules to trigger scaling activities in the scaling group.
+    * The Classic Load Balancer (CLB) instances and ApsaraDB RDS instances that you want to associate with a scaling group must reside in the same region as the scaling group. CLB instances are formerly known as Server Load Balancer (SLB) instances. For more information, see the "Regions and zones" topic.
+    * If you associate a CLB instance when you create a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the backend server group of the associated CLB instance. You can specify a server group to which ECS instances can be added. You can add ECS instances to the following types of server groups:
     * *   Default server group: a group of ECS instances that are used to receive requests. If you do not specify a vServer group or a primary/secondary server group for a listener, requests are forwarded to the ECS instances in the default server group.
     * *   vServer group: If you want to forward requests to backend servers that are not in the default server group or configure domain name-based or URL-based forwarding rules, you can use vServer groups.
     * > If you specify the default server group and multiple vServer groups at the same time, ECS instances are added to all specified server groups.
     * The default weight of an ECS instance that is added as a backend server of a CLB instance is 50. The CLB instance that you want to associate with your scaling group must meet the following requirements:
     * *   The CLB instance must be in the Active state. You can call the DescribeLoadBalancers operation to query the state of the CLB instance.
     * *   The health check feature must be enabled on all listener ports that are configured for the CLB instance. Otherwise, the scaling group fails to be created.
-    * If you associate an Application Load Balancer (ALB) server group with a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the ALB server group to process requests distributed by the ALB instance to which the ALB server group belongs. You can specify multiple ALB server groups. The server groups must reside in the same virtual private cloud (VPC) as the scaling group. For more information, see the "AttachAlbServerGroups" topic.
+    * If you associate an Application Load Balancer (ALB) server group with a scaling group, Auto Scaling automatically adds ECS instances that are in the scaling group to the ALB server group to process requests distributed by the ALB instance to which the ALB server group belongs. You can specify multiple ALB server groups. The server groups must reside in the same virtual private cloud (VPC) as the scaling group. For more information, see the "AttachAlbServerGroups" topic.
     * If you associate an ApsaraDB RDS instance with a scaling group, Auto Scaling automatically adds the private IP addresses of the ECS instances in the scaling group to the IP address whitelist of the ApsaraDB RDS instance. The ApsaraDB RDS instance that you want to associate with your scaling group must meet the following requirements:
     * *   The ApsaraDB RDS instance must be in the Running state. You can call the DescribeDBInstances operation to query the state of the ApsaraDB RDS instance.
-    * *   The number of IP addresses in the IP address whitelist of the ApsaraDB RDS instance cannot exceed the upper limit. For more information, see the "Configure whitelists" topic in ApsaraDB RDS User Guide.
+    * *   The number of IP addresses in the IP address whitelist of the ApsaraDB RDS instance cannot exceed the upper limit. For more information, see the "Configure whitelists" topic.
     * If you set the MultiAZPolicy parameter of the scaling group to COST_OPTIMIZED, take note of the following items:
     * *   You can use the OnDemandBaseCapacity, OnDemandPercentageAboveBaseCapacity, and SpotInstancePools parameters to specify the instance allocation method based on the cost optimization policy. This instance allocation method is prioritized during scaling.
     * *   If you do not specify the OnDemandBaseCapacity, OnDemandPercentageAboveBaseCapacity, or SpotInstancePools parameter, the instance types that are provided at the lowest price are used to create instances based on the cost optimization policy.
-    * If you set the `Tags.Propagate` parameter for the scaling group to true, the following rules apply:
+    * If you set the `Tags.Propagate` parameter of the scaling group to true, the following rules apply:
     * *   Tags that you add to the scaling group cannot be propagated to existing instances in the scaling group. Tags that you add to the scaling group are propagated to only new instances.
-    * *   If you specify instance tags in the scaling configuration that is used to create instances, and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
-    * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group that uses the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
+    * *   If you specify instance tags in the scaling configuration that is used to create instances and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
+    * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group of the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
     *
     * @param request CreateScalingGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14518,6 +14770,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lifecycleHooks)) {
       query["LifecycleHooks"] = request.lifecycleHooks;
+    }
+
+    if (!Util.isUnset(request.loadBalancerConfigs)) {
+      query["LoadBalancerConfigs"] = request.loadBalancerConfigs;
     }
 
     if (!Util.isUnset(request.loadBalancerIds)) {
@@ -14636,26 +14892,26 @@ export default class Client extends OpenApi {
   /**
     * A scaling group is a group of Elastic Compute Service (ECS) instances that can be used in similar business scenarios.
     * You can create only a limited number of scaling groups in a region. Go to Quota Center to check the quota of the scaling groups.
-    * A scaling group does not immediately take effect after you create it. You must call the EnableScalingGroup operation to enable a scaling group. After you enable a scaling group, Auto Scaling can execute scaling rules to trigger scaling activities in the scaling group.
-    * The Classic Load Balancer (CLB) instances and ApsaraDB RDS instances that you want to associate with a scaling group must reside in the same region as the scaling group. CLB instances are formerly known as Server Load Balancer (SLB) instances. For more information, see the "Regions and zones" topic in ECS Product Introduction.
-    * If you associate a CLB instance with a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the backend server group of the CLB instance. You can specify a server group to which ECS instances can be added. You can add ECS instances to the following types of server groups:
+    * A scaling group does not immediately take effect after you create the scaling group. You must call the EnableScalingGroup operation to enable the scaling group. After you enable the scaling group, Auto Scaling can execute scaling rules to trigger scaling activities in the scaling group.
+    * The Classic Load Balancer (CLB) instances and ApsaraDB RDS instances that you want to associate with a scaling group must reside in the same region as the scaling group. CLB instances are formerly known as Server Load Balancer (SLB) instances. For more information, see the "Regions and zones" topic.
+    * If you associate a CLB instance when you create a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the backend server group of the associated CLB instance. You can specify a server group to which ECS instances can be added. You can add ECS instances to the following types of server groups:
     * *   Default server group: a group of ECS instances that are used to receive requests. If you do not specify a vServer group or a primary/secondary server group for a listener, requests are forwarded to the ECS instances in the default server group.
     * *   vServer group: If you want to forward requests to backend servers that are not in the default server group or configure domain name-based or URL-based forwarding rules, you can use vServer groups.
     * > If you specify the default server group and multiple vServer groups at the same time, ECS instances are added to all specified server groups.
     * The default weight of an ECS instance that is added as a backend server of a CLB instance is 50. The CLB instance that you want to associate with your scaling group must meet the following requirements:
     * *   The CLB instance must be in the Active state. You can call the DescribeLoadBalancers operation to query the state of the CLB instance.
     * *   The health check feature must be enabled on all listener ports that are configured for the CLB instance. Otherwise, the scaling group fails to be created.
-    * If you associate an Application Load Balancer (ALB) server group with a scaling group, Auto Scaling automatically adds ECS instances in the scaling group to the ALB server group to process requests distributed by the ALB instance to which the ALB server group belongs. You can specify multiple ALB server groups. The server groups must reside in the same virtual private cloud (VPC) as the scaling group. For more information, see the "AttachAlbServerGroups" topic.
+    * If you associate an Application Load Balancer (ALB) server group with a scaling group, Auto Scaling automatically adds ECS instances that are in the scaling group to the ALB server group to process requests distributed by the ALB instance to which the ALB server group belongs. You can specify multiple ALB server groups. The server groups must reside in the same virtual private cloud (VPC) as the scaling group. For more information, see the "AttachAlbServerGroups" topic.
     * If you associate an ApsaraDB RDS instance with a scaling group, Auto Scaling automatically adds the private IP addresses of the ECS instances in the scaling group to the IP address whitelist of the ApsaraDB RDS instance. The ApsaraDB RDS instance that you want to associate with your scaling group must meet the following requirements:
     * *   The ApsaraDB RDS instance must be in the Running state. You can call the DescribeDBInstances operation to query the state of the ApsaraDB RDS instance.
-    * *   The number of IP addresses in the IP address whitelist of the ApsaraDB RDS instance cannot exceed the upper limit. For more information, see the "Configure whitelists" topic in ApsaraDB RDS User Guide.
+    * *   The number of IP addresses in the IP address whitelist of the ApsaraDB RDS instance cannot exceed the upper limit. For more information, see the "Configure whitelists" topic.
     * If you set the MultiAZPolicy parameter of the scaling group to COST_OPTIMIZED, take note of the following items:
     * *   You can use the OnDemandBaseCapacity, OnDemandPercentageAboveBaseCapacity, and SpotInstancePools parameters to specify the instance allocation method based on the cost optimization policy. This instance allocation method is prioritized during scaling.
     * *   If you do not specify the OnDemandBaseCapacity, OnDemandPercentageAboveBaseCapacity, or SpotInstancePools parameter, the instance types that are provided at the lowest price are used to create instances based on the cost optimization policy.
-    * If you set the `Tags.Propagate` parameter for the scaling group to true, the following rules apply:
+    * If you set the `Tags.Propagate` parameter of the scaling group to true, the following rules apply:
     * *   Tags that you add to the scaling group cannot be propagated to existing instances in the scaling group. Tags that you add to the scaling group are propagated to only new instances.
-    * *   If you specify instance tags in the scaling configuration that is used to create instances, and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
-    * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group that uses the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
+    * *   If you specify instance tags in the scaling configuration that is used to create instances and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
+    * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group of the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
     *
     * @param request CreateScalingGroupRequest
     * @return CreateScalingGroupResponse
@@ -14681,6 +14937,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.adjustmentValue)) {
       query["AdjustmentValue"] = request.adjustmentValue;
+    }
+
+    if (!Util.isUnset(request.alarmDimensions)) {
+      query["AlarmDimensions"] = request.alarmDimensions;
     }
 
     if (!Util.isUnset(request.cooldown)) {
@@ -16816,9 +17076,9 @@ export default class Client extends OpenApi {
   /**
     * You can call this operation to enable a scaling group that is in the Inactive state and has an instance configuration source. The instance configuration source can be a scaling configuration, a launch template, or an Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If a scaling group is not in the Inactive state or does not have an active instance configuration source, you cannot call this operation to enable the scaling group.
     * > A scaling group can have only one active instance configuration source. When you call this operation to enable a scaling group, you can specify a scaling configuration or a launch template for the scaling group. If an instance configuration source has been configured for the scaling group before you call this operation, the scaling configuration or launch template that you specify in the request overwrites the original scaling configuration or launch template.
-    * If you specify a value for the InstanceId parameter when you call the operation, Auto Scaling checks whether the total number of ECS instances is within the range allowed in the scaling group after you call the operation.
-    * *   If the total number of ECS instances is less than the minimum number of instances allowed in the scaling group after you call the operation, Auto Scaling automatically creates the required number of pay-as-you-go ECS instances and adds the instances to the scaling group to reach the minimum number. For example, if the minimum number of instances allowed in your scaling group is five, and you specify the InstanceId parameter to add two created ECS instances to the scaling group, Auto Scaling automatically creates three instances in the scaling group after the two instances are added.
-    * *   If the value of the TotalCapactiy parameter is greater than the value of the MaxSize parameter, the call fails.
+    * If you specify a value for the InstanceIds parameter when you call the operation, Auto Scaling checks whether the total number of ECS instances is within the range allowed in the scaling group after you call the operation.
+    * *   If the total number of ECS instances is less than the minimum number of instances required in the scaling group after you call the operation, Auto Scaling automatically creates the required number of pay-as-you-go ECS instances and adds the instances to the scaling group to reach the minimum number. For example, if the minimum number of instances required in your scaling group is five, and you specify the InstanceIds parameter to add two ECS instances to the scaling group, Auto Scaling automatically creates three instances in the scaling group after the two instances are added.
+    * *   If the value of the TotalCapacity parameter is greater than the value of the MaxSize parameter, the call fails.
     *
     * @param request EnableScalingGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16895,9 +17155,9 @@ export default class Client extends OpenApi {
   /**
     * You can call this operation to enable a scaling group that is in the Inactive state and has an instance configuration source. The instance configuration source can be a scaling configuration, a launch template, or an Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If a scaling group is not in the Inactive state or does not have an active instance configuration source, you cannot call this operation to enable the scaling group.
     * > A scaling group can have only one active instance configuration source. When you call this operation to enable a scaling group, you can specify a scaling configuration or a launch template for the scaling group. If an instance configuration source has been configured for the scaling group before you call this operation, the scaling configuration or launch template that you specify in the request overwrites the original scaling configuration or launch template.
-    * If you specify a value for the InstanceId parameter when you call the operation, Auto Scaling checks whether the total number of ECS instances is within the range allowed in the scaling group after you call the operation.
-    * *   If the total number of ECS instances is less than the minimum number of instances allowed in the scaling group after you call the operation, Auto Scaling automatically creates the required number of pay-as-you-go ECS instances and adds the instances to the scaling group to reach the minimum number. For example, if the minimum number of instances allowed in your scaling group is five, and you specify the InstanceId parameter to add two created ECS instances to the scaling group, Auto Scaling automatically creates three instances in the scaling group after the two instances are added.
-    * *   If the value of the TotalCapactiy parameter is greater than the value of the MaxSize parameter, the call fails.
+    * If you specify a value for the InstanceIds parameter when you call the operation, Auto Scaling checks whether the total number of ECS instances is within the range allowed in the scaling group after you call the operation.
+    * *   If the total number of ECS instances is less than the minimum number of instances required in the scaling group after you call the operation, Auto Scaling automatically creates the required number of pay-as-you-go ECS instances and adds the instances to the scaling group to reach the minimum number. For example, if the minimum number of instances required in your scaling group is five, and you specify the InstanceIds parameter to add two ECS instances to the scaling group, Auto Scaling automatically creates three instances in the scaling group after the two instances are added.
+    * *   If the value of the TotalCapacity parameter is greater than the value of the MaxSize parameter, the call fails.
     *
     * @param request EnableScalingGroupRequest
     * @return EnableScalingGroupResponse
@@ -17603,7 +17863,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Modifies a lifecycle hook.
+    * You can use one of the following methods to specify the lifecycle hook that you want to modify:
+    * *   Specify the lifecycle hook ID by using the LifecycleHookId parameter. When you use this method, the ScalingGroupId and LifecycleHookName parameters are ignored.
+    * *   Specify the scaling group ID by using the ScalingGroupId parameter and specify the lifecycle hook name by using the LifecycleHookName parameter.
     *
     * @param request ModifyLifecycleHookRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17682,7 +17944,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Modifies a lifecycle hook.
+    * You can use one of the following methods to specify the lifecycle hook that you want to modify:
+    * *   Specify the lifecycle hook ID by using the LifecycleHookId parameter. When you use this method, the ScalingGroupId and LifecycleHookName parameters are ignored.
+    * *   Specify the scaling group ID by using the ScalingGroupId parameter and specify the lifecycle hook name by using the LifecycleHookName parameter.
     *
     * @param request ModifyLifecycleHookRequest
     * @return ModifyLifecycleHookResponse
@@ -17933,6 +18197,10 @@ export default class Client extends OpenApi {
       query["ZoneId"] = request.zoneId;
     }
 
+    if (!Util.isUnset(request.imageOptions)) {
+      query["ImageOptions"] = request.imageOptions;
+    }
+
     if (!Util.isUnset(request.privatePoolOptions)) {
       query["PrivatePoolOptions"] = request.privatePoolOptions;
     }
@@ -18132,6 +18400,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.adjustmentValue)) {
       query["AdjustmentValue"] = request.adjustmentValue;
+    }
+
+    if (!Util.isUnset(request.alarmDimensions)) {
+      query["AlarmDimensions"] = request.alarmDimensions;
     }
 
     if (!Util.isUnset(request.cooldown)) {
