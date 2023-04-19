@@ -89,6 +89,106 @@ export class AdjustJMeterSceneSpeedResponse extends $tea.Model {
   }
 }
 
+export class AdjustPtsSceneSpeedRequest extends $tea.Model {
+  apiSpeedList?: AdjustPtsSceneSpeedRequestApiSpeedList[];
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiSpeedList: 'ApiSpeedList',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiSpeedList: { 'type': 'array', 'itemType': AdjustPtsSceneSpeedRequestApiSpeedList },
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustPtsSceneSpeedShrinkRequest extends $tea.Model {
+  apiSpeedListShrink?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiSpeedListShrink: 'ApiSpeedList',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiSpeedListShrink: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustPtsSceneSpeedResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustPtsSceneSpeedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AdjustPtsSceneSpeedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AdjustPtsSceneSpeedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePtsSceneRequest extends $tea.Model {
   scene?: string;
   static names(): { [key: string]: string } {
@@ -1020,6 +1120,96 @@ export class GetOpenJMeterSceneResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOpenJMeterSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPtsDebugSampleLogsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  planId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      planId: 'PlanId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      planId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPtsDebugSampleLogsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  samplingLogs?: GetPtsDebugSampleLogsResponseBodySamplingLogs[];
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      samplingLogs: 'SamplingLogs',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      samplingLogs: { 'type': 'array', 'itemType': GetPtsDebugSampleLogsResponseBodySamplingLogs },
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPtsDebugSampleLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPtsDebugSampleLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPtsDebugSampleLogsResponseBody,
     };
   }
 
@@ -3489,6 +3679,28 @@ export class UpdatePtsSceneBaseLineResponse extends $tea.Model {
   }
 }
 
+export class AdjustPtsSceneSpeedRequestApiSpeedList extends $tea.Model {
+  apiId?: string;
+  speed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      speed: 'Speed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      speed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model {
   agentCount?: number;
   agentIdList?: string[];
@@ -3723,6 +3935,79 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       testFile: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPtsDebugSampleLogsResponseBodySamplingLogs extends $tea.Model {
+  chainId?: string;
+  chainName?: string;
+  checkResult?: string;
+  exportConfig?: string;
+  exportContent?: string;
+  httpRequestBody?: string;
+  httpRequestHeaders?: string;
+  httpRequestMethod?: string;
+  httpRequestUrl?: string;
+  httpResponseBody?: string;
+  httpResponseFailMsg?: string;
+  httpResponseHeaders?: string;
+  httpResponseStatus?: string;
+  httpStartTime?: number;
+  httpTiming?: string;
+  importContent?: string;
+  nodeId?: string;
+  rt?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      chainName: 'ChainName',
+      checkResult: 'CheckResult',
+      exportConfig: 'ExportConfig',
+      exportContent: 'ExportContent',
+      httpRequestBody: 'HttpRequestBody',
+      httpRequestHeaders: 'HttpRequestHeaders',
+      httpRequestMethod: 'HttpRequestMethod',
+      httpRequestUrl: 'HttpRequestUrl',
+      httpResponseBody: 'HttpResponseBody',
+      httpResponseFailMsg: 'HttpResponseFailMsg',
+      httpResponseHeaders: 'HttpResponseHeaders',
+      httpResponseStatus: 'HttpResponseStatus',
+      httpStartTime: 'HttpStartTime',
+      httpTiming: 'HttpTiming',
+      importContent: 'ImportContent',
+      nodeId: 'NodeId',
+      rt: 'Rt',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      chainName: 'string',
+      checkResult: 'string',
+      exportConfig: 'string',
+      exportContent: 'string',
+      httpRequestBody: 'string',
+      httpRequestHeaders: 'string',
+      httpRequestMethod: 'string',
+      httpRequestUrl: 'string',
+      httpResponseBody: 'string',
+      httpResponseFailMsg: 'string',
+      httpResponseHeaders: 'string',
+      httpResponseStatus: 'string',
+      httpStartTime: 'number',
+      httpTiming: 'string',
+      importContent: 'string',
+      nodeId: 'string',
+      rt: 'string',
+      timestamp: 'number',
     };
   }
 
@@ -6174,6 +6459,45 @@ export default class Client extends OpenApi {
     return await this.adjustJMeterSceneSpeedWithOptions(request, runtime);
   }
 
+  async adjustPtsSceneSpeedWithOptions(tmpReq: AdjustPtsSceneSpeedRequest, runtime: $Util.RuntimeOptions): Promise<AdjustPtsSceneSpeedResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AdjustPtsSceneSpeedShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.apiSpeedList)) {
+      request.apiSpeedListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiSpeedList, "ApiSpeedList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.apiSpeedListShrink)) {
+      query["ApiSpeedList"] = request.apiSpeedListShrink;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AdjustPtsSceneSpeed",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AdjustPtsSceneSpeedResponse>(await this.callApi(params, req, runtime), new AdjustPtsSceneSpeedResponse({}));
+  }
+
+  async adjustPtsSceneSpeed(request: AdjustPtsSceneSpeedRequest): Promise<AdjustPtsSceneSpeedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.adjustPtsSceneSpeedWithOptions(request, runtime);
+  }
+
   async createPtsSceneWithOptions(request: CreatePtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreatePtsSceneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6585,6 +6909,43 @@ export default class Client extends OpenApi {
   async getOpenJMeterScene(request: GetOpenJMeterSceneRequest): Promise<GetOpenJMeterSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpenJMeterSceneWithOptions(request, runtime);
+  }
+
+  async getPtsDebugSampleLogsWithOptions(request: GetPtsDebugSampleLogsRequest, runtime: $Util.RuntimeOptions): Promise<GetPtsDebugSampleLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.planId)) {
+      query["PlanId"] = request.planId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPtsDebugSampleLogs",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPtsDebugSampleLogsResponse>(await this.callApi(params, req, runtime), new GetPtsDebugSampleLogsResponse({}));
+  }
+
+  async getPtsDebugSampleLogs(request: GetPtsDebugSampleLogsRequest): Promise<GetPtsDebugSampleLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPtsDebugSampleLogsWithOptions(request, runtime);
   }
 
   async getPtsReportDetailsWithOptions(request: GetPtsReportDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetPtsReportDetailsResponse> {
