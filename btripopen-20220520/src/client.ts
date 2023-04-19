@@ -238,6 +238,7 @@ export class AddressGetHeaders extends $tea.Model {
 
 export class AddressGetRequest extends $tea.Model {
   actionType?: number;
+  carScenesCode?: string;
   itineraryId?: string;
   phone?: string;
   subCorpId?: string;
@@ -246,6 +247,7 @@ export class AddressGetRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       actionType: 'action_type',
+      carScenesCode: 'car_scenes_code',
       itineraryId: 'itinerary_id',
       phone: 'phone',
       subCorpId: 'sub_corp_id',
@@ -257,6 +259,7 @@ export class AddressGetRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       actionType: 'number',
+      carScenesCode: 'string',
       itineraryId: 'string',
       phone: 'string',
       subCorpId: 'string',
@@ -25913,53 +25916,126 @@ export class IeFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $tea.Model {
+  amount?: string;
+  index?: string;
+  itemName?: string;
+  quantity?: string;
+  specification?: string;
+  tax?: string;
+  taxRate?: string;
+  unit?: string;
+  unitPrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      index: 'index',
+      itemName: 'item_name',
+      quantity: 'quantity',
+      specification: 'specification',
+      tax: 'tax',
+      taxRate: 'tax_rate',
+      unit: 'unit',
+      unitPrice: 'unit_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      index: 'string',
+      itemName: 'string',
+      quantity: 'string',
+      specification: 'string',
+      tax: 'string',
+      taxRate: 'string',
+      unit: 'string',
+      unitPrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   amountWithTax?: string;
   amountWithoutTax?: string;
   billDate?: string;
+  checkCode?: string;
   costCenter?: string;
   department?: string;
+  drawer?: string;
+  id?: string;
   insuranceCompany?: string;
   insuranceOrderId?: string;
   insuranceType?: string;
   invoiceCode?: string;
   invoiceDay?: string;
+  invoiceDetails?: InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails[];
+  invoiceLocation?: string;
   invoiceNo?: string;
+  invoiceTitle?: string;
   orderId?: number;
   ossUrl?: string;
   passenger?: string;
+  passwordArea?: string;
   project?: string;
+  purchaserBankAccountInfo?: string;
+  purchaserContactInfo?: string;
   purchaserName?: string;
   purchaserTaxNo?: string;
-  realInvoiceTitle?: string;
+  recipient?: string;
+  remarks?: string;
+  reviewer?: string;
+  sellerBankAccountInfo?: string;
+  sellerContactInfo?: string;
   sellerName?: string;
   sellerTaxNo?: string;
+  smartCheckCode?: string;
   taxAmount?: string;
   taxRate?: string;
+  totalAmountInWords?: string;
   static names(): { [key: string]: string } {
     return {
       amountWithTax: 'amount_with_tax',
       amountWithoutTax: 'amount_without_tax',
       billDate: 'bill_date',
+      checkCode: 'check_code',
       costCenter: 'cost_center',
       department: 'department',
+      drawer: 'drawer',
+      id: 'id',
       insuranceCompany: 'insurance_company',
       insuranceOrderId: 'insurance_order_id',
       insuranceType: 'insurance_type',
       invoiceCode: 'invoice_code',
       invoiceDay: 'invoice_day',
+      invoiceDetails: 'invoice_details',
+      invoiceLocation: 'invoice_location',
       invoiceNo: 'invoice_no',
+      invoiceTitle: 'invoice_title',
       orderId: 'order_id',
       ossUrl: 'oss_url',
       passenger: 'passenger',
+      passwordArea: 'password_area',
       project: 'project',
+      purchaserBankAccountInfo: 'purchaser_bank_account_info',
+      purchaserContactInfo: 'purchaser_contact_info',
       purchaserName: 'purchaser_name',
       purchaserTaxNo: 'purchaser_tax_no',
-      realInvoiceTitle: 'real_invoice_title',
+      recipient: 'recipient',
+      remarks: 'remarks',
+      reviewer: 'reviewer',
+      sellerBankAccountInfo: 'seller_bank_account_info',
+      sellerContactInfo: 'seller_contact_info',
       sellerName: 'seller_name',
       sellerTaxNo: 'seller_tax_no',
+      smartCheckCode: 'smart_check_code',
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
+      totalAmountInWords: 'total_amount_in_words',
     };
   }
 
@@ -25968,25 +26044,40 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       amountWithTax: 'string',
       amountWithoutTax: 'string',
       billDate: 'string',
+      checkCode: 'string',
       costCenter: 'string',
       department: 'string',
+      drawer: 'string',
+      id: 'string',
       insuranceCompany: 'string',
       insuranceOrderId: 'string',
       insuranceType: 'string',
       invoiceCode: 'string',
       invoiceDay: 'string',
+      invoiceDetails: { 'type': 'array', 'itemType': InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails },
+      invoiceLocation: 'string',
       invoiceNo: 'string',
+      invoiceTitle: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passenger: 'string',
+      passwordArea: 'string',
       project: 'string',
+      purchaserBankAccountInfo: 'string',
+      purchaserContactInfo: 'string',
       purchaserName: 'string',
       purchaserTaxNo: 'string',
-      realInvoiceTitle: 'string',
+      recipient: 'string',
+      remarks: 'string',
+      reviewer: 'string',
+      sellerBankAccountInfo: 'string',
+      sellerContactInfo: 'string',
       sellerName: 'string',
       sellerTaxNo: 'string',
+      smartCheckCode: 'string',
       taxAmount: 'string',
       taxRate: 'string',
+      totalAmountInWords: 'string',
     };
   }
 
@@ -29565,6 +29656,8 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
   serialNumber?: string;
   taxAmount?: string;
   taxRate?: string;
+  ticketNo?: string;
+  trainNo?: string;
   static names(): { [key: string]: string } {
     return {
       arrStation: 'arr_station',
@@ -29586,6 +29679,8 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
       serialNumber: 'serial_number',
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
+      ticketNo: 'ticket_no',
+      trainNo: 'train_no',
     };
   }
 
@@ -29610,6 +29705,8 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $tea.Model {
       serialNumber: 'string',
       taxAmount: 'string',
       taxRate: 'string',
+      ticketNo: 'string',
+      trainNo: 'string',
     };
   }
 
@@ -30073,6 +30170,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.actionType)) {
       query["action_type"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.carScenesCode)) {
+      query["car_scenes_code"] = request.carScenesCode;
     }
 
     if (!Util.isUnset(request.itineraryId)) {
