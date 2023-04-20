@@ -911,6 +911,93 @@ export class CreateSpaceResponse extends $tea.Model {
   }
 }
 
+export class CreateSpaceWithOrderRequest extends $tea.Model {
+  desc?: string;
+  name?: string;
+  packageVersion?: string;
+  period?: number;
+  subscriptionType?: string;
+  useCoupon?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      name: 'Name',
+      packageVersion: 'PackageVersion',
+      period: 'Period',
+      subscriptionType: 'SubscriptionType',
+      useCoupon: 'UseCoupon',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      name: 'string',
+      packageVersion: 'string',
+      period: 'number',
+      subscriptionType: 'string',
+      useCoupon: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpaceWithOrderResponseBody extends $tea.Model {
+  instanceId?: string;
+  orderId?: string;
+  requestId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpaceWithOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSpaceWithOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSpaceWithOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAntOpenPlatformConfigRequest extends $tea.Model {
   appId?: string;
   spaceId?: string;
@@ -1689,12 +1776,14 @@ export class DescribeFCOpenStatusResponse extends $tea.Model {
 
 export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
   contentType?: string;
+  fileId?: string;
   filename?: string;
   size?: number;
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
       contentType: 'ContentType',
+      fileId: 'FileId',
       filename: 'Filename',
       size: 'Size',
       spaceId: 'SpaceId',
@@ -1704,6 +1793,7 @@ export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contentType: 'string',
+      fileId: 'string',
       filename: 'string',
       size: 'number',
       spaceId: 'string',
@@ -3128,15 +3218,19 @@ export class ListExtensionsResponse extends $tea.Model {
 export class ListFileRequest extends $tea.Model {
   fileId?: string;
   keyword?: string;
+  mode?: string;
   nextToken?: string;
   pageSize?: number;
+  prefix?: string;
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
       fileId: 'FileId',
       keyword: 'Keyword',
+      mode: 'Mode',
       nextToken: 'NextToken',
       pageSize: 'PageSize',
+      prefix: 'Prefix',
       spaceId: 'SpaceId',
     };
   }
@@ -3145,8 +3239,10 @@ export class ListFileRequest extends $tea.Model {
     return {
       fileId: 'string',
       keyword: 'string',
+      mode: 'string',
       nextToken: 'string',
       pageSize: 'number',
+      prefix: 'string',
       spaceId: 'string',
     };
   }
@@ -7416,6 +7512,7 @@ export class QuerySpaceUsageResponseBodySpaceUsageDataListWhUsage extends $tea.M
 export class QuerySpaceUsageResponseBodySpaceUsageDataList extends $tea.Model {
   csUsage?: QuerySpaceUsageResponseBodySpaceUsageDataListCsUsage;
   dbUsage?: QuerySpaceUsageResponseBodySpaceUsageDataListDbUsage;
+  effectiveBillFlag?: boolean;
   fcUsage?: QuerySpaceUsageResponseBodySpaceUsageDataListFcUsage;
   timestamp?: string;
   whUsage?: QuerySpaceUsageResponseBodySpaceUsageDataListWhUsage;
@@ -7423,6 +7520,7 @@ export class QuerySpaceUsageResponseBodySpaceUsageDataList extends $tea.Model {
     return {
       csUsage: 'CsUsage',
       dbUsage: 'DbUsage',
+      effectiveBillFlag: 'EffectiveBillFlag',
       fcUsage: 'FcUsage',
       timestamp: 'Timestamp',
       whUsage: 'WhUsage',
@@ -7433,6 +7531,7 @@ export class QuerySpaceUsageResponseBodySpaceUsageDataList extends $tea.Model {
     return {
       csUsage: QuerySpaceUsageResponseBodySpaceUsageDataListCsUsage,
       dbUsage: QuerySpaceUsageResponseBodySpaceUsageDataListDbUsage,
+      effectiveBillFlag: 'boolean',
       fcUsage: QuerySpaceUsageResponseBodySpaceUsageDataListFcUsage,
       timestamp: 'string',
       whUsage: QuerySpaceUsageResponseBodySpaceUsageDataListWhUsage,
@@ -7979,6 +8078,55 @@ export default class Client extends OpenApi {
     return await this.createSpaceWithOptions(request, runtime);
   }
 
+  async createSpaceWithOrderWithOptions(request: CreateSpaceWithOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpaceWithOrderResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.packageVersion)) {
+      body["PackageVersion"] = request.packageVersion;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      body["SubscriptionType"] = request.subscriptionType;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      body["UseCoupon"] = request.useCoupon;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSpaceWithOrder",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSpaceWithOrderResponse>(await this.callApi(params, req, runtime), new CreateSpaceWithOrderResponse({}));
+  }
+
+  async createSpaceWithOrder(request: CreateSpaceWithOrderRequest): Promise<CreateSpaceWithOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSpaceWithOrderWithOptions(request, runtime);
+  }
+
   async deleteAntOpenPlatformConfigWithOptions(request: DeleteAntOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntOpenPlatformConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8364,6 +8512,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.contentType)) {
       body["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
     }
 
     if (!Util.isUnset(request.filename)) {
@@ -9028,8 +9180,16 @@ export default class Client extends OpenApi {
       body["Keyword"] = request.keyword;
     }
 
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      body["Prefix"] = request.prefix;
     }
 
     if (!Util.isUnset(request.spaceId)) {
