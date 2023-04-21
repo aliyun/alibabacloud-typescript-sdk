@@ -4699,6 +4699,53 @@ export class GetCategoriesResponse extends $tea.Model {
   }
 }
 
+export class GetContentAnalyzeConfigResponseBody extends $tea.Model {
+  contentAnalyzeConfig?: GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentAnalyzeConfig: 'ContentAnalyzeConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentAnalyzeConfig: GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContentAnalyzeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetContentAnalyzeConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetContentAnalyzeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomTemplateRequest extends $tea.Model {
   subtype?: number;
   templateId?: string;
@@ -8684,6 +8731,78 @@ export class ListSmartJobsResponse extends $tea.Model {
   }
 }
 
+export class ListSmartSysAvatarModelsRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartSysAvatarModelsResponseBody extends $tea.Model {
+  requestId?: string;
+  smartSysAvatarModelList?: ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      smartSysAvatarModelList: 'SmartSysAvatarModelList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      smartSysAvatarModelList: { 'type': 'array', 'itemType': ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartSysAvatarModelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSmartSysAvatarModelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSmartSysAvatarModelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSnapshotJobsRequest extends $tea.Model {
   endOfCreateTime?: string;
   jobId?: string;
@@ -9917,6 +10036,180 @@ export class SearchMediaResponse extends $tea.Model {
   }
 }
 
+export class SearchMediaByFaceRequest extends $tea.Model {
+  entityId?: string;
+  faceSearchToken?: string;
+  pageNo?: number;
+  pageSize?: number;
+  personImageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      faceSearchToken: 'FaceSearchToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      personImageUrl: 'PersonImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      faceSearchToken: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      personImageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByFaceResponseBody extends $tea.Model {
+  code?: string;
+  mediaInfoList?: SearchMediaByFaceResponseBodyMediaInfoList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaInfoList: 'MediaInfoList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaInfoList: { 'type': 'array', 'itemType': SearchMediaByFaceResponseBodyMediaInfoList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByFaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchMediaByFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchMediaByFaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceRequest extends $tea.Model {
+  entityId?: string;
+  faceSearchToken?: string;
+  mediaId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      faceSearchToken: 'FaceSearchToken',
+      mediaId: 'MediaId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      faceSearchToken: 'string',
+      mediaId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponseBody extends $tea.Model {
+  code?: string;
+  mediaClipList?: SearchMediaClipByFaceResponseBodyMediaClipList[];
+  requestId?: string;
+  success?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mediaClipList: 'MediaClipList',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mediaClipList: { 'type': 'array', 'itemType': SearchMediaClipByFaceResponseBodyMediaClipList },
+      requestId: 'string',
+      success: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SearchMediaClipByFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchMediaClipByFaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchPublicMediaInfoRequest extends $tea.Model {
   authorized?: boolean;
   dynamicMetaDataMatchFields?: string;
@@ -10131,6 +10424,78 @@ export class SendLiveTranscodeJobCommandResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SendLiveTranscodeJobCommandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetContentAnalyzeConfigRequest extends $tea.Model {
+  auto?: boolean;
+  saveType?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      saveType: 'SaveType',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      saveType: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetContentAnalyzeConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetContentAnalyzeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetContentAnalyzeConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetContentAnalyzeConfigResponseBody,
     };
   }
 
@@ -10593,6 +10958,90 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAudioProduceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarVideoJobRequest extends $tea.Model {
+  description?: string;
+  editingConfig?: string;
+  inputConfig?: string;
+  outputConfig?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      editingConfig: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarVideoJobResponseBody extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAvatarVideoJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitAvatarVideoJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitAvatarVideoJobResponseBody,
     };
   }
 
@@ -15255,6 +15704,31 @@ export class GetCategoriesResponseBodySubCategories extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: { 'type': 'array', 'itemType': GetCategoriesResponseBodySubCategoriesCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig extends $tea.Model {
+  auto?: boolean;
+  saveType?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      saveType: 'SaveType',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      saveType: 'string',
+      templateId: 'string',
     };
   }
 
@@ -21780,6 +22254,34 @@ export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
   }
 }
 
+export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $tea.Model {
+  avatarId?: string;
+  avatarName?: string;
+  coverUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+      avatarName: 'AvatarName',
+      coverUrl: 'CoverUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+      avatarName: 'string',
+      coverUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSnapshotJobsResponseBodyJobsInput extends $tea.Model {
   media?: string;
   type?: string;
@@ -24364,6 +24866,131 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
       fileInfoList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListFileInfoList },
       mediaBasicInfo: SearchMediaResponseBodyMediaInfoListMediaBasicInfo,
       mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData extends $tea.Model {
+  boxPosition?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boxPosition: 'BoxPosition',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boxPosition: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition,
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos extends $tea.Model {
+  endTime?: number;
+  startTime?: number;
+  trackData?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      trackData: 'TrackData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      trackData: { 'type': 'array', 'itemType': SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaClipByFaceResponseBodyMediaClipList extends $tea.Model {
+  category?: string;
+  entityId?: string;
+  labelName?: string;
+  occurrencesInfos?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos[];
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      entityId: 'EntityId',
+      labelName: 'LabelName',
+      occurrencesInfos: 'OccurrencesInfos',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      entityId: 'string',
+      labelName: 'string',
+      occurrencesInfos: { 'type': 'array', 'itemType': SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos },
+      score: 'number',
     };
   }
 
@@ -31032,6 +31659,27 @@ export default class Client extends OpenApi {
     return await this.getCategoriesWithOptions(request, runtime);
   }
 
+  async getContentAnalyzeConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetContentAnalyzeConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetContentAnalyzeConfig",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetContentAnalyzeConfigResponse>(await this.callApi(params, req, runtime), new GetContentAnalyzeConfigResponse({}));
+  }
+
+  async getContentAnalyzeConfig(): Promise<GetContentAnalyzeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getContentAnalyzeConfigWithOptions(runtime);
+  }
+
   async getCustomTemplateWithOptions(request: GetCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32788,6 +33436,31 @@ export default class Client extends OpenApi {
     return await this.listSmartJobsWithOptions(request, runtime);
   }
 
+  async listSmartSysAvatarModelsWithOptions(request: ListSmartSysAvatarModelsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartSysAvatarModelsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSmartSysAvatarModels",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSmartSysAvatarModelsResponse>(await this.callApi(params, req, runtime), new ListSmartSysAvatarModelsResponse({}));
+  }
+
+  async listSmartSysAvatarModels(request: ListSmartSysAvatarModelsRequest): Promise<ListSmartSysAvatarModelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSmartSysAvatarModelsWithOptions(request, runtime);
+  }
+
   async listSnapshotJobsWithOptions(request: ListSnapshotJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33486,6 +34159,96 @@ export default class Client extends OpenApi {
     return await this.searchMediaWithOptions(request, runtime);
   }
 
+  async searchMediaByFaceWithOptions(request: SearchMediaByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByFaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.faceSearchToken)) {
+      query["FaceSearchToken"] = request.faceSearchToken;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.personImageUrl)) {
+      query["PersonImageUrl"] = request.personImageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchMediaByFace",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchMediaByFaceResponse>(await this.callApi(params, req, runtime), new SearchMediaByFaceResponse({}));
+  }
+
+  async searchMediaByFace(request: SearchMediaByFaceRequest): Promise<SearchMediaByFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchMediaByFaceWithOptions(request, runtime);
+  }
+
+  async searchMediaClipByFaceWithOptions(request: SearchMediaClipByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaClipByFaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.faceSearchToken)) {
+      query["FaceSearchToken"] = request.faceSearchToken;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchMediaClipByFace",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchMediaClipByFaceResponse>(await this.callApi(params, req, runtime), new SearchMediaClipByFaceResponse({}));
+  }
+
+  async searchMediaClipByFace(request: SearchMediaClipByFaceRequest): Promise<SearchMediaClipByFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchMediaClipByFaceWithOptions(request, runtime);
+  }
+
   async searchPublicMediaInfoWithOptions(request: SearchPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<SearchPublicMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33607,6 +34370,43 @@ export default class Client extends OpenApi {
   async sendLiveTranscodeJobCommand(request: SendLiveTranscodeJobCommandRequest): Promise<SendLiveTranscodeJobCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendLiveTranscodeJobCommandWithOptions(request, runtime);
+  }
+
+  async setContentAnalyzeConfigWithOptions(request: SetContentAnalyzeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetContentAnalyzeConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auto)) {
+      query["Auto"] = request.auto;
+    }
+
+    if (!Util.isUnset(request.saveType)) {
+      query["SaveType"] = request.saveType;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetContentAnalyzeConfig",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetContentAnalyzeConfigResponse>(await this.callApi(params, req, runtime), new SetContentAnalyzeConfigResponse({}));
+  }
+
+  async setContentAnalyzeConfig(request: SetContentAnalyzeConfigRequest): Promise<SetContentAnalyzeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setContentAnalyzeConfigWithOptions(request, runtime);
   }
 
   async setDefaultCustomTemplateWithOptions(request: SetDefaultCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultCustomTemplateResponse> {
@@ -33861,6 +34661,55 @@ export default class Client extends OpenApi {
   async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAudioProduceJobWithOptions(request, runtime);
+  }
+
+  async submitAvatarVideoJobWithOptions(request: SubmitAvatarVideoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAvatarVideoJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.editingConfig)) {
+      query["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      query["InputConfig"] = request.inputConfig;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitAvatarVideoJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitAvatarVideoJobResponse>(await this.callApi(params, req, runtime), new SubmitAvatarVideoJobResponse({}));
+  }
+
+  async submitAvatarVideoJob(request: SubmitAvatarVideoJobRequest): Promise<SubmitAvatarVideoJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAvatarVideoJobWithOptions(request, runtime);
   }
 
   async submitDNAJobWithOptions(tmpReq: SubmitDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDNAJobResponse> {
