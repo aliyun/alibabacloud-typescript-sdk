@@ -519,36 +519,36 @@ export class MachineGroup extends $tea.Model {
 
 export class Project extends $tea.Model {
   createTime?: string;
+  description?: string;
   lastModifyTime?: string;
-  projectDesc?: string;
+  owner?: string;
   projectName?: string;
-  projectOwner?: string;
-  projectStatus?: string;
   region?: string;
   resourceGroupId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
+      description: 'description',
       lastModifyTime: 'lastModifyTime',
-      projectDesc: 'projectDesc',
+      owner: 'owner',
       projectName: 'projectName',
-      projectOwner: 'projectOwner',
-      projectStatus: 'projectStatus',
       region: 'region',
       resourceGroupId: 'resourceGroupId',
+      status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      description: 'string',
       lastModifyTime: 'string',
-      projectDesc: 'string',
+      owner: 'string',
       projectName: 'string',
-      projectOwner: 'string',
-      projectStatus: 'string',
       region: 'string',
       resourceGroupId: 'string',
+      status: 'string',
     };
   }
 
@@ -717,6 +717,53 @@ export class ChangeResourceGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumerGroupHeartBeatRequest extends $tea.Model {
+  body?: number[];
+  consumer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      consumer: 'consumer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': 'number' },
+      consumer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumerGroupHeartBeatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: number[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -2202,25 +2249,6 @@ export class GetMachineGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MachineGroup,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectRequest extends $tea.Model {
-  project?: string;
-  static names(): { [key: string]: string } {
-    return {
-      project: 'project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: 'string',
     };
   }
 
@@ -5133,6 +5161,41 @@ export default class Client extends OpenApi {
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
 
+  async consumerGroupHeartBeatWithOptions(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupHeartBeatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConsumerGroupHeartBeatResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.consumer)) {
+      query["consumer"] = request.consumer;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "ConsumerGroupHeartBeat",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/consumergroups/${consumerGroup}?type=heartbeat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ConsumerGroupHeartBeatResponse>(await this.execute(params, req, runtime), new ConsumerGroupHeartBeatResponse({}));
+  }
+
+  async consumerGroupHeartBeat(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupHeartBeatRequest): Promise<ConsumerGroupHeartBeatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.consumerGroupHeartBeatWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
   async createConsumerGroupWithOptions(project: string, logstore: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -6432,16 +6495,12 @@ export default class Client extends OpenApi {
     return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
   }
 
-  async getProjectWithOptions(request: GetProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.project)) {
-      query["project"] = request.project;
-    }
-
+  async getProjectWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
     let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
       headers: headers,
-      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetProject",
@@ -6457,10 +6516,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
   }
 
-  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
+  async getProject(project: string): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectWithOptions(request, headers, runtime);
+    return await this.getProjectWithOptions(project, headers, runtime);
   }
 
   async getProjectLogsWithOptions(project: string, request: GetProjectLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectLogsResponse> {
@@ -6846,7 +6905,7 @@ export default class Client extends OpenApi {
     return await this.listMachinesWithOptions(project, machineGroup, request, headers, runtime);
   }
 
-  async listProjectWithOptions(request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
+  async listProjectWithOptions(resourceGroupId: string, request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.offset)) {
@@ -6879,10 +6938,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectResponse>(await this.execute(params, req, runtime), new ListProjectResponse({}));
   }
 
-  async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
+  async listProject(resourceGroupId: string, request: ListProjectRequest): Promise<ListProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listProjectWithOptions(request, headers, runtime);
+    return await this.listProjectWithOptions(resourceGroupId, request, headers, runtime);
   }
 
   async listSavedSearchWithOptions(project: string, request: ListSavedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSavedSearchResponse> {
