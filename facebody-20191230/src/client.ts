@@ -3750,18 +3750,27 @@ export class ListFaceEntitiesResponse extends $tea.Model {
 }
 
 export class MergeImageFaceRequest extends $tea.Model {
+  addWatermark?: boolean;
   imageURL?: string;
+  mergeInfos?: MergeImageFaceRequestMergeInfos[];
+  modelVersion?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       imageURL: 'ImageURL',
+      mergeInfos: 'MergeInfos',
+      modelVersion: 'ModelVersion',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       imageURL: 'string',
+      mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceRequestMergeInfos },
+      modelVersion: 'string',
       templateId: 'string',
     };
   }
@@ -3772,18 +3781,27 @@ export class MergeImageFaceRequest extends $tea.Model {
 }
 
 export class MergeImageFaceAdvanceRequest extends $tea.Model {
+  addWatermark?: boolean;
   imageURLObject?: Readable;
+  mergeInfos?: MergeImageFaceAdvanceRequestMergeInfos[];
+  modelVersion?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      addWatermark: 'AddWatermark',
       imageURLObject: 'ImageURL',
+      mergeInfos: 'MergeInfos',
+      modelVersion: 'ModelVersion',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addWatermark: 'boolean',
       imageURLObject: 'Readable',
+      mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceAdvanceRequestMergeInfos },
+      modelVersion: 'string',
       templateId: 'string',
     };
   }
@@ -5203,16 +5221,69 @@ export class AddFaceResponseBodyData extends $tea.Model {
   }
 }
 
+export class AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect extends $tea.Model {
+  height?: string;
+  width?: string;
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'string',
+      width: 'string',
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFaceImageTemplateResponseBodyDataFaceInfos extends $tea.Model {
+  faceRect?: AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect;
+  templateFaceID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceRect: 'FaceRect',
+      templateFaceID: 'TemplateFaceID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceRect: AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect,
+      templateFaceID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFaceImageTemplateResponseBodyData extends $tea.Model {
+  faceInfos?: AddFaceImageTemplateResponseBodyDataFaceInfos[];
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      faceInfos: 'FaceInfos',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceInfos: { 'type': 'array', 'itemType': AddFaceImageTemplateResponseBodyDataFaceInfos },
       templateId: 'string',
     };
   }
@@ -7446,6 +7517,50 @@ export class ListFaceEntitiesResponseBodyData extends $tea.Model {
   }
 }
 
+export class MergeImageFaceRequestMergeInfos extends $tea.Model {
+  imageURL?: string;
+  templateFaceID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      templateFaceID: 'TemplateFaceID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      templateFaceID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeImageFaceAdvanceRequestMergeInfos extends $tea.Model {
+  imageURL?: string;
+  templateFaceID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      templateFaceID: 'TemplateFaceID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      templateFaceID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MergeImageFaceResponseBodyData extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -7990,8 +8105,59 @@ export class PedestrianDetectAttributeResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect extends $tea.Model {
+  height?: string;
+  width?: string;
+  x?: string;
+  y?: string;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'string',
+      width: 'string',
+      x: 'string',
+      y: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFaceImageTemplateResponseBodyDataElementsFaceInfos extends $tea.Model {
+  faceRect?: QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect;
+  templateFaceID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceRect: 'FaceRect',
+      templateFaceID: 'TemplateFaceID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceRect: QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect,
+      templateFaceID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryFaceImageTemplateResponseBodyDataElements extends $tea.Model {
   createTime?: string;
+  faceInfos?: QueryFaceImageTemplateResponseBodyDataElementsFaceInfos[];
   templateId?: string;
   templateURL?: string;
   updateTime?: string;
@@ -7999,6 +8165,7 @@ export class QueryFaceImageTemplateResponseBodyDataElements extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      faceInfos: 'FaceInfos',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
       updateTime: 'UpdateTime',
@@ -8009,6 +8176,7 @@ export class QueryFaceImageTemplateResponseBodyDataElements extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      faceInfos: { 'type': 'array', 'itemType': QueryFaceImageTemplateResponseBodyDataElementsFaceInfos },
       templateId: 'string',
       templateURL: 'string',
       updateTime: 'string',
@@ -12548,8 +12716,20 @@ export default class Client extends OpenApi {
   async mergeImageFaceWithOptions(request: MergeImageFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeImageFaceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addWatermark)) {
+      body["AddWatermark"] = request.addWatermark;
+    }
+
     if (!Util.isUnset(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.mergeInfos)) {
+      body["MergeInfos"] = request.mergeInfos;
+    }
+
+    if (!Util.isUnset(request.modelVersion)) {
+      body["ModelVersion"] = request.modelVersion;
     }
 
     if (!Util.isUnset(request.templateId)) {
