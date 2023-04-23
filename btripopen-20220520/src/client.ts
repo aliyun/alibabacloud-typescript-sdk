@@ -2419,6 +2419,87 @@ export class CarOrderQueryResponse extends $tea.Model {
   }
 }
 
+export class CarSceneQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarSceneQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: CarSceneQueryResponseBodyModule[];
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': CarSceneQueryResponseBodyModule },
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarSceneQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CarSceneQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CarSceneQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CitySearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -15079,6 +15160,31 @@ export class CarOrderQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class CarSceneQueryResponseBodyModule extends $tea.Model {
+  scenarioTemplateId?: string;
+  scenarioTemplateName?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scenarioTemplateId: 'scenarioTemplateId',
+      scenarioTemplateName: 'scenarioTemplateName',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scenarioTemplateId: 'string',
+      scenarioTemplateName: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CitySearchResponseBodyModuleCities extends $tea.Model {
   code?: string;
   name?: string;
@@ -24473,6 +24579,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
   costCenter?: HotelOrderListQueryResponseBodyModuleCostCenter;
   departId?: string;
   departName?: string;
+  extendField?: string;
   gmtCreate?: string;
   gmtModified?: string;
   guest?: string;
@@ -24510,6 +24617,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       costCenter: 'cost_center',
       departId: 'depart_id',
       departName: 'depart_name',
+      extendField: 'extend_field',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
       guest: 'guest',
@@ -24550,6 +24658,7 @@ export class HotelOrderListQueryResponseBodyModule extends $tea.Model {
       costCenter: HotelOrderListQueryResponseBodyModuleCostCenter,
       departId: 'string',
       departName: 'string',
+      extendField: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       guest: 'string',
@@ -24955,6 +25064,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
   corpName?: string;
   departId?: string;
   departName?: string;
+  extendField?: string;
   gmtCreate?: number;
   gmtModified?: number;
   id?: number;
@@ -24974,6 +25084,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'corp_name',
       departId: 'depart_id',
       departName: 'depart_name',
+      extendField: 'extend_field',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
       id: 'id',
@@ -24996,6 +25107,7 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $tea.Model {
       corpName: 'string',
       departId: 'string',
       departName: 'string',
+      extendField: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
       id: 'number',
@@ -31376,6 +31488,39 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarOrderQueryHeaders({ });
     return await this.carOrderQueryWithOptions(request, headers, runtime);
+  }
+
+  async carSceneQueryWithOptions(headers: CarSceneQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarSceneQueryResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "CarSceneQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/car/v1/scenes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CarSceneQueryResponse>(await this.callApi(params, req, runtime), new CarSceneQueryResponse({}));
+  }
+
+  async carSceneQuery(): Promise<CarSceneQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CarSceneQueryHeaders({ });
+    return await this.carSceneQueryWithOptions(headers, runtime);
   }
 
   async citySearchWithOptions(request: CitySearchRequest, headers: CitySearchHeaders, runtime: $Util.RuntimeOptions): Promise<CitySearchResponse> {
