@@ -987,46 +987,6 @@ export class File extends $tea.Model {
   }
 }
 
-export class FileForReq extends $tea.Model {
-  contentType?: string;
-  customId?: string;
-  customLabels?: { [key: string]: any };
-  figures?: FileForReqFigures[];
-  fileHash?: string;
-  mediaType?: string;
-  OSSURI?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contentType: 'ContentType',
-      customId: 'CustomId',
-      customLabels: 'CustomLabels',
-      figures: 'Figures',
-      fileHash: 'FileHash',
-      mediaType: 'MediaType',
-      OSSURI: 'OSSURI',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contentType: 'string',
-      customId: 'string',
-      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      figures: { 'type': 'array', 'itemType': FileForReqFigures },
-      fileHash: 'string',
-      mediaType: 'string',
-      OSSURI: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class HeadPose extends $tea.Model {
   pitch?: number;
   roll?: number;
@@ -2877,7 +2837,7 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
 
 export class BatchUpdateFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  files?: FileForReq[];
+  files?: InputFile[];
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2890,7 +2850,7 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      files: { 'type': 'array', 'itemType': FileForReq },
+      files: { 'type': 'array', 'itemType': InputFile },
       projectName: 'string',
     };
   }
@@ -11994,7 +11954,7 @@ export class UpdateFigureClusterResponse extends $tea.Model {
 
 export class UpdateFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  file?: FileForReq;
+  file?: InputFile;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12007,7 +11967,7 @@ export class UpdateFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      file: FileForReq,
+      file: InputFile,
       projectName: 'string',
     };
   }
@@ -12680,31 +12640,6 @@ export class FigureClusterForReqCover extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       figures: { 'type': 'array', 'itemType': FigureClusterForReqCoverFigures },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FileForReqFigures extends $tea.Model {
-  figureClusterId?: string;
-  figureId?: string;
-  figureType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      figureClusterId: 'FigureClusterId',
-      figureId: 'FigureId',
-      figureType: 'FigureType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      figureClusterId: 'string',
-      figureId: 'string',
-      figureType: 'string',
     };
   }
 
