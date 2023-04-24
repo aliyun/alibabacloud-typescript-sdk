@@ -335,6 +335,90 @@ export class PredictModelResponse extends $tea.Model {
   }
 }
 
+export class PredictPreTrainModelRequest extends $tea.Model {
+  binaryToText?: boolean;
+  body?: string;
+  content?: string;
+  serviceName?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      binaryToText: 'BinaryToText',
+      body: 'Body',
+      content: 'Content',
+      serviceName: 'ServiceName',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      binaryToText: 'boolean',
+      body: 'string',
+      content: 'string',
+      serviceName: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictPreTrainModelResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictPreTrainModelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PredictPreTrainModelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PredictPreTrainModelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PredictTemplateModelRequest extends $tea.Model {
   binaryToText?: boolean;
   body?: string;
@@ -611,6 +695,53 @@ export default class Client extends OpenApi {
   async predictModel(request: PredictModelRequest): Promise<PredictModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.predictModelWithOptions(request, runtime);
+  }
+
+  async predictPreTrainModelWithOptions(request: PredictPreTrainModelRequest, runtime: $Util.RuntimeOptions): Promise<PredictPreTrainModelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.binaryToText)) {
+      query["BinaryToText"] = request.binaryToText;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PredictPreTrainModel",
+      version: "2022-12-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PredictPreTrainModelResponse>(await this.callApi(params, req, runtime), new PredictPreTrainModelResponse({}));
+  }
+
+  async predictPreTrainModel(request: PredictPreTrainModelRequest): Promise<PredictPreTrainModelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.predictPreTrainModelWithOptions(request, runtime);
   }
 
   async predictTemplateModelWithOptions(request: PredictTemplateModelRequest, runtime: $Util.RuntimeOptions): Promise<PredictTemplateModelResponse> {
