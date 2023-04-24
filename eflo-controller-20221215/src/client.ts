@@ -404,6 +404,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
   expiredTime?: string;
   hostname?: string;
   imageId?: string;
+  imageName?: string;
   machineType?: string;
   networks?: DescribeNodeResponseBodyNetworks[];
   nodeGroupId?: string;
@@ -421,6 +422,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
       imageId: 'ImageId',
+      imageName: 'ImageName',
       machineType: 'MachineType',
       networks: 'Networks',
       nodeGroupId: 'NodeGroupId',
@@ -441,6 +443,7 @@ export class DescribeNodeResponseBody extends $tea.Model {
       expiredTime: 'string',
       hostname: 'string',
       imageId: 'string',
+      imageName: 'string',
       machineType: 'string',
       networks: { 'type': 'array', 'itemType': DescribeNodeResponseBodyNetworks },
       nodeGroupId: 'string',
