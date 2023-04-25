@@ -646,7 +646,7 @@ export class CreateSaslUserResponse extends $tea.Model {
 
 export class CreateTopicRequest extends $tea.Model {
   compactTopic?: boolean;
-  config?: { [key: string]: any };
+  config?: string;
   instanceId?: string;
   localTopic?: boolean;
   minInsyncReplicas?: number;
@@ -675,7 +675,7 @@ export class CreateTopicRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       compactTopic: 'boolean',
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      config: 'string',
       instanceId: 'string',
       localTopic: 'boolean',
       minInsyncReplicas: 'number',
@@ -684,55 +684,6 @@ export class CreateTopicRequest extends $tea.Model {
       remark: 'string',
       replicationFactor: 'number',
       tag: { 'type': 'array', 'itemType': CreateTopicRequestTag },
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTopicShrinkRequest extends $tea.Model {
-  compactTopic?: boolean;
-  configShrink?: string;
-  instanceId?: string;
-  localTopic?: boolean;
-  minInsyncReplicas?: number;
-  partitionNum?: string;
-  regionId?: string;
-  remark?: string;
-  replicationFactor?: number;
-  tag?: CreateTopicShrinkRequestTag[];
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      compactTopic: 'CompactTopic',
-      configShrink: 'Config',
-      instanceId: 'InstanceId',
-      localTopic: 'LocalTopic',
-      minInsyncReplicas: 'MinInsyncReplicas',
-      partitionNum: 'PartitionNum',
-      regionId: 'RegionId',
-      remark: 'Remark',
-      replicationFactor: 'ReplicationFactor',
-      tag: 'Tag',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compactTopic: 'boolean',
-      configShrink: 'string',
-      instanceId: 'string',
-      localTopic: 'boolean',
-      minInsyncReplicas: 'number',
-      partitionNum: 'string',
-      regionId: 'string',
-      remark: 'string',
-      replicationFactor: 'number',
-      tag: { 'type': 'array', 'itemType': CreateTopicShrinkRequestTag },
       topic: 'string',
     };
   }
@@ -2787,6 +2738,133 @@ export class UpdateAllowedIpResponse extends $tea.Model {
   }
 }
 
+export class UpdateConsumerOffsetRequest extends $tea.Model {
+  consumerId?: string;
+  instanceId?: string;
+  offsets?: UpdateConsumerOffsetRequestOffsets[];
+  regionId?: string;
+  resetType?: string;
+  time?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerId: 'ConsumerId',
+      instanceId: 'InstanceId',
+      offsets: 'Offsets',
+      regionId: 'RegionId',
+      resetType: 'ResetType',
+      time: 'Time',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerId: 'string',
+      instanceId: 'string',
+      offsets: { 'type': 'array', 'itemType': UpdateConsumerOffsetRequestOffsets },
+      regionId: 'string',
+      resetType: 'string',
+      time: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerOffsetShrinkRequest extends $tea.Model {
+  consumerId?: string;
+  instanceId?: string;
+  offsetsShrink?: string;
+  regionId?: string;
+  resetType?: string;
+  time?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerId: 'ConsumerId',
+      instanceId: 'InstanceId',
+      offsetsShrink: 'Offsets',
+      regionId: 'RegionId',
+      resetType: 'ResetType',
+      time: 'Time',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerId: 'string',
+      instanceId: 'string',
+      offsetsShrink: 'string',
+      regionId: 'string',
+      resetType: 'string',
+      time: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerOffsetResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerOffsetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateConsumerOffsetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConsumerOffsetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceConfigRequest extends $tea.Model {
   config?: string;
   instanceId?: string;
@@ -3229,28 +3307,6 @@ export class CreateTopicRequestTag extends $tea.Model {
   }
 }
 
-export class CreateTopicShrinkRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAclsResponseBodyKafkaAclListKafkaAclVO extends $tea.Model {
   aclOperationType?: string;
   aclResourceName?: string;
@@ -3465,6 +3521,7 @@ export class GetConsumerListResponseBodyConsumerListConsumerVOTags extends $tea.
 }
 
 export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Model {
+  automaticallyCreatedGroup?: boolean;
   consumerId?: string;
   instanceId?: string;
   regionId?: string;
@@ -3472,6 +3529,7 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
   tags?: GetConsumerListResponseBodyConsumerListConsumerVOTags;
   static names(): { [key: string]: string } {
     return {
+      automaticallyCreatedGroup: 'AutomaticallyCreatedGroup',
       consumerId: 'ConsumerId',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
@@ -3482,6 +3540,7 @@ export class GetConsumerListResponseBodyConsumerListConsumerVO extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      automaticallyCreatedGroup: 'boolean',
       consumerId: 'string',
       instanceId: 'string',
       regionId: 'string',
@@ -3727,6 +3786,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   expiredTime?: number;
   instanceId?: string;
   ioMax?: number;
+  ioMaxSpec?: string;
   kmsKeyId?: string;
   msgRetain?: number;
   name?: string;
@@ -3762,6 +3822,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'ExpiredTime',
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
+      ioMaxSpec: 'IoMaxSpec',
       kmsKeyId: 'KmsKeyId',
       msgRetain: 'MsgRetain',
       name: 'Name',
@@ -3800,6 +3861,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'number',
       instanceId: 'string',
       ioMax: 'number',
+      ioMaxSpec: 'string',
       kmsKeyId: 'string',
       msgRetain: 'number',
       name: 'string',
@@ -3855,7 +3917,7 @@ export class GetQuotaTipResponseBodyQuotaData extends $tea.Model {
   isPartitionBuy?: number;
   partitionLeft?: number;
   partitionNumOfBuy?: number;
-  partitionQuata?: number;
+  partitionQuota?: number;
   partitionUsed?: number;
   topicLeft?: number;
   topicNumOfBuy?: number;
@@ -3868,7 +3930,7 @@ export class GetQuotaTipResponseBodyQuotaData extends $tea.Model {
       isPartitionBuy: 'IsPartitionBuy',
       partitionLeft: 'PartitionLeft',
       partitionNumOfBuy: 'PartitionNumOfBuy',
-      partitionQuata: 'PartitionQuata',
+      partitionQuota: 'PartitionQuota',
       partitionUsed: 'PartitionUsed',
       topicLeft: 'TopicLeft',
       topicNumOfBuy: 'TopicNumOfBuy',
@@ -3884,7 +3946,7 @@ export class GetQuotaTipResponseBodyQuotaData extends $tea.Model {
       isPartitionBuy: 'number',
       partitionLeft: 'number',
       partitionNumOfBuy: 'number',
-      partitionQuata: 'number',
+      partitionQuota: 'number',
       partitionUsed: 'number',
       topicLeft: 'number',
       topicNumOfBuy: 'number',
@@ -3940,6 +4002,7 @@ export class GetTopicListResponseBodyTopicListTopicVOTags extends $tea.Model {
 }
 
 export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
+  autoCreate?: boolean;
   compactTopic?: boolean;
   createTime?: number;
   instanceId?: string;
@@ -3953,6 +4016,7 @@ export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
+      autoCreate: 'AutoCreate',
       compactTopic: 'CompactTopic',
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
@@ -3969,6 +4033,7 @@ export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoCreate: 'boolean',
       compactTopic: 'boolean',
       createTime: 'number',
       instanceId: 'string',
@@ -4165,6 +4230,28 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerOffsetRequestOffsets extends $tea.Model {
+  offset?: number;
+  partition?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'Offset',
+      partition: 'Partition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      partition: 'number',
     };
   }
 
@@ -4441,6 +4528,15 @@ export default class Client extends OpenApi {
     return await this.createPostPayOrderWithOptions(request, runtime);
   }
 
+  /**
+    * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+    * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
+    * *   For more information about the valid values, see [Billing](~~84737~~).
+    *
+    * @param request CreatePrePayOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreatePrePayOrderResponse
+   */
   async createPrePayOrderWithOptions(request: CreatePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrePayOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4509,6 +4605,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrePayOrderResponse>(await this.callApi(params, req, runtime), new CreatePrePayOrderResponse({}));
   }
 
+  /**
+    * The maximum traffic for the instance. We recommend that you do not configure this parameter.
+    * *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
+    * *   For more information about the valid values, see [Billing](~~84737~~).
+    *
+    * @param request CreatePrePayOrderRequest
+    * @return CreatePrePayOrderResponse
+   */
   async createPrePayOrder(request: CreatePrePayOrderRequest): Promise<CreatePrePayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrePayOrderWithOptions(request, runtime);
@@ -4559,21 +4663,24 @@ export default class Client extends OpenApi {
     return await this.createSaslUserWithOptions(request, runtime);
   }
 
-  async createTopicWithOptions(tmpReq: CreateTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateTopicShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.config)) {
-      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
-    }
-
+  /**
+    * The description of the topic.
+    * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
+    * *   The description must be 3 to 64 characters in length.
+    *
+    * @param request CreateTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTopicResponse
+   */
+  async createTopicWithOptions(request: CreateTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
+    Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.compactTopic)) {
       query["CompactTopic"] = request.compactTopic;
     }
 
-    if (!Util.isUnset(request.configShrink)) {
-      query["Config"] = request.configShrink;
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -4629,6 +4736,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
   }
 
+  /**
+    * The description of the topic.
+    * *   The description can contain only letters, digits, hyphens (-), and underscores (\\_).
+    * *   The description must be 3 to 64 characters in length.
+    *
+    * @param request CreateTopicRequest
+    * @return CreateTopicResponse
+   */
   async createTopic(request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTopicWithOptions(request, runtime);
@@ -5377,6 +5492,13 @@ export default class Client extends OpenApi {
     return await this.modifyTopicRemarkWithOptions(request, runtime);
   }
 
+  /**
+    * The region ID of the instance.
+    *
+    * @param request ReleaseInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5409,6 +5531,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
   }
 
+  /**
+    * The region ID of the instance.
+    *
+    * @param request ReleaseInstanceRequest
+    * @return ReleaseInstanceResponse
+   */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstanceWithOptions(request, runtime);
@@ -5658,6 +5786,72 @@ export default class Client extends OpenApi {
     return await this.updateAllowedIpWithOptions(request, runtime);
   }
 
+  async updateConsumerOffsetWithOptions(tmpReq: UpdateConsumerOffsetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerOffsetResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateConsumerOffsetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.offsets)) {
+      request.offsetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.offsets, "Offsets", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.consumerId)) {
+      query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.offsetsShrink)) {
+      query["Offsets"] = request.offsetsShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resetType)) {
+      query["ResetType"] = request.resetType;
+    }
+
+    if (!Util.isUnset(request.time)) {
+      query["Time"] = request.time;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateConsumerOffset",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateConsumerOffsetResponse>(await this.callApi(params, req, runtime), new UpdateConsumerOffsetResponse({}));
+  }
+
+  async updateConsumerOffset(request: UpdateConsumerOffsetRequest): Promise<UpdateConsumerOffsetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateConsumerOffsetWithOptions(request, runtime);
+  }
+
+  /**
+    * The region ID of the instance.
+    *
+    * @param request UpdateInstanceConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateInstanceConfigResponse
+   */
   async updateInstanceConfigWithOptions(request: UpdateInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5690,11 +5884,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceConfigResponse>(await this.callApi(params, req, runtime), new UpdateInstanceConfigResponse({}));
   }
 
+  /**
+    * The region ID of the instance.
+    *
+    * @param request UpdateInstanceConfigRequest
+    * @return UpdateInstanceConfigResponse
+   */
   async updateInstanceConfig(request: UpdateInstanceConfigRequest): Promise<UpdateInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+    * ## **Permissions**
+    * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+    * |API|Action|Resource|
+    * |---|---|---|
+    * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+    * ## **QPS limits**
+    * You can send a maximum of two queries per second (QPS).
+    *
+    * @param request UpgradeInstanceVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradeInstanceVersionResponse
+   */
   async upgradeInstanceVersionWithOptions(request: UpgradeInstanceVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeInstanceVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5727,11 +5940,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeInstanceVersionResponse>(await this.callApi(params, req, runtime), new UpgradeInstanceVersionResponse({}));
   }
 
+  /**
+    * ## **Permissions**
+    * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+    * |API|Action|Resource|
+    * |---|---|---|
+    * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+    * ## **QPS limits**
+    * You can send a maximum of two queries per second (QPS).
+    *
+    * @param request UpgradeInstanceVersionRequest
+    * @return UpgradeInstanceVersionResponse
+   */
   async upgradeInstanceVersion(request: UpgradeInstanceVersionRequest): Promise<UpgradeInstanceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeInstanceVersionWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+    *
+    * @param request UpgradePostPayOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradePostPayOrderResponse
+   */
   async upgradePostPayOrderWithOptions(request: UpgradePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePostPayOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5792,11 +6024,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradePostPayOrderResponse>(await this.callApi(params, req, runtime), new UpgradePostPayOrderResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
+    *
+    * @param request UpgradePostPayOrderRequest
+    * @return UpgradePostPayOrderResponse
+   */
   async upgradePostPayOrder(request: UpgradePostPayOrderRequest): Promise<UpgradePostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradePostPayOrderWithOptions(request, runtime);
   }
 
+  /**
+    * The size of the disk.
+    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
+    * *   For more information about the valid values, see [Billing overview](~~84737~~).
+    *
+    * @param request UpgradePrePayOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpgradePrePayOrderResponse
+   */
   async upgradePrePayOrderWithOptions(request: UpgradePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePrePayOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5857,6 +6104,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradePrePayOrderResponse>(await this.callApi(params, req, runtime), new UpgradePrePayOrderResponse({}));
   }
 
+  /**
+    * The size of the disk.
+    * *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
+    * *   For more information about the valid values, see [Billing overview](~~84737~~).
+    *
+    * @param request UpgradePrePayOrderRequest
+    * @return UpgradePrePayOrderResponse
+   */
   async upgradePrePayOrder(request: UpgradePrePayOrderRequest): Promise<UpgradePrePayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradePrePayOrderWithOptions(request, runtime);
