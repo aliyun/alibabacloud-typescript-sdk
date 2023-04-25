@@ -7317,6 +7317,8 @@ export class DescribeDcdnRefreshQuotaResponseBody extends $tea.Model {
   blockRemain?: string;
   dirQuota?: string;
   dirRemain?: string;
+  ignoreParamsQuota?: string;
+  ignoreParamsRemain?: string;
   preloadQuota?: string;
   preloadRemain?: string;
   regexQuota?: string;
@@ -7330,6 +7332,8 @@ export class DescribeDcdnRefreshQuotaResponseBody extends $tea.Model {
       blockRemain: 'BlockRemain',
       dirQuota: 'DirQuota',
       dirRemain: 'DirRemain',
+      ignoreParamsQuota: 'IgnoreParamsQuota',
+      ignoreParamsRemain: 'IgnoreParamsRemain',
       preloadQuota: 'PreloadQuota',
       preloadRemain: 'PreloadRemain',
       regexQuota: 'RegexQuota',
@@ -7346,6 +7350,8 @@ export class DescribeDcdnRefreshQuotaResponseBody extends $tea.Model {
       blockRemain: 'string',
       dirQuota: 'string',
       dirRemain: 'string',
+      ignoreParamsQuota: 'string',
+      ignoreParamsRemain: 'string',
       preloadQuota: 'string',
       preloadRemain: 'string',
       regexQuota: 'string',
@@ -8965,6 +8971,8 @@ export class DescribeDcdnUserQuotaResponseBody extends $tea.Model {
   blockQuota?: number;
   blockRemain?: number;
   domainQuota?: number;
+  ignoreParamsQuota?: number;
+  ignoreParamsRemain?: number;
   preloadQuota?: number;
   preloadRemain?: number;
   refreshDirQuota?: number;
@@ -8977,6 +8985,8 @@ export class DescribeDcdnUserQuotaResponseBody extends $tea.Model {
       blockQuota: 'BlockQuota',
       blockRemain: 'BlockRemain',
       domainQuota: 'DomainQuota',
+      ignoreParamsQuota: 'IgnoreParamsQuota',
+      ignoreParamsRemain: 'IgnoreParamsRemain',
       preloadQuota: 'PreloadQuota',
       preloadRemain: 'PreloadRemain',
       refreshDirQuota: 'RefreshDirQuota',
@@ -8992,6 +9002,8 @@ export class DescribeDcdnUserQuotaResponseBody extends $tea.Model {
       blockQuota: 'number',
       blockRemain: 'number',
       domainQuota: 'number',
+      ignoreParamsQuota: 'number',
+      ignoreParamsRemain: 'number',
       preloadQuota: 'number',
       preloadRemain: 'number',
       refreshDirQuota: 'number',
@@ -11569,6 +11581,75 @@ export class EditRoutineConfResponse extends $tea.Model {
   }
 }
 
+export class GetDcdnKvRequest extends $tea.Model {
+  key?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvResponseBody extends $tea.Model {
+  requestId?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDcdnKvResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDcdnKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectRequest extends $tea.Model {
   businessType?: string;
   domainName?: string;
@@ -12234,6 +12315,81 @@ export class PublishRoutineCodeRevisionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PublishRoutineCodeRevisionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvRequest extends $tea.Model {
+  key?: string;
+  namespace?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvResponseBody extends $tea.Model {
+  length?: number;
+  requestId?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      length: 'Length',
+      requestId: 'RequestId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      length: 'number',
+      requestId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PutDcdnKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PutDcdnKvResponseBody,
     };
   }
 
@@ -14269,11 +14425,19 @@ export class DescribeDcdnDomainBpsDataResponseBodyBpsDataPerInterval extends $te
 }
 
 export class DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $tea.Model {
+  dynamicTrafficValue?: string;
+  dynamicValue?: string;
+  staticTrafficValue?: string;
+  staticValue?: string;
   timeStamp?: string;
   trafficValue?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      dynamicTrafficValue: 'DynamicTrafficValue',
+      dynamicValue: 'DynamicValue',
+      staticTrafficValue: 'StaticTrafficValue',
+      staticValue: 'StaticValue',
       timeStamp: 'TimeStamp',
       trafficValue: 'TrafficValue',
       value: 'Value',
@@ -14282,6 +14446,10 @@ export class DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModu
 
   static types(): { [key: string]: any } {
     return {
+      dynamicTrafficValue: 'string',
+      dynamicValue: 'string',
+      staticTrafficValue: 'string',
+      staticValue: 'string',
       timeStamp: 'string',
       trafficValue: 'string',
       value: 'string',
@@ -20310,7 +20478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request CreateDcdnDeliverTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20357,7 +20525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to three times per second per account.
+    * > You can call this operation up to three times per second per account.
     *
     * @param request CreateDcdnDeliverTaskRequest
     * @return CreateDcdnDeliverTaskResponse
@@ -21399,10 +21567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
     * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
     * *   You can query data in the last 90 days.
-    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   The maximum time range that you can specify is 31 days. StartTime specifies the start time and EndTime specifies the end time of the time range.
     * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
     * *   You can call this operation up to five times per second per account.
     *
@@ -21447,10 +21615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both of them empty.
+    * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
     * *   If you specify multiple Internet service providers (ISPs), the data for the ISPs is aggregated.
     * *   You can query data in the last 90 days.
-    * *   The maximum time range from the start time to the end time is 31 days. The start time is specified by the StartTime parameter and the end time is specified by the EndTime parameter.
+    * *   The maximum time range that you can specify is 31 days. StartTime specifies the start time and EndTime specifies the end time of the time range.
     * *   If the time range from the start time to the end time is 72 hours or shorter, you can specify the interval as 5 minutes. If the time range is longer than 72 hours, you must specify the interval as 1 hour.
     * *   You can call this operation up to five times per second per account.
     *
@@ -27587,6 +27755,31 @@ export default class Client extends OpenApi {
     return await this.editRoutineConfWithOptions(request, runtime);
   }
 
+  async getDcdnKvWithOptions(request: GetDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<GetDcdnKvResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDcdnKv",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDcdnKvResponse>(await this.callApi(params, req, runtime), new GetDcdnKvResponse({}));
+  }
+
+  async getDcdnKv(request: GetDcdnKvRequest): Promise<GetDcdnKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDcdnKvWithOptions(request, runtime);
+  }
+
   /**
     * >  You can call this operation up to 100 times per second per account.
     *
@@ -27854,9 +28047,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
-    * *   You can call this operation up to five times per second per account.
+    * > *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
+    * >*   You can call this operation up to 5 times per second per account.
     *
     * @param request OpenDcdnServiceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27899,9 +28091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
-    * *   You can call this operation up to five times per second per account.
+    * > *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
+    * >*   You can call this operation up to 5 times per second per account.
     *
     * @param request OpenDcdnServiceRequest
     * @return OpenDcdnServiceResponse
@@ -28093,6 +28284,45 @@ export default class Client extends OpenApi {
   async publishRoutineCodeRevision(request: PublishRoutineCodeRevisionRequest): Promise<PublishRoutineCodeRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishRoutineCodeRevisionWithOptions(request, runtime);
+  }
+
+  async putDcdnKvWithOptions(request: PutDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<PutDcdnKvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutDcdnKv",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutDcdnKvResponse>(await this.callApi(params, req, runtime), new PutDcdnKvResponse({}));
+  }
+
+  async putDcdnKv(request: PutDcdnKvRequest): Promise<PutDcdnKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putDcdnKvWithOptions(request, runtime);
   }
 
   /**
