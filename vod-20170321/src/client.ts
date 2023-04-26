@@ -8543,6 +8543,87 @@ export class RegisterMediaResponse extends $tea.Model {
   }
 }
 
+export class RestoreMediaRequest extends $tea.Model {
+  mediaIds?: string;
+  restoreDays?: string;
+  restoreTier?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+      restoreDays: 'RestoreDays',
+      restoreTier: 'RestoreTier',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: 'string',
+      restoreDays: 'string',
+      restoreTier: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreMediaResponseBody extends $tea.Model {
+  forbiddenList?: RestoreMediaResponseBodyForbiddenList;
+  ignoredList?: RestoreMediaResponseBodyIgnoredList;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      forbiddenList: 'ForbiddenList',
+      ignoredList: 'IgnoredList',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forbiddenList: RestoreMediaResponseBodyForbiddenList,
+      ignoredList: RestoreMediaResponseBodyIgnoredList,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreMediaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestoreMediaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestoreMediaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchEditingProjectRequest extends $tea.Model {
   endTime?: string;
   ownerAccount?: string;
@@ -10542,6 +10623,87 @@ export class UpdateImageInfosResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateImageInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaStorageClassRequest extends $tea.Model {
+  mediaIds?: string;
+  restoreTier?: string;
+  scope?: string;
+  storageClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+      restoreTier: 'RestoreTier',
+      scope: 'Scope',
+      storageClass: 'StorageClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: 'string',
+      restoreTier: 'string',
+      scope: 'string',
+      storageClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaStorageClassResponseBody extends $tea.Model {
+  forbiddenList?: UpdateMediaStorageClassResponseBodyForbiddenList;
+  ignoredList?: UpdateMediaStorageClassResponseBodyIgnoredList;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forbiddenList: 'ForbiddenList',
+      ignoredList: 'IgnoredList',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forbiddenList: UpdateMediaStorageClassResponseBodyForbiddenList,
+      ignoredList: UpdateMediaStorageClassResponseBodyIgnoredList,
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaStorageClassResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMediaStorageClassResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaStorageClassResponseBody,
     };
   }
 
@@ -17163,6 +17325,66 @@ export class RegisterMediaResponseBodyRegisteredMediaList extends $tea.Model {
   }
 }
 
+export class RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO extends $tea.Model {
+  mediaId?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreMediaResponseBodyForbiddenList extends $tea.Model {
+  mediaForbiddenReasonDTO?: RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      mediaForbiddenReasonDTO: 'MediaForbiddenReasonDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaForbiddenReasonDTO: { 'type': 'array', 'itemType': RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreMediaResponseBodyIgnoredList extends $tea.Model {
+  mediaId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchEditingProjectResponseBodyProjectListProject extends $tea.Model {
   coverURL?: string;
   creationTime?: string;
@@ -17878,6 +18100,66 @@ export class UpdateImageInfosResponseBodyNonExistImageIds extends $tea.Model {
   }
 }
 
+export class UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO extends $tea.Model {
+  mediaId?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaStorageClassResponseBodyForbiddenList extends $tea.Model {
+  mediaForbiddenReasonDTO?: UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      mediaForbiddenReasonDTO: 'MediaForbiddenReasonDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaForbiddenReasonDTO: { 'type': 'array', 'itemType': UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaStorageClassResponseBodyIgnoredList extends $tea.Model {
+  mediaId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWatermarkResponseBodyWatermarkInfo extends $tea.Model {
   creationTime?: string;
   fileUrl?: string;
@@ -18471,7 +18753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is available only in the **China (Shanghai)** region.
+    * The ID of the request.
     *
     * @param request BatchSetVodDomainConfigsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18518,7 +18800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is available only in the **China (Shanghai)** region.
+    * The ID of the request.
     *
     * @param request BatchSetVodDomainConfigsRequest
     * @return BatchSetVodDomainConfigsResponse
@@ -18579,8 +18861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+    * The operation that you want to perform. Set the value to **BatchStopVodDomain**.
     *
     * @param request BatchStopVodDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18619,8 +18900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   After you disable a domain name for CDN, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name for CDN to the origin server.
+    * The operation that you want to perform. Set the value to **BatchStopVodDomain**.
     *
     * @param request BatchStopVodDomainRequest
     * @return BatchStopVodDomainResponse
@@ -18631,8 +18911,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
-    * *   You cannot cancel an upload job that already starts.
+    * The upload URLs of source files. Separate multiple URLs with commas (,). You can specify a maximum of 10 URLs.
+    * > *   You must encode the URLs before you use the URLs.
+    * > *   You must set one of the JobIds and the UploadUrls parameters. If you set both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
     *
     * @param request CancelUrlUploadJobsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18667,8 +18948,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can cancel only a URL-based upload job in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](~~106830~~) operation.
-    * *   You cannot cancel an upload job that already starts.
+    * The upload URLs of source files. Separate multiple URLs with commas (,). You can specify a maximum of 10 URLs.
+    * > *   You must encode the URLs before you use the URLs.
+    * > *   You must set one of the JobIds and the UploadUrls parameters. If you set both the JobIds and UploadUrls parameters, only the value of the JobIds parameter takes effect.
     *
     * @param request CancelUrlUploadJobsRequest
     * @return CancelUrlUploadJobsResponse
@@ -19239,7 +19521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+    * The ID of the request.
     *
     * @param request DeleteCategoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19270,7 +19552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > If a video category is deleted, its subcategories, including level 2 and level 3 categories, are also deleted. Exercise caution when you call this operation.
+    * The ID of the request.
     *
     * @param request DeleteCategoryRequest
     * @return DeleteCategoryResponse
@@ -19423,7 +19705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Overview](~~55627~~).
+    * The operation that you want to perform. Set the value to **DeleteMessageCallback**.
     *
     * @param request DeleteMessageCallbackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19458,7 +19740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Overview](~~55627~~).
+    * The operation that you want to perform. Set the value to **DeleteMessageCallback**.
     *
     * @param request DeleteMessageCallbackRequest
     * @return DeleteMessageCallbackResponse
@@ -19515,9 +19797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
-    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
-    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    * The ID of the request.
     *
     * @param request DeleteMultipartUploadRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19556,9 +19836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
-    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
-    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    * The ID of the request.
     *
     * @param request DeleteMultipartUploadRequest
     * @return DeleteMultipartUploadResponse
@@ -19602,9 +19880,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
-    * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
-    * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    * Specifies whether to forcibly delete the entire transcoding template group. Valid values:
+    * *   **true**: deletes the entire transcoding template group and its transcoding templates.
+    * *   **false**: removes the specified transcoding templates from the transcoding template group. This is the default value.
     *
     * @param request DeleteTranscodeTemplateGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19643,9 +19921,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot remove the default transcoding template. You can remove it only after it is no longer specified as the default.
-    * *   For security purposes, you cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
-    * *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    * Specifies whether to forcibly delete the entire transcoding template group. Valid values:
+    * *   **true**: deletes the entire transcoding template group and its transcoding templates.
+    * *   **false**: removes the specified transcoding templates from the transcoding template group. This is the default value.
     *
     * @param request DeleteTranscodeTemplateGroupRequest
     * @return DeleteTranscodeTemplateGroupResponse
@@ -19656,9 +19934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
-    * *   You can call this operation to delete multiple videos at a time.
-    * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+    * The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified. You can obtain a video ID in one of the following ways:
+    * *   If the video is uploaded by using the [ApsaraVideo VOD console](https://vod.console.aliyun.com), log on to the console and choose **Media Files** > **Audio/Video** to view the ID of the video.
+    * *   If the video is uploaded by calling the [CreateUploadVideo](~~55407~~) operation, the video ID is the VideoId value in the response.
+    * *   You can also call the [SearchMedia](~~86044~~) operation to obtain the video ID, which is the VideoId value in the response.
     *
     * @param request DeleteVideoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19689,9 +19968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
-    * *   You can call this operation to delete multiple videos at a time.
-    * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](~~86098~~).
+    * The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified. You can obtain a video ID in one of the following ways:
+    * *   If the video is uploaded by using the [ApsaraVideo VOD console](https://vod.console.aliyun.com), log on to the console and choose **Media Files** > **Audio/Video** to view the ID of the video.
+    * *   If the video is uploaded by calling the [CreateUploadVideo](~~55407~~) operation, the video ID is the VideoId value in the response.
+    * *   You can also call the [SearchMedia](~~86044~~) operation to obtain the video ID, which is the VideoId value in the response.
     *
     * @param request DeleteVideoRequest
     * @return DeleteVideoResponse
@@ -19985,10 +20265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
-    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
-    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    * The total number of unique visitors who use ApsaraVideo Player SDK for Flash.
     *
     * @param request DescribePlayUserTotalRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20027,10 +20304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
-    * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
-    * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
+    * The total number of unique visitors who use ApsaraVideo Player SDK for Flash.
     *
     * @param request DescribePlayUserTotalRequest
     * @return DescribePlayUserTotalResponse
@@ -20205,7 +20479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    * The domain name for CDN.
     *
     * @param request DescribeVodDomainBpsDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20260,7 +20534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+    * The domain name for CDN.
     *
     * @param request DescribeVodDomainBpsDataRequest
     * @return DescribeVodDomainBpsDataResponse
@@ -20514,23 +20788,6 @@ export default class Client extends OpenApi {
     return await this.describeVodDomainSrcBpsDataWithOptions(request, runtime);
   }
 
-  /**
-    * * This operation is available only in the **China (Shanghai)** region.
-    * * ApsaraVideo VOD stores the origin traffic data for 90 days before the data is deleted.
-    * * If you do not set the `StartTime` or `EndTime` parameter, the request returns the data collected in the last 24 hours. If you set both the `StartTime` and `EndTime` parameters, the request returns the data collected within the specified time range.
-    * * You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,). If you specify multiple domain names in a request, aggregation results are returned.
-    * ### Time granularity
-    * The time granularity supported by the Interval parameter varies based on the time range per query specified by using `StartTime` and `EndTime`. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Time range per query (days)|Historical data available (days)|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|(0, 3\\]|93|15 minutes|
-    * |1 hour|(3, 31\\]|186|4 hours|
-    * |1 day|(31, 366\\]|366|04:00 on the next day|
-    *
-    * @param request DescribeVodDomainSrcTrafficDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeVodDomainSrcTrafficDataResponse
-   */
   async describeVodDomainSrcTrafficDataWithOptions(request: DescribeVodDomainSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainSrcTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20571,22 +20828,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodDomainSrcTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainSrcTrafficDataResponse({}));
   }
 
-  /**
-    * * This operation is available only in the **China (Shanghai)** region.
-    * * ApsaraVideo VOD stores the origin traffic data for 90 days before the data is deleted.
-    * * If you do not set the `StartTime` or `EndTime` parameter, the request returns the data collected in the last 24 hours. If you set both the `StartTime` and `EndTime` parameters, the request returns the data collected within the specified time range.
-    * * You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,). If you specify multiple domain names in a request, aggregation results are returned.
-    * ### Time granularity
-    * The time granularity supported by the Interval parameter varies based on the time range per query specified by using `StartTime` and `EndTime`. The following table describes the time period within which historical data is available and the data delay.
-    * |Time granularity|Time range per query (days)|Historical data available (days)|Data delay|
-    * |---|---|---|---|
-    * |5 minutes|(0, 3\\]|93|15 minutes|
-    * |1 hour|(3, 31\\]|186|4 hours|
-    * |1 day|(31, 366\\]|366|04:00 on the next day|
-    *
-    * @param request DescribeVodDomainSrcTrafficDataRequest
-    * @return DescribeVodDomainSrcTrafficDataResponse
-   */
   async describeVodDomainSrcTrafficData(request: DescribeVodDomainSrcTrafficDataRequest): Promise<DescribeVodDomainSrcTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainSrcTrafficDataWithOptions(request, runtime);
@@ -20667,9 +20908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > -   This operation is available only in the **China (Shanghai)** region.
-    * >-  You can specify a maximum of 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
-    * >-  You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
+    * > 
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   You can specify up to 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
+    * *   You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
     *
     * @param request DescribeVodDomainUsageDataRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20728,9 +20970,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > -   This operation is available only in the **China (Shanghai)** region.
-    * >-  You can specify a maximum of 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
-    * >-  You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
+    * > 
+    * *   This operation is available only in the **China (Shanghai)** region.
+    * *   You can specify up to 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
+    * *   You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
     *
     * @param request DescribeVodDomainUsageDataRequest
     * @return DescribeVodDomainUsageDataResponse
@@ -20741,8 +20984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    * The maximum number of URLs of files that can be refreshed each day.
     *
     * @param request DescribeVodRefreshQuotaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20777,8 +21019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   This operation is available only in the **China (Shanghai)** region.
-    * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
+    * The maximum number of URLs of files that can be refreshed each day.
     *
     * @param request DescribeVodRefreshQuotaRequest
     * @return DescribeVodRefreshQuotaResponse
@@ -22071,7 +22312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Overview](~~55627~~).
+    * The type of the callback event.
     *
     * @param request GetMessageCallbackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22106,7 +22347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > For more information, see [Overview](~~55627~~).
+    * The type of the callback event.
     *
     * @param request GetMessageCallbackRequest
     * @return GetMessageCallbackResponse
@@ -22617,7 +22858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+    * You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](~~86044~~).
     *
     * @param request GetVideoListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22676,7 +22917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In a single request, you can obtain the information about a maximum of first **5,000** video records that meet the specified filter criteria, such as the video status and category. We recommend that you set the StartTime and EndTime parameters to narrow down the time range for queries and perform multiple queries. For more information about how to query the information about more videos or even all videos, see [SearchMedia](~~86044~~).
+    * You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](~~86044~~).
     *
     * @param request GetVideoListRequest
     * @return GetVideoListResponse
@@ -22687,8 +22928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
-    * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+    * The thumbnail URL of the audio or video file.
     *
     * @param request GetVideoPlayAuthRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22727,8 +22967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL.
-    * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+    * The thumbnail URL of the audio or video file.
     *
     * @param request GetVideoPlayAuthRequest
     * @return GetVideoPlayAuthResponse
@@ -23109,7 +23348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    * The ID of the video category.
     *
     * @param request ListLiveRecordVideoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23168,7 +23407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    * The ID of the video category.
     *
     * @param request ListLiveRecordVideoRequest
     * @return ListLiveRecordVideoResponse
@@ -23179,7 +23418,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+    * The type of snapshots that are returned. Valid values:
+    * *   **CoverSnapshot**: thumbnail snapshot
+    * *   **NormalSnapshot**: normal snapshot
+    * *   **SpriteSnapshot**: sprite snapshot
+    * *   **SpriteOriginSnapshot**: sprite source snapshot
+    * *   **WebVttSnapshot**: WebVTT snapshot
     *
     * @param request ListSnapshotsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23226,7 +23470,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If multiple snapshots of a video exist, the data of the latest snapshot is returned.
+    * The type of snapshots that are returned. Valid values:
+    * *   **CoverSnapshot**: thumbnail snapshot
+    * *   **NormalSnapshot**: normal snapshot
+    * *   **SpriteSnapshot**: sprite snapshot
+    * *   **SpriteOriginSnapshot**: sprite source snapshot
+    * *   **WebVttSnapshot**: WebVTT snapshot
     *
     * @param request ListSnapshotsRequest
     * @return ListSnapshotsResponse
@@ -23764,10 +24013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
-    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
-    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
-    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    * The media files that are registered, including newly registered and repeatedly registered media files.
     *
     * @param request RegisterMediaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23810,10 +24056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
-    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
-    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
-    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    * The media files that are registered, including newly registered and repeatedly registered media files.
     *
     * @param request RegisterMediaRequest
     * @return RegisterMediaResponse
@@ -23821,6 +24064,47 @@ export default class Client extends OpenApi {
   async registerMedia(request: RegisterMediaRequest): Promise<RegisterMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerMediaWithOptions(request, runtime);
+  }
+
+  async restoreMediaWithOptions(request: RestoreMediaRequest, runtime: $Util.RuntimeOptions): Promise<RestoreMediaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!Util.isUnset(request.restoreDays)) {
+      query["RestoreDays"] = request.restoreDays;
+    }
+
+    if (!Util.isUnset(request.restoreTier)) {
+      query["RestoreTier"] = request.restoreTier;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestoreMedia",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestoreMediaResponse>(await this.callApi(params, req, runtime), new RestoreMediaResponse({}));
+  }
+
+  async restoreMedia(request: RestoreMediaRequest): Promise<RestoreMediaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restoreMediaWithOptions(request, runtime);
   }
 
   async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
@@ -23893,11 +24177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The preprocessing status. Valid values:
-    * *   **UnPreprocess**
-    * *   **Preprocessing**
-    * *   **PreprocessSucceed**
-    * *   **PreprocessFailed**
+    * The ID of the parent category.
     *
     * @param request SearchMediaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23952,11 +24232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The preprocessing status. Valid values:
-    * *   **UnPreprocess**
-    * *   **Preprocessing**
-    * *   **PreprocessSucceed**
-    * *   **PreprocessFailed**
+    * The ID of the parent category.
     *
     * @param request SearchMediaRequest
     * @return SearchMediaResponse
@@ -24232,8 +24508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage note
-    * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+    * The ID of the application. If you do not set this parameter, the default value **app-1000000** is used.
     *
     * @param request SetMessageCallbackRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24296,8 +24571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage note
-    * ApsaraVideo VOD supports the HTTP and MNS callback methods. For more information, see [Event notification](~~55627~~).
+    * The ID of the application. If you do not set this parameter, the default value **app-1000000** is used.
     *
     * @param request SetMessageCallbackRequest
     * @return SetMessageCallbackResponse
@@ -25213,6 +25487,47 @@ export default class Client extends OpenApi {
     return await this.updateImageInfosWithOptions(request, runtime);
   }
 
+  async updateMediaStorageClassWithOptions(request: UpdateMediaStorageClassRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaStorageClassResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!Util.isUnset(request.restoreTier)) {
+      query["RestoreTier"] = request.restoreTier;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.storageClass)) {
+      query["StorageClass"] = request.storageClass;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMediaStorageClass",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMediaStorageClassResponse>(await this.callApi(params, req, runtime), new UpdateMediaStorageClassResponse({}));
+  }
+
+  async updateMediaStorageClass(request: UpdateMediaStorageClassRequest): Promise<UpdateMediaStorageClassResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMediaStorageClassWithOptions(request, runtime);
+  }
+
   /**
     * The ID of the transcoding template group.
     *
@@ -25330,7 +25645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    * The IDs of the videos that do not exist.
     *
     * @param request UpdateVideoInfosRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25361,7 +25676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The specific parameter of a video is updated only when a new value is passed in the parameter.
+    * The IDs of the videos that do not exist.
     *
     * @param request UpdateVideoInfosRequest
     * @return UpdateVideoInfosResponse
@@ -25467,7 +25782,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify only the name and configurations of a watermark.
+    * The configurations such as the position and effect of the text watermark or image watermark. The value is a JSON-formatted string.
+    * > The value of this parameter varies with the watermark type. For more information about the data structure, see the "WatermarkConfig" section of the [Media processing parameters](~~98618~~) topic.
     *
     * @param request UpdateWatermarkRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25506,7 +25822,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can modify only the name and configurations of a watermark.
+    * The configurations such as the position and effect of the text watermark or image watermark. The value is a JSON-formatted string.
+    * > The value of this parameter varies with the watermark type. For more information about the data structure, see the "WatermarkConfig" section of the [Media processing parameters](~~98618~~) topic.
     *
     * @param request UpdateWatermarkRequest
     * @return UpdateWatermarkResponse
