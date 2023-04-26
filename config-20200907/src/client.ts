@@ -6172,6 +6172,99 @@ export class ListAggregateResourceEvaluationResultsResponse extends $tea.Model {
   }
 }
 
+export class ListAggregateResourceRelationsRequest extends $tea.Model {
+  aggregatorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  region?: string;
+  relationType?: string;
+  resourceAccountId?: number;
+  resourceId?: string;
+  resourceType?: string;
+  targetResourceId?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      region: 'Region',
+      relationType: 'RelationType',
+      resourceAccountId: 'ResourceAccountId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      targetResourceId: 'TargetResourceId',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      region: 'string',
+      relationType: 'string',
+      resourceAccountId: 'number',
+      resourceId: 'string',
+      resourceType: 'string',
+      targetResourceId: 'string',
+      targetResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourceRelationsResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRelations?: ListAggregateResourceRelationsResponseBodyResourceRelations;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRelations: 'ResourceRelations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRelations: ListAggregateResourceRelationsResponseBodyResourceRelations,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourceRelationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAggregateResourceRelationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAggregateResourceRelationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAggregatorsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -6892,10 +6985,14 @@ export class ListPreManagedRulesResponse extends $tea.Model {
 
 export class ListRemediationTemplatesRequest extends $tea.Model {
   managedRuleIdentifier?: string;
+  pageNumber?: number;
+  pageSize?: number;
   remediationType?: string;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       remediationType: 'RemediationType',
     };
   }
@@ -6903,6 +7000,8 @@ export class ListRemediationTemplatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       managedRuleIdentifier: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       remediationType: 'string',
     };
   }
@@ -6913,19 +7012,28 @@ export class ListRemediationTemplatesRequest extends $tea.Model {
 }
 
 export class ListRemediationTemplatesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   remediationTemplates?: ListRemediationTemplatesResponseBodyRemediationTemplates[];
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       remediationTemplates: 'RemediationTemplates',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       remediationTemplates: { 'type': 'array', 'itemType': ListRemediationTemplatesResponseBodyRemediationTemplates },
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -6961,15 +7069,21 @@ export class ListRemediationTemplatesResponse extends $tea.Model {
 
 export class ListRemediationsRequest extends $tea.Model {
   configRuleIds?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       configRuleIds: 'ConfigRuleIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configRuleIds: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -6979,19 +7093,28 @@ export class ListRemediationsRequest extends $tea.Model {
 }
 
 export class ListRemediationsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   remediations?: ListRemediationsResponseBodyRemediations[];
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       remediations: 'Remediations',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       remediations: { 'type': 'array', 'itemType': ListRemediationsResponseBodyRemediations },
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -7098,6 +7221,93 @@ export class ListResourceEvaluationResultsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListResourceEvaluationResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  region?: string;
+  relationType?: string;
+  resourceId?: string;
+  resourceType?: string;
+  targetResourceId?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      region: 'Region',
+      relationType: 'RelationType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      targetResourceId: 'TargetResourceId',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      region: 'string',
+      relationType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      targetResourceId: 'string',
+      targetResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationsResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRelations?: ListResourceRelationsResponseBodyResourceRelations;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRelations: 'ResourceRelations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRelations: ListResourceRelationsResponseBodyResourceRelations,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListResourceRelationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResourceRelationsResponseBody,
     };
   }
 
@@ -11504,6 +11714,25 @@ export class GetConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
   }
 }
 
+export class GetConfigRuleResponseBodyConfigRuleScope extends $tea.Model {
+  complianceResourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      complianceResourceTypes: 'ComplianceResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceResourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea.Model {
   eventSource?: string;
   maximumExecutionFrequency?: string;
@@ -11575,6 +11804,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   resourceGroupIdsScope?: string;
   resourceTypesScope?: string;
   riskLevel?: number;
+  scope?: GetConfigRuleResponseBodyConfigRuleScope;
   source?: GetConfigRuleResponseBodyConfigRuleSource;
   tagKeyLogicScope?: string;
   tagKeyScope?: string;
@@ -11601,6 +11831,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
+      scope: 'Scope',
       source: 'Source',
       tagKeyLogicScope: 'TagKeyLogicScope',
       tagKeyScope: 'TagKeyScope',
@@ -11630,6 +11861,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       resourceGroupIdsScope: 'string',
       resourceTypesScope: 'string',
       riskLevel: 'number',
+      scope: GetConfigRuleResponseBodyConfigRuleScope,
       source: GetConfigRuleResponseBodyConfigRuleSource,
       tagKeyLogicScope: 'string',
       tagKeyScope: 'string',
@@ -13033,6 +13265,68 @@ export class ListAggregateResourceEvaluationResultsResponseBodyEvaluationResults
   }
 }
 
+export class ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList extends $tea.Model {
+  accountId?: number;
+  relationType?: string;
+  sourceResourceId?: string;
+  sourceResourceRegionId?: string;
+  sourceResourceType?: string;
+  targetResourceId?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      relationType: 'RelationType',
+      sourceResourceId: 'SourceResourceId',
+      sourceResourceRegionId: 'SourceResourceRegionId',
+      sourceResourceType: 'SourceResourceType',
+      targetResourceId: 'TargetResourceId',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      relationType: 'string',
+      sourceResourceId: 'string',
+      sourceResourceRegionId: 'string',
+      sourceResourceType: 'string',
+      targetResourceId: 'string',
+      targetResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateResourceRelationsResponseBodyResourceRelations extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  resourceRelationList?: ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceRelationList: 'ResourceRelationList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceRelationList: { 'type': 'array', 'itemType': ListAggregateResourceRelationsResponseBodyResourceRelationsResourceRelationList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAggregatorsResponseBodyAggregatorsResultAggregators extends $tea.Model {
   accountId?: number;
   aggregatorAccountCount?: number;
@@ -13735,8 +14029,11 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $te
   helpUrls?: string;
   identifier?: string;
   labels?: string[];
+  remediationTemplateIdentifier?: string;
+  remediationTemplateName?: string;
   riskLevel?: number;
   scope?: ListManagedRulesResponseBodyManagedRulesManagedRuleListScope;
+  supportPreviewManagedRule?: boolean;
   static names(): { [key: string]: string } {
     return {
       configRuleName: 'ConfigRuleName',
@@ -13744,8 +14041,11 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $te
       helpUrls: 'HelpUrls',
       identifier: 'Identifier',
       labels: 'Labels',
+      remediationTemplateIdentifier: 'RemediationTemplateIdentifier',
+      remediationTemplateName: 'RemediationTemplateName',
       riskLevel: 'RiskLevel',
       scope: 'Scope',
+      supportPreviewManagedRule: 'SupportPreviewManagedRule',
     };
   }
 
@@ -13756,8 +14056,11 @@ export class ListManagedRulesResponseBodyManagedRulesManagedRuleList extends $te
       helpUrls: 'string',
       identifier: 'string',
       labels: { 'type': 'array', 'itemType': 'string' },
+      remediationTemplateIdentifier: 'string',
+      remediationTemplateName: 'string',
       riskLevel: 'number',
       scope: ListManagedRulesResponseBodyManagedRulesManagedRuleListScope,
+      supportPreviewManagedRule: 'boolean',
     };
   }
 
@@ -13834,12 +14137,14 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $tea.Model {
 export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $tea.Model {
   remediationType?: string;
   templateDefinition?: string;
+  templateDescription?: string;
   templateIdentifier?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
       remediationType: 'RemediationType',
       templateDefinition: 'TemplateDefinition',
+      templateDescription: 'TemplateDescription',
       templateIdentifier: 'TemplateIdentifier',
       templateName: 'TemplateName',
     };
@@ -13849,6 +14154,7 @@ export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $t
     return {
       remediationType: 'string',
       templateDefinition: 'string',
+      templateDescription: 'string',
       templateIdentifier: 'string',
       templateName: 'string',
     };
@@ -14027,6 +14333,68 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResults extends 
       evaluationResultList: { 'type': 'array', 'itemType': ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList },
       maxResults: 'number',
       nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationsResponseBodyResourceRelationsResourceRelationList extends $tea.Model {
+  accountId?: number;
+  relationType?: string;
+  sourceResourceId?: string;
+  sourceResourceRegionId?: string;
+  sourceResourceType?: string;
+  targetResourceId?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      relationType: 'RelationType',
+      sourceResourceId: 'SourceResourceId',
+      sourceResourceRegionId: 'SourceResourceRegionId',
+      sourceResourceType: 'SourceResourceType',
+      targetResourceId: 'TargetResourceId',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      relationType: 'string',
+      sourceResourceId: 'string',
+      sourceResourceRegionId: 'string',
+      sourceResourceType: 'string',
+      targetResourceId: 'string',
+      targetResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationsResponseBodyResourceRelations extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  resourceRelationList?: ListResourceRelationsResponseBodyResourceRelationsResourceRelationList[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceRelationList: 'ResourceRelationList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceRelationList: { 'type': 'array', 'itemType': ListResourceRelationsResponseBodyResourceRelationsResourceRelationList },
     };
   }
 
@@ -14347,7 +14715,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+    * The ID of the rule. Separate multiple rule IDs with commas (,).
+    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request ActiveAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14382,7 +14751,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+    * The ID of the rule. Separate multiple rule IDs with commas (,).
+    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request ActiveAggregateConfigRulesRequest
     * @return ActiveAggregateConfigRulesResponse
@@ -14747,9 +15117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The return result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.  
-    * ## Limits
-    * A management account can contain up to 200 rules.
+    * The description of the rule.
     *
     * @param tmpReq CreateAggregateConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14866,9 +15234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The return result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.  
-    * ## Limits
-    * A management account can contain up to 200 rules.
+    * The description of the rule.
     *
     * @param request CreateAggregateConfigRuleRequest
     * @return CreateAggregateConfigRuleResponse
@@ -15469,7 +15835,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+    * The ID of the rule. Separate multiple rule IDs with commas (,).
+    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request DeactiveAggregateConfigRulesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15504,7 +15871,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
+    * The ID of the rule. Separate multiple rule IDs with commas (,).
+    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request DeactiveAggregateConfigRulesRequest
     * @return DeactiveAggregateConfigRulesResponse
@@ -15753,7 +16121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In the example of this topic, a request is sent to delete the account group whose ID is `ca-9190626622af00a9****`.
+    * The operation that you want to perform. Set the value to **DeleteAggregators**.
     *
     * @param request DeleteAggregatorsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15788,7 +16156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In the example of this topic, a request is sent to delete the account group whose ID is `ca-9190626622af00a9****`.
+    * The operation that you want to perform. Set the value to **DeleteAggregators**.
     *
     * @param request DeleteAggregatorsRequest
     * @return DeleteAggregatorsResponse
@@ -16595,7 +16963,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
+    * The type of the resource.
+    * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
     *
     * @param request GetAggregateDiscoveredResourceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16622,7 +16991,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the `new-bucket` resource in the `ca-5885626622af0008****` account group.
+    * The type of the resource.
+    * For more information about how to query the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
     *
     * @param request GetAggregateDiscoveredResourceRequest
     * @return GetAggregateDiscoveredResourceResponse
@@ -16633,7 +17003,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+    * The ID of the rule.
+    * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16680,7 +17051,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+    * The ID of the rule.
+    * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
     *
     * @param request GetAggregateResourceComplianceByConfigRuleRequest
     * @return GetAggregateResourceComplianceByConfigRuleResponse
@@ -16795,7 +17167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+    * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
     *
     * @param request GetAggregateResourceComplianceTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16822,7 +17194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+    * The operation that you want to perform. Set the value to **GetAggregateResourceComplianceTimeline**.
     *
     * @param request GetAggregateResourceComplianceTimelineRequest
     * @return GetAggregateResourceComplianceTimelineResponse
@@ -16833,7 +17205,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+    * The ID of the resource.
+    * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
     *
     * @param request GetAggregateResourceConfigurationTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16860,7 +17233,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+    * The ID of the resource.
+    * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
     *
     * @param request GetAggregateResourceConfigurationTimelineRequest
     * @return GetAggregateResourceConfigurationTimelineResponse
@@ -16871,7 +17245,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+    * The ID of the account group.
+    * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
     *
     * @param request GetAggregateResourceCountsGroupByRegionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16918,7 +17293,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+    * The ID of the account group.
+    * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
     *
     * @param request GetAggregateResourceCountsGroupByRegionRequest
     * @return GetAggregateResourceCountsGroupByRegionResponse
@@ -17654,7 +18030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+    * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
     *
     * @param request GetResourceConfigurationTimelineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17681,7 +18057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+    * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
     *
     * @param request GetResourceConfigurationTimelineRequest
     * @return GetResourceConfigurationTimelineResponse
@@ -18063,7 +18439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to query the resources in the `ca-c560626622af0005****` account group. The response shows that the account group contains eight resources.
+    * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
     *
     * @param request ListAggregateDiscoveredResourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18126,7 +18502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This example shows how to query the resources in the `ca-c560626622af0005****` account group. The response shows that the account group contains eight resources.
+    * The token that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.``
     *
     * @param request ListAggregateDiscoveredResourcesRequest
     * @return ListAggregateDiscoveredResourcesResponse
@@ -18246,6 +18622,71 @@ export default class Client extends OpenApi {
   async listAggregateResourceEvaluationResults(request: ListAggregateResourceEvaluationResultsRequest): Promise<ListAggregateResourceEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAggregateResourceEvaluationResultsWithOptions(request, runtime);
+  }
+
+  async listAggregateResourceRelationsWithOptions(request: ListAggregateResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateResourceRelationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregatorId)) {
+      query["AggregatorId"] = request.aggregatorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.resourceAccountId)) {
+      query["ResourceAccountId"] = request.resourceAccountId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.targetResourceId)) {
+      query["TargetResourceId"] = request.targetResourceId;
+    }
+
+    if (!Util.isUnset(request.targetResourceType)) {
+      query["TargetResourceType"] = request.targetResourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAggregateResourceRelations",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAggregateResourceRelationsResponse>(await this.callApi(params, req, runtime), new ListAggregateResourceRelationsResponse({}));
+  }
+
+  async listAggregateResourceRelations(request: ListAggregateResourceRelationsRequest): Promise<ListAggregateResourceRelationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAggregateResourceRelationsWithOptions(request, runtime);
   }
 
   /**
@@ -18699,6 +19140,14 @@ export default class Client extends OpenApi {
       query["ManagedRuleIdentifier"] = request.managedRuleIdentifier;
     }
 
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.remediationType)) {
       query["RemediationType"] = request.remediationType;
     }
@@ -18743,6 +19192,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.configRuleIds)) {
       query["ConfigRuleIds"] = request.configRuleIds;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18833,6 +19290,63 @@ export default class Client extends OpenApi {
   async listResourceEvaluationResults(request: ListResourceEvaluationResultsRequest): Promise<ListResourceEvaluationResultsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceEvaluationResultsWithOptions(request, runtime);
+  }
+
+  async listResourceRelationsWithOptions(request: ListResourceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceRelationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.targetResourceId)) {
+      query["TargetResourceId"] = request.targetResourceId;
+    }
+
+    if (!Util.isUnset(request.targetResourceType)) {
+      query["TargetResourceType"] = request.targetResourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourceRelations",
+      version: "2020-09-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceRelationsResponse>(await this.callApi(params, req, runtime), new ListResourceRelationsResponse({}));
+  }
+
+  async listResourceRelations(request: ListResourceRelationsRequest): Promise<ListResourceRelationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResourceRelationsWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -19979,7 +20493,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-    * In this example, the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` is changed to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+    * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
     *
     * @param request UpdateDeliveryChannelRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20056,7 +20570,7 @@ export default class Client extends OpenApi {
 
   /**
     * @deprecated : UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead.
-    * In this example, the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` is changed to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+    * The operation that you want to perform. Set the value to **UpdateDeliveryChannel**.
     *
     * @param request UpdateDeliveryChannelRequest
     * @return UpdateDeliveryChannelResponse
