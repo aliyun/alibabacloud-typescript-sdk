@@ -154,6 +154,34 @@ export class AddressGroup extends $tea.Model {
   }
 }
 
+export class BenefitPkgDeliveryInfo extends $tea.Model {
+  amount?: number;
+  createdAt?: string;
+  expireTime?: string;
+  isPermanent?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      createdAt: 'created_at',
+      expireTime: 'expire_time',
+      isPermanent: 'is_permanent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      createdAt: 'string',
+      expireTime: 'string',
+      isPermanent: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Domain extends $tea.Model {
   createdAt?: string;
   description?: string;
@@ -532,6 +560,55 @@ export class Identity extends $tea.Model {
     return {
       identityId: 'string',
       identityType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IdentityToBenefitPkgMapping extends $tea.Model {
+  benefitPkgComputationRule?: string;
+  benefitPkgId?: string;
+  benefitPkgName?: string;
+  benefitPkgOwnerId?: string;
+  benefitPkgPriority?: number;
+  benefitPkgType?: string;
+  createdAt?: string;
+  deliveryInfoList?: BenefitPkgDeliveryInfo[];
+  identityId?: string;
+  identityType?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      benefitPkgComputationRule: 'benefit_pkg_computation_rule',
+      benefitPkgId: 'benefit_pkg_id',
+      benefitPkgName: 'benefit_pkg_name',
+      benefitPkgOwnerId: 'benefit_pkg_owner_id',
+      benefitPkgPriority: 'benefit_pkg_priority',
+      benefitPkgType: 'benefit_pkg_type',
+      createdAt: 'created_at',
+      deliveryInfoList: 'delivery_info_list',
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+      updatedAt: 'updated_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      benefitPkgComputationRule: 'string',
+      benefitPkgId: 'string',
+      benefitPkgName: 'string',
+      benefitPkgOwnerId: 'string',
+      benefitPkgPriority: 'number',
+      benefitPkgType: 'string',
+      createdAt: 'string',
+      deliveryInfoList: { 'type': 'array', 'itemType': BenefitPkgDeliveryInfo },
+      identityId: 'string',
+      identityType: 'string',
+      updatedAt: 'string',
     };
   }
 
@@ -1929,6 +2006,59 @@ export class CreateGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  amount?: number;
+  benefitPkgId?: string;
+  expireTime?: number;
+  identityId?: string;
+  identityType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      benefitPkgId: 'benefit_pkg_id',
+      expireTime: 'expire_time',
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      benefitPkgId: 'string',
+      expireTime: 'number',
+      identityId: 'string',
+      identityType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityToBenefitPkgMappingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateShareLinkRequest extends $tea.Model {
   description?: string;
   disableDownload?: boolean;
@@ -3288,6 +3418,56 @@ export class GetGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Group,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  benefitPkgId?: string;
+  identityId?: string;
+  identityType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      benefitPkgId: 'benefit_pkg_id',
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      benefitPkgId: 'string',
+      identityId: 'string',
+      identityType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityToBenefitPkgMappingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: IdentityToBenefitPkgMapping;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: IdentityToBenefitPkgMapping,
     };
   }
 
@@ -4784,6 +4964,75 @@ export class ListGroupMemberResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGroupMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  identityId?: string;
+  identityType?: string;
+  includeExpired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+      includeExpired: 'include_expired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityId: 'string',
+      identityType: 'string',
+      includeExpired: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityToBenefitPkgMappingResponseBody extends $tea.Model {
+  items?: IdentityToBenefitPkgMapping[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': IdentityToBenefitPkgMapping },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityToBenefitPkgMappingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIdentityToBenefitPkgMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdentityToBenefitPkgMappingResponseBody,
     };
   }
 
@@ -6857,6 +7106,59 @@ export class UpdateGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  amount?: number;
+  benefitPkgId?: string;
+  expireTime?: number;
+  identityId?: string;
+  identityType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      benefitPkgId: 'benefit_pkg_id',
+      expireTime: 'expire_time',
+      identityId: 'identity_id',
+      identityType: 'identity_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      benefitPkgId: 'string',
+      expireTime: 'number',
+      identityId: 'string',
+      identityType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityToBenefitPkgMappingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRevisionRequest extends $tea.Model {
   driveId?: string;
   fileId?: string;
@@ -8136,6 +8438,53 @@ export default class Client extends OpenApi {
     return await this.createGroupWithOptions(request, headers, runtime);
   }
 
+  async createIdentityToBenefitPkgMappingWithOptions(request: CreateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdentityToBenefitPkgMappingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.benefitPkgId)) {
+      body["benefit_pkg_id"] = request.benefitPkgId;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      body["expire_time"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.identityId)) {
+      body["identity_id"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["identity_type"] = request.identityType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIdentityToBenefitPkgMapping",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/benefit/identity_to_benefit_pkg_mapping/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new CreateIdentityToBenefitPkgMappingResponse({}));
+  }
+
+  async createIdentityToBenefitPkgMapping(request: CreateIdentityToBenefitPkgMappingRequest): Promise<CreateIdentityToBenefitPkgMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
+  }
+
   async createShareLinkWithOptions(request: CreateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateShareLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9057,6 +9406,45 @@ export default class Client extends OpenApi {
     return await this.getGroupWithOptions(request, headers, runtime);
   }
 
+  async getIdentityToBenefitPkgMappingWithOptions(request: GetIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdentityToBenefitPkgMappingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.benefitPkgId)) {
+      body["benefit_pkg_id"] = request.benefitPkgId;
+    }
+
+    if (!Util.isUnset(request.identityId)) {
+      body["identity_id"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["identity_type"] = request.identityType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIdentityToBenefitPkgMapping",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/benefit/identity_to_benefit_pkg_mapping/get`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new GetIdentityToBenefitPkgMappingResponse({}));
+  }
+
+  async getIdentityToBenefitPkgMapping(request: GetIdentityToBenefitPkgMappingRequest): Promise<GetIdentityToBenefitPkgMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
+  }
+
   async getLinkInfoWithOptions(request: GetLinkInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9949,6 +10337,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGroupMemberWithOptions(domainId, request, headers, runtime);
+  }
+
+  async listIdentityToBenefitPkgMappingWithOptions(request: ListIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityToBenefitPkgMappingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identityId)) {
+      body["identity_id"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["identity_type"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.includeExpired)) {
+      body["include_expired"] = request.includeExpired;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIdentityToBenefitPkgMapping",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/benefit/identity_to_benefit_pkg_mapping/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new ListIdentityToBenefitPkgMappingResponse({}));
+  }
+
+  async listIdentityToBenefitPkgMapping(request: ListIdentityToBenefitPkgMappingRequest): Promise<ListIdentityToBenefitPkgMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
   async listMyDrivesWithOptions(request: ListMyDrivesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyDrivesResponse> {
@@ -11254,6 +11681,53 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGroupWithOptions(request, headers, runtime);
+  }
+
+  async updateIdentityToBenefitPkgMappingWithOptions(request: UpdateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.benefitPkgId)) {
+      body["benefit_pkg_id"] = request.benefitPkgId;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      body["expire_time"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.identityId)) {
+      body["identity_id"] = request.identityId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["identity_type"] = request.identityType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIdentityToBenefitPkgMapping",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/benefit/identity_to_benefit_pkg_mapping/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIdentityToBenefitPkgMappingResponse>(await this.execute(params, req, runtime), new UpdateIdentityToBenefitPkgMappingResponse({}));
+  }
+
+  async updateIdentityToBenefitPkgMapping(request: UpdateIdentityToBenefitPkgMappingRequest): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateIdentityToBenefitPkgMappingWithOptions(request, headers, runtime);
   }
 
   async updateRevisionWithOptions(request: UpdateRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRevisionResponse> {
