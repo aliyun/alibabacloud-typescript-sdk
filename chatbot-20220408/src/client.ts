@@ -384,6 +384,7 @@ export class ChatRequest extends $tea.Model {
   intentName?: string;
   knowledgeId?: string;
   perspective?: string[];
+  sandBox?: boolean;
   senderId?: string;
   senderNick?: string;
   sessionId?: string;
@@ -396,6 +397,7 @@ export class ChatRequest extends $tea.Model {
       intentName: 'IntentName',
       knowledgeId: 'KnowledgeId',
       perspective: 'Perspective',
+      sandBox: 'SandBox',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
       sessionId: 'SessionId',
@@ -411,6 +413,7 @@ export class ChatRequest extends $tea.Model {
       intentName: 'string',
       knowledgeId: 'string',
       perspective: { 'type': 'array', 'itemType': 'string' },
+      sandBox: 'boolean',
       senderId: 'string',
       senderNick: 'string',
       sessionId: 'string',
@@ -430,6 +433,7 @@ export class ChatShrinkRequest extends $tea.Model {
   intentName?: string;
   knowledgeId?: string;
   perspectiveShrink?: string;
+  sandBox?: boolean;
   senderId?: string;
   senderNick?: string;
   sessionId?: string;
@@ -442,6 +446,7 @@ export class ChatShrinkRequest extends $tea.Model {
       intentName: 'IntentName',
       knowledgeId: 'KnowledgeId',
       perspectiveShrink: 'Perspective',
+      sandBox: 'SandBox',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
       sessionId: 'SessionId',
@@ -457,6 +462,7 @@ export class ChatShrinkRequest extends $tea.Model {
       intentName: 'string',
       knowledgeId: 'string',
       perspectiveShrink: 'string',
+      sandBox: 'boolean',
       senderId: 'string',
       senderNick: 'string',
       sessionId: 'string',
@@ -7724,6 +7730,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.perspectiveShrink)) {
       query["Perspective"] = request.perspectiveShrink;
+    }
+
+    if (!Util.isUnset(request.sandBox)) {
+      query["SandBox"] = request.sandBox;
     }
 
     if (!Util.isUnset(request.senderId)) {
