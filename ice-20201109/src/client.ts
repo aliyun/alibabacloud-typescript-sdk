@@ -12214,6 +12214,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   clientToken?: string;
   clipsParam?: string;
   editingProduceConfig?: string;
+  mediaMetadata?: string;
   outputMediaConfig?: string;
   outputMediaTarget?: string;
   projectId?: string;
@@ -12227,6 +12228,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       clientToken: 'ClientToken',
       clipsParam: 'ClipsParam',
       editingProduceConfig: 'EditingProduceConfig',
+      mediaMetadata: 'MediaMetadata',
       outputMediaConfig: 'OutputMediaConfig',
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
@@ -12243,6 +12245,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       clientToken: 'string',
       clipsParam: 'string',
       editingProduceConfig: 'string',
+      mediaMetadata: 'string',
       outputMediaConfig: 'string',
       outputMediaTarget: 'string',
       projectId: 'string',
@@ -35367,6 +35370,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.editingProduceConfig)) {
       query["EditingProduceConfig"] = request.editingProduceConfig;
+    }
+
+    if (!Util.isUnset(request.mediaMetadata)) {
+      query["MediaMetadata"] = request.mediaMetadata;
     }
 
     if (!Util.isUnset(request.outputMediaConfig)) {
