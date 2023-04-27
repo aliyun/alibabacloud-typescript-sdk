@@ -7666,18 +7666,18 @@ export class HotelOrderPayHeaders extends $tea.Model {
 }
 
 export class HotelOrderPayRequest extends $tea.Model {
+  btripOrderId?: number;
   btripUserId?: string;
   companyPayFee?: number;
-  disOrderId?: string;
   personPayFee?: number;
   thirdPayAccount?: string;
   thirdTradeNo?: string;
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
+      btripOrderId: 'btrip_order_id',
       btripUserId: 'btrip_user_id',
       companyPayFee: 'company_pay_fee',
-      disOrderId: 'dis_order_id',
       personPayFee: 'person_pay_fee',
       thirdPayAccount: 'third_pay_account',
       thirdTradeNo: 'third_trade_no',
@@ -7687,9 +7687,9 @@ export class HotelOrderPayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      btripOrderId: 'number',
       btripUserId: 'string',
       companyPayFee: 'number',
-      disOrderId: 'string',
       personPayFee: 'number',
       thirdPayAccount: 'string',
       thirdTradeNo: 'string',
@@ -26089,6 +26089,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   invoiceLocation?: string;
   invoiceNo?: string;
   invoiceTitle?: string;
+  machineCode?: string;
   orderId?: number;
   ossUrl?: string;
   passenger?: string;
@@ -26128,6 +26129,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceLocation: 'invoice_location',
       invoiceNo: 'invoice_no',
       invoiceTitle: 'invoice_title',
+      machineCode: 'machine_code',
       orderId: 'order_id',
       ossUrl: 'oss_url',
       passenger: 'passenger',
@@ -26170,6 +26172,7 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceLocation: 'string',
       invoiceNo: 'string',
       invoiceTitle: 'string',
+      machineCode: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passenger: 'string',
@@ -29973,6 +29976,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   invoiceSubTaskId?: number;
   invoiceType?: number;
   invoiceTypeDesc?: string;
+  machineCode?: string;
   ossUrl?: string;
   passwordArea?: string;
   purchaserBankAccountInfo?: string;
@@ -30007,6 +30011,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceSubTaskId: 'invoice_sub_task_id',
       invoiceType: 'invoice_type',
       invoiceTypeDesc: 'invoice_type_desc',
+      machineCode: 'machine_code',
       ossUrl: 'oss_url',
       passwordArea: 'password_area',
       purchaserBankAccountInfo: 'purchaser_bank_account_info',
@@ -30044,6 +30049,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       invoiceSubTaskId: 'number',
       invoiceType: 'number',
       invoiceTypeDesc: 'string',
+      machineCode: 'string',
       ossUrl: 'string',
       passwordArea: 'string',
       purchaserBankAccountInfo: 'string',
@@ -33996,16 +34002,16 @@ export default class Client extends OpenApi {
   async hotelOrderPayWithOptions(request: HotelOrderPayRequest, headers: HotelOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderPayResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripOrderId)) {
+      body["btrip_order_id"] = request.btripOrderId;
+    }
+
     if (!Util.isUnset(request.btripUserId)) {
       body["btrip_user_id"] = request.btripUserId;
     }
 
     if (!Util.isUnset(request.companyPayFee)) {
       body["company_pay_fee"] = request.companyPayFee;
-    }
-
-    if (!Util.isUnset(request.disOrderId)) {
-      body["dis_order_id"] = request.disOrderId;
     }
 
     if (!Util.isUnset(request.personPayFee)) {
