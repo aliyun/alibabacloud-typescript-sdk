@@ -10153,6 +10153,7 @@ export class QueryFigureClustersRequest extends $tea.Model {
   projectName?: string;
   sort?: string;
   updateTimeRange?: TimeRange;
+  withTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
       createTimeRange: 'CreateTimeRange',
@@ -10164,6 +10165,7 @@ export class QueryFigureClustersRequest extends $tea.Model {
       projectName: 'ProjectName',
       sort: 'Sort',
       updateTimeRange: 'UpdateTimeRange',
+      withTotalCount: 'WithTotalCount',
     };
   }
 
@@ -10178,6 +10180,7 @@ export class QueryFigureClustersRequest extends $tea.Model {
       projectName: 'string',
       sort: 'string',
       updateTimeRange: TimeRange,
+      withTotalCount: 'boolean',
     };
   }
 
@@ -10196,6 +10199,7 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
   projectName?: string;
   sort?: string;
   updateTimeRangeShrink?: string;
+  withTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
       createTimeRangeShrink: 'CreateTimeRange',
@@ -10207,6 +10211,7 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
       projectName: 'ProjectName',
       sort: 'Sort',
       updateTimeRangeShrink: 'UpdateTimeRange',
+      withTotalCount: 'WithTotalCount',
     };
   }
 
@@ -10221,6 +10226,7 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
       projectName: 'string',
       sort: 'string',
       updateTimeRangeShrink: 'string',
+      withTotalCount: 'boolean',
     };
   }
 
@@ -10233,11 +10239,13 @@ export class QueryFigureClustersResponseBody extends $tea.Model {
   figureClusters?: FigureCluster[];
   nextToken?: string;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       figureClusters: 'FigureClusters',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -10246,6 +10254,7 @@ export class QueryFigureClustersResponseBody extends $tea.Model {
       figureClusters: { 'type': 'array', 'itemType': FigureCluster },
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -18381,6 +18390,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.updateTimeRangeShrink)) {
       query["UpdateTimeRange"] = request.updateTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.withTotalCount)) {
+      query["WithTotalCount"] = request.withTotalCount;
     }
 
     let req = new $OpenApi.OpenApiRequest({
