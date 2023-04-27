@@ -285,6 +285,272 @@ export class DeleteHubClusterResponse extends $tea.Model {
   }
 }
 
+export class DeletePolicyInstanceRequest extends $tea.Model {
+  clusterId?: string;
+  clusterIds?: string[];
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterIds: 'ClusterIds',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterIds: { 'type': 'array', 'itemType': 'string' },
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyInstanceShrinkRequest extends $tea.Model {
+  clusterId?: string;
+  clusterIdsShrink?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterIdsShrink: 'ClusterIds',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterIdsShrink: 'string',
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePolicyInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePolicyInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserPermissionRequest extends $tea.Model {
+  clusterId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserPermissionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUserPermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteUserPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteUserPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployPolicyInstanceRequest extends $tea.Model {
+  clusterId?: string;
+  clusterIds?: string[];
+  namespaces?: string[];
+  policyAction?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterIds: 'ClusterIds',
+      namespaces: 'Namespaces',
+      policyAction: 'PolicyAction',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterIds: { 'type': 'array', 'itemType': 'string' },
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+      policyAction: 'string',
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployPolicyInstanceShrinkRequest extends $tea.Model {
+  clusterId?: string;
+  clusterIdsShrink?: string;
+  namespacesShrink?: string;
+  policyAction?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterIdsShrink: 'ClusterIds',
+      namespacesShrink: 'Namespaces',
+      policyAction: 'PolicyAction',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterIdsShrink: 'string',
+      namespacesShrink: 'string',
+      policyAction: 'string',
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployPolicyInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployPolicyInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeployPolicyInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployPolicyInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClusterDetailsRequest extends $tea.Model {
   clusterId?: string;
   static names(): { [key: string]: string } {
@@ -618,6 +884,320 @@ export class DescribeManagedClustersResponse extends $tea.Model {
   }
 }
 
+export class DescribePoliciesResponseBody extends $tea.Model {
+  policies?: DescribePoliciesResponseBodyPolicies[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': DescribePoliciesResponseBodyPolicies },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyDetailsRequest extends $tea.Model {
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyDetailsResponseBody extends $tea.Model {
+  policy?: DescribePolicyDetailsResponseBodyPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: DescribePolicyDetailsResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePolicyDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePolicyDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterRequest extends $tea.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBody extends $tea.Model {
+  policyGovernances?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernances[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyGovernances: 'PolicyGovernances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyGovernances: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernances },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePolicyGovernanceInClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePolicyGovernanceInClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesRequest extends $tea.Model {
+  clusterId?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesResponseBody extends $tea.Model {
+  policies?: DescribePolicyInstancesResponseBodyPolicies[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: { 'type': 'array', 'itemType': DescribePolicyInstancesResponseBodyPolicies },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePolicyInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePolicyInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusRequest extends $tea.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponseBody extends $tea.Model {
+  policies?: DescribePolicyInstancesStatusResponseBodyPolicies;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policies: 'Policies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policies: DescribePolicyInstancesStatusResponseBodyPolicies,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePolicyInstancesStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePolicyInstancesStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   language?: string;
   static names(): { [key: string]: string } {
@@ -820,6 +1400,81 @@ export class DetachClusterFromHubResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachClusterFromHubResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionRequest extends $tea.Model {
+  clusterId?: string;
+  namespace?: string;
+  roleName?: string;
+  roleType?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      namespace: 'Namespace',
+      roleName: 'RoleName',
+      roleType: 'RoleType',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      namespace: 'string',
+      roleName: 'string',
+      roleType: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantUserPermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GrantUserPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantUserPermissionResponseBody,
     };
   }
 
@@ -1056,6 +1711,81 @@ export class UpdateHubClusterFeatureResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateHubClusterFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPermissionRequest extends $tea.Model {
+  clusterId?: string;
+  namespace?: string;
+  roleName?: string;
+  roleType?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      namespace: 'Namespace',
+      roleName: 'RoleName',
+      roleType: 'RoleType',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      namespace: 'string',
+      roleName: 'string',
+      roleType: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPermissionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserPermissionResponseBody,
     };
   }
 
@@ -1763,6 +2493,523 @@ export class DescribeManagedClustersResponseBodyClusters extends $tea.Model {
   }
 }
 
+export class DescribePoliciesResponseBodyPolicies extends $tea.Model {
+  category?: string;
+  names?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      names: 'Names',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      names: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyDetailsResponseBodyPolicy extends $tea.Model {
+  action?: string;
+  category?: string;
+  created?: string;
+  description?: string;
+  name?: string;
+  noConfig?: number;
+  severity?: string;
+  template?: string;
+  updated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      category: 'Category',
+      created: 'Created',
+      description: 'Description',
+      name: 'Name',
+      noConfig: 'NoConfig',
+      severity: 'Severity',
+      template: 'Template',
+      updated: 'Updated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      category: 'string',
+      created: 'string',
+      description: 'string',
+      name: 'string',
+      noConfig: 'number',
+      severity: 'string',
+      template: 'string',
+      updated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesCluster extends $tea.Model {
+  clusterId?: string;
+  clusterSpec?: string;
+  clusterType?: string;
+  name?: string;
+  profile?: string;
+  regionId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterSpec: 'ClusterSpec',
+      clusterType: 'ClusterType',
+      name: 'Name',
+      profile: 'Profile',
+      regionId: 'RegionId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterSpec: 'string',
+      clusterType: 'string',
+      name: 'string',
+      profile: 'string',
+      regionId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceAdmitLog extends $tea.Model {
+  count?: string;
+  logProject?: string;
+  logStore?: string;
+  logs?: { [key: string]: string }[];
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+      logs: 'Logs',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      logProject: 'string',
+      logStore: 'string',
+      logs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceOnState extends $tea.Model {
+  enabledCount?: number;
+  severity?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabledCount: 'EnabledCount',
+      severity: 'Severity',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabledCount: 'number',
+      severity: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsDeny extends $tea.Model {
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      severity: 'Severity',
+      violations: 'Violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsWarn extends $tea.Model {
+  severity?: string;
+  violations?: string;
+  static names(): { [key: string]: string } {
+    return {
+      severity: 'Severity',
+      violations: 'Violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      severity: 'string',
+      violations: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolations extends $tea.Model {
+  deny?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsDeny[];
+  warn?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsWarn[];
+  static names(): { [key: string]: string } {
+    return {
+      deny: 'Deny',
+      warn: 'Warn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deny: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsDeny },
+      warn: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolationsWarn },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsDeny extends $tea.Model {
+  policyDescription?: string;
+  policyName?: string;
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      severity: 'Severity',
+      violations: 'Violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDescription: 'string',
+      policyName: 'string',
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsWarn extends $tea.Model {
+  policyDescription?: string;
+  policyName?: string;
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      severity: 'Severity',
+      violations: 'Violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDescription: 'string',
+      policyName: 'string',
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolations extends $tea.Model {
+  deny?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsDeny[];
+  warn?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsWarn[];
+  static names(): { [key: string]: string } {
+    return {
+      deny: 'Deny',
+      warn: 'Warn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deny: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsDeny },
+      warn: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolationsWarn },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolation extends $tea.Model {
+  totalViolations?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolations;
+  violations?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolations;
+  static names(): { [key: string]: string } {
+    return {
+      totalViolations: 'TotalViolations',
+      violations: 'Violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalViolations: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationTotalViolations,
+      violations: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolationViolations,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernance extends $tea.Model {
+  admitLog?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceAdmitLog;
+  onState?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceOnState[];
+  violation?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolation;
+  static names(): { [key: string]: string } {
+    return {
+      admitLog: 'AdmitLog',
+      onState: 'OnState',
+      violation: 'Violation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      admitLog: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceAdmitLog,
+      onState: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceOnState },
+      violation: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernanceViolation,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyPolicyGovernances extends $tea.Model {
+  cluster?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesCluster;
+  policyGovernance?: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernance;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'Cluster',
+      policyGovernance: 'PolicyGovernance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesCluster,
+      policyGovernance: DescribePolicyGovernanceInClusterResponseBodyPolicyGovernancesPolicyGovernance,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesResponseBodyPolicies extends $tea.Model {
+  clusterId?: string;
+  instanceName?: string;
+  policyAction?: string;
+  policyCategory?: string;
+  policyDescription?: string;
+  policyName?: string;
+  policyParameters?: { [key: string]: string };
+  policyScope?: string;
+  policySeverity?: string;
+  totalViolations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceName: 'InstanceName',
+      policyAction: 'PolicyAction',
+      policyCategory: 'PolicyCategory',
+      policyDescription: 'PolicyDescription',
+      policyName: 'PolicyName',
+      policyParameters: 'PolicyParameters',
+      policyScope: 'PolicyScope',
+      policySeverity: 'PolicySeverity',
+      totalViolations: 'TotalViolations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceName: 'string',
+      policyAction: 'string',
+      policyCategory: 'string',
+      policyDescription: 'string',
+      policyName: 'string',
+      policyParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      policyScope: 'string',
+      policySeverity: 'string',
+      totalViolations: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstancesPolicyClusters extends $tea.Model {
+  clusterId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstances extends $tea.Model {
+  policyCategory?: string;
+  policyClusters?: DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstancesPolicyClusters[];
+  policyDescription?: string;
+  policyInstancesCount?: number;
+  policyName?: string;
+  policySeverity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyCategory: 'PolicyCategory',
+      policyClusters: 'PolicyClusters',
+      policyDescription: 'PolicyDescription',
+      policyInstancesCount: 'PolicyInstancesCount',
+      policyName: 'PolicyName',
+      policySeverity: 'PolicySeverity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyCategory: 'string',
+      policyClusters: { 'type': 'array', 'itemType': DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstancesPolicyClusters },
+      policyDescription: 'string',
+      policyInstancesCount: 'number',
+      policyName: 'string',
+      policySeverity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponseBodyPoliciesSeverityInfo extends $tea.Model {
+  severityCount?: string;
+  severityType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      severityCount: 'SeverityCount',
+      severityType: 'SeverityType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      severityCount: 'string',
+      severityType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyInstancesStatusResponseBodyPolicies extends $tea.Model {
+  policyInstances?: DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstances[];
+  severityInfo?: DescribePolicyInstancesStatusResponseBodyPoliciesSeverityInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      policyInstances: 'PolicyInstances',
+      severityInfo: 'SeverityInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyInstances: { 'type': 'array', 'itemType': DescribePolicyInstancesStatusResponseBodyPoliciesPolicyInstances },
+      severityInfo: { 'type': 'array', 'itemType': DescribePolicyInstancesStatusResponseBodyPoliciesSeverityInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
   regionId?: string;
@@ -2041,6 +3288,137 @@ export default class Client extends OpenApi {
     return await this.deleteHubClusterWithOptions(request, runtime);
   }
 
+  async deletePolicyInstanceWithOptions(tmpReq: DeletePolicyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeletePolicyInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clusterIds)) {
+      request.clusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterIds, "ClusterIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterIdsShrink)) {
+      query["ClusterIds"] = request.clusterIdsShrink;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePolicyInstance",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeletePolicyInstanceResponse({}));
+  }
+
+  async deletePolicyInstance(request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePolicyInstanceWithOptions(request, runtime);
+  }
+
+  async deleteUserPermissionWithOptions(request: DeleteUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteUserPermission",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserPermissionResponse>(await this.callApi(params, req, runtime), new DeleteUserPermissionResponse({}));
+  }
+
+  async deleteUserPermission(request: DeleteUserPermissionRequest): Promise<DeleteUserPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteUserPermissionWithOptions(request, runtime);
+  }
+
+  async deployPolicyInstanceWithOptions(tmpReq: DeployPolicyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployPolicyInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeployPolicyInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clusterIds)) {
+      request.clusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterIds, "ClusterIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterIdsShrink)) {
+      query["ClusterIds"] = request.clusterIdsShrink;
+    }
+
+    if (!Util.isUnset(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!Util.isUnset(request.policyAction)) {
+      query["PolicyAction"] = request.policyAction;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployPolicyInstance",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployPolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeployPolicyInstanceResponse({}));
+  }
+
+  async deployPolicyInstance(request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployPolicyInstanceWithOptions(request, runtime);
+  }
+
   async describeHubClusterDetailsWithOptions(request: DescribeHubClusterDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClusterDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2190,6 +3568,147 @@ export default class Client extends OpenApi {
     return await this.describeManagedClustersWithOptions(request, runtime);
   }
 
+  async describePoliciesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribePoliciesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicies",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePoliciesResponse>(await this.callApi(params, req, runtime), new DescribePoliciesResponse({}));
+  }
+
+  async describePolicies(): Promise<DescribePoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePoliciesWithOptions(runtime);
+  }
+
+  async describePolicyDetailsWithOptions(request: DescribePolicyDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyDetails",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyDetailsResponse>(await this.callApi(params, req, runtime), new DescribePolicyDetailsResponse({}));
+  }
+
+  async describePolicyDetails(request: DescribePolicyDetailsRequest): Promise<DescribePolicyDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyDetailsWithOptions(request, runtime);
+  }
+
+  async describePolicyGovernanceInClusterWithOptions(request: DescribePolicyGovernanceInClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGovernanceInClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyGovernanceInCluster",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.callApi(params, req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
+  }
+
+  async describePolicyGovernanceInCluster(request: DescribePolicyGovernanceInClusterRequest): Promise<DescribePolicyGovernanceInClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyGovernanceInClusterWithOptions(request, runtime);
+  }
+
+  async describePolicyInstancesWithOptions(request: DescribePolicyInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyInstances",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesResponse({}));
+  }
+
+  async describePolicyInstances(request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyInstancesWithOptions(request, runtime);
+  }
+
+  async describePolicyInstancesStatusWithOptions(request: DescribePolicyInstancesStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyInstancesStatus",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesStatusResponse({}));
+  }
+
+  async describePolicyInstancesStatus(request: DescribePolicyInstancesStatusRequest): Promise<DescribePolicyInstancesStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyInstancesStatusWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2281,6 +3800,51 @@ export default class Client extends OpenApi {
   async detachClusterFromHub(request: DetachClusterFromHubRequest): Promise<DetachClusterFromHubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachClusterFromHubWithOptions(request, runtime);
+  }
+
+  async grantUserPermissionWithOptions(request: GrantUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      query["RoleType"] = request.roleType;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantUserPermission",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantUserPermissionResponse>(await this.callApi(params, req, runtime), new GrantUserPermissionResponse({}));
+  }
+
+  async grantUserPermission(request: GrantUserPermissionRequest): Promise<GrantUserPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantUserPermissionWithOptions(request, runtime);
   }
 
   async grantUserPermissionsWithOptions(tmpReq: GrantUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionsResponse> {
@@ -2399,6 +3963,51 @@ export default class Client extends OpenApi {
   async updateHubClusterFeature(request: UpdateHubClusterFeatureRequest): Promise<UpdateHubClusterFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHubClusterFeatureWithOptions(request, runtime);
+  }
+
+  async updateUserPermissionWithOptions(request: UpdateUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      query["RoleType"] = request.roleType;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserPermission",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserPermissionResponse>(await this.callApi(params, req, runtime), new UpdateUserPermissionResponse({}));
+  }
+
+  async updateUserPermission(request: UpdateUserPermissionRequest): Promise<UpdateUserPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserPermissionWithOptions(request, runtime);
   }
 
 }
