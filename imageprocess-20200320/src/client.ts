@@ -4196,6 +4196,65 @@ export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataCalcBMDDetections extends $tea.Model {
+  vertBMD?: number;
+  vertCategory?: number;
+  vertId?: string;
+  vertTScore?: number;
+  vertZScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      vertBMD: 'VertBMD',
+      vertCategory: 'VertCategory',
+      vertId: 'VertId',
+      vertTScore: 'VertTScore',
+      vertZScore: 'VertZScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vertBMD: 'number',
+      vertCategory: 'number',
+      vertId: 'string',
+      vertTScore: 'number',
+      vertZScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataCalcBMD extends $tea.Model {
+  detections?: ScreenChestCTResponseBodyDataCalcBMDDetections[];
+  origin?: number[];
+  resultURL?: string;
+  spacing?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      detections: 'Detections',
+      origin: 'Origin',
+      resultURL: 'ResultURL',
+      spacing: 'Spacing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataCalcBMDDetections },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      resultURL: 'string',
+      spacing: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
   lesionRatio?: string;
   mask?: string;
@@ -4222,6 +4281,104 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
       normalProbability: 'string',
       otherProbability: 'string',
       seriesInstanceUID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections extends $tea.Model {
+  liverHU?: number;
+  liverROI1?: number;
+  liverROI2?: number;
+  liverROI3?: number;
+  liverSlice?: number;
+  liverSpleenDifference?: number;
+  liverSpleenRatio?: number;
+  liverVolume?: number;
+  prediction?: string;
+  probability?: number;
+  ROI1Center?: number[];
+  ROI2Center?: number[];
+  ROI3Center?: number[];
+  radius?: number;
+  spleenCenter?: number[];
+  spleenHU?: number;
+  spleenROI?: number;
+  spleenSlice?: number;
+  spleenVolume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      liverHU: 'LiverHU',
+      liverROI1: 'LiverROI1',
+      liverROI2: 'LiverROI2',
+      liverROI3: 'LiverROI3',
+      liverSlice: 'LiverSlice',
+      liverSpleenDifference: 'LiverSpleenDifference',
+      liverSpleenRatio: 'LiverSpleenRatio',
+      liverVolume: 'LiverVolume',
+      prediction: 'Prediction',
+      probability: 'Probability',
+      ROI1Center: 'ROI1Center',
+      ROI2Center: 'ROI2Center',
+      ROI3Center: 'ROI3Center',
+      radius: 'Radius',
+      spleenCenter: 'SpleenCenter',
+      spleenHU: 'SpleenHU',
+      spleenROI: 'SpleenROI',
+      spleenSlice: 'SpleenSlice',
+      spleenVolume: 'SpleenVolume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liverHU: 'number',
+      liverROI1: 'number',
+      liverROI2: 'number',
+      liverROI3: 'number',
+      liverSlice: 'number',
+      liverSpleenDifference: 'number',
+      liverSpleenRatio: 'number',
+      liverVolume: 'number',
+      prediction: 'string',
+      probability: 'number',
+      ROI1Center: { 'type': 'array', 'itemType': 'number' },
+      ROI2Center: { 'type': 'array', 'itemType': 'number' },
+      ROI3Center: { 'type': 'array', 'itemType': 'number' },
+      radius: 'number',
+      spleenCenter: { 'type': 'array', 'itemType': 'number' },
+      spleenHU: 'number',
+      spleenROI: 'number',
+      spleenSlice: 'number',
+      spleenVolume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectLiverSteatosis extends $tea.Model {
+  detections?: ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections[];
+  origin?: number[];
+  spacing?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      detections: 'Detections',
+      origin: 'Origin',
+      spacing: 'Spacing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectLiverSteatosisDetections },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -4589,7 +4746,9 @@ export class ScreenChestCTResponseBodyDataScreenEc extends $tea.Model {
 export class ScreenChestCTResponseBodyData extends $tea.Model {
   analyzeChestVessel?: ScreenChestCTResponseBodyDataAnalyzeChestVessel;
   CACS?: ScreenChestCTResponseBodyDataCACS;
+  calcBMD?: ScreenChestCTResponseBodyDataCalcBMD;
   covid?: ScreenChestCTResponseBodyDataCovid;
+  detectLiverSteatosis?: ScreenChestCTResponseBodyDataDetectLiverSteatosis;
   detectLymph?: ScreenChestCTResponseBodyDataDetectLymph;
   detectPdac?: ScreenChestCTResponseBodyDataDetectPdac;
   detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
@@ -4602,7 +4761,9 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
     return {
       analyzeChestVessel: 'AnalyzeChestVessel',
       CACS: 'CACS',
+      calcBMD: 'CalcBMD',
       covid: 'Covid',
+      detectLiverSteatosis: 'DetectLiverSteatosis',
       detectLymph: 'DetectLymph',
       detectPdac: 'DetectPdac',
       detectRibFracture: 'DetectRibFracture',
@@ -4618,7 +4779,9 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
     return {
       analyzeChestVessel: ScreenChestCTResponseBodyDataAnalyzeChestVessel,
       CACS: ScreenChestCTResponseBodyDataCACS,
+      calcBMD: ScreenChestCTResponseBodyDataCalcBMD,
       covid: ScreenChestCTResponseBodyDataCovid,
+      detectLiverSteatosis: ScreenChestCTResponseBodyDataDetectLiverSteatosis,
       detectLymph: ScreenChestCTResponseBodyDataDetectLymph,
       detectPdac: ScreenChestCTResponseBodyDataDetectPdac,
       detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
