@@ -556,6 +556,7 @@ export class ApplyAddRequest extends $tea.Model {
   itinerarySetList?: ApplyAddRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
+  subCorpId?: string;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
@@ -590,6 +591,7 @@ export class ApplyAddRequest extends $tea.Model {
       itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
+      subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartDepartId: 'thirdpart_depart_id',
@@ -627,6 +629,7 @@ export class ApplyAddRequest extends $tea.Model {
       itinerarySetList: { 'type': 'array', 'itemType': ApplyAddRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
+      subCorpId: 'string',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
       thirdpartDepartId: 'string',
@@ -668,6 +671,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
+  subCorpId?: string;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
@@ -702,6 +706,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
+      subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartDepartId: 'thirdpart_depart_id',
@@ -739,6 +744,7 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
+      subCorpId: 'string',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
       thirdpartDepartId: 'string',
@@ -848,6 +854,7 @@ export class ApplyApproveRequest extends $tea.Model {
   note?: string;
   operateTime?: string;
   status?: number;
+  subCorpId?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -856,6 +863,7 @@ export class ApplyApproveRequest extends $tea.Model {
       note: 'note',
       operateTime: 'operate_time',
       status: 'status',
+      subCorpId: 'sub_corp_id',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -867,6 +875,7 @@ export class ApplyApproveRequest extends $tea.Model {
       note: 'string',
       operateTime: 'string',
       status: 'number',
+      subCorpId: 'string',
       userId: 'string',
       userName: 'string',
     };
@@ -1089,6 +1098,7 @@ export class ApplyListQueryRequest extends $tea.Model {
   page?: number;
   pageSize?: number;
   startTime?: string;
+  subCorpId?: string;
   type?: number;
   unionNo?: string;
   userId?: string;
@@ -1102,6 +1112,7 @@ export class ApplyListQueryRequest extends $tea.Model {
       page: 'page',
       pageSize: 'page_size',
       startTime: 'start_time',
+      subCorpId: 'sub_corp_id',
       type: 'type',
       unionNo: 'union_no',
       userId: 'user_id',
@@ -1118,6 +1129,7 @@ export class ApplyListQueryRequest extends $tea.Model {
       page: 'number',
       pageSize: 'number',
       startTime: 'string',
+      subCorpId: 'string',
       type: 'number',
       unionNo: 'string',
       userId: 'string',
@@ -1227,6 +1239,7 @@ export class ApplyModifyRequest extends $tea.Model {
   itinerarySetList?: ApplyModifyRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
+  subCorpId?: string;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
@@ -1259,6 +1272,7 @@ export class ApplyModifyRequest extends $tea.Model {
       itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
+      subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartDepartId: 'thirdpart_depart_id',
@@ -1294,6 +1308,7 @@ export class ApplyModifyRequest extends $tea.Model {
       itinerarySetList: { 'type': 'array', 'itemType': ApplyModifyRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
+      subCorpId: 'string',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
       thirdpartDepartId: 'string',
@@ -1333,6 +1348,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
   itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
+  subCorpId?: string;
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
@@ -1365,6 +1381,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
+      subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       thirdpartBusinessId: 'thirdpart_business_id',
       thirdpartDepartId: 'thirdpart_depart_id',
@@ -1400,6 +1417,7 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
+      subCorpId: 'string',
       thirdpartApplyId: 'string',
       thirdpartBusinessId: 'string',
       thirdpartDepartId: 'string',
@@ -1506,12 +1524,14 @@ export class ApplyQueryHeaders extends $tea.Model {
 export class ApplyQueryRequest extends $tea.Model {
   applyId?: number;
   applyShowId?: string;
+  subCorpId?: string;
   thirdpartApplyId?: string;
   type?: number;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
       applyShowId: 'apply_show_id',
+      subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
       type: 'type',
     };
@@ -1521,6 +1541,7 @@ export class ApplyQueryRequest extends $tea.Model {
     return {
       applyId: 'number',
       applyShowId: 'string',
+      subCorpId: 'string',
       thirdpartApplyId: 'string',
       type: 'number',
     };
@@ -30526,6 +30547,10 @@ export default class Client extends OpenApi {
       body["status"] = request.status;
     }
 
+    if (!Util.isUnset(request.subCorpId)) {
+      body["sub_corp_id"] = request.subCorpId;
+    }
+
     if (!Util.isUnset(request.thirdpartApplyId)) {
       body["thirdpart_apply_id"] = request.thirdpartApplyId;
     }
@@ -30637,6 +30662,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       body["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.subCorpId)) {
+      body["sub_corp_id"] = request.subCorpId;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -30763,6 +30792,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["start_time"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.subCorpId)) {
+      query["sub_corp_id"] = request.subCorpId;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -30907,6 +30940,10 @@ export default class Client extends OpenApi {
       body["status"] = request.status;
     }
 
+    if (!Util.isUnset(request.subCorpId)) {
+      body["sub_corp_id"] = request.subCorpId;
+    }
+
     if (!Util.isUnset(request.thirdpartApplyId)) {
       body["thirdpart_apply_id"] = request.thirdpartApplyId;
     }
@@ -31005,6 +31042,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.applyShowId)) {
       query["apply_show_id"] = request.applyShowId;
+    }
+
+    if (!Util.isUnset(request.subCorpId)) {
+      query["sub_corp_id"] = request.subCorpId;
     }
 
     if (!Util.isUnset(request.thirdpartApplyId)) {
