@@ -674,6 +674,121 @@ export class BindAxnExtensionResponse extends $tea.Model {
   }
 }
 
+export class BindBatchAxgRequest extends $tea.Model {
+  axgBindList?: BindBatchAxgRequestAxgBindList[];
+  ownerId?: number;
+  poolKey?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      axgBindList: 'AxgBindList',
+      ownerId: 'OwnerId',
+      poolKey: 'PoolKey',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      axgBindList: { 'type': 'array', 'itemType': BindBatchAxgRequestAxgBindList },
+      ownerId: 'number',
+      poolKey: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgShrinkRequest extends $tea.Model {
+  axgBindListShrink?: string;
+  ownerId?: number;
+  poolKey?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      axgBindListShrink: 'AxgBindList',
+      ownerId: 'OwnerId',
+      poolKey: 'PoolKey',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      axgBindListShrink: 'string',
+      ownerId: 'number',
+      poolKey: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  secretBindList?: BindBatchAxgResponseBodySecretBindList;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      secretBindList: 'SecretBindList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      secretBindList: BindBatchAxgResponseBodySecretBindList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BindBatchAxgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindBatchAxgResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BuySecretNoRequest extends $tea.Model {
   city?: string;
   displayPool?: boolean;
@@ -1235,6 +1350,87 @@ export class CreatePickUpWaybillPreQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePickUpWaybillPreQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAxgGroupRequest extends $tea.Model {
+  groupId?: number;
+  ownerId?: number;
+  poolKey?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      ownerId: 'OwnerId',
+      poolKey: 'PoolKey',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      ownerId: 'number',
+      poolKey: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAxgGroupResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAxgGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAxgGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAxgGroupResponseBody,
     };
   }
 
@@ -2744,6 +2940,120 @@ export class BindAxnExtensionResponseBodySecretBindDTO extends $tea.Model {
   }
 }
 
+export class BindBatchAxgRequestAxgBindList extends $tea.Model {
+  ASRModelId?: string;
+  ASRStatus?: boolean;
+  callDisplayType?: number;
+  callRestrict?: string;
+  expectCity?: string;
+  expiration?: string;
+  groupId?: string;
+  isRecordingEnabled?: boolean;
+  outId?: string;
+  outOrderId?: string;
+  phoneNoA?: string;
+  phoneNoB?: string;
+  phoneNoX?: string;
+  ringConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ASRModelId: 'ASRModelId',
+      ASRStatus: 'ASRStatus',
+      callDisplayType: 'CallDisplayType',
+      callRestrict: 'CallRestrict',
+      expectCity: 'ExpectCity',
+      expiration: 'Expiration',
+      groupId: 'GroupId',
+      isRecordingEnabled: 'IsRecordingEnabled',
+      outId: 'OutId',
+      outOrderId: 'OutOrderId',
+      phoneNoA: 'PhoneNoA',
+      phoneNoB: 'PhoneNoB',
+      phoneNoX: 'PhoneNoX',
+      ringConfig: 'RingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ASRModelId: 'string',
+      ASRStatus: 'boolean',
+      callDisplayType: 'number',
+      callRestrict: 'string',
+      expectCity: 'string',
+      expiration: 'string',
+      groupId: 'string',
+      isRecordingEnabled: 'boolean',
+      outId: 'string',
+      outOrderId: 'string',
+      phoneNoA: 'string',
+      phoneNoB: 'string',
+      phoneNoX: 'string',
+      ringConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponseBodySecretBindListSecretBind extends $tea.Model {
+  code?: string;
+  extension?: string;
+  groupId?: string;
+  message?: string;
+  phoneNoA?: string;
+  secretNo?: string;
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extension: 'Extension',
+      groupId: 'GroupId',
+      message: 'Message',
+      phoneNoA: 'PhoneNoA',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extension: 'string',
+      groupId: 'string',
+      message: 'string',
+      phoneNoA: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponseBodySecretBindList extends $tea.Model {
+  secretBind?: BindBatchAxgResponseBodySecretBindListSecretBind[];
+  static names(): { [key: string]: string } {
+    return {
+      secretBind: 'SecretBind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secretBind: { 'type': 'array', 'itemType': BindBatchAxgResponseBodySecretBindListSecretBind },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BuySecretNoResponseBodySecretBuyInfoDTO extends $tea.Model {
   secretNo?: string;
   static names(): { [key: string]: string } {
@@ -3958,6 +4268,57 @@ export default class Client extends OpenApi {
     return await this.bindAxnExtensionWithOptions(request, runtime);
   }
 
+  async bindBatchAxgWithOptions(tmpReq: BindBatchAxgRequest, runtime: $Util.RuntimeOptions): Promise<BindBatchAxgResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BindBatchAxgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.axgBindList)) {
+      request.axgBindListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.axgBindList, "AxgBindList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.axgBindListShrink)) {
+      query["AxgBindList"] = request.axgBindListShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindBatchAxg",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindBatchAxgResponse>(await this.callApi(params, req, runtime), new BindBatchAxgResponse({}));
+  }
+
+  async bindBatchAxg(request: BindBatchAxgRequest): Promise<BindBatchAxgResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindBatchAxgWithOptions(request, runtime);
+  }
+
   async buySecretNoWithOptions(request: BuySecretNoRequest, runtime: $Util.RuntimeOptions): Promise<BuySecretNoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4273,6 +4634,51 @@ export default class Client extends OpenApi {
   async createPickUpWaybillPreQuery(request: CreatePickUpWaybillPreQueryRequest): Promise<CreatePickUpWaybillPreQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPickUpWaybillPreQueryWithOptions(request, runtime);
+  }
+
+  async deleteAxgGroupWithOptions(request: DeleteAxgGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAxgGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAxgGroup",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAxgGroupResponse>(await this.callApi(params, req, runtime), new DeleteAxgGroupResponse({}));
+  }
+
+  async deleteAxgGroup(request: DeleteAxgGroupRequest): Promise<DeleteAxgGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAxgGroupWithOptions(request, runtime);
   }
 
   async deleteSecretBlacklistWithOptions(request: DeleteSecretBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretBlacklistResponse> {
