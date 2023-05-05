@@ -10746,6 +10746,168 @@ export class SyncThirdUserMappingResponse extends $tea.Model {
   }
 }
 
+export class TBAccountInfoQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TBAccountInfoQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TBAccountInfoQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TBAccountInfoQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TBAccountInfoQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TBAccountInfoQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TBAccountInfoQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TBAccountUnbindHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TBAccountUnbindResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: boolean;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TBAccountUnbindResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TBAccountUnbindResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TBAccountUnbindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TicketChangingApplyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -26720,6 +26882,28 @@ export class QueryReimbursementOrderResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TBAccountInfoQueryResponseBodyModule extends $tea.Model {
+  tbAccount?: string;
+  tbBond?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      tbAccount: 'tb_account',
+      tbBond: 'tb_bond',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tbAccount: 'string',
+      tbBond: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TicketChangingApplyRequestModifyFlightInfoListPassengerInfoList extends $tea.Model {
   originFlightNo?: string;
   outUserId?: string;
@@ -35486,6 +35670,72 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SyncThirdUserMappingHeaders({ });
     return await this.syncThirdUserMappingWithOptions(request, headers, runtime);
+  }
+
+  async tBAccountInfoQueryWithOptions(userId: string, headers: TBAccountInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TBAccountInfoQueryResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "TBAccountInfoQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/account/v1/tb-accounts/${OpenApiUtil.getEncodeParam(userId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TBAccountInfoQueryResponse>(await this.callApi(params, req, runtime), new TBAccountInfoQueryResponse({}));
+  }
+
+  async tBAccountInfoQuery(userId: string): Promise<TBAccountInfoQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TBAccountInfoQueryHeaders({ });
+    return await this.tBAccountInfoQueryWithOptions(userId, headers, runtime);
+  }
+
+  async tBAccountUnbindWithOptions(userId: string, headers: TBAccountUnbindHeaders, runtime: $Util.RuntimeOptions): Promise<TBAccountUnbindResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "TBAccountUnbind",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/account/v1/tb-accounts/${OpenApiUtil.getEncodeParam(userId)}/action/unbind`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TBAccountUnbindResponse>(await this.callApi(params, req, runtime), new TBAccountUnbindResponse({}));
+  }
+
+  async tBAccountUnbind(userId: string): Promise<TBAccountUnbindResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TBAccountUnbindHeaders({ });
+    return await this.tBAccountUnbindWithOptions(userId, headers, runtime);
   }
 
   async ticketChangingApplyWithOptions(tmpReq: TicketChangingApplyRequest, headers: TicketChangingApplyHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingApplyResponse> {
