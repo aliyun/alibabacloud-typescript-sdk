@@ -388,6 +388,7 @@ export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Mode
   couponTotalCount?: string;
   deeplinkCouponShareUrl?: string;
   deeplinkUrl?: string;
+  inputItemId?: string;
   itemId?: string;
   levelOneCategoryName?: string;
   maxCommission?: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission;
@@ -419,6 +420,7 @@ export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Mode
       couponTotalCount: 'CouponTotalCount',
       deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
       deeplinkUrl: 'DeeplinkUrl',
+      inputItemId: 'InputItemId',
       itemId: 'ItemId',
       levelOneCategoryName: 'LevelOneCategoryName',
       maxCommission: 'MaxCommission',
@@ -453,6 +455,7 @@ export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Mode
       couponTotalCount: 'string',
       deeplinkCouponShareUrl: 'string',
       deeplinkUrl: 'string',
+      inputItemId: 'string',
       itemId: 'string',
       levelOneCategoryName: 'string',
       maxCommission: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission,
