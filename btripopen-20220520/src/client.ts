@@ -242,6 +242,7 @@ export class AddressGetRequest extends $tea.Model {
   itineraryId?: string;
   phone?: string;
   subCorpId?: string;
+  taobaoCallbackUrl?: string;
   type?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -251,6 +252,7 @@ export class AddressGetRequest extends $tea.Model {
       itineraryId: 'itinerary_id',
       phone: 'phone',
       subCorpId: 'sub_corp_id',
+      taobaoCallbackUrl: 'taobao_callback_url',
       type: 'type',
       userId: 'user_id',
     };
@@ -263,6 +265,7 @@ export class AddressGetRequest extends $tea.Model {
       itineraryId: 'string',
       phone: 'string',
       subCorpId: 'string',
+      taobaoCallbackUrl: 'string',
       type: 'number',
       userId: 'string',
     };
@@ -14415,6 +14418,7 @@ export class CarApplyQueryResponseBodyApplyList extends $tea.Model {
 
 export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyExtendField?: string;
   applyId?: string;
   arrCity?: string;
   arrDate?: string;
@@ -14474,6 +14478,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrCity: 'arr_city',
       arrDate: 'arr_date',
@@ -14536,6 +14541,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyExtendField: 'string',
       applyId: 'string',
       arrCity: 'string',
       arrDate: 'string',
@@ -15943,6 +15949,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   airlineCorpCode?: string;
   airlineCorpName?: string;
   alipayTradeNo?: string;
+  applyExtendField?: string;
   applyId?: string;
   arrAirportCode?: string;
   arrCity?: string;
@@ -16016,6 +16023,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
       alipayTradeNo: 'alipay_trade_no',
+      applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
@@ -16092,6 +16100,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
       alipayTradeNo: 'string',
+      applyExtendField: 'string',
       applyId: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
@@ -23047,6 +23056,7 @@ export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
 
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyExtendField?: string;
   applyId?: string;
   billRecordTime?: string;
   bookTime?: string;
@@ -23102,6 +23112,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       billRecordTime: 'bill_record_time',
       bookTime: 'book_time',
@@ -23160,6 +23171,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyExtendField: 'string',
       applyId: 'string',
       billRecordTime: 'string',
       bookTime: 'string',
@@ -25788,6 +25800,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   airlineCorpCode?: string;
   airlineCorpName?: string;
   alipayTradeNo?: string;
+  applyExtendField?: string;
   applyId?: string;
   arrAirportCode?: string;
   arrCity?: string;
@@ -25862,6 +25875,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
       alipayTradeNo: 'alipay_trade_no',
+      applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
@@ -25939,6 +25953,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
       alipayTradeNo: 'string',
+      applyExtendField: 'string',
       applyId: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
@@ -28179,6 +28194,7 @@ export class TicketChangingPayResponseBodyModule extends $tea.Model {
 
 export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
+  applyExtendField?: string;
   applyId?: string;
   arrDate?: string;
   arrStation?: string;
@@ -28230,6 +28246,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       alipayTradeNo: 'alipay_trade_no',
+      applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       arrDate: 'arr_date',
       arrStation: 'arr_station',
@@ -28284,6 +28301,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       alipayTradeNo: 'string',
+      applyExtendField: 'string',
       applyId: 'string',
       arrDate: 'string',
       arrStation: 'string',
@@ -30325,6 +30343,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.subCorpId)) {
       query["sub_corp_id"] = request.subCorpId;
+    }
+
+    if (!Util.isUnset(request.taobaoCallbackUrl)) {
+      query["taobao_callback_url"] = request.taobaoCallbackUrl;
     }
 
     if (!Util.isUnset(request.type)) {
