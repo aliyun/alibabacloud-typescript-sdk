@@ -92,6 +92,426 @@ export class CheckResultResponse extends $tea.Model {
   }
 }
 
+export class DescribeAddressLabelsRequest extends $tea.Model {
+  address?: string;
+  coin?: string;
+  merchantBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      coin: 'Coin',
+      merchantBizId: 'MerchantBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      coin: 'string',
+      merchantBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressLabelsResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeAddressLabelsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeAddressLabelsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAddressLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAddressLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressOverviewRequest extends $tea.Model {
+  address?: string;
+  coin?: string;
+  merchantBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      coin: 'Coin',
+      merchantBizId: 'MerchantBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      coin: 'string',
+      merchantBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressOverviewResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeAddressOverviewResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeAddressOverviewResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressOverviewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAddressOverviewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAddressOverviewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaliciousAddressRequest extends $tea.Model {
+  coin?: string;
+  end?: string;
+  merchantBizId?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coin: 'Coin',
+      end: 'End',
+      merchantBizId: 'MerchantBizId',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coin: 'string',
+      end: 'string',
+      merchantBizId: 'string',
+      start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaliciousAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeMaliciousAddressResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': DescribeMaliciousAddressResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaliciousAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMaliciousAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMaliciousAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskScoreRequest extends $tea.Model {
+  address?: string;
+  coin?: string;
+  merchantBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      coin: 'Coin',
+      merchantBizId: 'MerchantBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      coin: 'string',
+      merchantBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskScoreResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeRiskScoreResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeRiskScoreResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskScoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRiskScoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRiskScoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListRequest extends $tea.Model {
+  address?: string;
+  coin?: string;
+  endTimestamp?: number;
+  merchantBizId?: string;
+  page?: number;
+  startTimestamp?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      coin: 'Coin',
+      endTimestamp: 'EndTimestamp',
+      merchantBizId: 'MerchantBizId',
+      page: 'Page',
+      startTimestamp: 'StartTimestamp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      coin: 'string',
+      endTimestamp: 'number',
+      merchantBizId: 'string',
+      page: 'number',
+      startTimestamp: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeTransactionsListResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeTransactionsListResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeTransactionsListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTransactionsListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceCompareRequest extends $tea.Model {
   merchantBizId?: string;
   sourceFacePicture?: string;
@@ -336,6 +756,217 @@ export class CheckResultResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DescribeAddressLabelsResponseBodyData extends $tea.Model {
+  labelList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      labelList: 'LabelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressOverviewResponseBodyData extends $tea.Model {
+  balance?: number;
+  firstSeen?: number;
+  lastSeen?: number;
+  receivedTxsCount?: number;
+  spentTxsCount?: number;
+  totalReceived?: number;
+  totalSpent?: number;
+  txsCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      balance: 'Balance',
+      firstSeen: 'FirstSeen',
+      lastSeen: 'LastSeen',
+      receivedTxsCount: 'ReceivedTxsCount',
+      spentTxsCount: 'SpentTxsCount',
+      totalReceived: 'TotalReceived',
+      totalSpent: 'TotalSpent',
+      txsCount: 'TxsCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      balance: 'number',
+      firstSeen: 'number',
+      lastSeen: 'number',
+      receivedTxsCount: 'number',
+      spentTxsCount: 'number',
+      totalReceived: 'number',
+      totalSpent: 'number',
+      txsCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaliciousAddressResponseBodyData extends $tea.Model {
+  addTime?: string;
+  address?: string;
+  coin?: string;
+  detail?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addTime: 'AddTime',
+      address: 'Address',
+      coin: 'Coin',
+      detail: 'Detail',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addTime: 'string',
+      address: 'string',
+      coin: 'string',
+      detail: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskScoreResponseBodyData extends $tea.Model {
+  detailList?: string[];
+  hackingEvent?: string;
+  riskLevel?: string;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailList: 'DetailList',
+      hackingEvent: 'HackingEvent',
+      riskLevel: 'RiskLevel',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailList: { 'type': 'array', 'itemType': 'string' },
+      hackingEvent: 'string',
+      riskLevel: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListResponseBodyDataIn extends $tea.Model {
+  address?: string;
+  amount?: number;
+  label?: string;
+  txHashList?: string[];
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      amount: 'Amount',
+      label: 'Label',
+      txHashList: 'TxHashList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      amount: 'number',
+      label: 'string',
+      txHashList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListResponseBodyDataOut extends $tea.Model {
+  address?: string;
+  amount?: number;
+  label?: string;
+  txHashList?: string[];
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      amount: 'Amount',
+      label: 'Label',
+      txHashList: 'TxHashList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      amount: 'number',
+      label: 'string',
+      txHashList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTransactionsListResponseBodyData extends $tea.Model {
+  in?: DescribeTransactionsListResponseBodyDataIn[];
+  out?: DescribeTransactionsListResponseBodyDataOut[];
+  page?: number;
+  totalPages?: number;
+  transactionsOnPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      in: 'In',
+      out: 'Out',
+      page: 'Page',
+      totalPages: 'TotalPages',
+      transactionsOnPage: 'TransactionsOnPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      in: { 'type': 'array', 'itemType': DescribeTransactionsListResponseBodyDataIn },
+      out: { 'type': 'array', 'itemType': DescribeTransactionsListResponseBodyDataOut },
+      page: 'number',
+      totalPages: 'number',
+      transactionsOnPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceCompareResponseBodyResult extends $tea.Model {
   faceComparisonScore?: number;
   passed?: string;
@@ -452,6 +1083,211 @@ export default class Client extends OpenApi {
   async checkResult(request: CheckResultRequest): Promise<CheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkResultWithOptions(request, runtime);
+  }
+
+  async describeAddressLabelsWithOptions(request: DescribeAddressLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressLabelsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.coin)) {
+      query["Coin"] = request.coin;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAddressLabels",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddressLabelsResponse>(await this.callApi(params, req, runtime), new DescribeAddressLabelsResponse({}));
+  }
+
+  async describeAddressLabels(request: DescribeAddressLabelsRequest): Promise<DescribeAddressLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAddressLabelsWithOptions(request, runtime);
+  }
+
+  async describeAddressOverviewWithOptions(request: DescribeAddressOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressOverviewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.coin)) {
+      query["Coin"] = request.coin;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAddressOverview",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddressOverviewResponse>(await this.callApi(params, req, runtime), new DescribeAddressOverviewResponse({}));
+  }
+
+  async describeAddressOverview(request: DescribeAddressOverviewRequest): Promise<DescribeAddressOverviewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAddressOverviewWithOptions(request, runtime);
+  }
+
+  async describeMaliciousAddressWithOptions(request: DescribeMaliciousAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaliciousAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.coin)) {
+      query["Coin"] = request.coin;
+    }
+
+    if (!Util.isUnset(request.end)) {
+      query["End"] = request.end;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMaliciousAddress",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMaliciousAddressResponse>(await this.callApi(params, req, runtime), new DescribeMaliciousAddressResponse({}));
+  }
+
+  async describeMaliciousAddress(request: DescribeMaliciousAddressRequest): Promise<DescribeMaliciousAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMaliciousAddressWithOptions(request, runtime);
+  }
+
+  async describeRiskScoreWithOptions(request: DescribeRiskScoreRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskScoreResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.coin)) {
+      query["Coin"] = request.coin;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskScore",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskScoreResponse>(await this.callApi(params, req, runtime), new DescribeRiskScoreResponse({}));
+  }
+
+  async describeRiskScore(request: DescribeRiskScoreRequest): Promise<DescribeRiskScoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRiskScoreWithOptions(request, runtime);
+  }
+
+  async describeTransactionsListWithOptions(request: DescribeTransactionsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransactionsListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.coin)) {
+      query["Coin"] = request.coin;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTransactionsList",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTransactionsListResponse>(await this.callApi(params, req, runtime), new DescribeTransactionsListResponse({}));
+  }
+
+  async describeTransactionsList(request: DescribeTransactionsListRequest): Promise<DescribeTransactionsListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTransactionsListWithOptions(request, runtime);
   }
 
   async faceCompareWithOptions(request: FaceCompareRequest, runtime: $Util.RuntimeOptions): Promise<FaceCompareResponse> {
