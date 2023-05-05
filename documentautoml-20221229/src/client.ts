@@ -172,12 +172,14 @@ export class GetModelAsyncPredictResponse extends $tea.Model {
 
 export class PredictClassifierModelRequest extends $tea.Model {
   autoPrediction?: boolean;
+  binaryToText?: boolean;
   body?: string;
   classifierId?: number;
   content?: string;
   static names(): { [key: string]: string } {
     return {
       autoPrediction: 'AutoPrediction',
+      binaryToText: 'BinaryToText',
       body: 'Body',
       classifierId: 'ClassifierId',
       content: 'Content',
@@ -187,6 +189,7 @@ export class PredictClassifierModelRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPrediction: 'boolean',
+      binaryToText: 'boolean',
       body: 'string',
       classifierId: 'number',
       content: 'string',
@@ -612,6 +615,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoPrediction)) {
       query["AutoPrediction"] = request.autoPrediction;
+    }
+
+    if (!Util.isUnset(request.binaryToText)) {
+      query["BinaryToText"] = request.binaryToText;
     }
 
     if (!Util.isUnset(request.classifierId)) {
