@@ -22440,6 +22440,28 @@ export class ListMonoRecordingsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments extends $tea.Model {
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
   agentChannelId?: string;
   agentId?: string;
@@ -22448,6 +22470,7 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
   duration?: string;
   fileName?: string;
   fileUrl?: string;
+  holdTimeSegments?: ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments[];
   ramId?: string;
   skillGroupId?: string;
   startTime?: number;
@@ -22460,6 +22483,7 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
       duration: 'Duration',
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      holdTimeSegments: 'HoldTimeSegments',
       ramId: 'RamId',
       skillGroupId: 'SkillGroupId',
       startTime: 'StartTime',
@@ -22475,6 +22499,7 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
       duration: 'string',
       fileName: 'string',
       fileUrl: 'string',
+      holdTimeSegments: { 'type': 'array', 'itemType': ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments },
       ramId: 'string',
       skillGroupId: 'string',
       startTime: 'number',
