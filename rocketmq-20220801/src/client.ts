@@ -1667,7 +1667,7 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $tea.Model {
 export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model {
   endpointType?: string;
   endpointUrl?: string;
-  ipWhitelist?: string;
+  ipWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {
       endpointType: 'endpointType',
@@ -1680,7 +1680,7 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model 
     return {
       endpointType: 'string',
       endpointUrl: 'string',
-      ipWhitelist: 'string',
+      ipWhitelist: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1795,6 +1795,31 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyDataSoftware extends $tea.Model {
+  maintainTime?: string;
+  softwareVersion?: string;
+  upgradeMethod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maintainTime: 'maintainTime',
+      softwareVersion: 'softwareVersion',
+      upgradeMethod: 'upgradeMethod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maintainTime: 'string',
+      softwareVersion: 'string',
+      upgradeMethod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyData extends $tea.Model {
   accountInfo?: GetInstanceResponseBodyDataAccountInfo;
   aclInfo?: GetInstanceResponseBodyDataAclInfo;
@@ -1803,6 +1828,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   createTime?: string;
   expireTime?: string;
   extConfig?: GetInstanceResponseBodyDataExtConfig;
+  groupCount?: number;
   instanceId?: string;
   instanceName?: string;
   instanceQuotas?: GetInstanceResponseBodyDataInstanceQuotas[];
@@ -1815,9 +1841,11 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   resourceGroupId?: string;
   seriesCode?: string;
   serviceCode?: string;
+  software?: GetInstanceResponseBodyDataSoftware;
   startTime?: string;
   status?: string;
   subSeriesCode?: string;
+  topicCount?: number;
   updateTime?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1829,6 +1857,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       createTime: 'createTime',
       expireTime: 'expireTime',
       extConfig: 'extConfig',
+      groupCount: 'groupCount',
       instanceId: 'instanceId',
       instanceName: 'instanceName',
       instanceQuotas: 'instanceQuotas',
@@ -1841,9 +1870,11 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       resourceGroupId: 'resourceGroupId',
       seriesCode: 'seriesCode',
       serviceCode: 'serviceCode',
+      software: 'software',
       startTime: 'startTime',
       status: 'status',
       subSeriesCode: 'subSeriesCode',
+      topicCount: 'topicCount',
       updateTime: 'updateTime',
       userId: 'userId',
     };
@@ -1858,6 +1889,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       createTime: 'string',
       expireTime: 'string',
       extConfig: GetInstanceResponseBodyDataExtConfig,
+      groupCount: 'number',
       instanceId: 'string',
       instanceName: 'string',
       instanceQuotas: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataInstanceQuotas },
@@ -1870,9 +1902,11 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       resourceGroupId: 'string',
       seriesCode: 'string',
       serviceCode: 'string',
+      software: GetInstanceResponseBodyDataSoftware,
       startTime: 'string',
       status: 'string',
       subSeriesCode: 'string',
+      topicCount: 'number',
       updateTime: 'string',
       userId: 'string',
     };
