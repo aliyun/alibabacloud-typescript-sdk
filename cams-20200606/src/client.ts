@@ -3340,14 +3340,22 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
 }
 
 export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
+  autofillText?: string;
+  isOptOut?: boolean;
+  packageName?: string;
   phoneNumber?: string;
+  signatureHash?: string;
   text?: string;
   type?: string;
   url?: string;
   urlType?: string;
   static names(): { [key: string]: string } {
     return {
+      autofillText: 'AutofillText',
+      isOptOut: 'IsOptOut',
+      packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -3357,7 +3365,11 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autofillText: 'string',
+      isOptOut: 'boolean',
+      packageName: 'string',
       phoneNumber: 'string',
+      signatureHash: 'string',
       text: 'string',
       type: 'string',
       url: 'string',
@@ -3371,8 +3383,10 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
 }
 
 export class CreateChatappTemplateRequestComponents extends $tea.Model {
+  addSecretRecommendation?: boolean;
   buttons?: CreateChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
   fileType?: string;
@@ -3383,8 +3397,10 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
       fileType: 'FileType',
@@ -3398,8 +3414,10 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
       fileType: 'string',
@@ -3438,15 +3456,56 @@ export class CreateChatappTemplateResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs extends $tea.Model {
+  action?: string;
+  intentCode?: string;
+  nextLanguageCode?: string;
+  nextTemplateCode?: string;
+  nextTemplateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      intentCode: 'IntentCode',
+      nextLanguageCode: 'NextLanguageCode',
+      nextTemplateCode: 'NextTemplateCode',
+      nextTemplateName: 'NextTemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      intentCode: 'string',
+      nextLanguageCode: 'string',
+      nextTemplateCode: 'string',
+      nextTemplateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
+  autofillText?: string;
+  extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
+  isOptOut?: boolean;
+  packageName?: string;
   phoneNumber?: string;
+  signatureHash?: string;
   text?: string;
   type?: string;
   url?: string;
   urlType?: string;
   static names(): { [key: string]: string } {
     return {
+      autofillText: 'AutofillText',
+      extendAttrs: 'ExtendAttrs',
+      isOptOut: 'IsOptOut',
+      packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -3456,7 +3515,12 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
 
   static types(): { [key: string]: any } {
     return {
+      autofillText: 'string',
+      extendAttrs: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs,
+      isOptOut: 'boolean',
+      packageName: 'string',
       phoneNumber: 'string',
+      signatureHash: 'string',
       text: 'string',
       type: 'string',
       url: 'string',
@@ -3470,8 +3534,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
 }
 
 export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
+  addSecretRecommendation?: boolean;
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
   caption?: string;
+  codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
   fileType?: string;
@@ -3486,8 +3552,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
       fileType: 'FileType',
@@ -3505,8 +3573,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
       caption: 'string',
+      codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
       fileType: 'string',
@@ -3708,14 +3778,22 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
 }
 
 export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
+  autofillText?: string;
+  isOptOut?: boolean;
+  packageName?: string;
   phoneNumber?: string;
+  signatureHash?: string;
   text?: string;
   type?: string;
   url?: string;
   urlType?: string;
   static names(): { [key: string]: string } {
     return {
+      autofillText: 'AutofillText',
+      isOptOut: 'IsOptOut',
+      packageName: 'PackageName',
       phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -3725,7 +3803,11 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autofillText: 'string',
+      isOptOut: 'boolean',
+      packageName: 'string',
       phoneNumber: 'string',
+      signatureHash: 'string',
       text: 'string',
       type: 'string',
       url: 'string',
@@ -3739,8 +3821,10 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
 }
 
 export class ModifyChatappTemplateRequestComponents extends $tea.Model {
+  addSecretRecommendation?: boolean;
   buttons?: ModifyChatappTemplateRequestComponentsButtons[];
   caption?: string;
+  codeExpirationMinutes?: number;
   duration?: number;
   fileName?: string;
   fileType?: string;
@@ -3751,8 +3835,10 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      addSecretRecommendation: 'AddSecretRecommendation',
       buttons: 'Buttons',
       caption: 'Caption',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
       duration: 'Duration',
       fileName: 'FileName',
       fileType: 'FileType',
@@ -3766,8 +3852,10 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addSecretRecommendation: 'boolean',
       buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
       caption: 'string',
+      codeExpirationMinutes: 'number',
       duration: 'number',
       fileName: 'string',
       fileType: 'string',
@@ -4482,7 +4570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The status of the phone number.
     *
     * @param request CreateChatappMigrationInitiateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4521,7 +4609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The status of the phone number.
     *
     * @param request CreateChatappMigrationInitiateRequest
     * @return CreateChatappMigrationInitiateResponse
@@ -4532,8 +4620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The error message.
     *
     * @param tmpReq CreateChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4610,8 +4697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The error message.
     *
     * @param request CreateChatappTemplateRequest
     * @return CreateChatappTemplateResponse
@@ -4678,8 +4764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The type of the file attached in the Viber message template.
     *
     * @param request GetChatappTemplateDetailRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4730,8 +4815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The type of the file attached in the Viber message template.
     *
     * @param request GetChatappTemplateDetailRequest
     * @return GetChatappTemplateDetailResponse
@@ -4742,7 +4826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappUploadAuthorizationRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4773,7 +4857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request GetChatappUploadAuthorizationRequest
     * @return GetChatappUploadAuthorizationResponse
@@ -4838,7 +4922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The ID of the phone number.
     *
     * @param request GetMigrationVerifyCodeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4881,7 +4965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The ID of the phone number.
     *
     * @param request GetMigrationVerifyCodeRequest
     * @return GetMigrationVerifyCodeResponse
@@ -4938,7 +5022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The message ID.
     *
     * @param request IsvGetAppIdRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4969,7 +5053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The message ID.
     *
     * @param request IsvGetAppIdRequest
     * @return IsvGetAppIdResponse
@@ -5058,8 +5142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The name of the message template.
     *
     * @param tmpReq ModifyChatappTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5132,8 +5215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### QPS limit
-    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The name of the message template.
     *
     * @param request ModifyChatappTemplateRequest
     * @return ModifyChatappTemplateResponse
@@ -5510,7 +5592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param tmpReq SendChatappMessageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5637,7 +5719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 200 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request SendChatappMessageRequest
     * @return SendChatappMessageResponse
@@ -5648,7 +5730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request SubmitIsvCustomerTermsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5703,7 +5785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request SubmitIsvCustomerTermsRequest
     * @return SubmitIsvCustomerTermsResponse
@@ -5768,7 +5850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The error message returned.
     *
     * @param request UpdatePhoneWebhookRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -5819,7 +5901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * The error message returned.
     *
     * @param request UpdatePhoneWebhookRequest
     * @return UpdatePhoneWebhookResponse
