@@ -1945,6 +1945,84 @@ export class GetTemplateResponse extends $tea.Model {
   }
 }
 
+export class ListApplicationsRequest extends $tea.Model {
+  currentPage?: string;
+  filterName?: string;
+  pageSize?: string;
+  template?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'currentPage',
+      filterName: 'filterName',
+      pageSize: 'pageSize',
+      template: 'template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      filterName: 'string',
+      pageSize: 'string',
+      template: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBody extends $tea.Model {
+  currentPage?: string;
+  result?: Application[];
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'currentPage',
+      result: 'result',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      result: { 'type': 'array', 'itemType': Application },
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnvironmentRevisionsRequest extends $tea.Model {
   environmentName?: string;
   static names(): { [key: string]: string } {
@@ -3558,6 +3636,49 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTemplateWithOptions(name, request, headers, runtime);
+  }
+
+  async listApplicationsWithOptions(request: ListApplicationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["currentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.filterName)) {
+      query["filterName"] = request.filterName;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.template)) {
+      query["template"] = request.template;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplications",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/applications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+  }
+
+  async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApplicationsWithOptions(request, headers, runtime);
   }
 
   async listEnvironmentRevisionsWithOptions(request: ListEnvironmentRevisionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentRevisionsResponse> {
