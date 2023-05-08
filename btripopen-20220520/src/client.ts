@@ -6516,7 +6516,6 @@ export class GroupUserSaveHeaders extends $tea.Model {
 
 export class GroupUserSaveRequest extends $tea.Model {
   jobNo?: string;
-  leaveStatus?: number;
   phone?: string;
   realNameEn?: string;
   subCorpIdList?: GroupUserSaveRequestSubCorpIdList[];
@@ -6525,7 +6524,6 @@ export class GroupUserSaveRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       jobNo: 'job_no',
-      leaveStatus: 'leave_status',
       phone: 'phone',
       realNameEn: 'real_name_en',
       subCorpIdList: 'sub_corp_id_list',
@@ -6537,7 +6535,6 @@ export class GroupUserSaveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobNo: 'string',
-      leaveStatus: 'number',
       phone: 'string',
       realNameEn: 'string',
       subCorpIdList: { 'type': 'array', 'itemType': GroupUserSaveRequestSubCorpIdList },
@@ -6553,7 +6550,6 @@ export class GroupUserSaveRequest extends $tea.Model {
 
 export class GroupUserSaveShrinkRequest extends $tea.Model {
   jobNo?: string;
-  leaveStatus?: number;
   phone?: string;
   realNameEn?: string;
   subCorpIdListShrink?: string;
@@ -6562,7 +6558,6 @@ export class GroupUserSaveShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       jobNo: 'job_no',
-      leaveStatus: 'leave_status',
       phone: 'phone',
       realNameEn: 'real_name_en',
       subCorpIdListShrink: 'sub_corp_id_list',
@@ -6574,7 +6569,6 @@ export class GroupUserSaveShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobNo: 'string',
-      leaveStatus: 'number',
       phone: 'string',
       realNameEn: 'string',
       subCorpIdListShrink: 'string',
@@ -23193,12 +23187,16 @@ export class FlightSearchListResponseBodyModule extends $tea.Model {
 
 export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
   departIds?: string[];
+  leaveStatus?: number;
   managerUserId?: string;
+  positionLevel?: string;
   subCorpId?: string;
   static names(): { [key: string]: string } {
     return {
       departIds: 'depart_ids',
+      leaveStatus: 'leave_status',
       managerUserId: 'manager_user_id',
+      positionLevel: 'position_level',
       subCorpId: 'sub_corp_id',
     };
   }
@@ -23206,7 +23204,9 @@ export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       departIds: { 'type': 'array', 'itemType': 'string' },
+      leaveStatus: 'number',
       managerUserId: 'string',
+      positionLevel: 'string',
       subCorpId: 'string',
     };
   }
@@ -33665,10 +33665,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.jobNo)) {
       body["job_no"] = request.jobNo;
-    }
-
-    if (!Util.isUnset(request.leaveStatus)) {
-      body["leave_status"] = request.leaveStatus;
     }
 
     if (!Util.isUnset(request.phone)) {
