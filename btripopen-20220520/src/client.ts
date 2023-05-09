@@ -6747,6 +6747,106 @@ export class HotelBillSettlementQueryResponse extends $tea.Model {
   }
 }
 
+export class HotelCityCodeListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelCityCodeListRequest extends $tea.Model {
+  countryCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      countryCode: 'country_code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countryCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelCityCodeListResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelCityCodeListResponseBodyModule[];
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': HotelCityCodeListResponseBodyModule },
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelCityCodeListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: HotelCityCodeListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelCityCodeListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelExceedApplyQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -23428,6 +23528,78 @@ export class HotelBillSettlementQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class HotelCityCodeListResponseBodyModuleCitysDistricts extends $tea.Model {
+  districtCode?: string;
+  districtName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      districtCode: 'district_code',
+      districtName: 'district_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      districtCode: 'string',
+      districtName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelCityCodeListResponseBodyModuleCitys extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  districts?: HotelCityCodeListResponseBodyModuleCitysDistricts[];
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      districts: 'districts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      districts: { 'type': 'array', 'itemType': HotelCityCodeListResponseBodyModuleCitysDistricts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelCityCodeListResponseBodyModule extends $tea.Model {
+  citys?: HotelCityCodeListResponseBodyModuleCitys[];
+  proviceCode?: string;
+  provinceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      citys: 'citys',
+      proviceCode: 'provice_code',
+      provinceName: 'province_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      citys: { 'type': 'array', 'itemType': HotelCityCodeListResponseBodyModuleCitys },
+      proviceCode: 'string',
+      provinceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extends $tea.Model {
   checkIn?: string;
   checkOut?: string;
@@ -33770,6 +33942,46 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelBillSettlementQueryHeaders({ });
     return await this.hotelBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  async hotelCityCodeListWithOptions(request: HotelCityCodeListRequest, headers: HotelCityCodeListHeaders, runtime: $Util.RuntimeOptions): Promise<HotelCityCodeListResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.countryCode)) {
+      query["country_code"] = request.countryCode;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelCityCodeList",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v1/city-codes/action/search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelCityCodeListResponse>(await this.callApi(params, req, runtime), new HotelCityCodeListResponse({}));
+  }
+
+  async hotelCityCodeList(request: HotelCityCodeListRequest): Promise<HotelCityCodeListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelCityCodeListHeaders({ });
+    return await this.hotelCityCodeListWithOptions(request, headers, runtime);
   }
 
   async hotelExceedApplyQueryWithOptions(request: HotelExceedApplyQueryRequest, headers: HotelExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelExceedApplyQueryResponse> {
