@@ -249,7 +249,9 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
   productType?: string;
   promotionId?: string;
   runtimePolicy?: CreateAppInstanceGroupRequestRuntimePolicy;
+  securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
   sessionTimeout?: number;
+  storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
   userInfo?: CreateAppInstanceGroupRequestUserInfo;
   users?: string[];
   static names(): { [key: string]: string } {
@@ -269,7 +271,9 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
       productType: 'ProductType',
       promotionId: 'PromotionId',
       runtimePolicy: 'RuntimePolicy',
+      securityPolicy: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
+      storagePolicy: 'StoragePolicy',
       userInfo: 'UserInfo',
       users: 'Users',
     };
@@ -292,7 +296,9 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
       productType: 'string',
       promotionId: 'string',
       runtimePolicy: CreateAppInstanceGroupRequestRuntimePolicy,
+      securityPolicy: CreateAppInstanceGroupRequestSecurityPolicy,
       sessionTimeout: 'number',
+      storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
       userInfo: CreateAppInstanceGroupRequestUserInfo,
       users: { 'type': 'array', 'itemType': 'string' },
     };
@@ -319,7 +325,9 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
   productType?: string;
   promotionId?: string;
   runtimePolicyShrink?: string;
+  securityPolicyShrink?: string;
   sessionTimeout?: number;
+  storagePolicyShrink?: string;
   userInfoShrink?: string;
   users?: string[];
   static names(): { [key: string]: string } {
@@ -339,7 +347,9 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
       productType: 'ProductType',
       promotionId: 'PromotionId',
       runtimePolicyShrink: 'RuntimePolicy',
+      securityPolicyShrink: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
+      storagePolicyShrink: 'StoragePolicy',
       userInfoShrink: 'UserInfo',
       users: 'Users',
     };
@@ -362,7 +372,9 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
       productType: 'string',
       promotionId: 'string',
       runtimePolicyShrink: 'string',
+      securityPolicyShrink: 'string',
       sessionTimeout: 'number',
+      storagePolicyShrink: 'string',
       userInfoShrink: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
     };
@@ -412,6 +424,78 @@ export class CreateAppInstanceGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAppInstanceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupRequest extends $tea.Model {
+  appCenterImageName?: string;
+  appInstanceGroupId?: string;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageName: 'AppCenterImageName',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageName: 'string',
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupResponseBody extends $tea.Model {
+  imageId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateImageFromAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageFromAppInstanceGroupResponseBody,
     };
   }
 
@@ -727,6 +811,90 @@ export class GetConnectionTicketResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetConnectionTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceRequest extends $tea.Model {
+  appInstanceGroupId?: string;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceResponseBody extends $tea.Model {
+  appId?: string;
+  appInstanceGroupId?: string;
+  appInstanceId?: string;
+  appVersion?: string;
+  authCode?: string;
+  requestId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appVersion: 'AppVersion',
+      authCode: 'AuthCode',
+      requestId: 'RequestId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appVersion: 'string',
+      authCode: 'string',
+      requestId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDebugAppInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDebugAppInstanceResponseBody,
     };
   }
 
@@ -1080,6 +1248,8 @@ export class ListAppInstanceGroupResponse extends $tea.Model {
 export class ListAppInstancesRequest extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceId?: string;
+  appInstanceIdList?: string[];
+  includeDeleted?: boolean;
   pageNumber?: number;
   pageSize?: number;
   status?: string[];
@@ -1087,6 +1257,8 @@ export class ListAppInstancesRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      appInstanceIdList: 'AppInstanceIdList',
+      includeDeleted: 'IncludeDeleted',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       status: 'Status',
@@ -1097,6 +1269,8 @@ export class ListAppInstancesRequest extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      appInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      includeDeleted: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       status: { 'type': 'array', 'itemType': 'string' },
@@ -1512,14 +1686,18 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
   appInstanceGroupName?: string;
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
   productType?: string;
+  securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
   sessionTimeout?: number;
+  storagePolicy?: ModifyAppInstanceGroupAttributeRequestStoragePolicy;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
       nodePool: 'NodePool',
       productType: 'ProductType',
+      securityPolicy: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
+      storagePolicy: 'StoragePolicy',
     };
   }
 
@@ -1529,7 +1707,9 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
       appInstanceGroupName: 'string',
       nodePool: ModifyAppInstanceGroupAttributeRequestNodePool,
       productType: 'string',
+      securityPolicy: ModifyAppInstanceGroupAttributeRequestSecurityPolicy,
       sessionTimeout: 'number',
+      storagePolicy: ModifyAppInstanceGroupAttributeRequestStoragePolicy,
     };
   }
 
@@ -1543,14 +1723,18 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
   appInstanceGroupName?: string;
   nodePoolShrink?: string;
   productType?: string;
+  securityPolicyShrink?: string;
   sessionTimeout?: number;
+  storagePolicyShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
       nodePoolShrink: 'NodePool',
       productType: 'ProductType',
+      securityPolicyShrink: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
+      storagePolicyShrink: 'StoragePolicy',
     };
   }
 
@@ -1560,7 +1744,9 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
       appInstanceGroupName: 'string',
       nodePoolShrink: 'string',
       productType: 'string',
+      securityPolicyShrink: 'string',
       sessionTimeout: 'number',
+      storagePolicyShrink: 'string',
     };
   }
 
@@ -2129,10 +2315,12 @@ export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
+  ipExpireMinutes?: number;
   routes?: CreateAppInstanceGroupRequestNetworkRoutes[];
   strategyType?: string;
   static names(): { [key: string]: string } {
     return {
+      ipExpireMinutes: 'IpExpireMinutes',
       routes: 'Routes',
       strategyType: 'StrategyType',
     };
@@ -2140,6 +2328,7 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipExpireMinutes: 'number',
       routes: { 'type': 'array', 'itemType': CreateAppInstanceGroupRequestNetworkRoutes },
       strategyType: 'string',
     };
@@ -2253,16 +2442,60 @@ export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestRuntimePolicy extends $tea.Model {
+  debugMode?: string;
   sessionType?: string;
   static names(): { [key: string]: string } {
     return {
+      debugMode: 'DebugMode',
       sessionType: 'SessionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      debugMode: 'string',
       sessionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupRequestSecurityPolicy extends $tea.Model {
+  resetAfterUnbind?: boolean;
+  skipUserAuthCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      resetAfterUnbind: 'ResetAfterUnbind',
+      skipUserAuthCheck: 'SkipUserAuthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resetAfterUnbind: 'boolean',
+      skipUserAuthCheck: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupRequestStoragePolicy extends $tea.Model {
+  storageTypeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      storageTypeList: 'StorageTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageTypeList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2529,6 +2762,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
   regionId?: string;
   resourceStatus?: string;
   sessionTimeout?: string;
+  skipUserAuthCheck?: boolean;
   specId?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -2551,6 +2785,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       regionId: 'RegionId',
       resourceStatus: 'ResourceStatus',
       sessionTimeout: 'SessionTimeout',
+      skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
       status: 'Status',
     };
@@ -2576,6 +2811,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
       regionId: 'string',
       resourceStatus: 'string',
       sessionTimeout: 'string',
+      skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
     };
@@ -2993,6 +3229,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
   regionId?: string;
   resourceStatus?: string;
   sessionTimeout?: string;
+  skipUserAuthCheck?: boolean;
   specId?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -3015,6 +3252,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       regionId: 'RegionId',
       resourceStatus: 'ResourceStatus',
       sessionTimeout: 'SessionTimeout',
+      skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
       status: 'Status',
     };
@@ -3040,8 +3278,31 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       regionId: 'string',
       resourceStatus: 'string',
       sessionTimeout: 'string',
+      skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $tea.Model {
+  endUserId?: string;
+  usageDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endUserId: 'EndUserId',
+      usageDuration: 'UsageDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endUserId: 'string',
+      usageDuration: 'number',
     };
   }
 
@@ -3053,6 +3314,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
 export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
   appInstanceGroupId?: string;
   appInstanceId?: string;
+  bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
   gmtCreate?: string;
   gmtModified?: string;
   mainEthPublicIp?: string;
@@ -3062,6 +3324,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      bindInfo: 'BindInfo',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       mainEthPublicIp: 'MainEthPublicIp',
@@ -3074,6 +3337,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
     return {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      bindInfo: ListAppInstancesResponseBodyAppInstanceModelsBindInfo,
       gmtCreate: 'string',
       gmtModified: 'string',
       mainEthPublicIp: 'string',
@@ -3207,6 +3471,47 @@ export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
     return {
       nodeCapacity: 'number',
       nodePoolId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $tea.Model {
+  resetAfterUnbind?: boolean;
+  skipUserAuthCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      resetAfterUnbind: 'ResetAfterUnbind',
+      skipUserAuthCheck: 'SkipUserAuthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resetAfterUnbind: 'boolean',
+      skipUserAuthCheck: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $tea.Model {
+  storageTypeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      storageTypeList: 'StorageTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageTypeList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3469,6 +3774,14 @@ export default class Client extends OpenApi {
       request.runtimePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimePolicy, "RuntimePolicy", "json");
     }
 
+    if (!Util.isUnset(tmpReq.securityPolicy)) {
+      request.securityPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityPolicy, "SecurityPolicy", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storagePolicy)) {
+      request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
+    }
+
     if (!Util.isUnset(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
@@ -3534,8 +3847,16 @@ export default class Client extends OpenApi {
       body["RuntimePolicy"] = request.runtimePolicyShrink;
     }
 
+    if (!Util.isUnset(request.securityPolicyShrink)) {
+      body["SecurityPolicy"] = request.securityPolicyShrink;
+    }
+
     if (!Util.isUnset(request.sessionTimeout)) {
       body["SessionTimeout"] = request.sessionTimeout;
+    }
+
+    if (!Util.isUnset(request.storagePolicyShrink)) {
+      body["StoragePolicy"] = request.storagePolicyShrink;
     }
 
     if (!Util.isUnset(request.userInfoShrink)) {
@@ -3566,6 +3887,43 @@ export default class Client extends OpenApi {
   async createAppInstanceGroup(request: CreateAppInstanceGroupRequest): Promise<CreateAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  async createImageFromAppInstanceGroupWithOptions(request: CreateImageFromAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageFromAppInstanceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appCenterImageName)) {
+      body["AppCenterImageName"] = request.appCenterImageName;
+    }
+
+    if (!Util.isUnset(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateImageFromAppInstanceGroup",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
+  }
+
+  async createImageFromAppInstanceGroup(request: CreateImageFromAppInstanceGroupRequest): Promise<CreateImageFromAppInstanceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createImageFromAppInstanceGroupWithOptions(request, runtime);
   }
 
   async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
@@ -3730,6 +4088,39 @@ export default class Client extends OpenApi {
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
+  }
+
+  async getDebugAppInstanceWithOptions(request: GetDebugAppInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetDebugAppInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDebugAppInstance",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
+  }
+
+  async getDebugAppInstance(request: GetDebugAppInstanceRequest): Promise<GetDebugAppInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDebugAppInstanceWithOptions(request, runtime);
   }
 
   async getOtaTaskByTaskIdWithOptions(request: GetOtaTaskByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<GetOtaTaskByTaskIdResponse> {
@@ -3929,6 +4320,10 @@ export default class Client extends OpenApi {
       query["AppInstanceId"] = request.appInstanceId;
     }
 
+    if (!Util.isUnset(request.includeDeleted)) {
+      query["IncludeDeleted"] = request.includeDeleted;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3938,6 +4333,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInstanceIdList)) {
+      body["AppInstanceIdList"] = request.appInstanceIdList;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
     }
@@ -4142,6 +4541,14 @@ export default class Client extends OpenApi {
       request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
     }
 
+    if (!Util.isUnset(tmpReq.securityPolicy)) {
+      request.securityPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityPolicy, "SecurityPolicy", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storagePolicy)) {
+      request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
@@ -4163,8 +4570,18 @@ export default class Client extends OpenApi {
       query["SessionTimeout"] = request.sessionTimeout;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.securityPolicyShrink)) {
+      body["SecurityPolicy"] = request.securityPolicyShrink;
+    }
+
+    if (!Util.isUnset(request.storagePolicyShrink)) {
+      body["StoragePolicy"] = request.storagePolicyShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyAppInstanceGroupAttribute",
