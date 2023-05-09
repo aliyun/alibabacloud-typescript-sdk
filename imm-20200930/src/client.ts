@@ -4906,6 +4906,7 @@ export class CreateLocationDateClusteringTaskResponse extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskRequest extends $tea.Model {
+  alignmentIndex?: number;
   credentialConfig?: CredentialConfig;
   notification?: Notification;
   projectName?: string;
@@ -4915,6 +4916,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      alignmentIndex: 'AlignmentIndex',
       credentialConfig: 'CredentialConfig',
       notification: 'Notification',
       projectName: 'ProjectName',
@@ -4927,6 +4929,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignmentIndex: 'number',
       credentialConfig: CredentialConfig,
       notification: Notification,
       projectName: 'string',
@@ -4943,6 +4946,7 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
+  alignmentIndex?: number;
   credentialConfigShrink?: string;
   notificationShrink?: string;
   projectName?: string;
@@ -4952,6 +4956,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      alignmentIndex: 'AlignmentIndex',
       credentialConfigShrink: 'CredentialConfig',
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
@@ -4964,6 +4969,7 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignmentIndex: 'number',
       credentialConfigShrink: 'string',
       notificationShrink: 'string',
       projectName: 'string',
@@ -10044,13 +10050,11 @@ export class LiveTranscodingRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   projectName?: string;
   sourceURI?: string;
-  token?: string;
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
-      token: 'Token',
     };
   }
 
@@ -10059,7 +10063,6 @@ export class LiveTranscodingRequest extends $tea.Model {
       credentialConfig: CredentialConfig,
       projectName: 'string',
       sourceURI: 'string',
-      token: 'string',
     };
   }
 
@@ -10072,13 +10075,11 @@ export class LiveTranscodingShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   projectName?: string;
   sourceURI?: string;
-  token?: string;
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
-      token: 'Token',
     };
   }
 
@@ -10087,7 +10088,6 @@ export class LiveTranscodingShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'string',
       projectName: 'string',
       sourceURI: 'string',
-      token: 'string',
     };
   }
 
@@ -15697,6 +15697,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.alignmentIndex)) {
+      query["AlignmentIndex"] = request.alignmentIndex;
+    }
+
     if (!Util.isUnset(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
     }
@@ -18315,10 +18319,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceURI)) {
       query["SourceURI"] = request.sourceURI;
-    }
-
-    if (!Util.isUnset(request.token)) {
-      query["Token"] = request.token;
     }
 
     let req = new $OpenApi.OpenApiRequest({
