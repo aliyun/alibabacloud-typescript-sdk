@@ -5294,6 +5294,84 @@ export class GetUserResponse extends $tea.Model {
   }
 }
 
+export class GetVideoRequest extends $tea.Model {
+  contactId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetVideoResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetVideoResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVoicemailRecordingRequest extends $tea.Model {
   contactId?: string;
   instanceId?: string;
@@ -17639,6 +17717,28 @@ export class GetUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetVideoResponseBodyData extends $tea.Model {
+  fileName?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVoicemailRecordingResponseBodyData extends $tea.Model {
   fileName?: string;
   fileUrl?: string;
@@ -28825,6 +28925,31 @@ export default class Client extends OpenApi {
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
+  }
+
+  async getVideoWithOptions(request: GetVideoRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVideo",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVideoResponse>(await this.callApi(params, req, runtime), new GetVideoResponse({}));
+  }
+
+  async getVideo(request: GetVideoRequest): Promise<GetVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVideoWithOptions(request, runtime);
   }
 
   async getVoicemailRecordingWithOptions(request: GetVoicemailRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetVoicemailRecordingResponse> {
