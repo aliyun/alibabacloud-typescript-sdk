@@ -286,6 +286,7 @@ export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
 
 export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   authCode?: string;
+  extendFunction?: string;
   inputNumber?: string;
   mask?: string;
   ownerId?: number;
@@ -294,6 +295,7 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authCode: 'AuthCode',
+      extendFunction: 'ExtendFunction',
       inputNumber: 'InputNumber',
       mask: 'Mask',
       ownerId: 'OwnerId',
@@ -305,6 +307,7 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authCode: 'string',
+      extendFunction: 'string',
       inputNumber: 'string',
       mask: 'string',
       ownerId: 'number',
@@ -1907,6 +1910,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.authCode)) {
       query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.extendFunction)) {
+      query["ExtendFunction"] = request.extendFunction;
     }
 
     if (!Util.isUnset(request.inputNumber)) {
