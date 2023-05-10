@@ -712,12 +712,14 @@ export class QueryTimedResetOperateStatusResponse extends $tea.Model {
 }
 
 export class SendMessageRequest extends $tea.Model {
+  feedback?: boolean;
   sessionId?: string;
   tenantId?: number;
   textRequest?: SendMessageRequestTextRequest;
   VAMLRequest?: SendMessageRequestVAMLRequest;
   static names(): { [key: string]: string } {
     return {
+      feedback: 'Feedback',
       sessionId: 'SessionId',
       tenantId: 'TenantId',
       textRequest: 'TextRequest',
@@ -727,6 +729,7 @@ export class SendMessageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      feedback: 'boolean',
       sessionId: 'string',
       tenantId: 'number',
       textRequest: SendMessageRequestTextRequest,
@@ -740,12 +743,14 @@ export class SendMessageRequest extends $tea.Model {
 }
 
 export class SendMessageShrinkRequest extends $tea.Model {
+  feedback?: boolean;
   sessionId?: string;
   tenantId?: number;
   textRequestShrink?: string;
   VAMLRequestShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      feedback: 'Feedback',
       sessionId: 'SessionId',
       tenantId: 'TenantId',
       textRequestShrink: 'TextRequest',
@@ -755,6 +760,7 @@ export class SendMessageShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      feedback: 'boolean',
       sessionId: 'string',
       tenantId: 'number',
       textRequestShrink: 'string',
@@ -2699,6 +2705,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
     if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
