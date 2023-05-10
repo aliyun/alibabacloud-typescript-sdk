@@ -596,6 +596,99 @@ export class FaceCompareResponse extends $tea.Model {
   }
 }
 
+export class FaceLivenessRequest extends $tea.Model {
+  crop?: string;
+  facePictureBase64?: string;
+  facePictureUrl?: string;
+  faceQuality?: string;
+  merchantBizId?: string;
+  merchantUserId?: string;
+  occlusion?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crop: 'Crop',
+      facePictureBase64: 'FacePictureBase64',
+      facePictureUrl: 'FacePictureUrl',
+      faceQuality: 'FaceQuality',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      occlusion: 'Occlusion',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crop: 'string',
+      facePictureBase64: 'string',
+      facePictureUrl: 'string',
+      faceQuality: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      occlusion: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceLivenessResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: FaceLivenessResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: FaceLivenessResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceLivenessResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FaceLivenessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FaceLivenessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeRequest extends $tea.Model {
   crop?: string;
   docType?: string;
@@ -992,6 +1085,59 @@ export class FaceCompareResponseBodyResult extends $tea.Model {
   }
 }
 
+export class FaceLivenessResponseBodyResultExtFaceInfo extends $tea.Model {
+  faceAttack?: string;
+  faceQualityScore?: number;
+  occlusionResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceAttack: 'FaceAttack',
+      faceQualityScore: 'FaceQualityScore',
+      occlusionResult: 'OcclusionResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceAttack: 'string',
+      faceQualityScore: 'number',
+      occlusionResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceLivenessResponseBodyResult extends $tea.Model {
+  extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
+  passed?: string;
+  subCode?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extFaceInfo: 'ExtFaceInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extFaceInfo: FaceLivenessResponseBodyResultExtFaceInfo,
+      passed: 'string',
+      subCode: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeResponseBodyResult extends $tea.Model {
   clientCfg?: string;
   transactionId?: string;
@@ -1333,6 +1479,63 @@ export default class Client extends OpenApi {
   async faceCompare(request: FaceCompareRequest): Promise<FaceCompareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.faceCompareWithOptions(request, runtime);
+  }
+
+  async faceLivenessWithOptions(request: FaceLivenessRequest, runtime: $Util.RuntimeOptions): Promise<FaceLivenessResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.crop)) {
+      query["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.facePictureBase64)) {
+      query["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!Util.isUnset(request.facePictureUrl)) {
+      query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!Util.isUnset(request.faceQuality)) {
+      query["FaceQuality"] = request.faceQuality;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!Util.isUnset(request.occlusion)) {
+      query["Occlusion"] = request.occlusion;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FaceLiveness",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FaceLivenessResponse>(await this.callApi(params, req, runtime), new FaceLivenessResponse({}));
+  }
+
+  async faceLiveness(request: FaceLivenessRequest): Promise<FaceLivenessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.faceLivenessWithOptions(request, runtime);
   }
 
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
