@@ -4368,16 +4368,20 @@ export class DescribeDnsProductInstanceResponse extends $tea.Model {
 }
 
 export class DescribeDnsProductInstancesRequest extends $tea.Model {
+  direction?: string;
   domainType?: string;
   lang?: string;
+  orderBy?: string;
   pageNumber?: number;
   pageSize?: number;
   userClientIp?: string;
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
+      direction: 'Direction',
       domainType: 'DomainType',
       lang: 'Lang',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       userClientIp: 'UserClientIp',
@@ -4387,8 +4391,10 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      direction: 'string',
       domainType: 'string',
       lang: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       userClientIp: 'string',
@@ -18565,8 +18571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+    * The operation that you want to perform. Set the value to AddCustomLine.
     *
     * @param request AddCustomLineRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18609,8 +18614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot intersect.
+    * The operation that you want to perform. Set the value to AddCustomLine.
     *
     * @param request AddCustomLineRequest
     * @return AddCustomLineResponse
@@ -20839,7 +20843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+    * The operation that you want to perform. Set the value to **DescribeDnsProductInstances**.
     *
     * @param request DescribeDnsProductInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20848,12 +20852,20 @@ export default class Client extends OpenApi {
   async describeDnsProductInstancesWithOptions(request: DescribeDnsProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
     if (!Util.isUnset(request.domainType)) {
       query["DomainType"] = request.domainType;
     }
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -20890,7 +20902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+    * The operation that you want to perform. Set the value to **DescribeDnsProductInstances**.
     *
     * @param request DescribeDnsProductInstancesRequest
     * @return DescribeDnsProductInstancesResponse
@@ -21339,13 +21351,6 @@ export default class Client extends OpenApi {
     return await this.describeDomainLogsWithOptions(request, runtime);
   }
 
-  /**
-    * >  This operation queries the authoritative server of the registry to obtain the name servers of a domain name. If the domain name is in the serverHold or clientHold state, an exception may occur.
-    *
-    * @param request DescribeDomainNsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainNsResponse
-   */
   async describeDomainNsWithOptions(request: DescribeDomainNsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21374,12 +21379,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainNsResponse>(await this.callApi(params, req, runtime), new DescribeDomainNsResponse({}));
   }
 
-  /**
-    * >  This operation queries the authoritative server of the registry to obtain the name servers of a domain name. If the domain name is in the serverHold or clientHold state, an exception may occur.
-    *
-    * @param request DescribeDomainNsRequest
-    * @return DescribeDomainNsResponse
-   */
   async describeDomainNs(request: DescribeDomainNsRequest): Promise<DescribeDomainNsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainNsWithOptions(request, runtime);
@@ -23617,9 +23616,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-    * *   Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you specify only Tag.N.Value, an error message is returned.
-    * *   If you specify Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+    * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
     *
     * @param request ListTagResourcesRequest
@@ -23667,9 +23666,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-    * *   Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you specify only Tag.N.Value, an error message is returned.
-    * *   If you specify Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+    * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
     *
     * @param request ListTagResourcesRequest
