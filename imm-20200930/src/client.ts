@@ -1302,18 +1302,15 @@ export class LocationDateCluster extends $tea.Model {
 }
 
 export class MNS extends $tea.Model {
-  endpoint?: string;
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
-      endpoint: 'Endpoint',
       topicName: 'TopicName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoint: 'string',
       topicName: 'string',
     };
   }
@@ -1513,12 +1510,10 @@ export class RegionType extends $tea.Model {
 }
 
 export class RocketMQ extends $tea.Model {
-  endpoint?: string;
   instanceId?: string;
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
-      endpoint: 'Endpoint',
       instanceId: 'InstanceId',
       topicName: 'TopicName',
     };
@@ -1526,7 +1521,6 @@ export class RocketMQ extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      endpoint: 'string',
       instanceId: 'string',
       topicName: 'string',
     };
@@ -1872,10 +1866,12 @@ export class TaskInfo extends $tea.Model {
   code?: string;
   endTime?: string;
   message?: string;
+  progress?: number;
   startTime?: string;
   status?: string;
   tags?: { [key: string]: any };
   taskId?: string;
+  taskRequestDefinition?: string;
   taskType?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -1883,10 +1879,12 @@ export class TaskInfo extends $tea.Model {
       code: 'Code',
       endTime: 'EndTime',
       message: 'Message',
+      progress: 'Progress',
       startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
       taskId: 'TaskId',
+      taskRequestDefinition: 'TaskRequestDefinition',
       taskType: 'TaskType',
       userData: 'UserData',
     };
@@ -1897,10 +1895,12 @@ export class TaskInfo extends $tea.Model {
       code: 'string',
       endTime: 'string',
       message: 'string',
+      progress: 'number',
       startTime: 'string',
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       taskId: 'string',
+      taskRequestDefinition: 'string',
       taskType: 'string',
       userData: 'string',
     };
@@ -8951,11 +8951,13 @@ export class GetStoryResponse extends $tea.Model {
 
 export class GetTaskRequest extends $tea.Model {
   projectName?: string;
+  requestDefinition?: boolean;
   taskId?: string;
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
       projectName: 'ProjectName',
+      requestDefinition: 'RequestDefinition',
       taskId: 'TaskId',
       taskType: 'TaskType',
     };
@@ -8964,6 +8966,7 @@ export class GetTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       projectName: 'string',
+      requestDefinition: 'boolean',
       taskId: 'string',
       taskType: 'string',
     };
@@ -8979,12 +8982,14 @@ export class GetTaskResponseBody extends $tea.Model {
   endTime?: string;
   eventId?: string;
   message?: string;
+  progress?: number;
   projectName?: string;
   requestId?: string;
   startTime?: string;
   status?: string;
   tags?: { [key: string]: any };
   taskId?: string;
+  taskRequestDefinition?: string;
   taskType?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -8993,12 +8998,14 @@ export class GetTaskResponseBody extends $tea.Model {
       endTime: 'EndTime',
       eventId: 'EventId',
       message: 'Message',
+      progress: 'Progress',
       projectName: 'ProjectName',
       requestId: 'RequestId',
       startTime: 'StartTime',
       status: 'Status',
       tags: 'Tags',
       taskId: 'TaskId',
+      taskRequestDefinition: 'TaskRequestDefinition',
       taskType: 'TaskType',
       userData: 'UserData',
     };
@@ -9010,12 +9017,14 @@ export class GetTaskResponseBody extends $tea.Model {
       endTime: 'string',
       eventId: 'string',
       message: 'string',
+      progress: 'number',
       projectName: 'string',
       requestId: 'string',
       startTime: 'string',
       status: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       taskId: 'string',
+      taskRequestDefinition: 'string',
       taskType: 'string',
       userData: 'string',
     };
@@ -9817,6 +9826,7 @@ export class ListTasksRequest extends $tea.Model {
   nextToken?: string;
   order?: string;
   projectName?: string;
+  requestDefinition?: boolean;
   sort?: string;
   startTimeRange?: TimeRange;
   status?: string;
@@ -9829,6 +9839,7 @@ export class ListTasksRequest extends $tea.Model {
       nextToken: 'NextToken',
       order: 'Order',
       projectName: 'ProjectName',
+      requestDefinition: 'RequestDefinition',
       sort: 'Sort',
       startTimeRange: 'StartTimeRange',
       status: 'Status',
@@ -9844,6 +9855,7 @@ export class ListTasksRequest extends $tea.Model {
       nextToken: 'string',
       order: 'string',
       projectName: 'string',
+      requestDefinition: 'boolean',
       sort: 'string',
       startTimeRange: TimeRange,
       status: 'string',
@@ -9863,6 +9875,7 @@ export class ListTasksShrinkRequest extends $tea.Model {
   nextToken?: string;
   order?: string;
   projectName?: string;
+  requestDefinition?: boolean;
   sort?: string;
   startTimeRangeShrink?: string;
   status?: string;
@@ -9875,6 +9888,7 @@ export class ListTasksShrinkRequest extends $tea.Model {
       nextToken: 'NextToken',
       order: 'Order',
       projectName: 'ProjectName',
+      requestDefinition: 'RequestDefinition',
       sort: 'Sort',
       startTimeRangeShrink: 'StartTimeRange',
       status: 'Status',
@@ -9890,6 +9904,7 @@ export class ListTasksShrinkRequest extends $tea.Model {
       nextToken: 'string',
       order: 'string',
       projectName: 'string',
+      requestDefinition: 'boolean',
       sort: 'string',
       startTimeRangeShrink: 'string',
       status: 'string',
@@ -17779,6 +17794,10 @@ export default class Client extends OpenApi {
       query["ProjectName"] = request.projectName;
     }
 
+    if (!Util.isUnset(request.requestDefinition)) {
+      query["RequestDefinition"] = request.requestDefinition;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -18203,6 +18222,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectName)) {
       query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.requestDefinition)) {
+      query["RequestDefinition"] = request.requestDefinition;
     }
 
     if (!Util.isUnset(request.sort)) {
