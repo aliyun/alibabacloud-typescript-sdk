@@ -2358,6 +2358,111 @@ export class ListOpenJMeterScenesResponse extends $tea.Model {
   }
 }
 
+export class ListPtsReportsRequest extends $tea.Model {
+  beginTime?: number;
+  endTime?: number;
+  keyword?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  reportId?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      reportId: 'ReportId',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      keyword: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      reportId: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPtsReportsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  reports?: ListPtsReportsResponseBodyReports[];
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      reports: 'Reports',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      reports: { 'type': 'array', 'itemType': ListPtsReportsResponseBodyReports },
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPtsReportsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPtsReportsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPtsReportsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPtsSceneRequest extends $tea.Model {
   keyWord?: string;
   pageNumber?: number;
@@ -5643,6 +5748,37 @@ export class ListOpenJMeterScenesResponseBodyJMeterScene extends $tea.Model {
   }
 }
 
+export class ListPtsReportsResponseBodyReports extends $tea.Model {
+  actualStartTime?: number;
+  duration?: string;
+  reportId?: string;
+  reportName?: string;
+  vum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actualStartTime: 'ActualStartTime',
+      duration: 'Duration',
+      reportId: 'ReportId',
+      reportName: 'ReportName',
+      vum: 'Vum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualStartTime: 'number',
+      duration: 'string',
+      reportId: 'string',
+      reportName: 'string',
+      vum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPtsSceneResponseBodySceneViewList extends $tea.Model {
   createTime?: string;
   sceneId?: string;
@@ -7394,6 +7530,59 @@ export default class Client extends OpenApi {
   async listOpenJMeterScenes(request: ListOpenJMeterScenesRequest): Promise<ListOpenJMeterScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOpenJMeterScenesWithOptions(request, runtime);
+  }
+
+  async listPtsReportsWithOptions(request: ListPtsReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListPtsReportsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      body["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPtsReports",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPtsReportsResponse>(await this.callApi(params, req, runtime), new ListPtsReportsResponse({}));
+  }
+
+  async listPtsReports(request: ListPtsReportsRequest): Promise<ListPtsReportsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPtsReportsWithOptions(request, runtime);
   }
 
   async listPtsSceneWithOptions(request: ListPtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListPtsSceneResponse> {
