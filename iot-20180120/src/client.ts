@@ -19036,10 +19036,12 @@ export class PubRequest extends $tea.Model {
   deviceName?: string;
   iotInstanceId?: string;
   messageContent?: string;
+  messageExpiryInterval?: number;
   payloadFormatIndicator?: number;
   productKey?: string;
   qos?: number;
   responseTopic?: string;
+  retained?: boolean;
   topicFullName?: string;
   userProp?: PubRequestUserProp[];
   static names(): { [key: string]: string } {
@@ -19049,10 +19051,12 @@ export class PubRequest extends $tea.Model {
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       messageContent: 'MessageContent',
+      messageExpiryInterval: 'MessageExpiryInterval',
       payloadFormatIndicator: 'PayloadFormatIndicator',
       productKey: 'ProductKey',
       qos: 'Qos',
       responseTopic: 'ResponseTopic',
+      retained: 'Retained',
       topicFullName: 'TopicFullName',
       userProp: 'UserProp',
     };
@@ -19065,10 +19069,12 @@ export class PubRequest extends $tea.Model {
       deviceName: 'string',
       iotInstanceId: 'string',
       messageContent: 'string',
+      messageExpiryInterval: 'number',
       payloadFormatIndicator: 'number',
       productKey: 'string',
       qos: 'number',
       responseTopic: 'string',
+      retained: 'boolean',
       topicFullName: 'string',
       userProp: { 'type': 'array', 'itemType': PubRequestUserProp },
     };
@@ -59271,6 +59277,10 @@ export default class Client extends OpenApi {
       query["IotInstanceId"] = request.iotInstanceId;
     }
 
+    if (!Util.isUnset(request.messageExpiryInterval)) {
+      query["MessageExpiryInterval"] = request.messageExpiryInterval;
+    }
+
     if (!Util.isUnset(request.payloadFormatIndicator)) {
       query["PayloadFormatIndicator"] = request.payloadFormatIndicator;
     }
@@ -59285,6 +59295,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.responseTopic)) {
       query["ResponseTopic"] = request.responseTopic;
+    }
+
+    if (!Util.isUnset(request.retained)) {
+      query["Retained"] = request.retained;
     }
 
     if (!Util.isUnset(request.topicFullName)) {
