@@ -173,6 +173,96 @@ export class AddShareTaskDeviceResponse extends $tea.Model {
   }
 }
 
+export class AsyncRRpcRequest extends $tea.Model {
+  deviceName?: string;
+  extInfo?: string;
+  iotInstanceId?: string;
+  messageContent?: string;
+  productKey?: string;
+  topicFullName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      extInfo: 'ExtInfo',
+      iotInstanceId: 'IotInstanceId',
+      messageContent: 'MessageContent',
+      productKey: 'ProductKey',
+      topicFullName: 'TopicFullName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      extInfo: 'string',
+      iotInstanceId: 'string',
+      messageContent: 'string',
+      productKey: 'string',
+      topicFullName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncRRpcResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  messageId?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      messageId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncRRpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AsyncRRpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AsyncRRpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachDestinationRequest extends $tea.Model {
   destinationId?: number;
   iotInstanceId?: string;
@@ -2155,6 +2245,84 @@ export class BatchGetEdgeInstanceDriverConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchGetEdgeInstanceDriverConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGrayMigrationDeviceRequest extends $tea.Model {
+  deviceNames?: string[];
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceNames: 'DeviceNames',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceNames: { 'type': 'array', 'itemType': 'string' },
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGrayMigrationDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BatchGrayMigrationDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BatchGrayMigrationDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGrayMigrationDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchGrayMigrationDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchGrayMigrationDeviceResponseBody,
     };
   }
 
@@ -4749,10 +4917,14 @@ export class CountSpeechBroadcastHourResponse extends $tea.Model {
 export class CreateConsumerGroupRequest extends $tea.Model {
   groupName?: string;
   iotInstanceId?: string;
+  subBizCode?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
       iotInstanceId: 'IotInstanceId',
+      subBizCode: 'SubBizCode',
+      type: 'Type',
     };
   }
 
@@ -4760,6 +4932,8 @@ export class CreateConsumerGroupRequest extends $tea.Model {
     return {
       groupName: 'string',
       iotInstanceId: 'string',
+      subBizCode: 'string',
+      type: 'string',
     };
   }
 
@@ -7518,14 +7692,18 @@ export class CreateProductTagsResponse extends $tea.Model {
 }
 
 export class CreateProductTopicRequest extends $tea.Model {
+  codec?: string;
   desc?: string;
+  enableProxySubscribe?: boolean;
   iotInstanceId?: string;
   operation?: string;
   productKey?: string;
   topicShortName?: string;
   static names(): { [key: string]: string } {
     return {
+      codec: 'Codec',
       desc: 'Desc',
+      enableProxySubscribe: 'EnableProxySubscribe',
       iotInstanceId: 'IotInstanceId',
       operation: 'Operation',
       productKey: 'ProductKey',
@@ -7535,7 +7713,9 @@ export class CreateProductTopicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      codec: 'string',
       desc: 'string',
+      enableProxySubscribe: 'boolean',
       iotInstanceId: 'string',
       operation: 'string',
       productKey: 'string',
@@ -8743,6 +8923,99 @@ export class CreateThingScriptResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateThingScriptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicConfigRequest extends $tea.Model {
+  codec?: string;
+  description?: string;
+  enableBroadcast?: boolean;
+  enableProxySubscribe?: boolean;
+  iotInstanceId?: string;
+  operation?: string;
+  productKey?: string;
+  topicFullName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codec: 'Codec',
+      description: 'Description',
+      enableBroadcast: 'EnableBroadcast',
+      enableProxySubscribe: 'EnableProxySubscribe',
+      iotInstanceId: 'IotInstanceId',
+      operation: 'Operation',
+      productKey: 'ProductKey',
+      topicFullName: 'TopicFullName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codec: 'string',
+      description: 'string',
+      enableBroadcast: 'boolean',
+      enableProxySubscribe: 'boolean',
+      iotInstanceId: 'string',
+      operation: 'string',
+      productKey: 'string',
+      topicFullName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicConfigResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTopicConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTopicConfigResponseBody,
     };
   }
 
@@ -11677,6 +11950,84 @@ export class DeleteThingModelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteThingModelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTopicConfigRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  topicFullName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      topicFullName: 'TopicFullName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      topicFullName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTopicConfigResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTopicConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTopicConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTopicConfigResponseBody,
     };
   }
 
@@ -15466,11 +15817,13 @@ export class GisSearchDeviceTraceResponse extends $tea.Model {
 }
 
 export class ImportDTDataRequest extends $tea.Model {
+  DTInstanceId?: string;
   iotInstanceId?: string;
   items?: ImportDTDataRequestItems[];
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
+      DTInstanceId: 'DTInstanceId',
       iotInstanceId: 'IotInstanceId',
       items: 'Items',
       productKey: 'ProductKey',
@@ -15479,6 +15832,7 @@ export class ImportDTDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DTInstanceId: 'string',
       iotInstanceId: 'string',
       items: { 'type': 'array', 'itemType': ImportDTDataRequestItems },
       productKey: 'string',
@@ -19528,6 +19882,8 @@ export class QueryConsumerGroupListRequest extends $tea.Model {
   groupName?: string;
   iotInstanceId?: string;
   pageSize?: number;
+  subBizCode?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -19535,6 +19891,8 @@ export class QueryConsumerGroupListRequest extends $tea.Model {
       groupName: 'GroupName',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
+      subBizCode: 'SubBizCode',
+      type: 'Type',
     };
   }
 
@@ -19545,6 +19903,8 @@ export class QueryConsumerGroupListRequest extends $tea.Model {
       groupName: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
+      subBizCode: 'string',
+      type: 'string',
     };
   }
 
@@ -27715,6 +28075,84 @@ export class QueryThingModelPublishedResponse extends $tea.Model {
   }
 }
 
+export class QueryTopicConfigRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTopicConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryTopicConfigResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryTopicConfigResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTopicConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryTopicConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTopicConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTopicReverseRouteTableRequest extends $tea.Model {
   iotInstanceId?: string;
   regionId?: string;
@@ -30983,6 +31421,87 @@ export class TestSpeechResponse extends $tea.Model {
   }
 }
 
+export class TestSwitchRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestSwitchResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  iotId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      iotId: 'IotId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      iotId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestSwitchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TestSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TestSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TransformClientIdRequest extends $tea.Model {
   clientId?: string;
   iotId?: string;
@@ -32836,14 +33355,18 @@ export class UpdateProductTagsResponse extends $tea.Model {
 }
 
 export class UpdateProductTopicRequest extends $tea.Model {
+  codec?: string;
   desc?: string;
+  enableProxySubscribe?: boolean;
   iotInstanceId?: string;
   operation?: string;
   topicId?: string;
   topicShortName?: string;
   static names(): { [key: string]: string } {
     return {
+      codec: 'Codec',
       desc: 'Desc',
+      enableProxySubscribe: 'EnableProxySubscribe',
       iotInstanceId: 'IotInstanceId',
       operation: 'Operation',
       topicId: 'TopicId',
@@ -32853,7 +33376,9 @@ export class UpdateProductTopicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      codec: 'string',
       desc: 'string',
+      enableProxySubscribe: 'boolean',
       iotInstanceId: 'string',
       operation: 'string',
       topicId: 'string',
@@ -33947,14 +34472,22 @@ export class UpdateThingScriptResponse extends $tea.Model {
 }
 
 export class UpdateTopicConfigRequest extends $tea.Model {
+  codec?: string;
+  description?: string;
   enableBroadcast?: boolean;
+  enableProxySubscribe?: boolean;
   iotInstanceId?: string;
+  operation?: string;
   productKey?: string;
   topicFullName?: string;
   static names(): { [key: string]: string } {
     return {
+      codec: 'Codec',
+      description: 'Description',
       enableBroadcast: 'EnableBroadcast',
+      enableProxySubscribe: 'EnableProxySubscribe',
       iotInstanceId: 'IotInstanceId',
+      operation: 'Operation',
       productKey: 'ProductKey',
       topicFullName: 'TopicFullName',
     };
@@ -33962,8 +34495,12 @@ export class UpdateTopicConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      codec: 'string',
+      description: 'string',
       enableBroadcast: 'boolean',
+      enableProxySubscribe: 'boolean',
       iotInstanceId: 'string',
+      operation: 'string',
       productKey: 'string',
       topicFullName: 'string',
     };
@@ -33976,13 +34513,13 @@ export class UpdateTopicConfigRequest extends $tea.Model {
 
 export class UpdateTopicConfigResponseBody extends $tea.Model {
   code?: string;
-  errorMessage?: string;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      errorMessage: 'ErrorMessage',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -33991,7 +34528,7 @@ export class UpdateTopicConfigResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      errorMessage: 'string',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -34245,6 +34782,50 @@ export class BatchCheckDeviceNamesRequestDeviceNameList extends $tea.Model {
   }
 }
 
+export class BatchCheckDeviceNamesResponseBodyDataInvalidDetailListInvalidDetailList extends $tea.Model {
+  deviceName?: string;
+  errorMsg?: string;
+  nickName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      errorMsg: 'ErrorMsg',
+      nickName: 'NickName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      errorMsg: 'string',
+      nickName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCheckDeviceNamesResponseBodyDataInvalidDetailList extends $tea.Model {
+  invalidDetailList?: BatchCheckDeviceNamesResponseBodyDataInvalidDetailListInvalidDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDetailList: 'InvalidDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDetailList: { 'type': 'array', 'itemType': BatchCheckDeviceNamesResponseBodyDataInvalidDetailListInvalidDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNameList extends $tea.Model {
   invalidDeviceName?: string[];
   static names(): { [key: string]: string } {
@@ -34283,23 +34864,48 @@ export class BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNicknameList exte
   }
 }
 
+export class BatchCheckDeviceNamesResponseBodyDataRepeatedDeviceNameList extends $tea.Model {
+  repeatDevieNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      repeatDevieNameList: 'RepeatDevieNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repeatDevieNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCheckDeviceNamesResponseBodyData extends $tea.Model {
   applyId?: number;
+  invalidDetailList?: BatchCheckDeviceNamesResponseBodyDataInvalidDetailList;
   invalidDeviceNameList?: BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNameList;
   invalidDeviceNicknameList?: BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNicknameList;
+  repeatedDeviceNameList?: BatchCheckDeviceNamesResponseBodyDataRepeatedDeviceNameList;
   static names(): { [key: string]: string } {
     return {
       applyId: 'ApplyId',
+      invalidDetailList: 'InvalidDetailList',
       invalidDeviceNameList: 'InvalidDeviceNameList',
       invalidDeviceNicknameList: 'InvalidDeviceNicknameList',
+      repeatedDeviceNameList: 'RepeatedDeviceNameList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      invalidDetailList: BatchCheckDeviceNamesResponseBodyDataInvalidDetailList,
       invalidDeviceNameList: BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNameList,
       invalidDeviceNicknameList: BatchCheckDeviceNamesResponseBodyDataInvalidDeviceNicknameList,
+      repeatedDeviceNameList: BatchCheckDeviceNamesResponseBodyDataRepeatedDeviceNameList,
     };
   }
 
@@ -34333,13 +34939,43 @@ export class BatchCheckImportDeviceRequestDeviceList extends $tea.Model {
   }
 }
 
+export class BatchCheckImportDeviceResponseBodyDataInvalidDetailList extends $tea.Model {
+  deviceName?: string;
+  deviceSecret?: string;
+  errorMsg?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      deviceSecret: 'DeviceSecret',
+      errorMsg: 'ErrorMsg',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      deviceSecret: 'string',
+      errorMsg: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCheckImportDeviceResponseBodyData extends $tea.Model {
+  invalidDetailList?: BatchCheckImportDeviceResponseBodyDataInvalidDetailList[];
   invalidDeviceNameList?: string[];
   invalidDeviceSecretList?: string[];
   invalidSnList?: string[];
   repeatedDeviceNameList?: string[];
   static names(): { [key: string]: string } {
     return {
+      invalidDetailList: 'InvalidDetailList',
       invalidDeviceNameList: 'InvalidDeviceNameList',
       invalidDeviceSecretList: 'InvalidDeviceSecretList',
       invalidSnList: 'InvalidSnList',
@@ -34349,6 +34985,7 @@ export class BatchCheckImportDeviceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      invalidDetailList: { 'type': 'array', 'itemType': BatchCheckImportDeviceResponseBodyDataInvalidDetailList },
       invalidDeviceNameList: { 'type': 'array', 'itemType': 'string' },
       invalidDeviceSecretList: { 'type': 'array', 'itemType': 'string' },
       invalidSnList: { 'type': 'array', 'itemType': 'string' },
@@ -34364,11 +35001,13 @@ export class BatchCheckImportDeviceResponseBodyData extends $tea.Model {
 export class BatchCheckVehicleDeviceRequestDeviceList extends $tea.Model {
   deviceId?: string;
   deviceModel?: string;
+  deviceName?: string;
   manufacturer?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
       deviceModel: 'DeviceModel',
+      deviceName: 'DeviceName',
       manufacturer: 'Manufacturer',
     };
   }
@@ -34377,6 +35016,38 @@ export class BatchCheckVehicleDeviceRequestDeviceList extends $tea.Model {
     return {
       deviceId: 'string',
       deviceModel: 'string',
+      deviceName: 'string',
+      manufacturer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCheckVehicleDeviceResponseBodyDataInvalidDetailList extends $tea.Model {
+  deviceId?: string;
+  deviceModel?: string;
+  deviceName?: string;
+  errorMsg?: string;
+  manufacturer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      deviceModel: 'DeviceModel',
+      deviceName: 'DeviceName',
+      errorMsg: 'ErrorMsg',
+      manufacturer: 'Manufacturer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      deviceModel: 'string',
+      deviceName: 'string',
+      errorMsg: 'string',
       manufacturer: 'string',
     };
   }
@@ -34387,25 +35058,34 @@ export class BatchCheckVehicleDeviceRequestDeviceList extends $tea.Model {
 }
 
 export class BatchCheckVehicleDeviceResponseBodyData extends $tea.Model {
+  invalidDetailList?: BatchCheckVehicleDeviceResponseBodyDataInvalidDetailList[];
   invalidDeviceIdList?: string[];
   invalidDeviceModelList?: string[];
+  invalidDeviceNameList?: string[];
   invalidManufacturerList?: string[];
   repeatedDeviceIdList?: string[];
+  repeatedDeviceNameList?: string[];
   static names(): { [key: string]: string } {
     return {
+      invalidDetailList: 'InvalidDetailList',
       invalidDeviceIdList: 'InvalidDeviceIdList',
       invalidDeviceModelList: 'InvalidDeviceModelList',
+      invalidDeviceNameList: 'InvalidDeviceNameList',
       invalidManufacturerList: 'InvalidManufacturerList',
       repeatedDeviceIdList: 'RepeatedDeviceIdList',
+      repeatedDeviceNameList: 'RepeatedDeviceNameList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      invalidDetailList: { 'type': 'array', 'itemType': BatchCheckVehicleDeviceResponseBodyDataInvalidDetailList },
       invalidDeviceIdList: { 'type': 'array', 'itemType': 'string' },
       invalidDeviceModelList: { 'type': 'array', 'itemType': 'string' },
+      invalidDeviceNameList: { 'type': 'array', 'itemType': 'string' },
       invalidManufacturerList: { 'type': 'array', 'itemType': 'string' },
       repeatedDeviceIdList: { 'type': 'array', 'itemType': 'string' },
+      repeatedDeviceNameList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -34789,6 +35469,72 @@ export class BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList exten
   }
 }
 
+export class BatchGrayMigrationDeviceResponseBodyDataDetailsItem extends $tea.Model {
+  code?: number;
+  deviceName?: string;
+  message?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      deviceName: 'DeviceName',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      deviceName: 'string',
+      message: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGrayMigrationDeviceResponseBodyDataDetails extends $tea.Model {
+  item?: BatchGrayMigrationDeviceResponseBodyDataDetailsItem[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': BatchGrayMigrationDeviceResponseBodyDataDetailsItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGrayMigrationDeviceResponseBodyData extends $tea.Model {
+  details?: BatchGrayMigrationDeviceResponseBodyDataDetails;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'Details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: BatchGrayMigrationDeviceResponseBodyDataDetails,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchImportDeviceRequestDeviceList extends $tea.Model {
   deviceName?: string;
   deviceSecret?: string;
@@ -34806,6 +35552,53 @@ export class BatchImportDeviceRequestDeviceList extends $tea.Model {
       deviceName: 'string',
       deviceSecret: 'string',
       sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportDeviceResponseBodyDataInvalidDetailListInvalidDetailList extends $tea.Model {
+  deviceName?: string;
+  deviceSecret?: string;
+  errorMsg?: string;
+  sn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      deviceSecret: 'DeviceSecret',
+      errorMsg: 'ErrorMsg',
+      sn: 'Sn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      deviceSecret: 'string',
+      errorMsg: 'string',
+      sn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportDeviceResponseBodyDataInvalidDetailList extends $tea.Model {
+  invalidDetailList?: BatchImportDeviceResponseBodyDataInvalidDetailListInvalidDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDetailList: 'InvalidDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDetailList: { 'type': 'array', 'itemType': BatchImportDeviceResponseBodyDataInvalidDetailListInvalidDetailList },
     };
   }
 
@@ -34892,6 +35685,7 @@ export class BatchImportDeviceResponseBodyDataRepeatedDeviceNameList extends $te
 
 export class BatchImportDeviceResponseBodyData extends $tea.Model {
   applyId?: number;
+  invalidDetailList?: BatchImportDeviceResponseBodyDataInvalidDetailList;
   invalidDeviceNameList?: BatchImportDeviceResponseBodyDataInvalidDeviceNameList;
   invalidDeviceSecretList?: BatchImportDeviceResponseBodyDataInvalidDeviceSecretList;
   invalidSnList?: BatchImportDeviceResponseBodyDataInvalidSnList;
@@ -34899,6 +35693,7 @@ export class BatchImportDeviceResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       applyId: 'ApplyId',
+      invalidDetailList: 'InvalidDetailList',
       invalidDeviceNameList: 'InvalidDeviceNameList',
       invalidDeviceSecretList: 'InvalidDeviceSecretList',
       invalidSnList: 'InvalidSnList',
@@ -34909,6 +35704,7 @@ export class BatchImportDeviceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      invalidDetailList: BatchImportDeviceResponseBodyDataInvalidDetailList,
       invalidDeviceNameList: BatchImportDeviceResponseBodyDataInvalidDeviceNameList,
       invalidDeviceSecretList: BatchImportDeviceResponseBodyDataInvalidDeviceSecretList,
       invalidSnList: BatchImportDeviceResponseBodyDataInvalidSnList,
@@ -34924,11 +35720,13 @@ export class BatchImportDeviceResponseBodyData extends $tea.Model {
 export class BatchImportVehicleDeviceRequestDeviceList extends $tea.Model {
   deviceId?: string;
   deviceModel?: string;
+  deviceName?: string;
   manufacturer?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
       deviceModel: 'DeviceModel',
+      deviceName: 'DeviceName',
       manufacturer: 'Manufacturer',
     };
   }
@@ -34937,7 +35735,172 @@ export class BatchImportVehicleDeviceRequestDeviceList extends $tea.Model {
     return {
       deviceId: 'string',
       deviceModel: 'string',
+      deviceName: 'string',
       manufacturer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidDetailListInvalidDetailList extends $tea.Model {
+  deviceId?: string;
+  deviceModel?: string;
+  deviceName?: string;
+  errorMsg?: string;
+  manufacturer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      deviceModel: 'DeviceModel',
+      deviceName: 'DeviceName',
+      errorMsg: 'ErrorMsg',
+      manufacturer: 'Manufacturer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      deviceModel: 'string',
+      deviceName: 'string',
+      errorMsg: 'string',
+      manufacturer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidDetailList extends $tea.Model {
+  invalidDetailList?: BatchImportVehicleDeviceResponseBodyDataInvalidDetailListInvalidDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDetailList: 'InvalidDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDetailList: { 'type': 'array', 'itemType': BatchImportVehicleDeviceResponseBodyDataInvalidDetailListInvalidDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidDeviceIdList extends $tea.Model {
+  invalidDeviceIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDeviceIdList: 'invalidDeviceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDeviceIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidDeviceModelList extends $tea.Model {
+  invalidDeviceModelList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDeviceModelList: 'invalidDeviceModelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDeviceModelList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidDeviceNameList extends $tea.Model {
+  invalidDeviceNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDeviceNameList: 'InvalidDeviceNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDeviceNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataInvalidManufacturerList extends $tea.Model {
+  invalidManufacturerList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidManufacturerList: 'invalidManufacturerList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidManufacturerList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceIdList extends $tea.Model {
+  repeatedDeviceIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      repeatedDeviceIdList: 'repeatedDeviceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repeatedDeviceIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceNameList extends $tea.Model {
+  repeatedDeviceNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      repeatedDeviceNameList: 'RepeatedDeviceNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repeatedDeviceNameList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -34948,15 +35911,36 @@ export class BatchImportVehicleDeviceRequestDeviceList extends $tea.Model {
 
 export class BatchImportVehicleDeviceResponseBodyData extends $tea.Model {
   applyId?: number;
+  invalidDetailList?: BatchImportVehicleDeviceResponseBodyDataInvalidDetailList;
+  invalidDeviceIdList?: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceIdList;
+  invalidDeviceModelList?: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceModelList;
+  invalidDeviceNameList?: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceNameList;
+  invalidManufacturerList?: BatchImportVehicleDeviceResponseBodyDataInvalidManufacturerList;
+  repeatedDeviceIdList?: BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceIdList;
+  repeatedDeviceNameList?: BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceNameList;
   static names(): { [key: string]: string } {
     return {
       applyId: 'ApplyId',
+      invalidDetailList: 'InvalidDetailList',
+      invalidDeviceIdList: 'InvalidDeviceIdList',
+      invalidDeviceModelList: 'InvalidDeviceModelList',
+      invalidDeviceNameList: 'InvalidDeviceNameList',
+      invalidManufacturerList: 'InvalidManufacturerList',
+      repeatedDeviceIdList: 'RepeatedDeviceIdList',
+      repeatedDeviceNameList: 'RepeatedDeviceNameList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
+      invalidDetailList: BatchImportVehicleDeviceResponseBodyDataInvalidDetailList,
+      invalidDeviceIdList: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceIdList,
+      invalidDeviceModelList: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceModelList,
+      invalidDeviceNameList: BatchImportVehicleDeviceResponseBodyDataInvalidDeviceNameList,
+      invalidManufacturerList: BatchImportVehicleDeviceResponseBodyDataInvalidManufacturerList,
+      repeatedDeviceIdList: BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceIdList,
+      repeatedDeviceNameList: BatchImportVehicleDeviceResponseBodyDataRepeatedDeviceNameList,
     };
   }
 
@@ -39778,6 +40762,50 @@ export class PubRequestUserProp extends $tea.Model {
   }
 }
 
+export class QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailListInvalidDetailList extends $tea.Model {
+  deviceName?: string;
+  errorMsg?: string;
+  nickName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      errorMsg: 'ErrorMsg',
+      nickName: 'NickName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      errorMsg: 'string',
+      nickName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailList extends $tea.Model {
+  invalidDetailList?: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailListInvalidDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      invalidDetailList: 'invalidDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidDetailList: { 'type': 'array', 'itemType': QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailListInvalidDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryBatchRegisterDeviceStatusResponseBodyDataInvalidList extends $tea.Model {
   name?: string[];
   static names(): { [key: string]: string } {
@@ -39817,11 +40845,13 @@ export class QueryBatchRegisterDeviceStatusResponseBodyDataValidList extends $te
 }
 
 export class QueryBatchRegisterDeviceStatusResponseBodyData extends $tea.Model {
+  invalidDetailList?: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailList;
   invalidList?: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidList;
   status?: string;
   validList?: QueryBatchRegisterDeviceStatusResponseBodyDataValidList;
   static names(): { [key: string]: string } {
     return {
+      invalidDetailList: 'InvalidDetailList',
       invalidList: 'InvalidList',
       status: 'Status',
       validList: 'ValidList',
@@ -39830,6 +40860,7 @@ export class QueryBatchRegisterDeviceStatusResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      invalidDetailList: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidDetailList,
       invalidList: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidList,
       status: 'string',
       validList: QueryBatchRegisterDeviceStatusResponseBodyDataValidList,
@@ -43912,14 +44943,18 @@ export class QueryProductListResponseBodyData extends $tea.Model {
 }
 
 export class QueryProductTopicResponseBodyDataProductTopicInfo extends $tea.Model {
+  codec?: string;
   desc?: string;
+  enableProxySubscribe?: boolean;
   id?: string;
   operation?: string;
   productKey?: string;
   topicShortName?: string;
   static names(): { [key: string]: string } {
     return {
+      codec: 'Codec',
       desc: 'Desc',
+      enableProxySubscribe: 'EnableProxySubscribe',
       id: 'Id',
       operation: 'Operation',
       productKey: 'ProductKey',
@@ -43929,7 +44964,9 @@ export class QueryProductTopicResponseBodyDataProductTopicInfo extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      codec: 'string',
       desc: 'string',
+      enableProxySubscribe: 'boolean',
       id: 'string',
       operation: 'string',
       productKey: 'string',
@@ -45979,6 +47016,62 @@ export class QueryThingModelPublishedResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryTopicConfigResponseBodyDataTopicConfigInfo extends $tea.Model {
+  codec?: string;
+  description?: string;
+  enableBroadcast?: boolean;
+  enableProxySubscribe?: boolean;
+  operation?: string;
+  productKey?: string;
+  topicFullName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codec: 'Codec',
+      description: 'Description',
+      enableBroadcast: 'EnableBroadcast',
+      enableProxySubscribe: 'EnableProxySubscribe',
+      operation: 'Operation',
+      productKey: 'ProductKey',
+      topicFullName: 'TopicFullName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codec: 'string',
+      description: 'string',
+      enableBroadcast: 'boolean',
+      enableProxySubscribe: 'boolean',
+      operation: 'string',
+      productKey: 'string',
+      topicFullName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTopicConfigResponseBodyData extends $tea.Model {
+  topicConfigInfo?: QueryTopicConfigResponseBodyDataTopicConfigInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      topicConfigInfo: 'TopicConfigInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicConfigInfo: { 'type': 'array', 'itemType': QueryTopicConfigResponseBodyDataTopicConfigInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTopicReverseRouteTableResponseBodySrcTopics extends $tea.Model {
   topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -46017,19 +47110,14 @@ export class QueryTopicRouteTableResponseBodyDstTopics extends $tea.Model {
   }
 }
 
-export class QueryVehicleDeviceResponseBodyData extends $tea.Model {
+export class QueryVehicleDeviceResponseBodyDataJtProtocolDeviceData extends $tea.Model {
   authCode?: string;
   city?: string;
-  createTime?: number;
   deviceId?: string;
   deviceModel?: string;
-  deviceName?: string;
-  iotId?: string;
   manufacturer?: string;
-  modifiedTime?: number;
-  productKey?: string;
   province?: string;
-  registerTime?: number;
+  registerTime?: string;
   status?: string;
   vehicleColour?: string;
   vehicleNumber?: string;
@@ -46037,14 +47125,9 @@ export class QueryVehicleDeviceResponseBodyData extends $tea.Model {
     return {
       authCode: 'AuthCode',
       city: 'City',
-      createTime: 'CreateTime',
       deviceId: 'DeviceId',
       deviceModel: 'DeviceModel',
-      deviceName: 'DeviceName',
-      iotId: 'IotId',
       manufacturer: 'Manufacturer',
-      modifiedTime: 'ModifiedTime',
-      productKey: 'ProductKey',
       province: 'Province',
       registerTime: 'RegisterTime',
       status: 'Status',
@@ -46057,19 +47140,51 @@ export class QueryVehicleDeviceResponseBodyData extends $tea.Model {
     return {
       authCode: 'string',
       city: 'string',
-      createTime: 'number',
       deviceId: 'string',
       deviceModel: 'string',
-      deviceName: 'string',
-      iotId: 'string',
       manufacturer: 'string',
-      modifiedTime: 'number',
-      productKey: 'string',
       province: 'string',
-      registerTime: 'number',
+      registerTime: 'string',
       status: 'string',
       vehicleColour: 'string',
       vehicleNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVehicleDeviceResponseBodyData extends $tea.Model {
+  createTime?: number;
+  deviceName?: string;
+  iotId?: string;
+  jtProtocolDeviceData?: QueryVehicleDeviceResponseBodyDataJtProtocolDeviceData;
+  modifiedTime?: number;
+  productKey?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      jtProtocolDeviceData: 'JtProtocolDeviceData',
+      modifiedTime: 'ModifiedTime',
+      productKey: 'ProductKey',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      jtProtocolDeviceData: QueryVehicleDeviceResponseBodyDataJtProtocolDeviceData,
+      modifiedTime: 'number',
+      productKey: 'string',
+      protocol: 'string',
     };
   }
 
@@ -46590,6 +47705,57 @@ export default class Client extends OpenApi {
     return await this.addShareTaskDeviceWithOptions(request, runtime);
   }
 
+  async asyncRRpcWithOptions(request: AsyncRRpcRequest, runtime: $Util.RuntimeOptions): Promise<AsyncRRpcResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.extInfo)) {
+      query["ExtInfo"] = request.extInfo;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.topicFullName)) {
+      query["TopicFullName"] = request.topicFullName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.messageContent)) {
+      body["MessageContent"] = request.messageContent;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AsyncRRpc",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AsyncRRpcResponse>(await this.callApi(params, req, runtime), new AsyncRRpcResponse({}));
+  }
+
+  async asyncRRpc(request: AsyncRRpcRequest): Promise<AsyncRRpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.asyncRRpcWithOptions(request, runtime);
+  }
+
   async attachDestinationWithOptions(request: AttachDestinationRequest, runtime: $Util.RuntimeOptions): Promise<AttachDestinationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46711,6 +47877,13 @@ export default class Client extends OpenApi {
     return await this.batchAddDataForApiSourceWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request BatchAddDeviceGroupRelationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchAddDeviceGroupRelationsResponse
+   */
   async batchAddDeviceGroupRelationsWithOptions(request: BatchAddDeviceGroupRelationsRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDeviceGroupRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46743,11 +47916,31 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAddDeviceGroupRelationsResponse>(await this.callApi(params, req, runtime), new BatchAddDeviceGroupRelationsResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request BatchAddDeviceGroupRelationsRequest
+    * @return BatchAddDeviceGroupRelationsResponse
+   */
   async batchAddDeviceGroupRelations(request: BatchAddDeviceGroupRelationsRequest): Promise<BatchAddDeviceGroupRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddDeviceGroupRelationsWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can attach up to 10 sub-devices to a gateway in a single call.
+    * *   The API operation caller must be the gateway owner.
+    * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
+    * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
+    * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per Alibaba Cloud account. 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchAddThingTopoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchAddThingTopoResponse
+   */
   async batchAddThingTopoWithOptions(request: BatchAddThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddThingTopoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46784,11 +47977,31 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAddThingTopoResponse>(await this.callApi(params, req, runtime), new BatchAddThingTopoResponse({}));
   }
 
+  /**
+    * *   You can attach up to 10 sub-devices to a gateway in a single call.
+    * *   The API operation caller must be the gateway owner.
+    * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
+    * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
+    * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per Alibaba Cloud account. 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchAddThingTopoRequest
+    * @return BatchAddThingTopoResponse
+   */
   async batchAddThingTopo(request: BatchAddThingTopoRequest): Promise<BatchAddThingTopoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddThingTopoWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+    *
+    * @param request BatchBindDeviceToEdgeInstanceWithDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
+   */
   async batchBindDeviceToEdgeInstanceWithDriverWithOptions(request: BatchBindDeviceToEdgeInstanceWithDriverRequest, runtime: $Util.RuntimeOptions): Promise<BatchBindDeviceToEdgeInstanceWithDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46825,6 +48038,12 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchBindDeviceToEdgeInstanceWithDriverResponse>(await this.callApi(params, req, runtime), new BatchBindDeviceToEdgeInstanceWithDriverResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+    *
+    * @param request BatchBindDeviceToEdgeInstanceWithDriverRequest
+    * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
+   */
   async batchBindDeviceToEdgeInstanceWithDriver(request: BatchBindDeviceToEdgeInstanceWithDriverRequest): Promise<BatchBindDeviceToEdgeInstanceWithDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchBindDeviceToEdgeInstanceWithDriverWithOptions(request, runtime);
@@ -46904,17 +48123,25 @@ export default class Client extends OpenApi {
     return await this.batchBindProductsIntoProjectWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
+    * Procedure:
+    * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+    * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+    * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
+    * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
+    * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
+    * ## Limits
+    * - You can specify a maximum of 10,000 DeviceNames in a single call.
+    * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchCheckDeviceNamesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchCheckDeviceNamesResponse
+   */
   async batchCheckDeviceNamesWithOptions(request: BatchCheckDeviceNamesRequest, runtime: $Util.RuntimeOptions): Promise<BatchCheckDeviceNamesResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.deviceName)) {
-      query["DeviceName"] = request.deviceName;
-    }
-
-    if (!Util.isUnset(request.deviceNameList)) {
-      query["DeviceNameList"] = request.deviceNameList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -46923,8 +48150,18 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.deviceNameList)) {
+      body["DeviceNameList"] = request.deviceNameList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchCheckDeviceNames",
@@ -46940,6 +48177,21 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCheckDeviceNamesResponse>(await this.callApi(params, req, runtime), new BatchCheckDeviceNamesResponse({}));
   }
 
+  /**
+    * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
+    * Procedure:
+    * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+    * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+    * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
+    * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
+    * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
+    * ## Limits
+    * - You can specify a maximum of 10,000 DeviceNames in a single call.
+    * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchCheckDeviceNamesRequest
+    * @return BatchCheckDeviceNamesResponse
+   */
   async batchCheckDeviceNames(request: BatchCheckDeviceNamesRequest): Promise<BatchCheckDeviceNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCheckDeviceNamesWithOptions(request, runtime);
@@ -46948,10 +48200,6 @@ export default class Client extends OpenApi {
   async batchCheckImportDeviceWithOptions(request: BatchCheckImportDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchCheckImportDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.deviceList)) {
-      query["DeviceList"] = request.deviceList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -46960,8 +48208,14 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchCheckImportDevice",
@@ -46982,13 +48236,16 @@ export default class Client extends OpenApi {
     return await this.batchCheckImportDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * The invalid device models returned if the call fails.
+    *
+    * @param request BatchCheckVehicleDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchCheckVehicleDeviceResponse
+   */
   async batchCheckVehicleDeviceWithOptions(request: BatchCheckVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchCheckVehicleDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.deviceList)) {
-      query["DeviceList"] = request.deviceList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -46997,8 +48254,14 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchCheckVehicleDevice",
@@ -47014,11 +48277,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCheckVehicleDeviceResponse>(await this.callApi(params, req, runtime), new BatchCheckVehicleDeviceResponse({}));
   }
 
+  /**
+    * The invalid device models returned if the call fails.
+    *
+    * @param request BatchCheckVehicleDeviceRequest
+    * @return BatchCheckVehicleDeviceResponse
+   */
   async batchCheckVehicleDevice(request: BatchCheckVehicleDeviceRequest): Promise<BatchCheckVehicleDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCheckVehicleDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchClearEdgeInstanceDeviceConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchClearEdgeInstanceDeviceConfigResponse
+   */
   async batchClearEdgeInstanceDeviceConfigWithOptions(request: BatchClearEdgeInstanceDeviceConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchClearEdgeInstanceDeviceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47051,6 +48329,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchClearEdgeInstanceDeviceConfigResponse>(await this.callApi(params, req, runtime), new BatchClearEdgeInstanceDeviceConfigResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchClearEdgeInstanceDeviceConfigRequest
+    * @return BatchClearEdgeInstanceDeviceConfigResponse
+   */
   async batchClearEdgeInstanceDeviceConfig(request: BatchClearEdgeInstanceDeviceConfigRequest): Promise<BatchClearEdgeInstanceDeviceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchClearEdgeInstanceDeviceConfigWithOptions(request, runtime);
@@ -47138,6 +48424,15 @@ export default class Client extends OpenApi {
     return await this.batchCreateSoundCodeLabelWithLabelsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchDeleteDeviceGroupRelationsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchDeleteDeviceGroupRelationsResponse
+   */
   async batchDeleteDeviceGroupRelationsWithOptions(request: BatchDeleteDeviceGroupRelationsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDeviceGroupRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47170,6 +48465,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteDeviceGroupRelationsResponse>(await this.callApi(params, req, runtime), new BatchDeleteDeviceGroupRelationsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchDeleteDeviceGroupRelationsRequest
+    * @return BatchDeleteDeviceGroupRelationsResponse
+   */
   async batchDeleteDeviceGroupRelations(request: BatchDeleteDeviceGroupRelationsRequest): Promise<BatchDeleteDeviceGroupRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteDeviceGroupRelationsWithOptions(request, runtime);
@@ -47249,6 +48552,19 @@ export default class Client extends OpenApi {
     return await this.batchGetDeviceBindStatusWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, you can perform the following operations:
+    * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
+    * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
+    * >You can query the status of up to 50 devices in a call.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetDeviceStateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchGetDeviceStateResponse
+   */
   async batchGetDeviceStateWithOptions(request: BatchGetDeviceStateRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetDeviceStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47285,11 +48601,32 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetDeviceStateResponse>(await this.callApi(params, req, runtime), new BatchGetDeviceStateResponse({}));
   }
 
+  /**
+    * When you call this operation, you can perform the following operations:
+    * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
+    * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
+    * >You can query the status of up to 50 devices in a call.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetDeviceStateRequest
+    * @return BatchGetDeviceStateResponse
+   */
   async batchGetDeviceState(request: BatchGetDeviceStateRequest): Promise<BatchGetDeviceStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetDeviceStateWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request BatchGetEdgeDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchGetEdgeDriverResponse
+   */
   async batchGetEdgeDriverWithOptions(request: BatchGetEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetEdgeDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47318,6 +48655,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetEdgeDriverResponse>(await this.callApi(params, req, runtime), new BatchGetEdgeDriverResponse({}));
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request BatchGetEdgeDriverRequest
+    * @return BatchGetEdgeDriverResponse
+   */
   async batchGetEdgeDriver(request: BatchGetEdgeDriverRequest): Promise<BatchGetEdgeDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetEdgeDriverWithOptions(request, runtime);
@@ -47405,6 +48750,15 @@ export default class Client extends OpenApi {
     return await this.batchGetEdgeInstanceDeviceChannelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetEdgeInstanceDeviceConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchGetEdgeInstanceDeviceConfigResponse
+   */
   async batchGetEdgeInstanceDeviceConfigWithOptions(request: BatchGetEdgeInstanceDeviceConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetEdgeInstanceDeviceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47437,6 +48791,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetEdgeInstanceDeviceConfigResponse>(await this.callApi(params, req, runtime), new BatchGetEdgeInstanceDeviceConfigResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetEdgeInstanceDeviceConfigRequest
+    * @return BatchGetEdgeInstanceDeviceConfigResponse
+   */
   async batchGetEdgeInstanceDeviceConfig(request: BatchGetEdgeInstanceDeviceConfigRequest): Promise<BatchGetEdgeInstanceDeviceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetEdgeInstanceDeviceConfigWithOptions(request, runtime);
@@ -47479,6 +48841,15 @@ export default class Client extends OpenApi {
     return await this.batchGetEdgeInstanceDeviceDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetEdgeInstanceDriverConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchGetEdgeInstanceDriverConfigsResponse
+   */
   async batchGetEdgeInstanceDriverConfigsWithOptions(request: BatchGetEdgeInstanceDriverConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetEdgeInstanceDriverConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47511,18 +48882,57 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetEdgeInstanceDriverConfigsResponse>(await this.callApi(params, req, runtime), new BatchGetEdgeInstanceDriverConfigsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchGetEdgeInstanceDriverConfigsRequest
+    * @return BatchGetEdgeInstanceDriverConfigsResponse
+   */
   async batchGetEdgeInstanceDriverConfigs(request: BatchGetEdgeInstanceDriverConfigsRequest): Promise<BatchGetEdgeInstanceDriverConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetEdgeInstanceDriverConfigsWithOptions(request, runtime);
   }
 
+  async batchGrayMigrationDeviceWithOptions(request: BatchGrayMigrationDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchGrayMigrationDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceNames)) {
+      body["DeviceNames"] = request.deviceNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchGrayMigrationDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchGrayMigrationDeviceResponse>(await this.callApi(params, req, runtime), new BatchGrayMigrationDeviceResponse({}));
+  }
+
+  async batchGrayMigrationDevice(request: BatchGrayMigrationDeviceRequest): Promise<BatchGrayMigrationDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchGrayMigrationDeviceWithOptions(request, runtime);
+  }
+
   async batchImportDeviceWithOptions(request: BatchImportDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchImportDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.deviceList)) {
-      query["DeviceList"] = request.deviceList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -47531,8 +48941,14 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchImportDevice",
@@ -47553,13 +48969,18 @@ export default class Client extends OpenApi {
     return await this.batchImportDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * Indicates whether the call was successful. Valid values: 
+    * - **true**: The call was successful.
+    * - **false**: The call failed.
+    *
+    * @param request BatchImportVehicleDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchImportVehicleDeviceResponse
+   */
   async batchImportVehicleDeviceWithOptions(request: BatchImportVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchImportVehicleDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.deviceList)) {
-      query["DeviceList"] = request.deviceList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -47568,8 +48989,14 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceList)) {
+      body["DeviceList"] = request.deviceList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchImportVehicleDevice",
@@ -47585,11 +49012,29 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchImportVehicleDeviceResponse>(await this.callApi(params, req, runtime), new BatchImportVehicleDeviceResponse({}));
   }
 
+  /**
+    * Indicates whether the call was successful. Valid values: 
+    * - **true**: The call was successful.
+    * - **false**: The call failed.
+    *
+    * @param request BatchImportVehicleDeviceRequest
+    * @return BatchImportVehicleDeviceResponse
+   */
   async batchImportVehicleDevice(request: BatchImportVehicleDeviceRequest): Promise<BatchImportVehicleDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchImportVehicleDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
+    * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchPubRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchPubResponse
+   */
   async batchPubWithOptions(request: BatchPubRequest, runtime: $Util.RuntimeOptions): Promise<BatchPubResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47634,11 +49079,32 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchPubResponse>(await this.callApi(params, req, runtime), new BatchPubResponse({}));
   }
 
+  /**
+    * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
+    * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchPubRequest
+    * @return BatchPubResponse
+   */
   async batchPub(request: BatchPubRequest): Promise<BatchPubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchPubWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can query a maximum of 100 devices in a single call.
+    * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
+    * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchQueryDeviceDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchQueryDeviceDetailResponse
+   */
   async batchQueryDeviceDetailWithOptions(request: BatchQueryDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<BatchQueryDeviceDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47671,11 +49137,38 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchQueryDeviceDetailResponse>(await this.callApi(params, req, runtime), new BatchQueryDeviceDetailResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can query a maximum of 100 devices in a single call.
+    * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
+    * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchQueryDeviceDetailRequest
+    * @return BatchQueryDeviceDetailResponse
+   */
   async batchQueryDeviceDetail(request: BatchQueryDeviceDetailRequest): Promise<BatchQueryDeviceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchQueryDeviceDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can use one of the following methods to register multiple devices:
+    * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
+    *     Perform the following steps to register devices and view the result:
+    *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+    *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+    *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
+    * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+    * ## Limits
+    * - You can create a maximum of 10,000 devices in a single call.
+    * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchRegisterDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchRegisterDeviceResponse
+   */
   async batchRegisterDeviceWithOptions(request: BatchRegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BatchRegisterDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47708,11 +49201,43 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchRegisterDeviceResponse>(await this.callApi(params, req, runtime), new BatchRegisterDeviceResponse({}));
   }
 
+  /**
+    * You can use one of the following methods to register multiple devices:
+    * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
+    *     Perform the following steps to register devices and view the result:
+    *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
+    *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+    *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
+    * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+    * ## Limits
+    * - You can create a maximum of 10,000 devices in a single call.
+    * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchRegisterDeviceRequest
+    * @return BatchRegisterDeviceResponse
+   */
   async batchRegisterDevice(request: BatchRegisterDeviceRequest): Promise<BatchRegisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchRegisterDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * You can use one of the following methods to register multiple devices at a time:
+    * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
+    * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
+    *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
+    *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+    *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
+    *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+    *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request BatchRegisterDeviceWithApplyIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchRegisterDeviceWithApplyIdResponse
+   */
   async batchRegisterDeviceWithApplyIdWithOptions(request: BatchRegisterDeviceWithApplyIdRequest, runtime: $Util.RuntimeOptions): Promise<BatchRegisterDeviceWithApplyIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47745,6 +49270,22 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchRegisterDeviceWithApplyIdResponse>(await this.callApi(params, req, runtime), new BatchRegisterDeviceWithApplyIdResponse({}));
   }
 
+  /**
+    * You can use one of the following methods to register multiple devices at a time:
+    * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
+    * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
+    *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
+    *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
+    *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
+    *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
+    *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request BatchRegisterDeviceWithApplyIdRequest
+    * @return BatchRegisterDeviceWithApplyIdResponse
+   */
   async batchRegisterDeviceWithApplyId(request: BatchRegisterDeviceWithApplyIdRequest): Promise<BatchRegisterDeviceWithApplyIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchRegisterDeviceWithApplyIdWithOptions(request, runtime);
@@ -47832,6 +49373,15 @@ export default class Client extends OpenApi {
     return await this.batchSetEdgeInstanceDeviceConfigWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchUnbindDeviceFromEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchUnbindDeviceFromEdgeInstanceResponse
+   */
   async batchUnbindDeviceFromEdgeInstanceWithOptions(request: BatchUnbindDeviceFromEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BatchUnbindDeviceFromEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47864,6 +49414,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchUnbindDeviceFromEdgeInstanceResponse>(await this.callApi(params, req, runtime), new BatchUnbindDeviceFromEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchUnbindDeviceFromEdgeInstanceRequest
+    * @return BatchUnbindDeviceFromEdgeInstanceResponse
+   */
   async batchUnbindDeviceFromEdgeInstance(request: BatchUnbindDeviceFromEdgeInstanceRequest): Promise<BatchUnbindDeviceFromEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchUnbindDeviceFromEdgeInstanceWithOptions(request, runtime);
@@ -47943,6 +49501,15 @@ export default class Client extends OpenApi {
     return await this.batchUnbindProjectProductsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchUpdateDeviceNicknameRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchUpdateDeviceNicknameResponse
+   */
   async batchUpdateDeviceNicknameWithOptions(request: BatchUpdateDeviceNicknameRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateDeviceNicknameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47971,6 +49538,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchUpdateDeviceNicknameResponse>(await this.callApi(params, req, runtime), new BatchUpdateDeviceNicknameResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BatchUpdateDeviceNicknameRequest
+    * @return BatchUpdateDeviceNicknameResponse
+   */
   async batchUpdateDeviceNickname(request: BatchUpdateDeviceNicknameRequest): Promise<BatchUpdateDeviceNicknameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchUpdateDeviceNicknameWithOptions(request, runtime);
@@ -48017,6 +49592,15 @@ export default class Client extends OpenApi {
     return await this.bindApplicationToEdgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BindDriverToEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindDriverToEdgeInstanceResponse
+   */
   async bindDriverToEdgeInstanceWithOptions(request: BindDriverToEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BindDriverToEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48057,11 +49641,28 @@ export default class Client extends OpenApi {
     return $tea.cast<BindDriverToEdgeInstanceResponse>(await this.callApi(params, req, runtime), new BindDriverToEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BindDriverToEdgeInstanceRequest
+    * @return BindDriverToEdgeInstanceResponse
+   */
   async bindDriverToEdgeInstance(request: BindDriverToEdgeInstanceRequest): Promise<BindDriverToEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDriverToEdgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BindGatewayToEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindGatewayToEdgeInstanceResponse
+   */
   async bindGatewayToEdgeInstanceWithOptions(request: BindGatewayToEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BindGatewayToEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48102,6 +49703,14 @@ export default class Client extends OpenApi {
     return $tea.cast<BindGatewayToEdgeInstanceResponse>(await this.callApi(params, req, runtime), new BindGatewayToEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request BindGatewayToEdgeInstanceRequest
+    * @return BindGatewayToEdgeInstanceResponse
+   */
   async bindGatewayToEdgeInstance(request: BindGatewayToEdgeInstanceRequest): Promise<BindGatewayToEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindGatewayToEdgeInstanceWithOptions(request, runtime);
@@ -48302,6 +49911,17 @@ export default class Client extends OpenApi {
     return await this.cancelJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
+    *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelOTAStrategyByJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelOTAStrategyByJobResponse
+   */
   async cancelOTAStrategyByJobWithOptions(request: CancelOTAStrategyByJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelOTAStrategyByJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48330,11 +49950,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOTAStrategyByJobResponse>(await this.callApi(params, req, runtime), new CancelOTAStrategyByJobResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
+    *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelOTAStrategyByJobRequest
+    * @return CancelOTAStrategyByJobResponse
+   */
   async cancelOTAStrategyByJob(request: CancelOTAStrategyByJobRequest): Promise<CancelOTAStrategyByJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOTAStrategyByJobWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request CancelOTATaskByDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelOTATaskByDeviceResponse
+   */
   async cancelOTATaskByDeviceWithOptions(request: CancelOTATaskByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CancelOTATaskByDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48375,11 +50015,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOTATaskByDeviceResponse>(await this.callApi(params, req, runtime), new CancelOTATaskByDeviceResponse({}));
   }
 
+  /**
+    * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request CancelOTATaskByDeviceRequest
+    * @return CancelOTATaskByDeviceResponse
+   */
   async cancelOTATaskByDevice(request: CancelOTATaskByDeviceRequest): Promise<CancelOTATaskByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOTATaskByDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelOTATaskByJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelOTATaskByJobResponse
+   */
   async cancelOTATaskByJobWithOptions(request: CancelOTATaskByJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelOTATaskByJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48428,11 +50087,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOTATaskByJobResponse>(await this.callApi(params, req, runtime), new CancelOTATaskByJobResponse({}));
   }
 
+  /**
+    * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelOTATaskByJobRequest
+    * @return CancelOTATaskByJobResponse
+   */
   async cancelOTATaskByJob(request: CancelOTATaskByJobRequest): Promise<CancelOTATaskByJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOTATaskByJobWithOptions(request, runtime);
   }
 
+  /**
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelReleaseProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelReleaseProductResponse
+   */
   async cancelReleaseProductWithOptions(request: CancelReleaseProductRequest, runtime: $Util.RuntimeOptions): Promise<CancelReleaseProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48461,6 +50137,13 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelReleaseProductResponse>(await this.callApi(params, req, runtime), new CancelReleaseProductResponse({}));
   }
 
+  /**
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CancelReleaseProductRequest
+    * @return CancelReleaseProductResponse
+   */
   async cancelReleaseProduct(request: CancelReleaseProductRequest): Promise<CancelReleaseProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelReleaseProductWithOptions(request, runtime);
@@ -48507,6 +50190,18 @@ export default class Client extends OpenApi {
     return await this.checkBindLicenseDeviceProgressWithOptions(request, runtime);
   }
 
+  /**
+    * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
+    * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
+    * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ClearDeviceDesiredPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ClearDeviceDesiredPropertyResponse
+   */
   async clearDeviceDesiredPropertyWithOptions(request: ClearDeviceDesiredPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ClearDeviceDesiredPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48549,11 +50244,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearDeviceDesiredPropertyResponse>(await this.callApi(params, req, runtime), new ClearDeviceDesiredPropertyResponse({}));
   }
 
+  /**
+    * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
+    * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
+    * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ClearDeviceDesiredPropertyRequest
+    * @return ClearDeviceDesiredPropertyResponse
+   */
   async clearDeviceDesiredProperty(request: ClearDeviceDesiredPropertyRequest): Promise<ClearDeviceDesiredPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearDeviceDesiredPropertyWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ClearEdgeInstanceDriverConfigsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ClearEdgeInstanceDriverConfigsResponse
+   */
   async clearEdgeInstanceDriverConfigsWithOptions(request: ClearEdgeInstanceDriverConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ClearEdgeInstanceDriverConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48586,6 +50301,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearEdgeInstanceDriverConfigsResponse>(await this.callApi(params, req, runtime), new ClearEdgeInstanceDriverConfigsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ClearEdgeInstanceDriverConfigsRequest
+    * @return ClearEdgeInstanceDriverConfigsResponse
+   */
   async clearEdgeInstanceDriverConfigs(request: ClearEdgeInstanceDriverConfigsRequest): Promise<ClearEdgeInstanceDriverConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearEdgeInstanceDriverConfigsWithOptions(request, runtime);
@@ -48624,6 +50347,15 @@ export default class Client extends OpenApi {
     return await this.closeDeviceTunnelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CloseEdgeInstanceDeploymentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CloseEdgeInstanceDeploymentResponse
+   */
   async closeEdgeInstanceDeploymentWithOptions(request: CloseEdgeInstanceDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CloseEdgeInstanceDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48652,11 +50384,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseEdgeInstanceDeploymentResponse>(await this.callApi(params, req, runtime), new CloseEdgeInstanceDeploymentResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CloseEdgeInstanceDeploymentRequest
+    * @return CloseEdgeInstanceDeploymentResponse
+   */
   async closeEdgeInstanceDeployment(request: CloseEdgeInstanceDeploymentRequest): Promise<CloseEdgeInstanceDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeEdgeInstanceDeploymentWithOptions(request, runtime);
   }
 
+  /**
+    * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ConfirmOTATaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ConfirmOTATaskResponse
+   */
   async confirmOTATaskWithOptions(request: ConfirmOTATaskRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmOTATaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48685,11 +50435,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmOTATaskResponse>(await this.callApi(params, req, runtime), new ConfirmOTATaskResponse({}));
   }
 
+  /**
+    * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ConfirmOTATaskRequest
+    * @return ConfirmOTATaskResponse
+   */
   async confirmOTATask(request: ConfirmOTATaskRequest): Promise<ConfirmOTATaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmOTATaskWithOptions(request, runtime);
   }
 
+  /**
+    * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
+    * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
+    * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to five queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CopyThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CopyThingModelResponse
+   */
   async copyThingModelWithOptions(request: CopyThingModelRequest, runtime: $Util.RuntimeOptions): Promise<CopyThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48730,6 +50501,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyThingModelResponse>(await this.callApi(params, req, runtime), new CopyThingModelResponse({}));
   }
 
+  /**
+    * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
+    * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
+    * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to five queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CopyThingModelRequest
+    * @return CopyThingModelResponse
+   */
   async copyThingModel(request: CopyThingModelRequest): Promise<CopyThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyThingModelWithOptions(request, runtime);
@@ -48774,6 +50556,15 @@ export default class Client extends OpenApi {
     return await this.countSpeechBroadcastHourWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateConsumerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroupWithOptions(request: CreateConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48783,6 +50574,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.subBizCode)) {
+      query["SubBizCode"] = request.subBizCode;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -48802,11 +50601,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateConsumerGroupRequest
+    * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroup(request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConsumerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateConsumerGroupSubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateConsumerGroupSubscribeRelationResponse
+   */
   async createConsumerGroupSubscribeRelationWithOptions(request: CreateConsumerGroupSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupSubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48839,6 +50655,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupSubscribeRelationResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupSubscribeRelationResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateConsumerGroupSubscribeRelationRequest
+    * @return CreateConsumerGroupSubscribeRelationResponse
+   */
   async createConsumerGroupSubscribeRelation(request: CreateConsumerGroupSubscribeRelationRequest): Promise<CreateConsumerGroupSubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConsumerGroupSubscribeRelationWithOptions(request, runtime);
@@ -48995,6 +50819,28 @@ export default class Client extends OpenApi {
     return await this.createDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * To distribute devices, perform the following steps:
+    * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
+    * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
+    * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
+    * If either of the following values is returned for the **Status** parameter, the distribution task ends:
+    * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
+    * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
+    * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
+    * >  The file URL is valid for 10 minutes.
+    * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
+    * If the distribution fails, you can perform the preceding steps to distribute devices again.
+    * ## Limits
+    * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * - You cannot call this operation to distribute devices across accounts.
+    * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
+    * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateDeviceDistributeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDeviceDistributeJobResponse
+   */
   async createDeviceDistributeJobWithOptions(request: CreateDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDistributeJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49043,6 +50889,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDeviceDistributeJobResponse>(await this.callApi(params, req, runtime), new CreateDeviceDistributeJobResponse({}));
   }
 
+  /**
+    * To distribute devices, perform the following steps:
+    * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
+    * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
+    * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
+    * If either of the following values is returned for the **Status** parameter, the distribution task ends:
+    * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
+    * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
+    * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
+    * >  The file URL is valid for 10 minutes.
+    * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
+    * If the distribution fails, you can perform the preceding steps to distribute devices again.
+    * ## Limits
+    * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * - You cannot call this operation to distribute devices across accounts.
+    * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
+    * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateDeviceDistributeJobRequest
+    * @return CreateDeviceDistributeJobResponse
+   */
   async createDeviceDistributeJob(request: CreateDeviceDistributeJobRequest): Promise<CreateDeviceDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceDistributeJobWithOptions(request, runtime);
@@ -49089,6 +50956,15 @@ export default class Client extends OpenApi {
     return await this.createDeviceDynamicGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateDeviceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDeviceGroupResponse
+   */
   async createDeviceGroupWithOptions(request: CreateDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49125,6 +51001,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDeviceGroupResponse>(await this.callApi(params, req, runtime), new CreateDeviceGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateDeviceGroupRequest
+    * @return CreateDeviceGroupResponse
+   */
   async createDeviceGroup(request: CreateDeviceGroupRequest): Promise<CreateDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceGroupWithOptions(request, runtime);
@@ -49236,6 +51120,15 @@ export default class Client extends OpenApi {
     return await this.createDownloadDataJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request CreateEdgeDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEdgeDriverResponse
+   */
   async createEdgeDriverWithOptions(request: CreateEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49280,11 +51173,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeDriverResponse>(await this.callApi(params, req, runtime), new CreateEdgeDriverResponse({}));
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request CreateEdgeDriverRequest
+    * @return CreateEdgeDriverResponse
+   */
   async createEdgeDriver(request: CreateEdgeDriverRequest): Promise<CreateEdgeDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEdgeDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeDriverVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEdgeDriverVersionResponse
+   */
   async createEdgeDriverVersionWithOptions(request: CreateEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49345,11 +51255,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeDriverVersionResponse>(await this.callApi(params, req, runtime), new CreateEdgeDriverVersionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeDriverVersionRequest
+    * @return CreateEdgeDriverVersionResponse
+   */
   async createEdgeDriverVersion(request: CreateEdgeDriverVersionRequest): Promise<CreateEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request CreateEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEdgeInstanceResponse
+   */
   async createEdgeInstanceWithOptions(request: CreateEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49386,6 +51313,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeInstanceResponse>(await this.callApi(params, req, runtime), new CreateEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request CreateEdgeInstanceRequest
+    * @return CreateEdgeInstanceResponse
+   */
   async createEdgeInstance(request: CreateEdgeInstanceRequest): Promise<CreateEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEdgeInstanceWithOptions(request, runtime);
@@ -49436,6 +51371,15 @@ export default class Client extends OpenApi {
     return await this.createEdgeInstanceChannelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeInstanceDeploymentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEdgeInstanceDeploymentResponse
+   */
   async createEdgeInstanceDeploymentWithOptions(request: CreateEdgeInstanceDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeInstanceDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49468,6 +51412,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeInstanceDeploymentResponse>(await this.callApi(params, req, runtime), new CreateEdgeInstanceDeploymentResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeInstanceDeploymentRequest
+    * @return CreateEdgeInstanceDeploymentResponse
+   */
   async createEdgeInstanceDeployment(request: CreateEdgeInstanceDeploymentRequest): Promise<CreateEdgeInstanceDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEdgeInstanceDeploymentWithOptions(request, runtime);
@@ -49534,6 +51486,15 @@ export default class Client extends OpenApi {
     return await this.createEdgeInstanceMessageRoutingWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeOssPreSignedAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateEdgeOssPreSignedAddressResponse
+   */
   async createEdgeOssPreSignedAddressWithOptions(request: CreateEdgeOssPreSignedAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeOssPreSignedAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49578,6 +51539,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeOssPreSignedAddressResponse>(await this.callApi(params, req, runtime), new CreateEdgeOssPreSignedAddressResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateEdgeOssPreSignedAddressRequest
+    * @return CreateEdgeOssPreSignedAddressResponse
+   */
   async createEdgeOssPreSignedAddress(request: CreateEdgeOssPreSignedAddressRequest): Promise<CreateEdgeOssPreSignedAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEdgeOssPreSignedAddressWithOptions(request, runtime);
@@ -49703,6 +51672,13 @@ export default class Client extends OpenApi {
     return await this.createLoRaNodesTaskWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
+    *
+    * @param request CreateOTADynamicUpgradeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOTADynamicUpgradeJobResponse
+   */
   async createOTADynamicUpgradeJobWithOptions(request: CreateOTADynamicUpgradeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTADynamicUpgradeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49791,11 +51767,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOTADynamicUpgradeJobResponse>(await this.callApi(params, req, runtime), new CreateOTADynamicUpgradeJobResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
+    *
+    * @param request CreateOTADynamicUpgradeJobRequest
+    * @return CreateOTADynamicUpgradeJobResponse
+   */
   async createOTADynamicUpgradeJob(request: CreateOTADynamicUpgradeJobRequest): Promise<CreateOTADynamicUpgradeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOTADynamicUpgradeJobWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
+    * ## Limits
+    * Each Alibaba Cloud account can have up to 500 update packages. 
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAFirmwareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOTAFirmwareResponse
+   */
   async createOTAFirmwareWithOptions(request: CreateOTAFirmwareRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTAFirmwareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49876,11 +51870,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOTAFirmwareResponse>(await this.callApi(params, req, runtime), new CreateOTAFirmwareResponse({}));
   }
 
+  /**
+    * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
+    * ## Limits
+    * Each Alibaba Cloud account can have up to 500 update packages. 
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAFirmwareRequest
+    * @return CreateOTAFirmwareResponse
+   */
   async createOTAFirmware(request: CreateOTAFirmwareRequest): Promise<CreateOTAFirmwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOTAFirmwareWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
+    * *   You can create a maximum of 10 custom OTA modules for each product.
+    * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAModuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOTAModuleResponse
+   */
   async createOTAModuleWithOptions(request: CreateOTAModuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTAModuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49921,11 +51938,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOTAModuleResponse>(await this.callApi(params, req, runtime), new CreateOTAModuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
+    * *   You can create a maximum of 10 custom OTA modules for each product.
+    * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAModuleRequest
+    * @return CreateOTAModuleResponse
+   */
   async createOTAModule(request: CreateOTAModuleRequest): Promise<CreateOTAModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOTAModuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
+    * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
+    * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
+    * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
+    * *   You can create multiple static update batches by using a single update package.
+    * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAStaticUpgradeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOTAStaticUpgradeJobResponse
+   */
   async createOTAStaticUpgradeJobWithOptions(request: CreateOTAStaticUpgradeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTAStaticUpgradeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50034,11 +52077,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOTAStaticUpgradeJobResponse>(await this.callApi(params, req, runtime), new CreateOTAStaticUpgradeJobResponse({}));
   }
 
+  /**
+    * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
+    * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
+    * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
+    * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
+    * *   You can create multiple static update batches by using a single update package.
+    * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAStaticUpgradeJobRequest
+    * @return CreateOTAStaticUpgradeJobResponse
+   */
   async createOTAStaticUpgradeJob(request: CreateOTAStaticUpgradeJobRequest): Promise<CreateOTAStaticUpgradeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOTAStaticUpgradeJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
+    * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
+    * *   You can specify a maximum of 10 devices for a verification task.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAVerifyJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOTAVerifyJobResponse
+   */
   async createOTAVerifyJobWithOptions(request: CreateOTAVerifyJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTAVerifyJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50095,6 +52164,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOTAVerifyJobResponse>(await this.callApi(params, req, runtime), new CreateOTAVerifyJobResponse({}));
   }
 
+  /**
+    * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
+    * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
+    * *   You can specify a maximum of 10 devices for a verification task.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateOTAVerifyJobRequest
+    * @return CreateOTAVerifyJobResponse
+   */
   async createOTAVerifyJob(request: CreateOTAVerifyJobRequest): Promise<CreateOTAVerifyJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOTAVerifyJobWithOptions(request, runtime);
@@ -50174,6 +52254,16 @@ export default class Client extends OpenApi {
     return await this.createParserDataSourceWithOptions(request, runtime);
   }
 
+  /**
+    * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProductResponse
+   */
   async createProductWithOptions(request: CreateProductRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50254,11 +52344,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProductResponse>(await this.callApi(params, req, runtime), new CreateProductResponse({}));
   }
 
+  /**
+    * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductRequest
+    * @return CreateProductResponse
+   */
   async createProduct(request: CreateProductRequest): Promise<CreateProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProductWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   You cannot call this operation to distribute a product across accounts.
+    * *   A product distribution task does not distribute the devices under the product.
+    * *   After a product is distributed, you cannot modify its TSL model and scripts.
+    * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
+    * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    *     **
+    *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductDistributeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProductDistributeJobResponse
+   */
   async createProductDistributeJobWithOptions(request: CreateProductDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductDistributeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50299,11 +52412,36 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProductDistributeJobResponse>(await this.callApi(params, req, runtime), new CreateProductDistributeJobResponse({}));
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   You cannot call this operation to distribute a product across accounts.
+    * *   A product distribution task does not distribute the devices under the product.
+    * *   After a product is distributed, you cannot modify its TSL model and scripts.
+    * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
+    * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    *     **
+    *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductDistributeJobRequest
+    * @return CreateProductDistributeJobResponse
+   */
   async createProductDistributeJob(request: CreateProductDistributeJobRequest): Promise<CreateProductDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProductDistributeJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can create a maximum of 10 tags for a product in a single call.
+    * *   Each product can have a maximum of 100 tags.
+    * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProductTagsResponse
+   */
   async createProductTagsWithOptions(request: CreateProductTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50336,16 +52474,44 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProductTagsResponse>(await this.callApi(params, req, runtime), new CreateProductTagsResponse({}));
   }
 
+  /**
+    * *   You can create a maximum of 10 tags for a product in a single call.
+    * *   Each product can have a maximum of 100 tags.
+    * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductTagsRequest
+    * @return CreateProductTagsResponse
+   */
   async createProductTags(request: CreateProductTagsRequest): Promise<CreateProductTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProductTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateProductTopicResponse
+   */
   async createProductTopicWithOptions(request: CreateProductTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductTopicResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.codec)) {
+      query["Codec"] = request.codec;
+    }
+
     if (!Util.isUnset(request.desc)) {
       query["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.enableProxySubscribe)) {
+      query["EnableProxySubscribe"] = request.enableProxySubscribe;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -50381,11 +52547,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProductTopicResponse>(await this.callApi(params, req, runtime), new CreateProductTopicResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateProductTopicRequest
+    * @return CreateProductTopicResponse
+   */
   async createProductTopic(request: CreateProductTopicRequest): Promise<CreateProductTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProductTopicWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation, you must specify the **ProductKey** parameter in the request.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRuleResponse
+   */
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50450,11 +52634,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
   }
 
+  /**
+    * When you call this operation, you must specify the **ProductKey** parameter in the request.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateRuleRequest
+    * @return CreateRuleResponse
+   */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
+    * *   You can create a maximum of 10 rule actions for each rule.
+    * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateRuleActionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRuleActionResponse
+   */
   async createRuleActionWithOptions(request: CreateRuleActionRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50495,6 +52700,17 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRuleActionResponse>(await this.callApi(params, req, runtime), new CreateRuleActionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
+    * *   You can create a maximum of 10 rule actions for each rule.
+    * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateRuleActionRequest
+    * @return CreateRuleActionResponse
+   */
   async createRuleAction(request: CreateRuleActionRequest): Promise<CreateRuleActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRuleActionWithOptions(request, runtime);
@@ -50841,6 +53057,22 @@ export default class Client extends OpenApi {
     return await this.createStudioAppDomainOpenWithOptions(request, runtime);
   }
 
+  /**
+    * Server-side subscriptions are categorized into the following two types:
+    * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
+    * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
+    *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
+    *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
+    *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
+    *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateSubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSubscribeRelationResponse
+   */
   async createSubscribeRelationWithOptions(request: CreateSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<CreateSubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50925,11 +53157,38 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSubscribeRelationResponse>(await this.callApi(params, req, runtime), new CreateSubscribeRelationResponse({}));
   }
 
+  /**
+    * Server-side subscriptions are categorized into the following two types:
+    * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
+    * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
+    *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
+    *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
+    *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
+    *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateSubscribeRelationRequest
+    * @return CreateSubscribeRelationResponse
+   */
   async createSubscribeRelation(request: CreateSubscribeRelationRequest): Promise<CreateSubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSubscribeRelationWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+    * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateThingModelResponse
+   */
   async createThingModelWithOptions(request: CreateThingModelRequest, runtime: $Util.RuntimeOptions): Promise<CreateThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50970,11 +53229,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateThingModelResponse>(await this.callApi(params, req, runtime), new CreateThingModelResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+    * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateThingModelRequest
+    * @return CreateThingModelResponse
+   */
   async createThingModel(request: CreateThingModelRequest): Promise<CreateThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createThingModelWithOptions(request, runtime);
   }
 
+  /**
+    * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateThingScriptRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateThingScriptResponse
+   */
   async createThingScriptWithOptions(request: CreateThingScriptRequest, runtime: $Util.RuntimeOptions): Promise<CreateThingScriptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51011,11 +53292,90 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateThingScriptResponse>(await this.callApi(params, req, runtime), new CreateThingScriptResponse({}));
   }
 
+  /**
+    * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateThingScriptRequest
+    * @return CreateThingScriptResponse
+   */
   async createThingScript(request: CreateThingScriptRequest): Promise<CreateThingScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createThingScriptWithOptions(request, runtime);
   }
 
+  async createTopicConfigWithOptions(request: CreateTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.codec)) {
+      query["Codec"] = request.codec;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableBroadcast)) {
+      query["EnableBroadcast"] = request.enableBroadcast;
+    }
+
+    if (!Util.isUnset(request.enableProxySubscribe)) {
+      query["EnableProxySubscribe"] = request.enableProxySubscribe;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.topicFullName)) {
+      query["TopicFullName"] = request.topicFullName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTopicConfig",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTopicConfigResponse>(await this.callApi(params, req, runtime), new CreateTopicConfigResponse({}));
+  }
+
+  async createTopicConfig(request: CreateTopicConfigRequest): Promise<CreateTopicConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTopicConfigWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Limits
+    * *   You can specify a maximum of 100 destination topics for a source topic.
+    * *   The device to which the source topic belongs must be activated.
+    * *   The source and destination topics support only custom topics.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateTopicRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateTopicRouteTableResponse
+   */
   async createTopicRouteTableWithOptions(request: CreateTopicRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51048,11 +53408,33 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTopicRouteTableResponse>(await this.callApi(params, req, runtime), new CreateTopicRouteTableResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can specify a maximum of 100 destination topics for a source topic.
+    * *   The device to which the source topic belongs must be activated.
+    * *   The source and destination topics support only custom topics.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request CreateTopicRouteTableRequest
+    * @return CreateTopicRouteTableResponse
+   */
   async createTopicRouteTable(request: CreateTopicRouteTableRequest): Promise<CreateTopicRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTopicRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
+    * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteClientIdsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteClientIdsResponse
+   */
   async deleteClientIdsWithOptions(request: DeleteClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientIdsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51081,11 +53463,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClientIdsResponse>(await this.callApi(params, req, runtime), new DeleteClientIdsResponse({}));
   }
 
+  /**
+    * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
+    * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteClientIdsRequest
+    * @return DeleteClientIdsResponse
+   */
   async deleteClientIds(request: DeleteClientIdsRequest): Promise<DeleteClientIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientIdsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You cannot delete the default consumer group provided by IoT Platform.
+    * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteConsumerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroupWithOptions(request: DeleteConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51114,11 +53517,31 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You cannot delete the default consumer group provided by IoT Platform.
+    * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteConsumerGroupRequest
+    * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroup(request: DeleteConsumerGroupRequest): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConsumerGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteConsumerGroupSubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteConsumerGroupSubscribeRelationResponse
+   */
   async deleteConsumerGroupSubscribeRelationWithOptions(request: DeleteConsumerGroupSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupSubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51151,6 +53574,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupSubscribeRelationResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupSubscribeRelationResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteConsumerGroupSubscribeRelationRequest
+    * @return DeleteConsumerGroupSubscribeRelationResponse
+   */
   async deleteConsumerGroupSubscribeRelation(request: DeleteConsumerGroupSubscribeRelationRequest): Promise<DeleteConsumerGroupSubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConsumerGroupSubscribeRelationWithOptions(request, runtime);
@@ -51226,6 +53658,24 @@ export default class Client extends OpenApi {
     return await this.deleteDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
+    * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
+    * **Warning**
+    * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
+    * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
+    * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
+    * ****
+    * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
+    * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDeviceResponse
+   */
   async deleteDeviceWithOptions(request: DeleteDeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51262,11 +53712,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeviceResponse>(await this.callApi(params, req, runtime), new DeleteDeviceResponse({}));
   }
 
+  /**
+    * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
+    * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
+    * **Warning**
+    * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
+    * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
+    * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
+    * ****
+    * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
+    * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceRequest
+    * @return DeleteDeviceResponse
+   */
   async deleteDevice(request: DeleteDeviceRequest): Promise<DeleteDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceDistributeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDeviceDistributeJobResponse
+   */
   async deleteDeviceDistributeJobWithOptions(request: DeleteDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceDistributeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51291,6 +53767,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeviceDistributeJobResponse>(await this.callApi(params, req, runtime), new DeleteDeviceDistributeJobResponse({}));
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceDistributeJobRequest
+    * @return DeleteDeviceDistributeJobResponse
+   */
   async deleteDeviceDistributeJob(request: DeleteDeviceDistributeJobRequest): Promise<DeleteDeviceDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceDistributeJobWithOptions(request, runtime);
@@ -51329,6 +53813,15 @@ export default class Client extends OpenApi {
     return await this.deleteDeviceDynamicGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDeviceFileResponse
+   */
   async deleteDeviceFileWithOptions(request: DeleteDeviceFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51369,11 +53862,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeviceFileResponse>(await this.callApi(params, req, runtime), new DeleteDeviceFileResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceFileRequest
+    * @return DeleteDeviceFileResponse
+   */
   async deleteDeviceFile(request: DeleteDeviceFileRequest): Promise<DeleteDeviceFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceFileWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDeviceGroupResponse
+   */
   async deleteDeviceGroupWithOptions(request: DeleteDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51402,11 +53912,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeviceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDeviceGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDeviceGroupRequest
+    * @return DeleteDeviceGroupResponse
+   */
   async deleteDeviceGroup(request: DeleteDeviceGroupRequest): Promise<DeleteDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDevicePropRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDevicePropResponse
+   */
   async deleteDevicePropWithOptions(request: DeleteDevicePropRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDevicePropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51447,6 +53974,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDevicePropResponse>(await this.callApi(params, req, runtime), new DeleteDevicePropResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteDevicePropRequest
+    * @return DeleteDevicePropResponse
+   */
   async deleteDeviceProp(request: DeleteDevicePropRequest): Promise<DeleteDevicePropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDevicePropWithOptions(request, runtime);
@@ -51522,6 +54057,16 @@ export default class Client extends OpenApi {
     return await this.deleteDeviceTunnelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You are not allowed to delete a driver that has a published version.
+    * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteEdgeDriverResponse
+   */
   async deleteEdgeDriverWithOptions(request: DeleteEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51550,11 +54095,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEdgeDriverResponse>(await this.callApi(params, req, runtime), new DeleteEdgeDriverResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You are not allowed to delete a driver that has a published version.
+    * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeDriverRequest
+    * @return DeleteEdgeDriverResponse
+   */
   async deleteEdgeDriver(request: DeleteEdgeDriverRequest): Promise<DeleteEdgeDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEdgeDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You are not allowed to delete a published driver version.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeDriverVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteEdgeDriverVersionResponse
+   */
   async deleteEdgeDriverVersionWithOptions(request: DeleteEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51587,11 +54151,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEdgeDriverVersionResponse>(await this.callApi(params, req, runtime), new DeleteEdgeDriverVersionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You are not allowed to delete a published driver version.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeDriverVersionRequest
+    * @return DeleteEdgeDriverVersionResponse
+   */
   async deleteEdgeDriverVersion(request: DeleteEdgeDriverVersionRequest): Promise<DeleteEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteEdgeInstanceResponse
+   */
   async deleteEdgeInstanceWithOptions(request: DeleteEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51620,6 +54201,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEdgeInstanceResponse>(await this.callApi(params, req, runtime), new DeleteEdgeInstanceResponse({}));
   }
 
+  /**
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteEdgeInstanceRequest
+    * @return DeleteEdgeInstanceResponse
+   */
   async deleteEdgeInstance(request: DeleteEdgeInstanceRequest): Promise<DeleteEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEdgeInstanceWithOptions(request, runtime);
@@ -51695,6 +54283,15 @@ export default class Client extends OpenApi {
     return await this.deleteJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteOTAFirmwareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteOTAFirmwareResponse
+   */
   async deleteOTAFirmwareWithOptions(request: DeleteOTAFirmwareRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOTAFirmwareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51723,11 +54320,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOTAFirmwareResponse>(await this.callApi(params, req, runtime), new DeleteOTAFirmwareResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteOTAFirmwareRequest
+    * @return DeleteOTAFirmwareResponse
+   */
   async deleteOTAFirmware(request: DeleteOTAFirmwareRequest): Promise<DeleteOTAFirmwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOTAFirmwareWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   The default module cannot be deleted.
+    * *   If an update package exists in an OTA module, you cannot delete the OTA module.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteOTAModuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteOTAModuleResponse
+   */
   async deleteOTAModuleWithOptions(request: DeleteOTAModuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOTAModuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51760,6 +54376,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOTAModuleResponse>(await this.callApi(params, req, runtime), new DeleteOTAModuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   The default module cannot be deleted.
+    * *   If an update package exists in an OTA module, you cannot delete the OTA module.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteOTAModuleRequest
+    * @return DeleteOTAModuleResponse
+   */
   async deleteOTAModule(request: DeleteOTAModuleRequest): Promise<DeleteOTAModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOTAModuleWithOptions(request, runtime);
@@ -51831,6 +54457,16 @@ export default class Client extends OpenApi {
     return await this.deleteParserDataSourceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProductResponse
+   */
   async deleteProductWithOptions(request: DeleteProductRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51859,11 +54495,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProductResponse>(await this.callApi(params, req, runtime), new DeleteProductResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductRequest
+    * @return DeleteProductResponse
+   */
   async deleteProduct(request: DeleteProductRequest): Promise<DeleteProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProductWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can delete a maximum of 10 tags in a single call.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProductTagsResponse
+   */
   async deleteProductTagsWithOptions(request: DeleteProductTagsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProductTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51896,11 +54551,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProductTagsResponse>(await this.callApi(params, req, runtime), new DeleteProductTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can delete a maximum of 10 tags in a single call.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductTagsRequest
+    * @return DeleteProductTagsResponse
+   */
   async deleteProductTags(request: DeleteProductTagsRequest): Promise<DeleteProductTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProductTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProductTopicResponse
+   */
   async deleteProductTopicWithOptions(request: DeleteProductTopicRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProductTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51929,11 +54602,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProductTopicResponse>(await this.callApi(params, req, runtime), new DeleteProductTopicResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteProductTopicRequest
+    * @return DeleteProductTopicResponse
+   */
   async deleteProductTopic(request: DeleteProductTopicRequest): Promise<DeleteProductTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProductTopicWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRuleResponse
+   */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51962,11 +54652,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteRuleRequest
+    * @return DeleteRuleResponse
+   */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteRuleActionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRuleActionResponse
+   */
   async deleteRuleActionWithOptions(request: DeleteRuleActionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51995,6 +54702,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleActionResponse>(await this.callApi(params, req, runtime), new DeleteRuleActionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteRuleActionRequest
+    * @return DeleteRuleActionResponse
+   */
   async deleteRuleAction(request: DeleteRuleActionRequest): Promise<DeleteRuleActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleActionWithOptions(request, runtime);
@@ -52276,6 +54991,15 @@ export default class Client extends OpenApi {
     return await this.deleteStudioAppDomainOpenWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteSubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSubscribeRelationResponse
+   */
   async deleteSubscribeRelationWithOptions(request: DeleteSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52308,11 +55032,37 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubscribeRelationResponse>(await this.callApi(params, req, runtime), new DeleteSubscribeRelationResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteSubscribeRelationRequest
+    * @return DeleteSubscribeRelationResponse
+   */
   async deleteSubscribeRelation(request: DeleteSubscribeRelationRequest): Promise<DeleteSubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSubscribeRelationWithOptions(request, runtime);
   }
 
+  /**
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
+    * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
+    * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
+    *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
+    *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
+    *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
+    *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
+    * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
+    * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 5 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request DeleteThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteThingModelResponse
+   */
   async deleteThingModelWithOptions(request: DeleteThingModelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52361,11 +55111,74 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteThingModelResponse>(await this.callApi(params, req, runtime), new DeleteThingModelResponse({}));
   }
 
+  /**
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
+    * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
+    * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
+    *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
+    *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
+    *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
+    *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
+    * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
+    * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 5 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request DeleteThingModelRequest
+    * @return DeleteThingModelResponse
+   */
   async deleteThingModel(request: DeleteThingModelRequest): Promise<DeleteThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteThingModelWithOptions(request, runtime);
   }
 
+  async deleteTopicConfigWithOptions(request: DeleteTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTopicConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.topicFullName)) {
+      query["TopicFullName"] = request.topicFullName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTopicConfig",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTopicConfigResponse>(await this.callApi(params, req, runtime), new DeleteTopicConfigResponse({}));
+  }
+
+  async deleteTopicConfig(request: DeleteTopicConfigRequest): Promise<DeleteTopicConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTopicConfigWithOptions(request, runtime);
+  }
+
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteTopicRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteTopicRouteTableResponse
+   */
   async deleteTopicRouteTableWithOptions(request: DeleteTopicRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTopicRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52398,11 +55211,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTopicRouteTableResponse>(await this.callApi(params, req, runtime), new DeleteTopicRouteTableResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DeleteTopicRouteTableRequest
+    * @return DeleteTopicRouteTableResponse
+   */
   async deleteTopicRouteTable(request: DeleteTopicRouteTableRequest): Promise<DeleteTopicRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTopicRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request DetachDestinationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachDestinationResponse
+   */
   async detachDestinationWithOptions(request: DetachDestinationRequest, runtime: $Util.RuntimeOptions): Promise<DetachDestinationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52435,6 +55265,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDestinationResponse>(await this.callApi(params, req, runtime), new DetachDestinationResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request DetachDestinationRequest
+    * @return DetachDestinationResponse
+   */
   async detachDestination(request: DetachDestinationRequest): Promise<DetachDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDestinationWithOptions(request, runtime);
@@ -52584,6 +55422,16 @@ export default class Client extends OpenApi {
     return await this.disableSceneRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DisableThingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableThingResponse
+   */
   async disableThingWithOptions(request: DisableThingRequest, runtime: $Util.RuntimeOptions): Promise<DisableThingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52620,6 +55468,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableThingResponse>(await this.callApi(params, req, runtime), new DisableThingResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request DisableThingRequest
+    * @return DisableThingResponse
+   */
   async disableThing(request: DisableThingRequest): Promise<DisableThingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableThingWithOptions(request, runtime);
@@ -52732,6 +55589,15 @@ export default class Client extends OpenApi {
     return await this.enableSceneRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request EnableThingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableThingResponse
+   */
   async enableThingWithOptions(request: EnableThingRequest, runtime: $Util.RuntimeOptions): Promise<EnableThingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52768,11 +55634,38 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableThingResponse>(await this.callApi(params, req, runtime), new EnableThingResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request EnableThingRequest
+    * @return EnableThingResponse
+   */
   async enableThing(request: EnableThingRequest): Promise<EnableThingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableThingWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can be used with other operations to upload a device list file. Procedure:
+    * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.  
+    * The response parameters of this API operation include:
+    * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.  
+    * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.  
+    * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.  
+    * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.  
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account. 
+    * ## Requirements
+    * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
+    * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
+    *
+    * @param request GenerateDeviceNameListURLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateDeviceNameListURLResponse
+   */
   async generateDeviceNameListURLWithOptions(request: GenerateDeviceNameListURLRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDeviceNameListURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52797,6 +55690,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateDeviceNameListURLResponse>(await this.callApi(params, req, runtime), new GenerateDeviceNameListURLResponse({}));
   }
 
+  /**
+    * This operation can be used with other operations to upload a device list file. Procedure:
+    * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.  
+    * The response parameters of this API operation include:
+    * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.  
+    * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.  
+    * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.  
+    * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.  
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account. 
+    * ## Requirements
+    * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
+    * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
+    *
+    * @param request GenerateDeviceNameListURLRequest
+    * @return GenerateDeviceNameListURLResponse
+   */
   async generateDeviceNameListURL(request: GenerateDeviceNameListURLRequest): Promise<GenerateDeviceNameListURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDeviceNameListURLWithOptions(request, runtime);
@@ -52843,6 +55754,24 @@ export default class Client extends OpenApi {
     return await this.generateFileUploadURLWithOptions(request, runtime);
   }
 
+  /**
+    * This operation can be used together with other operations to create an update package. Procedure:
+    * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
+    * The following section describes the response parameters of this API operation:
+    * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
+    * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
+    * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
+    * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
+    * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
+    * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request GenerateOTAUploadURLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateOTAUploadURLResponse
+   */
   async generateOTAUploadURLWithOptions(request: GenerateOTAUploadURLRequest, runtime: $Util.RuntimeOptions): Promise<GenerateOTAUploadURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52871,6 +55800,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateOTAUploadURLResponse>(await this.callApi(params, req, runtime), new GenerateOTAUploadURLResponse({}));
   }
 
+  /**
+    * This operation can be used together with other operations to create an update package. Procedure:
+    * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
+    * The following section describes the response parameters of this API operation:
+    * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
+    * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
+    * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
+    * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
+    * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
+    * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request GenerateOTAUploadURLRequest
+    * @return GenerateOTAUploadURLResponse
+   */
   async generateOTAUploadURL(request: GenerateOTAUploadURLRequest): Promise<GenerateOTAUploadURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateOTAUploadURLWithOptions(request, runtime);
@@ -52942,6 +55888,15 @@ export default class Client extends OpenApi {
     return await this.getDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 500 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetDeviceShadowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDeviceShadowResponse
+   */
   async getDeviceShadowWithOptions(request: GetDeviceShadowRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceShadowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52974,11 +55929,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceShadowResponse>(await this.callApi(params, req, runtime), new GetDeviceShadowResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 500 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetDeviceShadowRequest
+    * @return GetDeviceShadowResponse
+   */
   async getDeviceShadow(request: GetDeviceShadowRequest): Promise<GetDeviceShadowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeviceShadowWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetDeviceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDeviceStatusResponse
+   */
   async getDeviceStatusWithOptions(request: GetDeviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53015,6 +55987,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceStatusResponse>(await this.callApi(params, req, runtime), new GetDeviceStatusResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetDeviceStatusRequest
+    * @return GetDeviceStatusResponse
+   */
   async getDeviceStatus(request: GetDeviceStatusRequest): Promise<GetDeviceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeviceStatusWithOptions(request, runtime);
@@ -53139,6 +56119,15 @@ export default class Client extends OpenApi {
     return await this.getDownloadFileWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeDriverVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetEdgeDriverVersionResponse
+   */
   async getEdgeDriverVersionWithOptions(request: GetEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53171,11 +56160,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEdgeDriverVersionResponse>(await this.callApi(params, req, runtime), new GetEdgeDriverVersionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeDriverVersionRequest
+    * @return GetEdgeDriverVersionResponse
+   */
   async getEdgeDriverVersion(request: GetEdgeDriverVersionRequest): Promise<GetEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetEdgeInstanceResponse
+   */
   async getEdgeInstanceWithOptions(request: GetEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53204,11 +56210,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEdgeInstanceResponse>(await this.callApi(params, req, runtime), new GetEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeInstanceRequest
+    * @return GetEdgeInstanceResponse
+   */
   async getEdgeInstance(request: GetEdgeInstanceRequest): Promise<GetEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEdgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeInstanceDeploymentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetEdgeInstanceDeploymentResponse
+   */
   async getEdgeInstanceDeploymentWithOptions(request: GetEdgeInstanceDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeInstanceDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53241,6 +56264,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEdgeInstanceDeploymentResponse>(await this.callApi(params, req, runtime), new GetEdgeInstanceDeploymentResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetEdgeInstanceDeploymentRequest
+    * @return GetEdgeInstanceDeploymentResponse
+   */
   async getEdgeInstanceDeployment(request: GetEdgeInstanceDeploymentRequest): Promise<GetEdgeInstanceDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEdgeInstanceDeploymentWithOptions(request, runtime);
@@ -53283,6 +56314,15 @@ export default class Client extends OpenApi {
     return await this.getEdgeInstanceMessageRoutingWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetGatewayBySubDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetGatewayBySubDeviceResponse
+   */
   async getGatewayBySubDeviceWithOptions(request: GetGatewayBySubDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayBySubDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53319,6 +56359,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGatewayBySubDeviceResponse>(await this.callApi(params, req, runtime), new GetGatewayBySubDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetGatewayBySubDeviceRequest
+    * @return GetGatewayBySubDeviceResponse
+   */
   async getGatewayBySubDevice(request: GetGatewayBySubDeviceRequest): Promise<GetGatewayBySubDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGatewayBySubDeviceWithOptions(request, runtime);
@@ -53423,6 +56471,15 @@ export default class Client extends OpenApi {
     return await this.getParserDataSourceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetRuleResponse
+   */
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53451,11 +56508,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleResponse>(await this.callApi(params, req, runtime), new GetRuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetRuleRequest
+    * @return GetRuleResponse
+   */
   async getRule(request: GetRuleRequest): Promise<GetRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request GetRuleActionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetRuleActionResponse
+   */
   async getRuleActionWithOptions(request: GetRuleActionRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53484,6 +56556,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleActionResponse>(await this.callApi(params, req, runtime), new GetRuleActionResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request GetRuleActionRequest
+    * @return GetRuleActionResponse
+   */
   async getRuleAction(request: GetRuleActionRequest): Promise<GetRuleActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleActionWithOptions(request, runtime);
@@ -53786,6 +56864,13 @@ export default class Client extends OpenApi {
     return await this.getStudioAppTokenOpenWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request GetThingModelTslRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetThingModelTslResponse
+   */
   async getThingModelTslWithOptions(request: GetThingModelTslRequest, runtime: $Util.RuntimeOptions): Promise<GetThingModelTslResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53826,11 +56911,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetThingModelTslResponse>(await this.callApi(params, req, runtime), new GetThingModelTslResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request GetThingModelTslRequest
+    * @return GetThingModelTslResponse
+   */
   async getThingModelTsl(request: GetThingModelTslRequest): Promise<GetThingModelTslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getThingModelTslWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingModelTslPublishedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetThingModelTslPublishedResponse
+   */
   async getThingModelTslPublishedWithOptions(request: GetThingModelTslPublishedRequest, runtime: $Util.RuntimeOptions): Promise<GetThingModelTslPublishedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53875,11 +56975,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetThingModelTslPublishedResponse>(await this.callApi(params, req, runtime), new GetThingModelTslPublishedResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingModelTslPublishedRequest
+    * @return GetThingModelTslPublishedResponse
+   */
   async getThingModelTslPublished(request: GetThingModelTslPublishedRequest): Promise<GetThingModelTslPublishedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getThingModelTslPublishedWithOptions(request, runtime);
   }
 
+  /**
+    * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingScriptRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetThingScriptResponse
+   */
   async getThingScriptWithOptions(request: GetThingScriptRequest, runtime: $Util.RuntimeOptions): Promise<GetThingScriptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53908,11 +57025,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetThingScriptResponse>(await this.callApi(params, req, runtime), new GetThingScriptResponse({}));
   }
 
+  /**
+    * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingScriptRequest
+    * @return GetThingScriptResponse
+   */
   async getThingScript(request: GetThingScriptRequest): Promise<GetThingScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getThingScriptWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetThingTemplateResponse
+   */
   async getThingTemplateWithOptions(request: GetThingTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetThingTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53945,11 +57079,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetThingTemplateResponse>(await this.callApi(params, req, runtime), new GetThingTemplateResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingTemplateRequest
+    * @return GetThingTemplateResponse
+   */
   async getThingTemplate(request: GetThingTemplateRequest): Promise<GetThingTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getThingTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingTopoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetThingTopoResponse
+   */
   async getThingTopoWithOptions(request: GetThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<GetThingTopoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53994,6 +57145,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetThingTopoResponse>(await this.callApi(params, req, runtime), new GetThingTopoResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request GetThingTopoRequest
+    * @return GetThingTopoResponse
+   */
   async getThingTopo(request: GetThingTopoRequest): Promise<GetThingTopoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getThingTopoWithOptions(request, runtime);
@@ -54083,6 +57242,11 @@ export default class Client extends OpenApi {
 
   async importDTDataWithOptions(request: ImportDTDataRequest, runtime: $Util.RuntimeOptions): Promise<ImportDTDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DTInstanceId)) {
+      query["DTInstanceId"] = request.DTInstanceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.iotInstanceId)) {
       body["IotInstanceId"] = request.iotInstanceId;
@@ -54097,6 +57261,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -54167,6 +57332,16 @@ export default class Client extends OpenApi {
     return await this.importDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ImportThingModelTslRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ImportThingModelTslResponse
+   */
   async importThingModelTslWithOptions(request: ImportThingModelTslRequest, runtime: $Util.RuntimeOptions): Promise<ImportThingModelTslResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54215,6 +57390,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportThingModelTslResponse>(await this.callApi(params, req, runtime), new ImportThingModelTslResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ImportThingModelTslRequest
+    * @return ImportThingModelTslResponse
+   */
   async importThingModelTsl(request: ImportThingModelTslRequest): Promise<ImportThingModelTslResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importThingModelTslWithOptions(request, runtime);
@@ -54257,6 +57441,36 @@ export default class Client extends OpenApi {
     return await this.invokeDataAPIServiceWithOptions(request, runtime);
   }
 
+  /**
+    * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
+    * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
+    * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
+    * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
+    * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+    * ```
+    * {
+    * 	"id": "58***89",
+    * 	"code": 200,
+    * 	"data": {},
+    * 	"message": "success",
+    * 	"localizedMsg": "localizedMsg"
+    * }
+    * ```
+    * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
+    * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+    * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
+    * >*   The **message** and **localizedMsg** parameters are optional.
+    * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+    * ## Limits
+    * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls. 
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request InvokeThingServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InvokeThingServiceResponse
+   */
   async invokeThingServiceWithOptions(request: InvokeThingServiceRequest, runtime: $Util.RuntimeOptions): Promise<InvokeThingServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54301,11 +57515,65 @@ export default class Client extends OpenApi {
     return $tea.cast<InvokeThingServiceResponse>(await this.callApi(params, req, runtime), new InvokeThingServiceResponse({}));
   }
 
+  /**
+    * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
+    * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
+    * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
+    * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
+    * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+    * ```
+    * {
+    * 	"id": "58***89",
+    * 	"code": 200,
+    * 	"data": {},
+    * 	"message": "success",
+    * 	"localizedMsg": "localizedMsg"
+    * }
+    * ```
+    * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
+    * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+    * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
+    * >*   The **message** and **localizedMsg** parameters are optional.
+    * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+    * ## Limits
+    * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls. 
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request InvokeThingServiceRequest
+    * @return InvokeThingServiceResponse
+   */
   async invokeThingService(request: InvokeThingServiceRequest): Promise<InvokeThingServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.invokeThingServiceWithOptions(request, runtime);
   }
 
+  /**
+    * You can only asynchronously call this operation.
+    * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+    * ```
+    * {
+    * 	"id": "58***89",
+    * 	"code": 200,
+    * 	"data": {},
+    * 	"message": "success",
+    * 	"localizedMsg": "localizedMsg"
+    * }
+    * ```
+    * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
+    * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+    * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
+    * >*   The **message** and **localizedMsg** parameters are optional.
+    * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request InvokeThingsServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return InvokeThingsServiceResponse
+   */
   async invokeThingsServiceWithOptions(request: InvokeThingsServiceRequest, runtime: $Util.RuntimeOptions): Promise<InvokeThingsServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54346,6 +57614,30 @@ export default class Client extends OpenApi {
     return $tea.cast<InvokeThingsServiceResponse>(await this.callApi(params, req, runtime), new InvokeThingsServiceResponse({}));
   }
 
+  /**
+    * You can only asynchronously call this operation.
+    * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
+    * ```
+    * {
+    * 	"id": "58***89",
+    * 	"code": 200,
+    * 	"data": {},
+    * 	"message": "success",
+    * 	"localizedMsg": "localizedMsg"
+    * }
+    * ```
+    * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
+    * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
+    * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
+    * >*   The **message** and **localizedMsg** parameters are optional.
+    * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request InvokeThingsServiceRequest
+    * @return InvokeThingsServiceResponse
+   */
   async invokeThingsService(request: InvokeThingsServiceRequest): Promise<InvokeThingsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.invokeThingsServiceWithOptions(request, runtime);
@@ -54490,6 +57782,16 @@ export default class Client extends OpenApi {
     return await this.listDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListDeviceDistributeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDeviceDistributeJobResponse
+   */
   async listDeviceDistributeJobWithOptions(request: ListDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDistributeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54540,11 +57842,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceDistributeJobResponse>(await this.callApi(params, req, runtime), new ListDeviceDistributeJobResponse({}));
   }
 
+  /**
+    * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListDeviceDistributeJobRequest
+    * @return ListDeviceDistributeJobResponse
+   */
   async listDeviceDistributeJob(request: ListDeviceDistributeJobRequest): Promise<ListDeviceDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDeviceDistributeJobWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
+    *
+    * @param request ListDistributedDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDistributedDeviceResponse
+   */
   async listDistributedDeviceWithOptions(request: ListDistributedDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListDistributedDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54589,11 +57910,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDistributedDeviceResponse>(await this.callApi(params, req, runtime), new ListDistributedDeviceResponse({}));
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
+    *
+    * @param request ListDistributedDeviceRequest
+    * @return ListDistributedDeviceResponse
+   */
   async listDistributedDevice(request: ListDistributedDeviceRequest): Promise<ListDistributedDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDistributedDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListDistributedProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListDistributedProductResponse
+   */
   async listDistributedProductWithOptions(request: ListDistributedProductRequest, runtime: $Util.RuntimeOptions): Promise<ListDistributedProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54638,6 +57978,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDistributedProductResponse>(await this.callApi(params, req, runtime), new ListDistributedProductResponse({}));
   }
 
+  /**
+    * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * ## QPS limits
+    * You can call this API operation up to five times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListDistributedProductRequest
+    * @return ListDistributedProductResponse
+   */
   async listDistributedProduct(request: ListDistributedProductRequest): Promise<ListDistributedProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDistributedProductWithOptions(request, runtime);
@@ -54684,6 +58033,15 @@ export default class Client extends OpenApi {
     return await this.listJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAFirmwareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAFirmwareResponse
+   */
   async listOTAFirmwareWithOptions(request: ListOTAFirmwareRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAFirmwareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54724,11 +58082,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAFirmwareResponse>(await this.callApi(params, req, runtime), new ListOTAFirmwareResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAFirmwareRequest
+    * @return ListOTAFirmwareResponse
+   */
   async listOTAFirmware(request: ListOTAFirmwareRequest): Promise<ListOTAFirmwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAFirmwareWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAJobByDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAJobByDeviceResponse
+   */
   async listOTAJobByDeviceWithOptions(request: ListOTAJobByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAJobByDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54773,11 +58148,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAJobByDeviceResponse>(await this.callApi(params, req, runtime), new ListOTAJobByDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAJobByDeviceRequest
+    * @return ListOTAJobByDeviceResponse
+   */
   async listOTAJobByDevice(request: ListOTAJobByDeviceRequest): Promise<ListOTAJobByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAJobByDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAJobByFirmwareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAJobByFirmwareResponse
+   */
   async listOTAJobByFirmwareWithOptions(request: ListOTAJobByFirmwareRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAJobByFirmwareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54814,11 +58206,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAJobByFirmwareResponse>(await this.callApi(params, req, runtime), new ListOTAJobByFirmwareResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAJobByFirmwareRequest
+    * @return ListOTAJobByFirmwareResponse
+   */
   async listOTAJobByFirmware(request: ListOTAJobByFirmwareRequest): Promise<ListOTAJobByFirmwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAJobByFirmwareWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAModuleByProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAModuleByProductResponse
+   */
   async listOTAModuleByProductWithOptions(request: ListOTAModuleByProductRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAModuleByProductResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -54839,11 +58248,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAModuleByProductResponse>(await this.callApi(params, req, runtime), new ListOTAModuleByProductResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAModuleByProductRequest
+    * @return ListOTAModuleByProductResponse
+   */
   async listOTAModuleByProduct(request: ListOTAModuleByProductRequest): Promise<ListOTAModuleByProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAModuleByProductWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAModuleVersionsByDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAModuleVersionsByDeviceResponse
+   */
   async listOTAModuleVersionsByDeviceWithOptions(request: ListOTAModuleVersionsByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAModuleVersionsByDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54888,11 +58314,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAModuleVersionsByDeviceResponse>(await this.callApi(params, req, runtime), new ListOTAModuleVersionsByDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAModuleVersionsByDeviceRequest
+    * @return ListOTAModuleVersionsByDeviceResponse
+   */
   async listOTAModuleVersionsByDevice(request: ListOTAModuleVersionsByDeviceRequest): Promise<ListOTAModuleVersionsByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAModuleVersionsByDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request ListOTATaskByJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTATaskByJobResponse
+   */
   async listOTATaskByJobWithOptions(request: ListOTATaskByJobRequest, runtime: $Util.RuntimeOptions): Promise<ListOTATaskByJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54937,11 +58380,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTATaskByJobResponse>(await this.callApi(params, req, runtime), new ListOTATaskByJobResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request ListOTATaskByJobRequest
+    * @return ListOTATaskByJobResponse
+   */
   async listOTATaskByJob(request: ListOTATaskByJobRequest): Promise<ListOTATaskByJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTATaskByJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAUnfinishedTaskByDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListOTAUnfinishedTaskByDeviceResponse
+   */
   async listOTAUnfinishedTaskByDeviceWithOptions(request: ListOTAUnfinishedTaskByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListOTAUnfinishedTaskByDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54986,6 +58446,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOTAUnfinishedTaskByDeviceResponse>(await this.callApi(params, req, runtime), new ListOTAUnfinishedTaskByDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListOTAUnfinishedTaskByDeviceRequest
+    * @return ListOTAUnfinishedTaskByDeviceResponse
+   */
   async listOTAUnfinishedTaskByDevice(request: ListOTAUnfinishedTaskByDeviceRequest): Promise<ListOTAUnfinishedTaskByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAUnfinishedTaskByDeviceWithOptions(request, runtime);
@@ -55110,6 +58578,17 @@ export default class Client extends OpenApi {
     return await this.listParserDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    * *   You can specify a tag key or a tag key-value pair for search.
+    * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
+    *
+    * @param request ListProductByTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProductByTagsResponse
+   */
   async listProductByTagsWithOptions(request: ListProductByTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductByTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55146,11 +58625,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductByTagsResponse>(await this.callApi(params, req, runtime), new ListProductByTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    * *   You can specify a tag key or a tag key-value pair for search.
+    * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
+    *
+    * @param request ListProductByTagsRequest
+    * @return ListProductByTagsResponse
+   */
   async listProductByTags(request: ListProductByTagsRequest): Promise<ListProductByTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductByTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListProductTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListProductTagsResponse
+   */
   async listProductTagsWithOptions(request: ListProductTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55179,11 +58677,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProductTagsResponse>(await this.callApi(params, req, runtime), new ListProductTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListProductTagsRequest
+    * @return ListProductTagsResponse
+   */
   async listProductTags(request: ListProductTagsRequest): Promise<ListProductTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProductTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 20 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRuleResponse
+   */
   async listRuleWithOptions(request: ListRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55220,11 +58735,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRuleResponse>(await this.callApi(params, req, runtime), new ListRuleResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 20 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListRuleRequest
+    * @return ListRuleResponse
+   */
   async listRule(request: ListRuleRequest): Promise<ListRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListRuleActionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListRuleActionsResponse
+   */
   async listRuleActionsWithOptions(request: ListRuleActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRuleActionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55253,6 +58785,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRuleActionsResponse>(await this.callApi(params, req, runtime), new ListRuleActionsResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListRuleActionsRequest
+    * @return ListRuleActionsResponse
+   */
   async listRuleActions(request: ListRuleActionsRequest): Promise<ListRuleActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRuleActionsWithOptions(request, runtime);
@@ -55313,6 +58853,16 @@ export default class Client extends OpenApi {
     return await this.listTaskWithOptions(request, runtime);
   }
 
+  /**
+    * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListThingModelVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListThingModelVersionResponse
+   */
   async listThingModelVersionWithOptions(request: ListThingModelVersionRequest, runtime: $Util.RuntimeOptions): Promise<ListThingModelVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55341,11 +58891,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ListThingModelVersionResponse>(await this.callApi(params, req, runtime), new ListThingModelVersionResponse({}));
   }
 
+  /**
+    * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListThingModelVersionRequest
+    * @return ListThingModelVersionResponse
+   */
   async listThingModelVersion(request: ListThingModelVersionRequest): Promise<ListThingModelVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listThingModelVersionWithOptions(request, runtime);
   }
 
+  /**
+    * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
+    * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListThingTemplatesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListThingTemplatesResponse
+   */
   async listThingTemplatesWithOptions(request: ListThingTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListThingTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55370,11 +58940,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ListThingTemplatesResponse>(await this.callApi(params, req, runtime), new ListThingTemplatesResponse({}));
   }
 
+  /**
+    * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
+    * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ListThingTemplatesRequest
+    * @return ListThingTemplatesResponse
+   */
   async listThingTemplates(request: ListThingTemplatesRequest): Promise<ListThingTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listThingTemplatesWithOptions(request, runtime);
   }
 
+  /**
+    * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
+    * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request NotifyAddThingTopoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return NotifyAddThingTopoResponse
+   */
   async notifyAddThingTopoWithOptions(request: NotifyAddThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<NotifyAddThingTopoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55415,6 +59006,16 @@ export default class Client extends OpenApi {
     return $tea.cast<NotifyAddThingTopoResponse>(await this.callApi(params, req, runtime), new NotifyAddThingTopoResponse({}));
   }
 
+  /**
+    * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
+    * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request NotifyAddThingTopoRequest
+    * @return NotifyAddThingTopoResponse
+   */
   async notifyAddThingTopo(request: NotifyAddThingTopoRequest): Promise<NotifyAddThingTopoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.notifyAddThingTopoWithOptions(request, runtime);
@@ -55639,6 +59240,18 @@ export default class Client extends OpenApi {
     return await this.printByTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * This operation does not support device property settings and service invocations.
+    * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
+    * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+    * ## QPS limit
+    * You can call this API operation up to 1,600 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PubRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PubResponse
+   */
   async pubWithOptions(request: PubRequest, runtime: $Util.RuntimeOptions): Promise<PubResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55705,11 +59318,32 @@ export default class Client extends OpenApi {
     return $tea.cast<PubResponse>(await this.callApi(params, req, runtime), new PubResponse({}));
   }
 
+  /**
+    * This operation does not support device property settings and service invocations.
+    * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
+    * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
+    * ## QPS limit
+    * You can call this API operation up to 1,600 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PubRequest
+    * @return PubResponse
+   */
   async pub(request: PubRequest): Promise<PubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pubWithOptions(request, runtime);
   }
 
+  /**
+    * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
+    * ## QPS limits
+    * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
+    * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PubBroadcastRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PubBroadcastResponse
+   */
   async pubBroadcastWithOptions(request: PubBroadcastRequest, runtime: $Util.RuntimeOptions): Promise<PubBroadcastResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55746,6 +59380,15 @@ export default class Client extends OpenApi {
     return $tea.cast<PubBroadcastResponse>(await this.callApi(params, req, runtime), new PubBroadcastResponse({}));
   }
 
+  /**
+    * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
+    * ## QPS limits
+    * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
+    * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PubBroadcastRequest
+    * @return PubBroadcastResponse
+   */
   async pubBroadcast(request: PubBroadcastRequest): Promise<PubBroadcastResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pubBroadcastWithOptions(request, runtime);
@@ -55825,6 +59468,16 @@ export default class Client extends OpenApi {
     return await this.publishStudioAppWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PublishThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PublishThingModelResponse
+   */
   async publishThingModelWithOptions(request: PublishThingModelRequest, runtime: $Util.RuntimeOptions): Promise<PublishThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55865,6 +59518,15 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishThingModelResponse>(await this.callApi(params, req, runtime), new PublishThingModelResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request PublishThingModelRequest
+    * @return PublishThingModelResponse
+   */
   async publishThingModel(request: PublishThingModelRequest): Promise<PublishThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishThingModelWithOptions(request, runtime);
@@ -55929,6 +59591,15 @@ export default class Client extends OpenApi {
     return await this.pushSpeechWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 30 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryBatchRegisterDeviceStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryBatchRegisterDeviceStatusResponse
+   */
   async queryBatchRegisterDeviceStatusWithOptions(request: QueryBatchRegisterDeviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryBatchRegisterDeviceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55961,6 +59632,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryBatchRegisterDeviceStatusResponse>(await this.callApi(params, req, runtime), new QueryBatchRegisterDeviceStatusResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 30 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryBatchRegisterDeviceStatusRequest
+    * @return QueryBatchRegisterDeviceStatusResponse
+   */
   async queryBatchRegisterDeviceStatus(request: QueryBatchRegisterDeviceStatusRequest): Promise<QueryBatchRegisterDeviceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryBatchRegisterDeviceStatusWithOptions(request, runtime);
@@ -55999,6 +59678,15 @@ export default class Client extends OpenApi {
     return await this.queryCertUrlByApplyIdWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryClientIdsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryClientIdsResponse
+   */
   async queryClientIdsWithOptions(request: QueryClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<QueryClientIdsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56027,11 +59715,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryClientIdsResponse>(await this.callApi(params, req, runtime), new QueryClientIdsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryClientIdsRequest
+    * @return QueryClientIdsResponse
+   */
   async queryClientIds(request: QueryClientIdsRequest): Promise<QueryClientIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryClientIdsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupByGroupIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryConsumerGroupByGroupIdResponse
+   */
   async queryConsumerGroupByGroupIdWithOptions(request: QueryConsumerGroupByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryConsumerGroupByGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56060,11 +59765,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryConsumerGroupByGroupIdResponse>(await this.callApi(params, req, runtime), new QueryConsumerGroupByGroupIdResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupByGroupIdRequest
+    * @return QueryConsumerGroupByGroupIdResponse
+   */
   async queryConsumerGroupByGroupId(request: QueryConsumerGroupByGroupIdRequest): Promise<QueryConsumerGroupByGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryConsumerGroupByGroupIdWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryConsumerGroupListResponse
+   */
   async queryConsumerGroupListWithOptions(request: QueryConsumerGroupListRequest, runtime: $Util.RuntimeOptions): Promise<QueryConsumerGroupListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56088,6 +59810,14 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.subBizCode)) {
+      query["SubBizCode"] = request.subBizCode;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -56105,11 +59835,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryConsumerGroupListResponse>(await this.callApi(params, req, runtime), new QueryConsumerGroupListResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupListRequest
+    * @return QueryConsumerGroupListResponse
+   */
   async queryConsumerGroupList(request: QueryConsumerGroupListRequest): Promise<QueryConsumerGroupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryConsumerGroupListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryConsumerGroupStatusResponse
+   */
   async queryConsumerGroupStatusWithOptions(request: QueryConsumerGroupStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryConsumerGroupStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56138,6 +59885,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryConsumerGroupStatusResponse>(await this.callApi(params, req, runtime), new QueryConsumerGroupStatusResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryConsumerGroupStatusRequest
+    * @return QueryConsumerGroupStatusResponse
+   */
   async queryConsumerGroupStatus(request: QueryConsumerGroupStatusRequest): Promise<QueryConsumerGroupStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryConsumerGroupStatusWithOptions(request, runtime);
@@ -56196,6 +59951,17 @@ export default class Client extends OpenApi {
     return await this.queryDetailSceneRuleLogWithOptions(request, runtime);
   }
 
+  /**
+    * The QueryDevice operation can return up to one million devices each time you call the operation.
+    * ## QPS limits
+    * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases. 
+    * In this case, you can call this API operation up to two times per second per account.
+    *
+    * @param request QueryDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceResponse
+   */
   async queryDeviceWithOptions(request: QueryDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56236,11 +60002,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceResponse>(await this.callApi(params, req, runtime), new QueryDeviceResponse({}));
   }
 
+  /**
+    * The QueryDevice operation can return up to one million devices each time you call the operation.
+    * ## QPS limits
+    * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases. 
+    * In this case, you can call this API operation up to two times per second per account.
+    *
+    * @param request QueryDeviceRequest
+    * @return QueryDeviceResponse
+   */
   async queryDevice(request: QueryDeviceRequest): Promise<QueryDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
+    * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceBySQLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceBySQLResponse
+   */
   async queryDeviceBySQLWithOptions(request: QueryDeviceBySQLRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceBySQLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56269,11 +60056,31 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceBySQLResponse>(await this.callApi(params, req, runtime), new QueryDeviceBySQLResponse({}));
   }
 
+  /**
+    * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
+    * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceBySQLRequest
+    * @return QueryDeviceBySQLResponse
+   */
   async queryDeviceBySQL(request: QueryDeviceBySQLRequest): Promise<QueryDeviceBySQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceBySQLWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceByStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceByStatusResponse
+   */
   async queryDeviceByStatusWithOptions(request: QueryDeviceByStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceByStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56318,11 +60125,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceByStatusResponse>(await this.callApi(params, req, runtime), new QueryDeviceByStatusResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceByStatusRequest
+    * @return QueryDeviceByStatusResponse
+   */
   async queryDeviceByStatus(request: QueryDeviceByStatusRequest): Promise<QueryDeviceByStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceByStatusWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can specify a maximum of 10 tags in a single call.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceByTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceByTagsResponse
+   */
   async queryDeviceByTagsWithOptions(request: QueryDeviceByTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceByTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56359,6 +60185,15 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceByTagsResponse>(await this.callApi(params, req, runtime), new QueryDeviceByTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can specify a maximum of 10 tags in a single call.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceByTagsRequest
+    * @return QueryDeviceByTagsResponse
+   */
   async queryDeviceByTags(request: QueryDeviceByTagsRequest): Promise<QueryDeviceByTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceByTagsWithOptions(request, runtime);
@@ -56401,6 +60236,17 @@ export default class Client extends OpenApi {
     return await this.queryDeviceCertWithOptions(request, runtime);
   }
 
+  /**
+    * *   The desired values of read-only properties cannot be queried.
+    * *   You can query the desired values of up to 10 properties in a single call.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDesiredPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceDesiredPropertyResponse
+   */
   async queryDeviceDesiredPropertyWithOptions(request: QueryDeviceDesiredPropertyRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDesiredPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56445,11 +60291,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceDesiredPropertyResponse>(await this.callApi(params, req, runtime), new QueryDeviceDesiredPropertyResponse({}));
   }
 
+  /**
+    * *   The desired values of read-only properties cannot be queried.
+    * *   You can query the desired values of up to 10 properties in a single call.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDesiredPropertyRequest
+    * @return QueryDeviceDesiredPropertyResponse
+   */
   async queryDeviceDesiredProperty(request: QueryDeviceDesiredPropertyRequest): Promise<QueryDeviceDesiredPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceDesiredPropertyWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceDetailResponse
+   */
   async queryDeviceDetailWithOptions(request: QueryDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56486,11 +60351,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceDetailResponse>(await this.callApi(params, req, runtime), new QueryDeviceDetailResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDetailRequest
+    * @return QueryDeviceDetailResponse
+   */
   async queryDeviceDetail(request: QueryDeviceDetailRequest): Promise<QueryDeviceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceDetailWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDistributeDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceDistributeDetailResponse
+   */
   async queryDeviceDistributeDetailWithOptions(request: QueryDeviceDistributeDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDistributeDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56515,11 +60397,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceDistributeDetailResponse>(await this.callApi(params, req, runtime), new QueryDeviceDistributeDetailResponse({}));
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDistributeDetailRequest
+    * @return QueryDeviceDistributeDetailResponse
+   */
   async queryDeviceDistributeDetail(request: QueryDeviceDistributeDetailRequest): Promise<QueryDeviceDistributeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceDistributeDetailWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDistributeJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceDistributeJobResponse
+   */
   async queryDeviceDistributeJobWithOptions(request: QueryDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDistributeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56544,11 +60443,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceDistributeJobResponse>(await this.callApi(params, req, runtime), new QueryDeviceDistributeJobResponse({}));
   }
 
+  /**
+    * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceDistributeJobRequest
+    * @return QueryDeviceDistributeJobResponse
+   */
   async queryDeviceDistributeJob(request: QueryDeviceDistributeJobRequest): Promise<QueryDeviceDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceDistributeJobWithOptions(request, runtime);
   }
 
+  /**
+    * You can query only the event records that are generated in the previous 30 days.
+    * >  The storage period of an event record is calculated from the day when the record is generated.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDeviceEventDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceEventDataResponse
+   */
   async queryDeviceEventDataWithOptions(request: QueryDeviceEventDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceEventDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56609,11 +60527,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceEventDataResponse>(await this.callApi(params, req, runtime), new QueryDeviceEventDataResponse({}));
   }
 
+  /**
+    * You can query only the event records that are generated in the previous 30 days.
+    * >  The storage period of an event record is calculated from the day when the record is generated.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDeviceEventDataRequest
+    * @return QueryDeviceEventDataResponse
+   */
   async queryDeviceEventData(request: QueryDeviceEventDataRequest): Promise<QueryDeviceEventDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceEventDataWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceFileResponse
+   */
   async queryDeviceFileWithOptions(request: QueryDeviceFileRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56654,11 +60591,29 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceFileResponse>(await this.callApi(params, req, runtime), new QueryDeviceFileResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceFileRequest
+    * @return QueryDeviceFileResponse
+   */
   async queryDeviceFile(request: QueryDeviceFileRequest): Promise<QueryDeviceFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceFileWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceFileListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceFileListResponse
+   */
   async queryDeviceFileListWithOptions(request: QueryDeviceFileListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceFileListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56703,11 +60658,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceFileListResponse>(await this.callApi(params, req, runtime), new QueryDeviceFileListResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
+    * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceFileListRequest
+    * @return QueryDeviceFileListResponse
+   */
   async queryDeviceFileList(request: QueryDeviceFileListRequest): Promise<QueryDeviceFileListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceFileListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can add a device to a maximum of 10 groups.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupByDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceGroupByDeviceResponse
+   */
   async queryDeviceGroupByDeviceWithOptions(request: QueryDeviceGroupByDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceGroupByDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56740,11 +60714,29 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceGroupByDeviceResponse>(await this.callApi(params, req, runtime), new QueryDeviceGroupByDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can add a device to a maximum of 10 groups.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupByDeviceRequest
+    * @return QueryDeviceGroupByDeviceResponse
+   */
   async queryDeviceGroupByDevice(request: QueryDeviceGroupByDeviceRequest): Promise<QueryDeviceGroupByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceGroupByDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupByTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceGroupByTagsResponse
+   */
   async queryDeviceGroupByTagsWithOptions(request: QueryDeviceGroupByTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceGroupByTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56781,11 +60773,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceGroupByTagsResponse>(await this.callApi(params, req, runtime), new QueryDeviceGroupByTagsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupByTagsRequest
+    * @return QueryDeviceGroupByTagsResponse
+   */
   async queryDeviceGroupByTags(request: QueryDeviceGroupByTagsRequest): Promise<QueryDeviceGroupByTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceGroupByTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceGroupInfoResponse
+   */
   async queryDeviceGroupInfoWithOptions(request: QueryDeviceGroupInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceGroupInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56818,11 +60827,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceGroupInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceGroupInfoResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupInfoRequest
+    * @return QueryDeviceGroupInfoResponse
+   */
   async queryDeviceGroupInfo(request: QueryDeviceGroupInfoRequest): Promise<QueryDeviceGroupInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceGroupInfoWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceGroupListResponse
+   */
   async queryDeviceGroupListWithOptions(request: QueryDeviceGroupListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceGroupListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56867,11 +60893,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceGroupListResponse>(await this.callApi(params, req, runtime), new QueryDeviceGroupListResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupListRequest
+    * @return QueryDeviceGroupListResponse
+   */
   async queryDeviceGroupList(request: QueryDeviceGroupListRequest): Promise<QueryDeviceGroupListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceGroupListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupTagListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceGroupTagListResponse
+   */
   async queryDeviceGroupTagListWithOptions(request: QueryDeviceGroupTagListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceGroupTagListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56904,11 +60947,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceGroupTagListResponse>(await this.callApi(params, req, runtime), new QueryDeviceGroupTagListResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceGroupTagListRequest
+    * @return QueryDeviceGroupTagListResponse
+   */
   async queryDeviceGroupTagList(request: QueryDeviceGroupTagListRequest): Promise<QueryDeviceGroupTagListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceGroupTagListWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request QueryDeviceInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceInfoResponse
+   */
   async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56945,11 +61003,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request QueryDeviceInfoRequest
+    * @return QueryDeviceInfoResponse
+   */
   async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceInfoWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceListByDeviceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceListByDeviceGroupResponse
+   */
   async queryDeviceListByDeviceGroupWithOptions(request: QueryDeviceListByDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceListByDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56986,11 +61059,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceListByDeviceGroupResponse>(await this.callApi(params, req, runtime), new QueryDeviceListByDeviceGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceListByDeviceGroupRequest
+    * @return QueryDeviceListByDeviceGroupResponse
+   */
   async queryDeviceListByDeviceGroup(request: QueryDeviceListByDeviceGroupRequest): Promise<QueryDeviceListByDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceListByDeviceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can query only the event records that are generated in the last 30 days.
+    * >  The storage period of an event record is calculated from the day when the record is generated.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalEventDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceOriginalEventDataResponse
+   */
   async queryDeviceOriginalEventDataWithOptions(request: QueryDeviceOriginalEventDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceOriginalEventDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57051,11 +61143,32 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceOriginalEventDataResponse>(await this.callApi(params, req, runtime), new QueryDeviceOriginalEventDataResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can query only the event records that are generated in the last 30 days.
+    * >  The storage period of an event record is calculated from the day when the record is generated.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalEventDataRequest
+    * @return QueryDeviceOriginalEventDataResponse
+   */
   async queryDeviceOriginalEventData(request: QueryDeviceOriginalEventDataRequest): Promise<QueryDeviceOriginalEventDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceOriginalEventDataWithOptions(request, runtime);
   }
 
+  /**
+    * You can query only the property records that are generated within the previous 30 days.
+    * >  The data of a property is stored from the day when the data is generated.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalPropertyDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceOriginalPropertyDataResponse
+   */
   async queryDeviceOriginalPropertyDataWithOptions(request: QueryDeviceOriginalPropertyDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceOriginalPropertyDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57116,11 +61229,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceOriginalPropertyDataResponse>(await this.callApi(params, req, runtime), new QueryDeviceOriginalPropertyDataResponse({}));
   }
 
+  /**
+    * You can query only the property records that are generated within the previous 30 days.
+    * >  The data of a property is stored from the day when the data is generated.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalPropertyDataRequest
+    * @return QueryDeviceOriginalPropertyDataResponse
+   */
   async queryDeviceOriginalPropertyData(request: QueryDeviceOriginalPropertyDataRequest): Promise<QueryDeviceOriginalPropertyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceOriginalPropertyDataWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalPropertyStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceOriginalPropertyStatusResponse
+   */
   async queryDeviceOriginalPropertyStatusWithOptions(request: QueryDeviceOriginalPropertyStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceOriginalPropertyStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57169,11 +61301,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceOriginalPropertyStatusResponse>(await this.callApi(params, req, runtime), new QueryDeviceOriginalPropertyStatusResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalPropertyStatusRequest
+    * @return QueryDeviceOriginalPropertyStatusResponse
+   */
   async queryDeviceOriginalPropertyStatus(request: QueryDeviceOriginalPropertyStatusRequest): Promise<QueryDeviceOriginalPropertyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceOriginalPropertyStatusWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You can query only the service call records that are generated in the last 30 days.
+    * >  The storage period of a service call record is calculated from the day when the service is called.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalServiceDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceOriginalServiceDataResponse
+   */
   async queryDeviceOriginalServiceDataWithOptions(request: QueryDeviceOriginalServiceDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceOriginalServiceDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57234,11 +61385,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceOriginalServiceDataResponse>(await this.callApi(params, req, runtime), new QueryDeviceOriginalServiceDataResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You can query only the service call records that are generated in the last 30 days.
+    * >  The storage period of a service call record is calculated from the day when the service is called.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceOriginalServiceDataRequest
+    * @return QueryDeviceOriginalServiceDataResponse
+   */
   async queryDeviceOriginalServiceData(request: QueryDeviceOriginalServiceDataRequest): Promise<QueryDeviceOriginalServiceDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceOriginalServiceDataWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDevicePropRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDevicePropResponse
+   */
   async queryDevicePropWithOptions(request: QueryDevicePropRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicePropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57275,11 +61445,35 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicePropResponse>(await this.callApi(params, req, runtime), new QueryDevicePropResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDevicePropRequest
+    * @return QueryDevicePropResponse
+   */
   async queryDeviceProp(request: QueryDevicePropRequest): Promise<QueryDevicePropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicePropWithOptions(request, runtime);
   }
 
+  /**
+    * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter: 
+    * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.  
+    * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
+    * - If the value of the **NextValid** parameter is false, all property records are returned.
+    * ## Limits
+    * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
+    * *   You can query property data that is generated within the last 30 days.
+    * > The storage period of a property record is calculated from the day when the property record was generated.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDevicePropertiesDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDevicePropertiesDataResponse
+   */
   async queryDevicePropertiesDataWithOptions(request: QueryDevicePropertiesDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicePropertiesDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57336,11 +61530,40 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicePropertiesDataResponse>(await this.callApi(params, req, runtime), new QueryDevicePropertiesDataResponse({}));
   }
 
+  /**
+    * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter: 
+    * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.  
+    * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
+    * - If the value of the **NextValid** parameter is false, all property records are returned.
+    * ## Limits
+    * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
+    * *   You can query property data that is generated within the last 30 days.
+    * > The storage period of a property record is calculated from the day when the property record was generated.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDevicePropertiesDataRequest
+    * @return QueryDevicePropertiesDataResponse
+   */
   async queryDevicePropertiesData(request: QueryDevicePropertiesDataRequest): Promise<QueryDevicePropertiesDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicePropertiesDataWithOptions(request, runtime);
   }
 
+  /**
+    * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
+    * ## Limits
+    * You can query only property data that is generated within the previous 30 days. 
+    * >  The data of a property is stored from the day when the data is generated.
+    *   
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDevicePropertyDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDevicePropertyDataResponse
+   */
   async queryDevicePropertyDataWithOptions(request: QueryDevicePropertyDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicePropertyDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57397,11 +61620,34 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicePropertyDataResponse>(await this.callApi(params, req, runtime), new QueryDevicePropertyDataResponse({}));
   }
 
+  /**
+    * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
+    * ## Limits
+    * You can query only property data that is generated within the previous 30 days. 
+    * >  The data of a property is stored from the day when the data is generated.
+    *   
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDevicePropertyDataRequest
+    * @return QueryDevicePropertyDataResponse
+   */
   async queryDevicePropertyData(request: QueryDevicePropertyDataRequest): Promise<QueryDevicePropertyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicePropertyDataWithOptions(request, runtime);
   }
 
+  /**
+    * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 200 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDevicePropertyStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDevicePropertyStatusResponse
+   */
   async queryDevicePropertyStatusWithOptions(request: QueryDevicePropertyStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicePropertyStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57442,6 +61688,15 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDevicePropertyStatusResponse>(await this.callApi(params, req, runtime), new QueryDevicePropertyStatusResponse({}));
   }
 
+  /**
+    * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 200 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryDevicePropertyStatusRequest
+    * @return QueryDevicePropertyStatusResponse
+   */
   async queryDevicePropertyStatus(request: QueryDevicePropertyStatusRequest): Promise<QueryDevicePropertyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDevicePropertyStatusWithOptions(request, runtime);
@@ -57482,6 +61737,17 @@ export default class Client extends OpenApi {
     return await this.queryDeviceProvisioningWithOptions(request, runtime);
   }
 
+  /**
+    * You can query only the service call records of the previous 30 days.
+    * >  The storage period of a service call record is calculated from the day when the service is called.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceServiceDataRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceServiceDataResponse
+   */
   async queryDeviceServiceDataWithOptions(request: QueryDeviceServiceDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceServiceDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57538,6 +61804,16 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceServiceDataResponse>(await this.callApi(params, req, runtime), new QueryDeviceServiceDataResponse({}));
   }
 
+  /**
+    * You can query only the service call records of the previous 30 days.
+    * >  The storage period of a service call record is calculated from the day when the service is called.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceServiceDataRequest
+    * @return QueryDeviceServiceDataResponse
+   */
   async queryDeviceServiceData(request: QueryDeviceServiceDataRequest): Promise<QueryDeviceServiceDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceServiceDataWithOptions(request, runtime);
@@ -57584,6 +61860,15 @@ export default class Client extends OpenApi {
     return await this.queryDeviceSpeechWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceStatisticsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceStatisticsResponse
+   */
   async queryDeviceStatisticsWithOptions(request: QueryDeviceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57616,11 +61901,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceStatisticsResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatisticsResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceStatisticsRequest
+    * @return QueryDeviceStatisticsResponse
+   */
   async queryDeviceStatistics(request: QueryDeviceStatisticsRequest): Promise<QueryDeviceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceStatisticsWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this operation up to 100 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceSubTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDeviceSubTopicResponse
+   */
   async queryDeviceSubTopicWithOptions(request: QueryDeviceSubTopicRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceSubTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57653,6 +61955,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDeviceSubTopicResponse>(await this.callApi(params, req, runtime), new QueryDeviceSubTopicResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this operation up to 100 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryDeviceSubTopicRequest
+    * @return QueryDeviceSubTopicResponse
+   */
   async queryDeviceSubTopic(request: QueryDeviceSubTopicRequest): Promise<QueryDeviceSubTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceSubTopicWithOptions(request, runtime);
@@ -57878,6 +62188,15 @@ export default class Client extends OpenApi {
     return await this.queryDynamicGroupDevicesWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryEdgeDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeDriverResponse
+   */
   async queryEdgeDriverWithOptions(request: QueryEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57918,11 +62237,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeDriverResponse>(await this.callApi(params, req, runtime), new QueryEdgeDriverResponse({}));
   }
 
+  /**
+    * ## Limits
+    * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryEdgeDriverRequest
+    * @return QueryEdgeDriverResponse
+   */
   async queryEdgeDriver(request: QueryEdgeDriverRequest): Promise<QueryEdgeDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeDriverVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeDriverVersionResponse
+   */
   async queryEdgeDriverVersionWithOptions(request: QueryEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57967,11 +62303,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeDriverVersionResponse>(await this.callApi(params, req, runtime), new QueryEdgeDriverVersionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeDriverVersionRequest
+    * @return QueryEdgeDriverVersionResponse
+   */
   async queryEdgeDriverVersion(request: QueryEdgeDriverVersionRequest): Promise<QueryEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+    *
+    * @param request QueryEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeInstanceResponse
+   */
   async queryEdgeInstanceWithOptions(request: QueryEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58008,6 +62359,12 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeInstanceResponse>(await this.callApi(params, req, runtime), new QueryEdgeInstanceResponse({}));
   }
 
+  /**
+    * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
+    *
+    * @param request QueryEdgeInstanceRequest
+    * @return QueryEdgeInstanceResponse
+   */
   async queryEdgeInstance(request: QueryEdgeInstanceRequest): Promise<QueryEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeInstanceWithOptions(request, runtime);
@@ -58062,6 +62419,15 @@ export default class Client extends OpenApi {
     return await this.queryEdgeInstanceChannelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeInstanceDeviceResponse
+   */
   async queryEdgeInstanceDeviceWithOptions(request: QueryEdgeInstanceDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58098,6 +62464,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeInstanceDeviceResponse>(await this.callApi(params, req, runtime), new QueryEdgeInstanceDeviceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceDeviceRequest
+    * @return QueryEdgeInstanceDeviceResponse
+   */
   async queryEdgeInstanceDevice(request: QueryEdgeInstanceDeviceRequest): Promise<QueryEdgeInstanceDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeInstanceDeviceWithOptions(request, runtime);
@@ -58152,6 +62526,15 @@ export default class Client extends OpenApi {
     return await this.queryEdgeInstanceDeviceByDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceDriverRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeInstanceDriverResponse
+   */
   async queryEdgeInstanceDriverWithOptions(request: QueryEdgeInstanceDriverRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceDriverResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58188,11 +62571,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeInstanceDriverResponse>(await this.callApi(params, req, runtime), new QueryEdgeInstanceDriverResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceDriverRequest
+    * @return QueryEdgeInstanceDriverResponse
+   */
   async queryEdgeInstanceDriver(request: QueryEdgeInstanceDriverRequest): Promise<QueryEdgeInstanceDriverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeInstanceDriverWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceGatewayRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeInstanceGatewayResponse
+   */
   async queryEdgeInstanceGatewayWithOptions(request: QueryEdgeInstanceGatewayRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58221,11 +62621,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeInstanceGatewayResponse>(await this.callApi(params, req, runtime), new QueryEdgeInstanceGatewayResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceGatewayRequest
+    * @return QueryEdgeInstanceGatewayResponse
+   */
   async queryEdgeInstanceGateway(request: QueryEdgeInstanceGatewayRequest): Promise<QueryEdgeInstanceGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeInstanceGatewayWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceHistoricDeploymentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryEdgeInstanceHistoricDeploymentResponse
+   */
   async queryEdgeInstanceHistoricDeploymentWithOptions(request: QueryEdgeInstanceHistoricDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceHistoricDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58270,6 +62687,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEdgeInstanceHistoricDeploymentResponse>(await this.callApi(params, req, runtime), new QueryEdgeInstanceHistoricDeploymentResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryEdgeInstanceHistoricDeploymentRequest
+    * @return QueryEdgeInstanceHistoricDeploymentResponse
+   */
   async queryEdgeInstanceHistoricDeployment(request: QueryEdgeInstanceHistoricDeploymentRequest): Promise<QueryEdgeInstanceHistoricDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEdgeInstanceHistoricDeploymentWithOptions(request, runtime);
@@ -58575,6 +63000,15 @@ export default class Client extends OpenApi {
     return await this.queryMessageInfoWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryOTAFirmwareRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryOTAFirmwareResponse
+   */
   async queryOTAFirmwareWithOptions(request: QueryOTAFirmwareRequest, runtime: $Util.RuntimeOptions): Promise<QueryOTAFirmwareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58603,11 +63037,29 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOTAFirmwareResponse>(await this.callApi(params, req, runtime), new QueryOTAFirmwareResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryOTAFirmwareRequest
+    * @return QueryOTAFirmwareResponse
+   */
   async queryOTAFirmware(request: QueryOTAFirmwareRequest): Promise<QueryOTAFirmwareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryOTAFirmwareWithOptions(request, runtime);
   }
 
+  /**
+    * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryOTAJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryOTAJobResponse
+   */
   async queryOTAJobWithOptions(request: QueryOTAJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryOTAJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58636,11 +63088,29 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOTAJobResponse>(await this.callApi(params, req, runtime), new QueryOTAJobResponse({}));
   }
 
+  /**
+    * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryOTAJobRequest
+    * @return QueryOTAJobResponse
+   */
   async queryOTAJob(request: QueryOTAJobRequest): Promise<QueryOTAJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryOTAJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryPageByApplyIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryPageByApplyIdResponse
+   */
   async queryPageByApplyIdWithOptions(request: QueryPageByApplyIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryPageByApplyIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58677,11 +63147,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPageByApplyIdResponse>(await this.callApi(params, req, runtime), new QueryPageByApplyIdResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryPageByApplyIdRequest
+    * @return QueryPageByApplyIdResponse
+   */
   async queryPageByApplyId(request: QueryPageByApplyIdRequest): Promise<QueryPageByApplyIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPageByApplyIdWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryProductResponse
+   */
   async queryProductWithOptions(request: QueryProductRequest, runtime: $Util.RuntimeOptions): Promise<QueryProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58710,6 +63197,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryProductResponse>(await this.callApi(params, req, runtime), new QueryProductResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryProductRequest
+    * @return QueryProductResponse
+   */
   async queryProduct(request: QueryProductRequest): Promise<QueryProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryProductWithOptions(request, runtime);
@@ -58748,6 +63243,17 @@ export default class Client extends OpenApi {
     return await this.queryProductCertInfoWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
+    *     In this case, each Alibaba Cloud account can run up to 2 QPS.
+    *
+    * @param request QueryProductListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryProductListResponse
+   */
   async queryProductListWithOptions(request: QueryProductListRequest, runtime: $Util.RuntimeOptions): Promise<QueryProductListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58788,11 +63294,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryProductListResponse>(await this.callApi(params, req, runtime), new QueryProductListResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
+    * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
+    *     In this case, each Alibaba Cloud account can run up to 2 QPS.
+    *
+    * @param request QueryProductListRequest
+    * @return QueryProductListResponse
+   */
   async queryProductList(request: QueryProductListRequest): Promise<QueryProductListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryProductListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryProductTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryProductTopicResponse
+   */
   async queryProductTopicWithOptions(request: QueryProductTopicRequest, runtime: $Util.RuntimeOptions): Promise<QueryProductTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58821,6 +63346,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryProductTopicResponse>(await this.callApi(params, req, runtime), new QueryProductTopicResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryProductTopicRequest
+    * @return QueryProductTopicResponse
+   */
   async queryProductTopic(request: QueryProductTopicRequest): Promise<QueryProductTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryProductTopicWithOptions(request, runtime);
@@ -59768,6 +64301,15 @@ export default class Client extends OpenApi {
     return await this.queryStudioProjectListWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QuerySubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QuerySubscribeRelationResponse
+   */
   async querySubscribeRelationWithOptions(request: QuerySubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<QuerySubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59800,6 +64342,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySubscribeRelationResponse>(await this.callApi(params, req, runtime), new QuerySubscribeRelationResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QuerySubscribeRelationRequest
+    * @return QuerySubscribeRelationResponse
+   */
   async querySubscribeRelation(request: QuerySubscribeRelationRequest): Promise<QuerySubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySubscribeRelationWithOptions(request, runtime);
@@ -59858,6 +64408,15 @@ export default class Client extends OpenApi {
     return await this.querySummarySceneRuleLogWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QuerySuperDeviceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QuerySuperDeviceGroupResponse
+   */
   async querySuperDeviceGroupWithOptions(request: QuerySuperDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<QuerySuperDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59886,6 +64445,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySuperDeviceGroupResponse>(await this.callApi(params, req, runtime), new QuerySuperDeviceGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QuerySuperDeviceGroupRequest
+    * @return QuerySuperDeviceGroupResponse
+   */
   async querySuperDeviceGroup(request: QuerySuperDeviceGroupRequest): Promise<QuerySuperDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySuperDeviceGroupWithOptions(request, runtime);
@@ -59924,6 +64491,18 @@ export default class Client extends OpenApi {
     return await this.queryTaskWithOptions(request, runtime);
   }
 
+  /**
+    * TSL features include properties, services, and events.
+    * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
+    * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryThingModelResponse
+   */
   async queryThingModelWithOptions(request: QueryThingModelRequest, runtime: $Util.RuntimeOptions): Promise<QueryThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59964,11 +64543,31 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryThingModelResponse>(await this.callApi(params, req, runtime), new QueryThingModelResponse({}));
   }
 
+  /**
+    * TSL features include properties, services, and events.
+    * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
+    * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelRequest
+    * @return QueryThingModelResponse
+   */
   async queryThingModel(request: QueryThingModelRequest): Promise<QueryThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryThingModelWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelExtendConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryThingModelExtendConfigResponse
+   */
   async queryThingModelExtendConfigWithOptions(request: QueryThingModelExtendConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryThingModelExtendConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60009,11 +64608,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryThingModelExtendConfigResponse>(await this.callApi(params, req, runtime), new QueryThingModelExtendConfigResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelExtendConfigRequest
+    * @return QueryThingModelExtendConfigResponse
+   */
   async queryThingModelExtendConfig(request: QueryThingModelExtendConfigRequest): Promise<QueryThingModelExtendConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryThingModelExtendConfigWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelExtendConfigPublishedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryThingModelExtendConfigPublishedResponse
+   */
   async queryThingModelExtendConfigPublishedWithOptions(request: QueryThingModelExtendConfigPublishedRequest, runtime: $Util.RuntimeOptions): Promise<QueryThingModelExtendConfigPublishedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60050,11 +64666,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryThingModelExtendConfigPublishedResponse>(await this.callApi(params, req, runtime), new QueryThingModelExtendConfigPublishedResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelExtendConfigPublishedRequest
+    * @return QueryThingModelExtendConfigPublishedResponse
+   */
   async queryThingModelExtendConfigPublished(request: QueryThingModelExtendConfigPublishedRequest): Promise<QueryThingModelExtendConfigPublishedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryThingModelExtendConfigPublishedWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelPublishedRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryThingModelPublishedResponse
+   */
   async queryThingModelPublishedWithOptions(request: QueryThingModelPublishedRequest, runtime: $Util.RuntimeOptions): Promise<QueryThingModelPublishedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60095,11 +64728,59 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryThingModelPublishedResponse>(await this.callApi(params, req, runtime), new QueryThingModelPublishedResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryThingModelPublishedRequest
+    * @return QueryThingModelPublishedResponse
+   */
   async queryThingModelPublished(request: QueryThingModelPublishedRequest): Promise<QueryThingModelPublishedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryThingModelPublishedWithOptions(request, runtime);
   }
 
+  async queryTopicConfigWithOptions(request: QueryTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryTopicConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTopicConfig",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTopicConfigResponse>(await this.callApi(params, req, runtime), new QueryTopicConfigResponse({}));
+  }
+
+  async queryTopicConfig(request: QueryTopicConfigRequest): Promise<QueryTopicConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTopicConfigWithOptions(request, runtime);
+  }
+
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request QueryTopicReverseRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryTopicReverseRouteTableResponse
+   */
   async queryTopicReverseRouteTableWithOptions(request: QueryTopicReverseRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<QueryTopicReverseRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60132,11 +64813,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTopicReverseRouteTableResponse>(await this.callApi(params, req, runtime), new QueryTopicReverseRouteTableResponse({}));
   }
 
+  /**
+    * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
+    *
+    * @param request QueryTopicReverseRouteTableRequest
+    * @return QueryTopicReverseRouteTableResponse
+   */
   async queryTopicReverseRouteTable(request: QueryTopicReverseRouteTableRequest): Promise<QueryTopicReverseRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTopicReverseRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryTopicRouteTableRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryTopicRouteTableResponse
+   */
   async queryTopicRouteTableWithOptions(request: QueryTopicRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<QueryTopicRouteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60165,11 +64861,30 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTopicRouteTableResponse>(await this.callApi(params, req, runtime), new QueryTopicRouteTableResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request QueryTopicRouteTableRequest
+    * @return QueryTopicRouteTableResponse
+   */
   async queryTopicRouteTable(request: QueryTopicRouteTableRequest): Promise<QueryTopicRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTopicRouteTableWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
+    * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryVehicleDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryVehicleDeviceResponse
+   */
   async queryVehicleDeviceWithOptions(request: QueryVehicleDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryVehicleDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60202,11 +64917,31 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryVehicleDeviceResponse>(await this.callApi(params, req, runtime), new QueryVehicleDeviceResponse({}));
   }
 
+  /**
+    * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
+    * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
+    * ## QPS limits
+    * You can call this API operation up to 50 times per second per account. 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request QueryVehicleDeviceRequest
+    * @return QueryVehicleDeviceResponse
+   */
   async queryVehicleDevice(request: QueryVehicleDeviceRequest): Promise<QueryVehicleDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryVehicleDeviceWithOptions(request, runtime);
   }
 
+  /**
+    * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 1000 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RRpcRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RRpcResponse
+   */
   async rRpcWithOptions(request: RRpcRequest, runtime: $Util.RuntimeOptions): Promise<RRpcResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60255,6 +64990,15 @@ export default class Client extends OpenApi {
     return $tea.cast<RRpcResponse>(await this.callApi(params, req, runtime), new RRpcResponse({}));
   }
 
+  /**
+    * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 1000 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RRpcRequest
+    * @return RRpcResponse
+   */
   async rRpc(request: RRpcRequest): Promise<RRpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rRpcWithOptions(request, runtime);
@@ -60435,6 +65179,18 @@ export default class Client extends OpenApi {
     return await this.refreshStudioAppTokenOpenWithOptions(request, runtime);
   }
 
+  /**
+    * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
+    * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
+    * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RegisterDeviceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RegisterDeviceResponse
+   */
   async registerDeviceWithOptions(request: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60491,6 +65247,17 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterDeviceResponse>(await this.callApi(params, req, runtime), new RegisterDeviceResponse({}));
   }
 
+  /**
+    * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
+    * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
+    * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RegisterDeviceRequest
+    * @return RegisterDeviceResponse
+   */
   async registerDevice(request: RegisterDeviceRequest): Promise<RegisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerDeviceWithOptions(request, runtime);
@@ -60533,6 +65300,15 @@ export default class Client extends OpenApi {
     return await this.releaseEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ReleaseProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReleaseProductResponse
+   */
   async releaseProductWithOptions(request: ReleaseProductRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60561,11 +65337,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseProductResponse>(await this.callApi(params, req, runtime), new ReleaseProductResponse({}));
   }
 
+  /**
+    * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ReleaseProductRequest
+    * @return ReleaseProductResponse
+   */
   async releaseProduct(request: ReleaseProductRequest): Promise<ReleaseProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseProductWithOptions(request, runtime);
   }
 
+  /**
+    * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
+    * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
+    * # QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RemoveThingTopoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RemoveThingTopoResponse
+   */
   async removeThingTopoWithOptions(request: RemoveThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<RemoveThingTopoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60602,6 +65397,16 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveThingTopoResponse>(await this.callApi(params, req, runtime), new RemoveThingTopoResponse({}));
   }
 
+  /**
+    * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
+    * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
+    * # QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request RemoveThingTopoRequest
+    * @return RemoveThingTopoResponse
+   */
   async removeThingTopo(request: RemoveThingTopoRequest): Promise<RemoveThingTopoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeThingTopoWithOptions(request, runtime);
@@ -60681,6 +65486,15 @@ export default class Client extends OpenApi {
     return await this.rerunJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ResetConsumerGroupPositionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetConsumerGroupPositionResponse
+   */
   async resetConsumerGroupPositionWithOptions(request: ResetConsumerGroupPositionRequest, runtime: $Util.RuntimeOptions): Promise<ResetConsumerGroupPositionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60709,11 +65523,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetConsumerGroupPositionResponse>(await this.callApi(params, req, runtime), new ResetConsumerGroupPositionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ResetConsumerGroupPositionRequest
+    * @return ResetConsumerGroupPositionResponse
+   */
   async resetConsumerGroupPosition(request: ResetConsumerGroupPositionRequest): Promise<ResetConsumerGroupPositionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetConsumerGroupPositionWithOptions(request, runtime);
   }
 
+  /**
+    * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
+    * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
+    * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request ResetThingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ResetThingResponse
+   */
   async resetThingWithOptions(request: ResetThingRequest, runtime: $Util.RuntimeOptions): Promise<ResetThingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60750,6 +65584,17 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetThingResponse>(await this.callApi(params, req, runtime), new ResetThingResponse({}));
   }
 
+  /**
+    * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
+    * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
+    * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request ResetThingRequest
+    * @return ResetThingResponse
+   */
   async resetThing(request: ResetThingRequest): Promise<ResetThingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetThingWithOptions(request, runtime);
@@ -60788,6 +65633,16 @@ export default class Client extends OpenApi {
     return await this.retrySoundCodeLabelBatchWithOptions(request, runtime);
   }
 
+  /**
+    * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ReupgradeOTATaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReupgradeOTATaskResponse
+   */
   async reupgradeOTATaskWithOptions(request: ReupgradeOTATaskRequest, runtime: $Util.RuntimeOptions): Promise<ReupgradeOTATaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60820,11 +65675,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ReupgradeOTATaskResponse>(await this.callApi(params, req, runtime), new ReupgradeOTATaskResponse({}));
   }
 
+  /**
+    * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request ReupgradeOTATaskRequest
+    * @return ReupgradeOTATaskResponse
+   */
   async reupgradeOTATask(request: ReupgradeOTATaskRequest): Promise<ReupgradeOTATaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reupgradeOTATaskWithOptions(request, runtime);
   }
 
+  /**
+    * *   A device can have a maximum of 100 tags.
+    * *   You can modify or add a maximum of 100 tags at a time.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SaveDevicePropRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SaveDevicePropResponse
+   */
   async saveDevicePropWithOptions(request: SaveDevicePropRequest, runtime: $Util.RuntimeOptions): Promise<SaveDevicePropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60865,6 +65740,16 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveDevicePropResponse>(await this.callApi(params, req, runtime), new SaveDevicePropResponse({}));
   }
 
+  /**
+    * *   A device can have a maximum of 100 tags.
+    * *   You can modify or add a maximum of 100 tags at a time.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SaveDevicePropRequest
+    * @return SaveDevicePropResponse
+   */
   async saveDeviceProp(request: SaveDevicePropRequest): Promise<SaveDevicePropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveDevicePropWithOptions(request, runtime);
@@ -60907,6 +65792,19 @@ export default class Client extends OpenApi {
     return await this.saveScriptWithOptions(request, runtime);
   }
 
+  /**
+    * *   You cannot query the desired values of read-only properties.
+    * *   You can specify up to 10 desired property values in a call.
+    * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
+    * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDeviceDesiredPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDeviceDesiredPropertyResponse
+   */
   async setDeviceDesiredPropertyWithOptions(request: SetDeviceDesiredPropertyRequest, runtime: $Util.RuntimeOptions): Promise<SetDeviceDesiredPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60951,11 +65849,33 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDeviceDesiredPropertyResponse>(await this.callApi(params, req, runtime), new SetDeviceDesiredPropertyResponse({}));
   }
 
+  /**
+    * *   You cannot query the desired values of read-only properties.
+    * *   You can specify up to 10 desired property values in a call.
+    * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
+    * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDeviceDesiredPropertyRequest
+    * @return SetDeviceDesiredPropertyResponse
+   */
   async setDeviceDesiredProperty(request: SetDeviceDesiredPropertyRequest): Promise<SetDeviceDesiredPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDeviceDesiredPropertyWithOptions(request, runtime);
   }
 
+  /**
+    * A device group can have a maximum of 100 tags.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDeviceGroupTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDeviceGroupTagsResponse
+   */
   async setDeviceGroupTagsWithOptions(request: SetDeviceGroupTagsRequest, runtime: $Util.RuntimeOptions): Promise<SetDeviceGroupTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60992,11 +65912,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDeviceGroupTagsResponse>(await this.callApi(params, req, runtime), new SetDeviceGroupTagsResponse({}));
   }
 
+  /**
+    * A device group can have a maximum of 100 tags.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 50 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDeviceGroupTagsRequest
+    * @return SetDeviceGroupTagsResponse
+   */
   async setDeviceGroupTags(request: SetDeviceGroupTagsRequest): Promise<SetDeviceGroupTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDeviceGroupTagsWithOptions(request, runtime);
   }
 
+  /**
+    * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
+    * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDevicePropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDevicePropertyResponse
+   */
   async setDevicePropertyWithOptions(request: SetDevicePropertyRequest, runtime: $Util.RuntimeOptions): Promise<SetDevicePropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61037,11 +65977,31 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDevicePropertyResponse>(await this.callApi(params, req, runtime), new SetDevicePropertyResponse({}));
   }
 
+  /**
+    * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
+    * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 500 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDevicePropertyRequest
+    * @return SetDevicePropertyResponse
+   */
   async setDeviceProperty(request: SetDevicePropertyRequest): Promise<SetDevicePropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDevicePropertyWithOptions(request, runtime);
   }
 
+  /**
+    * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDevicesPropertyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDevicesPropertyResponse
+   */
   async setDevicesPropertyWithOptions(request: SetDevicesPropertyRequest, runtime: $Util.RuntimeOptions): Promise<SetDevicesPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61078,6 +66038,15 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDevicesPropertyResponse>(await this.callApi(params, req, runtime), new SetDevicesPropertyResponse({}));
   }
 
+  /**
+    * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request SetDevicesPropertyRequest
+    * @return SetDevicesPropertyResponse
+   */
   async setDevicesProperty(request: SetDevicesPropertyRequest): Promise<SetDevicesPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDevicesPropertyWithOptions(request, runtime);
@@ -61443,6 +66412,16 @@ export default class Client extends OpenApi {
     return await this.startParserWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request StartRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartRuleResponse
+   */
   async startRuleWithOptions(request: StartRuleRequest, runtime: $Util.RuntimeOptions): Promise<StartRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61471,6 +66450,15 @@ export default class Client extends OpenApi {
     return $tea.cast<StartRuleResponse>(await this.callApi(params, req, runtime), new StartRuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
+    * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request StartRuleRequest
+    * @return StartRuleResponse
+   */
   async startRule(request: StartRuleRequest): Promise<StartRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRuleWithOptions(request, runtime);
@@ -61509,6 +66497,15 @@ export default class Client extends OpenApi {
     return await this.stopParserWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request StopRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopRuleResponse
+   */
   async stopRuleWithOptions(request: StopRuleRequest, runtime: $Util.RuntimeOptions): Promise<StopRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61537,11 +66534,30 @@ export default class Client extends OpenApi {
     return $tea.cast<StopRuleResponse>(await this.callApi(params, req, runtime), new StopRuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request StopRuleRequest
+    * @return StopRuleResponse
+   */
   async stopRule(request: StopRuleRequest): Promise<StopRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRuleWithOptions(request, runtime);
   }
 
+  /**
+    * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
+    * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request SubscribeTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubscribeTopicResponse
+   */
   async subscribeTopicWithOptions(request: SubscribeTopicRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61578,6 +66594,16 @@ export default class Client extends OpenApi {
     return $tea.cast<SubscribeTopicResponse>(await this.callApi(params, req, runtime), new SubscribeTopicResponse({}));
   }
 
+  /**
+    * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
+    * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run up to 10 queries per second (QPS). 
+    * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
+    *
+    * @param request SubscribeTopicRequest
+    * @return SubscribeTopicResponse
+   */
   async subscribeTopic(request: SubscribeTopicRequest): Promise<SubscribeTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.subscribeTopicWithOptions(request, runtime);
@@ -61711,6 +66737,53 @@ export default class Client extends OpenApi {
     return await this.testSpeechWithOptions(request, runtime);
   }
 
+  async testSwitchWithOptions(request: TestSwitchRequest, runtime: $Util.RuntimeOptions): Promise<TestSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TestSwitch",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestSwitchResponse>(await this.callApi(params, req, runtime), new TestSwitchResponse({}));
+  }
+
+  async testSwitch(request: TestSwitchRequest): Promise<TestSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.testSwitchWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request TransformClientIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return TransformClientIdResponse
+   */
   async transformClientIdWithOptions(request: TransformClientIdRequest, runtime: $Util.RuntimeOptions): Promise<TransformClientIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61743,6 +66816,15 @@ export default class Client extends OpenApi {
     return $tea.cast<TransformClientIdResponse>(await this.callApi(params, req, runtime), new TransformClientIdResponse({}));
   }
 
+  /**
+    * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request TransformClientIdRequest
+    * @return TransformClientIdResponse
+   */
   async transformClientId(request: TransformClientIdRequest): Promise<TransformClientIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformClientIdWithOptions(request, runtime);
@@ -61822,6 +66904,15 @@ export default class Client extends OpenApi {
     return await this.unbindApplicationFromEdgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UnbindDriverFromEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnbindDriverFromEdgeInstanceResponse
+   */
   async unbindDriverFromEdgeInstanceWithOptions(request: UnbindDriverFromEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDriverFromEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61854,6 +66945,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindDriverFromEdgeInstanceResponse>(await this.callApi(params, req, runtime), new UnbindDriverFromEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UnbindDriverFromEdgeInstanceRequest
+    * @return UnbindDriverFromEdgeInstanceResponse
+   */
   async unbindDriverFromEdgeInstance(request: UnbindDriverFromEdgeInstanceRequest): Promise<UnbindDriverFromEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindDriverFromEdgeInstanceWithOptions(request, runtime);
@@ -61966,6 +67065,16 @@ export default class Client extends OpenApi {
     return await this.unbindSceneRuleFromEdgeInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   You cannot modify the default consumer group provided by IoT Platform.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateConsumerGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateConsumerGroupResponse
+   */
   async updateConsumerGroupWithOptions(request: UpdateConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -61998,6 +67107,15 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerGroupResponse>(await this.callApi(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   You cannot modify the default consumer group provided by IoT Platform.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateConsumerGroupRequest
+    * @return UpdateConsumerGroupResponse
+   */
   async updateConsumerGroup(request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConsumerGroupWithOptions(request, runtime);
@@ -62052,6 +67170,15 @@ export default class Client extends OpenApi {
     return await this.updateDestinationWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateDeviceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDeviceGroupResponse
+   */
   async updateDeviceGroupWithOptions(request: UpdateDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62088,11 +67215,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDeviceGroupResponse>(await this.callApi(params, req, runtime), new UpdateDeviceGroupResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateDeviceGroupRequest
+    * @return UpdateDeviceGroupResponse
+   */
   async updateDeviceGroup(request: UpdateDeviceGroupRequest): Promise<UpdateDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDeviceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 500 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateDeviceShadowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDeviceShadowResponse
+   */
   async updateDeviceShadowWithOptions(request: UpdateDeviceShadowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeviceShadowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62133,11 +67277,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDeviceShadowResponse>(await this.callApi(params, req, runtime), new UpdateDeviceShadowResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 500 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateDeviceShadowRequest
+    * @return UpdateDeviceShadowResponse
+   */
   async updateDeviceShadow(request: UpdateDeviceShadowRequest): Promise<UpdateDeviceShadowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDeviceShadowWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
+    * *   You are not allowed to update a published driver version.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateEdgeDriverVersionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateEdgeDriverVersionResponse
+   */
   async updateEdgeDriverVersionWithOptions(request: UpdateEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62198,11 +67361,30 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEdgeDriverVersionResponse>(await this.callApi(params, req, runtime), new UpdateEdgeDriverVersionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
+    * *   You are not allowed to update a published driver version.
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateEdgeDriverVersionRequest
+    * @return UpdateEdgeDriverVersionResponse
+   */
   async updateEdgeDriverVersion(request: UpdateEdgeDriverVersionRequest): Promise<UpdateEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEdgeDriverVersionWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateEdgeInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateEdgeInstanceResponse
+   */
   async updateEdgeInstanceWithOptions(request: UpdateEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62247,6 +67429,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEdgeInstanceResponse>(await this.callApi(params, req, runtime), new UpdateEdgeInstanceResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateEdgeInstanceRequest
+    * @return UpdateEdgeInstanceResponse
+   */
   async updateEdgeInstance(request: UpdateEdgeInstanceRequest): Promise<UpdateEdgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEdgeInstanceWithOptions(request, runtime);
@@ -62421,6 +67611,15 @@ export default class Client extends OpenApi {
     return await this.updateJobWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateOTAModuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateOTAModuleResponse
+   */
   async updateOTAModuleWithOptions(request: UpdateOTAModuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOTAModuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62461,6 +67660,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOTAModuleResponse>(await this.callApi(params, req, runtime), new UpdateOTAModuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateOTAModuleRequest
+    * @return UpdateOTAModuleResponse
+   */
   async updateOTAModule(request: UpdateOTAModuleRequest): Promise<UpdateOTAModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOTAModuleWithOptions(request, runtime);
@@ -62548,6 +67755,15 @@ export default class Client extends OpenApi {
     return await this.updateParserDataSourceWithOptions(request, runtime);
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateProductResponse
+   */
   async updateProductWithOptions(request: UpdateProductRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62584,11 +67800,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProductResponse>(await this.callApi(params, req, runtime), new UpdateProductResponse({}));
   }
 
+  /**
+    * ## QPS limits
+    * You can call this API operation up to 10 times per second per account.
+    * >  The RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductRequest
+    * @return UpdateProductResponse
+   */
   async updateProduct(request: UpdateProductRequest): Promise<UpdateProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProductWithOptions(request, runtime);
   }
 
+  /**
+    * ## Message deduplication rules
+    * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
+    * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductFilterConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateProductFilterConfigResponse
+   */
   async updateProductFilterConfigWithOptions(request: UpdateProductFilterConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProductFilterConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62625,11 +67861,33 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProductFilterConfigResponse>(await this.callApi(params, req, runtime), new UpdateProductFilterConfigResponse({}));
   }
 
+  /**
+    * ## Message deduplication rules
+    * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
+    * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS). 
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductFilterConfigRequest
+    * @return UpdateProductFilterConfigResponse
+   */
   async updateProductFilterConfig(request: UpdateProductFilterConfigRequest): Promise<UpdateProductFilterConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProductFilterConfigWithOptions(request, runtime);
   }
 
+  /**
+    * You can update a maximum of 10 tags in a single call.
+    * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductTagsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateProductTagsResponse
+   */
   async updateProductTagsWithOptions(request: UpdateProductTagsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProductTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62662,16 +67920,43 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProductTagsResponse>(await this.callApi(params, req, runtime), new UpdateProductTagsResponse({}));
   }
 
+  /**
+    * You can update a maximum of 10 tags in a single call.
+    * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
+    * ## QPS limits
+    * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS). 
+    * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductTagsRequest
+    * @return UpdateProductTagsResponse
+   */
   async updateProductTags(request: UpdateProductTagsRequest): Promise<UpdateProductTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProductTagsWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductTopicRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateProductTopicResponse
+   */
   async updateProductTopicWithOptions(request: UpdateProductTopicRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProductTopicResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.codec)) {
+      query["Codec"] = request.codec;
+    }
+
     if (!Util.isUnset(request.desc)) {
       query["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.enableProxySubscribe)) {
+      query["EnableProxySubscribe"] = request.enableProxySubscribe;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -62707,11 +67992,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProductTopicResponse>(await this.callApi(params, req, runtime), new UpdateProductTopicResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateProductTopicRequest
+    * @return UpdateProductTopicResponse
+   */
   async updateProductTopic(request: UpdateProductTopicRequest): Promise<UpdateProductTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProductTopicWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateRuleRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateRuleResponse
+   */
   async updateRuleWithOptions(request: UpdateRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62772,11 +68074,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleResponse>(await this.callApi(params, req, runtime), new UpdateRuleResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateRuleRequest
+    * @return UpdateRuleResponse
+   */
   async updateRule(request: UpdateRuleRequest): Promise<UpdateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateRuleActionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateRuleActionResponse
+   */
   async updateRuleActionWithOptions(request: UpdateRuleActionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62813,6 +68132,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleActionResponse>(await this.callApi(params, req, runtime), new UpdateRuleActionResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateRuleActionRequest
+    * @return UpdateRuleActionResponse
+   */
   async updateRuleAction(request: UpdateRuleActionRequest): Promise<UpdateRuleActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleActionWithOptions(request, runtime);
@@ -63118,6 +68445,15 @@ export default class Client extends OpenApi {
     return await this.updateSpeechWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateSubscribeRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateSubscribeRelationResponse
+   */
   async updateSubscribeRelationWithOptions(request: UpdateSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubscribeRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63202,11 +68538,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSubscribeRelationResponse>(await this.callApi(params, req, runtime), new UpdateSubscribeRelationResponse({}));
   }
 
+  /**
+    * ## Limits
+    * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * >  RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateSubscribeRelationRequest
+    * @return UpdateSubscribeRelationResponse
+   */
   async updateSubscribeRelation(request: UpdateSubscribeRelationRequest): Promise<UpdateSubscribeRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSubscribeRelationWithOptions(request, runtime);
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+    * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateThingModelRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateThingModelResponse
+   */
   async updateThingModelWithOptions(request: UpdateThingModelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateThingModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63251,11 +68607,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateThingModelResponse>(await this.callApi(params, req, runtime), new UpdateThingModelResponse({}));
   }
 
+  /**
+    * ## Limits
+    * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
+    * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
+    * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
+    * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateThingModelRequest
+    * @return UpdateThingModelResponse
+   */
   async updateThingModel(request: UpdateThingModelRequest): Promise<UpdateThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateThingModelWithOptions(request, runtime);
   }
 
+  /**
+    * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateThingScriptRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateThingScriptResponse
+   */
   async updateThingScriptWithOptions(request: UpdateThingScriptRequest, runtime: $Util.RuntimeOptions): Promise<UpdateThingScriptResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63292,6 +68668,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateThingScriptResponse>(await this.callApi(params, req, runtime), new UpdateThingScriptResponse({}));
   }
 
+  /**
+    * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
+    * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
+    * > RAM users of an Alibaba Cloud account share the quota of the account.
+    *
+    * @param request UpdateThingScriptRequest
+    * @return UpdateThingScriptResponse
+   */
   async updateThingScript(request: UpdateThingScriptRequest): Promise<UpdateThingScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateThingScriptWithOptions(request, runtime);
@@ -63300,12 +68684,28 @@ export default class Client extends OpenApi {
   async updateTopicConfigWithOptions(request: UpdateTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTopicConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.codec)) {
+      query["Codec"] = request.codec;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.enableBroadcast)) {
       query["EnableBroadcast"] = request.enableBroadcast;
     }
 
+    if (!Util.isUnset(request.enableProxySubscribe)) {
+      query["EnableProxySubscribe"] = request.enableProxySubscribe;
+    }
+
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
     }
 
     if (!Util.isUnset(request.productKey)) {
