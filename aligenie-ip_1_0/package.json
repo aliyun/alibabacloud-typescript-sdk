@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aligenieip_1_0",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

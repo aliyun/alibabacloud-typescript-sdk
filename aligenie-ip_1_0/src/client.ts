@@ -7142,7 +7142,7 @@ export class QueryDeviceStatusResponse extends $tea.Model {
   }
 }
 
-export class QueryHotelProductHeaders extends $tea.Model {
+export class QueryHotelRoomDetailHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
   authorization?: string;
@@ -7167,17 +7167,26 @@ export class QueryHotelProductHeaders extends $tea.Model {
   }
 }
 
-export class QueryHotelProductRequest extends $tea.Model {
-  userInfo?: QueryHotelProductRequestUserInfo;
+export class QueryHotelRoomDetailRequest extends $tea.Model {
+  hotelId?: string;
+  mac?: string;
+  roomNo?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
-      userInfo: 'UserInfo',
+      hotelId: 'HotelId',
+      mac: 'Mac',
+      roomNo: 'RoomNo',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userInfo: QueryHotelProductRequestUserInfo,
+      hotelId: 'string',
+      mac: 'string',
+      roomNo: 'string',
+      uuid: 'string',
     };
   }
 
@@ -7186,45 +7195,26 @@ export class QueryHotelProductRequest extends $tea.Model {
   }
 }
 
-export class QueryHotelProductShrinkRequest extends $tea.Model {
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryHotelProductResponseBody extends $tea.Model {
-  code?: number;
+export class QueryHotelRoomDetailResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
-  result?: QueryHotelProductResponseBodyResult;
+  result?: QueryHotelRoomDetailResponseBodyResult;
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       result: 'Result',
+      statusCode: 'StatusCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
       message: 'string',
       requestId: 'string',
-      result: QueryHotelProductResponseBodyResult,
+      result: QueryHotelRoomDetailResponseBodyResult,
+      statusCode: 'number',
     };
   }
 
@@ -7233,10 +7223,10 @@ export class QueryHotelProductResponseBody extends $tea.Model {
   }
 }
 
-export class QueryHotelProductResponse extends $tea.Model {
+export class QueryHotelRoomDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: QueryHotelProductResponseBody;
+  body: QueryHotelRoomDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7249,7 +7239,7 @@ export class QueryHotelProductResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: QueryHotelProductResponseBody,
+      body: QueryHotelRoomDetailResponseBody,
     };
   }
 
@@ -12109,29 +12099,20 @@ export class QueryDeviceStatusRequestUserInfo extends $tea.Model {
   }
 }
 
-export class QueryHotelProductRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
+export class QueryHotelRoomDetailResponseBodyResultAuthAccounts extends $tea.Model {
+  accountName?: string;
+  authTime?: string;
   static names(): { [key: string]: string } {
     return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
+      accountName: 'AccountName',
+      authTime: 'AuthTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
+      accountName: 'string',
+      authTime: 'string',
     };
   }
 
@@ -12140,26 +12121,214 @@ export class QueryHotelProductRequestUserInfo extends $tea.Model {
   }
 }
 
-export class QueryHotelProductResponseBodyResult extends $tea.Model {
-  hotelId?: string;
-  hotelName?: string;
-  productKey?: string;
-  productName?: string;
+export class QueryHotelRoomDetailResponseBodyResultDeviceInfos extends $tea.Model {
+  activeTime?: string;
+  deviceName?: string;
+  firmwareVersion?: string;
+  mac?: string;
+  onlineStatus?: number;
+  sn?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
-      hotelId: 'HotelId',
-      hotelName: 'HotelName',
-      productKey: 'ProductKey',
-      productName: 'ProductName',
+      activeTime: 'ActiveTime',
+      deviceName: 'DeviceName',
+      firmwareVersion: 'FirmwareVersion',
+      mac: 'Mac',
+      onlineStatus: 'OnlineStatus',
+      sn: 'Sn',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activeTime: 'string',
+      deviceName: 'string',
+      firmwareVersion: 'string',
+      mac: 'string',
+      onlineStatus: 'number',
+      sn: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelRoomDetailResponseBodyResultOtherService extends $tea.Model {
+  openCall?: boolean;
+  unhandleTickets?: number;
+  static names(): { [key: string]: string } {
+    return {
+      openCall: 'OpenCall',
+      unhandleTickets: 'UnhandleTickets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openCall: 'boolean',
+      unhandleTickets: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelRoomDetailResponseBodyResultRoomControlInfoDeviceInfos extends $tea.Model {
+  categoryEnName?: string;
+  categoryId?: number;
+  categoryName?: string;
+  deviceConnectType?: string;
+  deviceCount?: number;
+  deviceId?: string;
+  deviceName?: string;
+  locationEnName?: string;
+  locationId?: number;
+  locationName?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryEnName: 'CategoryEnName',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      deviceConnectType: 'DeviceConnectType',
+      deviceCount: 'DeviceCount',
+      deviceId: 'DeviceId',
+      deviceName: 'DeviceName',
+      locationEnName: 'LocationEnName',
+      locationId: 'LocationId',
+      locationName: 'LocationName',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryEnName: 'string',
+      categoryId: 'number',
+      categoryName: 'string',
+      deviceConnectType: 'string',
+      deviceCount: 'number',
+      deviceId: 'string',
+      deviceName: 'string',
+      locationEnName: 'string',
+      locationId: 'number',
+      locationName: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelRoomDetailResponseBodyResultRoomControlInfo extends $tea.Model {
+  appId?: number;
+  appName?: string;
+  deviceInfos?: QueryHotelRoomDetailResponseBodyResultRoomControlInfoDeviceInfos[];
+  rcuUrl?: string;
+  templateId?: number;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      deviceInfos: 'DeviceInfos',
+      rcuUrl: 'RcuUrl',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      appName: 'string',
+      deviceInfos: { 'type': 'array', 'itemType': QueryHotelRoomDetailResponseBodyResultRoomControlInfoDeviceInfos },
+      rcuUrl: 'string',
+      templateId: 'number',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelRoomDetailResponseBodyResultRoomServiceInfo extends $tea.Model {
+  bookServiceCnt?: number;
+  goodsServiceCnt?: number;
+  repairServiceCnt?: number;
+  roomServiceCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bookServiceCnt: 'BookServiceCnt',
+      goodsServiceCnt: 'GoodsServiceCnt',
+      repairServiceCnt: 'RepairServiceCnt',
+      roomServiceCnt: 'RoomServiceCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookServiceCnt: 'number',
+      goodsServiceCnt: 'number',
+      repairServiceCnt: 'number',
+      roomServiceCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotelRoomDetailResponseBodyResult extends $tea.Model {
+  authAccounts?: QueryHotelRoomDetailResponseBodyResultAuthAccounts[];
+  connectType?: string;
+  creatorAccountName?: string;
+  deviceInfos?: QueryHotelRoomDetailResponseBodyResultDeviceInfos[];
+  hotelId?: string;
+  hotelName?: string;
+  otherService?: QueryHotelRoomDetailResponseBodyResultOtherService;
+  roomControlInfo?: QueryHotelRoomDetailResponseBodyResultRoomControlInfo;
+  roomNo?: string;
+  roomServiceInfo?: QueryHotelRoomDetailResponseBodyResultRoomServiceInfo;
+  static names(): { [key: string]: string } {
+    return {
+      authAccounts: 'AuthAccounts',
+      connectType: 'ConnectType',
+      creatorAccountName: 'CreatorAccountName',
+      deviceInfos: 'DeviceInfos',
+      hotelId: 'HotelId',
+      hotelName: 'HotelName',
+      otherService: 'OtherService',
+      roomControlInfo: 'RoomControlInfo',
+      roomNo: 'RoomNo',
+      roomServiceInfo: 'RoomServiceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAccounts: { 'type': 'array', 'itemType': QueryHotelRoomDetailResponseBodyResultAuthAccounts },
+      connectType: 'string',
+      creatorAccountName: 'string',
+      deviceInfos: { 'type': 'array', 'itemType': QueryHotelRoomDetailResponseBodyResultDeviceInfos },
       hotelId: 'string',
       hotelName: 'string',
-      productKey: 'string',
-      productName: 'string',
+      otherService: QueryHotelRoomDetailResponseBodyResultOtherService,
+      roomControlInfo: QueryHotelRoomDetailResponseBodyResultRoomControlInfo,
+      roomNo: 'string',
+      roomServiceInfo: QueryHotelRoomDetailResponseBodyResultRoomServiceInfo,
     };
   }
 
@@ -15911,17 +16080,23 @@ export default class Client extends OpenApi {
     return await this.queryDeviceStatusWithOptions(request, headers, runtime);
   }
 
-  async queryHotelProductWithOptions(tmpReq: QueryHotelProductRequest, headers: QueryHotelProductHeaders, runtime: $Util.RuntimeOptions): Promise<QueryHotelProductResponse> {
-    Util.validateModel(tmpReq);
-    let request = new QueryHotelProductShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.userInfo)) {
-      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+  async queryHotelRoomDetailWithOptions(request: QueryHotelRoomDetailRequest, headers: QueryHotelRoomDetailHeaders, runtime: $Util.RuntimeOptions): Promise<QueryHotelRoomDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hotelId)) {
+      body["HotelId"] = request.hotelId;
     }
 
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userInfoShrink)) {
-      query["UserInfo"] = request.userInfoShrink;
+    if (!Util.isUnset(request.mac)) {
+      body["Mac"] = request.mac;
+    }
+
+    if (!Util.isUnset(request.roomNo)) {
+      body["RoomNo"] = request.roomNo;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      body["Uuid"] = request.uuid;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -15939,26 +16114,26 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "QueryHotelProduct",
+      action: "QueryHotelRoomDetail",
       version: "ip_1.0",
       protocol: "HTTPS",
-      pathname: `/v1.0/ip/queryHotelProduct`,
+      pathname: `/v1.0/ip/queryHotelRoomDetail`,
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryHotelProductResponse>(await this.callApi(params, req, runtime), new QueryHotelProductResponse({}));
+    return $tea.cast<QueryHotelRoomDetailResponse>(await this.callApi(params, req, runtime), new QueryHotelRoomDetailResponse({}));
   }
 
-  async queryHotelProduct(request: QueryHotelProductRequest): Promise<QueryHotelProductResponse> {
+  async queryHotelRoomDetail(request: QueryHotelRoomDetailRequest): Promise<QueryHotelRoomDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new QueryHotelProductHeaders({ });
-    return await this.queryHotelProductWithOptions(request, headers, runtime);
+    let headers = new QueryHotelRoomDetailHeaders({ });
+    return await this.queryHotelRoomDetailWithOptions(request, headers, runtime);
   }
 
   async queryRoomControlDevicesWithOptions(request: QueryRoomControlDevicesRequest, headers: QueryRoomControlDevicesHeaders, runtime: $Util.RuntimeOptions): Promise<QueryRoomControlDevicesResponse> {
