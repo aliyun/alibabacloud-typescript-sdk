@@ -686,6 +686,75 @@ export class AddWorkspaceUsersResponse extends $tea.Model {
   }
 }
 
+export class AllotDatasetAccelerationTaskRequest extends $tea.Model {
+  cubeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllotDatasetAccelerationTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllotDatasetAccelerationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AllotDatasetAccelerationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllotDatasetAccelerationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeMenuRequest extends $tea.Model {
   authPointsValue?: number;
   dataPortalId?: string;
@@ -2168,6 +2237,84 @@ export class GetUserGroupInfoResponse extends $tea.Model {
   }
 }
 
+export class ListApiDatasourceRequest extends $tea.Model {
+  keyWord?: string;
+  pageNum?: number;
+  pageSize?: number;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWord: 'KeyWord',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWord: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiDatasourceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListApiDatasourceResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListApiDatasourceResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiDatasourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListApiDatasourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApiDatasourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListByUserGroupIdRequest extends $tea.Model {
   userGroupIds?: string;
   static names(): { [key: string]: string } {
@@ -2892,6 +3039,81 @@ export class ListUserGroupsByUserIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserGroupsByUserIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiDatasourceParametersRequest extends $tea.Model {
+  apiId?: string;
+  parameters?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      parameters: 'Parameters',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      parameters: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiDatasourceParametersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiDatasourceParametersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyApiDatasourceParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApiDatasourceParametersResponseBody,
     };
   }
 
@@ -5943,6 +6165,80 @@ export class GetUserGroupInfoResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListApiDatasourceResponseBodyResultData extends $tea.Model {
+  apiId?: string;
+  body?: string;
+  dataSize?: number;
+  dateUpdateTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  jobId?: string;
+  parameters?: string;
+  showName?: string;
+  statusType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      body: 'Body',
+      dataSize: 'DataSize',
+      dateUpdateTime: 'DateUpdateTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      jobId: 'JobId',
+      parameters: 'Parameters',
+      showName: 'ShowName',
+      statusType: 'StatusType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      body: 'string',
+      dataSize: 'number',
+      dateUpdateTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      jobId: 'string',
+      parameters: 'string',
+      showName: 'string',
+      statusType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiDatasourceResponseBodyResult extends $tea.Model {
+  data?: ListApiDatasourceResponseBodyResultData[];
+  pageNum?: number;
+  pageSize?: number;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListApiDatasourceResponseBodyResultData },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $tea.Model {
   createTime?: string;
   createUser?: string;
@@ -6287,6 +6583,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $tea.Model {
 }
 
 export class ListRecentViewReportsResponseBodyResult extends $tea.Model {
+  attention?: string;
   data?: ListRecentViewReportsResponseBodyResultData[];
   pageNum?: number;
   pageSize?: number;
@@ -6294,6 +6591,7 @@ export class ListRecentViewReportsResponseBodyResult extends $tea.Model {
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      attention: 'Attention',
       data: 'Data',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -6304,6 +6602,7 @@ export class ListRecentViewReportsResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attention: 'string',
       data: { 'type': 'array', 'itemType': ListRecentViewReportsResponseBodyResultData },
       pageNum: 'number',
       pageSize: 'number',
@@ -8128,6 +8427,15 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * Indicates whether the request is successful. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request AddDataLevelPermissionRuleUsersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddDataLevelPermissionRuleUsersResponse
+   */
   async addDataLevelPermissionRuleUsersWithOptions(request: AddDataLevelPermissionRuleUsersRequest, runtime: $Util.RuntimeOptions): Promise<AddDataLevelPermissionRuleUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8152,11 +8460,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDataLevelPermissionRuleUsersResponse>(await this.callApi(params, req, runtime), new AddDataLevelPermissionRuleUsersResponse({}));
   }
 
+  /**
+    * Indicates whether the request is successful. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request AddDataLevelPermissionRuleUsersRequest
+    * @return AddDataLevelPermissionRuleUsersResponse
+   */
   async addDataLevelPermissionRuleUsers(request: AddDataLevelPermissionRuleUsersRequest): Promise<AddDataLevelPermissionRuleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDataLevelPermissionRuleUsersWithOptions(request, runtime);
   }
 
+  /**
+    * ROW_LEVEL
+    *
+    * @param request AddDataLevelPermissionWhiteListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddDataLevelPermissionWhiteListResponse
+   */
   async addDataLevelPermissionWhiteListWithOptions(request: AddDataLevelPermissionWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddDataLevelPermissionWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8197,6 +8520,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDataLevelPermissionWhiteListResponse>(await this.callApi(params, req, runtime), new AddDataLevelPermissionWhiteListResponse({}));
   }
 
+  /**
+    * ROW_LEVEL
+    *
+    * @param request AddDataLevelPermissionWhiteListRequest
+    * @return AddDataLevelPermissionWhiteListResponse
+   */
   async addDataLevelPermissionWhiteList(request: AddDataLevelPermissionWhiteListRequest): Promise<AddDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDataLevelPermissionWhiteListWithOptions(request, runtime);
@@ -8463,6 +8792,35 @@ export default class Client extends OpenApi {
   async addWorkspaceUsers(request: AddWorkspaceUsersRequest): Promise<AddWorkspaceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addWorkspaceUsersWithOptions(request, runtime);
+  }
+
+  async allotDatasetAccelerationTaskWithOptions(request: AllotDatasetAccelerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<AllotDatasetAccelerationTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AllotDatasetAccelerationTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AllotDatasetAccelerationTaskResponse>(await this.callApi(params, req, runtime), new AllotDatasetAccelerationTaskResponse({}));
+  }
+
+  async allotDatasetAccelerationTask(request: AllotDatasetAccelerationTaskRequest): Promise<AllotDatasetAccelerationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.allotDatasetAccelerationTaskWithOptions(request, runtime);
   }
 
   async authorizeMenuWithOptions(request: AuthorizeMenuRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeMenuResponse> {
@@ -8871,6 +9229,13 @@ export default class Client extends OpenApi {
     return await this.delayTicketExpireTimeWithOptions(request, runtime);
   }
 
+  /**
+    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+    *
+    * @param request DeleteDataLevelPermissionRuleUsersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDataLevelPermissionRuleUsersResponse
+   */
   async deleteDataLevelPermissionRuleUsersWithOptions(request: DeleteDataLevelPermissionRuleUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLevelPermissionRuleUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8895,11 +9260,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataLevelPermissionRuleUsersResponse>(await this.callApi(params, req, runtime), new DeleteDataLevelPermissionRuleUsersResponse({}));
   }
 
+  /**
+    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+    *
+    * @param request DeleteDataLevelPermissionRuleUsersRequest
+    * @return DeleteDataLevelPermissionRuleUsersResponse
+   */
   async deleteDataLevelPermissionRuleUsers(request: DeleteDataLevelPermissionRuleUsersRequest): Promise<DeleteDataLevelPermissionRuleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataLevelPermissionRuleUsersWithOptions(request, runtime);
   }
 
+  /**
+    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+    *
+    * @param request DeleteDataLevelRuleConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDataLevelRuleConfigResponse
+   */
   async deleteDataLevelRuleConfigWithOptions(request: DeleteDataLevelRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLevelRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8928,6 +9306,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataLevelRuleConfigResponse>(await this.callApi(params, req, runtime), new DeleteDataLevelRuleConfigResponse({}));
   }
 
+  /**
+    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+    *
+    * @param request DeleteDataLevelRuleConfigRequest
+    * @return DeleteDataLevelRuleConfigResponse
+   */
   async deleteDataLevelRuleConfig(request: DeleteDataLevelRuleConfigRequest): Promise<DeleteDataLevelRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataLevelRuleConfigWithOptions(request, runtime);
@@ -9181,6 +9565,47 @@ export default class Client extends OpenApi {
     return await this.getUserGroupInfoWithOptions(request, runtime);
   }
 
+  async listApiDatasourceWithOptions(request: ListApiDatasourceRequest, runtime: $Util.RuntimeOptions): Promise<ListApiDatasourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApiDatasource",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApiDatasourceResponse>(await this.callApi(params, req, runtime), new ListApiDatasourceResponse({}));
+  }
+
+  async listApiDatasource(request: ListApiDatasourceRequest): Promise<ListApiDatasourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApiDatasourceWithOptions(request, runtime);
+  }
+
   async listByUserGroupIdWithOptions(request: ListByUserGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListByUserGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9239,6 +9664,13 @@ export default class Client extends OpenApi {
     return await this.listCollectionsWithOptions(request, runtime);
   }
 
+  /**
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+    *
+    * @param request ListCubeDataLevelPermissionConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCubeDataLevelPermissionConfigResponse
+   */
   async listCubeDataLevelPermissionConfigWithOptions(request: ListCubeDataLevelPermissionConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListCubeDataLevelPermissionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9267,6 +9699,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCubeDataLevelPermissionConfigResponse>(await this.callApi(params, req, runtime), new ListCubeDataLevelPermissionConfigResponse({}));
   }
 
+  /**
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+    *
+    * @param request ListCubeDataLevelPermissionConfigRequest
+    * @return ListCubeDataLevelPermissionConfigResponse
+   */
   async listCubeDataLevelPermissionConfig(request: ListCubeDataLevelPermissionConfigRequest): Promise<ListCubeDataLevelPermissionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCubeDataLevelPermissionConfigWithOptions(request, runtime);
@@ -9527,6 +9965,50 @@ export default class Client extends OpenApi {
     return await this.listUserGroupsByUserIdWithOptions(request, runtime);
   }
 
+  async modifyApiDatasourceParametersWithOptions(request: ModifyApiDatasourceParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiDatasourceParametersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApiDatasourceParameters",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApiDatasourceParametersResponse>(await this.callApi(params, req, runtime), new ModifyApiDatasourceParametersResponse({}));
+  }
+
+  async modifyApiDatasourceParameters(request: ModifyApiDatasourceParametersRequest): Promise<ModifyApiDatasourceParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApiDatasourceParametersWithOptions(request, runtime);
+  }
+
+  /**
+    * f4cc43bc3***
+    *
+    * @param request QueryDataServiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDataServiceResponse
+   */
   async queryDataServiceWithOptions(request: QueryDataServiceRequest, runtime: $Util.RuntimeOptions): Promise<QueryDataServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9559,11 +10041,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDataServiceResponse>(await this.callApi(params, req, runtime), new QueryDataServiceResponse({}));
   }
 
+  /**
+    * f4cc43bc3***
+    *
+    * @param request QueryDataServiceRequest
+    * @return QueryDataServiceResponse
+   */
   async queryDataService(request: QueryDataServiceRequest): Promise<QueryDataServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDataServiceWithOptions(request, runtime);
   }
 
+  /**
+    * The execution result of the interface is returned. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request fails.
+    *
+    * @param request QueryDatasetDetailInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryDatasetDetailInfoResponse
+   */
   async queryDatasetDetailInfoWithOptions(request: QueryDatasetDetailInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetDetailInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9588,6 +10085,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDatasetDetailInfoResponse>(await this.callApi(params, req, runtime), new QueryDatasetDetailInfoResponse({}));
   }
 
+  /**
+    * The execution result of the interface is returned. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request fails.
+    *
+    * @param request QueryDatasetDetailInfoRequest
+    * @return QueryDatasetDetailInfoResponse
+   */
   async queryDatasetDetailInfo(request: QueryDatasetDetailInfoRequest): Promise<QueryDatasetDetailInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDatasetDetailInfoWithOptions(request, runtime);
@@ -10431,6 +10936,15 @@ export default class Client extends OpenApi {
     return await this.setDataLevelPermissionExtraConfigWithOptions(request, runtime);
   }
 
+  /**
+    * Indicates whether the request is successful. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request SetDataLevelPermissionRuleConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDataLevelPermissionRuleConfigResponse
+   */
   async setDataLevelPermissionRuleConfigWithOptions(request: SetDataLevelPermissionRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10455,11 +10969,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataLevelPermissionRuleConfigResponse>(await this.callApi(params, req, runtime), new SetDataLevelPermissionRuleConfigResponse({}));
   }
 
+  /**
+    * Indicates whether the request is successful. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request SetDataLevelPermissionRuleConfigRequest
+    * @return SetDataLevelPermissionRuleConfigResponse
+   */
   async setDataLevelPermissionRuleConfig(request: SetDataLevelPermissionRuleConfigRequest): Promise<SetDataLevelPermissionRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionRuleConfigWithOptions(request, runtime);
   }
 
+  /**
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+    *
+    * @param request SetDataLevelPermissionWhiteListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetDataLevelPermissionWhiteListResponse
+   */
   async setDataLevelPermissionWhiteListWithOptions(request: SetDataLevelPermissionWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10484,11 +11013,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataLevelPermissionWhiteListResponse>(await this.callApi(params, req, runtime), new SetDataLevelPermissionWhiteListResponse({}));
   }
 
+  /**
+    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+    *
+    * @param request SetDataLevelPermissionWhiteListRequest
+    * @return SetDataLevelPermissionWhiteListResponse
+   */
   async setDataLevelPermissionWhiteList(request: SetDataLevelPermissionWhiteListRequest): Promise<SetDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionWhiteListWithOptions(request, runtime);
   }
 
+  /**
+    * The execution result of the interface. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request UpdateDataLevelPermissionStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateDataLevelPermissionStatusResponse
+   */
   async updateDataLevelPermissionStatusWithOptions(request: UpdateDataLevelPermissionStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataLevelPermissionStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10521,6 +11065,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDataLevelPermissionStatusResponse>(await this.callApi(params, req, runtime), new UpdateDataLevelPermissionStatusResponse({}));
   }
 
+  /**
+    * The execution result of the interface. Valid values:
+    * *   true: The request was successful.
+    * *   false: The request failed.
+    *
+    * @param request UpdateDataLevelPermissionStatusRequest
+    * @return UpdateDataLevelPermissionStatusResponse
+   */
   async updateDataLevelPermissionStatus(request: UpdateDataLevelPermissionStatusRequest): Promise<UpdateDataLevelPermissionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDataLevelPermissionStatusWithOptions(request, runtime);
