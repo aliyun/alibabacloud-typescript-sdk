@@ -6937,6 +6937,96 @@ export class UpdateAppMetaResponse extends $tea.Model {
   }
 }
 
+export class UpdateAppParamRequest extends $tea.Model {
+  appInstallParam?: string;
+  appInstallPath?: string;
+  appStreamStartParam?: string;
+  appUid?: string;
+  versionAdaptParam?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstallParam: 'AppInstallParam',
+      appInstallPath: 'AppInstallPath',
+      appStreamStartParam: 'AppStreamStartParam',
+      appUid: 'AppUid',
+      versionAdaptParam: 'VersionAdaptParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstallParam: 'string',
+      appInstallPath: 'string',
+      appStreamStartParam: 'string',
+      appUid: 'string',
+      versionAdaptParam: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppParamResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateAppParamResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateAppParamResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppParamResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAppParamResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAppParamResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAppVersionRequest extends $tea.Model {
   appId?: number;
   appVersion?: string;
@@ -10673,6 +10763,25 @@ export class SubscribeAppResponseBodyData extends $tea.Model {
 }
 
 export class UpdateAppMetaResponseBodyData extends $tea.Model {
+  isSuccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isSuccess: 'IsSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppParamResponseBodyData extends $tea.Model {
   isSuccess?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14451,6 +14560,51 @@ export default class Client extends OpenApi {
   async updateAppMeta(request: UpdateAppMetaRequest): Promise<UpdateAppMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppMetaWithOptions(request, runtime);
+  }
+
+  async updateAppParamWithOptions(request: UpdateAppParamRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppParamResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appInstallParam)) {
+      body["AppInstallParam"] = request.appInstallParam;
+    }
+
+    if (!Util.isUnset(request.appInstallPath)) {
+      body["AppInstallPath"] = request.appInstallPath;
+    }
+
+    if (!Util.isUnset(request.appStreamStartParam)) {
+      body["AppStreamStartParam"] = request.appStreamStartParam;
+    }
+
+    if (!Util.isUnset(request.appUid)) {
+      body["AppUid"] = request.appUid;
+    }
+
+    if (!Util.isUnset(request.versionAdaptParam)) {
+      body["VersionAdaptParam"] = request.versionAdaptParam;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAppParam",
+      version: "2021-06-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppParamResponse>(await this.callApi(params, req, runtime), new UpdateAppParamResponse({}));
+  }
+
+  async updateAppParam(request: UpdateAppParamRequest): Promise<UpdateAppParamResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAppParamWithOptions(request, runtime);
   }
 
   async updateAppVersionWithOptions(request: UpdateAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppVersionResponse> {
