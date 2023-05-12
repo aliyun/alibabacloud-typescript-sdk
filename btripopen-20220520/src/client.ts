@@ -6346,6 +6346,109 @@ export class FlightSearchListResponse extends $tea.Model {
   }
 }
 
+export class GroupCorpTokenHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripAccessToken: 'x-acs-btrip-access-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupCorpTokenRequest extends $tea.Model {
+  appSecret?: string;
+  corpId?: string;
+  subCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appSecret: 'app_secret',
+      corpId: 'corp_id',
+      subCorpId: 'sub_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecret: 'string',
+      corpId: 'string',
+      subCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupCorpTokenResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: GroupCorpTokenResponseBodyModule;
+  requestId?: string;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: GroupCorpTokenResponseBodyModule,
+      requestId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GroupCorpTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GroupCorpTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GroupCorpTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GroupDepartSaveHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -23285,6 +23388,31 @@ export class FlightSearchListResponseBodyModule extends $tea.Model {
   }
 }
 
+export class GroupCorpTokenResponseBodyModule extends $tea.Model {
+  expire?: number;
+  start?: number;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expire: 'expire',
+      start: 'start',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expire: 'number',
+      start: 'number',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GroupUserSaveRequestSubCorpIdList extends $tea.Model {
   departIds?: string[];
   leaveStatus?: number;
@@ -33758,6 +33886,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightSearchListHeaders({ });
     return await this.flightSearchListWithOptions(request, headers, runtime);
+  }
+
+  async groupCorpTokenWithOptions(request: GroupCorpTokenRequest, headers: GroupCorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<GroupCorpTokenResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appSecret)) {
+      query["app_secret"] = request.appSecret;
+    }
+
+    if (!Util.isUnset(request.corpId)) {
+      query["corp_id"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.subCorpId)) {
+      query["sub_corp_id"] = request.subCorpId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripAccessToken)) {
+      realHeaders["x-acs-btrip-access-token"] = Util.toJSONString(headers.xAcsBtripAccessToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GroupCorpToken",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/btrip-open-auth/v1/group-corp-token/action/take`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GroupCorpTokenResponse>(await this.callApi(params, req, runtime), new GroupCorpTokenResponse({}));
+  }
+
+  async groupCorpToken(request: GroupCorpTokenRequest): Promise<GroupCorpTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GroupCorpTokenHeaders({ });
+    return await this.groupCorpTokenWithOptions(request, headers, runtime);
   }
 
   async groupDepartSaveWithOptions(tmpReq: GroupDepartSaveRequest, headers: GroupDepartSaveHeaders, runtime: $Util.RuntimeOptions): Promise<GroupDepartSaveResponse> {
