@@ -1961,12 +1961,14 @@ export class CreateCycleTaskResponse extends $tea.Model {
 }
 
 export class CreateFileDetectRequest extends $tea.Model {
+  downloadUrl?: string;
   hashKey?: string;
   ossKey?: string;
   sourceIp?: string;
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      downloadUrl: 'DownloadUrl',
       hashKey: 'HashKey',
       ossKey: 'OssKey',
       sourceIp: 'SourceIp',
@@ -1976,6 +1978,7 @@ export class CreateFileDetectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      downloadUrl: 'string',
       hashKey: 'string',
       ossKey: 'string',
       sourceIp: 'string',
@@ -2880,6 +2883,87 @@ export class CreateOrUpdateAssetGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateOrUpdateAssetGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateDingTalkRequest extends $tea.Model {
+  configList?: string;
+  dingTalkLang?: string;
+  groupIdList?: string;
+  id?: number;
+  intervalTime?: number;
+  ruleActionName?: string;
+  sendUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configList: 'ConfigList',
+      dingTalkLang: 'DingTalkLang',
+      groupIdList: 'GroupIdList',
+      id: 'Id',
+      intervalTime: 'IntervalTime',
+      ruleActionName: 'RuleActionName',
+      sendUrl: 'SendUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configList: 'string',
+      dingTalkLang: 'string',
+      groupIdList: 'string',
+      id: 'number',
+      intervalTime: 'number',
+      ruleActionName: 'string',
+      sendUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateDingTalkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateDingTalkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOrUpdateDingTalkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrUpdateDingTalkResponseBody,
     };
   }
 
@@ -55515,6 +55599,10 @@ export default class Client extends OpenApi {
   async createFileDetectWithOptions(request: CreateFileDetectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.downloadUrl)) {
+      query["DownloadUrl"] = request.downloadUrl;
+    }
+
     if (!Util.isUnset(request.hashKey)) {
       query["HashKey"] = request.hashKey;
     }
@@ -56080,6 +56168,59 @@ export default class Client extends OpenApi {
   async createOrUpdateAssetGroup(request: CreateOrUpdateAssetGroupRequest): Promise<CreateOrUpdateAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateAssetGroupWithOptions(request, runtime);
+  }
+
+  async createOrUpdateDingTalkWithOptions(request: CreateOrUpdateDingTalkRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateDingTalkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configList)) {
+      query["ConfigList"] = request.configList;
+    }
+
+    if (!Util.isUnset(request.dingTalkLang)) {
+      query["DingTalkLang"] = request.dingTalkLang;
+    }
+
+    if (!Util.isUnset(request.groupIdList)) {
+      query["GroupIdList"] = request.groupIdList;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.intervalTime)) {
+      query["IntervalTime"] = request.intervalTime;
+    }
+
+    if (!Util.isUnset(request.ruleActionName)) {
+      query["RuleActionName"] = request.ruleActionName;
+    }
+
+    if (!Util.isUnset(request.sendUrl)) {
+      query["SendUrl"] = request.sendUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrUpdateDingTalk",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrUpdateDingTalkResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateDingTalkResponse({}));
+  }
+
+  async createOrUpdateDingTalk(request: CreateOrUpdateDingTalkRequest): Promise<CreateOrUpdateDingTalkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrUpdateDingTalkWithOptions(request, runtime);
   }
 
   async createRestoreJobWithOptions(request: CreateRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestoreJobResponse> {
