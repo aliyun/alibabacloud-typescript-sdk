@@ -357,6 +357,78 @@ export class DeleteArtifactResponse extends $tea.Model {
   }
 }
 
+export class DeleteServiceRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceId?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetArtifactRequest extends $tea.Model {
   artifactId?: string;
   artifactVersion?: string;
@@ -526,6 +598,195 @@ export class GetArtifactRepositoryCredentialsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetArtifactRepositoryCredentialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRequest extends $tea.Model {
+  regionId?: string;
+  serviceId?: string;
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBody extends $tea.Model {
+  alarmMetadata?: string;
+  approvalType?: string;
+  commodityCode?: string;
+  commodityEntities?: GetServiceResponseBodyCommodityEntities[];
+  commoditySpecifications?: GetServiceResponseBodyCommoditySpecifications[];
+  createTime?: string;
+  defaultLicenseDays?: number;
+  deployMetadata?: string;
+  deployType?: string;
+  duration?: number;
+  isSupportOperated?: boolean;
+  licenseMetadata?: string;
+  operationMetadata?: string;
+  payFromType?: string;
+  payType?: string;
+  permission?: string;
+  policyNames?: string;
+  progress?: number;
+  publishTime?: string;
+  registrationId?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  serviceDocUrl?: string;
+  serviceId?: string;
+  serviceInfos?: GetServiceResponseBodyServiceInfos[];
+  serviceProductUrl?: string;
+  serviceType?: string;
+  shareType?: string;
+  status?: string;
+  statusDetail?: string;
+  supplierName?: string;
+  supplierUrl?: string;
+  tags?: GetServiceResponseBodyTags[];
+  tenantType?: string;
+  testStatus?: string;
+  trialDuration?: number;
+  trialType?: string;
+  updateTime?: string;
+  upgradeMetadata?: string;
+  version?: string;
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmMetadata: 'AlarmMetadata',
+      approvalType: 'ApprovalType',
+      commodityCode: 'CommodityCode',
+      commodityEntities: 'CommodityEntities',
+      commoditySpecifications: 'CommoditySpecifications',
+      createTime: 'CreateTime',
+      defaultLicenseDays: 'DefaultLicenseDays',
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      duration: 'Duration',
+      isSupportOperated: 'IsSupportOperated',
+      licenseMetadata: 'LicenseMetadata',
+      operationMetadata: 'OperationMetadata',
+      payFromType: 'PayFromType',
+      payType: 'PayType',
+      permission: 'Permission',
+      policyNames: 'PolicyNames',
+      progress: 'Progress',
+      publishTime: 'PublishTime',
+      registrationId: 'RegistrationId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceDocUrl: 'ServiceDocUrl',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceProductUrl: 'ServiceProductUrl',
+      serviceType: 'ServiceType',
+      shareType: 'ShareType',
+      status: 'Status',
+      statusDetail: 'StatusDetail',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      tags: 'Tags',
+      tenantType: 'TenantType',
+      testStatus: 'TestStatus',
+      trialDuration: 'TrialDuration',
+      trialType: 'TrialType',
+      updateTime: 'UpdateTime',
+      upgradeMetadata: 'UpgradeMetadata',
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmMetadata: 'string',
+      approvalType: 'string',
+      commodityCode: 'string',
+      commodityEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityEntities },
+      commoditySpecifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      createTime: 'string',
+      defaultLicenseDays: 'number',
+      deployMetadata: 'string',
+      deployType: 'string',
+      duration: 'number',
+      isSupportOperated: 'boolean',
+      licenseMetadata: 'string',
+      operationMetadata: 'string',
+      payFromType: 'string',
+      payType: 'string',
+      permission: 'string',
+      policyNames: 'string',
+      progress: 'number',
+      publishTime: 'string',
+      registrationId: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      serviceDocUrl: 'string',
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
+      serviceProductUrl: 'string',
+      serviceType: 'string',
+      shareType: 'string',
+      status: 'string',
+      statusDetail: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      tags: { 'type': 'array', 'itemType': GetServiceResponseBodyTags },
+      tenantType: 'string',
+      testStatus: 'string',
+      trialDuration: 'number',
+      trialType: 'string',
+      updateTime: 'string',
+      upgradeMetadata: 'string',
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceResponseBody,
     };
   }
 
@@ -1451,6 +1712,120 @@ export class UpdateArtifactResponse extends $tea.Model {
   }
 }
 
+export class UpdateServiceRequest extends $tea.Model {
+  alarmMetadata?: string;
+  clientToken?: string;
+  deployMetadata?: string;
+  deployType?: string;
+  duration?: number;
+  isSupportOperated?: boolean;
+  licenseMetadata?: string;
+  operationMetadata?: string;
+  policyNames?: string;
+  regionId?: string;
+  serviceId?: string;
+  serviceInfo?: UpdateServiceRequestServiceInfo[];
+  serviceType?: string;
+  serviceVersion?: string;
+  tenantType?: string;
+  trialDuration?: number;
+  upgradeMetadata?: string;
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmMetadata: 'AlarmMetadata',
+      clientToken: 'ClientToken',
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      duration: 'Duration',
+      isSupportOperated: 'IsSupportOperated',
+      licenseMetadata: 'LicenseMetadata',
+      operationMetadata: 'OperationMetadata',
+      policyNames: 'PolicyNames',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceInfo: 'ServiceInfo',
+      serviceType: 'ServiceType',
+      serviceVersion: 'ServiceVersion',
+      tenantType: 'TenantType',
+      trialDuration: 'TrialDuration',
+      upgradeMetadata: 'UpgradeMetadata',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmMetadata: 'string',
+      clientToken: 'string',
+      deployMetadata: 'string',
+      deployType: 'string',
+      duration: 'number',
+      isSupportOperated: 'boolean',
+      licenseMetadata: 'string',
+      operationMetadata: 'string',
+      policyNames: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceInfo: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfo },
+      serviceType: 'string',
+      serviceVersion: 'string',
+      tenantType: 'string',
+      trialDuration: 'number',
+      upgradeMetadata: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateArtifactRequestArtifactProperty extends $tea.Model {
   commodityCode?: string;
   commodityVersion?: string;
@@ -1586,6 +1961,106 @@ export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $te
       password: 'string',
       securityToken: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityEntities extends $tea.Model {
+  entityIds?: string[];
+  predefinedParameterName?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      predefinedParameterName: 'PredefinedParameterName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: { 'type': 'array', 'itemType': 'string' },
+      predefinedParameterName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommoditySpecifications extends $tea.Model {
+  predefinedParameterName?: string;
+  specificationCode?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      predefinedParameterName: 'PredefinedParameterName',
+      specificationCode: 'SpecificationCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      predefinedParameterName: 'string',
+      specificationCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfos extends $tea.Model {
+  image?: string;
+  locale?: string;
+  name?: string;
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2483,6 +2958,34 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   }
 }
 
+export class UpdateServiceRequestServiceInfo extends $tea.Model {
+  image?: string;
+  locale?: string;
+  name?: string;
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2707,6 +3210,47 @@ export default class Client extends OpenApi {
     return await this.deleteArtifactWithOptions(request, runtime);
   }
 
+  async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+  }
+
+  async deleteService(request: DeleteServiceRequest): Promise<DeleteServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteServiceWithOptions(request, runtime);
+  }
+
   async getArtifactWithOptions(request: GetArtifactRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2771,6 +3315,43 @@ export default class Client extends OpenApi {
   async getArtifactRepositoryCredentials(request: GetArtifactRepositoryCredentialsRequest): Promise<GetArtifactRepositoryCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactRepositoryCredentialsWithOptions(request, runtime);
+  }
+
+  async getServiceWithOptions(request: GetServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+  }
+
+  async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceWithOptions(request, runtime);
   }
 
   async getServiceEstimateCostWithOptions(tmpReq: GetServiceEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceEstimateCostResponse> {
@@ -3156,6 +3737,103 @@ export default class Client extends OpenApi {
   async updateArtifact(request: UpdateArtifactRequest): Promise<UpdateArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateArtifactWithOptions(request, runtime);
+  }
+
+  async updateServiceWithOptions(request: UpdateServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmMetadata)) {
+      query["AlarmMetadata"] = request.alarmMetadata;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deployMetadata)) {
+      query["DeployMetadata"] = request.deployMetadata;
+    }
+
+    if (!Util.isUnset(request.deployType)) {
+      query["DeployType"] = request.deployType;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.isSupportOperated)) {
+      query["IsSupportOperated"] = request.isSupportOperated;
+    }
+
+    if (!Util.isUnset(request.licenseMetadata)) {
+      query["LicenseMetadata"] = request.licenseMetadata;
+    }
+
+    if (!Util.isUnset(request.operationMetadata)) {
+      query["OperationMetadata"] = request.operationMetadata;
+    }
+
+    if (!Util.isUnset(request.policyNames)) {
+      query["PolicyNames"] = request.policyNames;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceInfo)) {
+      query["ServiceInfo"] = request.serviceInfo;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.tenantType)) {
+      query["TenantType"] = request.tenantType;
+    }
+
+    if (!Util.isUnset(request.trialDuration)) {
+      query["TrialDuration"] = request.trialDuration;
+    }
+
+    if (!Util.isUnset(request.upgradeMetadata)) {
+      query["UpgradeMetadata"] = request.upgradeMetadata;
+    }
+
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+  }
+
+  async updateService(request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceWithOptions(request, runtime);
   }
 
 }
