@@ -14829,6 +14829,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
   specialReason?: string;
   status?: number;
   subOrderId?: string;
+  taxRate?: string;
   travelerId?: string;
   travelerJobNo?: string;
   travelerName?: string;
@@ -14889,6 +14890,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       specialReason: 'special_reason',
       status: 'status',
       subOrderId: 'sub_order_id',
+      taxRate: 'tax_rate',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerName: 'traveler_name',
@@ -14952,6 +14954,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $tea.Model
       specialReason: 'string',
       status: 'number',
       subOrderId: 'string',
+      taxRate: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerName: 'string',
@@ -16370,6 +16373,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
   settlementTime?: string;
   settlementType?: string;
   status?: number;
+  taxRate?: string;
   ticketId?: string;
   travelerId?: string;
   travelerJobNo?: string;
@@ -16444,6 +16448,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      taxRate: 'tax_rate',
       ticketId: 'ticket_id',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
@@ -16521,6 +16526,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Mo
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      taxRate: 'string',
       ticketId: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
@@ -23494,6 +23500,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   settlementTime?: string;
   settlementType?: string;
   status?: number;
+  taxRate?: string;
   totalNights?: number;
   travelerId?: string;
   travelerJobNo?: string;
@@ -23550,6 +23557,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      taxRate: 'tax_rate',
       totalNights: 'total_nights',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
@@ -23609,6 +23617,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      taxRate: 'string',
       totalNights: 'number',
       travelerId: 'string',
       travelerJobNo: 'string',
@@ -26325,6 +26334,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   status?: number;
   subOrderId?: string;
   taxFee?: number;
+  taxRate?: string;
   ticketId?: string;
   trade?: string;
   travelerId?: string;
@@ -26400,6 +26410,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       status: 'status',
       subOrderId: 'sub_order_id',
       taxFee: 'tax_fee',
+      taxRate: 'tax_rate',
       ticketId: 'ticket_id',
       trade: 'trade',
       travelerId: 'traveler_id',
@@ -26478,6 +26489,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       status: 'number',
       subOrderId: 'string',
       taxFee: 'number',
+      taxRate: 'string',
       ticketId: 'string',
       trade: 'string',
       travelerId: 'string',
@@ -28719,6 +28731,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
   settlementTime?: string;
   settlementType?: string;
   status?: number;
+  taxRate?: string;
   ticketNo?: string;
   ticketPrice?: number;
   trainNo?: string;
@@ -28771,6 +28784,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       status: 'status',
+      taxRate: 'tax_rate',
       ticketNo: 'ticket_no',
       ticketPrice: 'ticket_price',
       trainNo: 'train_no',
@@ -28826,6 +28840,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Mod
       settlementTime: 'string',
       settlementType: 'string',
       status: 'number',
+      taxRate: 'string',
       ticketNo: 'string',
       ticketPrice: 'number',
       trainNo: 'string',
