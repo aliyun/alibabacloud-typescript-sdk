@@ -8,6 +8,69 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddUserToOrganizationalUnitsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToOrganizationalUnitsRequest extends $tea.Model {
+  organizationalUnitIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      organizationalUnitIds: 'organizationalUnitIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationalUnitIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToOrganizationalUnitsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrganizationalUnitHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   authorization?: string;
@@ -871,6 +934,7 @@ export class GetUserResponseBody extends $tea.Model {
   displayName?: string;
   email?: string;
   emailVerified?: boolean;
+  groups?: GetUserResponseBodyGroups[];
   instanceId?: string;
   lockExpireTime?: number;
   organizationalUnits?: GetUserResponseBodyOrganizationalUnits[];
@@ -896,6 +960,7 @@ export class GetUserResponseBody extends $tea.Model {
       displayName: 'displayName',
       email: 'email',
       emailVerified: 'emailVerified',
+      groups: 'groups',
       instanceId: 'instanceId',
       lockExpireTime: 'lockExpireTime',
       organizationalUnits: 'organizationalUnits',
@@ -924,6 +989,7 @@ export class GetUserResponseBody extends $tea.Model {
       displayName: 'string',
       email: 'string',
       emailVerified: 'boolean',
+      groups: { 'type': 'array', 'itemType': GetUserResponseBodyGroups },
       instanceId: 'string',
       lockExpireTime: 'number',
       organizationalUnits: { 'type': 'array', 'itemType': GetUserResponseBodyOrganizationalUnits },
@@ -1770,6 +1836,69 @@ export class PatchUserResponse extends $tea.Model {
   }
 }
 
+export class RemoveUserFromOrganizationalUnitsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromOrganizationalUnitsRequest extends $tea.Model {
+  organizationalUnitIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      organizationalUnitIds: 'organizationalUnitIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationalUnitIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromOrganizationalUnitsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevokeTokenRequest extends $tea.Model {
   clientId?: string;
   clientSecret?: string;
@@ -1815,6 +1944,132 @@ export class RevokeTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserPrimaryOrganizationalUnitHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserPrimaryOrganizationalUnitRequest extends $tea.Model {
+  organizationalUnitId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationalUnitId: 'organizationalUnitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationalUnitId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserPrimaryOrganizationalUnitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPasswordHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPasswordRequest extends $tea.Model {
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserPasswordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -1887,6 +2142,31 @@ export class GetUserResponseBodyCustomFields extends $tea.Model {
     return {
       fieldName: 'string',
       fieldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyGroups extends $tea.Model {
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      groupId: 'groupId',
+      groupName: 'groupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
     };
   }
 
@@ -2045,11 +2325,13 @@ export class ListUsersResponseBodyData extends $tea.Model {
 export class PatchUserRequestCustomFields extends $tea.Model {
   fieldName?: string;
   fieldValue?: string;
+  operation?: string;
   operator?: string;
   static names(): { [key: string]: string } {
     return {
       fieldName: 'fieldName',
       fieldValue: 'fieldValue',
+      operation: 'operation',
       operator: 'operator',
     };
   }
@@ -2058,6 +2340,7 @@ export class PatchUserRequestCustomFields extends $tea.Model {
     return {
       fieldName: 'string',
       fieldValue: 'string',
+      operation: 'string',
       operator: 'string',
     };
   }
@@ -2091,10 +2374,44 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createOrganizationalUnit(instanceId: string, applicationId: string, request: CreateOrganizationalUnitRequest): Promise<CreateOrganizationalUnitResponse> {
+  async addUserToOrganizationalUnitsWithOptions(instanceId: string, applicationId: string, userId: string, request: AddUserToOrganizationalUnitsRequest, headers: AddUserToOrganizationalUnitsHeaders, runtime: $Util.RuntimeOptions): Promise<AddUserToOrganizationalUnitsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationalUnitIds)) {
+      body["organizationalUnitIds"] = request.organizationalUnitIds;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddUserToOrganizationalUnits",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/addUserToOrganizationalUnits`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<AddUserToOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new AddUserToOrganizationalUnitsResponse({}));
+  }
+
+  async addUserToOrganizationalUnits(instanceId: string, applicationId: string, userId: string, request: AddUserToOrganizationalUnitsRequest): Promise<AddUserToOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateOrganizationalUnitHeaders({ });
-    return await this.createOrganizationalUnitWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new AddUserToOrganizationalUnitsHeaders({ });
+    return await this.addUserToOrganizationalUnitsWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   async createOrganizationalUnitWithOptions(instanceId: string, applicationId: string, request: CreateOrganizationalUnitRequest, headers: CreateOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<CreateOrganizationalUnitResponse> {
@@ -2143,10 +2460,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new CreateOrganizationalUnitResponse({}));
   }
 
-  async createUser(instanceId: string, applicationId: string, request: CreateUserRequest): Promise<CreateUserResponse> {
+  async createOrganizationalUnit(instanceId: string, applicationId: string, request: CreateOrganizationalUnitRequest): Promise<CreateOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateUserHeaders({ });
-    return await this.createUserWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new CreateOrganizationalUnitHeaders({ });
+    return await this.createOrganizationalUnitWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async createUserWithOptions(instanceId: string, applicationId: string, request: CreateUserRequest, headers: CreateUserHeaders, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
@@ -2176,7 +2493,7 @@ export default class Client extends OpenApi {
       body["password"] = request.password;
     }
 
-    if (!Util.isUnset($tea.toMap(request.passwordInitializationConfig))) {
+    if (!Util.isUnset(request.passwordInitializationConfig)) {
       body["passwordInitializationConfig"] = request.passwordInitializationConfig;
     }
 
@@ -2231,10 +2548,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
-  async deleteOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<DeleteOrganizationalUnitResponse> {
+  async createUser(instanceId: string, applicationId: string, request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteOrganizationalUnitHeaders({ });
-    return await this.deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    let headers = new CreateUserHeaders({ });
+    return await this.createUserWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async deleteOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: DeleteOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteOrganizationalUnitResponse> {
@@ -2264,10 +2581,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new DeleteOrganizationalUnitResponse({}));
   }
 
-  async deleteUser(instanceId: string, applicationId: string, userId: string): Promise<DeleteUserResponse> {
+  async deleteOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<DeleteOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteUserHeaders({ });
-    return await this.deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    let headers = new DeleteOrganizationalUnitHeaders({ });
+    return await this.deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
   }
 
   async deleteUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: DeleteUserHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
@@ -2297,10 +2614,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
-  async disableUser(instanceId: string, applicationId: string, userId: string): Promise<DisableUserResponse> {
+  async deleteUser(instanceId: string, applicationId: string, userId: string): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DisableUserHeaders({ });
-    return await this.disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    let headers = new DeleteUserHeaders({ });
+    return await this.deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
   }
 
   async disableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: DisableUserHeaders, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
@@ -2330,10 +2647,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableUserResponse>(await this.callApi(params, req, runtime), new DisableUserResponse({}));
   }
 
-  async enableUser(instanceId: string, applicationId: string, userId: string): Promise<EnableUserResponse> {
+  async disableUser(instanceId: string, applicationId: string, userId: string): Promise<DisableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new EnableUserHeaders({ });
-    return await this.enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    let headers = new DisableUserHeaders({ });
+    return await this.disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
   }
 
   async enableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: EnableUserHeaders, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
@@ -2363,10 +2680,10 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableUserResponse>(await this.callApi(params, req, runtime), new EnableUserResponse({}));
   }
 
-  async generateDeviceCode(instanceId: string, applicationId: string, request: GenerateDeviceCodeRequest): Promise<GenerateDeviceCodeResponse> {
+  async enableUser(instanceId: string, applicationId: string, userId: string): Promise<EnableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new EnableUserHeaders({ });
+    return await this.enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
   }
 
   async generateDeviceCodeWithOptions(instanceId: string, applicationId: string, request: GenerateDeviceCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateDeviceCodeResponse> {
@@ -2394,10 +2711,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateDeviceCodeResponse>(await this.callApi(params, req, runtime), new GenerateDeviceCodeResponse({}));
   }
 
-  async generateToken(instanceId: string, applicationId: string, request: GenerateTokenRequest): Promise<GenerateTokenResponse> {
+  async generateDeviceCode(instanceId: string, applicationId: string, request: GenerateDeviceCodeRequest): Promise<GenerateDeviceCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.generateTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+    return await this.generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async generateTokenWithOptions(instanceId: string, applicationId: string, request: GenerateTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTokenResponse> {
@@ -2469,10 +2786,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateTokenResponse>(await this.callApi(params, req, runtime), new GenerateTokenResponse({}));
   }
 
-  async getApplicationProvisioningScope(instanceId: string, applicationId: string): Promise<GetApplicationProvisioningScopeResponse> {
+  async generateToken(instanceId: string, applicationId: string, request: GenerateTokenRequest): Promise<GenerateTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetApplicationProvisioningScopeHeaders({ });
-    return await this.getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
+    let headers : {[key: string ]: string} = { };
+    return await this.generateTokenWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getApplicationProvisioningScopeWithOptions(instanceId: string, applicationId: string, headers: GetApplicationProvisioningScopeHeaders, runtime: $Util.RuntimeOptions): Promise<GetApplicationProvisioningScopeResponse> {
@@ -2502,10 +2819,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationProvisioningScopeResponse>(await this.callApi(params, req, runtime), new GetApplicationProvisioningScopeResponse({}));
   }
 
-  async getOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<GetOrganizationalUnitResponse> {
+  async getApplicationProvisioningScope(instanceId: string, applicationId: string): Promise<GetApplicationProvisioningScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetOrganizationalUnitHeaders({ });
-    return await this.getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    let headers = new GetApplicationProvisioningScopeHeaders({ });
+    return await this.getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
   }
 
   async getOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: GetOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitResponse> {
@@ -2535,10 +2852,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new GetOrganizationalUnitResponse({}));
   }
 
-  async getOrganizationalUnitIdByExternalId(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
+  async getOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<GetOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetOrganizationalUnitIdByExternalIdHeaders({ });
-    return await this.getOrganizationalUnitIdByExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new GetOrganizationalUnitHeaders({ });
+    return await this.getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
   }
 
   async getOrganizationalUnitIdByExternalIdWithOptions(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest, headers: GetOrganizationalUnitIdByExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
@@ -2583,10 +2900,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrganizationalUnitIdByExternalIdResponse>(await this.callApi(params, req, runtime), new GetOrganizationalUnitIdByExternalIdResponse({}));
   }
 
-  async getUser(instanceId: string, applicationId: string, userId: string): Promise<GetUserResponse> {
+  async getOrganizationalUnitIdByExternalId(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserHeaders({ });
-    return await this.getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    let headers = new GetOrganizationalUnitIdByExternalIdHeaders({ });
+    return await this.getOrganizationalUnitIdByExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: GetUserHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
@@ -2616,10 +2933,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
-  async getUserIdByEmail(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest): Promise<GetUserIdByEmailResponse> {
+  async getUser(instanceId: string, applicationId: string, userId: string): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserIdByEmailHeaders({ });
-    return await this.getUserIdByEmailWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new GetUserHeaders({ });
+    return await this.getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
   }
 
   async getUserIdByEmailWithOptions(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest, headers: GetUserIdByEmailHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByEmailResponse> {
@@ -2656,10 +2973,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserIdByEmailResponse>(await this.callApi(params, req, runtime), new GetUserIdByEmailResponse({}));
   }
 
-  async getUserIdByPhoneNumber(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest): Promise<GetUserIdByPhoneNumberResponse> {
+  async getUserIdByEmail(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest): Promise<GetUserIdByEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserIdByPhoneNumberHeaders({ });
-    return await this.getUserIdByPhoneNumberWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new GetUserIdByEmailHeaders({ });
+    return await this.getUserIdByEmailWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getUserIdByPhoneNumberWithOptions(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest, headers: GetUserIdByPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByPhoneNumberResponse> {
@@ -2696,10 +3013,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserIdByPhoneNumberResponse>(await this.callApi(params, req, runtime), new GetUserIdByPhoneNumberResponse({}));
   }
 
-  async getUserIdByUserExternalId(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest): Promise<GetUserIdByUserExternalIdResponse> {
+  async getUserIdByPhoneNumber(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest): Promise<GetUserIdByPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserIdByUserExternalIdHeaders({ });
-    return await this.getUserIdByUserExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new GetUserIdByPhoneNumberHeaders({ });
+    return await this.getUserIdByPhoneNumberWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getUserIdByUserExternalIdWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest, headers: GetUserIdByUserExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUserExternalIdResponse> {
@@ -2744,10 +3061,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserIdByUserExternalIdResponse>(await this.callApi(params, req, runtime), new GetUserIdByUserExternalIdResponse({}));
   }
 
-  async getUserIdByUsername(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest): Promise<GetUserIdByUsernameResponse> {
+  async getUserIdByUserExternalId(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest): Promise<GetUserIdByUserExternalIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserIdByUsernameHeaders({ });
-    return await this.getUserIdByUsernameWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new GetUserIdByUserExternalIdHeaders({ });
+    return await this.getUserIdByUserExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getUserIdByUsernameWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest, headers: GetUserIdByUsernameHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUsernameResponse> {
@@ -2784,10 +3101,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserIdByUsernameResponse>(await this.callApi(params, req, runtime), new GetUserIdByUsernameResponse({}));
   }
 
-  async getUserInfo(instanceId: string, applicationId: string): Promise<GetUserInfoResponse> {
+  async getUserIdByUsername(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest): Promise<GetUserIdByUsernameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserInfoHeaders({ });
-    return await this.getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
+    let headers = new GetUserIdByUsernameHeaders({ });
+    return await this.getUserIdByUsernameWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async getUserInfoWithOptions(instanceId: string, applicationId: string, headers: GetUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
@@ -2817,10 +3134,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserInfoResponse>(await this.callApi(params, req, runtime), new GetUserInfoResponse({}));
   }
 
-  async listOrganizationalUnitParentIds(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<ListOrganizationalUnitParentIdsResponse> {
+  async getUserInfo(instanceId: string, applicationId: string): Promise<GetUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListOrganizationalUnitParentIdsHeaders({ });
-    return await this.listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    let headers = new GetUserInfoHeaders({ });
+    return await this.getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
   }
 
   async listOrganizationalUnitParentIdsWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: ListOrganizationalUnitParentIdsHeaders, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitParentIdsResponse> {
@@ -2850,10 +3167,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationalUnitParentIdsResponse>(await this.callApi(params, req, runtime), new ListOrganizationalUnitParentIdsResponse({}));
   }
 
-  async listOrganizationalUnits(instanceId: string, applicationId: string, request: ListOrganizationalUnitsRequest): Promise<ListOrganizationalUnitsResponse> {
+  async listOrganizationalUnitParentIds(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<ListOrganizationalUnitParentIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListOrganizationalUnitsHeaders({ });
-    return await this.listOrganizationalUnitsWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new ListOrganizationalUnitParentIdsHeaders({ });
+    return await this.listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
   }
 
   async listOrganizationalUnitsWithOptions(instanceId: string, applicationId: string, request: ListOrganizationalUnitsRequest, headers: ListOrganizationalUnitsHeaders, runtime: $Util.RuntimeOptions): Promise<ListOrganizationalUnitsResponse> {
@@ -2898,10 +3215,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new ListOrganizationalUnitsResponse({}));
   }
 
-  async listUsers(instanceId: string, applicationId: string, request: ListUsersRequest): Promise<ListUsersResponse> {
+  async listOrganizationalUnits(instanceId: string, applicationId: string, request: ListOrganizationalUnitsRequest): Promise<ListOrganizationalUnitsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListUsersHeaders({ });
-    return await this.listUsersWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new ListOrganizationalUnitsHeaders({ });
+    return await this.listOrganizationalUnitsWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async listUsersWithOptions(instanceId: string, applicationId: string, request: ListUsersRequest, headers: ListUsersHeaders, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
@@ -2946,10 +3263,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
-  async patchOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string, request: PatchOrganizationalUnitRequest): Promise<PatchOrganizationalUnitResponse> {
+  async listUsers(instanceId: string, applicationId: string, request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PatchOrganizationalUnitHeaders({ });
-    return await this.patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
+    let headers = new ListUsersHeaders({ });
+    return await this.listUsersWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   async patchOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: PatchOrganizationalUnitRequest, headers: PatchOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<PatchOrganizationalUnitResponse> {
@@ -2990,10 +3307,10 @@ export default class Client extends OpenApi {
     return $tea.cast<PatchOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new PatchOrganizationalUnitResponse({}));
   }
 
-  async patchUser(instanceId: string, applicationId: string, userId: string, request: PatchUserRequest): Promise<PatchUserResponse> {
+  async patchOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string, request: PatchOrganizationalUnitRequest): Promise<PatchOrganizationalUnitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PatchUserHeaders({ });
-    return await this.patchUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+    let headers = new PatchOrganizationalUnitHeaders({ });
+    return await this.patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
   }
 
   async patchUserWithOptions(instanceId: string, applicationId: string, userId: string, request: PatchUserRequest, headers: PatchUserHeaders, runtime: $Util.RuntimeOptions): Promise<PatchUserResponse> {
@@ -3058,10 +3375,50 @@ export default class Client extends OpenApi {
     return $tea.cast<PatchUserResponse>(await this.callApi(params, req, runtime), new PatchUserResponse({}));
   }
 
-  async revokeToken(instanceId: string, applicationId: string, request: RevokeTokenRequest): Promise<RevokeTokenResponse> {
+  async patchUser(instanceId: string, applicationId: string, userId: string, request: PatchUserRequest): Promise<PatchUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.revokeTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+    let headers = new PatchUserHeaders({ });
+    return await this.patchUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+  }
+
+  async removeUserFromOrganizationalUnitsWithOptions(instanceId: string, applicationId: string, userId: string, request: RemoveUserFromOrganizationalUnitsRequest, headers: RemoveUserFromOrganizationalUnitsHeaders, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromOrganizationalUnitsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationalUnitIds)) {
+      body["organizationalUnitIds"] = request.organizationalUnitIds;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveUserFromOrganizationalUnits",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/removeUserFromOrganizationalUnits`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<RemoveUserFromOrganizationalUnitsResponse>(await this.callApi(params, req, runtime), new RemoveUserFromOrganizationalUnitsResponse({}));
+  }
+
+  async removeUserFromOrganizationalUnits(instanceId: string, applicationId: string, userId: string, request: RemoveUserFromOrganizationalUnitsRequest): Promise<RemoveUserFromOrganizationalUnitsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new RemoveUserFromOrganizationalUnitsHeaders({ });
+    return await this.removeUserFromOrganizationalUnitsWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   async revokeTokenWithOptions(instanceId: string, applicationId: string, request: RevokeTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RevokeTokenResponse> {
@@ -3099,6 +3456,92 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<RevokeTokenResponse>(await this.callApi(params, req, runtime), new RevokeTokenResponse({}));
+  }
+
+  async revokeToken(instanceId: string, applicationId: string, request: RevokeTokenRequest): Promise<RevokeTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.revokeTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async setUserPrimaryOrganizationalUnitWithOptions(instanceId: string, applicationId: string, userId: string, request: SetUserPrimaryOrganizationalUnitRequest, headers: SetUserPrimaryOrganizationalUnitHeaders, runtime: $Util.RuntimeOptions): Promise<SetUserPrimaryOrganizationalUnitResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationalUnitId)) {
+      body["organizationalUnitId"] = request.organizationalUnitId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetUserPrimaryOrganizationalUnit",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/setUserPrimaryOrganizationalUnit`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<SetUserPrimaryOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new SetUserPrimaryOrganizationalUnitResponse({}));
+  }
+
+  async setUserPrimaryOrganizationalUnit(instanceId: string, applicationId: string, userId: string, request: SetUserPrimaryOrganizationalUnitRequest): Promise<SetUserPrimaryOrganizationalUnitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SetUserPrimaryOrganizationalUnitHeaders({ });
+    return await this.setUserPrimaryOrganizationalUnitWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+  }
+
+  async updateUserPasswordWithOptions(instanceId: string, applicationId: string, userId: string, request: UpdateUserPasswordRequest, headers: UpdateUserPasswordHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateUserPasswordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserPassword",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${OpenApiUtil.getEncodeParam(instanceId)}/${OpenApiUtil.getEncodeParam(applicationId)}/users/${OpenApiUtil.getEncodeParam(userId)}/actions/updateUserPassword`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateUserPasswordResponse({}));
+  }
+
+  async updateUserPassword(instanceId: string, applicationId: string, userId: string, request: UpdateUserPasswordRequest): Promise<UpdateUserPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateUserPasswordHeaders({ });
+    return await this.updateUserPasswordWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
 }
